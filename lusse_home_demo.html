@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lusse Home Mobilya | Sivas'ın Marka ve Gözdesi | İnegöl Mobilyası</title>
+    <meta name="description" content="İnegöl mobilyası kalitesiyle tarzınızı yansıtın. Türkiye ve Avrupa'nın her yerine sigortalı ve güvenli teslimat. Lusse Home Mobilya Sivas Merkez. Yatak odası, yemek odası, köşe takımı ve çok daha fazlası.">
+    <meta name="keywords" content="mobilya, sivas mobilya, inegöl mobilyası, avrupa teslimat mobilya, köşe takımı, yatak odası, koltuk takımı, lusse home">
+    <meta name="author" content="Premium Agency Web Solutions">
+    
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Playfair Display for Luxury Serif, Manrope for Modern Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons (Lightweight & Premium) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS via CDN for Demo Flexibility -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#FDFBF7',     // Main background, very light cream
+                            surface: '#F4EFE6',   // Slightly darker cream/beige for sections
+                            accent: '#B7935F',    // Gold/Bronze for luxury accents
+                            dark: '#1A1A1A',      // Charcoal for primary text
+                            gray: '#6B6862',      // Muted text
+                            border: '#E8DFCB'     // Soft borders
+                        }
+                    },
+                    spacing: {
+                        '128': '32rem',
+                        '144': '36rem',
+                    },
+                    boxShadow: {
+                        'luxury': '0 20px 40px -15px rgba(0, 0, 0, 0.05)',
+                        'luxury-hover': '0 30px 60px -20px rgba(183, 147, 95, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Overrides */
+        body {
+            background-color: theme('colors.brand.light');
+            color: theme('colors.brand.dark');
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Selection */
+        ::selection {
+            background: theme('colors.brand.accent');
+            color: white;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: theme('colors.brand.dark');
+            color: theme('colors.brand.light');
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        /* Glassmorphism Nav */
+        .glass-nav {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(183, 147, 95, 0.1);
+        }
+
+        /* Mega Menu Dropdown */
+        .mega-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav-item-dropdown:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: theme('colors.brand.accent');
+            color: #fff;
+            padding: 0.875rem 2.5rem;
+            border-radius: 0;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid theme('colors.brand.accent');
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 0; height: 100%;
+            background-color: theme('colors.brand.dark');
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+        .btn-primary:hover::before {
+            width: 100%;
+        }
+        .btn-primary:hover {
+            border-color: theme('colors.brand.dark');
+        }
+
+        .btn-outline {
+            border: 1px solid theme('colors.brand.dark');
+            color: theme('colors.brand.dark');
+            padding: 0.875rem 2.5rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-outline::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 0; height: 100%;
+            background-color: theme('colors.brand.dark');
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+        .btn-outline:hover::before {
+            width: 100%;
+        }
+        .btn-outline:hover {
+            color: #fff;
+        }
+
+        /* Hero Swiper Animations */
+        .hero-swiper .swiper-slide .hero-bg {
+            transform: scale(1.1);
+            transition: transform 6s ease-out;
+        }
+        .hero-swiper .swiper-slide-active .hero-bg {
+            transform: scale(1);
+        }
+        .hero-content-anim {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+            transition-delay: 0.5s;
+        }
+        .hero-swiper .swiper-slide-active .hero-content-anim {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.brand.light');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.brand.accent');
+        }
+
+        /* Collection Image Hover */
+        .collection-card {
+            overflow: hidden;
+            position: relative;
+        }
+        .collection-card img {
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .collection-card:hover img {
+            transform: scale(1.08);
+        }
+        .collection-overlay {
+            background: linear-gradient(to top, rgba(26,26,26,0.8) 0%, rgba(26,26,26,0) 60%);
+        }
+
+        /* Hover Zoom for general images */
+        .hover-zoom {
+            overflow: hidden;
+        }
+        .hover-zoom img {
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+
+        /* WhatsApp Pulse */
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            70% { box-shadow: 0 0 0 25px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Swiper Customizations */
+        .custom-swiper-btn {
+            width: 60px !important;
+            height: 60px !important;
+            background: theme('colors.brand.light');
+            border: 1px solid theme('colors.brand.border');
+            border-radius: 50%;
+            color: theme('colors.brand.accent') !important;
+            transition: all 0.4s ease;
+        }
+        .custom-swiper-btn:hover {
+            background: theme('colors.brand.accent');
+            color: white !important;
+            border-color: theme('colors.brand.accent');
+        }
+        .custom-swiper-btn:after {
+            font-size: 1.2rem !important;
+        }
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: theme('colors.brand.gray');
+            opacity: 0.5;
+            transition: all 0.3s;
+        }
+        .swiper-pagination-bullet-active {
+            width: 30px;
+            border-radius: 5px;
+            background: theme('colors.brand.accent') !important;
+            opacity: 1;
+        }
+
+        /* Counter Section Background */
+        .counter-bg {
+            background-image: url('https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+            position: relative;
+        }
+        .counter-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 26, 26, 0.85); /* Dark overlay for text readability */
+        }
+
+        /* FAQ Accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        }
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            transition: max-height 1s ease-in-out;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="antialiased font-sans">
+
+    <!-- 1. ULTRA-MODERN TOP BAR -->
+    <div class="top-bar w-full py-2 px-4 z-50 relative uppercase hidden lg:block border-b border-white/10">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <span class="flex items-center gap-2 hover:text-brand-accent transition-colors cursor-default">
+                    <i class="ph-fill ph-map-pin text-brand-accent text-lg"></i> 
+                    Sivas Merkez, Türkiye
+                </span>
+                <span class="flex items-center gap-2 text-brand-light">
+                    <i class="ph-fill ph-clock text-brand-accent text-lg"></i>
+                    Pzt - Cmt: 09:00 - 19:30
+                </span>
+                <span class="flex items-center gap-2 text-brand-accent font-semibold tracking-widest bg-brand-accent/10 px-3 py-1 rounded-full">
+                    <i class="ph-fill ph-airplane-tilt"></i> Tüm Avrupa'ya Gümrüksüz Teslimat
+                </span>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <span class="opacity-70">Bizi Takip Edin:</span>
+                    <a href="#" class="hover:text-brand-accent transition-colors"><i class="ph-fill ph-instagram-logo text-xl"></i></a>
+                    <a href="#" class="hover:text-brand-accent transition-colors"><i class="ph-fill ph-facebook-logo text-xl"></i></a>
+                    <a href="#" class="hover:text-brand-accent transition-colors"><i class="ph-fill ph-youtube-logo text-xl"></i></a>
+                </div>
+                <div class="w-[1px] h-4 bg-white/20"></div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs">TR</span>
+                    <i class="ph-fill ph-caret-down text-brand-accent"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. NAVBAR & MEGA MENU -->
+    <nav class="glass-nav fixed w-full z-40 transition-all duration-500" id="navbar">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                
+                <!-- Logo -->
+                <a href="#" class="flex-shrink-0 flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-brand-dark flex items-center justify-center rounded-full group-hover:bg-brand-accent transition-colors duration-500">
+                        <i class="ph-light ph-armchair text-3xl text-brand-light"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-3xl tracking-widest leading-none text-brand-dark">LUSSE</span>
+                        <span class="text-[11px] tracking-[0.3em] uppercase text-brand-gray mt-1 ml-1 font-semibold">Home Mobilya</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-10 h-full">
+                    <a href="#hikayemiz" class="text-sm font-bold uppercase tracking-widest text-brand-dark hover:text-brand-accent transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[2px] after:bg-brand-accent hover:after:w-full after:transition-all after:duration-300">Hikayemiz</a>
+                    
+                    <!-- Dropdown Item -->
+                    <div class="nav-item-dropdown h-full flex items-center relative">
+                        <a href="#koleksiyon" class="text-sm font-bold uppercase tracking-widest text-brand-dark hover:text-brand-accent transition-colors flex items-center gap-1 cursor-pointer">
+                            Koleksiyonlar <i class="ph-bold ph-caret-down mt-0.5"></i>
+                        </a>
+                        
+                        <!-- Mega Menu Panel -->
+                        <div class="mega-menu absolute top-[100%] left-1/2 -translate-x-1/2 w-[800px] bg-white shadow-luxury rounded-xl p-8 border border-brand-border flex gap-8">
+                            <div class="w-1/3 border-r border-brand-border pr-6">
+                                <h4 class="font-serif text-xl mb-4 text-brand-accent">Kategoriler</h4>
+                                <ul class="space-y-3">
+                                    <li><a href="#" class="flex items-center gap-2 text-brand-gray hover:text-brand-dark font-medium transition-colors group"><i class="ph ph-arrow-right text-brand-accent opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all"></i> Köşe Takımları</a></li>
+                                    <li><a href="#" class="flex items-center gap-2 text-brand-gray hover:text-brand-dark font-medium transition-colors group"><i class="ph ph-arrow-right text-brand-accent opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all"></i> Yatak Odası</a></li>
+                                    <li><a href="#" class="flex items-center gap-2 text-brand-gray hover:text-brand-dark font-medium transition-colors group"><i class="ph ph-arrow-right text-brand-accent opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all"></i> Koltuk Takımları</a></li>
+                                    <li><a href="#" class="flex items-center gap-2 text-brand-gray hover:text-brand-dark font-medium transition-colors group"><i class="ph ph-arrow-right text-brand-accent opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all"></i> Yemek Odası</a></li>
+                                    <li><a href="#" class="flex items-center gap-2 text-brand-gray hover:text-brand-dark font-medium transition-colors group"><i class="ph ph-arrow-right text-brand-accent opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all"></i> TV Üniteleri</a></li>
+                                </ul>
+                            </div>
+                            <div class="w-2/3 grid grid-cols-2 gap-4">
+                                <div class="relative rounded-lg overflow-hidden h-40 group cursor-pointer">
+                                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Yeni Sezon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                                        <span class="text-white font-serif text-lg border-b border-brand-accent">Yeni Sezon</span>
+                                    </div>
+                                </div>
+                                <div class="relative rounded-lg overflow-hidden h-40 group cursor-pointer">
+                                    <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kampanya" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-brand-accent/80 flex items-center justify-center">
+                                        <span class="text-white font-serif text-lg">%30 İndirim</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#hizmetler" class="text-sm font-bold uppercase tracking-widest text-brand-dark hover:text-brand-accent transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[2px] after:bg-brand-accent hover:after:w-full after:transition-all after:duration-300">Hizmetlerimiz</a>
+                    <a href="#iletisim" class="text-sm font-bold uppercase tracking-widest text-brand-dark hover:text-brand-accent transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[2px] after:bg-brand-accent hover:after:w-full after:transition-all after:duration-300">İletişim</a>
+                </div>
+
+                <div class="hidden lg:flex items-center gap-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center text-brand-accent">
+                            <i class="ph-fill ph-phone-call text-xl"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] uppercase tracking-widest text-brand-gray font-bold">Danışma Hattı</span>
+                            <a href="tel:+905000000000" class="font-serif font-bold text-brand-dark hover:text-brand-accent transition-colors">0500 000 00 00</a>
+                        </div>
+                    </div>
+                    <a href="#katalog" class="btn-primary text-sm px-6 py-3">E-Katalog</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-accent focus:outline-none transition-colors">
+                        <i class="ph-light ph-list text-4xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-light z-50 transform translate-x-full transition-transform duration-500 flex flex-col hidden-block">
+            <div class="p-6 flex justify-between items-center border-b border-brand-border">
+                <span class="font-serif font-bold text-2xl text-brand-dark">LUSSE</span>
+                <button id="close-menu-btn" class="text-brand-dark hover:text-brand-accent"><i class="ph-light ph-x text-4xl"></i></button>
+            </div>
+            <div class="flex-1 flex flex-col justify-center items-center space-y-8 p-6 text-center">
+                <a href="#hikayemiz" class="text-2xl font-serif text-brand-dark hover:text-brand-accent mobile-link">Hikayemiz</a>
+                <a href="#koleksiyon" class="text-2xl font-serif text-brand-dark hover:text-brand-accent mobile-link">Koleksiyonlar</a>
+                <a href="#hizmetler" class="text-2xl font-serif text-brand-dark hover:text-brand-accent mobile-link">Mimari Destek</a>
+                <a href="#kampanyalar" class="text-2xl font-serif text-brand-dark hover:text-brand-accent mobile-link">Kampanyalar</a>
+                <a href="#iletisim" class="text-2xl font-serif text-brand-dark hover:text-brand-accent mobile-link">İletişim</a>
+            </div>
+            <div class="p-8 bg-brand-surface text-center">
+                <p class="text-brand-accent font-bold uppercase tracking-widest text-xs mb-2">Hemen Arayın</p>
+                <a href="tel:+905000000000" class="text-3xl font-serif text-brand-dark mb-6 block">0500 000 00 00</a>
+                <div class="flex justify-center gap-4">
+                    <i class="ph-fill ph-instagram-logo text-2xl text-brand-gray"></i>
+                    <i class="ph-fill ph-facebook-logo text-2xl text-brand-gray"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. MEGA HERO SLIDER -->
+    <section class="relative h-screen w-full overflow-hidden">
+        <div class="swiper hero-swiper h-full w-full">
+            <div class="swiper-wrapper h-full w-full">
+                
+                <!-- Slide 1 -->
+                <div class="swiper-slide relative h-full w-full flex items-center">
+                    <div class="absolute inset-0 w-full h-full hero-bg">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Lüks Salon Takımı" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-r from-brand-light/95 via-brand-light/70 to-transparent"></div>
+                    </div>
+                    <div class="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 hero-content-anim">
+                        <div class="inline-flex items-center gap-3 mb-6 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full border border-brand-accent/20">
+                            <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+                            <span class="text-xs uppercase tracking-[0.2em] font-bold text-brand-dark">2026 İlkbahar Koleksiyonu</span>
+                        </div>
+                        <h1 class="text-6xl md:text-8xl font-serif text-brand-dark max-w-3xl leading-[1.05] mb-8">
+                            Evinizde <br><span class="italic text-brand-accent font-light">Tarzınızı Yansıtın.</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-brand-gray max-w-xl mb-12 font-medium leading-relaxed">
+                            Sivas'ın marka ve gözdesi Lusse Home. Kaliteden ödün vermeyen İnegöl mobilyalarıyla yaşam alanlarınızı sanat eserine dönüştürün.
+                        </p>
+                        <div class="flex flex-wrap gap-6 items-center">
+                            <a href="#koleksiyon" class="btn-primary text-lg px-8 py-4">Koleksiyonu Keşfet <i class="ph-bold ph-arrow-right"></i></a>
+                            <div class="flex items-center gap-4">
+                                <div class="flex -space-x-3">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="w-12 h-12 rounded-full border-2 border-white object-cover" alt="User">
+                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="w-12 h-12 rounded-full border-2 border-white object-cover" alt="User">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="w-12 h-12 rounded-full border-2 border-white object-cover" alt="User">
+                                </div>
+                                <div class="text-sm font-bold text-brand-dark leading-tight">
+                                    Avrupa'da 5000+ <br><span class="text-brand-gray font-medium">Mutlu Aile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide relative h-full w-full flex items-center">
+                    <div class="absolute inset-0 w-full h-full hero-bg">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Yatak Odası" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-r from-brand-light/95 via-brand-light/70 to-transparent"></div>
+                    </div>
+                    <div class="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 hero-content-anim">
+                        <div class="inline-flex items-center gap-3 mb-6 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full border border-brand-accent/20">
+                            <span class="text-brand-accent"><i class="ph-fill ph-globe-hemisphere-west text-xl"></i></span>
+                            <span class="text-xs uppercase tracking-[0.2em] font-bold text-brand-dark">Sınır Tanımayan Hizmet</span>
+                        </div>
+                        <h1 class="text-6xl md:text-8xl font-serif text-brand-dark max-w-3xl leading-[1.05] mb-8">
+                            Tüm Avrupa'ya <br><span class="italic text-brand-accent font-light">Güvenli Teslimat.</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-brand-gray max-w-xl mb-12 font-medium leading-relaxed">
+                            Türkiye'den Avrupa'nın her noktasına; gümrük, kargo ve sigorta süreçleriyle uğraşmadan kapınıza kadar teslim ediyoruz.
+                        </p>
+                        <div class="flex flex-wrap gap-6 items-center">
+                            <a href="#iletisim" class="btn-primary text-lg px-8 py-4">Sipariş Sürecini Öğren <i class="ph-bold ph-truck"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="swiper-slide relative h-full w-full flex items-center">
+                    <div class="absolute inset-0 w-full h-full hero-bg">
+                        <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Yemek Odası" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-r from-brand-light/95 via-brand-light/70 to-transparent"></div>
+                    </div>
+                    <div class="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 hero-content-anim">
+                        <div class="inline-flex items-center gap-3 mb-6 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full border border-brand-accent/20">
+                            <span class="text-brand-accent"><i class="ph-fill ph-medal text-xl"></i></span>
+                            <span class="text-xs uppercase tracking-[0.2em] font-bold text-brand-dark">Tavizsiz Kalite</span>
+                        </div>
+                        <h1 class="text-6xl md:text-8xl font-serif text-brand-dark max-w-3xl leading-[1.05] mb-8">
+                            İnegöl Ustalığı <br><span class="italic text-brand-accent font-light">Sivas'ta Sizinle.</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-brand-gray max-w-xl mb-12 font-medium leading-relaxed">
+                            Nesilden nesile aktarılan ustalık, en kaliteli malzemelerle buluşuyor. Lusse Home farkıyla uzun ömürlü mobilyalara sahip olun.
+                        </p>
+                        <div class="flex flex-wrap gap-6 items-center">
+                            <a href="#hakkimizda" class="btn-primary text-lg px-8 py-4">Kalitemizi İncele <i class="ph-bold ph-magnifying-glass"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Custom Navigation -->
+            <div class="absolute bottom-10 right-10 z-20 flex gap-4 hidden md:flex">
+                <button class="custom-swiper-btn swiper-button-prev-hero flex items-center justify-center"><i class="ph-bold ph-arrow-left"></i></button>
+                <button class="custom-swiper-btn swiper-button-next-hero flex items-center justify-center"><i class="ph-bold ph-arrow-right"></i></button>
+            </div>
+            
+            <!-- Custom Pagination -->
+            <div class="swiper-pagination-hero absolute bottom-10 left-0 w-full flex justify-center z-20 gap-3"></div>
+        </div>
+    </section>
+
+    <!-- 4. GÜVEN & İSTATİSTİK SAYAÇLARI -->
+    <section class="py-16 counter-bg">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center divide-x divide-white/20">
+                <div data-aos="fade-up" class="p-4">
+                    <i class="ph-light ph-calendar-check text-5xl text-brand-accent mb-4"></i>
+                    <h3 class="text-5xl font-serif text-white mb-2"><span class="counter" data-target="30">0</span>+</h3>
+                    <p class="text-brand-surface font-light tracking-widest uppercase text-sm">Yıllık Tecrübe</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100" class="p-4">
+                    <i class="ph-light ph-truck text-5xl text-brand-accent mb-4"></i>
+                    <h3 class="text-5xl font-serif text-white mb-2"><span class="counter" data-target="5000">0</span>+</h3>
+                    <p class="text-brand-surface font-light tracking-widest uppercase text-sm">Avrupa Teslimat</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200" class="p-4">
+                    <i class="ph-light ph-star text-5xl text-brand-accent mb-4"></i>
+                    <h3 class="text-5xl font-serif text-white mb-2">%<span class="counter" data-target="100">0</span></h3>
+                    <p class="text-brand-surface font-light tracking-widest uppercase text-sm">Müşteri Memnuniyeti</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300" class="p-4">
+                    <i class="ph-light ph-medal text-5xl text-brand-accent mb-4"></i>
+                    <h3 class="text-5xl font-serif text-white mb-2"><span class="counter" data-target="1000">0</span>+</h3>
+                    <p class="text-brand-surface font-light tracking-widest uppercase text-sm">Ürün Çeşidi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. BİZ KİMİZ & VİZYON -->
+    <section id="hikayemiz" class="py-32 bg-brand-surface relative overflow-hidden">
+        <!-- Decorative bg elements -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-brand-accent/5 skew-x-12 transform translate-x-32 hidden lg:block"></div>
+        
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-20">
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
+                    <div class="relative z-10 hover-zoom rounded-2xl shadow-luxury">
+                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Lusse Home Mağaza" class="w-full h-auto object-cover rounded-2xl">
+                    </div>
+                    <!-- Overlapping small image -->
+                    <div class="absolute -bottom-12 -right-12 w-2/3 z-20 border-[10px] border-brand-surface rounded-2xl shadow-xl hover-zoom hidden md:block">
+                        <img src="https://images.unsplash.com/photo-1599619351208-3e6c839d6828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Detay" class="w-full h-auto object-cover rounded-lg">
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-1/2 mt-16 lg:mt-0" data-aos="fade-left">
+                    <div class="inline-flex items-center gap-3 mb-6">
+                        <span class="w-12 h-[1px] bg-brand-accent"></span>
+                        <span class="text-sm uppercase tracking-[0.3em] font-bold text-brand-accent">Hakkımızda</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-serif text-brand-dark mb-8 leading-tight">
+                        Mobilyadan Ötesi:<br> <span class="italic font-light">Bir Yaşam Stili.</span>
+                    </h2>
+                    <p class="text-lg text-brand-gray mb-6 leading-relaxed font-light">
+                        Lusse Home olarak vizyonumuz, sadece bir mobilya satıcısı olmak değil; Sivas'tan tüm Avrupa'ya uzanan köklü bir güven bağı kurmaktır. Evinizin her köşesinde tarzınızı yansıtabilmeniz için, en kaliteli İnegöl mobilyalarını en seçkin tasarımlarla harmanlıyoruz.
+                    </p>
+                    <p class="text-lg text-brand-gray mb-10 leading-relaxed font-light">
+                        Mimari bakış açımız, müşteri odaklı yaklaşımımız ve sağlam lojistik ağımızla, hayallerinizdeki evi gerçeğe dönüştürmek için buradayız.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-brand-light border border-brand-border flex items-center justify-center shrink-0">
+                                <i class="ph-fill ph-shield-check text-2xl text-brand-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark mb-1">Garantili Ürünler</h4>
+                                <p class="text-sm text-brand-gray font-light">Tüm ürünlerimiz uzun yıllar kullanıma uygun üretim garantisine sahiptir.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-brand-light border border-brand-border flex items-center justify-center shrink-0">
+                                <i class="ph-fill ph-package text-2xl text-brand-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark mb-1">Sigortalı Taşıma</h4>
+                                <p class="text-sm text-brand-gray font-light">Siparişleriniz kapınıza gelene kadar özel lojistik sigortamız altındadır.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="font-serif italic text-3xl opacity-50 mt-4 text-brand-dark">Mustafa Lusse</div>
+                    <p class="mt-2 text-sm font-serif font-bold text-brand-dark">Kurucu / Lusse Home</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. KAPSAMLI KOLEKSİYON VİTRİNİ (MEGA GRID) -->
+    <section id="koleksiyon" class="py-32 bg-brand-light">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-3 mb-4">
+                        <span class="w-12 h-[1px] bg-brand-accent"></span>
+                        <span class="text-sm uppercase tracking-[0.3em] font-bold text-brand-accent">Vitrinimiz</span>
+                    </div>
+                    <h2 class="text-4xl md:text-6xl font-serif text-brand-dark mb-6">Zarif Koleksiyonlar</h2>
+                    <p class="text-xl text-brand-gray font-light">Her tarza ve ihtiyaca uygun, ince işçilikle üretilmiş geniş ürün yelpazemizi keşfedin.</p>
+                </div>
+                <a href="#" class="hidden md:inline-flex items-center gap-2 text-brand-dark font-bold uppercase tracking-widest hover:text-brand-accent transition-colors border-b border-brand-dark pb-1 hover:border-brand-accent">
+                    Tüm Kataloğu İndir <i class="ph-bold ph-download-simple"></i>
+                </a>
+            </div>
+
+            <!-- Bento Box Style Mega Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[300px]">
+                
+                <!-- Köşe Takımı (Large) -->
+                <a href="#" class="collection-card group md:col-span-2 md:row-span-2 rounded-2xl" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Köşe Takımı" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 collection-overlay p-10 flex flex-col justify-end">
+                        <div class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="bg-brand-accent text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 inline-block opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">En Çok Satan</span>
+                            <h3 class="text-white text-4xl font-serif mb-3">Köşe Takımları</h3>
+                            <p class="text-white/80 font-light flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">Koleksiyonu İncele <i class="ph-bold ph-arrow-right"></i></p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Yatak Odası -->
+                <a href="#" class="collection-card group md:col-span-2 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Yatak Odası" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 collection-overlay p-8 flex flex-col justify-end">
+                        <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-white text-3xl font-serif mb-2">Yatak Odası</h3>
+                            <p class="text-white/80 font-light flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Koleksiyonu İncele <i class="ph-bold ph-arrow-right"></i></p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Koltuk Takımı -->
+                <a href="#" class="collection-card group rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Koltuk Takımı" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 collection-overlay p-6 flex flex-col justify-end">
+                        <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-white text-2xl font-serif mb-2">Koltuk Takımı</h3>
+                            <p class="text-white/80 font-light flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-sm">İncele <i class="ph-bold ph-arrow-right"></i></p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Yemek Odası -->
+                <a href="#" class="collection-card group rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Yemek Odası" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 collection-overlay p-6 flex flex-col justify-end">
+                        <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-white text-2xl font-serif mb-2">Yemek Odası</h3>
+                            <p class="text-white/80 font-light flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-sm">İncele <i class="ph-bold ph-arrow-right"></i></p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- TV Ünitesi & Genç Odası (Split Row) -->
+                <a href="#" class="collection-card group md:col-span-2 rounded-2xl" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="TV Ünitesi" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 collection-overlay p-8 flex flex-col justify-end">
+                        <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-white text-3xl font-serif mb-2">TV Üniteleri & Konsollar</h3>
+                            <p class="text-white/80 font-light flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">İncele <i class="ph-bold ph-arrow-right"></i></p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="collection-card group md:col-span-2 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mutfak" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 collection-overlay p-8 flex flex-col justify-end">
+                        <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-white text-3xl font-serif mb-2">Mutfak Grupları</h3>
+                            <p class="text-white/80 font-light flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">İncele <i class="ph-bold ph-arrow-right"></i></p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. İÇ MİMARLIK DESTEĞİ & PARALLAX -->
+    <section id="hizmetler" class="py-32 bg-brand-dark text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Mimari Çizim" class="w-full h-full object-cover">
+        </div>
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <div class="inline-flex items-center gap-3 mb-6">
+                        <span class="w-12 h-[1px] bg-brand-accent"></span>
+                        <span class="text-sm uppercase tracking-[0.3em] font-bold text-brand-accent">Premium Hizmet</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-serif mb-8 leading-tight">
+                        Ücretsiz <br><span class="text-brand-accent italic">İç Mimarlık</span> Desteği
+                    </h2>
+                    <p class="text-xl text-white/70 font-light mb-8 leading-relaxed">
+                        Kararsız mı kaldınız? Odanızın ölçülerini ve hayalinizdeki tarzı bize iletin. Uzman iç mimarlarımız sizin için en uygun mobilyaları seçsin, 3D olarak yerleştirsin ve hayalinizdeki evi size sunsun.
+                    </p>
+                    <ul class="space-y-6 mb-10">
+                        <li class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center shrink-0 mt-1">
+                                <i class="ph-fill ph-ruler text-xl text-brand-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Mekan Analizi ve Ölçülendirme</h4>
+                                <p class="text-white/50 font-light text-sm">Odanızın yapısına en uygun ölçülerde ürün seçimi yapılır.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center shrink-0 mt-1">
+                                <i class="ph-fill ph-palette text-xl text-brand-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Renk ve Kumaş Kombinasyonu</h4>
+                                <p class="text-white/50 font-light text-sm">Tarzınıza uygun renk paletleri ve silinebilir birinci sınıf kumaş alternatifleri.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center shrink-0 mt-1">
+                                <i class="ph-fill ph-cube text-xl text-brand-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">3D Görselleştirme</h4>
+                                <p class="text-white/50 font-light text-sm">Ürünler evinize gelmeden önce odanızda nasıl duracağını görün.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/905000000000" class="btn-primary text-lg">Hemen Mimara Danışın <i class="ph-bold ph-whatsapp-logo"></i></a>
+                </div>
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="İç Mimar Çalışması" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-1000">
+                        <div class="absolute inset-0 border-[8px] border-brand-dark/20 pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. ÖNE ÇIKAN ÜRÜNLER VİTRİNİ -->
+    <section class="py-32 bg-brand-surface">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="inline-flex items-center gap-3 mb-4 justify-center">
+                    <span class="w-12 h-[1px] bg-brand-accent"></span>
+                    <span class="text-sm uppercase tracking-[0.3em] font-bold text-brand-accent">Ayın Favorileri</span>
+                    <span class="w-12 h-[1px] bg-brand-accent"></span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-serif text-brand-dark mb-6">Öne Çıkan Modeller</h2>
+                <p class="text-brand-gray max-w-2xl mx-auto font-light text-lg">Müşterilerimizin en çok tercih ettiği, lüks tasarımı ve üstün konforu bir araya getiren premium takımlarımız.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-luxury group" data-aos="fade-up">
+                    <div class="relative h-72 overflow-hidden bg-brand-light">
+                        <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Milano Koltuk Takımı" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center cursor-pointer hover:bg-brand-accent hover:text-white transition-colors">
+                            <i class="ph-bold ph-heart"></i>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-bold text-brand-accent tracking-widest uppercase mb-2 block">Koltuk Takımı</span>
+                        <h3 class="text-2xl font-serif text-brand-dark mb-3">Milano Premium</h3>
+                        <p class="text-brand-gray font-light text-sm mb-6 border-b border-brand-border pb-6">Leke tutmaz nubuk dokulu kumaş, gürgen iskelet ve motorlu relax mekanizması.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://wa.me/905000000000" class="text-brand-dark font-bold hover:text-brand-accent transition-colors flex items-center gap-2">Fiyat Bilgisi Al <i class="ph-bold ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-luxury group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-72 overflow-hidden bg-brand-light">
+                        <div class="absolute top-4 left-4 bg-brand-dark text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded z-10">Yeni Ürün</div>
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Yatak Odası" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center cursor-pointer hover:bg-brand-accent hover:text-white transition-colors">
+                            <i class="ph-bold ph-heart"></i>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-bold text-brand-accent tracking-widest uppercase mb-2 block">Yatak Odası</span>
+                        <h3 class="text-2xl font-serif text-brand-dark mb-3">Venedik Exclusive</h3>
+                        <p class="text-brand-gray font-light text-sm mb-6 border-b border-brand-border pb-6">Kendinden aydınlatmalı dolap içi, frenli ray sistemi ve özel tasarım yatak başlığı.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://wa.me/905000000000" class="text-brand-dark font-bold hover:text-brand-accent transition-colors flex items-center gap-2">Fiyat Bilgisi Al <i class="ph-bold ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-luxury group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-72 overflow-hidden bg-brand-light">
+                        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Yemek Odası" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center cursor-pointer hover:bg-brand-accent hover:text-white transition-colors">
+                            <i class="ph-bold ph-heart"></i>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-bold text-brand-accent tracking-widest uppercase mb-2 block">Yemek Odası</span>
+                        <h3 class="text-2xl font-serif text-brand-dark mb-3">Floransa Elite</h3>
+                        <p class="text-brand-gray font-light text-sm mb-6 border-b border-brand-border pb-6">Mermer görünümlü açılabilir masa, CNC kesim detaylı konsol ve yumuşak dokulu sandalyeler.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://wa.me/905000000000" class="text-brand-dark font-bold hover:text-brand-accent transition-colors flex items-center gap-2">Fiyat Bilgisi Al <i class="ph-bold ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="btn-outline">Tüm Ürünleri Gör</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. NEDEN BİZİ SEÇMELİSİNİZ? (6 ÖZELLİKLİ GRID) -->
+    <section class="py-24 bg-brand-light border-y border-brand-border">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-serif text-brand-dark mb-4">Ayrıcalıklarımız</h2>
+                <p class="text-brand-gray">Sizi farklı hissettirecek detaylar.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+                <!-- Item 1 -->
+                <div class="flex gap-6 group" data-aos="fade-up">
+                    <div class="w-16 h-16 rounded-full bg-brand-surface border border-brand-border flex items-center justify-center shrink-0 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+                        <i class="ph-light ph-star text-3xl text-brand-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-serif font-bold text-brand-dark mb-2">1. Sınıf İnegöl Kalitesi</h4>
+                        <p class="text-brand-gray font-light text-sm leading-relaxed">Piyasadaki en kaliteli gürgen ahşap ve leke tutmaz ithal kumaşlar kullanılarak tamamen el işçiliğiyle üretilir.</p>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="flex gap-6 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-full bg-brand-surface border border-brand-border flex items-center justify-center shrink-0 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+                        <i class="ph-light ph-globe text-3xl text-brand-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-serif font-bold text-brand-dark mb-2">Sorunsuz Avrupa Teslimat</h4>
+                        <p class="text-brand-gray font-light text-sm leading-relaxed">Özel lojistik partnerlerimiz ile Avrupa'nın her ülkesine gümrük takılma riski olmadan garantili gönderim sağlıyoruz.</p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="flex gap-6 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-full bg-brand-surface border border-brand-border flex items-center justify-center shrink-0 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+                        <i class="ph-light ph-wrench text-3xl text-brand-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-serif font-bold text-brand-dark mb-2">Satış Sonrası Destek</h4>
+                        <p class="text-brand-gray font-light text-sm leading-relaxed">Ürünü satana kadar değil, yıllar sonra bile oluşabilecek her türlü deformasyonda uzman teknik ekibimiz yanınızdadır.</p>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="flex gap-6 group" data-aos="fade-up">
+                    <div class="w-16 h-16 rounded-full bg-brand-surface border border-brand-border flex items-center justify-center shrink-0 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+                        <i class="ph-light ph-palette text-3xl text-brand-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-serif font-bold text-brand-dark mb-2">Özelleştirilebilir Ürünler</h4>
+                        <p class="text-brand-gray font-light text-sm leading-relaxed">Renk, kumaş, ayak cilası ve ölçüleri tamamen sizin evinizin dinamiklerine göre baştan tasarlayabiliyoruz.</p>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="flex gap-6 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-full bg-brand-surface border border-brand-border flex items-center justify-center shrink-0 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+                        <i class="ph-light ph-credit-card text-3xl text-brand-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-serif font-bold text-brand-dark mb-2">Kolay Ödeme Seçenekleri</h4>
+                        <p class="text-brand-gray font-light text-sm leading-relaxed">Tüm kredi kartlarına taksit imkanı, elden taksit ve yurt dışı ödemeleri için özel kolaylıklar.</p>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="flex gap-6 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-full bg-brand-surface border border-brand-border flex items-center justify-center shrink-0 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+                        <i class="ph-light ph-truck text-3xl text-brand-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-serif font-bold text-brand-dark mb-2">Ücretsiz Teslimat & Kurulum</h4>
+                        <p class="text-brand-gray font-light text-sm leading-relaxed">Sivas içi ve çevre illerde alanında uzman kendi ekiplerimiz tarafından sıfır hatayla evinize kuruyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. MÜŞTERİ YORUMLARI & KAMPANYALAR (MIX) -->
+    <section id="kampanyalar" class="py-32 bg-brand-surface relative overflow-hidden">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                
+                <!-- Testimonials -->
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center gap-3 mb-4">
+                        <span class="w-12 h-[1px] bg-brand-accent"></span>
+                        <span class="text-sm uppercase tracking-[0.3em] font-bold text-brand-accent">Referanslarımız</span>
+                    </div>
+                    <h2 class="text-4xl font-serif text-brand-dark mb-10">Müşterilerimiz Ne Diyor?</h2>
+                    
+                    <div class="swiper testimonialSwiper">
+                        <div class="swiper-wrapper">
+                            <!-- Review 1 -->
+                            <div class="swiper-slide">
+                                <div class="bg-white p-10 rounded-2xl shadow-luxury border border-brand-border relative">
+                                    <i class="ph-fill ph-quotes text-6xl text-brand-surface absolute top-6 right-6"></i>
+                                    <div class="flex items-center gap-2 mb-6">
+                                        <i class="ph-fill ph-star text-brand-accent"></i>
+                                        <i class="ph-fill ph-star text-brand-accent"></i>
+                                        <i class="ph-fill ph-star text-brand-accent"></i>
+                                        <i class="ph-fill ph-star text-brand-accent"></i>
+                                        <i class="ph-fill ph-star text-brand-accent"></i>
+                                    </div>
+                                    <p class="text-lg text-brand-dark font-serif italic mb-8 relative z-10">"Almanya'daki evimiz için komple çeyiz paketi aldık. Teslimat süreci o kadar profesyoneldi ki tek bir çizik bile olmadan kapımıza kadar getirdiler. Kalitesi muazzam."</p>
+                                    <div class="flex items-center gap-4 border-t border-brand-border pt-6">
+                                        <div class="w-12 h-12 rounded-full bg-brand-surface flex items-center justify-center font-bold text-brand-accent text-xl">AY</div>
+                                        <div>
+                                            <h5 class="font-bold text-brand-dark">Ayşe Yılmaz</h5>
+                                            <p class="text-xs text-brand-gray">Münih, Almanya</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Review 2 -->
+                            <div class="swiper-slide">
+                                <div class="bg-white p-10 rounded-2xl shadow-luxury border border-brand-border relative">
+                                    <i class="ph-fill ph-quotes text-6xl text-brand-surface absolute top-6 right-6"></i>
+                                    <div class="flex items-center gap-2 mb-6">
+                                        <i class="ph-fill ph-star text-brand-accent"></i>
+                                        <i class="ph-fill ph-star text-brand-accent"></i>
+                                        <i class="ph-fill ph-star text-brand-accent"></i>
+                                        <i class="ph-fill ph-star text-brand-accent"></i>
+                                        <i class="ph-fill ph-star text-brand-accent"></i>
+                                    </div>
+                                    <p class="text-lg text-brand-dark font-serif italic mb-8 relative z-10">"Sivas'ta gezmediğimiz mağaza kalmamıştı. Lusse Home'a girdiğimiz an farkı hissettik. İç mimar arkadaşların yönlendirmesiyle salonumuz bir dergi kapağı gibi oldu."</p>
+                                    <div class="flex items-center gap-4 border-t border-brand-border pt-6">
+                                        <div class="w-12 h-12 rounded-full bg-brand-surface flex items-center justify-center font-bold text-brand-accent text-xl">MK</div>
+                                        <div>
+                                            <h5 class="font-bold text-brand-dark">Mehmet Kaya</h5>
+                                            <p class="text-xs text-brand-gray">Sivas Merkez</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 mt-8">
+                            <button class="w-12 h-12 rounded-full border border-brand-border flex items-center justify-center text-brand-dark hover:bg-brand-accent hover:text-white transition-colors swiper-prev-test"><i class="ph-bold ph-arrow-left"></i></button>
+                            <button class="w-12 h-12 rounded-full border border-brand-border flex items-center justify-center text-brand-dark hover:bg-brand-accent hover:text-white transition-colors swiper-next-test"><i class="ph-bold ph-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campaigns Highlight -->
+                <div data-aos="fade-left" class="bg-brand-dark rounded-2xl p-12 text-white relative overflow-hidden flex flex-col justify-center">
+                    <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-brand-accent rounded-full blur-3xl opacity-20"></div>
+                    <span class="inline-block bg-brand-accent text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full w-max mb-6">Sınırlı Süre</span>
+                    <h2 class="text-4xl md:text-5xl font-serif mb-6 leading-tight">Büyük<br> Düğün Paketi <br>İndirimi</h2>
+                    <p class="text-white/70 font-light mb-10 text-lg">Yatak odası, yemek odası ve koltuk takımından oluşan premium üçlü set alımlarında %25 anında indirim ve Avrupa'ya kargo bedava fırsatını kaçırmayın.</p>
+                    
+                    <div class="bg-white/10 border border-white/20 p-6 rounded-xl flex items-center justify-between backdrop-blur-sm">
+                        <div>
+                            <p class="text-sm text-white/60 mb-1">Eski Fiyat</p>
+                            <p class="text-xl font-bold line-through text-white/40">₺180.000</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-brand-accent font-bold mb-1">Kampanyalı Paket</p>
+                            <p class="text-3xl font-serif font-bold text-white">₺135.000</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/905000000000" class="btn-primary mt-8 justify-center w-full bg-white text-brand-dark hover:bg-transparent hover:text-white border-white">Kampanyadan Faydalan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. SIKÇA SORULAN SORULAR (FAQ) -->
+    <section class="py-24 bg-brand-light">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-serif text-brand-dark mb-4">Sıkça Sorulan Sorular</h2>
+                <p class="text-brand-gray">Aklınıza takılan tüm soruların cevapları.</p>
+            </div>
+
+            <div class="space-y-4" id="faq-container" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ 1 -->
+                <div class="faq-item bg-white border border-brand-border rounded-xl overflow-hidden cursor-pointer">
+                    <div class="p-6 flex justify-between items-center bg-brand-surface/30 hover:bg-brand-surface/80 transition-colors" onclick="toggleFaq(this)">
+                        <h4 class="font-bold text-brand-dark font-serif text-lg">Avrupa'ya teslimat süreci nasıl işliyor?</h4>
+                        <i class="ph-bold ph-plus text-brand-accent text-xl faq-icon transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6">
+                        <p class="text-brand-gray font-light py-6 border-t border-brand-border">Avrupa'nın tüm ülkelerine gümrükleme, sigorta ve nakliye işlemleri tamamen bizim tarafımızdan halledilerek kapınıza kadar teslimat sağlıyoruz. Ürünlerimiz lojistik sigortalıdır, yolda oluşabilecek en ufak bir çizikte bile sorumluluk firmamıza aittir.</p>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="faq-item bg-white border border-brand-border rounded-xl overflow-hidden cursor-pointer">
+                    <div class="p-6 flex justify-between items-center bg-brand-surface/30 hover:bg-brand-surface/80 transition-colors" onclick="toggleFaq(this)">
+                        <h4 class="font-bold text-brand-dark font-serif text-lg">Mobilyalarınız İnegöl üretimi mi?</h4>
+                        <i class="ph-bold ph-plus text-brand-accent text-xl faq-icon transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6">
+                        <p class="text-brand-gray font-light py-6 border-t border-brand-border">Evet, mağazamızdaki tüm ürünler Türkiye'nin mobilya başkenti İnegöl'de en iyi ustalar tarafından, 1. sınıf malzemeler kullanılarak üretilmektedir. İskelet sistemlerimiz gürgen, süngerlerimiz ise uzun ömürlü HR süngerdir.</p>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="faq-item bg-white border border-brand-border rounded-xl overflow-hidden cursor-pointer">
+                    <div class="p-6 flex justify-between items-center bg-brand-surface/30 hover:bg-brand-surface/80 transition-colors" onclick="toggleFaq(this)">
+                        <h4 class="font-bold text-brand-dark font-serif text-lg">Özel ölçü ve kumaş değişimi yapıyor musunuz?</h4>
+                        <i class="ph-bold ph-plus text-brand-accent text-xl faq-icon transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6">
+                        <p class="text-brand-gray font-light py-6 border-t border-brand-border">Kesinlikle. Evinize uyum sağlaması açısından koltuk takımları ve yatak odalarında belirli sınırlar dahilinde özel ölçü çalışabiliyoruz. Kumaş kartelamızdan yüzlerce farklı renk ve doku arasından ücretsiz seçim yapabilirsiniz.</p>
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="faq-item bg-white border border-brand-border rounded-xl overflow-hidden cursor-pointer">
+                    <div class="p-6 flex justify-between items-center bg-brand-surface/30 hover:bg-brand-surface/80 transition-colors" onclick="toggleFaq(this)">
+                        <h4 class="font-bold text-brand-dark font-serif text-lg">Taksit ve ödeme seçenekleriniz nelerdir?</h4>
+                        <i class="ph-bold ph-plus text-brand-accent text-xl faq-icon transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6">
+                        <p class="text-brand-gray font-light py-6 border-t border-brand-border">Tüm kredi kartlarına taksit imkanımız mevcuttur. Sivas içi satışlarda elden senetli taksit imkanlarımız kampanya dönemlerine göre değişiklik göstermektedir. Detaylı bilgi için mağazamıza bekleriz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. DEVASA İLETİŞİM & HARİTA KOMPLEKSİ -->
+    <section id="iletisim" class="relative">
+        <div class="w-full h-[600px] grayscale hover:grayscale-0 transition-all duration-1000 relative z-0">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12175.760193154865!2d37.0163351!3d39.7554903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407eaa0a96ef8b13%3A0xcdaee506b3a32f6!2zS2FyZGXFn2xlciwgU2l2YXMgTWVya2V6L1NpdmFz!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        
+        <div class="absolute inset-0 pointer-events-none z-10 flex items-center">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <!-- Floating Mega Contact Form -->
+                <div class="bg-white pointer-events-auto max-w-lg p-10 md:p-14 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl border-t-4 border-brand-accent float-right">
+                    <h3 class="text-3xl font-serif text-brand-dark mb-2">Bize Ulaşın</h3>
+                    <p class="text-brand-gray font-light mb-8 text-sm">Ürün fiyatları, iç mimari destek veya Avrupa kargo süreci için hemen bilgi alın.</p>
+                    
+                    <form onsubmit="event.preventDefault(); window.open('https://wa.me/905000000000', '_blank');" class="space-y-5">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-brand-dark mb-2">Adınız Soyadınız</label>
+                            <input type="text" required class="w-full border-b-2 border-brand-border py-3 px-2 bg-transparent focus:outline-none focus:border-brand-accent transition-colors" placeholder="Ahmet Yılmaz">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-brand-dark mb-2">Telefon Numaranız</label>
+                            <input type="tel" required class="w-full border-b-2 border-brand-border py-3 px-2 bg-transparent focus:outline-none focus:border-brand-accent transition-colors" placeholder="05XX XXX XX XX">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-brand-dark mb-2">Hangi konuda bilgi almak istersiniz?</label>
+                            <select class="w-full border-b-2 border-brand-border py-3 px-2 bg-transparent focus:outline-none focus:border-brand-accent transition-colors text-brand-gray">
+                                <option>Ürün Fiyatları</option>
+                                <option>Avrupa'ya Teslimat</option>
+                                <option>İç Mimari Destek</option>
+                                <option>Diğer</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary w-full justify-center mt-4">Hemen Teklif Alın <i class="ph-bold ph-paper-plane-tilt"></i></button>
+                    </form>
+                    
+                    <div class="mt-8 pt-8 border-t border-brand-border">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i class="ph-fill ph-phone text-2xl text-brand-accent shrink-0"></i>
+                            <div>
+                                <p class="text-xs text-brand-gray font-bold uppercase">Müşteri Hizmetleri</p>
+                                <p class="font-serif font-bold text-brand-dark text-lg">0500 000 00 00</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="ph-fill ph-map-pin text-2xl text-brand-accent shrink-0"></i>
+                            <div>
+                                <p class="text-xs text-brand-gray font-bold uppercase">Mağaza Adresi</p>
+                                <p class="text-sm font-medium text-brand-dark">Kardeşler, Sivas Merkez / Türkiye</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. MEGA FOOTER & FLOATING ACTIONS -->
+    <footer class="bg-brand-dark text-brand-light pt-24 pb-12 border-t-8 border-brand-accent">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Col 1 -->
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <i class="ph-light ph-armchair text-4xl text-brand-accent"></i>
+                        <span class="font-serif font-bold text-3xl tracking-widest text-white">LUSSE</span>
+                    </div>
+                    <p class="text-white/60 font-light text-sm leading-relaxed mb-8">
+                        Sivas'ın marka ve gözdesi. İnegöl mobilyasının zarafetini ve kalitesini Türkiye'den tüm Avrupa'ya taşıyoruz. Tarzını Yansıt.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brand-accent hover:border-brand-accent transition-colors"><i class="ph-fill ph-instagram-logo"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brand-accent hover:border-brand-accent transition-colors"><i class="ph-fill ph-facebook-logo"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brand-accent hover:border-brand-accent transition-colors"><i class="ph-fill ph-youtube-logo"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="font-serif text-xl mb-6 text-white border-b border-white/10 pb-4">Hızlı Menü</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#hikayemiz" class="text-white/60 hover:text-brand-accent transition-colors text-sm flex items-center gap-2"><i class="ph-bold ph-caret-right text-xs"></i> Hakkımızda</a></li>
+                        <li><a href="#koleksiyon" class="text-white/60 hover:text-brand-accent transition-colors text-sm flex items-center gap-2"><i class="ph-bold ph-caret-right text-xs"></i> Koleksiyonlar</a></li>
+                        <li><a href="#kampanyalar" class="text-white/60 hover:text-brand-accent transition-colors text-sm flex items-center gap-2"><i class="ph-bold ph-caret-right text-xs"></i> Kampanyalar</a></li>
+                        <li><a href="#hizmetler" class="text-white/60 hover:text-brand-accent transition-colors text-sm flex items-center gap-2"><i class="ph-bold ph-caret-right text-xs"></i> İç Mimari Destek</a></li>
+                        <li><a href="#iletisim" class="text-white/60 hover:text-brand-accent transition-colors text-sm flex items-center gap-2"><i class="ph-bold ph-caret-right text-xs"></i> İletişim & Harita</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="font-serif text-xl mb-6 text-white border-b border-white/10 pb-4">Kategoriler</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-white/60 hover:text-brand-accent transition-colors text-sm flex items-center gap-2"><i class="ph-bold ph-caret-right text-xs"></i> Köşe Takımları</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-brand-accent transition-colors text-sm flex items-center gap-2"><i class="ph-bold ph-caret-right text-xs"></i> Yatak Odası</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-brand-accent transition-colors text-sm flex items-center gap-2"><i class="ph-bold ph-caret-right text-xs"></i> Koltuk Takımı</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-brand-accent transition-colors text-sm flex items-center gap-2"><i class="ph-bold ph-caret-right text-xs"></i> Yemek Odası</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-brand-accent transition-colors text-sm flex items-center gap-2"><i class="ph-bold ph-caret-right text-xs"></i> TV Üniteleri</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Col 4 -->
+                <div>
+                    <h4 class="font-serif text-xl mb-6 text-white border-b border-white/10 pb-4">Bülten Aboneliği</h4>
+                    <p class="text-white/60 text-sm mb-4">Yeni koleksiyonlardan ve Avrupa kargo kampanyalarından ilk siz haberdar olun.</p>
+                    <form class="flex" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="E-posta adresiniz" class="bg-white/5 border border-white/10 px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent w-full">
+                        <button type="submit" class="bg-brand-accent text-white px-4 hover:bg-white hover:text-brand-dark transition-colors"><i class="ph-bold ph-paper-plane-right"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/40 text-sm">© 2026 Lusse Home Mobilya. Tüm Hakları Saklıdır.</p>
+                <div class="flex gap-6 text-sm text-white/40">
+                    <a href="#" class="hover:text-white transition-colors">Gizlilik Politikası</a>
+                    <a href="#" class="hover:text-white transition-colors">Kullanım Koşulları</a>
+                    <a href="#" class="hover:text-white transition-colors">KVKK Metni</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/905000000000" target="_blank" class="fixed bottom-8 right-8 z-[9999] bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-500 group border-2 border-white" style="animation: pulse-wa 2s infinite;">
+        <i class="ph-fill ph-whatsapp-logo text-4xl"></i>
+        <span class="absolute -top-12 right-0 bg-white text-brand-dark text-sm font-bold px-4 py-2 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">Hemen Sipariş Ver</span>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-28 right-8 z-[9998] bg-brand-dark text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-brand-accent hover:-translate-y-1">
+        <i class="ph-bold ph-caret-up text-xl"></i>
+    </button>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // 1. Initializations
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+        });
+
+        // 2. Hero Swiper
+        const heroSwiper = new Swiper('.hero-swiper', {
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
+            speed: 1500,
+            loop: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next-hero',
+                prevEl: '.swiper-button-prev-hero',
+            },
+            pagination: {
+                el: '.swiper-pagination-hero',
+                clickable: true,
+            }
+        });
+
+        // 3. Testimonial Swiper
+        const testimonialSwiper = new Swiper('.testimonialSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-next-test',
+                prevEl: '.swiper-prev-test',
+            }
+        });
+
+        // 4. Counters Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // lower = faster
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // Intersection Observer for Counters
+        const counterSection = document.querySelector('.counter-bg');
+        if (counterSection) {
+            const observer = new IntersectionObserver((entries) => {
+                if(entries[0].isIntersecting) {
+                    animateCounters();
+                    observer.disconnect();
+                }
+            });
+            observer.observe(counterSection);
+        }
+
+        // 5. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        };
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // 6. Sticky Nav & Scroll to Top
+        const navbar = document.getElementById('navbar');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            // Navbar
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-luxury');
+                navbar.style.background = 'rgba(253, 251, 247, 0.98)';
+                navbar.style.paddingTop = '0.5rem';
+                navbar.style.paddingBottom = '0.5rem';
+            } else {
+                navbar.classList.remove('shadow-luxury');
+                navbar.style.background = 'rgba(253, 251, 247, 0.85)';
+                navbar.style.paddingTop = '0';
+                navbar.style.paddingBottom = '0';
+            }
+            
+            // Scroll to top button
+            if (window.scrollY > 500) {
+                scrollToTopBtn.classList.remove('opacity-0', 'invisible');
+                scrollToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                scrollToTopBtn.classList.add('opacity-0', 'invisible');
+                scrollToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 7. FAQ Accordion Toggle
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const container = document.getElementById('faq-container');
+            const allItems = container.querySelectorAll('.faq-item');
+            
+            // Close others
+            allItems.forEach(i => {
+                if (i !== item && i.classList.contains('active')) {
+                    i.classList.remove('active');
+                }
+            });
+
+            item.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
