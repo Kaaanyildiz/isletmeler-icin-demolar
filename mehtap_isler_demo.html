@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehtap İşler Güzellik Salonu | Sivas'ın En Prestijli Güzellik Merkezi</title>
+    <meta name="description" content="Lazer epilasyon, kalıcı makyaj, medikal cilt bakımı, ombre ve protez tırnakta Sivas'ın 1 numaralı adresi. Mehtap İşler Güzellik Salonu.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Playfair Display for elegant luxury headings, Montserrat for clean text -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#FFFFFF',
+                            surface: '#FDF1E3',
+                            accent: '#C49A45',
+                            accentDark: '#B8860B',// Darker Gold
+                            primary: '#FFF8EE',
+                            dark: '#1C1C1C',
+                            gray: '#666666'
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 30px rgba(224, 169, 109, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: theme('colors.brand.surface');
+            color: theme('colors.brand.dark');
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: theme('colors.brand.accent');
+            color: theme('colors.brand.dark');
+        }
+
+        .glass-nav {
+            background: rgba(253, 241, 227, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(224, 169, 109, 0.15);
+        }
+
+        .btn-primary {
+            background-color: theme('colors.brand.accent');
+            color: theme('colors.brand.dark');
+            padding: 1rem 2.5rem;
+            border-radius: 2px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid theme('colors.brand.accent');
+        }
+        .btn-primary:hover {
+            background-color: transparent;
+            color: theme('colors.brand.accent');
+        }
+
+        .btn-outline {
+            border: 1px solid theme('colors.brand.accent');
+            color: theme('colors.brand.accent');
+            padding: 1rem 2.5rem;
+            border-radius: 2px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-outline:hover {
+            background-color: theme('colors.brand.accent');
+            color: theme('colors.brand.dark');
+        }
+
+        /* Hero Image Zoom Animation */
+        .hero-swiper .swiper-slide .hero-bg {
+            transform: scale(1.15);
+            transition: transform 10s ease-out;
+        }
+        .hero-swiper .swiper-slide-active .hero-bg {
+            transform: scale(1);
+        }
+        .hero-text {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+            transition-delay: 0.5s;
+        }
+        .hero-swiper .swiper-slide-active .hero-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* WhatsApp Pulse */
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            70% { box-shadow: 0 0 0 25px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(to right, #9A7B4F, #B8860B, #8B6508, #9A7B4F, #734A12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card {
+            border: 1px solid rgba(224, 169, 109, 0.1);
+            transition: all 0.5s ease;
+        }
+        .service-card:hover {
+            border-color: theme('colors.brand.accent');
+            transform: translateY(-5px);
+            box-shadow: theme('boxShadow.glow');
+        }
+
+        /* Diagonal overlay for image */
+        .img-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 1. TOP BAR -->
+    <div class="bg-brand-primary text-brand-dark w-full py-2 px-4 z-50 relative border-b border-brand-accent/20 hidden lg:block text-xs uppercase tracking-[0.2em] font-medium">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-2"><i class="ph-bold ph-star text-brand-accent"></i> Sivas'ın Prestijli Güzellik Merkezi</span>
+                <span class="flex items-center gap-2"><i class="ph-bold ph-shield-check text-brand-accent"></i> %100 Orijinal Ekipmanlar</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="tel:+905528646458" class="hover:text-brand-accent transition-colors flex items-center gap-2"><i class="ph-bold ph-phone text-brand-accent"></i> 0552 864 64 58</a>
+                <a href="https://wa.me/905528646458" class="text-brand-accent font-bold hover:text-brand-dark transition-colors">WhatsApp İletişim</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. NAVBAR -->
+    <nav class="glass-nav fixed w-full z-40 transition-all duration-500" id="navbar">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                
+                <a href="#" class="flex flex-col items-center">
+                    <span class="font-serif font-bold text-3xl tracking-widest text-brand-dark leading-none">MEHTAP İŞLER</span>
+                    <span class="text-[9px] tracking-[0.4em] uppercase text-brand-accent mt-1">Kuaför & Güzellik Salonu</span>
+                </a>
+
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="#hakkimizda" class="text-xs font-bold uppercase tracking-[0.2em] text-brand-dark hover:text-brand-accent transition-colors">Hakkımızda</a>
+                    <a href="#hizmetler" class="text-xs font-bold uppercase tracking-[0.2em] text-brand-dark hover:text-brand-accent transition-colors">Hizmetlerimiz</a>
+                    <a href="#kuafor" class="text-xs font-bold uppercase tracking-[0.2em] text-brand-accent border-b border-brand-accent pb-1">Kuaför</a>
+                    <a href="#fiyatlar" class="text-xs font-bold uppercase tracking-[0.2em] text-brand-dark hover:text-brand-accent transition-colors">Paketler</a>
+                    <a href="#iletisim" class="text-xs font-bold uppercase tracking-[0.2em] text-brand-dark hover:text-brand-accent transition-colors">İletişim</a>
+                </div>
+
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="https://wa.me/905528646458" class="btn-primary">Randevu Al</a>
+                </div>
+
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-accent">
+                        <i class="ph-light ph-list text-4xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. MEGA HERO SLIDER -->
+    <section class="relative h-screen w-full overflow-hidden">
+        <div class="swiper hero-swiper h-full w-full">
+            <div class="swiper-wrapper h-full w-full">
+                
+                <!-- Slide 1: Beauty / Cilt Bakımı -->
+                <div class="swiper-slide relative h-full w-full flex items-center">
+                    <div class="absolute inset-0 w-full h-full hero-bg img-overlay">
+                        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Medikal Cilt Bakımı" class="w-full h-full object-cover">
+                    </div>
+                    <div class="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 hero-text">
+                        <span class="text-brand-accent text-sm font-bold uppercase tracking-[0.4em] mb-4 block">Pürüzsüz Bir Güzellik</span>
+                        <h1 class="text-5xl md:text-7xl font-serif text-brand-dark max-w-3xl leading-[1.1] mb-6">
+                            Işıltınızı <br><span class="gold-gradient-text">Yeniden Keşfedin.</span>
+                        </h1>
+                        <p class="text-lg text-brand-gray max-w-xl mb-10 font-light leading-relaxed">
+                            Hydrafacial teknolojisi ve medikal cilt bakımı uygulamalarımızla cildinizdeki yenilenmeyi ilk seansta hissedin. Sivas'ın en donanımlı merkezine hoş geldiniz.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#hizmetler" class="btn-primary">Hizmetleri İncele</a>
+                            <a href="https://wa.me/905528646458" class="btn-outline"><i class="ph-bold ph-whatsapp-logo text-lg"></i> Bilgi Al</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Kuaför / Ombre -->
+                <div class="swiper-slide relative h-full w-full flex items-center">
+                    <div class="absolute inset-0 w-full h-full hero-bg img-overlay">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Kuaför ve Saç Tasarım" class="w-full h-full object-cover">
+                    </div>
+                    <div class="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 hero-text">
+                        <span class="text-brand-accent text-sm font-bold uppercase tracking-[0.4em] mb-4 block">Profesyonel Renklendirme</span>
+                        <h1 class="text-5xl md:text-7xl font-serif text-brand-dark max-w-3xl leading-[1.1] mb-6">
+                            Kusursuz Ombre & <br><span class="gold-gradient-text">Saç Tasarımı.</span>
+                        </h1>
+                        <p class="text-lg text-brand-gray max-w-xl mb-10 font-light leading-relaxed">
+                            Yıpratmayan özel açıcılar ve uzman kuaför ekibimizle hayalinizdeki sarılara ve modern kesimlere kavuşun.
+                        </p>
+                        <a href="#kuafor" class="btn-primary">Görselleri İncele</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Lazer & Zayıflama -->
+                <div class="swiper-slide relative h-full w-full flex items-center">
+                    <div class="absolute inset-0 w-full h-full hero-bg img-overlay">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Lazer Epilasyon" class="w-full h-full object-cover opacity-80">
+                    </div>
+                    <div class="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 hero-text">
+                        <span class="text-brand-accent text-sm font-bold uppercase tracking-[0.4em] mb-4 block">Kalıcı Çözümler</span>
+                        <h1 class="text-5xl md:text-7xl font-serif text-brand-dark max-w-3xl leading-[1.1] mb-6">
+                            Buz Lazer ile <br><span class="gold-gradient-text">Acısız Epilasyon.</span>
+                        </h1>
+                        <p class="text-lg text-brand-gray max-w-xl mb-10 font-light leading-relaxed">
+                            Son teknoloji FDA onaylı cihazlarımızla 4 mevsim uygulanabilen, konforlu ve kesin sonuç odaklı epilasyon ve bölgesel zayıflama deneyimi.
+                        </p>
+                        <a href="#fiyatlar" class="btn-primary">Paket Fiyatları</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="absolute bottom-10 left-10 lg:left-20 z-20 flex gap-4">
+                <button class="w-12 h-12 rounded-full border border-brand-accent/50 flex items-center justify-center text-brand-accent hover:bg-brand-accent hover:text-brand-dark transition-colors hero-prev">
+                    <i class="ph-light ph-arrow-left text-xl"></i>
+                </button>
+                <button class="w-12 h-12 rounded-full border border-brand-accent/50 flex items-center justify-center text-brand-accent hover:bg-brand-accent hover:text-brand-dark transition-colors hero-next">
+                    <i class="ph-light ph-arrow-right text-xl"></i>
+                </button>
+            </div>
+            <div class="swiper-pagination-hero absolute bottom-14 right-10 lg:right-20 z-20 flex gap-2"></div>
+        </div>
+    </section>
+
+    <!-- 4. WELCOME / HAKKIMIZDA -->
+    <section id="hakkimizda" class="py-32 bg-brand-light border-b border-brand-accent/10">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-20">
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
+                    <div class="relative z-10 p-4 border border-brand-accent/30 rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Güzellik Salonu" class="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-1000">
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 bg-brand-primary p-10 border border-brand-accent/20 hidden md:block z-20 shadow-2xl">
+                        <h4 class="font-serif text-4xl mb-2 gold-gradient-text font-bold">10+</h4>
+                        <p class="text-xs uppercase tracking-[0.2em] text-brand-gray">Yıllık Güzellik <br>Uzmanlığı</p>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <div class="inline-flex items-center gap-4 mb-6">
+                        <span class="w-16 h-[1px] bg-brand-accent"></span>
+                        <span class="text-xs uppercase tracking-[0.3em] font-bold text-brand-accent">Mehtap İşler İmzası</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-serif text-brand-dark mb-8 leading-tight">
+                        Sivas'ın Referans <br>Güzellik Noktası.
+                    </h2>
+                    <p class="text-brand-gray mb-6 leading-relaxed font-light text-lg">
+                        Kuaförlük ve estetiği tek bir çatı altında birleştiren vizyonumuzla, Sivaslı kadınların güzellik rutinine yepyeni bir soluk getirdik. Bizim için her danışanımız özeldir.
+                    </p>
+                    <p class="text-brand-gray mb-10 leading-relaxed font-light">
+                        Kaliteden asla ödün vermeden; kullandığımız tüm medikal cilt bakım ürünlerinde dünya markalarını, cihazlarımızda ise FDA ve CE onaylı son teknolojileri tercih ediyoruz. Phibrows kalıcı makyajdan, buz lazer epilasyona kadar geniş hizmet yelpazemizle aynadaki yansımanızı mükemmelleştiriyoruz.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-10">
+                        <div class="flex items-start gap-4">
+                            <i class="ph-light ph-sparkle text-3xl text-brand-accent"></i>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-sm mb-1 uppercase tracking-wider">Premium Ürünler</h4>
+                                <p class="text-xs text-brand-gray">Sadece profesyonel salon markaları.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="ph-light ph-certificate text-3xl text-brand-accent"></i>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-sm mb-1 uppercase tracking-wider">Uzman Kadro</h4>
+                                <p class="text-xs text-brand-gray">Sertifikalı estetisyenler ve ustalar.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#hizmetler" class="btn-outline">Neler Yapıyoruz?</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. HİZMET VİTRİNİ (MEGA GRID) -->
+    <section id="hizmetler" class="py-32 bg-brand-primary">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <span class="text-brand-accent text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Size Özel</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-brand-dark">A'dan Z'ye Estetik Çözümler</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Lazer -->
+                <div class="service-card bg-brand-primary p-10 relative overflow-hidden group" data-aos="fade-up">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-30 transition-opacity">
+                        <i class="ph-fill ph-sun text-8xl text-brand-accent"></i>
+                    </div>
+                    <div class="w-14 h-14 rounded-full bg-white border border-brand-accent/30 flex items-center justify-center mb-8 relative z-10">
+                        <i class="ph-light ph-lightning text-2xl text-brand-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-brand-dark mb-4 relative z-10">Lazer Epilasyon</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed mb-6 relative z-10">Her cilt ve kıl tipine uygun, 4 mevsim uygulanabilen, buz başlık teknolojisiyle sıfır acı vadeden kalıcı epilasyon çözümleri.</p>
+                    <a href="https://wa.me/905528646458" class="text-brand-accent text-xs font-bold uppercase tracking-widest hover:text-brand-dark transition-colors relative z-10">Fiyat Al <i class="ph-bold ph-arrow-right"></i></a>
+                </div>
+
+                <!-- Cilt Bakımı -->
+                <div class="service-card bg-brand-primary p-10 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-30 transition-opacity">
+                        <i class="ph-fill ph-drop text-8xl text-brand-accent"></i>
+                    </div>
+                    <div class="w-14 h-14 rounded-full bg-white border border-brand-accent/30 flex items-center justify-center mb-8 relative z-10">
+                        <i class="ph-light ph-magic-wand text-2xl text-brand-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-brand-dark mb-4 relative z-10">Medikal Cilt Bakımı</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed mb-6 relative z-10">Hydrafacial, derin gözenek temizliği, akne protokolleri ve leke tedavileri ile cildinizin ihtiyacı olan oksijeni ve nemi geri kazandırıyoruz.</p>
+                    <a href="https://wa.me/905528646458" class="text-brand-accent text-xs font-bold uppercase tracking-widest hover:text-brand-dark transition-colors relative z-10">Analiz Randevusu <i class="ph-bold ph-arrow-right"></i></a>
+                </div>
+
+                <!-- Phibrows & Kalıcı Makyaj -->
+                <div class="service-card bg-brand-primary p-10 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-30 transition-opacity">
+                        <i class="ph-fill ph-pen text-8xl text-brand-accent"></i>
+                    </div>
+                    <div class="w-14 h-14 rounded-full bg-white border border-brand-accent/30 flex items-center justify-center mb-8 relative z-10">
+                        <i class="ph-light ph-paint-brush text-2xl text-brand-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-brand-dark mb-4 relative z-10">Phibrows & Kalıcı Makyaj</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed mb-6 relative z-10">Altın oran kaş tasarımı (Microblading), dudak renklendirme ve dipliner işlemleriyle sabahları makyaj yapma derdine son verin.</p>
+                    <a href="https://wa.me/905528646458" class="text-brand-accent text-xs font-bold uppercase tracking-widest hover:text-brand-dark transition-colors relative z-10">Bilgi Al <i class="ph-bold ph-arrow-right"></i></a>
+                </div>
+
+                <!-- Zayıflama -->
+                <div class="service-card bg-brand-primary p-10 relative overflow-hidden group" data-aos="fade-up">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-30 transition-opacity">
+                        <i class="ph-fill ph-activity text-8xl text-brand-accent"></i>
+                    </div>
+                    <div class="w-14 h-14 rounded-full bg-white border border-brand-accent/30 flex items-center justify-center mb-8 relative z-10">
+                        <i class="ph-light ph-waves text-2xl text-brand-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-brand-dark mb-4 relative z-10">Bölgesel Zayıflama</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed mb-6 relative z-10">G5 masajı, lenf drenaj ve radyofrekans uygulamalarıyla selülit tedavisi ve gözle görülür bölgesel incelme programları.</p>
+                </div>
+
+                <!-- Tırnak & Kirpik -->
+                <div class="service-card bg-brand-primary p-10 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-30 transition-opacity">
+                        <i class="ph-fill ph-hand text-8xl text-brand-accent"></i>
+                    </div>
+                    <div class="w-14 h-14 rounded-full bg-white border border-brand-accent/30 flex items-center justify-center mb-8 relative z-10">
+                        <i class="ph-light ph-scissors text-2xl text-brand-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-brand-dark mb-4 relative z-10">Protez Tırnak & Kirpik</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed mb-6 relative z-10">Kusursuz protez tırnak tasarımları, kalıcı oje, ipek kirpik ve kirpik lifting (laminasyon) ile bakışlarınızı ve ellerinizi vurgulayın.</p>
+                </div>
+
+                <!-- Lifting & Diğer -->
+                <div class="service-card bg-brand-primary p-10 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-30 transition-opacity">
+                        <i class="ph-fill ph-eye text-8xl text-brand-accent"></i>
+                    </div>
+                    <div class="w-14 h-14 rounded-full bg-white border border-brand-accent/30 flex items-center justify-center mb-8 relative z-10">
+                        <i class="ph-light ph-eye text-2xl text-brand-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-brand-dark mb-4 relative z-10">Lifting & Manikür</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed mb-6 relative z-10">Medikal manikür/pedikür, kaş laminasyonu ve profesyonel kaş bıyık alımı gibi rutin güzellik ihtiyaçlarınız için steril çözümler.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. KUAFÖR HİZMETLERİ (ÖZEL BÖLÜM) -->
+    <section id="kuafor" class="py-32 bg-brand-light relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-1/3 h-full bg-[url('https://images.unsplash.com/photo-1595476108010-b4d1f10d5e43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center opacity-20 hidden lg:block border-l border-brand-accent/30"></div>
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="w-full lg:w-2/3">
+                <div class="inline-flex items-center gap-4 mb-6" data-aos="fade-up">
+                    <span class="w-16 h-[1px] bg-brand-accent"></span>
+                    <span class="text-xs uppercase tracking-[0.3em] font-bold text-brand-accent">Saç Tasarım Departmanı</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-serif text-brand-dark mb-8 leading-tight" data-aos="fade-up" data-aos-delay="100">
+                    Saçlarınız En Güzel <br>Aksesuarınızdır.
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <h4 class="text-xl font-serif text-brand-accent mb-3">Renklendirme & Ombre</h4>
+                        <p class="text-brand-gray text-sm font-light leading-relaxed">Saç bağlarını koruyan özel açıcılarla yıpranmasız sarılar, kusursuz geçişlere sahip ombre, sombre ve röfle işlemleri.</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <h4 class="text-xl font-serif text-brand-accent mb-3">Kesim & Şekillendirme</h4>
+                        <p class="text-brand-gray text-sm font-light leading-relaxed">Yüz hatlarınıza uygun anatomik kesimler, profesyonel fön, maşa ve özel gün topuz tasarımları.</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="400">
+                        <h4 class="text-xl font-serif text-brand-accent mb-3">Gelin Başı & Makyaj</h4>
+                        <p class="text-brand-gray text-sm font-light leading-relaxed">En mutlu gününüzde profesyonel porselen makyaj ve tüm gün bozulmayan gelin saçı tasarımları.</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="500">
+                        <h4 class="text-xl font-serif text-brand-accent mb-3">Saç Bakım Kürleri</h4>
+                        <p class="text-brand-gray text-sm font-light leading-relaxed">Keratin bakım, botoks yüklemesi ve yıpranmış saçlar için anında etki eden yoğun onarım protokolleri.</p>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/905528646458" class="btn-primary" data-aos="fade-up">Saç Analizi İçin Randevu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PAKETLER / FİYATLANDIRMA -->
+    <section id="fiyatlar" class="py-32 bg-brand-primary">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-serif text-brand-dark mb-4">Avantajlı Paketlerimiz</h2>
+                <p class="text-brand-gray max-w-2xl mx-auto font-light">Tüm vücut dönüşümünüz için hazırladığımız özel kombinasyonlar.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Paket 1 -->
+                <div class="border border-brand-accent/20 bg-brand-primary p-10 hover:border-brand-accent transition-colors relative" data-aos="fade-up">
+                    <h3 class="text-2xl font-serif text-brand-dark mb-2">Lazer Paketi</h3>
+                    <p class="text-brand-gray text-sm mb-6">Tüm Vücut 8 Seans</p>
+                    <div class="text-3xl font-bold text-brand-accent mb-8">Kampanyalı Fiyat Sorun</div>
+                    <ul class="space-y-4 mb-10 text-sm text-brand-gray">
+                        <li class="flex items-center gap-3"><i class="ph-bold ph-check text-brand-accent"></i> Tüm Vücut Bölgesi</li>
+                        <li class="flex items-center gap-3"><i class="ph-bold ph-check text-brand-accent"></i> 8 Seans Tam Uygulama</li>
+                        <li class="flex items-center gap-3"><i class="ph-bold ph-check text-brand-accent"></i> Dökülme Garantili</li>
+                        <li class="flex items-center gap-3"><i class="ph-bold ph-check text-brand-accent"></i> Sıfır Acı (Buz Başlık)</li>
+                    </ul>
+                    <a href="https://wa.me/905528646458" class="btn-outline w-full justify-center">Bilgi Al</a>
+                </div>
+
+                <!-- Paket 2 VIP -->
+                <div class="border-2 border-brand-accent bg-brand-primary p-10 relative transform md:-translate-y-6 shadow-glow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-accent text-brand-dark text-xs font-bold uppercase tracking-widest px-4 py-1 rounded">En Çok Tercih Edilen</div>
+                    <h3 class="text-2xl font-serif text-brand-dark mb-2">Gelin Paketi VIP</h3>
+                    <p class="text-brand-gray text-sm mb-6">Büyük Güne Hazırlık</p>
+                    <div class="text-3xl font-bold text-brand-accent mb-8">Özel Fiyatlandırma</div>
+                    <ul class="space-y-4 mb-10 text-sm text-brand-gray">
+                        <li class="flex items-center gap-3"><i class="ph-bold ph-check text-brand-accent"></i> Porselen Makyaj & Gelin Başı</li>
+                        <li class="flex items-center gap-3"><i class="ph-bold ph-check text-brand-accent"></i> Klasik Medikal Cilt Bakımı</li>
+                        <li class="flex items-center gap-3"><i class="ph-bold ph-check text-brand-accent"></i> Protez Tırnak veya Kalıcı Oje</li>
+                        <li class="flex items-center gap-3"><i class="ph-bold ph-check text-brand-accent"></i> İpek Kirpik Seti</li>
+                    </ul>
+                    <a href="https://wa.me/905528646458" class="btn-primary w-full justify-center">Randevu Al</a>
+                </div>
+
+                <!-- Paket 3 -->
+                <div class="border border-brand-accent/20 bg-brand-primary p-10 hover:border-brand-accent transition-colors relative" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-serif text-brand-dark mb-2">Dönüşüm Paketi</h3>
+                    <p class="text-brand-gray text-sm mb-6">Cilt & Zayıflama Birlikte</p>
+                    <div class="text-3xl font-bold text-brand-accent mb-8">Görüşme İle Belirlenir</div>
+                    <ul class="space-y-4 mb-10 text-sm text-brand-gray">
+                        <li class="flex items-center gap-3"><i class="ph-bold ph-check text-brand-accent"></i> 4 Seans Hydrafacial</li>
+                        <li class="flex items-center gap-3"><i class="ph-bold ph-check text-brand-accent"></i> 8 Seans G5 Selülit Masajı</li>
+                        <li class="flex items-center gap-3"><i class="ph-bold ph-check text-brand-accent"></i> 8 Seans Lenf Drenaj</li>
+                        <li class="flex items-center gap-3"><i class="ph-bold ph-check text-brand-accent"></i> Vücut Analizi Hediyesi</li>
+                    </ul>
+                    <a href="https://wa.me/905528646458" class="btn-outline w-full justify-center">Bilgi Al</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. INSTAGRAM FEED / GÖRSELLER (Simüle) -->
+    <section class="py-20 bg-brand-light border-y border-brand-accent/20">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-10" data-aos="fade-up">
+                <div>
+                    <h2 class="text-3xl font-serif text-brand-dark mb-2">Bizi Instagram'da Takip Edin</h2>
+                    <a href="#" class="text-brand-accent flex items-center gap-2 hover:text-brand-dark transition-colors">@mi_guzellikmerkezisivas</a>
+                </div>
+                <a href="#" class="btn-outline hidden md:flex"><i class="ph-fill ph-instagram-logo"></i> Takip Et</a>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="aspect-square relative group overflow-hidden cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Makyaj">
+                    <div class="absolute inset-0 bg-white/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="ph-fill ph-instagram-logo text-brand-dark text-4xl"></i>
+                    </div>
+                </div>
+                <div class="aspect-square relative group overflow-hidden cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Cilt Bakımı">
+                    <div class="absolute inset-0 bg-white/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="ph-fill ph-instagram-logo text-brand-dark text-4xl"></i>
+                    </div>
+                </div>
+                <div class="aspect-square relative group overflow-hidden cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Tırnak">
+                    <div class="absolute inset-0 bg-white/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="ph-fill ph-instagram-logo text-brand-dark text-4xl"></i>
+                    </div>
+                </div>
+                <div class="aspect-square relative group overflow-hidden cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Saç">
+                    <div class="absolute inset-0 bg-white/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="ph-fill ph-instagram-logo text-brand-dark text-4xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. İLETİŞİM & HARİTA -->
+    <section id="iletisim" class="py-32 bg-white relative">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center gap-4 mb-6">
+                        <span class="w-16 h-[1px] bg-brand-accent"></span>
+                        <span class="text-xs uppercase tracking-[0.3em] font-bold text-brand-accent">Bize Ulaşın</span>
+                    </div>
+                    <h2 class="text-4xl font-serif text-brand-dark mb-10">Güzelliğe Randevu Alın</h2>
+                    
+                    <div class="space-y-8 mb-10">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full border border-brand-accent/30 flex items-center justify-center text-brand-accent shrink-0">
+                                <i class="ph-fill ph-phone-call text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-brand-dark font-bold mb-1 uppercase tracking-widest text-xs">Telefon & WhatsApp</h4>
+                                <a href="tel:+905528646458" class="text-brand-gray hover:text-brand-accent transition-colors text-lg">0552 864 64 58</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full border border-brand-accent/30 flex items-center justify-center text-brand-accent shrink-0">
+                                <i class="ph-fill ph-map-pin text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-brand-dark font-bold mb-1 uppercase tracking-widest text-xs">Adres</h4>
+                                <p class="text-brand-gray leading-relaxed text-sm">Sivas Merkez, Türkiye<br>(Detaylı yol tarifi için WhatsApp'tan yazabilirsiniz)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full border border-brand-accent/30 flex items-center justify-center text-brand-accent shrink-0">
+                                <i class="ph-fill ph-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-brand-dark font-bold mb-1 uppercase tracking-widest text-xs">Çalışma Saatleri</h4>
+                                <p class="text-brand-gray text-sm">Pzt - Cmt: 09:00 - 19:30<br>Pazar: Sadece randevu ile</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/905528646458" class="btn-primary w-full md:w-auto text-center justify-center">WhatsApp Üzerinden Konum İste</a>
+                </div>
+
+                <div class="h-[500px] w-full border border-brand-accent/20 relative" data-aos="fade-left">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12175.760193154865!2d37.0163351!3d39.7554903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407eaa0a96ef8b13%3A0xcdaee506b3a32f6!2zS2FyZGXFn2xlciwgU2l2YXMgTWVya2V6L1NpdmFz!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="grayscale hover:grayscale-0 transition-all duration-700"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. MEGA FOOTER -->
+    <footer class="bg-brand-light pt-20 pb-10 border-t border-brand-dark/5">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Col 1 -->
+                <div>
+                    <a href="#" class="flex flex-col mb-6">
+                        <span class="font-serif font-bold text-2xl tracking-widest text-brand-dark leading-none">MEHTAP İŞLER</span>
+                        <span class="text-[8px] tracking-[0.4em] uppercase text-brand-accent mt-1">Kuaför & Güzellik Salonu</span>
+                    </a>
+                    <p class="text-brand-gray font-light text-sm leading-relaxed mb-6">
+                        Sivas'ın yenilikçi, profesyonel ve müşteri memnuniyeti odaklı 1 numaralı güzellik merkezi.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full border border-brand-dark/10 flex items-center justify-center text-brand-gray hover:text-brand-accent hover:border-brand-accent transition-all"><i class="ph-fill ph-instagram-logo"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-brand-dark/10 flex items-center justify-center text-brand-gray hover:text-brand-accent hover:border-brand-accent transition-all"><i class="ph-fill ph-facebook-logo"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="font-bold text-brand-dark uppercase tracking-widest text-xs mb-6">Hizmetlerimiz</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-brand-gray text-sm hover:text-brand-accent transition-colors">Buz Lazer Epilasyon</a></li>
+                        <li><a href="#" class="text-brand-gray text-sm hover:text-brand-accent transition-colors">Medikal Cilt Bakımı</a></li>
+                        <li><a href="#" class="text-brand-gray text-sm hover:text-brand-accent transition-colors">Kalıcı Makyaj & Phibrows</a></li>
+                        <li><a href="#" class="text-brand-gray text-sm hover:text-brand-accent transition-colors">Kuaför & Saç Tasarım</a></li>
+                        <li><a href="#" class="text-brand-gray text-sm hover:text-brand-accent transition-colors">Protez Tırnak</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="font-bold text-brand-dark uppercase tracking-widest text-xs mb-6">Hızlı Menü</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#hakkimizda" class="text-brand-gray text-sm hover:text-brand-accent transition-colors">Hakkımızda</a></li>
+                        <li><a href="#fiyatlar" class="text-brand-gray text-sm hover:text-brand-accent transition-colors">Kampanyalar & Paketler</a></li>
+                        <li><a href="#iletisim" class="text-brand-gray text-sm hover:text-brand-accent transition-colors">İletişim</a></li>
+                        <li><a href="#" class="text-brand-gray text-sm hover:text-brand-accent transition-colors">Gizlilik Politikası</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Col 4 -->
+                <div>
+                    <h4 class="font-bold text-brand-dark uppercase tracking-widest text-xs mb-6">E-Bülten</h4>
+                    <p class="text-brand-gray text-sm mb-4">Aylık kampanyalarımızdan haberdar olmak için abone olun.</p>
+                    <form class="flex" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="E-posta adresiniz" class="bg-white/5 border border-brand-dark/10 px-4 py-2 text-sm text-brand-dark focus:outline-none focus:border-brand-accent w-full">
+                        <button type="submit" class="bg-brand-accent text-brand-dark px-4 font-bold hover:bg-white transition-colors"><i class="ph-bold ph-paper-plane-right"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-brand-dark/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light text-brand-gray">
+                <p>© 2026 Mehtap İşler Güzellik Salonu. Tüm Hakları Saklıdır.</p>
+                <div class="flex gap-4">
+                    <span>Designed exclusively for Mehtap İşler</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Action -->
+    <a href="https://wa.me/905528646458" target="_blank" class="fixed bottom-8 right-8 z-[9999] bg-[#25D366] text-brand-dark w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-500 group border border-brand-dark/20" style="animation: pulse-wa 2s infinite;">
+        <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+        <span class="absolute -top-12 right-0 bg-white text-brand-accent border border-brand-accent text-xs font-bold px-4 py-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap uppercase tracking-widest">Randevu Al</span>
+    </a>
+
+    <!-- Scroll Top -->
+    <button id="scrollToTop" class="fixed bottom-28 right-8 z-[9998] bg-brand-primary border border-brand-accent/30 text-brand-accent w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-brand-accent hover:text-brand-dark">
+        <i class="ph-bold ph-caret-up text-lg"></i>
+    </button>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // AOS Init
+        AOS.init({ once: true, offset: 50, duration: 800 });
+
+        // Hero Swiper
+        const heroSwiper = new Swiper('.hero-swiper', {
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
+            speed: 1500,
+            loop: true,
+            autoplay: { delay: 5000, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination-hero', clickable: true },
+            navigation: {
+                nextEl: '.hero-next',
+                prevEl: '.hero-prev',
+            },
+        });
+
+        // Navbar & Scroll to Top
+        const navbar = document.getElementById('navbar');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navbar.style.background = 'rgba(253, 241, 227, 0.98)';
+                navbar.classList.add('shadow-2xl', 'top-0');
+            } else {
+                navbar.style.background = 'rgba(253, 241, 227, 0.95)';
+                navbar.classList.remove('shadow-2xl', 'top-0');
+            }
+            
+            if (window.scrollY > 500) {
+                scrollToTopBtn.classList.remove('opacity-0', 'invisible');
+                scrollToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                scrollToTopBtn.classList.add('opacity-0', 'invisible');
+                scrollToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
