@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizyoPanel Pro | Klinik Yönetim & Personel Paneli</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#125b4c',        /* Deep Clinical Emerald */
+                        primaryLight: '#1e826e',
+                        primaryDark: '#0a3d32',
+                        accent: '#d4a86a',         /* Champagne Gold */
+                        accentLight: '#f5eedf',
+                        surface: '#ffffff',
+                        surfaceAlt: '#f8faf9',
+                        textMain: '#1c2b26',
+                        textMuted: '#536b63',
+                        danger: '#e11d48',
+                        success: '#10b981',
+                        warning: '#f59e0b'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f0f4f2;
+            color: #1c2b26;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        
+        .sidebar-item { cursor: pointer; transition: all 0.2s ease; }
+        .sidebar-item.active {
+            background: linear-gradient(90deg, rgba(212, 168, 106, 0.2) 0%, rgba(212, 168, 106, 0.05) 100%) !important;
+            color: #d4a86a !important;
+            border-left: 4px solid #d4a86a;
+        }
+        .bento-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(18, 91, 76, 0.04);
+            border: 1px solid rgba(18, 91, 76, 0.06);
+            transition: all 0.25s ease;
+        }
+        .bento-card:hover { box-shadow: 0 12px 30px rgba(18, 91, 76, 0.08); }
+        .view-section { display: none; }
+        .view-section.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Dynamic Calendar Grid */
+        .calendar-grid { display: grid; grid-template-columns: 75px repeat(6, 1fr); gap: 1px; background: #cbd5e1; border-radius: 16px; overflow: hidden; }
+        .cal-header { background: #f8faf9; padding: 12px 8px; text-align: center; font-weight: 700; color: #0a3d32; font-size: 0.85rem; }
+        .cal-header.today-header { background: #125b4c; color: white; }
+        .cal-time { background: #f8faf9; padding: 10px 6px; text-align: right; font-weight: 600; color: #536b63; font-size: 0.8rem; }
+        .cal-cell { background: #ffffff; padding: 6px; min-height: 80px; position: relative; cursor: pointer; transition: background 0.15s; }
+        .cal-cell:hover { background: #f1f5f9; }
+        .cal-cell-add-icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.15s; color: #125b4c; font-size: 1.2rem; }
+        .cal-cell:hover .cal-cell-add-icon { opacity: 0.25; }
+        
+        .apt-card {
+            border-left: 4px solid var(--primary);
+            background: rgba(18, 91, 76, 0.09);
+            padding: 6px 8px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 4px;
+            position: relative;
+            z-index: 2;
+        }
+        .apt-card:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.12); }
+        
+        /* Modal Backdrop */
+        .modal-backdrop {
+            position: fixed; inset: 0; background: rgba(10, 61, 50, 0.65);
+            backdrop-filter: blur(6px); z-index: 50; display: none;
+            align-items: center; justify-content: center; padding: 16px;
+        }
+        .modal-backdrop.active { display: flex; animation: fadeIn 0.2s ease; }
+    </style>
+</head>
+<body class="antialiased h-screen flex overflow-hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-primaryDark text-white flex flex-col h-full shadow-2xl relative z-20 shrink-0 hidden md:flex">
+        <!-- Logo -->
+        <div class="h-20 flex items-center px-6 border-b border-white/10">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primaryLight flex items-center justify-center text-accent shadow-lg mr-3">
+                <i class="fa-solid fa-leaf text-xl"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-lg leading-tight tracking-wide">Fizyo<span class="text-accent">Panel</span></h1>
+                <span class="text-[10px] bg-accent/20 text-accent font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider">Kurumsal ERP v2</span>
+            </div>
+        </div>
+        
+        <!-- Navigation Menu -->
+        <nav class="flex-1 overflow-y-auto py-4 flex flex-col gap-1 px-3">
+            <p class="text-[10px] font-bold text-white/40 uppercase tracking-widest px-3 mb-1">Klinik Yönetimi</p>
+            
+            <a onclick="switchView('dashboard', this)" class="sidebar-item active text-white/80 hover:text-white flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium">
+                <i class="fa-solid fa-chart-pie w-5 text-center"></i> Dashboard (Genel Bakış)
+            </a>
+            
+            <a onclick="switchView('appointments', this)" class="sidebar-item text-white/80 hover:text-white flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium">
+                <div class="flex items-center gap-3"><i class="fa-solid fa-calendar-check w-5 text-center"></i> Randevular & Takvim</div>
+                <span id="aptCountBadge" class="bg-accent text-primaryDark text-xs px-2 py-0.5 rounded-full font-bold">0</span>
+            </a>
+
+            <a onclick="switchView('webOnlineApts', this)" class="sidebar-item text-white/80 hover:text-white flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium">
+                <div class="flex items-center gap-3"><i class="fa-solid fa-globe w-5 text-center text-emerald-400"></i> Online Randevu Talepleri</div>
+                <span class="bg-emerald-500 text-white text-xs px-2 py-0.5 rounded-full font-bold">2 Yeni</span>
+            </a>
+            
+            <a onclick="switchView('patients', this)" class="sidebar-item text-white/80 hover:text-white flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium">
+                <i class="fa-solid fa-hospital-user w-5 text-center"></i> Danışan Dosyaları & Anamnez
+            </a>
+
+            <p class="text-[10px] font-bold text-white/40 uppercase tracking-widest px-3 mt-4 mb-1">Tedavi & Ölçüm</p>
+
+            <a onclick="switchView('measurements', this)" class="sidebar-item text-white/80 hover:text-white flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium">
+                <i class="fa-solid fa-ruler-combined w-5 text-center text-amber-400"></i> ROM, Postür & Kas Testi
+            </a>
+            
+            <a onclick="switchView('exercises', this)" class="sidebar-item text-white/80 hover:text-white flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium">
+                <i class="fa-solid fa-dumbbell w-5 text-center text-emerald-400"></i> Ev Egzersizi Reçeteleri
+            </a>
+
+            <a onclick="switchView('forms', this)" class="sidebar-item text-white/80 hover:text-white flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium">
+                <i class="fa-solid fa-file-signature w-5 text-center text-blue-400"></i> Onam Formu & İmza
+            </a>
+
+            <p class="text-[10px] font-bold text-white/40 uppercase tracking-widest px-3 mt-4 mb-1">Kurum & Raporlar</p>
+            
+            <a onclick="switchView('reports', this)" class="sidebar-item text-white/80 hover:text-white flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium">
+                <i class="fa-solid fa-file-pdf w-5 text-center"></i> İlerleme Raporları
+            </a>
+
+            <a onclick="switchView('staff', this)" class="sidebar-item text-white/80 hover:text-white flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium">
+                <i class="fa-solid fa-user-doctor w-5 text-center text-accent"></i> Personel & Vardiya Saatleri
+            </a>
+
+            <a onclick="switchView('settings', this)" class="sidebar-item text-white/80 hover:text-white flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium">
+                <i class="fa-solid fa-sliders w-5 text-center"></i> Şubeler, API & Güvenlik
+            </a>
+
+
+
+            <!-- Return to site -->
+            <a href="fizyofit_bagdat_demo.html" class="mt-auto bg-white/10 hover:bg-white/20 text-white flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all border border-white/10">
+                <span>Siteye Dön</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-accent"></i>
+            </a>
+        </nav>
+        
+        <!-- User Profile Footer -->
+        <div class="p-4 border-t border-white/10 bg-black/20 flex items-center gap-3">
+            <img src="https://images.pexels.com/photos/5327656/pexels-photo-5327656.jpeg?auto=compress&cs=tinysrgb&w=150" class="w-9 h-9 rounded-full border-2 border-accent object-cover">
+            <div>
+                <h4 class="text-xs font-bold text-white leading-tight">Fzt. Rümeysa S.</h4>
+                <p class="text-[10px] text-accent">Klinik Kurucusu / Admin</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-1 flex flex-col h-full overflow-hidden">
+        
+        <!-- HEADER -->
+        <header class="bg-white/90 backdrop-blur-md h-16 px-8 flex items-center justify-between shrink-0 border-b border-primary/10 z-10">
+            <div class="flex items-center gap-6 flex-1">
+                <h2 id="headerTitle" class="text-xl font-bold text-primaryDark tracking-tight whitespace-nowrap">Klinik Genel Bakış (Dashboard)</h2>
+                
+                <!-- Global Search -->
+                <div class="hidden md:flex items-center bg-surfaceAlt border border-gray-200 rounded-full px-4 py-1.5 w-64 focus-within:ring-2 ring-primary/20 focus-within:border-primary/30 transition-all">
+                    <i class="fa-solid fa-magnifying-glass text-gray-400 text-xs"></i>
+                    <input type="text" placeholder="Hasta, telefon veya not ara..." class="bg-transparent border-none outline-none text-xs ml-2 w-full text-textMain placeholder-gray-400">
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <span class="hidden lg:inline-flex bg-primary/10 text-primary px-2.5 py-0.5 rounded-full text-[11px] font-bold"><i class="fa-solid fa-location-dot mr-1"></i> Bağdat Cad.</span>
+                
+                <!-- Notifications / Logs -->
+                <button class="relative w-9 h-9 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-500 transition-colors" onclick="showToast('Sistem logları ve bildirimler yakında eklenecek.')">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="absolute top-2 right-2 w-2 h-2 bg-danger rounded-full border-2 border-white"></span>
+                </button>
+
+                <div class="h-6 w-px bg-gray-200 mx-1"></div>
+
+                <button onclick="openModal('addPatientModal')" class="bg-accent text-primaryDark px-4 py-2 rounded-xl font-bold text-xs hover:bg-white border border-accent hover:border-accent transition-all shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-user-plus"></i> <span class="hidden sm:inline">Yeni Danışan</span>
+                </button>
+                <button onclick="openApptModalWithDefaults()" class="bg-primary text-white px-4 py-2 rounded-xl font-semibold text-xs hover:bg-primaryLight transition-all shadow flex items-center gap-1.5">
+                    <i class="fa-solid fa-calendar-plus"></i> + Randevu Oluştur
+                </button>
+            </div>
+        </header>
+
+        <!-- CONTENT AREA -->
+        <div class="flex-1 overflow-y-auto p-6 md:p-8">
+            <div class="max-w-[1500px] mx-auto">
+                
+                <!-- ================= VIEW 1: DASHBOARD ================= -->
+                <div id="view-dashboard" class="view-section active">
+                    
+                    <!-- Quick Metrics -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-5 mb-6">
+                        <div class="bento-card p-5 border-l-4 border-l-primary">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-xs font-bold text-textMuted uppercase">Kayıtlı Danışan Sayısı</span>
+                                <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center"><i class="fa-solid fa-users text-sm"></i></div>
+                            </div>
+                            <p class="text-2xl font-extrabold text-primaryDark" id="statPatientCount">1,420</p>
+                            <p class="text-[11px] text-success font-semibold mt-1"><i class="fa-solid fa-arrow-up mr-1"></i> Canlı Veritabanı</p>
+                        </div>
+
+                        <div class="bento-card p-5 border-l-4 border-l-accent">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-xs font-bold text-textMuted uppercase">Takvimdeki Randevu</span>
+                                <div class="w-8 h-8 rounded-lg bg-accent/20 text-accentDark flex items-center justify-center"><i class="fa-solid fa-calendar-day text-sm"></i></div>
+                            </div>
+                            <p class="text-2xl font-extrabold text-primaryDark" id="statApptCount">0</p>
+                            <p class="text-[11px] text-textMuted font-semibold mt-1">Aktif Planlanan</p>
+                        </div>
+
+                        <div class="bento-card p-5 border-l-4 border-l-emerald-500">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-xs font-bold text-textMuted uppercase">No-Show Oranı</span>
+                                <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center"><i class="fa-solid fa-user-check text-sm"></i></div>
+                            </div>
+                            <p class="text-2xl font-extrabold text-primaryDark">%1.8</p>
+                            <p class="text-[11px] text-success font-semibold mt-1">WhatsApp Hatırlatma Aktif</p>
+                        </div>
+
+                        <div class="bento-card p-5 border-l-4 border-l-blue-500">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-xs font-bold text-textMuted uppercase">Atanan Ev Egzersizi</span>
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-dumbbell text-sm"></i></div>
+                            </div>
+                            <p class="text-2xl font-extrabold text-primaryDark">312 Danışan</p>
+                            <p class="text-[11px] text-textMuted font-semibold mt-1">YouTube Entegrasyonlu</p>
+                        </div>
+                    </div>
+
+                    <!-- Charts & Queue -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="bento-card p-6 lg:col-span-2">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-base font-bold text-primaryDark">Haftalık Klinik Seans Dağılımı</h3>
+                                <span class="text-xs bg-surfaceAlt px-3 py-1 rounded-lg font-semibold border border-primary/10">Canlı Analiz</span>
+                            </div>
+                            <div class="h-[260px]">
+                                <canvas id="dashboardChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Today's Queue -->
+                        <div class="bento-card p-6 flex flex-col">
+                            <h3 class="text-base font-bold text-primaryDark mb-4">Bugünkü Seans Akışı & Check-in</h3>
+                            <div class="space-y-3 overflow-y-auto flex-1 max-h-[260px]" id="todayQueueList">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Dashboard Widgets -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                        <!-- Birthdays -->
+                        <div class="bento-card p-5">
+                            <div class="flex items-center gap-2 mb-4 border-b border-gray-100 pb-3">
+                                <i class="fa-solid fa-cake-candles text-rose-400"></i>
+                                <h3 class="font-bold text-sm text-primaryDark">Yaklaşan Doğum Günleri</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 bg-rose-50 text-rose-600 rounded-full flex items-center justify-center font-bold text-[10px]">MY</div>
+                                        <div><p class="text-xs font-bold">Merve Yılmaz</p><p class="text-[10px] text-gray-500">Bugün!</p></div>
+                                    </div>
+                                    <button class="text-[10px] bg-rose-100 text-rose-700 px-2 py-1 rounded-full font-bold hover:bg-rose-200">Kutla</button>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 bg-gray-100 text-gray-600 rounded-full flex items-center justify-center font-bold text-[10px]">AK</div>
+                                        <div><p class="text-xs font-bold">Ali Kaya</p><p class="text-[10px] text-gray-500">Yarın</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Staff Logins -->
+                        <div class="bento-card p-5">
+                            <div class="flex items-center gap-2 mb-4 border-b border-gray-100 pb-3">
+                                <i class="fa-solid fa-user-clock text-blue-500"></i>
+                                <h3 class="font-bold text-sm text-primaryDark">Son Giriş Yapan Personel</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-[10px]"><i class="fa-solid fa-user-doctor"></i></div>
+                                        <div><p class="text-xs font-bold">Fzt. Rümeysa S.</p><p class="text-[10px] text-gray-500">Şimdi Aktif</p></div>
+                                    </div>
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 border border-white"></span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 bg-gray-200 text-gray-600 rounded-full flex items-center justify-center font-bold text-[10px]"><i class="fa-solid fa-desktop"></i></div>
+                                        <div><p class="text-xs font-bold">Sekreter Aslı</p><p class="text-[10px] text-gray-500">10 dk önce</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Week Overview -->
+                        <div class="bento-card p-5">
+                            <div class="flex items-center gap-2 mb-4 border-b border-gray-100 pb-3">
+                                <i class="fa-solid fa-chart-gantt text-accentDark"></i>
+                                <h3 class="font-bold text-sm text-primaryDark">Bu Hafta Gelecek Hastalar</h3>
+                            </div>
+                            <div class="flex items-end justify-between h-[80px]">
+                                <div class="w-1/6 bg-primary/20 rounded-t-lg relative group h-[40%] hover:bg-primary transition-all"><span class="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] font-bold">12</span></div>
+                                <div class="w-1/6 bg-primary/40 rounded-t-lg relative group h-[60%] hover:bg-primary transition-all"><span class="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] font-bold">18</span></div>
+                                <div class="w-1/6 bg-primary/80 rounded-t-lg relative group h-[90%] hover:bg-primary transition-all"><span class="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] font-bold">25</span></div>
+                                <div class="w-1/6 bg-primary/30 rounded-t-lg relative group h-[50%] hover:bg-primary transition-all"><span class="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] font-bold">15</span></div>
+                                <div class="w-1/6 bg-primary/60 rounded-t-lg relative group h-[70%] hover:bg-primary transition-all"><span class="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] font-bold">20</span></div>
+                            </div>
+                            <div class="flex justify-between text-[9px] text-gray-500 font-bold mt-2">
+                                <span>Pzt</span><span>Sal</span><span>Çar</span><span>Per</span><span>Cum</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ================= VIEW 2: APPOINTMENTS ================= -->
+                <div id="view-appointments" class="view-section">
+                    <div class="bento-card p-6 mb-6">
+                        <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <h3 class="text-lg font-bold text-primaryDark">Klinik Randevu Takvimi & İş Programı</h3>
+                                <div class="flex items-center gap-2 bg-surfaceAlt border border-primary/10 px-3 py-1 rounded-xl">
+                                    <button onclick="changeWeek(-7)" class="text-primary hover:text-accent font-bold text-xs"><i class="fa-solid fa-chevron-left mr-1"></i> Önceki Hafta</button>
+                                    <span id="currentWeekRange" class="text-xs font-bold text-primaryDark border-x border-primary/10 px-3 py-0.5">20 - 26 Temmuz 2026</span>
+                                    <button onclick="changeWeek(7)" class="text-primary hover:text-accent font-bold text-xs">Sonraki Hafta <i class="fa-solid fa-chevron-right ml-1"></i></button>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <select class="bg-surfaceAlt border border-primary/10 rounded-xl px-3 py-1.5 text-xs font-semibold text-textMain focus:outline-none">
+                                    <option>Tüm Fizyoterapistler</option>
+                                    <option>Fzt. Rümeysa Seyhan</option>
+                                    <option>Fzt. Türkcan Buketçi</option>
+                                </select>
+                                <button onclick="openApptModalWithDefaults()" class="bg-primary text-white px-3.5 py-1.5 rounded-xl text-xs font-bold shadow">
+                                    + Randevu Oluştur
+                                </button>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-textMuted mb-3"><i class="fa-solid fa-circle-info text-accent mr-1"></i> <strong>İpucu:</strong> Takvimdeki boş bir hücreye (saat dilimine) doğrudan tıklayarak o gün ve saate anında randevu oluşturabilirsiniz!</p>
+
+                        <!-- Dynamic Calendar Grid Component -->
+                        <div class="calendar-grid" id="dynamicCalendarGrid">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= VIEW 2.5: WEB ONLINE APPOINTMENTS ================= -->
+                <div id="view-webOnlineApts" class="view-section">
+                    <div class="bento-card p-6 mb-6">
+                        <h3 class="text-lg font-bold text-primaryDark mb-2"><i class="fa-solid fa-globe text-emerald-600 mr-2"></i> Web Sitenizden Gelen Online Randevu Talepleri</h3>
+                        <p class="text-xs text-textMuted mb-6">Müşterilerinizin fizyofit_bagdat_demo.html web siteniz üzerinden gönderdiği ön randevu talepleri bu alana düşer.</p>
+
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-2xl bg-surfaceAlt border border-primary/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">ON</div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-primaryDark">Canan Taşçı <span class="text-xs font-normal text-textMuted">(0533 999 8877)</span></h4>
+                                        <p class="text-xs text-textMuted">Talep Edilen: 3D Schroth Skolyoz • Tarih: 24 Temmuz 14:00</p>
+                                        <p class="text-xs text-emerald-700 font-semibold italic">"14 yaşında kızıma skolyoz muayenesi aldırmak istiyorum."</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <button onclick="approveOnlineApt('Canan Taşçı', '2026-07-24', '14:00', '3D Schroth')" class="bg-primary text-white px-4 py-2 rounded-xl font-bold text-xs shadow">Onayla & Takvime Ekle</button>
+                                    <button onclick="showToast('Talep Reddedildi')" class="bg-rose-50 text-rose-600 border border-rose-200 px-3 py-2 rounded-xl font-bold text-xs">Reddet</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= VIEW 3: PATIENTS ================= -->
+                <div id="view-patients" class="view-section">
+                    <div class="bento-card overflow-hidden">
+                        <div class="p-5 border-b border-primary/10 flex flex-col md:flex-row justify-between items-center gap-4 bg-surfaceAlt">
+                            <div>
+                                <h3 class="text-lg font-bold text-primaryDark">Danışan Kayıtları & Anamnez Dosyaları</h3>
+                                <p class="text-xs text-textMuted">Danışanın kliniğe ilk gelişinden itibaren kaydedilen tüm klinik verileri.</p>
+                            </div>
+                            <button onclick="openModal('addPatientModal')" class="bg-primary text-white px-4 py-2 rounded-xl text-xs font-bold shadow flex items-center gap-1.5">
+                                <i class="fa-solid fa-user-plus"></i> + Yeni Danışan Kaydet
+                            </button>
+                        </div>
+
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-primary/5 text-textMuted text-[11px] font-bold uppercase tracking-wider">
+                                    <th class="p-3.5">Danışan Adı & ID</th>
+                                    <th class="p-3.5">Teşhis / Şikayet</th>
+                                    <th class="p-3.5">Eklem Açıklığı (ROM)</th>
+                                    <th class="p-3.5">Kas Gücü</th>
+                                    <th class="p-3.5">İlk Ağrı (VAS)</th>
+                                    <th class="p-3.5 text-right">Klinik Dosyası</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-primary/5 text-xs" id="patientsTableBody">
+                                <!-- Populated dynamically by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ================= VIEW 4: MEASUREMENTS ================= -->
+                <div id="view-measurements" class="view-section">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bento-card p-6 lg:col-span-2">
+                            <h3 class="text-base font-bold text-primaryDark mb-4"><i class="fa-solid fa-ruler-vertical text-amber-500 mr-2"></i> Fiziksel Ölçümler & Eklem Açıklığı (ROM)</h3>
+                            
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 pb-6 border-b border-gray-100">
+                                <div>
+                                    <label class="text-[10px] font-bold text-textMuted uppercase block mb-1">Boy (cm)</label>
+                                    <input type="number" value="175" class="w-full bg-surfaceAlt border border-gray-200 rounded-lg px-3 py-1.5 text-xs font-bold text-primaryDark outline-none focus:border-primary">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-bold text-textMuted uppercase block mb-1">Kilo (kg)</label>
+                                    <input type="number" value="78" class="w-full bg-surfaceAlt border border-gray-200 rounded-lg px-3 py-1.5 text-xs font-bold text-primaryDark outline-none focus:border-primary">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-bold text-textMuted uppercase block mb-1">VKİ Analizi</label>
+                                    <div class="w-full bg-amber-50 border border-amber-200 text-amber-700 rounded-lg px-3 py-1.5 text-xs font-bold flex items-center justify-between">25.4 <span>Fazla Kilo</span></div>
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-bold text-textMuted uppercase block mb-1">Vücut Yağ Oranı (%)</label>
+                                    <input type="number" value="18" class="w-full bg-surfaceAlt border border-gray-200 rounded-lg px-3 py-1.5 text-xs font-bold text-primaryDark outline-none focus:border-primary">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-bold text-textMuted uppercase block mb-1">Denge (Berg Skalası)</label>
+                                    <input type="number" value="48" class="w-full bg-surfaceAlt border border-gray-200 rounded-lg px-3 py-1.5 text-xs font-bold text-primaryDark outline-none focus:border-primary">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-bold text-textMuted uppercase block mb-1">Esneklik (Otur-Uzan)</label>
+                                    <div class="relative"><input type="number" value="12" class="w-full bg-surfaceAlt border border-gray-200 rounded-lg px-3 py-1.5 text-xs font-bold text-primaryDark outline-none focus:border-primary"><span class="absolute right-3 top-1.5 text-xs font-bold text-gray-400">cm</span></div>
+                                </div>
+                                <div class="col-span-2">
+                                    <label class="text-[10px] font-bold text-textMuted uppercase block mb-1">Çevre Ölçümleri (Bel / Kalça / Kol)</label>
+                                    <input type="text" value="Bel: 85cm, Kalça: 98cm, Sol Kol: 32cm" class="w-full bg-surfaceAlt border border-gray-200 rounded-lg px-3 py-1.5 text-xs font-bold text-primaryDark outline-none focus:border-primary">
+                                </div>
+                            </div>
+
+                            <div class="space-y-4 text-xs">
+                                <div>
+                                    <div class="flex justify-between font-bold mb-1">
+                                        <span>Omuz Abdüksiyon Derecesi</span>
+                                        <span class="text-primary">145° / 180° (Hedef)</span>
+                                    </div>
+                                    <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                                        <div class="bg-primary h-full rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between font-bold mb-1">
+                                        <span>Lomber Fleksiyon Derecesi</span>
+                                        <span class="text-primary">65° / 90° (Hedef)</span>
+                                    </div>
+                                    <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                                        <div class="bg-accentDark h-full rounded-full" style="width: 72%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between font-bold mb-1">
+                                        <span>Kas Kuvveti Testi (Manuel Kas Skalası 1-5)</span>
+                                        <span class="text-emerald-700">4 / 5 (İyi Seviye)</span>
+                                    </div>
+                                    <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                                        <div class="bg-emerald-600 h-full rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button onclick="showToast('Tüm Ölçümler Kaydedildi!')" class="w-full mt-6 bg-primary text-white py-2.5 rounded-xl font-bold text-xs hover:bg-primaryLight transition-all">Seans Ölçümünü Onayla</button>
+                        </div>
+
+                        <div class="bento-card p-6 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-base font-bold text-primaryDark mb-2"><i class="fa-solid fa-camera text-blue-500 mr-2"></i> Postür Analiz Görsel Kaydı</h3>
+                                <p class="text-xs text-textMuted mb-4">Hastanın ön, arka ve yan omurga duruş fotoğraflarını kliniğe kaydedin.</p>
+                                <div class="border-2 dashed border-primary/20 rounded-2xl p-6 text-center bg-surfaceAlt cursor-pointer" onclick="showToast('Fotoğraf Yüklendi')">
+                                    <i class="fa-solid fa-cloud-arrow-up text-2xl text-primary mb-2"></i>
+                                    <p class="text-xs font-bold text-primaryDark">Postür Fotoğrafı Sürükleyin veya Seçin</p>
+                                    <span class="text-[10px] text-textMuted">PNG, JPG (Max 10MB)</span>
+                                </div>
+                            </div>
+                            <button onclick="showToast('Postür Analiz Notu Kaydedildi')" class="w-full mt-4 bg-accent text-primaryDark py-2.5 rounded-xl font-bold text-xs">Açı Analizini Kaydet</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= VIEW 5: EXERCISES ================= -->
+                <div id="view-exercises" class="view-section">
+                    <div class="bento-card p-6 mb-6">
+                        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                            <div>
+                                <h3 class="text-lg font-bold text-primaryDark">Kapsamlı Ev Egzersizi Atama Sistemi</h3>
+                                <p class="text-xs text-textMuted mt-1">Hastalarınıza özel set, tekrar, süre ayarlayarak program oluşturun. Video veya resimli PDF olarak WhatsApp'tan iletin.</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="showToast('Yeni Egzersiz Ekleme Modalı Açıldı')" class="bg-primary text-white px-4 py-2 rounded-xl font-bold text-xs shadow flex items-center gap-2 hover:bg-primaryLight">
+                                    <i class="fa-solid fa-plus"></i> Kütüphaneye Ekle
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Categories -->
+                        <div class="flex gap-2 mt-6 overflow-x-auto no-scrollbar pb-2 border-b border-gray-100">
+                            <button class="px-4 py-2 bg-primary text-white text-xs font-bold rounded-full whitespace-nowrap">Tümü (124)</button>
+                            <button class="px-4 py-2 bg-gray-100 text-gray-600 hover:text-primary hover:bg-primary/10 text-xs font-bold rounded-full whitespace-nowrap">Bel & Core (32)</button>
+                            <button class="px-4 py-2 bg-gray-100 text-gray-600 hover:text-primary hover:bg-primary/10 text-xs font-bold rounded-full whitespace-nowrap">Skolyoz & Postür (18)</button>
+                            <button class="px-4 py-2 bg-gray-100 text-gray-600 hover:text-primary hover:bg-primary/10 text-xs font-bold rounded-full whitespace-nowrap">Boyun & Omuz (24)</button>
+                            <button class="px-4 py-2 bg-gray-100 text-gray-600 hover:text-primary hover:bg-primary/10 text-xs font-bold rounded-full whitespace-nowrap">Diz & Kalça (45)</button>
+                            <button class="px-4 py-2 bg-gray-100 text-gray-600 hover:text-primary hover:bg-primary/10 text-xs font-bold rounded-full whitespace-nowrap">Ayak Bileği (5)</button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <!-- Exercise Card 1 -->
+                        <div class="bento-card overflow-hidden flex flex-col">
+                            <div class="relative h-44">
+                                <img src="https://images.pexels.com/photos/4506109/pexels-photo-4506109.jpeg?auto=compress&cs=tinysrgb&w=400" class="w-full h-full object-cover">
+                                <span class="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] px-2 py-0.5 rounded font-bold"><i class="fa-brands fa-youtube text-red-500 mr-1"></i>04:15</span>
+                            </div>
+                            <div class="p-4 flex-1 flex flex-col">
+                                <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded w-max">Bel & Core</span>
+                                <h4 class="font-bold text-base text-primaryDark mt-2">Lomber İzometrik Stabilizasyon</h4>
+                                <p class="text-xs text-textMuted mt-1 mb-4 flex-1">Akut bel fıtığı evresindeki hastalar için ev ödevi.</p>
+                                
+                                <div class="grid grid-cols-3 gap-2 mb-4">
+                                    <div>
+                                        <label class="text-[9px] font-bold text-gray-400 block mb-1">Set</label>
+                                        <input type="number" value="3" class="w-full border border-gray-200 rounded px-2 py-1 text-xs text-center font-bold">
+                                    </div>
+                                    <div>
+                                        <label class="text-[9px] font-bold text-gray-400 block mb-1">Tekrar</label>
+                                        <input type="number" value="15" class="w-full border border-gray-200 rounded px-2 py-1 text-xs text-center font-bold">
+                                    </div>
+                                    <div>
+                                        <label class="text-[9px] font-bold text-gray-400 block mb-1">Dinlenme</label>
+                                        <input type="text" value="30s" class="w-full border border-gray-200 rounded px-2 py-1 text-xs text-center font-bold">
+                                    </div>
+                                </div>
+                                
+                                <div class="flex gap-2">
+                                    <button class="flex-1 bg-primary text-white py-2 rounded-lg font-bold text-xs hover:bg-primaryLight transition-all"><i class="fa-solid fa-user-plus mr-1"></i> Hastaya Ata</button>
+                                    <button class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 rounded-lg font-bold hover:bg-emerald-100 transition-all"><i class="fa-brands fa-whatsapp"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Exercise Card 2 -->
+                        <div class="bento-card overflow-hidden flex flex-col">
+                            <div class="relative h-44">
+                                <img src="https://images.pexels.com/photos/3823039/pexels-photo-3823039.jpeg?auto=compress&cs=tinysrgb&w=400" class="w-full h-full object-cover">
+                                <span class="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] px-2 py-0.5 rounded font-bold"><i class="fa-regular fa-image text-blue-300 mr-1"></i>Resim</span>
+                            </div>
+                            <div class="p-4 flex-1 flex flex-col">
+                                <span class="bg-accent/20 text-accentDark text-[10px] font-bold px-2 py-0.5 rounded w-max">Pelvik Taban</span>
+                                <h4 class="font-bold text-base text-primaryDark mt-2">Pelvik Tilt Egzersizi</h4>
+                                <p class="text-xs text-textMuted mt-1 mb-4 flex-1">Alt bel kaslarını esnetmek ve pelvik mobiliteyi artırmak için.</p>
+                                
+                                <div class="grid grid-cols-3 gap-2 mb-4">
+                                    <div>
+                                        <label class="text-[9px] font-bold text-gray-400 block mb-1">Set</label>
+                                        <input type="number" value="2" class="w-full border border-gray-200 rounded px-2 py-1 text-xs text-center font-bold">
+                                    </div>
+                                    <div>
+                                        <label class="text-[9px] font-bold text-gray-400 block mb-1">Tekrar</label>
+                                        <input type="number" value="10" class="w-full border border-gray-200 rounded px-2 py-1 text-xs text-center font-bold">
+                                    </div>
+                                    <div>
+                                        <label class="text-[9px] font-bold text-gray-400 block mb-1">Dinlenme</label>
+                                        <input type="text" value="45s" class="w-full border border-gray-200 rounded px-2 py-1 text-xs text-center font-bold">
+                                    </div>
+                                </div>
+                                
+                                <div class="flex gap-2">
+                                    <button class="flex-1 bg-primary text-white py-2 rounded-lg font-bold text-xs hover:bg-primaryLight transition-all"><i class="fa-solid fa-user-plus mr-1"></i> Hastaya Ata</button>
+                                    <button class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 rounded-lg font-bold hover:bg-emerald-100 transition-all"><i class="fa-brands fa-whatsapp"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- ================= VIEW 6: FORMS ================= -->
+                <div id="view-forms" class="view-section">
+                    <div class="bento-card p-6">
+                        <h3 class="text-lg font-bold text-primaryDark mb-2">Klinik Formlar & Tablet İmzası</h3>
+                        <p class="text-xs text-textMuted mb-6">Hastaya ekrandan okutulup imzalatılan klinik onam ve değerlendirme formları.</p>
+
+                        <div class="flex gap-2 mb-4 border-b border-gray-100 pb-2 overflow-x-auto no-scrollbar">
+                            <button class="px-4 py-1.5 bg-primary text-white text-xs font-bold rounded-full whitespace-nowrap">Aydınlatılmış Onam</button>
+                            <button class="px-4 py-1.5 bg-gray-100 text-gray-500 hover:text-primary hover:bg-primary/10 text-xs font-bold rounded-full whitespace-nowrap">KVKK & Gizlilik</button>
+                            <button class="px-4 py-1.5 bg-gray-100 text-gray-500 hover:text-primary hover:bg-primary/10 text-xs font-bold rounded-full whitespace-nowrap">Detaylı Anamnez Formu</button>
+                        </div>
+
+                        <div class="border border-primary/10 rounded-2xl p-5 bg-surfaceAlt mb-4 max-h-48 overflow-y-auto text-xs text-textMuted leading-relaxed custom-scrollbar">
+                            <strong class="text-primaryDark block mb-2 text-sm">FİZYO FİT BAĞDAT KLİNİK TEDAVİ AYDINLATILMIŞ ONAM METNİ:</strong>
+                            Kliniğimizde uygulanacak olan Manuel Terapi, Klinik Pilates ve 3D Schroth Skolyoz terapisinin olası risklerini okudum, anladım. Kişisel verilerimin KVKK kapsamında işlenmesine onay veriyorum. Tarafıma uygulanacak olan manuel terapi tekniklerinin, kupa terapisinin veya egzersiz uygulamalarının geçici kas ağrılarına yol açabileceği konusunda bilgilendirildim. <br><br>
+                            Fizyoterapistim, uygulanacak her yöntem öncesinde bana sözlü olarak bilgi verecektir. Seans iptallerini en geç 24 saat önceden bildireceğimi, aksi takdirde seans ücretinin tahsil edileceğini kabul ve taahhüt ederim.
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="block text-xs font-bold text-textMuted mb-2">Danışanın Tablet İmzası:</label>
+                            <div class="w-full h-32 border-2 dashed border-primary/20 rounded-xl bg-surfaceAlt flex items-center justify-center text-textMuted text-xs font-semibold cursor-crosshair hover:border-primary/50 transition-all" onclick="showToast('Hasta İmzası Başarıyla Alındı!')">
+                                <i class="fa-solid fa-pen-nib mr-2"></i> İmzalamak İçin Tıklayın / Çizin
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button onclick="showToast('Form İmzalandı ve Hasta Dosyasına Eklendi!')" class="bg-primary text-white px-6 py-2.5 rounded-xl text-xs font-bold shadow hover:bg-primaryLight">
+                                Formu Onayla ve Arşive Ekle
+                            </button>
+                            <button class="bg-gray-100 text-gray-600 px-6 py-2.5 rounded-xl text-xs font-bold hover:bg-gray-200">
+                                <i class="fa-solid fa-print mr-1"></i> Yazdır
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= VIEW 7: REPORTS ================= -->
+                <div id="view-reports" class="view-section">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bento-card p-6">
+                            <h4 class="font-bold text-primaryDark text-base mb-4">Seans Bazlı VAS Ağrı Değişim Raporu</h4>
+                            <div class="h-[220px]">
+                                <canvas id="prognosisChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="bento-card p-6 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-bold text-primaryDark text-base mb-2">Kurumsal PDF Raporu Çıkart</h4>
+                                <p class="text-xs text-textMuted mb-4">Danışanın doktoruna sunabileceği resmi logolu klinik rapor hazırlayın.</p>
+                                <select class="w-full p-2.5 border border-primary/10 rounded-xl text-xs font-semibold mb-4">
+                                    <option>Ahmet Yılmaz (#FZ-2026-09)</option>
+                                    <option>Zeynep Şahin (#FZ-2026-14)</option>
+                                </select>
+                            </div>
+                            <button onclick="showToast('Resmi Klinik Raporu PDF Olarak İndiriliyor...')" class="bg-primary text-white w-full py-3 rounded-xl font-bold text-xs shadow">
+                                <i class="fa-solid fa-file-pdf mr-2"></i> PDF Raporu İndir & Gönder
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= VIEW 8: STAFF & SHIFTS ================= -->
+                <div id="view-staff" class="view-section">
+                    <div class="bento-card p-6">
+                        <h3 class="text-lg font-bold text-primaryDark mb-4">Personel Çalışma Saatleri & Rol Matrisi</h3>
+                        
+                        <div class="space-y-4 text-xs">
+                            <div class="p-4 rounded-xl bg-surfaceAlt border border-primary/10 flex justify-between items-center">
+                                <div>
+                                    <h4 class="font-bold text-sm text-primaryDark">Fzt. Rümeysa Seyhan <span class="bg-accent/20 text-accentDark px-2 py-0.5 rounded font-semibold text-[10px]">Klinik Kurucusu / Admin</span></h4>
+                                    <p class="text-textMuted mt-1">Vardiya: Hafta İçi 09:00 - 18:00 • Yetki: Tam Yetki</p>
+                                </div>
+                                <button onclick="showToast('Vardiya Güncellendi')" class="bg-primary/10 text-primary px-3 py-1.5 rounded-lg font-bold">Saatleri Düzenle</button>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-surfaceAlt border border-primary/10 flex justify-between items-center">
+                                <div>
+                                    <h4 class="font-bold text-sm text-primaryDark">Fzt. Türkcan Buketçi <span class="bg-primary/10 text-primary px-2 py-0.5 rounded font-semibold text-[10px]">Kıdemli Fizyoterapist</span></h4>
+                                    <p class="text-textMuted mt-1">Vardiya: Hafta İçi 10:00 - 19:00 • Yetki: Seans & Muayene</p>
+                                </div>
+                                <button onclick="showToast('Vardiya Güncellendi')" class="bg-primary/10 text-primary px-3 py-1.5 rounded-lg font-bold">Saatleri Düzenle</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= VIEW 9: SETTINGS ================= -->
+                <div id="view-settings" class="view-section">
+                    <div class="bento-card p-6">
+                        <h3 class="text-lg font-bold text-primaryDark mb-4">Şube, API Entegrasyonu & Güvenlik</h3>
+                        <div class="space-y-6 text-xs">
+                            <div class="flex items-center justify-between p-4 rounded-xl bg-surfaceAlt border border-primary/10">
+                                <div>
+                                    <h4 class="font-bold text-sm">Bağdat Caddesi Şubesi</h4>
+                                    <p class="text-textMuted">4 Fizyoterapist • Active</p>
+                                </div>
+                                <span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-1 rounded-full">Aktif Şube</span>
+                            </div>
+
+                            <div class="border-t border-primary/10 pt-4">
+                                <h4 class="font-bold text-primaryDark text-sm mb-2">API & Webhook Desteği</h4>
+                                <p class="text-textMuted mb-3">Harici muhasebe veya CRM yazılımlarınıza veri aktarımı için ücretsiz API anahtarınız.</p>
+                                <div class="flex gap-2">
+                                    <input type="text" readonly value="fz_live_pk_9948201948201" class="bg-surfaceAlt border border-primary/10 p-2 rounded-lg font-mono text-xs w-64">
+                                    <button onclick="showToast('API Anahtarı Kopyalandı')" class="bg-primary text-white px-3 py-2 rounded-lg font-bold">Kopyala</button>
+                                </div>
+                            </div>
+
+                            <div class="border-t border-primary/10 pt-4">
+                                <h4 class="font-bold text-primaryDark text-sm mb-2">SMS Ücreti Olmayan Güvenlik (TOTP 2FA)</h4>
+                                <p class="text-textMuted mb-3">Google Authenticator ile 0 TL maliyetli banka seviyesinde yetki güvenliği.</p>
+                                <span class="bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full">2FA Aktif</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL 1: ADD NEW PATIENT -->
+    <div id="addPatientModal" class="modal-backdrop">
+        <div class="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl relative border border-primary/10">
+            <button onclick="closeModal('addPatientModal')" class="absolute top-5 right-5 text-textMuted hover:text-danger text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-lg font-bold text-primaryDark mb-1">Yeni Danışan Kaydı</h3>
+            <p class="text-xs text-textMuted mb-4">Kliniğe ilk kez gelen danışanın temel anamnez ve adres bilgilerini girin.</p>
+            
+            <form onsubmit="handleCreatePatient(event)" class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-bold text-textMuted mb-1">Danışan Adı Soyadı *</label>
+                    <input id="newPatientName" type="text" required placeholder="Örn: Serkan Akyol" class="w-full p-2.5 border border-primary/10 rounded-xl font-semibold focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <div>
+                    <label class="block font-bold text-textMuted mb-1">Telefon Numarası *</label>
+                    <input id="newPatientPhone" type="text" required placeholder="0532 000 0000" class="w-full p-2.5 border border-primary/10 rounded-xl font-semibold focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <div>
+                    <label class="block font-bold text-textMuted mb-1">Adres / Semt</label>
+                    <input id="newPatientAddress" type="text" placeholder="Kadıköy, İstanbul" class="w-full p-2.5 border border-primary/10 rounded-xl font-semibold">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-bold text-textMuted mb-1">Teşhis / Şikayet</label>
+                        <select id="newPatientDiag" class="w-full p-2.5 border border-primary/10 rounded-xl font-semibold">
+                            <option>Lomber Disk Hernisi</option>
+                            <option>3D Schroth Skolyoz</option>
+                            <option>Servikal Düzleşme</option>
+                            <option>Klinik Pilates</option>
+                            <option>Menisküs / Diz Rehabilitasyonu</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-textMuted mb-1">İlk Ağrı Skoru (VAS)</label>
+                        <select id="newPatientVas" class="w-full p-2.5 border border-primary/10 rounded-xl font-semibold">
+                            <option value="8/10">8/10 (Şiddetli)</option>
+                            <option value="6/10">6/10 (Orta)</option>
+                            <option value="4/10">4/10 (Hafif)</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-primary text-white py-3 rounded-xl font-bold text-xs shadow-lg mt-3 hover:bg-primaryLight transition-all">Danışanı Veritabanına Kaydet</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: PATIENT DETAIL (INCLUDES DOKÜMAN / MR YÜKLEME) -->
+    <div id="patientModal" class="modal-backdrop">
+        <div class="bg-white rounded-3xl p-6 max-w-xl w-full shadow-2xl relative border border-primary/10">
+            <button onclick="closeModal('patientModal')" class="absolute top-5 right-5 text-textMuted hover:text-danger text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary font-extrabold text-lg flex items-center justify-center" id="modalPatientInitials">AY</div>
+                <div>
+                    <h3 class="text-xl font-bold text-primaryDark" id="modalPatientName">Ahmet Yılmaz</h3>
+                    <p class="text-xs text-accent font-semibold uppercase" id="modalPatientDiag">Lomber Disk Hernisi Protokolü</p>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex gap-2 mb-4 border-b border-gray-100 pb-2 overflow-x-auto no-scrollbar">
+                <button class="px-3 py-1 bg-primary text-white text-xs font-bold rounded-full whitespace-nowrap">Sağlık & Tedavi</button>
+                <button class="px-3 py-1 bg-gray-100 text-gray-500 hover:text-primary text-xs font-bold rounded-full whitespace-nowrap">Kimlik Detayları</button>
+                <button class="px-3 py-1 bg-gray-100 text-gray-500 hover:text-primary text-xs font-bold rounded-full whitespace-nowrap">Ölçüm & Hedefler</button>
+                <button class="px-3 py-1 bg-gray-100 text-gray-500 hover:text-primary text-xs font-bold rounded-full whitespace-nowrap">Belgeler & MR</button>
+            </div>
+            
+            <div class="max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
+                <!-- Tab Content 1: Sağlık & Tedavi -->
+                <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-3 text-xs">
+                        <div class="p-3 rounded-xl bg-surfaceAlt border border-primary/5">
+                            <span class="text-textMuted font-semibold">İyileşme Hedefi / Yüzdesi</span>
+                            <div class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                                <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 45%"></div>
+                            </div>
+                            <p class="text-[10px] font-bold text-emerald-600 mt-1">%45 Tamamlandı</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-surfaceAlt border border-primary/5">
+                            <span class="text-textMuted font-semibold">Kronik Rahatsızlık / Alerji</span>
+                            <p class="text-xs font-bold text-danger mt-0.5" id="modalPatientAllergy">Hipertansiyon, Penisilin Alerjisi</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xs text-primaryDark mb-1">Ameliyat & Hastalık Geçmişi</h4>
+                        <p class="text-xs text-textMuted bg-surfaceAlt p-3 rounded-xl leading-relaxed">2021 L4-L5 Mikrodiskektomi operasyonu geçirdi. Fizik tedavi aldı ancak ağrıları nüksetti.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xs text-primaryDark mb-1">Klinik Seans Notları & İlaçlar</h4>
+                        <p class="text-xs text-textMuted bg-surfaceAlt p-3 rounded-xl leading-relaxed" id="modalPatientNote">4. seans tamamlandı. Traksiyon sonrası kalça ağrısı azaldı. İzometrik ev ödevleri verildi. <br><br><b>Kullandığı İlaçlar:</b> Majezik, Muscoril.</p>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="bg-gray-50 border border-gray-100 p-2 rounded-lg text-center">
+                            <span class="text-[10px] text-gray-400 font-bold">Toplam Seans</span>
+                            <p class="text-sm font-black text-primaryDark">12</p>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-100 p-2 rounded-lg text-center">
+                            <span class="text-[10px] text-gray-400 font-bold">Gidilen</span>
+                            <p class="text-sm font-black text-primaryDark">4</p>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-100 p-2 rounded-lg text-center">
+                            <span class="text-[10px] text-gray-400 font-bold">Kalan</span>
+                            <p class="text-sm font-black text-accentDark">8</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Note: In a real app, clicking tabs would toggle visibility of divs -->
+            </div>
+
+            <div class="flex gap-2 mt-4 pt-4 border-t border-gray-100">
+                <button onclick="showToast('Yeni Not Eklendi!')" class="flex-1 bg-primary text-white py-2.5 rounded-xl font-bold text-xs shadow hover:bg-primaryLight"><i class="fa-solid fa-pen-to-square"></i> Not Ekle</button>
+                <button onclick="showToast('WhatsApp Bildirimi Gönderildi')" class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-4 py-2.5 rounded-xl font-bold text-xs hover:bg-emerald-100"><i class="fa-brands fa-whatsapp"></i> Mesaj</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: FLEXIBLE APPOINTMENT CREATION WITH REAL DATE PICKER -->
+    <div id="quickApptModal" class="modal-backdrop">
+        <div class="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl relative border border-primary/10">
+            <button onclick="closeModal('quickApptModal')" class="absolute top-5 right-5 text-textMuted hover:text-danger text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-lg font-bold text-primaryDark mb-1">Klinik Randevusu Oluştur</h3>
+            <p class="text-xs text-textMuted mb-4">Takvimden bir güne ve saate doğrudan randevu planlayın.</p>
+            
+            <form onsubmit="handleCreateAppt(event)" class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-bold text-textMuted mb-1">Danışan Seçin veya İsim Yazın *</label>
+                    <input id="newApptPatientInput" list="patientDatalist" required placeholder="Danışan adı yazın..." class="w-full p-2.5 border border-primary/10 rounded-xl font-semibold focus:outline-none focus:ring-2 focus:ring-primary">
+                    <datalist id="patientDatalist">
+                        <!-- Populated dynamically -->
+                    </datalist>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-bold text-textMuted mb-1">Seans Tarihi (Takvimden Seçin) *</label>
+                        <input id="newApptDate" type="date" required class="w-full p-2.5 border border-primary/10 rounded-xl font-semibold text-primaryDark focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-textMuted mb-1">Seans Saati *</label>
+                        <select id="newApptTime" class="w-full p-2.5 border border-primary/10 rounded-xl font-semibold">
+                            <option value="09:00">09:00</option>
+                            <option value="10:30">10:30</option>
+                            <option value="11:45">11:45</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:30">15:30</option>
+                            <option value="17:00">17:00</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-textMuted mb-1">Tedavi Türü & Fizyoterapist</label>
+                    <select id="newApptType" class="w-full p-2.5 border border-primary/10 rounded-xl font-semibold">
+                        <option value="Lomber Disk • Fzt. Rümeysa">Lomber Disk (Fzt. Rümeysa)</option>
+                        <option value="3D Schroth • Fzt. Türkcan">3D Schroth (Fzt. Türkcan)</option>
+                        <option value="Klinik Pilates • Fzt. Rümeysa">Klinik Pilates (Fzt. Rümeysa)</option>
+                        <option value="Postür Analizi • Fzt. Türkcan">Postür Analizi (Fzt. Türkcan)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="w-full bg-primary text-white py-3 rounded-xl font-bold text-xs shadow mt-2 hover:bg-primaryLight transition-all">Randevuyu Takvime İşle & Onayla</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-primaryDark text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-accent/30 flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 z-50">
+        <i class="fa-solid fa-circle-check text-accent text-lg"></i>
+        <span id="toastMsg" class="font-semibold text-xs">İşlem gerçekleştirildi!</span>
+    </div>
+
+    <!-- CLIENT SIDE STATE & DYNAMIC LOGIC -->
+    <script>
+        // State
+        let currentWeekStartDate = new Date(2026, 6, 20); // July 20, 2026 (Monday)
+
+        let patients = [
+            { id: '#FZ-2026-09', name: 'Ahmet Yılmaz', diag: 'Lomber Disk Hernisi', rom: 'Fleksiyon: 65°', strength: '4 / 5', vas: '4/10', phone: '0532 123 4567', note: '4. seans tamamlandı. Manuel terapi uygulandı.' },
+            { id: '#FZ-2026-14', name: 'Zeynep Şahin', diag: '3D Schroth Skolyoz', rom: 'Cobb: 18°', strength: '5 / 5', vas: '1/10', phone: '0555 987 6543', note: 'Schroth solunum egzersizleri verildi.' },
+            { id: '#FZ-2026-21', name: 'Mehmet Can', diag: 'Servikal Düzleşme', rom: 'Ekstansiyon: 35°', strength: '4 / 5', vas: '6/10', phone: '0544 321 0000', note: 'Ofis boyun egzersizleri atandı.' },
+            { id: '#FZ-2026-33', name: 'Elif Kaya', diag: 'Klinik Pilates', rom: 'Tam Açıklık', strength: '5 / 5', vas: '2/10', phone: '0533 444 5566', note: 'Reformer pilates 2. kur.' }
+        ];
+
+        let appointments = [
+            { dateStr: '2026-07-20', time: '09:00', patient: 'Ahmet Yılmaz', type: 'Lomber Disk • Fzt. Rümeysa', status: 'Check-in Yapıldı' },
+            { dateStr: '2026-07-22', time: '09:00', patient: 'Zeynep Şahin', type: 'Schroth • Fzt. Türkcan', status: 'Bekliyor' },
+            { dateStr: '2026-07-21', time: '10:30', patient: 'Mehmet Can', type: 'Postür Analizi', status: 'Bekliyor' },
+            { dateStr: '2026-07-23', time: '10:30', patient: 'Elif Kaya', type: 'Klinik Pilates', status: 'Bekliyor' }
+        ];
+
+        const dayNamesTR = ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'];
+
+        function formatDateYYYYMMDD(d) {
+            const y = d.getFullYear();
+            const m = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${y}-${m}-${day}`;
+        }
+
+        function renderPatients() {
+            const tbody = document.getElementById('patientsTableBody');
+            tbody.innerHTML = patients.map(p => `
+                <tr class="hover:bg-surfaceAlt transition-colors cursor-pointer" onclick="openPatientDetail('${p.name}')">
+                    <td class="p-3.5 font-bold text-primaryDark">
+                        ${p.name}
+                        <span class="block text-[10px] font-normal text-textMuted">${p.id}</span>
+                    </td>
+                    <td class="p-3.5"><span class="bg-primary/10 text-primary font-bold px-2.5 py-0.5 rounded-full">${p.diag}</span></td>
+                    <td class="p-3.5 text-textMuted">${p.rom}</td>
+                    <td class="p-3.5 font-bold">${p.strength}</td>
+                    <td class="p-3.5"><span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">${p.vas}</span></td>
+                    <td class="p-3.5 text-right">
+                        <button class="bg-primary/10 text-primary hover:bg-primary hover:text-white px-3 py-1 rounded-lg font-bold transition-all">Dosyayı Aç</button>
+                    </td>
+                </tr>
+            `).join('');
+            
+            document.getElementById('statPatientCount').innerText = (1420 + patients.length - 4).toLocaleString();
+            
+            const datalist = document.getElementById('patientDatalist');
+            datalist.innerHTML = patients.map(p => `<option value="${p.name}">`).join('');
+        }
+
+        function renderTodayQueue() {
+            const container = document.getElementById('todayQueueList');
+            container.innerHTML = appointments.map(a => `
+                <div class="flex items-center justify-between p-3 rounded-xl bg-surfaceAlt border border-primary/5 hover:border-primary/20 transition-all cursor-pointer" onclick="openPatientDetail('${a.patient}')">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-primary/10 text-primary font-bold text-xs flex items-center justify-center">${a.patient.split(' ').map(n=>n[0]).join('')}</div>
+                        <div>
+                            <h4 class="font-bold text-xs text-primaryDark">${a.patient}</h4>
+                            <p class="text-[10px] text-textMuted">${a.type} • ${a.dateStr} ${a.time}</p>
+                        </div>
+                    </div>
+                    <span class="${a.status === 'Check-in Yapıldı' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'} text-[10px] px-2 py-0.5 rounded-full font-bold">${a.status}</span>
+                </div>
+            `).join('');
+            
+            document.getElementById('aptCountBadge').innerText = appointments.length;
+            document.getElementById('statApptCount').innerText = appointments.length;
+        }
+
+        function changeWeek(daysOffset) {
+            currentWeekStartDate.setDate(currentWeekStartDate.getDate() + daysOffset);
+            renderCalendarGrid();
+        }
+
+        function renderCalendarGrid() {
+            const weekDays = [];
+            for(let i=0; i<6; i++) {
+                const d = new Date(currentWeekStartDate);
+                d.setDate(d.getDate() + i);
+                weekDays.push(d);
+            }
+
+            const startStr = `${weekDays[0].getDate()} ${weekDays[0].toLocaleString('tr', {month:'short'})}`;
+            const endStr = `${weekDays[5].getDate()} ${weekDays[5].toLocaleString('tr', {month:'short'})} ${weekDays[5].getFullYear()}`;
+            document.getElementById('currentWeekRange').innerText = `${startStr} - ${endStr}`;
+
+            const times = ['09:00', '10:30', '11:45', '14:00', '15:30', '17:00'];
+            
+            let gridHtml = `<div class="cal-header">Saat</div>`;
+            
+            weekDays.forEach(d => {
+                const dayName = dayNamesTR[d.getDay()];
+                const dateNum = d.getDate();
+                const monthName = d.toLocaleString('tr', {month:'short'});
+                const dateYYYYMMDD = formatDateYYYYMMDD(d);
+                const isToday = dateYYYYMMDD === '2026-07-23';
+
+                gridHtml += `
+                    <div class="cal-header ${isToday ? 'today-header' : ''}">
+                        ${dayName} 
+                        <span class="block text-[10px] ${isToday ? 'text-accent' : 'text-textMuted'} font-normal">${dateNum} ${monthName}</span>
+                    </div>
+                `;
+            });
+
+            times.forEach(t => {
+                gridHtml += `<div class="cal-time">${t}</div>`;
+                weekDays.forEach(d => {
+                    const dateYYYYMMDD = formatDateYYYYMMDD(d);
+                    const matchingApts = appointments.filter(a => a.dateStr === dateYYYYMMDD && a.time === t);
+                    
+                    gridHtml += `
+                        <div class="cal-cell" onclick="openApptForSlot('${dateYYYYMMDD}', '${t}')">
+                            <span class="cal-cell-add-icon"><i class="fa-solid fa-plus-circle"></i></span>
+                    `;
+                    
+                    matchingApts.forEach(apt => {
+                        gridHtml += `
+                            <div class="apt-card" onclick="event.stopPropagation(); openPatientDetail('${apt.patient}')">
+                                <strong class="text-primaryDark">${apt.patient}</strong>
+                                <p class="text-[10px] text-textMuted">${apt.type}</p>
+                            </div>
+                        `;
+                    });
+                    
+                    gridHtml += `</div>`;
+                });
+            });
+
+            document.getElementById('dynamicCalendarGrid').innerHTML = gridHtml;
+        }
+
+        function openApptModalWithDefaults() {
+            document.getElementById('newApptDate').value = '2026-07-23';
+            document.getElementById('newApptTime').value = '10:30';
+            openModal('quickApptModal');
+        }
+
+        function openApptForSlot(dateStr, timeStr) {
+            document.getElementById('newApptDate').value = dateStr;
+            document.getElementById('newApptTime').value = timeStr;
+            openModal('quickApptModal');
+        }
+
+        function approveOnlineApt(name, dateStr, timeStr, typeStr) {
+            appointments.unshift({
+                dateStr, time: timeStr, patient: name, type: typeStr, status: 'Onaylandı'
+            });
+            renderTodayQueue();
+            renderCalendarGrid();
+            showToast(`${name} Kişisinin Online Randevu Talebi Onaylandı ve Takvime Eklendi!`);
+        }
+
+        function handleCreatePatient(e) {
+            e.preventDefault();
+            const name = document.getElementById('newPatientName').value;
+            const phone = document.getElementById('newPatientPhone').value;
+            const diag = document.getElementById('newPatientDiag').value;
+            const vas = document.getElementById('newPatientVas').value;
+
+            const newP = {
+                id: '#FZ-2026-' + Math.floor(Math.random()*89 + 10),
+                name, phone, diag, vas,
+                rom: 'Fleksiyon: 55°',
+                strength: '4 / 5',
+                note: 'İlk hasta anamnez kaydı açıldı.'
+            };
+            patients.unshift(newP);
+            renderPatients();
+            closeModal('addPatientModal');
+            showToast(`${name} Veritabanına Eklendi! Artık Takvimden Randevu Alınabilir.`);
+            e.target.reset();
+        }
+
+        function handleCreateAppt(e) {
+            e.preventDefault();
+            const patientName = document.getElementById('newApptPatientInput').value;
+            const dateStr = document.getElementById('newApptDate').value;
+            const time = document.getElementById('newApptTime').value;
+            const type = document.getElementById('newApptType').value;
+
+            if (!dateStr) {
+                alert('Lütfen geçerli bir seans tarihi seçin!');
+                return;
+            }
+
+            if (!patients.some(p => p.name.toLowerCase() === patientName.toLowerCase())) {
+                patients.unshift({
+                    id: '#FZ-2026-' + Math.floor(Math.random()*89 + 10),
+                    name: patientName,
+                    phone: '0530 000 0000',
+                    diag: type.split('•')[0].trim(),
+                    rom: 'Fleksiyon: 60°',
+                    strength: '4 / 5',
+                    vas: '5/10',
+                    note: 'Randevu ile otomatik kaydoldu.'
+                });
+                renderPatients();
+            }
+
+            appointments.unshift({
+                dateStr, time, patient: patientName, type, status: 'Bekliyor'
+            });
+
+            renderTodayQueue();
+            renderCalendarGrid();
+            closeModal('quickApptModal');
+            showToast(`Randevu Takvime İşlendi: ${patientName} (${dateStr} - ${time})`);
+            e.target.reset();
+        }
+
+        function switchView(viewId, el) {
+            document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('active'));
+            
+            document.getElementById('view-' + viewId).classList.add('active');
+            if(el) el.classList.add('active');
+
+            const titles = {
+                'dashboard': 'Klinik Genel Bakış (Dashboard)',
+                'appointments': 'Randevu & Takvim Yönetimi',
+                'webOnlineApts': 'Web Sitemizden Gelen Online Talepler',
+                'patients': 'Danışan Dosyaları & Anamnez',
+                'measurements': 'ROM, Postür & Kas Kuvveti Ölçümü',
+                'exercises': 'Ev Egzersizi Reçeteleri',
+                'forms': 'Onam Formu & Dijital İmza',
+                'reports': 'İlerleme Raporları',
+                'staff': 'Personel & Vardiya Saatleri',
+                'settings': 'Şubeler, API & Güvenlik'
+            };
+            document.getElementById('headerTitle').innerText = titles[viewId] || 'FizyoPanel Pro';
+        }
+
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+        function openPatientDetail(name) {
+            const p = patients.find(x => x.name.toLowerCase() === name.toLowerCase()) || {
+                name: name, diag: 'Klinik Protokolü', vas: '4/10', rom: 'Fleksiyon: 60°', note: 'Detaylı seans notu bulunuyor.'
+            };
+            document.getElementById('modalPatientName').innerText = p.name;
+            document.getElementById('modalPatientDiag').innerText = p.diag;
+            document.getElementById('modalPatientVas').innerText = p.vas;
+            document.getElementById('modalPatientRom').innerText = p.rom;
+            document.getElementById('modalPatientNote').innerText = p.note;
+            document.getElementById('modalPatientInitials').innerText = p.name.split(' ').map(n=>n[0]).join('');
+            openModal('patientModal');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        // Init
+        window.addEventListener('load', () => {
+            renderPatients();
+            renderTodayQueue();
+            renderCalendarGrid();
+
+            const ctx1 = document.getElementById('dashboardChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'line',
+                data: {
+                    labels: ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cts'],
+                    datasets: [{
+                        label: 'Tamamlanan Seans',
+                        data: [12, 15, 14, 18, 16, 22],
+                        borderColor: '#125b4c',
+                        backgroundColor: 'rgba(18, 91, 76, 0.08)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            const ctx2 = document.getElementById('prognosisChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['1. Seans', '3. Seans', '6. Seans', '9. Seans', '12. Seans'],
+                    datasets: [{
+                        label: 'VAS Ağrı Skoru',
+                        data: [9, 7, 4, 2, 1],
+                        backgroundColor: '#d4a86a',
+                        borderRadius: 6
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        });
+    </script>
+</body>
+</html>

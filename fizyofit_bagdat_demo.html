@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FİZYO FİT BAĞDAT | Fizyoterapi, Skolyoz & Klinik Pilates Merkezi - Sivas</title>
+    <meta name="description" content="Sivas FizyoFit Bağdat - Fzt. Rümeysa Seyhan Yıldırım & Fzt. Türkcan Buketçi eşliğinde 3D Schroth Skolyoz Terapisi, Klinik Reformer Pilates, Osteopati ve Manuel Terapi.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #125b4c;        /* Deep Clinical Emerald */
+            --primary-light: #1e826e;  /* Soft Eucalyptus */
+            --primary-dark: #0a3d32;   /* Deep Forest */
+            --accent: #d4a86a;         /* Champagne Gold Accent */
+            --accent-light: #f5eedf;   /* Soft Sand / Cream */
+            --text-main: #1c2b26;      /* Charcoal Forest */
+            --text-muted: #536b63;     /* Muted Sage Gray */
+            --bg-page: #fafcfa;        /* Clean Clinical White-Green */
+            --bg-surface: #ffffff;
+            --bg-glass: rgba(255, 255, 255, 0.85);
+            --border-light: rgba(18, 91, 76, 0.12);
+            --shadow-sm: 0 4px 15px rgba(18, 91, 76, 0.06);
+            --shadow-md: 0 12px 30px rgba(18, 91, 76, 0.10);
+            --shadow-lg: 0 24px 50px rgba(18, 91, 76, 0.16);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-page);
+            line-height: 1.65;
+            overflow-x: hidden;
+            selection-background-color: var(--primary);
+            selection-color: #fff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 50%, var(--primary-light) 100%);
+            width: 0%;
+            z-index: 10001;
+            transition: width 0.08s linear;
+        }
+
+        /* Top Announcement Bar */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .top-bar-inner {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .top-bar-left, .top-bar-right {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .top-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .top-bar-item:hover {
+            color: var(--accent);
+        }
+        .top-bar-item i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        /* Transparent to Glass Sticky Navbar */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            background: rgba(250, 252, 250, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+        header.scrolled {
+            box-shadow: var(--shadow-md);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        .nav-container {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        /* Logo Area */
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.45rem;
+            box-shadow: 0 8px 18px rgba(18, 91, 76, 0.25);
+        }
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--primary-dark);
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+        }
+        .logo-subtitle {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 3px;
+        }
+
+        /* Nav Menu */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            text-decoration: none;
+            position: relative;
+            padding: 6px 0;
+            transition: var(--transition);
+        }
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2.5px;
+            background: var(--primary);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Header CTA Buttons - Anti-collision */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: nowrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 22px;
+            border-radius: 99px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(18, 91, 76, 0.24);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(18, 91, 76, 0.35);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+        .btn-whatsapp {
+            background: #25D366;
+            color: #fff;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.28);
+        }
+        .btn-whatsapp:hover {
+            background: #20bd5a;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Hamburger */
+        .mobile-toggle {
+            display: none;
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            background: var(--accent-light);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Fullscreen Cinematic Hero */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 60px 0 90px;
+            background: radial-gradient(circle at 85% 20%, rgba(212, 168, 106, 0.15) 0%, transparent 45%),
+                        radial-gradient(circle at 10% 80%, rgba(30, 130, 110, 0.12) 0%, transparent 50%),
+                        linear-gradient(180deg, #fafcfa 0%, #f1f7f5 100%);
+        }
+        .hero-bg-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hero-container {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.15fr 0.95fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(18, 91, 76, 0.08);
+            border: 1px solid rgba(18, 91, 76, 0.18);
+            padding: 8px 18px;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 22px;
+        }
+        .hero-badge span.pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #25D366;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.25);
+        }
+        .hero-title {
+            font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+            color: var(--primary-dark);
+            margin-bottom: 22px;
+            line-height: 1.15;
+        }
+        .hero-title span.highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        .hero-title span.gold-highlight {
+            color: #b5843b;
+        }
+        .hero-desc {
+            font-size: 1.12rem;
+            color: var(--text-muted);
+            margin-bottom: 34px;
+            max-width: 610px;
+        }
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 44px;
+        }
+
+        /* Live Trust Strip */
+        .hero-trust-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 24px 28px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        .trust-stat {
+            display: flex;
+            flex-direction: column;
+        }
+        .trust-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .trust-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        /* Hero Image & Floating Cards */
+        .hero-visual {
+            position: relative;
+        }
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid #ffffff;
+            aspect-ratio: 4 / 4.2;
+        }
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.7s ease;
+        }
+        .hero-image-wrapper:hover img {
+            transform: scale(1.04);
+        }
+        .image-zoom-badge {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            background: rgba(10, 61, 50, 0.85);
+            color: #fff;
+            backdrop-filter: blur(8px);
+            padding: 8px 14px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            pointer-events: none;
+        }
+
+        /* Floating Glass Cards on Hero */
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 18px;
+            padding: 16px 20px;
+            box-shadow: 0 16px 36px rgba(10, 61, 50, 0.16);
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            animation: floatSlow 5s ease-in-out infinite;
+        }
+        .floating-card-1 {
+            top: 24px;
+            left: -28px;
+        }
+        .floating-card-2 {
+            bottom: 30px;
+            left: -20px;
+            animation-delay: 2s;
+        }
+        .fc-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--accent-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .fc-text h5 {
+            font-size: 0.92rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+        .fc-text p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Section Global */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 60px;
+        }
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            background: rgba(18, 91, 76, 0.08);
+            padding: 6px 16px;
+            border-radius: 99px;
+            margin-bottom: 16px;
+        }
+        .section-title {
+            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            color: var(--primary-dark);
+            margin-bottom: 18px;
+        }
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        /* Interactive Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 48px;
+        }
+        .filter-btn {
+            padding: 11px 24px;
+            border-radius: 99px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            background: #ffffff;
+            color: var(--text-muted);
+            border: 1px solid var(--border-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 6px 18px rgba(18, 91, 76, 0.22);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .service-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(18, 91, 76, 0.28);
+        }
+        .service-img-wrap {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .service-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .service-card:hover .service-img-wrap img {
+            transform: scale(1.08);
+        }
+        .service-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(18, 91, 76, 0.9);
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 99px;
+            backdrop-filter: blur(6px);
+        }
+        .service-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 61, 50, 0.4);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            gap: 8px;
+            transition: opacity 0.3s ease;
+        }
+        .service-img-wrap:hover .service-img-overlay {
+            opacity: 1;
+        }
+        .service-body {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .service-body h3 {
+            font-size: 1.32rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+        .service-body p {
+            color: var(--text-muted);
+            font-size: 0.94rem;
+            margin-bottom: 22px;
+            flex-grow: 1;
+        }
+        .service-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 18px;
+            border-top: 1px solid rgba(18, 91, 76, 0.08);
+        }
+        .service-link {
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .service-link:hover {
+            color: var(--accent);
+        }
+
+        /* Scrollytelling / Sticky Split Section */
+        .scrolly-section {
+            background-color: #f3f8f6;
+            padding: 110px 0;
+        }
+        .scrolly-container {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: flex-start;
+        }
+        .scrolly-sticky-side {
+            position: sticky;
+            top: 110px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 6px solid #fff;
+            aspect-ratio: 4 / 3.8;
+            background: #000;
+        }
+        .scrolly-sticky-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .scrolly-cards-side {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .step-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 34px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+        }
+        .step-card:hover {
+            transform: translateX(10px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--primary);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+        }
+        .step-card h3 {
+            font-size: 1.45rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+        .step-card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        /* Founders / Therapists Section */
+        .therapists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 36px;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .therapist-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            gap: 26px;
+            align-items: center;
+        }
+        .therapist-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        .therapist-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 4px solid var(--accent-light);
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(18, 91, 76, 0.15);
+        }
+        .therapist-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .therapist-photo:hover img {
+            transform: scale(1.1);
+        }
+        .therapist-info h3 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+        .therapist-role {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 14px;
+        }
+        .therapist-info p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+        .therapist-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag-pill {
+            background: rgba(18, 91, 76, 0.07);
+            color: var(--primary-dark);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 99px;
+        }
+
+        /* Interactive Quiz Widget ("Hangi Terapi Bana Uygun?") */
+        .quiz-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: #fff;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .quiz-box {
+            max-width: 860px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            text-align: center;
+        }
+        .quiz-title {
+            font-size: 2rem;
+            margin-bottom: 14px;
+        }
+        .quiz-desc {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 36px;
+        }
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .quiz-btn {
+            background: rgba(255, 255, 255, 0.12);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+            padding: 18px 20px;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .quiz-btn:hover, .quiz-btn.active {
+            background: #ffffff;
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+        }
+        .quiz-result {
+            display: none;
+            margin-top: 28px;
+            background: #ffffff;
+            color: var(--text-main);
+            padding: 28px;
+            border-radius: 18px;
+            animation: fadeIn 0.4s ease;
+        }
+        .quiz-result h4 {
+            color: var(--primary);
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 28px;
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .testi-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .testi-stars {
+            color: #f5b942;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+        .testi-text {
+            font-style: italic;
+            color: var(--text-main);
+            margin-bottom: 24px;
+            font-size: 0.96rem;
+        }
+        .testi-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .author-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* FAQ Accordion */
+        .faq-wrapper {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .faq-header {
+            padding: 22px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 1.05rem;
+        }
+        .faq-header i {
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+        .faq-item.active .faq-header i {
+            transform: rotate(180deg);
+        }
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            padding: 0 28px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .faq-item.active .faq-body {
+            max-height: 250px;
+            padding-bottom: 24px;
+        }
+
+        /* Appointment & Contact Section */
+        .contact-section {
+            background: #ffffff;
+            border-top: 1px solid var(--border-light);
+        }
+        .contact-container {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .contact-card-info {
+            background: #f4f9f7;
+            padding: 44px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+        }
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 26px;
+        }
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .info-text h4 {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+        .info-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Form */
+        .appointment-form {
+            background: #ffffff;
+            padding: 44px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .form-group.full {
+            grid-column: span 2;
+        }
+        .form-label {
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--primary-dark);
+        }
+        .form-control {
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1.5px solid rgba(18, 91, 76, 0.2);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(18, 91, 76, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 70px 0 30px;
+        }
+        .footer-grid {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .footer-logo-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 6px;
+        }
+        .footer-bottom {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.88rem;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-wa {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 62px;
+            height: 62px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+            z-index: 10000;
+            transition: var(--transition);
+        }
+        .floating-wa:hover {
+            transform: scale(1.1) rotate(8deg);
+            background: #1ebb57;
+        }
+
+        /* Stock Image Lightbox Modal */
+        .lightbox-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 30, 24, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 100000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-content {
+            position: relative;
+            max-width: 1000px;
+            max-height: 85vh;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            display: block;
+            object-fit: contain;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: #fff;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+            color: #fff;
+            padding: 24px;
+            font-weight: 600;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: var(--primary-dark);
+            color: #fff;
+            padding: 16px 24px;
+            border-radius: 14px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 99999;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1080px) {
+            .hero-container, .scrolly-container, .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .scrolly-sticky-side {
+                position: relative;
+                top: 0;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .therapists-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 860px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                flex-direction: column;
+                padding: 24px;
+                box-shadow: var(--shadow-md);
+                border-bottom: 1px solid var(--border-light);
+            }
+            .nav-menu.open {
+                display: flex;
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+            .header-actions {
+                display: none;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full {
+                grid-column: span 1;
+            }
+            .top-bar-inner {
+                justify-content: center;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Scroll Progress -->
+    <div class="scroll-progress-bar" id="scrollProgress"></div>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <div class="top-bar-inner">
+            <div class="top-bar-left">
+                <span class="top-bar-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Yeşilyurt Mah. Şifa Cad. No:12 Sivas Merkez / Sivas
+                </span>
+                <span class="top-bar-item">
+                    <i class="fa-regular fa-clock"></i>
+                    Hafta İçi & Cumartesi: 09:00 - 19:30
+                </span>
+            </div>
+            <div class="top-bar-right">
+                <a href="tel:05510364058" class="top-bar-item">
+                    <i class="fa-solid fa-phone"></i>
+                    0551 036 40 58
+                </a>
+                <a href="https://instagram.com/sivas_fizyofit_bagdat" target="_blank" class="top-bar-item">
+                    <i class="fa-brands fa-instagram"></i>
+                    @sivas_fizyofit_bagdat
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Glass Sticky Navbar -->
+    <header id="navbar">
+        <div class="nav-container">
+            <a href="fizyofit_bagdat_demo.html" class="brand-logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-user-doctor"></i>
+                </div>
+                <div class="logo-text-group">
+                    <span class="logo-title">FİZYO FİT BAĞDAT</span>
+                    <span class="logo-subtitle">Fizyoterapi & Pilates Merkezi</span>
+                </div>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="fizyofit_bagdat_demo.html#hizmetler" class="nav-link">Hizmetlerimiz</a></li>
+                <li><a href="fizyofit_bagdat_demo.html#skolyoz" class="nav-link">3D Schroth Skolyoz</a></li>
+                <li><a href="fizyofit_bagdat_demo.html#kurucular" class="nav-link">Hakkımızda</a></li>
+                <li><a href="fizyofit_bagdat_demo.html#iletisim" class="nav-link">İletişim</a></li>
+            </ul>
+
+            <div class="header-actions">
+                <a href="fizyofit_hasta_paneli.html" class="btn btn-outline" style="border-color: var(--accent); color: var(--accent); padding: 8px 16px;">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    Hasta Portalı
+                </a>
+                <a href="fizyofit_panel_demo.html" class="btn btn-primary" style="padding: 8px 16px;">
+                    <i class="fa-solid fa-user-shield"></i>
+                    Klinik Paneli
+                </a>
+            </div>
+
+            <button class="mobile-toggle" id="menuToggle" aria-label="Menüyü Aç/Kapat">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Fullscreen Cinematic Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="pulse-dot"></span>
+                    Sivas'ta Bilimsel & Kişiye Özel Bütüncül Terapi
+                </div>
+                <h1 class="hero-title">
+                    Omurganıza Hak Ettiği <span class="highlight">Özgürlüğü</span> ve <span class="gold-highlight">Sağlığı</span> Kazandırın
+                </h1>
+                <p class="hero-desc">
+                    <strong>Fzt. Rümeysa Seyhan Yıldırım & Fzt. Türkcan Buketçi</strong> yönetiminde; uluslararası standartlarda <strong>3 Boyutlu Schroth Skolyoz Terapisi</strong>, Aletli Reformer Pilates, Osteopati ve Manuel Terapi ile ağrısız ve güçlü bir yaşama adım atın.
+                </p>
+
+                <div class="hero-cta-group">
+                    <a href="#iletisim" class="btn btn-primary">
+                        <i class="fa-solid fa-calendar-plus"></i>
+                        Ücretsiz Postür Analizi Randevusu Al
+                    </a>
+                    <a href="#hizmetler" class="btn btn-outline">
+                        Hizmetlerimizi İncele
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Trust Stats Strip -->
+                <div class="hero-trust-strip">
+                    <div class="trust-stat">
+                        <span class="trust-num">%98</span>
+                        <span class="trust-label">Ağrıda Azalma & Memnuniyet</span>
+                    </div>
+                    <div class="trust-stat">
+                        <span class="trust-num">Schroth 3D</span>
+                        <span class="trust-label">Skolyoz Rehabilitasyon Protokolü</span>
+                    </div>
+                    <div class="trust-stat">
+                        <span class="trust-num">Birebir</span>
+                        <span class="trust-label">Fizyoterapist Eşliğinde Seans</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <!-- Floating Glass Cards -->
+                <div class="floating-card floating-card-1">
+                    <div class="fc-icon"><i class="fa-solid fa-person-walking"></i></div>
+                    <div class="fc-text">
+                        <h5>Postür & Omurga Düzeltimi</h5>
+                        <p>Skolyoz & Kifoz Terapi Seansları</p>
+                    </div>
+                </div>
+
+                <div class="floating-card floating-card-2">
+                    <div class="fc-icon" style="color: #d4a86a;"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <div class="fc-text">
+                        <h5>Klinik Reformer & Hamile Pilatesi</h5>
+                        <p>Güvenli, Core Odaklı Egzersiz</p>
+                    </div>
+                </div>
+
+                <div class="hero-image-wrapper" onclick="openLightbox('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1600&q=85', 'FizyoFit Bağdat - Birebir Reformer Pilates & Fizyoterapi Alanı')">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80" alt="Fizyofit Bağdat Klinik Pilates ve Egzersiz Salonu">
+                    <div class="image-zoom-badge">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                        Fotoğrafı Büyüt
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section with Filter -->
+    <section class="section" id="hizmetler">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-sparkles"></i> Uzmanlık Alanlarımız</span>
+            <h2 class="section-title">Bilimsel & Kişiye Özel Terapi Çözümleri</h2>
+            <p class="section-desc">Her danışanımızın postür yapısına ve klinik ihtiyacına özel hazırlanan bütüncül fizyoterapi ve pilates programlarımız.</p>
+        </div>
+
+        <div class="filter-tabs">
+            <button class="filter-btn active" onclick="filterServices('all', this)">Tümü</button>
+            <button class="filter-btn" onclick="filterServices('skolyoz', this)">Skolyoz & Omurga</button>
+            <button class="filter-btn" onclick="filterServices('pilates', this)">Klinik Pilates</button>
+            <button class="filter-btn" onclick="filterServices('manuel', this)">Manuel & Osteopati</button>
+            <button class="filter-btn" onclick="filterServices('özel', this)">Lenf Ödem & Doğum</button>
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+            <!-- Card 1 -->
+            <div class="service-card" data-category="skolyoz">
+                <div class="service-img-wrap" onclick="openLightbox('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=85', 'Schroth 3D Skolyoz Terapisi & Postür Düzeltme')">
+                    <span class="service-badge">Uluslararası Metot</span>
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=700&q=80" alt="Schroth Skolyoz Terapisi">
+                    <div class="service-img-overlay"><i class="fa-solid fa-expand"></i> Büyüt</div>
+                </div>
+                <div class="service-body">
+                    <h3>Schroth 3D Skolyoz & Omurga Terapisi</h3>
+                    <p>Omurganın 3 boyutlu eğriliklerinde (Skolyoz, Kifoz) özel rotasyonel solunum ve asimetrik egzersizlerle eğrilik progresyonunu durdurma ve düzeltme.</p>
+                    <div class="service-footer">
+                        <span style="font-size:0.85rem; color:var(--text-muted);"><i class="fa-solid fa-check"></i> Birebir Seans</span>
+                        <a href="#iletisim" class="service-link">Randevu Al <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="service-card" data-category="pilates">
+                <div class="service-img-wrap" onclick="openLightbox('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1400&q=85', 'Klinik Reformer Pilates - Core Güçlendirme')">
+                    <span class="service-badge">Fizyoterapist Eşliğinde</span>
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=80" alt="Reformer Pilates">
+                    <div class="service-img-overlay"><i class="fa-solid fa-expand"></i> Büyüt</div>
+                </div>
+                <div class="service-body">
+                    <h3>Klinik Reformer Pilates</h3>
+                    <p>Bel ve boyun fıtığı koruyucu, derin core kaslarını aktive eden ve omurga esnekliğini artıran birebir fizyoterapist denetimli aletli pilates.</p>
+                    <div class="service-footer">
+                        <span style="font-size:0.85rem; color:var(--text-muted);"><i class="fa-solid fa-check"></i> Postür Analizli</span>
+                        <a href="#iletisim" class="service-link">Randevu Al <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="service-card" data-category="manuel">
+                <div class="service-img-wrap" onclick="openLightbox('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1400&q=85', 'Osteopati & Manuel Terapi Uygulamaları')">
+                    <span class="service-badge">Bütüncül Yaklaşım</span>
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=80" alt="Osteopati ve Manuel Terapi">
+                    <div class="service-img-overlay"><i class="fa-solid fa-expand"></i> Büyüt</div>
+                </div>
+                <div class="service-body">
+                    <h3>Osteopati & Manuel Rehabilitasyon</h3>
+                    <p>Kas-iskelet sistemi ağrıları, fasyal kısıtlılıklar, kronik bel-boyun blokajlarında elle uygulanan nöromiyofasyal gevşeme ve mobilizasyon.</p>
+                    <div class="service-footer">
+                        <span style="font-size:0.85rem; color:var(--text-muted);"><i class="fa-solid fa-check"></i> Ağrı Odaklı</span>
+                        <a href="#iletisim" class="service-link">Randevu Al <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="service-card" data-category="özel">
+                <div class="service-img-wrap" onclick="openLightbox('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1400&q=85', 'Hamile Pilatesi & Doğuma Hazırlık Seansları')">
+                    <span class="service-badge">Anne & Bebek Sağlığı</span>
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=80" alt="Hamile Pilatesi">
+                    <div class="service-img-overlay"><i class="fa-solid fa-expand"></i> Büyüt</div>
+                </div>
+                <div class="service-body">
+                    <h3>Hamile Pilatesi & Doğuma Hazırlık</h3>
+                    <p>Gebelik sürecinde bel ağrısını önleyen, pelvik taban kaslarını güçlendiren, nefes teknikleriyle rahat bir doğuma hazırlayan seanslar.</p>
+                    <div class="service-footer">
+                        <span style="font-size:0.85rem; color:var(--text-muted);"><i class="fa-solid fa-check"></i> Doktor Onaylı</span>
+                        <a href="#iletisim" class="service-link">Randevu Al <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="service-card" data-category="özel">
+                <div class="service-img-wrap" onclick="openLightbox('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1400&q=85', 'Lenf Ödem ve Lipödem Terapisi')">
+                    <span class="service-badge">Ödem & Drenaj</span>
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=700&q=80" alt="Lenf Ödem Terapisi">
+                    <div class="service-img-overlay"><i class="fa-solid fa-expand"></i> Büyüt</div>
+                </div>
+                <div class="service-body">
+                    <h3>Lenf Ödem & Lipödem Terapisi</h3>
+                    <p>Kompleks boşaltıcı fizyoterapi, manuel lenf drenajı ve özel kompresyon bandajlamaları ile uzuvlarda oluşan ödem ve dolaşım kontrolü.</p>
+                    <div class="service-footer">
+                        <span style="font-size:0.85rem; color:var(--text-muted);"><i class="fa-solid fa-check"></i> Uzman Protokol</span>
+                        <a href="#iletisim" class="service-link">Randevu Al <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="service-card" data-category="skolyoz">
+                <div class="service-img-wrap" onclick="openLightbox('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1400&q=85', 'Bel & Boyun Ağrıları Fizyoterapi Seansları')">
+                    <span class="service-badge">Kronik Ağrı</span>
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=700&q=80" alt="Bel ve Boyun Rehabilitasyonu">
+                    <div class="service-img-overlay"><i class="fa-solid fa-expand"></i> Büyüt</div>
+                </div>
+                <div class="service-body">
+                    <h3>Bel & Boyun Fıtığı Rehabilitasyonu</h3>
+                    <p>Fıtık kaynaklı sinir baskılarını hafifletme, fasyal mobilizasyon ve omurga etrafındaki koruyucu kas korseyi inşa etme süreci.</p>
+                    <div class="service-footer">
+                        <span style="font-size:0.85rem; color:var(--text-muted);"><i class="fa-solid fa-check"></i> Koruyucu Fizyoterapi</span>
+                        <a href="#iletisim" class="service-link">Randevu Al <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky Image Scrollytelling Section -->
+    <section class="scrolly-section" id="skolyoz">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-layer-group"></i> Terapi Sürecimiz</span>
+            <h2 class="section-title">Adım Adım Sağlıklı Omurga Yolculuğunuz</h2>
+            <p class="section-desc">FizyoFit Bağdat’ta rastgele egzersiz yoktur; tamamen klinik bulgulara dayalı ve ölçülebilir bir terapi yaklaşımı uygularız.</p>
+        </div>
+
+        <div class="scrolly-container">
+            <div class="scrolly-sticky-side" onclick="openLightbox('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=85', 'FizyoFit Bağdat - Klinik Postür Analizi ve Birebir Değerlendirme')">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80" alt="FizyoFit Bağdat Değerlendirme">
+            </div>
+
+            <div class="scrolly-cards-side">
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <h3>Detaylı Postür & Omurga Değerlendirmesi</h3>
+                    <p>İlk seansımızda omuz asimetrileri, pelvik tilt (leğen kemiği dengesizliği), skolyoz açısı ve kas kısalıkları dijital ve fiziksel ölçümlerle raporlanır.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <h3>Kişiye Özel Terapi & Egzersiz Protokolü</h3>
+                    <p>Fzt. Rümeysa Seyhan Yıldırım & Fzt. Türkcan Buketçi tarafından danışanın yaşam tarzına, ağrı seviyesine ve omurga eğriliğine özel seans takvimi oluşturulur.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <h3>Birebir Uygulama & Schroth / Reformer Seansları</h3>
+                    <p>Her seans yalnızca uzman fizyoterapistinizle birebir geçer. Doğru solunum, core aktivasyonu ve eklem açıklığı egzersizleri anlık düzeltmelerle yapılır.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-num">04</div>
+                    <h3>Düzenli Ölçüm & Sürdürülebilir İyileşme</h3>
+                    <p>Belirli periyotlarla yapılan postür kontrolleriyle kat edilen ilerleme somut olarak gözlemlenir ve günlük yaşam ergonomisi alışkanlık haline getirilir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founders / Therapists Section -->
+    <section class="section" id="kurucular">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-user-tie"></i> Uzman Kadromuz</span>
+            <h2 class="section-title">Sağlığınızı Uzman Fizyoterapistlere Emanet Edin</h2>
+            <p class="section-desc">Sivas’ta bilimi, modern klinik imkanları ve samimi ilgiyle harmanlayan kurucu fizyoterapistlerimizle tanışın.</p>
+        </div>
+
+        <div class="therapists-grid">
+            <div class="therapist-card">
+                <div class="therapist-photo" onclick="openLightbox('https://images.unsplash.com/photo-1594824813571-600c50672723?auto=format&fit=crop&w=800&q=85', 'Fzt. Rümeysa Seyhan Yıldırım - FizyoFit Bağdat Kurucu Fizyoterapist')">
+                    <img src="https://images.unsplash.com/photo-1594824813571-600c50672723?auto=format&fit=crop&w=500&q=80" alt="Fzt. Rümeysa Seyhan Yıldırım">
+                </div>
+                <div class="therapist-info">
+                    <h3>Fzt. Rümeysa Seyhan Yıldırım</h3>
+                    <div class="therapist-role">Kurucu Fizyoterapist & Skolyoz Uzmanı</div>
+                    <p>Omurga deformiteleri, Schroth 3D skolyoz terapisi, klinik reformer pilates ve kadın sağlığı fizyoterapisi alanında uzmanlaşmıştır.</p>
+                    <div class="therapist-tags">
+                        <span class="tag-pill">#Schroth3D</span>
+                        <span class="tag-pill">#KlinikPilates</span>
+                        <span class="tag-pill">#OmurgaSağlığı</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="therapist-card">
+                <div class="therapist-photo" onclick="openLightbox('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=85', 'Fzt. Türkcan Buketçi - FizyoFit Bağdat Kurucu Fizyoterapist')">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=500&q=80" alt="Fzt. Türkcan Buketçi">
+                </div>
+                <div class="therapist-info">
+                    <h3>Fzt. Türkcan Buketçi</h3>
+                    <div class="therapist-role">Kurucu Fizyoterapist & Osteopati</div>
+                    <p>Manuel terapi, lenf ödem rehabilitasyonu, osteopatik yaklaşımlar ve ortopedik fizyoterapi süreçlerinde danışan odaklı seanslar yürütmektedir.</p>
+                    <div class="therapist-tags">
+                        <span class="tag-pill">#Osteopati</span>
+                        <span class="tag-pill">#ManuelTerapi</span>
+                        <span class="tag-pill">#LenfÖdem</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quiz Widget -->
+    <section class="quiz-section" id="test">
+        <div class="quiz-box">
+            <span class="section-tag" style="background:rgba(255,255,255,0.15); color:#fff;"><i class="fa-solid fa-wand-magic-sparkles"></i> Akıllı Ön Analiz Testi</span>
+            <h2 class="quiz-title">Şu An En Çok Hangi Şikayeti Yaşıyorsunuz?</h2>
+            <p class="quiz-desc">Durumunuzu seçin, FizyoFit Bağdat uzmanlarının size en uygun terapi önerisini anında görüntüleyin.</p>
+
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="showQuizResult('Masa başı çalışma ve duruş bozukluğuna bağlı sırt-boyun ağrılarım var.', 'Klinik Reformer Pilates & Manuel Terapi', 'Omurga etrafındaki kaslarınızı dengeli biçimde güçlendirmek ve duruş bozukluğunu gidermek için birebir fizyoterapist eşliğinde Klinik Reformer Pilates seansları sizin için en etkili çözümdür.')">
+                    <i class="fa-solid fa-laptop"></i>
+                    Sırt & Boyun Ağrısı / Postür Bozukluğu
+                </button>
+                <button class="quiz-btn" onclick="showQuizResult('Omurgamda asimetri, eğrilik (Skolyoz/Kifoz) şüphesi veya teşhisi var.', 'Schroth 3D Skolyoz Rehabilitasyonu', 'Uluslararası kabul görmüş Schroth 3D egzersiz protokolümüz ile omurgadaki rotasyon ve eğriliği düzeltmeye yönelik kişiye özel solunum ve asimetrik egzersiz programı öneriyoruz.')">
+                    <i class="fa-solid fa-spine"></i>
+                    Omurga Eğriliği (Skolyoz / Kifoz)
+                </button>
+                <button class="quiz-btn" onclick="showQuizResult('Hamilelik sürecindeyim veya doğum sonrası bel ağrısı / toparlanma arıyorum.', 'Hamile Pilatesi & Doğum Sonrası Rehabilitasyon', 'Gebelik sürecini ağrısız geçirmek, pelvik tabanı desteklemek ve doğuma fiziksel olarak hazır olmak için doktor onaylı Hamile Pilatesi programımız tam size göredir.')">
+                    <i class="fa-solid fa-baby"></i>
+                    Hamilelik / Doğuma Hazırlık
+                </button>
+            </div>
+
+            <div class="quiz-result" id="quizResultBox">
+                <h4 id="resultTitle">Önerilen Terapi</h4>
+                <p id="resultText" style="margin-bottom: 18px;">Açıklama</p>
+                <a href="#iletisim" class="btn btn-primary" style="display:inline-flex;">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Bu Öneri İçin WhatsApp'tan Bilgi Al
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="yorumlar">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-comments"></i> Danışan Deneyimleri</span>
+            <h2 class="section-title">Sivas’ta Mutlu ve Ağrısız Bir Yaşam</h2>
+            <p class="section-desc">FizyoFit Bağdat ailesine katılan danışanlarımızın gerçek seans deneyimleri.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testi-card">
+                <div>
+                    <div class="testi-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">“14 yaşındaki kızımın skolyoz teşhisi sonrası Rümeysa ve Türkcan hocamızla tanıştık. Schroth egzersizleriyle kısa sürede duruşunda inanılmaz bir düzelme oldu, iyi ki varsınız Fizyofit!”</p>
+                </div>
+                <div class="testi-author">
+                    <div class="author-avatar">Z.A.</div>
+                    <div>
+                        <strong style="display:block; color:var(--primary-dark);">Zeynep A.</strong>
+                        <span style="font-size:0.8rem; color:var(--text-muted);">Skolyoz Danışanı Velisi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testi-card">
+                <div>
+                    <div class="testi-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">“Yıllardır masa başı çalışmaktan boyun fıtığı ve sırt ağrıları yaşıyordum. Birebir reformer pilates ve manuel terapi sayesinde ağrı kesicileri tamamen bıraktım.”</p>
+                </div>
+                <div class="testi-author">
+                    <div class="author-avatar">M.K.</div>
+                    <div>
+                        <strong style="display:block; color:var(--primary-dark);">Murat K.</strong>
+                        <span style="font-size:0.8rem; color:var(--text-muted);">Klinik Reformer Pilates Danışanı</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testi-card">
+                <div>
+                    <div class="testi-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">“Hamileliğimin 4. ayından itibaren hamile pilatesine katıldım. Hem bel ağrım hiç olmadı hem de doğuma çok rahat girdim. Sivas’ta kesinlikle tek adres!”</p>
+                </div>
+                <div class="testi-author">
+                    <div class="author-avatar">E.T.</div>
+                    <div>
+                        <strong style="display:block; color:var(--primary-dark);">Elif T.</strong>
+                        <span style="font-size:0.8rem; color:var(--text-muted);">Hamile Pilatesi Danışanı</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="section" style="background:#f9fcfb; padding-top:40px;">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-circle-question"></i> Sıkça Sorulan Sorular</span>
+            <h2 class="section-title">Aklınızdaki Soruları Yanıtladık</h2>
+        </div>
+
+        <div class="faq-wrapper">
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <span>Klinik Reformer Pilates ile spor salonu pilatesi arasındaki fark nedir?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-body">
+                    Klinik reformer pilates, lisanslı fizyoterapistler tarafından kişinin omurga anatomisi, mevcut fıtık, skolyoz veya postür bozukluğu dikkate alınarak tıbbi hassasiyetle uygulanır. Sakatlık riski sıfıra yakındır ve tedavi edici yönü ön plandadır.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <span>Schroth 3D Skolyoz Terapisi haftada kaç seans uygulanmalıdır?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-body">
+                    Danışanın yaş ve skolyoz derece açısına bağlı olarak genellikle haftada 2 veya 3 seans birebir kliniğimizde uygulanır, ek olarak ev egzersizi programı verilir.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <span>Seanslara gelirken yanımda ne getirmeliyim?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-body">
+                    Rahat hareket edebileceğiniz esnek spor kıyafetleri (tayt, eşofman vb.) ve temiz bir pilates çorabı giymeniz yeterlidir. Tüm donanım ve ekipmanlar kliniğimizce hijyenik olarak sağlanır.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment & Contact Section -->
+    <section class="section contact-section" id="iletisim">
+        <div class="contact-container">
+            <div class="contact-card-info">
+                <span class="section-tag"><i class="fa-solid fa-location-dot"></i> Sivas Yeşilyurt Mah.</span>
+                <h2 class="section-title" style="margin-bottom: 24px;">Sağlıklı Bir Omurga İçin Randevunuzu Planlayın</h2>
+                <p style="color:var(--text-muted); margin-bottom:34px;">
+                    Ön değerlendirme randevusu oluşturmak, seans ücretleri hakkında bilgi almak veya doğrudan fizyoterapistlerimize danışmak için bizimle iletişime geçin.
+                </p>
+
+                <div class="info-row">
+                    <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="info-text">
+                        <h4>Klinik Adresimiz</h4>
+                        <p>Yeşilyurt Mahallesi, Şifa Caddesi No:12<br>Sivas Merkez / Sivas</p>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="info-text">
+                        <h4>Telefon & WhatsApp Hatları</h4>
+                        <p><strong>0551 036 40 58</strong></p>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-icon"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="info-text">
+                        <h4>Instagram Sayfamız</h4>
+                        <p><a href="https://instagram.com/sivas_fizyofit_bagdat" target="_blank" style="color:var(--primary); font-weight:700;">@sivas_fizyofit_bagdat</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="appointment-form">
+                <h3 style="font-size:1.6rem; color:var(--primary-dark); margin-bottom: 8px;">Online Randevu & Bilgi Talebi</h3>
+                <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:24px;">Formu doldurun, aynı gün içinde fizyoterapistlerimiz sizi arasın.</p>
+
+                <form onsubmit="handleAppointment(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Adınız Soyadınız</label>
+                            <input type="text" class="form-control" required placeholder="Örn: Ayşe Yılmaz">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Telefon Numarası</label>
+                            <input type="tel" class="form-control" required placeholder="05XX XXX XX XX">
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label">İlgilendiğiniz Terapi Alanı</label>
+                            <select class="form-control" id="serviceSelect">
+                                <option>Schroth 3D Skolyoz Terapisi</option>
+                                <option>Klinik Reformer Pilates</option>
+                                <option>Osteopati & Manuel Terapi</option>
+                                <option>Hamile Pilatesi & Doğuma Hazırlık</option>
+                                <option>Lenf Ödem / Lipödem Terapisi</option>
+                                <option>Bel & Boyun Ağrısı Değerlendirmesi</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label">Eklemek İstediğiniz Not veya Şikayetiniz</label>
+                            <textarea class="form-control" rows="3" placeholder="Ağrınızın bölgesi, süresi vb."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width:100%; padding: 16px;">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Randevu Talebimi Gönder
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo-title">FİZYO FİT BAĞDAT</div>
+                <p style="font-size:0.92rem; line-height:1.7; margin-bottom:20px;">
+                    Sivas'ın bilime dayalı fizyoterapi, 3 boyutlu Schroth skolyoz rehabilitasyonu ve birebir klinik reformer pilates merkezi.
+                </p>
+                <div style="display:flex; gap:12px;">
+                    <a href="https://instagram.com/sivas_fizyofit_bagdat" target="_blank" style="width:40px; height:40px; border-radius:10px; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#fff; text-decoration:none;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/905510364058" target="_blank" style="width:40px; height:40px; border-radius:10px; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#fff; text-decoration:none;"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 style="color:#fff; font-size:1.1rem; margin-bottom:18px;">Hızlı Menü</h4>
+                <ul class="footer-links">
+                    <li><a href="#hizmetler">Hizmetlerimiz</a></li>
+                    <li><a href="#skolyoz">Terapi Süreci</a></li>
+                    <li><a href="#kurucular">Fizyoterapistler</a></li>
+                    <li><a href="#yorumlar">Danışan Deneyimleri</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="color:#fff; font-size:1.1rem; margin-bottom:18px;">Hizmetlerimiz</h4>
+                <ul class="footer-links">
+                    <li><a href="#hizmetler">3D Schroth Skolyoz</a></li>
+                    <li><a href="#hizmetler">Klinik Reformer Pilates</a></li>
+                    <li><a href="#hizmetler">Osteopati & Manuel Terapi</a></li>
+                    <li><a href="#hizmetler">Hamile Pilatesi</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="color:#fff; font-size:1.1rem; margin-bottom:18px;">İletişim</h4>
+                <p style="font-size:0.9rem; margin-bottom:10px;"><i class="fa-solid fa-location-dot" style="color:var(--accent);"></i> Yeşilyurt Mah. Şifa Cad. No:12 Sivas</p>
+                <p style="font-size:0.9rem; margin-bottom:10px;"><i class="fa-solid fa-phone" style="color:var(--accent);"></i> 0551 036 40 58</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; 2026 FİZYO FİT BAĞDAT. Tüm Hakları Saklıdır.</span>
+            <span>Sivas İşletmelerine Özel Demo Sunumu</span>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp CTA -->
+    <a href="https://wa.me/905510364058" target="_blank" class="floating-wa" title="WhatsApp'tan Randevu Al">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Stock Image Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+        <button class="lightbox-close" onclick="closeLightboxBtn()">&times;</button>
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightboxImg" src="" alt="Büyütülmüş Görsel">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toastBox">
+        <i class="fa-solid fa-circle-check" style="color: #25D366; font-size: 1.3rem;"></i>
+        <span id="toastText">Talebiniz başarıyla alındı!</span>
+    </div>
+
+    <script>
+        // Scroll Progress & Navbar sticky behavior
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('scrollProgress').style.width = progress + '%';
+
+            const header = document.getElementById('navbar');
+            if (scrollTop > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+
+        // Filter Services
+        function filterServices(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Lightbox Functions
+        function openLightbox(imgSrc, captionText) {
+            const modal = document.getElementById('lightboxModal');
+            document.getElementById('lightboxImg').src = imgSrc;
+            document.getElementById('lightboxCaption').textContent = captionText;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(e) {
+            if (e.target.id === 'lightboxModal') {
+                closeLightboxBtn();
+            }
+        }
+
+        function closeLightboxBtn() {
+            document.getElementById('lightboxModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Quiz Result Handler
+        function showQuizResult(selectedText, title, desc) {
+            document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            const resBox = document.getElementById('quizResultBox');
+            document.getElementById('resultTitle').textContent = "Önerilen Terapi: " + title;
+            document.getElementById('resultText').textContent = desc;
+            resBox.style.display = 'block';
+        }
+
+        // FAQ Toggle
+        function toggleFaq(el) {
+            const parent = el.parentElement;
+            parent.classList.toggle('active');
+        }
+
+        // Appointment Form Submission
+        function handleAppointment(e) {
+            e.preventDefault();
+            const service = document.getElementById('serviceSelect').value;
+            showToast(service + " için randevu talebiniz alındı. Kısa sürede aranacaksınız.");
+            e.target.reset();
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toastBox');
+            document.getElementById('toastText').textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4500);
+        }
+    </script>
+</body>
+</html>
