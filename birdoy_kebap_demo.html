@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Köfteci İlhami / Birdoy Kebap Salonu | Sivas</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kebabRed: '#d91a1a',
+                        kebabRedDark: '#a31111',
+                        darkBg: '#121212',
+                        darkBgLighter: '#1e1e1e',
+                        textMain: '#e5e5e5',
+                        textMuted: '#a3a3a3',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Bebas Neue', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(217, 26, 26, 0.5)',
+                        'hover': '0 10px 30px rgba(0,0,0,0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #121212; color: #e5e5e5; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #121212; }
+        ::-webkit-scrollbar-thumb { background: #d91a1a; border-radius: 4px; }
+
+        /* Hover effects */
+        .menu-card { transition: all 0.3s ease; }
+        .menu-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.8); border-color: #d91a1a; }
+        .menu-card img { transition: transform 0.5s ease; }
+        .menu-card:hover img { transform: scale(1.08); }
+
+        /* Fire text effect */
+        .text-fire {
+            background: -webkit-linear-gradient(#ff7b00, #d91a1a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Overlay gradient for dark images */
+        .dark-overlay {
+            background: linear-gradient(to top, #121212 0%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- TOP BAR -->
+    <div class="bg-kebabRedDark text-white text-xs font-medium py-2 hidden md:block">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-clock"></i> Her Gün 10:00 - 23:00 Arası Açığız</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot"></i> Sivas Merkez, Lezzet Caddesi</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-motorcycle"></i> Paket Servis Hattı: 0346 222 33 44</span>
+                <div class="flex items-center gap-3 border-l border-white/20 pl-4 ml-2">
+                    <a href="#" class="hover:text-yellow-300 transition"><i class="fa-brands fa-instagram text-sm"></i></a>
+                    <a href="#" class="hover:text-yellow-300 transition"><i class="fa-brands fa-facebook text-sm"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="bg-darkBg/95 backdrop-blur-md sticky top-0 z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="shrink-0 flex items-center gap-3 group">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-kebabRed border-2 border-white/20 rounded-full flex flex-col items-center justify-center text-white shadow-neon transition group-hover:scale-105">
+                    <i class="fa-solid fa-fire text-xl mb-0.5"></i>
+                </div>
+                <div>
+                    <h1 class="font-heading text-2xl md:text-3xl text-white leading-none tracking-wider group-hover:text-kebabRed transition">KÖFTECİ İLHAMİ</h1>
+                    <span class="text-xs text-kebabRed font-bold tracking-[0.2em] uppercase">Birdoy Kebap Salonu</span>
+                </div>
+            </a>
+
+            <!-- Navigation Bar -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-textMain tracking-wide uppercase">
+                <a href="#hakkimizda" class="hover:text-kebabRed transition">Hakkımızda</a>
+                <a href="#menu" class="hover:text-kebabRed transition">Menümüz</a>
+                <a href="#galeri" class="hover:text-kebabRed transition">Galeri</a>
+                <a href="#iletisim" class="hover:text-kebabRed transition">İletişim</a>
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="flex items-center gap-3 md:gap-4 shrink-0">
+                <a href="#rezervasyon" class="hidden md:flex items-center gap-2 bg-white text-darkBg font-bold px-6 py-2.5 rounded-full text-sm hover:bg-gray-200 transition">
+                    <i class="fa-solid fa-utensils"></i> Masaya Rezervasyon
+                </a>
+                <a href="tel:03462223344" class="flex items-center gap-2 bg-kebabRed text-white font-bold px-5 py-2.5 rounded-full text-sm hover:bg-red-700 transition shadow-neon">
+                    <i class="fa-solid fa-motorcycle"></i> <span class="hidden md:block">Paket Sipariş</span>
+                </a>
+                <!-- Mobile Menu Toggle -->
+                <button class="md:hidden w-10 h-10 flex items-center justify-center text-2xl text-white">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1920&q=80" alt="Grill Barbecue" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-darkBg/70"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent"></div>
+            </div>
+
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16 md:mt-0">
+                <div class="inline-flex items-center gap-2 bg-darkBgLighter/80 border border-white/20 px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
+                    <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+                    <span class="text-xs font-bold text-white tracking-widest uppercase">Sivas'ın En Lezzetli Durağı</span>
+                    <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+                </div>
+                
+                <h2 class="text-6xl md:text-8xl font-heading text-white leading-[0.9] mb-6">
+                    ATEŞİN LEZZETİ,<br>
+                    <span class="text-fire text-7xl md:text-9xl">SİVAS KÖFTESİ'NİN</span><br>
+                    GERÇEK USTASI.
+                </h2>
+                
+                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-medium">
+                    Günlük taptaze etler, yılların getirdiği ustalık ve kömür ateşinin eşsiz aroması. 
+                    Kendinize bir ziyafet çekin, Birdoy Kebap'ta masanız hazır!
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#rezervasyon" class="w-full sm:w-auto bg-kebabRed text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-red-700 transition shadow-neon flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-utensils"></i> Masaya Rezervasyon
+                    </a>
+                    <a href="#menu" class="w-full sm:w-auto bg-transparent border-2 border-white text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-white hover:text-darkBg transition flex items-center justify-center gap-3">
+                        Menüyü İncele <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAR DISH SPOTLIGHT (SİVAS KÖFTESİ) -->
+        <section class="py-16 md:py-24 relative overflow-hidden bg-darkBg border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="bg-darkBgLighter rounded-3xl border border-white/10 overflow-hidden flex flex-col md:flex-row items-center">
+                    
+                    <div class="w-full md:w-1/2 h-[400px] md:h-[500px] relative">
+                        <!-- Sivas Köftesi Image -->
+                        <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=800&q=80" alt="Sivas Köftesi" class="w-full h-full object-cover">
+                        <div class="absolute top-6 left-6 bg-kebabRed text-white font-heading text-xl px-4 py-2 rounded shadow-lg transform -rotate-3">
+                            <i class="fa-solid fa-award mr-1"></i> İMZA LEZZET
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-1/2 p-8 md:p-16">
+                        <h4 class="text-kebabRed font-bold tracking-widest uppercase mb-2 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-fire text-lg"></i> Bizim Gururumuz
+                        </h4>
+                        <h3 class="text-5xl md:text-6xl font-heading text-white mb-6">Meşhur <span class="text-fire">Sivas Köftesi</span></h3>
+                        <p class="text-textMuted text-lg mb-6 leading-relaxed">
+                            İyi bir Sivas Köftesi yemek için şehrin öbür ucundan gelinir! İlhami Usta'nın özel tarifiyle, sadece en kaliteli dana eti ve tuz kullanılarak hazırlanan, katkısız, odun ateşinde mühürlenen muazzam lezzet.
+                        </p>
+                        <ul class="space-y-3 text-textMain font-medium mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-kebabRed"></i> %100 Yöresel Dana Eti</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-kebabRed"></i> Baharatsız, sadece etin gerçek tadı</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-kebabRed"></i> Közlenmiş biber, domates ve özel lavaş ile</li>
+                        </ul>
+                        <div class="flex items-center gap-6">
+                            <span class="text-4xl font-heading text-white">280 ₺</span>
+                            <a href="#rezervasyon" class="bg-white text-darkBg font-bold px-6 py-3 rounded-full hover:bg-gray-200 transition">Hemen Masanı Ayırt</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU SECTION -->
+        <section id="menu" class="py-20 bg-darkBgLighter relative">
+            <div class="max-w-7xl mx-auto px-4">
+                
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl md:text-6xl font-heading text-white mb-4">Ateşten Gelen <span class="text-kebabRed">Menümüz</span></h2>
+                    <p class="text-textMuted max-w-2xl mx-auto text-lg">Günlük taze etler, özenle hazırlanan mezeler ve ustamızın ellerinden dökülen lezzetler. Masada yeriniz hazır.</p>
+                </div>
+
+                <!-- Categories Tabs (Visual only) -->
+                <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-12">
+                    <button class="bg-kebabRed text-white font-bold px-6 py-2 rounded-full">Tüm Lezzetler</button>
+                    <button class="bg-darkBg border border-white/20 text-textMain font-bold px-6 py-2 rounded-full hover:border-kebabRed transition">Kebaplar</button>
+                    <button class="bg-darkBg border border-white/20 text-textMain font-bold px-6 py-2 rounded-full hover:border-kebabRed transition">Köfteler</button>
+                    <button class="bg-darkBg border border-white/20 text-textMain font-bold px-6 py-2 rounded-full hover:border-kebabRed transition">Mezeler & Tatlı</button>
+                </div>
+
+                <!-- Menu Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    
+                    <!-- Menu Item 1 -->
+                    <div class="menu-card bg-darkBg border border-white/10 rounded-2xl overflow-hidden group">
+                        <div class="h-56 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80" alt="Adana Kebap" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-darkBg to-transparent"></div>
+                            <div class="absolute bottom-4 left-4">
+                                <span class="bg-kebabRed text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Çok Satan</span>
+                            </div>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-heading text-3xl text-white">Adana Kebap</h3>
+                                <span class="font-heading text-2xl text-kebabRed">260 ₺</span>
+                            </div>
+                            <p class="text-sm text-textMuted mb-4 line-clamp-2">Zırh kıyması, kuyruk yağı ve acının muhteşem uyumu. Lavaş, köz biber ve soğan salatası ile.</p>
+                            <button class="w-full border border-white/20 text-white font-bold py-2 rounded-lg text-sm hover:bg-white hover:text-darkBg transition">Paket Siparişe Ekle</button>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 2 -->
+                    <div class="menu-card bg-darkBg border border-white/10 rounded-2xl overflow-hidden group">
+                        <div class="h-56 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=600&q=80" alt="Kaşarlı Köfte" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-darkBg to-transparent"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-heading text-3xl text-white">Kaşarlı Kasap Köfte</h3>
+                                <span class="font-heading text-2xl text-kebabRed">290 ₺</span>
+                            </div>
+                            <p class="text-sm text-textMuted mb-4 line-clamp-2">İlhami Usta'nın özel harcı, içinde eriyen bol kaşar peyniri. Parmak ısırtan lezzet.</p>
+                            <button class="w-full border border-white/20 text-white font-bold py-2 rounded-lg text-sm hover:bg-white hover:text-darkBg transition">Paket Siparişe Ekle</button>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 3 -->
+                    <div class="menu-card bg-darkBg border border-kebabRed/30 rounded-2xl overflow-hidden group shadow-neon relative">
+                        <div class="absolute -right-10 top-6 bg-kebabRed text-white text-xs font-bold py-1 px-10 rotate-45 z-20 shadow-lg">YILDIZ ÜRÜN</div>
+                        <div class="h-56 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=600&q=80" alt="Sivas Köftesi" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-darkBg to-transparent"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-heading text-3xl text-white text-fire">Meşhur Sivas Köftesi</h3>
+                                <span class="font-heading text-2xl text-kebabRed">280 ₺</span>
+                            </div>
+                            <p class="text-sm text-textMuted mb-4 line-clamp-2">Sadece et ve tuz! Katkısız, saf et lezzeti. Porsiyonda 1.5 servis tavsiye edilir.</p>
+                            <button class="w-full bg-kebabRed text-white font-bold py-2 rounded-lg text-sm hover:bg-red-700 transition">Paket Siparişe Ekle</button>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 4 -->
+                    <div class="menu-card bg-darkBg border border-white/10 rounded-2xl overflow-hidden group">
+                        <div class="h-56 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=600&q=80" alt="Urfa Kebap" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-darkBg to-transparent"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-heading text-3xl text-white">Urfa Kebap</h3>
+                                <span class="font-heading text-2xl text-kebabRed">260 ₺</span>
+                            </div>
+                            <p class="text-sm text-textMuted mb-4 line-clamp-2">Acısız tercih edenler için zırh kıymasından enfes, yumuşacık bir klasik.</p>
+                            <button class="w-full border border-white/20 text-white font-bold py-2 rounded-lg text-sm hover:bg-white hover:text-darkBg transition">Paket Siparişe Ekle</button>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 5 -->
+                    <div class="menu-card bg-darkBg border border-white/10 rounded-2xl overflow-hidden group">
+                        <div class="h-56 relative overflow-hidden">
+                            <img src="https://images.pexels.com/photos/2641886/pexels-photo-2641886.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tavuk Şiş" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-darkBg to-transparent"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-heading text-3xl text-white">Özel Soslu Tavuk Şiş</h3>
+                                <span class="font-heading text-2xl text-kebabRed">220 ₺</span>
+                            </div>
+                            <p class="text-sm text-textMuted mb-4 line-clamp-2">Özel sosumuzda marine edilmiş, odun ateşinde nar gibi kızarmış lokum tavuk parçaları.</p>
+                            <button class="w-full border border-white/20 text-white font-bold py-2 rounded-lg text-sm hover:bg-white hover:text-darkBg transition">Paket Siparişe Ekle</button>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 6 -->
+                    <div class="menu-card bg-darkBg border border-white/10 rounded-2xl overflow-hidden group">
+                        <div class="h-56 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?auto=format&fit=crop&w=600&q=80" alt="Meze Tabağı" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-darkBg to-transparent"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-heading text-3xl text-white">Karışık Meze Tabağı</h3>
+                                <span class="font-heading text-2xl text-kebabRed">150 ₺</span>
+                            </div>
+                            <p class="text-sm text-textMuted mb-4 line-clamp-2">Haydari, ezme, humus ve patlıcan salatası. Kebabın en iyi eşlikçileri.</p>
+                            <button class="w-full border border-white/20 text-white font-bold py-2 rounded-lg text-sm hover:bg-white hover:text-darkBg transition">Paket Siparişe Ekle</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT / VIBE -->
+        <section id="hakkimizda" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2">
+                    <h4 class="text-kebabRed font-bold tracking-widest uppercase mb-2">Gerçek Esnaf Lokantası</h4>
+                    <h2 class="text-5xl md:text-6xl font-heading text-white mb-6">Yılların Eskitemediği <br>Ustalık ve <span class="text-fire">Samimiyet</span></h2>
+                    <p class="text-textMuted text-lg mb-6 leading-relaxed">
+                        Köfteci İlhami olarak yıllardır aynı köşede, aynı ateşi harlıyoruz. Bizim için kebap bir yemek değil, bir sanattır. Gündelik koşturmacanızda gelip bir soluk alabileceğiniz, taze etin ve köz kokusunun birbirine karıştığı o samimi ortamı korumaktan gurur duyuyoruz.
+                    </p>
+                    <p class="text-textMuted text-lg mb-8 leading-relaxed">
+                        Temiz masalarımız, güler yüzlü personelimiz ve her lokmasında kaliteyi hissedeceğiniz porsiyonlarımızla ailenizi kendi ailemiz gibi ağırlıyoruz.
+                    </p>
+                    <div class="flex gap-6">
+                        <div class="text-center">
+                            <h5 class="font-heading text-4xl text-white">20+</h5>
+                            <span class="text-xs text-textMuted font-bold uppercase tracking-widest">Yıllık Tecrübe</span>
+                        </div>
+                        <div class="w-px bg-white/20"></div>
+                        <div class="text-center">
+                            <h5 class="font-heading text-4xl text-white">100%</h5>
+                            <span class="text-xs text-textMuted font-bold uppercase tracking-widest">Dana Eti</span>
+                        </div>
+                        <div class="w-px bg-white/20"></div>
+                        <div class="text-center">
+                            <h5 class="font-heading text-4xl text-white">Köz</h5>
+                            <span class="text-xs text-textMuted font-bold uppercase tracking-widest">Odun Ateşi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=400&q=80" alt="Mekan 1" class="rounded-2xl w-full h-48 md:h-64 object-cover mt-8">
+                    <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=400&q=80" alt="Mekan 2" class="rounded-2xl w-full h-48 md:h-64 object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEWS & RESERVATION -->
+        <section class="py-20 bg-kebabRedDark relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+            <div class="max-w-7xl mx-auto px-4 relative z-10 flex flex-col md:flex-row gap-12 items-center">
+                
+                <!-- Reviews -->
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-4xl md:text-5xl font-heading text-white mb-8">Müşterilerimiz Ne Diyor?</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/20">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                            <p class="text-white text-sm mb-3">"Sivas'a her geldiğimde mutlaka uğrarım. O Sivas Köftesi'nin tadı başka hiçbir yerde yok. Sadece etin lezzetini alıyorsunuz. Kesinlikle masaya oturup sıcak sıcak yemelisiniz."</p>
+                            <span class="text-xs text-white/70 font-bold">- Ahmet Yılmaz (Google Yorumu)</span>
+                        </div>
+                        
+                        <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/20">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                            <p class="text-white text-sm mb-3">"Temiz bir esnaf lokantası, personeller çok güler yüzlü. Hem ailece gidiyoruz hem de ofise paket sipariş veriyoruz. İkisi de çok hızlı ve efsane lezzetli."</p>
+                            <span class="text-xs text-white/70 font-bold">- Ayşe Demir (Yemeksepeti)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reservation Form -->
+                <div id="rezervasyon" class="w-full md:w-1/2">
+                    <div class="bg-darkBg p-8 rounded-3xl border border-white/10 shadow-2xl">
+                        <h3 class="text-3xl font-heading text-white mb-2">Hemen Masanızı Ayırtın</h3>
+                        <p class="text-textMuted text-sm mb-6">Akşam yemekleri için rezervasyon yaptırmanızı tavsiye ederiz.</p>
+                        
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-textMuted uppercase mb-1">Ad Soyad</label>
+                                    <input type="text" class="w-full bg-darkBgLighter border border-white/10 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-kebabRed">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-textMuted uppercase mb-1">Telefon</label>
+                                    <input type="text" class="w-full bg-darkBgLighter border border-white/10 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-kebabRed">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-textMuted uppercase mb-1">Kişi Sayısı</label>
+                                    <select class="w-full bg-darkBgLighter border border-white/10 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-kebabRed">
+                                        <option>2 Kişi</option>
+                                        <option>3 Kişi</option>
+                                        <option>4 Kişi</option>
+                                        <option>5+ Kişi</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-textMuted uppercase mb-1">Tarih / Saat</label>
+                                    <input type="datetime-local" class="w-full bg-darkBgLighter border border-white/10 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-kebabRed">
+                                </div>
+                            </div>
+                            <button type="button" class="w-full bg-kebabRed text-white font-bold text-lg py-4 rounded-xl hover:bg-red-700 transition shadow-neon mt-4">
+                                Rezervasyonu Tamamla
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="iletisim" class="bg-darkBg pt-16 pb-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 border-b border-white/10 pb-12">
+                
+                <!-- Brand -->
+                <div>
+                    <a href="#" class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-kebabRed rounded-full flex items-center justify-center text-white">
+                            <i class="fa-solid fa-fire text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-heading text-3xl text-white leading-none">KÖFTECİ İLHAMİ</h2>
+                            <span class="text-xs text-kebabRed font-bold tracking-[0.2em] uppercase">Birdoy Kebap</span>
+                        </div>
+                    </a>
+                    <p class="text-textMuted text-sm mb-6">Odun ateşinde demlenen gerçek Sivas lezzetleri. Hem masanıza sıcak sıcak servis, hem de evinize hızlı paket sipariş ile hizmetinizdeyiz.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-darkBgLighter border border-white/10 flex items-center justify-center hover:bg-kebabRed hover:border-kebabRed transition text-white"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-darkBgLighter border border-white/10 flex items-center justify-center hover:bg-kebabRed hover:border-kebabRed transition text-white"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-darkBgLighter border border-white/10 flex items-center justify-center hover:bg-kebabRed hover:border-kebabRed transition text-white"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-heading text-2xl text-white mb-6 tracking-wide">İletişim & Adres</h3>
+                    <ul class="space-y-4 text-textMuted text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-kebabRed mt-1"></i>
+                            <span>Çarşı Merkez, Lezzet Caddesi No:14<br>Sivas Merkez / Türkiye</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-kebabRed"></i>
+                            <span class="font-bold text-white text-lg">0346 222 33 44</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-kebabRed"></i>
+                            <span>bilgi@birdoykebap.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Operating Hours -->
+                <div>
+                    <h3 class="font-heading text-2xl text-white mb-6 tracking-wide">Çalışma Saatlerimiz</h3>
+                    <ul class="space-y-3 text-sm text-textMuted">
+                        <li class="flex justify-between border-b border-white/10 pb-2">
+                            <span>Pazartesi - Cuma</span>
+                            <span class="text-white font-bold">10:00 - 23:00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-white/10 pb-2">
+                            <span>Cumartesi</span>
+                            <span class="text-white font-bold">10:00 - 23:30</span>
+                        </li>
+                        <li class="flex justify-between border-b border-white/10 pb-2">
+                            <span>Pazar</span>
+                            <span class="text-white font-bold">11:00 - 22:30</span>
+                        </li>
+                    </ul>
+                    <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 text-kebabRed font-bold text-sm mt-6 hover:text-white transition">
+                        <i class="fa-solid fa-map-location-dot"></i> Haritada Yol Tarifi Al
+                    </a>
+                </div>
+
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-textMuted">
+                <p>&copy; 2026 Köfteci İlhami / Birdoy Kebap Salonu. Tüm Hakları Saklıdır.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition">Gizlilik Sözleşmesi</a>
+                    <a href="#" class="hover:text-white transition">Kullanım Koşulları</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

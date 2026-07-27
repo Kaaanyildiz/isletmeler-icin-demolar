@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özel Sivas Çınar Ağız ve Diş Sağlığı Polikliniği</title>
+    <meta name="description" content="Sivas'ta implant, zirkonyum kaplama ve gülüş tasarımı alanında uzman hekim kadrosu: Dt. Esin Aslan, Dt. Hilal Soyyüce, Dt. Yağmur Sarıin.">
+    
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    },
+                    colors: {
+                        cinar: {
+                            green: '#1a432b',     // Deep Clinic Green
+                            lightGreen: '#eef3ef',// Very soft green background
+                            gold: '#c5a059',      // Premium Gold Accent
+                            dark: '#1e2022',      // Soft dark for text
+                            white: '#ffffff',     // Clinical White
+                            gray: '#f5f7f9'       // Soft gray
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(0,0,0,0.05)',
+                        'gold': '0 10px 30px -10px rgba(197, 160, 89, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f5f7f9;
+            color: #1e2022;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Info Bar */
+        .top-bar {
+            background-color: #1a432b;
+            color: white;
+        }
+
+        /* Navbar transitions */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link {
+            position: relative;
+            color: #1e2022;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: #1a432b;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #1a432b;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: #1a432b;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 67, 43, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-primary:hover {
+            background-color: #12311f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 67, 43, 0.3);
+        }
+
+        .btn-gold {
+            background-color: #c5a059;
+            color: #1e2022;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px -10px rgba(197, 160, 89, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-gold:hover {
+            background-color: #b08d4b;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Image Overlay */
+        .hero-overlay {
+            background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0) 100%);
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #1a432b;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05);
+        }
+        .service-card:hover::before {
+            transform: scaleY(1);
+        }
+        .service-card:hover h3, .service-card:hover p, .service-card:hover i {
+            color: white !important;
+        }
+        .service-card .icon-wrapper {
+            width: 4rem; height: 4rem;
+            border-radius: 1rem;
+            background-color: #eef3ef;
+            color: #1a432b;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+        }
+        .service-card:hover .icon-wrapper {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        /* Doctor Card */
+        .doctor-card img {
+            transition: transform 0.5s ease;
+        }
+        .doctor-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            transition: all 0.3s ease;
+            animation: pulse-wa 2s infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Top Bar -->
+    <div class="top-bar py-2 px-6 hidden md:block text-sm font-sans font-medium">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-2"><i class="ph-fill ph-map-pin"></i> Sivas Merkez, Türkiye</span>
+                <span class="flex items-center gap-2"><i class="ph-fill ph-clock"></i> Pzt - Cmt: 09:00 - 19:00</span>
+            </div>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-cinar-gold transition-colors"><i class="ph-fill ph-instagram-logo text-lg"></i></a>
+                <a href="#" class="hover:text-cinar-gold transition-colors"><i class="ph-fill ph-facebook-logo text-lg"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav sticky top-0 z-50 py-4 px-6">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full bg-cinar-green flex items-center justify-center text-white">
+                    <i class="ph-fill ph-leaf text-2xl"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-xl font-bold text-cinar-green leading-none">Özel Sivas Çınar</span>
+                    <span class="font-sans text-xs tracking-widest text-cinar-gold mt-1 uppercase">Ağız ve Diş Sağlığı</span>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex items-center gap-8 font-sans text-sm">
+                <a href="#hakkimizda" class="nav-link">Hakkımızda</a>
+                <a href="#hekimler" class="nav-link">Hekim Kadromuz</a>
+                <a href="#hizmetler" class="nav-link">Tedaviler</a>
+                <a href="#teknoloji" class="nav-link">Teknoloji</a>
+                <a href="#iletisim" class="nav-link">İletişim</a>
+            </div>
+
+            <!-- CTA -->
+            <div class="hidden md:block">
+                <a href="#randevu" class="btn-primary">
+                    <i class="ph-bold ph-calendar-plus text-lg"></i> Randevu Al
+                </a>
+            </div>
+
+            <!-- Mobile Menu Btn -->
+            <button class="lg:hidden text-cinar-green text-3xl">
+                <i class="ph-bold ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section class="relative w-full h-[90vh] min-h-[600px] flex items-center overflow-hidden bg-white">
+        <!-- Background Image -->
+        <div class="absolute inset-0 w-full h-full">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Gülümseyen Hasta" class="w-full h-full object-cover object-right">
+        </div>
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 hero-overlay w-full lg:w-2/3 h-full"></div>
+
+        <div class="relative z-10 max-w-[1400px] mx-auto px-6 w-full">
+            <div class="max-w-2xl" data-aos="fade-right">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cinar-lightGreen text-cinar-green font-sans text-sm font-semibold mb-6">
+                    <i class="ph-fill ph-star text-cinar-gold"></i> Sivas'ın Premium Kliniği
+                </div>
+                <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl text-cinar-dark leading-tight mb-6">
+                    Sağlıklı Gülüşler İçin <br><span class="text-cinar-green italic">Uzman Dokunuş.</span>
+                </h1>
+                <p class="font-sans text-lg text-cinar-dark/70 mb-10 leading-relaxed max-w-xl">
+                    İmplant, zirkonyum kaplama ve gülüş tasarımı alanında uzman hekim kadromuzla, dijital diş hekimliğinin konforunu yaşayın.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#randevu" class="btn-primary justify-center">
+                        Hemen Randevu Al <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                    <a href="#hizmetler" class="bg-white text-cinar-dark border border-gray-200 hover:border-cinar-gold hover:text-cinar-gold px-8 py-4 rounded-full font-sans font-semibold transition-colors flex items-center justify-center gap-2 shadow-sm">
+                        Tedavileri İncele
+                    </a>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="flex gap-8 mt-12 pt-8 border-t border-gray-200">
+                    <div>
+                        <div class="font-serif text-3xl text-cinar-green font-bold">3+</div>
+                        <div class="font-sans text-xs text-cinar-dark/60 uppercase tracking-wider mt-1">Uzman Hekim</div>
+                    </div>
+                    <div>
+                        <div class="font-serif text-3xl text-cinar-green font-bold">%100</div>
+                        <div class="font-sans text-xs text-cinar-dark/60 uppercase tracking-wider mt-1">Sterilizasyon</div>
+                    </div>
+                    <div>
+                        <div class="font-serif text-3xl text-cinar-green font-bold">3D</div>
+                        <div class="font-sans text-xs text-cinar-dark/60 uppercase tracking-wider mt-1">Dijital Klinik</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. HAKKIMIZDA & DOKTORLAR -->
+    <section id="hekimler" class="py-24 px-6 bg-cinar-gray">
+        <div class="max-w-[1400px] mx-auto">
+            
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-serif text-4xl md:text-5xl text-cinar-dark mb-4">Uzman Hekim <span class="text-cinar-green italic">Kadromuz</span></h2>
+                <p class="font-sans text-cinar-dark/60 max-w-2xl mx-auto">
+                    Alanında tecrübeli ve sürekli güncel eğitimleri takip eden hekimlerimizle, diş sağlığınızı şansa bırakmıyoruz.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Doctor 1 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm doctor-card group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-full aspect-square rounded-2xl overflow-hidden mb-6 bg-cinar-lightGreen relative">
+                        <!-- Placeholder doctor image -->
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dt. Esin Aslan" class="w-full h-full object-cover">
+                        <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-cinar-green font-bold font-sans text-sm shadow-sm">
+                            Diş Hekimi
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-2xl text-cinar-dark font-bold mb-2 group-hover:text-cinar-green transition-colors">Dt. Esin Aslan</h3>
+                    <p class="font-sans text-sm text-cinar-dark/60">Estetik Diş Hekimliği, Gülüş Tasarımı, Zirkonyum Kaplama ve İleri Restoratif Tedaviler.</p>
+                </div>
+
+                <!-- Doctor 2 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm doctor-card group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-full aspect-square rounded-2xl overflow-hidden mb-6 bg-cinar-lightGreen relative">
+                        <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dt. Hilal Soyyüce" class="w-full h-full object-cover">
+                        <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-cinar-green font-bold font-sans text-sm shadow-sm">
+                            Diş Hekimi
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-2xl text-cinar-dark font-bold mb-2 group-hover:text-cinar-green transition-colors">Dt. Hilal Soyyüce</h3>
+                    <p class="font-sans text-sm text-cinar-dark/60">İmplantoloji, Cerrahi Çekimler, Kanal Tedavisi (Endodonti) ve Diş Beyazlatma (Bleaching).</p>
+                </div>
+
+                <!-- Doctor 3 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm doctor-card group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-full aspect-square rounded-2xl overflow-hidden mb-6 bg-cinar-lightGreen relative">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dt. Yağmur Sarıin" class="w-full h-full object-cover">
+                        <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-cinar-green font-bold font-sans text-sm shadow-sm">
+                            Diş Hekimi
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-2xl text-cinar-dark font-bold mb-2 group-hover:text-cinar-green transition-colors">Dt. Yağmur Sarıin</h3>
+                    <p class="font-sans text-sm text-cinar-dark/60">Çocuk Diş Hekimliği (Pedodonti), Ortodontik Yaklaşımlar ve Koruyucu Hekimlik.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. DOLU DOLU HİZMETLER (SERVICES) -->
+    <section id="hizmetler" class="py-24 px-6 bg-white">
+        <div class="max-w-[1400px] mx-auto">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <h2 class="font-serif text-4xl md:text-5xl text-cinar-dark mb-4">Kapsamlı <span class="text-cinar-gold italic">Tedavilerimiz</span></h2>
+                    <p class="font-sans text-cinar-dark/60">
+                        Modern diş hekimliğinin sunduğu tüm imkanları, Sivas Çınar kalitesiyle hastalarımıza sunuyoruz. Tedavilerimiz hakkında detaylı bilgi alın.
+                    </p>
+                </div>
+                <div>
+                    <a href="#randevu" class="btn-gold">Tümünü Gör</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1: İmplant -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="icon-wrapper">
+                        <i class="ph-fill ph-tooth"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-cinar-dark mb-3">İmplant Tedavisi</h3>
+                    <p class="font-sans text-sm text-cinar-dark/70 mb-4 leading-relaxed">
+                        Eksik dişleriniz için en doğal ve uzun ömürlü çözüm. Çene kemiğine yerleştirilen biyoyumlu titanyum kökler üzerine yapılan protezlerle, kendi dişiniz gibi rahatça çiğneyebilir ve gülebilirsiniz.
+                    </p>
+                    <ul class="font-sans text-xs font-semibold text-cinar-green space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-cinar-gold"></i> Ömür boyu kalıcı çözüm</li>
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-cinar-gold"></i> Doğal çiğneme hissi</li>
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-cinar-gold"></i> Çevre dişlere zarar vermez</li>
+                    </ul>
+                    <a href="#" class="text-sm font-sans font-bold text-cinar-gold flex items-center gap-1 group">
+                        Detaylı Bilgi <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2: Zirkonyum -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-wrapper">
+                        <i class="ph-fill ph-sparkle"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-cinar-dark mb-3">Zirkonyum Kaplama</h3>
+                    <p class="font-sans text-sm text-cinar-dark/70 mb-4 leading-relaxed">
+                        Klasik metal destekli porselenlerin aksine, ışık geçirgenliği doğal dişe en yakın olan estetik kaplamalardır. Diş eti morarması yapmaz, mükemmel beyazlık ve doku uyumu sağlar.
+                    </p>
+                    <ul class="font-sans text-xs font-semibold text-cinar-green space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-cinar-gold"></i> Metal içermez (Alerji yapmaz)</li>
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-cinar-gold"></i> Doğal ışık geçirgenliği</li>
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-cinar-gold"></i> Kusursuz diş eti uyumu</li>
+                    </ul>
+                    <a href="#" class="text-sm font-sans font-bold text-cinar-gold flex items-center gap-1 group">
+                        Detaylı Bilgi <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3: Gülüş Tasarımı -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-wrapper">
+                        <i class="ph-fill ph-smiley"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-cinar-dark mb-3">Gülüş Tasarımı</h3>
+                    <p class="font-sans text-sm text-cinar-dark/70 mb-4 leading-relaxed">
+                        Yüz hatlarınıza, dudak yapınıza ve ten renginize en uygun "Hollywood Smile" tasarımını yapıyoruz. Laminate Veneer (Yaprak Porselen) ve diş eti estetiği (Pink Estetik) ile bütünsel yaklaşım.
+                    </p>
+                    <ul class="font-sans text-xs font-semibold text-cinar-green space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-cinar-gold"></i> Dijital önizleme imkanı</li>
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-cinar-gold"></i> Altın oran hesaplaması</li>
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-cinar-gold"></i> Özgüvenli gülümseme</li>
+                    </ul>
+                    <a href="#" class="text-sm font-sans font-bold text-cinar-gold flex items-center gap-1 group">
+                        Detaylı Bilgi <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4: Kanal Tedavisi -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="icon-wrapper">
+                        <i class="ph-fill ph-first-aid-kit"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-cinar-dark mb-3">Kanal Tedavisi & Dolgu</h3>
+                    <p class="font-sans text-sm text-cinar-dark/70 mb-4 leading-relaxed">
+                        İleri derece çürük nedeniyle enfekte olmuş dişleri çekmek yerine, kök kanallarını özel cihazlarla temizleyip doldurarak dişinizi ağızda tutuyoruz. Ağrısız ve tek seanslık modern endodonti.
+                    </p>
+                    <a href="#" class="text-sm font-sans font-bold text-cinar-gold flex items-center gap-1 group mt-10">
+                        Detaylı Bilgi <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5: Pedodonti -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-wrapper">
+                        <i class="ph-fill ph-baby"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-cinar-dark mb-3">Çocuk Diş Hekimliği</h3>
+                    <p class="font-sans text-sm text-cinar-dark/70 mb-4 leading-relaxed">
+                        Çocukların diş hekimi korkusunu yenmesi için özel yaklaşımlar, flor uygulamaları, fissür örtücüler ve süt dişi tedavileri. Sağlıklı bir ağız yapısının temelleri çocuklukta atılır.
+                    </p>
+                    <a href="#" class="text-sm font-sans font-bold text-cinar-gold flex items-center gap-1 group mt-10">
+                        Detaylı Bilgi <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6: Diş Beyazlatma -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-wrapper">
+                        <i class="ph-fill ph-magic-wand"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-cinar-dark mb-3">Klinik Diş Beyazlatma</h3>
+                    <p class="font-sans text-sm text-cinar-dark/70 mb-4 leading-relaxed">
+                        Kahve, çay veya sigara lekelerinden kurtulun. Klinik ortamda uyguladığımız güvenli jeller ve lazer ışınları ile tek seansta 3-4 tona kadar bembeyaz dişlere kavuşun.
+                    </p>
+                    <a href="#" class="text-sm font-sans font-bold text-cinar-gold flex items-center gap-1 group mt-10">
+                        Detaylı Bilgi <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. NEDEN BİZ? / TEKNOLOJİ (Dark Section) -->
+    <section id="teknoloji" class="py-24 px-6 bg-cinar-green text-white relative overflow-hidden">
+        <!-- Abstract shape -->
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-cinar-gold opacity-10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-[1400px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div data-aos="fade-right">
+                <span class="inline-block px-4 py-1 rounded-full border border-white/20 font-sans text-xs uppercase tracking-widest text-cinar-gold mb-6">Poliklinik Standartları</span>
+                <h2 class="font-serif text-4xl md:text-5xl mb-6">Neden Sivas Çınar <br><span class="italic font-light">Diş Polikliniği?</span></h2>
+                <p class="font-sans text-white/70 text-lg leading-relaxed mb-10">
+                    Diş tedavisini bir stres unsuru olmaktan çıkarıp, konforlu ve güvenilir bir deneyime dönüştürüyoruz. Kliniğimizdeki en güncel teknolojiler ve sıkı hijyen protokolleriyle sağlığınız güvence altında.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                            <i class="ph-bold ph-cube text-2xl text-cinar-gold"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold mb-1">3D Dijital Diş Hekimliği</h4>
+                            <p class="font-sans text-sm text-white/60">Geleneksel hamur ölçüleri unutun. Ağız içi tarayıcılarımızla saniyeler içinde üç boyutlu dijital ölçü alıyor, hatasız protezler üretiyoruz.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                            <i class="ph-bold ph-shield-check text-2xl text-cinar-gold"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold mb-1">%100 Sterilizasyon Protokolü</h4>
+                            <p class="font-sans text-sm text-white/60">Otoklav cihazlarımızla uluslararası standartlarda sterilizasyon sağlıyor, çapraz enfeksiyon riskini tamamen ortadan kaldırıyoruz.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                            <i class="ph-bold ph-armchair text-2xl text-cinar-gold"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold mb-1">Ağrısız & Konforlu Tedavi</h4>
+                            <p class="font-sans text-sm text-white/60">Modern anestezi teknikleri ve ergonomik tedavi ünitelerimizle, en zorlu cerrahi işlemlerde bile maksimum konfor sunuyoruz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl" data-aos="fade-left">
+                <!-- Using a high quality image of a dental clinic room -->
+                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Klinik Ortamı" class="w-full h-[600px] object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="absolute bottom-8 left-8 text-white">
+                    <div class="font-serif text-2xl font-bold">Sivas'ın Merkezinde</div>
+                    <div class="font-sans text-sm opacity-80">Premium klinik ortamı.</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. FOOTER & İLETİŞİM -->
+    <footer id="iletisim" class="bg-cinar-dark text-white pt-24 pb-12">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
+                
+                <!-- Logo & About -->
+                <div class="lg:col-span-1">
+                    <a href="#" class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-cinar-green flex items-center justify-center text-white">
+                            <i class="ph-fill ph-leaf text-xl"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-serif text-lg font-bold text-white leading-none">Özel Sivas Çınar</span>
+                        </div>
+                    </a>
+                    <p class="font-sans text-sm text-white/60 leading-relaxed mb-6">
+                        Sivas'ta uzman hekim kadrosuyla implant, zirkonyum ve estetik diş hekimliği hizmetleri sunan premium ağız ve diş sağlığı polikliniği.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-cinar-gold transition-colors"><i class="ph-fill ph-instagram-logo"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-cinar-gold transition-colors"><i class="ph-fill ph-facebook-logo"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-serif text-xl font-bold mb-6 text-cinar-gold">Hızlı Menü</h4>
+                    <ul class="font-sans text-sm text-white/70 space-y-3">
+                        <li><a href="#hakkimizda" class="hover:text-white transition-colors">Hakkımızda</a></li>
+                        <li><a href="#hekimler" class="hover:text-white transition-colors">Hekim Kadrosu</a></li>
+                        <li><a href="#hizmetler" class="hover:text-white transition-colors">Tedaviler</a></li>
+                        <li><a href="#teknoloji" class="hover:text-white transition-colors">Dijital Diş Hekimliği</a></li>
+                        <li><a href="#randevu" class="hover:text-white transition-colors">Randevu Al</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-serif text-xl font-bold mb-6 text-cinar-gold">Tedaviler</h4>
+                    <ul class="font-sans text-sm text-white/70 space-y-3">
+                        <li><a href="#" class="hover:text-white transition-colors">İmplant Tedavisi</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Zirkonyum Kaplama</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Gülüş Tasarımı</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Çocuk Diş Hekimliği</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Kanal Tedavisi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-serif text-xl font-bold mb-6 text-cinar-gold">İletişim</h4>
+                    <ul class="font-sans text-sm text-white/70 space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-map-pin text-xl text-cinar-green shrink-0 mt-1"></i>
+                            <span>Sivas Merkez, Türkiye<br>(Tam adres eklenecek)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-phone text-xl text-cinar-green shrink-0"></i>
+                            <span>+90 555 555 55 55</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-envelope-simple text-xl text-cinar-green shrink-0"></i>
+                            <span>info@sivascinardis.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center font-sans text-xs text-white/40">
+                <p>&copy; 2026 Özel Sivas Çınar Ağız ve Diş Sağlığı Polikliniği. Tüm Hakları Saklıdır.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">KVKK Metni</a>
+                    <a href="#" class="hover:text-white">Aydınlatma Metni</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/905555555555" target="_blank" class="whatsapp-float" aria-label="WhatsApp ile Randevu Al">
+        <i class="ph-bold ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+            });
+
+            // Navbar Scroll Effect
+            const navbar = document.querySelector('.glass-nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.08)';
+                    navbar.style.paddingTop = '1rem';
+                    navbar.style.paddingBottom = '1rem';
+                } else {
+                    navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.03)';
+                    navbar.style.paddingTop = '1.25rem';
+                    navbar.style.paddingBottom = '1.25rem';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

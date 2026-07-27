@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eninova | Premium Renk ve Doku Stüdyosu</title>
+    <meta name="description" content="Jotun Boya satış noktası, İtalyan efekt boya uygulamaları, duvar kağıdı ve dış cephe sistemleriyle mekanlarınıza sanat katıyoruz.">
+    
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Playfair Display for elegant Serif, Outfit for clean modern Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        studio: {
+                            canvas: '#FCFCFB',     // Very soft off-white background
+                            charcoal: '#1C1D1F',   // Soft black for text
+                            sand: '#E6E0D4',       // Neutral beige for sections
+                            jotun: '#00529B',      // Jotun Blue accent
+                            accent: '#D95C50',     // Warm terracotta/red accent
+                        }
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Global Reset */
+        body {
+            background-color: theme('colors.studio.canvas');
+            color: theme('colors.studio.charcoal');
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: theme('colors.studio.charcoal');
+            color: theme('colors.studio.canvas');
+        }
+
+        /* Navbar transitions */
+        .glass-nav {
+            background: transparent;
+            transition: all 0.5s ease;
+        }
+        
+        .glass-nav.scrolled {
+            background: rgba(252, 252, 251, 0.98);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+        
+        .glass-nav.scrolled .nav-link {
+            color: theme('colors.studio.charcoal') !important;
+        }
+        .glass-nav.scrolled .logo-text {
+            color: theme('colors.studio.charcoal') !important;
+        }
+
+        /* Nav Link Hover Effect */
+        .nav-link {
+            position: relative;
+            color: white;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: currentColor;
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Minimal Button */
+        .btn-minimal {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2.5rem;
+            border: 1px solid currentColor;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease;
+        }
+        .btn-minimal::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: currentColor;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+        .btn-minimal:hover {
+            color: theme('colors.studio.canvas');
+        }
+        .btn-minimal:hover::before {
+            transform: scaleY(1);
+        }
+        
+        /* Specific coloring for white button */
+        .btn-minimal.white-btn:hover {
+            color: theme('colors.studio.charcoal');
+        }
+
+        /* Swiper Hero Customizations */
+        .hero-swiper {
+            width: 100%;
+            height: 100vh;
+        }
+        .hero-slide-bg {
+            transform: scale(1.1);
+            transition: transform 10s ease-out;
+        }
+        .swiper-slide-active .hero-slide-bg {
+            transform: scale(1);
+        }
+        
+        /* Reveal Animation for Text */
+        .reveal-text {
+            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1), transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.2s ease;
+        }
+        .swiper-slide-active .reveal-text {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+
+        /* Color Swatch Card Hover */
+        .color-card {
+            overflow: hidden;
+            position: relative;
+        }
+        .color-card img {
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .color-card:hover img {
+            transform: scale(1.05);
+        }
+        .color-overlay {
+            background: linear-gradient(to top, rgba(28,29,31,0.6) 0%, rgba(28,29,31,0) 60%);
+            opacity: 0.7;
+            transition: opacity 0.5s;
+        }
+        .color-card:hover .color-overlay {
+            opacity: 0.9;
+        }
+
+        /* Infinite Marquee */
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            background: theme('colors.studio.charcoal');
+            color: theme('colors.studio.canvas');
+            padding: 2rem 0;
+            white-space: nowrap;
+            display: flex;
+        }
+        .marquee-content {
+            display: flex;
+            animation: scroll 25s linear infinite;
+        }
+        .marquee-item {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-style: italic;
+            padding: 0 4rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .marquee-dot {
+            width: 8px; height: 8px;
+            background-color: theme('colors.studio.accent');
+            border-radius: 50%;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Thin borders for editorial look */
+        .border-editorial {
+            border-bottom: 1px solid rgba(28, 29, 31, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAVIGATION -->
+    <nav class="glass-nav fixed w-full z-50 py-6 px-6 lg:px-12" id="navbar">
+        <div class="max-w-[1600px] mx-auto flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="flex flex-col items-center">
+                <div class="flex items-center text-3xl tracking-wide logo-text font-serif text-white">
+                    <span class="font-normal">enin</span>
+                    <!-- The stylized 'o' or dot -->
+                    <div class="w-3 h-3 bg-studio-jotun rounded-full mx-[2px] mt-2"></div>
+                    <span class="font-bold">va</span>
+                </div>
+                <span class="text-[8px] uppercase tracking-[0.3em] font-sans logo-text text-white/80 mt-1">Renk & Doku Stüdyosu</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex items-center gap-10 font-sans text-sm uppercase tracking-widest">
+                <a href="#koleksiyon" class="nav-link">Koleksiyonlar</a>
+                <a href="#jotun" class="nav-link">Jotun Kalitesi</a>
+                <a href="#uygulama" class="nav-link">Uygulama</a>
+                <a href="#iletisim" class="nav-link">İletişim</a>
+            </div>
+
+            <!-- Mobile Menu Btn -->
+            <button class="lg:hidden logo-text text-white text-2xl">
+                <i class="ph-light ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SLIDER -->
+    <section class="relative w-full h-screen bg-studio-charcoal overflow-hidden">
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                
+                <!-- Slide 1: Abstract Texture / Italian Paint -->
+                <div class="swiper-slide relative w-full h-full">
+                    <div class="absolute inset-0 hero-slide-bg">
+                        <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="İtalyan Efekt Boya Dokusu" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-transparent"></div>
+                    </div>
+                    <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+                        <span class="font-sans text-xs uppercase tracking-[0.4em] text-white/90 mb-6 reveal-text delay-100">İtalyan Efekt Boya</span>
+                        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-[1.1] reveal-text delay-200">
+                            Duvarlarınızda <br><span class="italic text-studio-sand font-light">Sanatsal Dokular</span>
+                        </h1>
+                        <div class="reveal-text delay-300">
+                            <a href="#koleksiyon" class="btn-minimal white-btn text-white border-white">
+                                Doku Kartelasını İncele <i class="ph-light ph-arrow-right text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Jotun Interior -->
+                <div class="swiper-slide relative w-full h-full">
+                    <div class="absolute inset-0 hero-slide-bg">
+                        <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Jotun İç Cephe" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/50"></div>
+                    </div>
+                    <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+                        <span class="font-sans text-xs uppercase tracking-[0.4em] text-white/80 mb-6 reveal-text delay-100">Jotun Premium Satış Noktası</span>
+                        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-[1.1] reveal-text delay-200">
+                            Mekanları <br><span class="italic font-light">Yeniden Tanımlayın</span>
+                        </h1>
+                        <div class="reveal-text delay-300">
+                            <a href="#jotun" class="btn-minimal white-btn text-white border-white bg-black/20 backdrop-blur-md">
+                                Jotun Kalitesini Keşfet <i class="ph-light ph-arrow-right text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Custom Navigation Lines -->
+            <div class="absolute bottom-12 left-12 z-20 flex gap-4 hidden md:flex">
+                <button class="swiper-btn-prev w-12 h-12 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-studio-charcoal transition-all backdrop-blur-sm"><i class="ph-light ph-arrow-left"></i></button>
+                <button class="swiper-btn-next w-12 h-12 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-studio-charcoal transition-all backdrop-blur-sm"><i class="ph-light ph-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. BRAND MANIFESTO (Editorial) -->
+    <section class="py-32 px-6 bg-studio-canvas">
+        <div class="max-w-[1200px] mx-auto text-center" data-aos="fade-up">
+            <span class="font-sans text-xs uppercase tracking-[0.3em] text-studio-charcoal/50 mb-8 block">Vizyonumuz</span>
+            <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl text-studio-charcoal leading-tight max-w-4xl mx-auto mb-10">
+                Sıradan bir boya değil; mekana <span class="italic text-studio-accent font-light">ruh katan</span>, mimariyi güçlendiren kusursuz bir yüzey.
+            </h2>
+            <p class="font-sans text-lg md:text-xl text-studio-charcoal/60 font-light max-w-2xl mx-auto leading-relaxed">
+                Eninova olarak Sivas'ta iç ve dış cephe boya sistemlerinden lüks duvar kağıtlarına kadar, mekanlarınızı estetik ve kaliteyle dönüştüren premium malzemeler sunuyoruz. Dünyanın en iyi renk uzmanlarıyla yaşam alanlarınızı tasarlayın.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. MASONRY COLLECTION GRID -->
+    <section id="koleksiyon" class="pb-32 px-4 md:px-8">
+        <div class="max-w-[1600px] mx-auto">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
+                
+                <!-- Jotun Dış Cephe (Large Horizontal) -->
+                <a href="#" class="color-card md:col-span-8 md:row-span-2 bg-studio-sand" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Dış Cephe" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 color-overlay"></div>
+                    <div class="absolute bottom-0 left-0 p-10 md:p-16 w-full">
+                        <span class="font-sans text-xs uppercase tracking-[0.2em] text-white/70 mb-3 block">Üstün Koruma</span>
+                        <h3 class="font-serif text-3xl md:text-5xl text-white mb-4">Jotun Dış Cephe</h3>
+                        <p class="font-sans text-white/80 font-light max-w-md hidden md:block">Yıllara, zorlu hava koşullarına ve solmaya karşı Jotun garantisiyle binanızı koruyun.</p>
+                    </div>
+                </a>
+
+                <!-- İtalyan Efekt Boya (Tall Vertical) -->
+                <a href="#" class="color-card md:col-span-4 md:row-span-2" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="İtalyan Boya" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 color-overlay"></div>
+                    <div class="absolute bottom-0 left-0 p-10 w-full">
+                        <span class="font-sans text-xs uppercase tracking-[0.2em] text-white/70 mb-3 block">Mimari Dokunuş</span>
+                        <h3 class="font-serif text-3xl md:text-4xl text-white">İtalyan Efekt Boya</h3>
+                    </div>
+                </a>
+
+                <!-- Duvar Kağıdı -->
+                <a href="#" class="color-card md:col-span-4 md:row-span-1" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Duvar Kağıdı" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 color-overlay"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <h3 class="font-serif text-2xl text-white">İthal Duvar Kağıtları</h3>
+                    </div>
+                </a>
+
+                <!-- İç Cephe Renkleri -->
+                <a href="#" class="color-card md:col-span-4 md:row-span-1 bg-studio-jotun" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0 p-10 flex flex-col justify-center text-white">
+                        <i class="ph-light ph-palette text-5xl mb-6"></i>
+                        <h3 class="font-serif text-3xl mb-2">Jotun İç Cephe</h3>
+                        <p class="font-sans font-light opacity-80">Pürüzsüz dokular, yıkanabilir yüzeyler ve binlerce renk tonu.</p>
+                    </div>
+                </a>
+
+                <!-- Endüstriyel & Yalıtım -->
+                <a href="#" class="color-card md:col-span-4 md:row-span-1" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Yalıtım ve Endüstriyel" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 color-overlay"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <h3 class="font-serif text-2xl text-white">Yalıtım & Endüstriyel Boya</h3>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. JOTUN QUALITY SECTION -->
+    <section id="jotun" class="py-32 bg-[#E9E4DC] relative overflow-hidden border-t border-b border-[#d8cfbe]">
+        <div class="max-w-[1400px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+            
+            <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
+                <!-- Color Swatch Decoration -->
+                <div class="absolute -top-10 -left-10 w-40 h-64 bg-[#B98F71] shadow-2xl z-0 transform -rotate-6"></div>
+                <div class="absolute top-10 left-10 w-40 h-64 bg-[#546A76] shadow-2xl z-0 transform rotate-12"></div>
+                
+                <div class="relative z-10 bg-white p-4 shadow-2xl max-w-md mx-auto">
+                    <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jotun Renk Paleti" class="w-full h-auto">
+                    <div class="p-6 text-center">
+                        <span class="font-sans text-xs uppercase tracking-[0.2em] text-studio-charcoal/50">Jotun 2026 Koleksiyonu</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2" data-aos="fade-left">
+                <div class="mb-6">
+                    <span class="inline-block bg-studio-jotun text-white font-sans text-xs font-bold uppercase tracking-widest px-4 py-1">Yetkili Satış Noktası</span>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl text-studio-charcoal leading-tight mb-8">
+                    Dünyanın Renkleri <br><span class="italic font-light text-studio-jotun">Eninova'da</span>
+                </h2>
+                <div class="space-y-6 font-sans text-lg text-studio-charcoal/70 font-light mb-10">
+                    <p>
+                        Küresel renk trendlerini belirleyen Jotun, binlerce renk alternatifi ile hayalinizdeki mekanı yaratmanıza olanak tanır.
+                    </p>
+                    <p>
+                        Renk Karıştırma Makinemiz sayesinde, beğendiğiniz herhangi bir tonu dakikalar içinde üretiyor ve size özel hale getiriyoruz. İster mat bir zarafet, ister ipeksi bir parlaklık arayın; Eninova'da aradığınız dokuyu bulacaksınız.
+                    </p>
+                </div>
+                
+                <div class="flex items-center gap-6 border-t border-editorial pt-8">
+                    <div class="text-center px-4 border-r border-editorial">
+                        <div class="font-serif text-3xl text-studio-charcoal">Sınırsız</div>
+                        <div class="font-sans text-xs uppercase tracking-widest text-studio-charcoal/50 mt-1">Renk Seçeneği</div>
+                    </div>
+                    <div class="text-center px-4">
+                        <div class="font-serif text-3xl text-studio-charcoal">Anında</div>
+                        <div class="font-sans text-xs uppercase tracking-widest text-studio-charcoal/50 mt-1">Renk Üretimi</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- 5. INFINITE MARQUEE (BRANDS) -->
+    <div class="marquee">
+        <div class="marquee-content">
+            <div class="marquee-item">JOTUN <div class="marquee-dot"></div></div>
+            <div class="marquee-item">DUKA KING <div class="marquee-dot"></div></div>
+            <div class="marquee-item">ENINOVA <div class="marquee-dot"></div></div>
+            <div class="marquee-item">EFFECT BOYA <div class="marquee-dot"></div></div>
+            <div class="marquee-item">İTALYAN DEKOR <div class="marquee-dot"></div></div>
+            
+            <!-- Duplicated -->
+            <div class="marquee-item">JOTUN <div class="marquee-dot"></div></div>
+            <div class="marquee-item">DUKA KING <div class="marquee-dot"></div></div>
+            <div class="marquee-item">ENINOVA <div class="marquee-dot"></div></div>
+            <div class="marquee-item">EFFECT BOYA <div class="marquee-dot"></div></div>
+            <div class="marquee-item">İTALYAN DEKOR <div class="marquee-dot"></div></div>
+        </div>
+    </div>
+
+    <!-- 6. CONTACT & MAP (Minimalist Footer) -->
+    <footer id="iletisim" class="bg-studio-charcoal text-white pt-24 pb-12">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24 border-b border-white/10 pb-24">
+                
+                <!-- Text / Call to Action -->
+                <div class="md:col-span-5" data-aos="fade-up">
+                    <h2 class="font-serif text-4xl md:text-5xl mb-8 leading-tight">Dokuları Yakından <br><span class="italic font-light text-studio-sand">Hissedin.</span></h2>
+                    <p class="font-sans text-white/60 font-light mb-10 max-w-sm">
+                        İtalyan efekt boyalarımızı, duvar kağıdı kataloglarımızı ve Jotun renk paletlerini deneyimlemek için sizi stüdyomuza bekliyoruz.
+                    </p>
+                    
+                    <div class="space-y-6 font-sans text-sm tracking-wide">
+                        <div class="flex items-start gap-4">
+                            <i class="ph-light ph-map-pin text-2xl text-studio-sand"></i>
+                            <p>Mehmet Akif Ersoy Mah. Karaağaç Cad.<br>No:8/A, 58000 Sivas Merkez/Sivas</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="ph-light ph-instagram-logo text-2xl text-studio-sand"></i>
+                            <a href="#" class="hover:text-studio-sand transition-colors">@eninovainsaat</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dark Map Box -->
+                <div class="md:col-span-7 h-[400px] relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Harita" class="w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-700 grayscale">
+                    <div class="absolute inset-0 flex flex-col justify-center items-center">
+                        <div class="w-16 h-16 bg-studio-canvas text-studio-charcoal rounded-full flex items-center justify-center mb-4">
+                            <i class="ph-fill ph-map-pin text-2xl"></i>
+                        </div>
+                        <a href="#" class="btn-minimal text-white">Yol Tarifi Al</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center font-sans text-xs uppercase tracking-widest text-white/40">
+                <p>&copy; 2026 ENİNOVA ENERJİ İNŞAAT. TÜM HAKLARI SAKLIDIR.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Jotun</a>
+                    <a href="#" class="hover:text-white transition-colors">KVKK</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 50,
+            });
+
+            // Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Initialize Swiper
+            const swiper = new Swiper('.hero-swiper', {
+                effect: 'fade',
+                speed: 1200,
+                loop: true,
+                autoplay: {
+                    delay: 4800,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.swiper-btn-next',
+                    prevEl: '.swiper-btn-prev',
+                },
+                on: {
+                    slideChangeTransitionStart: function () {
+                        // Reset animations
+                        const activeSlide = this.slides[this.activeIndex];
+                        const texts = activeSlide.querySelectorAll('.reveal-text');
+                        texts.forEach(t => {
+                            t.style.animation = 'none';
+                            t.offsetHeight; /* trigger reflow */
+                            t.style.animation = null; 
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
