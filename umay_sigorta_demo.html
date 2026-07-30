@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umay Sigorta | Geleceğinizi Güvence Altına Alıyoruz</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            burgundy: '#8A1538',
+                            burgundyLight: '#A91B45',
+                            dark: '#0B1120',
+                            charcoal: '#1F2937',
+                            light: '#F8FAFC',
+                            gray: '#E2E8F0',
+                        }
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 40px -10px rgba(11, 17, 32, 0.08)',
+                        'burgundy': '0 10px 30px -10px rgba(138, 21, 56, 0.3)',
+                    },
+                    animation: {
+                        marquee: 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        body {
+            background-color: theme('colors.brand.light');
+            color: theme('colors.brand.charcoal');
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.brand.light');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.brand.burgundy');
+            border-radius: 10px;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: theme('colors.brand.burgundy');
+            color: white;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: theme('colors.brand.burgundyLight');
+            transform: translateY(-2px);
+            box-shadow: theme('boxShadow.burgundy');
+        }
+
+        .btn-outline {
+            border: 2px solid theme('colors.brand.dark');
+            color: theme('colors.brand.dark');
+            padding: 1rem 2rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background: theme('colors.brand.dark');
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Service Cards */
+        .service-card {
+            border-radius: 1rem;
+            padding: 2.5rem;
+            border: 1px solid theme('colors.brand.gray');
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: white;
+            z-index: -2;
+        }
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: theme('colors.brand.burgundy');
+            z-index: -1;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: transparent;
+            box-shadow: theme('boxShadow.premium');
+        }
+        .service-card:hover::after {
+            transform: translateY(0);
+        }
+        .service-card:hover h3, .service-card:hover p, .service-card:hover i, .service-card:hover a {
+            color: white !important;
+        }
+        
+        .service-icon-wrapper {
+            transition: all 0.4s ease;
+        }
+        .service-card:hover .service-icon-wrapper {
+            background: white;
+            color: theme('colors.brand.burgundy');
+        }
+        
+        /* Stats counter */
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 50%;
+            width: 1px;
+            background: rgba(255,255,255,0.2);
+        }
+        .stat-item:last-child::after {
+            display: none;
+        }
+
+        /* Glass header on scroll */
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid theme('colors.brand.gray');
+            box-shadow: theme('boxShadow.premium');
+        }
+        .header-scrolled .nav-link {
+            color: theme('colors.brand.dark');
+        }
+        .header-scrolled .logo-text {
+            color: theme('colors.brand.burgundy');
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+            /* 30s for smooth slow scroll */
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Top Bar -->
+    <div class="bg-brand-dark text-gray-300 text-xs font-medium hidden lg:block h-[36px]">
+        <div class="max-w-[1400px] mx-auto px-6 flex justify-between items-center h-full">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-2"><i class="ph-fill ph-map-pin text-brand-burgundy text-sm"></i> Atatürk Cad. Kaptanlar Sitesi Altı, Sivas</span>
+                <span class="flex items-center gap-2"><i class="ph-fill ph-envelope-simple text-brand-burgundy text-sm"></i> info@umaysigorta.com</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span>Bizi Takip Edin:</span>
+                <a href="https://www.instagram.com/umaysigorta58/" target="_blank" class="hover:text-white transition-colors"><i class="ph-fill ph-instagram-logo text-base"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="ph-fill ph-facebook-logo text-base"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 lg:top-[36px] w-full z-50 transition-all duration-300 py-4 lg:py-6" id="navbar">
+        <div class="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-brand-burgundy text-white rounded-full flex items-center justify-center text-2xl shadow-lg">
+                    <i class="ph-bold ph-shield-check"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-black text-2xl tracking-tight text-white logo-text transition-colors">UMAY SİGORTA</span>
+                    <span class="text-[0.6rem] font-bold tracking-[0.2em] text-white/70 uppercase logo-subtext transition-colors">Güvence Acenteliği</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#kurumsal" class="nav-link text-white font-medium hover:text-brand-burgundy transition-colors text-sm">Kurumsal</a>
+                <a href="#hizmetler" class="nav-link text-white font-medium hover:text-brand-burgundy transition-colors text-sm">Hizmetlerimiz</a>
+                <a href="#neden-biz" class="nav-link text-white font-medium hover:text-brand-burgundy transition-colors text-sm">Neden Biz?</a>
+                <a href="#iletisim" class="nav-link text-white font-medium hover:text-brand-burgundy transition-colors text-sm">İletişim</a>
+            </div>
+
+            <!-- CTA -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="tel:05533712277" class="flex items-center gap-2 nav-link text-white font-semibold hover:text-brand-burgundy transition-colors">
+                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                        <i class="ph-fill ph-phone-call text-lg"></i>
+                    </div>
+                    0553 371 22 77
+                </a>
+                <a href="#teklif" class="btn-primary py-2.5 px-5 text-sm shadow-burgundy">Hızlı Teklif Al</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="lg:hidden text-white text-2xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" id="mobile-toggle">
+                <i class="ph-bold ph-list"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden bg-white border-t border-gray-100 p-6 shadow-2xl absolute w-full left-0 top-full">
+            <div class="flex flex-col gap-4">
+                <a href="#kurumsal" class="font-medium text-brand-dark pb-2 border-b border-gray-50" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Kurumsal</a>
+                <a href="#hizmetler" class="font-medium text-brand-dark pb-2 border-b border-gray-50" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Hizmetlerimiz</a>
+                <a href="#neden-biz" class="font-medium text-brand-dark pb-2 border-b border-gray-50" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Neden Biz?</a>
+                <a href="tel:05533712277" class="font-bold text-brand-burgundy py-2 flex items-center gap-2"><i class="ph-fill ph-phone-call"></i> 0553 371 22 77</a>
+                <a href="#teklif" class="btn-primary w-full justify-center">Teklif Al</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section class="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Güvence" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/80 to-transparent"></div>
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full text-white text-sm font-medium mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-burgundy animate-pulse"></span>
+                    Sivas'ın Güvenilir Sigorta Acentesi
+                </div>
+                
+                <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                    Geleceğinizi <br>
+                    <span class="text-brand-burgundy">güvence</span> altına alıyoruz.
+                </h1>
+                
+                <p class="text-white/80 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-xl">
+                    Sizin için her poliçe bir evrak değil, bize emanet edilen bir güvendir. Trafik, kasko, sağlık ve konut sigortalarında şeffaf ve hızlı hizmet anlayışıyla yanınızdayız.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#teklif" class="btn-primary shadow-burgundy">
+                        <i class="ph-bold ph-shield-check text-xl"></i> Hemen Teklif Alın
+                    </a>
+                    <a href="tel:05533712277" class="btn-outline !border-white/30 !text-white hover:!bg-white hover:!text-brand-dark">
+                        <i class="ph-fill ph-phone-call text-xl"></i> Bizi Arayın
+                    </a>
+                </div>
+                
+                <!-- Trust Badges -->
+                <div class="mt-12 pt-8 border-t border-white/10 flex items-center gap-8">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-brand-burgundy text-2xl">
+                            <i class="ph-fill ph-check-circle"></i>
+                        </div>
+                        <div>
+                            <div class="text-white font-bold">%100</div>
+                            <div class="text-white/60 text-xs uppercase tracking-wider">Müşteri Memnuniyeti</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-brand-burgundy text-2xl">
+                            <i class="ph-fill ph-clock-countdown"></i>
+                        </div>
+                        <div>
+                            <div class="text-white font-bold">7/24</div>
+                            <div class="text-white/60 text-xs uppercase tracking-wider">Hasar Destek</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hidden lg:block relative" data-aos="fade-left" data-aos-delay="200">
+                <!-- Floating Elements for visual interest -->
+                <div class="absolute -left-10 top-20 bg-white p-4 rounded-xl shadow-2xl flex items-center gap-4 animate-[bounce_4s_infinite]">
+                    <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl">
+                        <i class="ph-fill ph-shield-check"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm font-bold text-brand-dark">Poliçeniz Aktif</div>
+                        <div class="text-xs text-gray-500">Güvendesiniz</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- STATS COUNTERS -->
+    <section class="bg-brand-burgundy py-12 relative overflow-hidden border-b border-brand-burgundyLight">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent pointer-events-none"></div>
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/10 text-center" id="stats-container">
+                <div class="px-4">
+                    <div class="text-4xl lg:text-5xl font-display font-black text-white mb-2"><span class="counter" data-target="5000">0</span>+</div>
+                    <div class="text-white/70 text-sm uppercase tracking-wider font-semibold">Mutlu Müşteri</div>
+                </div>
+                <div class="px-4">
+                    <div class="text-4xl lg:text-5xl font-display font-black text-white mb-2"><span class="counter" data-target="20">0</span>+</div>
+                    <div class="text-white/70 text-sm uppercase tracking-wider font-semibold">Anlaşmalı Kurum</div>
+                </div>
+                <div class="px-4">
+                    <div class="text-4xl lg:text-5xl font-display font-black text-white mb-2"><span class="counter" data-target="15">0</span> Yıl</div>
+                    <div class="text-white/70 text-sm uppercase tracking-wider font-semibold">Sektör Tecrübesi</div>
+                </div>
+                <div class="px-4">
+                    <div class="text-4xl lg:text-5xl font-display font-black text-white mb-2"><span class="counter" data-target="10">0</span> M+</div>
+                    <div class="text-white/70 text-sm uppercase tracking-wider font-semibold">Ödenen Hasar</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. HİZMETLERİMİZ -->
+    <section id="hizmetler" class="py-24 bg-brand-light">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-brand-burgundy font-bold tracking-widest uppercase text-sm mb-2 block">Odak Noktamız</span>
+                <h2 class="font-display text-4xl font-bold text-brand-dark mb-4">Size Özel Sigorta Çözümleri</h2>
+                <p class="text-gray-600 font-light">İhtiyacınız olan her alanda, geniş kapsamlı poliçeler ve uygun fiyat avantajlarıyla yanınızdayız.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                
+                <!-- Service 1: Araç / Kasko -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 rounded-xl bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center text-3xl mb-6 service-icon-wrapper">
+                        <i class="ph-fill ph-car-profile"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-3 transition-colors">Kasko & Trafik</h3>
+                    <p class="text-gray-600 font-light text-sm leading-relaxed mb-6 transition-colors">Aracınızı olası kazalara, hırsızlığa ve doğal afetlere karşı en kapsamlı teminatlarla güvence altına alın. Yolda kalmayın.</p>
+                    <a href="#teklif" class="inline-flex items-center gap-2 font-semibold text-brand-burgundy group-hover:text-white transition-colors text-sm">
+                        Teklif Al <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2: Sağlık -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-xl bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center text-3xl mb-6 service-icon-wrapper">
+                        <i class="ph-fill ph-heartbeat"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-3 transition-colors">Tamamlayıcı Sağlık</h3>
+                    <p class="text-gray-600 font-light text-sm leading-relaxed mb-6 transition-colors">Özel hastaneye gitmek artık lüks değil! SGK anlaşmalı özel hastanelerde yüksek fark ücretleri ödemeden tedavi olun.</p>
+                    <a href="#teklif" class="inline-flex items-center gap-2 font-semibold text-brand-burgundy group-hover:text-white transition-colors text-sm">
+                        Teklif Al <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3: Konut -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-xl bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center text-3xl mb-6 service-icon-wrapper">
+                        <i class="ph-fill ph-house-line"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-3 transition-colors">Konut Sigortası</h3>
+                    <p class="text-gray-600 font-light text-sm leading-relaxed mb-6 transition-colors">Anahtar sizde, güvence bizde. Evinizi ve huzurunuzu yangın, hırsızlık, su baskını ve deprem gibi risklere karşı koruyun.</p>
+                    <a href="#teklif" class="inline-flex items-center gap-2 font-semibold text-brand-burgundy group-hover:text-white transition-colors text-sm">
+                        Teklif Al <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4: DASK -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 rounded-xl bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center text-3xl mb-6 service-icon-wrapper">
+                        <i class="ph-fill ph-buildings"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-3 transition-colors">DASK (Zorunlu Deprem)</h3>
+                    <p class="text-gray-600 font-light text-sm leading-relaxed mb-6 transition-colors">Depremin ve deprem sonucu meydana gelen yangın, infilak ve yer kaymasının doğrudan neden olacağı maddi zararları güvence altına alın.</p>
+                    <a href="#teklif" class="inline-flex items-center gap-2 font-semibold text-brand-burgundy group-hover:text-white transition-colors text-sm">
+                        Teklif Al <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TEKLİF AL (CALCULATOR) SECTION -->
+    <section id="teklif" class="py-24 bg-brand-dark relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-burgundy/20 blur-[100px] rounded-full pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/20 blur-[100px] rounded-full pointer-events-none"></div>
+        </div>
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div data-aos="fade-right">
+                    <span class="text-brand-burgundy font-bold tracking-widest uppercase text-sm mb-4 block">Hemen Fiyat Alın</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">Yapay Zeka Destekli <br>Fiyat Karşılaştırma</h2>
+                    <p class="text-gray-400 font-light text-lg mb-8 leading-relaxed">
+                        Poliçe yenileme döneminiz yaklaştıysa veya yeni bir araç/konut aldıysanız, 20'den fazla sigorta şirketinin tekliflerini sizin için saniyeler içinde tarıyor ve en uygun olanı buluyoruz.
+                    </p>
+                    <ul class="space-y-4 text-white/80 mb-8">
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-green-500 text-xl"></i> Hızlı ve Güvenilir Sonuç</li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-green-500 text-xl"></i> %100 KVKK Uyumlu Altyapı</li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-green-500 text-xl"></i> Uzman Sigorta Danışmanı Desteği</li>
+                    </ul>
+                </div>
+
+                <div data-aos="fade-left">
+                    <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-10 rounded-3xl shadow-2xl relative">
+                        <h3 class="text-white font-display font-bold text-2xl mb-6 text-center">Teklifinizi Hesaplayın</h3>
+                        
+                        <form id="calc-form" class="space-y-5" onsubmit="event.preventDefault(); startCalculate();">
+                            <div>
+                                <label class="text-white/80 text-xs font-semibold mb-1 block uppercase tracking-wider">Sigorta Türü</label>
+                                <select class="w-full bg-brand-dark/50 border border-white/10 rounded-xl px-4 py-3.5 text-white outline-none focus:border-brand-burgundy transition-colors appearance-none cursor-pointer">
+                                    <option class="text-brand-dark">Kasko Sigortası</option>
+                                    <option class="text-brand-dark">Trafik Sigortası</option>
+                                    <option class="text-brand-dark">Tamamlayıcı Sağlık</option>
+                                    <option class="text-brand-dark">DASK & Konut</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-white/80 text-xs font-semibold mb-1 block uppercase tracking-wider">TC Kimlik / Vergi No</label>
+                                <input type="text" placeholder="11 haneli numara" class="w-full bg-brand-dark/50 border border-white/10 rounded-xl px-4 py-3.5 text-white outline-none focus:border-brand-burgundy transition-colors" required>
+                            </div>
+                            <div>
+                                <label class="text-white/80 text-xs font-semibold mb-1 block uppercase tracking-wider">Cep Telefonu</label>
+                                <input type="tel" placeholder="05XX XXX XX XX" class="w-full bg-brand-dark/50 border border-white/10 rounded-xl px-4 py-3.5 text-white outline-none focus:border-brand-burgundy transition-colors" required>
+                            </div>
+                            <button type="submit" id="calc-btn" class="w-full btn-primary justify-center mt-4 group relative overflow-hidden text-base py-3.5">
+                                <span class="relative z-10 flex items-center gap-2" id="calc-btn-text"><i class="ph-bold ph-magic-wand"></i> En Uygun Fiyatı Bul</span>
+                            </button>
+                        </form>
+
+                        <!-- Success State (Hidden initially) -->
+                        <div id="calc-success" class="hidden mt-6 bg-green-500/10 border border-green-500/30 rounded-xl p-6 text-center">
+                            <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl shadow-[0_0_30px_rgba(34,197,94,0.3)]">
+                                <i class="ph-bold ph-check"></i>
+                            </div>
+                            <div class="text-white font-bold text-xl mb-2">Teklifler Hazır!</div>
+                            <div class="text-white/80 text-sm mb-6 leading-relaxed">Sistemimiz Türkiye'nin önde gelen 20'den fazla sigorta şirketini taradı ve size özel fiyatları hazırladı.</div>
+                            <a href="https://wa.me/905533712277" target="_blank" class="inline-flex items-center justify-center w-full gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white px-5 py-3.5 rounded-xl font-bold transition-colors shadow-lg">
+                                <i class="ph-fill ph-whatsapp-logo text-2xl"></i> Sonuçları WhatsApp'tan Gör
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ANLAŞMALI KURUMLAR (PARTNERS) -->
+    <section class="py-16 border-t border-brand-gray/50 bg-white">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <p class="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-8">Türkiye'nin En Güçlü Sigorta Şirketleriyle Anlaşmalıyız</p>
+            <div class="flex flex-wrap justify-center gap-12 lg:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex items-center gap-2 text-2xl font-display font-black text-brand-charcoal"><i class="ph-fill ph-shield-chevron text-brand-burgundy"></i> ALLIANZ</div>
+                <div class="flex items-center gap-2 text-2xl font-display font-black text-brand-charcoal"><i class="ph-fill ph-shield-plus text-blue-600"></i> AXA</div>
+                <div class="flex items-center gap-2 text-2xl font-display font-black text-brand-charcoal"><i class="ph-fill ph-bank text-green-600"></i> ANADOLU</div>
+                <div class="flex items-center gap-2 text-2xl font-display font-black text-brand-charcoal"><i class="ph-fill ph-anchor text-orange-500"></i> RAY</div>
+                <div class="flex items-center gap-2 text-2xl font-display font-black text-brand-charcoal"><i class="ph-fill ph-sun text-yellow-500"></i> GÜNEŞ</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. NEDEN BİZ? (KURUMSAL BÖLÜM) -->
+    <section id="kurumsal" class="py-24 bg-brand-light overflow-hidden">
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Left Image Content -->
+            <div class="relative" data-aos="fade-right">
+                <div class="absolute inset-0 bg-brand-burgundy/5 rounded-[2rem] transform -rotate-3 scale-105 -z-10"></div>
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Umay Sigorta Kurumsal" class="w-full h-[600px] object-cover rounded-[2rem] shadow-xl">
+                
+                <!-- Floating Badge -->
+                <div class="absolute -bottom-10 -right-10 bg-brand-dark p-8 rounded-2xl text-white shadow-2xl max-w-xs hidden md:block">
+                    <i class="ph-fill ph-quotes text-4xl text-brand-burgundy mb-4"></i>
+                    <p class="font-medium text-sm leading-relaxed">"Bizim için her poliçe bir evrak değil, emanet edilen bir güvendir."</p>
+                </div>
+            </div>
+
+            <!-- Right Text Content -->
+            <div data-aos="fade-left">
+                <span class="text-brand-burgundy font-bold tracking-widest uppercase text-sm mb-2 block">Neden Umay Sigorta?</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-brand-dark mb-6">Müşterilerine "gerçek bir güven" sunmak.</h2>
+                <p class="text-gray-600 font-light text-lg mb-8 leading-relaxed">
+                    Sigorta sektöründe edindiğimiz bilgi ve tecrübeyle; trafik, kasko, sağlık ve konut sigortalarında her müşterimizin ihtiyacına özel çözümler üretiyoruz. Çünkü biliyoruz ki sigorta, zor anlarda yanınızda güvenilir bir muhatap bulabilmektir.
+                </p>
+
+                <div class="space-y-6 mb-10">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-brand-light flex items-center justify-center text-brand-burgundy shrink-0 text-xl">
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-brand-dark text-lg mb-1">Şeffaf Hizmet Anlayışı</h4>
+                            <p class="text-gray-600 font-light text-sm">Poliçe şartlarını tüm açıklığıyla anlatır, sürprizlerle karşılaşmanızı engelleriz.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-brand-light flex items-center justify-center text-brand-burgundy shrink-0 text-xl">
+                            <i class="ph-bold ph-rocket-launch"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-brand-dark text-lg mb-1">Hızlı Geri Dönüş</h4>
+                            <p class="text-gray-600 font-light text-sm">Hasar anında veya bilgi taleplerinizde en kısa sürede yanınızdayız.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-brand-light flex items-center justify-center text-brand-burgundy shrink-0 text-xl">
+                            <i class="ph-bold ph-handshake"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-brand-dark text-lg mb-1">Doğru Yönlendirme Prensibi</h4>
+                            <p class="text-gray-600 font-light text-sm">İhtiyacınız olmayan teminatları değil, size tam koruma sağlayacak poliçeleri sunarız.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#iletisim" class="btn-primary">Bizi Yakından Tanıyın</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HASAR ADIMLARI (PROCESS) -->
+    <section class="py-24 bg-white border-t border-brand-gray/50">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-brand-burgundy font-bold tracking-widest uppercase text-sm mb-2 block">Yanınızdayız</span>
+                <h2 class="font-display text-4xl font-bold text-brand-dark mb-4">Hasar Anında Ne Yapmalı?</h2>
+                <p class="text-gray-600 font-light">Kaza veya hasar durumunda panik yapmayın. Adım adım kolay ve şeffaf sürecimizle sorunu hızlıca çözelim.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-brand-gray/50 -translate-y-1/2 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-20 h-20 mx-auto bg-white border-4 border-brand-burgundy text-brand-burgundy rounded-full flex items-center justify-center text-3xl font-black mb-6 shadow-xl hover:scale-110 transition-transform">
+                        1
+                    </div>
+                    <h4 class="font-bold text-brand-dark text-xl mb-2">Güvenliğe Alın</h4>
+                    <p class="text-gray-600 font-light text-sm">Önce can güvenliğinizi sağlayın ve kaza yerinin fotoğraflarını net şekilde çekin.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 mx-auto bg-white border-4 border-brand-gray text-gray-400 rounded-full flex items-center justify-center text-3xl font-black mb-6 transition-colors hover:border-brand-burgundy hover:text-brand-burgundy hover:scale-110 transition-transform">
+                        2
+                    </div>
+                    <h4 class="font-bold text-brand-dark text-xl mb-2">Bizi Arayın</h4>
+                    <p class="text-gray-600 font-light text-sm">0553 371 22 77 numaramızdan bizi arayarak durum hakkında hemen bilgi verin.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto bg-white border-4 border-brand-gray text-gray-400 rounded-full flex items-center justify-center text-3xl font-black mb-6 transition-colors hover:border-brand-burgundy hover:text-brand-burgundy hover:scale-110 transition-transform">
+                        3
+                    </div>
+                    <h4 class="font-bold text-brand-dark text-xl mb-2">Tutanak & Evrak</h4>
+                    <p class="text-gray-600 font-light text-sm">Gerekli tutanakları doldurun ve istenen evrakları WhatsApp üzerinden bize iletin.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 mx-auto bg-white border-4 border-brand-gray text-gray-400 rounded-full flex items-center justify-center text-3xl font-black mb-6 transition-colors hover:border-green-600 hover:text-green-600 hover:scale-110 transition-transform">
+                        <i class="ph-bold ph-check"></i>
+                    </div>
+                    <h4 class="font-bold text-brand-dark text-xl mb-2">Hızlı Onarım</h4>
+                    <p class="text-gray-600 font-light text-sm">Dosyanız açılır, süreciniz titizlikle takip edilir ve onarım süreci başlatılır.</p>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- FAQ (SIKÇA SORULAN SORULAR) -->
+    <section class="py-24 bg-brand-light">
+        <div class="max-w-[800px] mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand-burgundy font-bold tracking-widest uppercase text-sm mb-2 block">Merak Edilenler</span>
+                <h2 class="font-display text-4xl font-bold text-brand-dark mb-4">Sıkça Sorulan Sorular</h2>
+                <p class="text-gray-600 font-light">Sigorta süreçleriyle ilgili en çok merak edilen soruları sizin için yanıtladık.</p>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-bold text-brand-dark pr-4">Kasko ile Trafik Sigortası arasındaki fark nedir?</span>
+                        <i class="ph-bold ph-plus text-brand-burgundy text-xl transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-gray-600 font-light text-sm leading-relaxed">
+                        Trafik sigortası zorunludur ve kaza durumunda karşı tarafa verdiğiniz zararları karşılar. Kasko ise isteğe bağlıdır; kendi aracınızda oluşabilecek yanma, çalınma, kaza veya doğal afet gibi hasarları güvence altına alır.
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-bold text-brand-dark pr-4">Hasar anında ikame araç veriliyor mu?</span>
+                        <i class="ph-bold ph-plus text-brand-burgundy text-xl transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-gray-600 font-light text-sm leading-relaxed">
+                        Evet, kasko poliçenizin içeriğine bağlı olarak, aracınızın onarımı belirli bir süreyi aştığında poliçenizde belirtilen şartlarda ve sürede size ikame (yedek) araç tahsis edilmektedir.
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-bold text-brand-dark pr-4">Tamamlayıcı Sağlık Sigortası neleri kapsar?</span>
+                        <i class="ph-bold ph-plus text-brand-burgundy text-xl transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-gray-600 font-light text-sm leading-relaxed">
+                        SGK ile anlaşması olan özel hastanelerde, SGK'nın karşıladığı sağlık hizmetleri için ödemeniz gereken ilave fark ücretlerini karşılar. Ayakta tedavi (muayene, tahlil) ve yatarak tedavi (ameliyat, oda ücreti) teminatlarından oluşur.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÜŞTERİ YORUMLARI (MARQUEE) -->
+    <section class="py-24 bg-white overflow-hidden border-t border-brand-gray/50">
+        <div class="max-w-[1400px] mx-auto px-6 text-center mb-16" data-aos="fade-up">
+            <h2 class="font-display text-4xl font-bold text-brand-dark mb-4">Müşterilerimiz Ne Diyor?</h2>
+            <p class="text-gray-600 font-light">Bizi tercih eden yüzlerce mutlu müşterimizden sadece birkaçı.</p>
+        </div>
+
+        <div class="relative w-full flex overflow-x-hidden group pb-4">
+            <div class="animate-marquee flex gap-8 whitespace-nowrap group-hover:[animation-play-state:paused] min-w-full shrink-0">
+                <!-- Cards -->
+                <div class="w-[350px] bg-brand-light border border-gray-100 p-8 rounded-3xl shrink-0 whitespace-normal">
+                    <div class="flex text-yellow-400 text-sm mb-4 gap-1"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                    <p class="text-gray-600 font-light italic mb-6">"Gece yarısı yolda kaldığımda tek telefonla çekiciyi gönderdiler. İlgi ve alakaları için çok teşekkür ederim."</p>
+                    <div class="font-bold text-brand-dark">- Ahmet K. (Esnaf)</div>
+                </div>
+                <div class="w-[350px] bg-brand-light border border-gray-100 p-8 rounded-3xl shrink-0 whitespace-normal">
+                    <div class="flex text-yellow-400 text-sm mb-4 gap-1"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                    <p class="text-gray-600 font-light italic mb-6">"Tamamlayıcı sağlık poliçemi her yıl Umay'dan yeniliyorum. Hastanede asla sürpriz bir faturayla karşılaşmıyorum."</p>
+                    <div class="font-bold text-brand-dark">- Ayşe N. (Öğretmen)</div>
+                </div>
+                <div class="w-[350px] bg-brand-light border border-gray-100 p-8 rounded-3xl shrink-0 whitespace-normal">
+                    <div class="flex text-yellow-400 text-sm mb-4 gap-1"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                    <p class="text-gray-600 font-light italic mb-6">"Konut sigortam sayesinde su basan evimin tüm masrafları 3 gün içinde hesabıma yattı. Güvenin adresi!"</p>
+                    <div class="font-bold text-brand-dark">- Mehmet T. (Memur)</div>
+                </div>
+                <div class="w-[350px] bg-brand-light border border-gray-100 p-8 rounded-3xl shrink-0 whitespace-normal">
+                    <div class="flex text-yellow-400 text-sm mb-4 gap-1"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                    <p class="text-gray-600 font-light italic mb-6">"Kasko yenileme döneminde 20 şirketi aramak yerine Umay'ı arıyorum, en uygun fiyatı onlar buluyor."</p>
+                    <div class="font-bold text-brand-dark">- Fatma Y. (Doktor)</div>
+                </div>
+            </div>
+            <!-- Duplicate for infinite loop -->
+            <div class="animate-marquee flex gap-8 whitespace-nowrap group-hover:[animation-play-state:paused] min-w-full shrink-0 ml-8">
+                <div class="w-[350px] bg-brand-light border border-gray-100 p-8 rounded-3xl shrink-0 whitespace-normal">
+                    <div class="flex text-yellow-400 text-sm mb-4 gap-1"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                    <p class="text-gray-600 font-light italic mb-6">"Gece yarısı yolda kaldığımda tek telefonla çekiciyi gönderdiler. İlgi ve alakaları için çok teşekkür ederim."</p>
+                    <div class="font-bold text-brand-dark">- Ahmet K. (Esnaf)</div>
+                </div>
+                <div class="w-[350px] bg-brand-light border border-gray-100 p-8 rounded-3xl shrink-0 whitespace-normal">
+                    <div class="flex text-yellow-400 text-sm mb-4 gap-1"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                    <p class="text-gray-600 font-light italic mb-6">"Tamamlayıcı sağlık poliçemi her yıl Umay'dan yeniliyorum. Hastanede asla sürpriz bir faturayla karşılaşmıyorum."</p>
+                    <div class="font-bold text-brand-dark">- Ayşe N. (Öğretmen)</div>
+                </div>
+                <div class="w-[350px] bg-brand-light border border-gray-100 p-8 rounded-3xl shrink-0 whitespace-normal">
+                    <div class="flex text-yellow-400 text-sm mb-4 gap-1"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                    <p class="text-gray-600 font-light italic mb-6">"Konut sigortam sayesinde su basan evimin tüm masrafları 3 gün içinde hesabıma yattı. Güvenin adresi!"</p>
+                    <div class="font-bold text-brand-dark">- Mehmet T. (Memur)</div>
+                </div>
+                <div class="w-[350px] bg-brand-light border border-gray-100 p-8 rounded-3xl shrink-0 whitespace-normal">
+                    <div class="flex text-yellow-400 text-sm mb-4 gap-1"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                    <p class="text-gray-600 font-light italic mb-6">"Kasko yenileme döneminde 20 şirketi aramak yerine Umay'ı arıyorum, en uygun fiyatı onlar buluyor."</p>
+                    <div class="font-bold text-brand-dark">- Fatma Y. (Doktor)</div>
+                </div>
+            </div>
+            
+            <!-- Fade edges -->
+            <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent pointer-events-none z-10"></div>
+            <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10"></div>
+        </div>
+    </section>
+
+    <!-- GÜNCEL HABERLER (BLOG) -->
+    <section class="py-24 bg-brand-light border-t border-brand-gray/50">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <span class="text-brand-burgundy font-bold tracking-widest uppercase text-sm mb-2 block">Bilgi Bankası</span>
+                    <h2 class="font-display text-4xl font-bold text-brand-dark mb-4">Sektörden Haberler & İpuçları</h2>
+                    <p class="text-gray-600 font-light">Sigorta dünyasındaki son gelişmeler ve faydalı bilgilerle dolu içeriklerimiz.</p>
+                </div>
+                <a href="#" class="hidden md:inline-flex items-center gap-2 font-semibold text-brand-burgundy hover:text-brand-dark transition-colors">
+                    Tüm Yazıları Gör <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Blog 1 -->
+                <a href="#" class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Trafik Sigortası" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-xs font-bold text-gray-400 mb-3 tracking-widest uppercase">Oto Sigortaları</div>
+                        <h3 class="font-bold text-brand-dark text-lg mb-3 group-hover:text-brand-burgundy transition-colors">2026 Trafik Sigortası Tavan Fiyatları Açıklandı</h3>
+                        <p class="text-gray-600 font-light text-sm mb-6 line-clamp-2">Yeni yılda geçerli olacak trafik sigortası tavan fiyatları belli oldu. İl ve basamak bazındaki artışlar ne yönde?</p>
+                        <span class="text-brand-burgundy text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all">Devamını Oku <i class="ph-bold ph-arrow-right"></i></span>
+                    </div>
+                </a>
+                
+                <!-- Blog 2 -->
+                <a href="#" class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kış Şartları" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-xs font-bold text-gray-400 mb-3 tracking-widest uppercase">Rehber</div>
+                        <h3 class="font-bold text-brand-dark text-lg mb-3 group-hover:text-brand-burgundy transition-colors">Kış Aylarında Kaskonun Önemi ve Dikkat Edilmesi Gerekenler</h3>
+                        <p class="text-gray-600 font-light text-sm mb-6 line-clamp-2">Zorlu hava koşullarında kasko poliçenizin sizi nasıl koruduğunu ve kış lastiği zorunluluğunun hasar sürecine etkisini öğrenin.</p>
+                        <span class="text-brand-burgundy text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all">Devamını Oku <i class="ph-bold ph-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- Blog 3 -->
+                <a href="#" class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Konut Sigortası" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-xs font-bold text-gray-400 mb-3 tracking-widest uppercase">Evim Güvende</div>
+                        <h3 class="font-bold text-brand-dark text-lg mb-3 group-hover:text-brand-burgundy transition-colors">Konut Sigortasında Bilinmeyen 5 Muazzam Avantaj</h3>
+                        <p class="text-gray-600 font-light text-sm mb-6 line-clamp-2">Çilingir hizmetinden kombi bakımına kadar konut poliçenizin içinde gizli olan ve ücretsiz faydalanabileceğiniz asistan hizmetleri.</p>
+                        <span class="text-brand-burgundy text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all">Devamını Oku <i class="ph-bold ph-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Mobile Button -->
+            <div class="mt-8 text-center md:hidden">
+                <a href="#" class="btn-outline w-full justify-center">Tüm Yazıları Gör</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CTA / TEKLİF AL (GRADIENT BANNER) -->
+    <section id="teklif" class="py-20 relative">
+        <div class="absolute inset-0 bg-brand-dark"></div>
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
+        
+        <div class="max-w-[1000px] mx-auto px-6 relative z-10 text-center" data-aos="zoom-in">
+            <h2 class="font-display text-4xl lg:text-5xl font-bold text-white mb-6">Avantajlı Teklif Fırsatlarını Kaçırmayın!</h2>
+            <p class="text-white/70 font-light text-lg mb-10 max-w-2xl mx-auto">
+                Ruhsat veya kimlik bilgilerinizi bize iletin, anlaşmalı olduğumuz 20'den fazla sigorta şirketinden sizin için en uygun teklifi saniyeler içinde hazırlayalım.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/905533712277" target="_blank" class="btn-primary !bg-green-600 hover:!bg-green-700 shadow-xl shadow-green-900/20">
+                    <i class="ph-fill ph-whatsapp-logo text-2xl"></i> WhatsApp'tan Teklif Al
+                </a>
+                <a href="tel:05533712277" class="btn-outline !border-white/20 !text-white hover:!bg-white hover:!text-brand-dark">
+                    Telefonla Bize Ulaşın
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. İLETİŞİM & HARİTA -->
+    <section id="iletisim" class="py-24 bg-brand-light">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-white rounded-3xl overflow-hidden shadow-premium border border-gray-100">
+                
+                <!-- İletişim Bilgileri -->
+                <div class="lg:col-span-5 bg-brand-dark text-white p-10 md:p-14 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-burgundy rounded-full blur-[100px] opacity-30"></div>
+                    
+                    <h3 class="font-display text-3xl font-bold mb-8 relative z-10">Bize Ulaşın</h3>
+                    <p class="text-white/60 font-light mb-12 relative z-10">Poliçe teklifi, hasar destek veya danışmanlık hizmetlerimiz için dilediğiniz zaman bizimle iletişime geçebilirsiniz.</p>
+                    
+                    <div class="space-y-8 relative z-10">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-brand-burgundy shrink-0 text-xl">
+                                <i class="ph-fill ph-map-pin"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white/50 uppercase tracking-widest mb-1">Adres</h4>
+                                <p class="text-white font-medium">Pulur mahallesi Atatürk caddesi<br>Kaptanlar sitesi altı no 78M,<br>Sivas 58000</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-brand-burgundy shrink-0 text-xl">
+                                <i class="ph-fill ph-phone-call"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white/50 uppercase tracking-widest mb-1">Telefon</h4>
+                                <a href="tel:05533712277" class="text-white font-medium text-lg hover:text-brand-burgundy transition-colors">0553 371 22 77</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-brand-burgundy shrink-0 text-xl">
+                                <i class="ph-fill ph-instagram-logo"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white/50 uppercase tracking-widest mb-1">Sosyal Medya</h4>
+                                <a href="https://www.instagram.com/umaysigorta58/" target="_blank" class="text-white font-medium hover:text-brand-burgundy transition-colors">@umaysigorta58</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps -->
+                <div class="lg:col-span-7 h-[400px] lg:h-auto min-h-[400px]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3056.452395640775!2d37.0121307!3d39.7501309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407eaa2ed8c2929d%3A0xc3c907ed82a1705e!2zUHVsdXIsIEF0YXTDvHJrIENkLiwgNTgwMDAgU2l2YXMgTWVya2V6L1NpdmFz!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="grayscale hover:grayscale-0 transition-all duration-500"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="bg-brand-dark pt-20 pb-10 border-t border-white/5">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Brand -->
+                <div class="xl:col-span-1">
+                    <a href="#" class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-brand-burgundy text-white rounded-full flex items-center justify-center text-xl">
+                            <i class="ph-bold ph-shield-check"></i>
+                        </div>
+                        <span class="font-display font-black text-xl tracking-tight text-white">UMAY SİGORTA</span>
+                    </a>
+                    <p class="text-white/50 text-sm font-light leading-relaxed">
+                        Sivas'ta güvenin ve şeffaf hizmetin adresi. Hayatın tüm risklerine karşı güvenceniz.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Hızlı Menü</h4>
+                    <ul class="space-y-3 text-white/50 text-sm font-light">
+                        <li><a href="#kurumsal" class="hover:text-brand-burgundy transition-colors">Hakkımızda</a></li>
+                        <li><a href="#hizmetler" class="hover:text-brand-burgundy transition-colors">Hizmetlerimiz</a></li>
+                        <li><a href="#teklif" class="hover:text-brand-burgundy transition-colors">Online Teklif Al</a></li>
+                        <li><a href="#iletisim" class="hover:text-brand-burgundy transition-colors">İletişim</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Sigorta Çözümleri</h4>
+                    <ul class="space-y-3 text-white/50 text-sm font-light">
+                        <li><a href="#hizmetler" class="hover:text-brand-burgundy transition-colors">Zorunlu Trafik Sigortası</a></li>
+                        <li><a href="#hizmetler" class="hover:text-brand-burgundy transition-colors">Kasko Sigortası</a></li>
+                        <li><a href="#hizmetler" class="hover:text-brand-burgundy transition-colors">Tamamlayıcı Sağlık</a></li>
+                        <li><a href="#hizmetler" class="hover:text-brand-burgundy transition-colors">Konut & DASK</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6 uppercase tracking-wider text-sm">İletişim</h4>
+                    <ul class="space-y-4 text-white/50 text-sm font-light">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-map-pin text-brand-burgundy mt-1 text-lg"></i>
+                            <span>Pulur Mah. Atatürk Cad. Kaptanlar Sitesi Altı No:78M, Sivas</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-phone-call text-brand-burgundy text-lg"></i>
+                            <a href="tel:05533712277" class="hover:text-white transition-colors">0553 371 22 77</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs font-light">
+                <p>&copy; 2026 Sivas Umay Sigorta Acenteliği. Tüm Hakları Saklıdır.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors">Gizlilik Politikası</a>
+                    <a href="#" class="hover:text-white transition-colors">KVKK Aydınlatma Metni</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING PANIC BUTTON -->
+    <a href="tel:05533712277" class="fixed bottom-6 left-6 z-50 group flex items-center gap-4">
+        <div class="relative flex items-center justify-center w-16 h-16 bg-red-600 text-white rounded-full shadow-2xl hover:bg-red-700 transition-colors">
+            <div class="absolute inset-0 bg-red-600 rounded-full animate-ping opacity-60"></div>
+            <i class="ph-bold ph-phone-call text-3xl relative z-10 animate-[wiggle_1s_ease-in-out_infinite]"></i>
+        </div>
+        <div class="bg-white px-5 py-3 rounded-2xl shadow-xl border border-brand-gray opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 duration-300 pointer-events-none hidden md:block">
+            <div class="text-red-600 font-black text-sm uppercase tracking-wide">Acil Hasar İhbar</div>
+            <div class="text-xs text-gray-500 font-medium mt-0.5">7/24 Kesintisiz Destek Hattı</div>
+        </div>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const logoTexts = document.querySelectorAll('.logo-text');
+            const logoSubtexts = document.querySelectorAll('.logo-subtext');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            if (window.scrollY > 30) {
+                navbar.classList.add('header-scrolled', 'py-3');
+                navbar.classList.remove('py-4', 'lg:py-6', 'lg:top-[36px]');
+                
+                mobileToggle.classList.remove('text-white');
+                mobileToggle.classList.add('text-brand-dark');
+
+                logoTexts.forEach(el => {
+                    el.classList.remove('text-white');
+                    el.classList.add('text-brand-burgundy');
+                });
+                logoSubtexts.forEach(el => {
+                    el.classList.remove('text-white/70');
+                    el.classList.add('text-gray-500');
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white');
+                    link.classList.add('text-brand-dark');
+                });
+            } else {
+                navbar.classList.remove('header-scrolled', 'py-3');
+                navbar.classList.add('py-4', 'lg:py-6', 'lg:top-[36px]');
+                
+                mobileToggle.classList.add('text-white');
+                mobileToggle.classList.remove('text-brand-dark');
+
+                logoTexts.forEach(el => {
+                    el.classList.add('text-white');
+                    el.classList.remove('text-brand-burgundy');
+                });
+                logoSubtexts.forEach(el => {
+                    el.classList.add('text-white/70');
+                    el.classList.remove('text-gray-500');
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.add('text-white');
+                    link.classList.remove('text-brand-dark');
+                });
+            }
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        let hasCounted = false;
+
+        const countObserver = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting && !hasCounted) {
+                hasCounted = true;
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000; // 2 seconds
+                    const increment = target / (duration / 16);
+                    let current = 0;
+                    
+                    const updateCounter = () => {
+                        current += increment;
+                        if(current < target) {
+                            counter.innerText = Math.ceil(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCounter();
+                });
+            }
+        }, { threshold: 0.5 });
+        
+        const statsContainer = document.getElementById('stats-container');
+        if(statsContainer) countObserver.observe(statsContainer);
+
+        // Calculator Logic (Fake API call)
+        function startCalculate() {
+            const btn = document.getElementById('calc-btn');
+            const btnText = document.getElementById('calc-btn-text');
+            const successDiv = document.getElementById('calc-success');
+            
+            // Loading state
+            btn.classList.add('opacity-80', 'pointer-events-none');
+            btnText.innerHTML = '<i class="ph-bold ph-spinner animate-spin"></i> Teklifler Taranıyor...';
+            
+            setTimeout(() => {
+                // Success state
+                btn.classList.add('hidden');
+                successDiv.classList.remove('hidden');
+            }, 2500); // Wait 2.5s to fake processing
+        }
+
+        // FAQ Accordion Logic
+        const faqButtons = document.querySelectorAll('.faq-button');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    icon.classList.replace('ph-plus', 'ph-minus');
+                } else {
+                    content.classList.add('hidden');
+                    icon.classList.replace('ph-minus', 'ph-plus');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

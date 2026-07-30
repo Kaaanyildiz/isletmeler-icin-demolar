@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seçil Mobilya | Yaşam Alanlarınıza Seçkin Dokunuş</title>
+    <meta name="description" content="Sivas'ın lüks ve modern mobilya mağazası Seçil Mobilya. Yatak odası, yemek odası ve koltuk takımlarıyla evinize değer katıyoruz. Sivas içi ücretsiz teslimat ve montaj.">
+    
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Playfair Display (Luxury Serif) & Manrope (Modern Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        secil: {
+                            light: '#FAF9F6',     // Kırık Beyaz / Krem
+                            surface: '#F2EFE9',   // Biraz daha koyu krem (kartlar vs.)
+                            accent: '#C5A880',    // Lüks Altın/Ahşap tonu
+                            accentDark: '#A88D66',
+                            dark: '#1C1C1C',      // Antrasit / Koyu Gri
+                            gray: '#7A7A7A',      // Pasif Metin
+                            border: '#EBE5D9'
+                        }
+                    },
+                    boxShadow: {
+                        'premium': '0 25px 50px -12px rgba(0, 0, 0, 0.08)',
+                        'soft': '0 10px 30px -5px rgba(197, 168, 128, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: theme('colors.secil.light');
+            color: theme('colors.secil.dark');
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: theme('colors.secil.accent');
+            color: white;
+        }
+
+        /* Glassmorphism Header */
+        .glass-header {
+            background: rgba(250, 249, 246, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+        }
+
+        /* Buttons */
+        .btn-premium {
+            background-color: theme('colors.secil.dark');
+            color: white;
+            padding: 0.875rem 2.5rem;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.4s ease;
+            border: 1px solid theme('colors.secil.dark');
+        }
+        .btn-premium:hover {
+            background-color: theme('colors.secil.accent');
+            border-color: theme('colors.secil.accent');
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(197, 168, 128, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: theme('colors.secil.dark');
+            padding: 0.875rem 2.5rem;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.4s ease;
+            border: 1px solid theme('colors.secil.dark');
+        }
+        .btn-outline:hover {
+            background-color: theme('colors.secil.dark');
+            color: white;
+        }
+
+        /* Hero Swiper Animations */
+        .hero-swiper .swiper-slide .hero-img {
+            transform: scale(1.1);
+            transition: transform 7s ease-out;
+        }
+        .hero-swiper .swiper-slide-active .hero-img {
+            transform: scale(1);
+        }
+        .hero-content-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition-delay: 0.6s;
+        }
+        .hero-swiper .swiper-slide-active .hero-content-reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Swiper Custom Navigation */
+        .swiper-button-next::after, .swiper-button-prev::after {
+            display: none;
+        }
+        .custom-nav-btn {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: theme('colors.secil.dark');
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .custom-nav-btn:hover {
+            background: theme('colors.secil.accent');
+            color: white;
+        }
+
+        /* Image Hover Effects */
+        .img-zoom {
+            overflow: hidden;
+            position: relative;
+        }
+        .img-zoom img {
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .img-zoom:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Top Bar -->
+    <div class="bg-secil-dark text-secil-light py-2 px-6 hidden md:block">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center text-xs tracking-wider uppercase font-sans font-medium">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-2"><i class="ph-fill ph-map-pin text-secil-accent"></i> Sivas Merkez, Pulur Mah. Ahiemir Cd. No:13</span>
+                <span class="flex items-center gap-2"><i class="ph-fill ph-phone text-secil-accent"></i> (0346) 223 83 30</span>
+            </div>
+            <div class="flex gap-4">
+                <span class="flex items-center gap-1"><i class="ph-fill ph-truck text-secil-accent"></i> Sivas İçi Ücretsiz Teslimat</span>
+                <span class="flex items-center gap-1"><i class="ph-fill ph-wrench text-secil-accent"></i> Profesyonel Montaj</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Nav -->
+    <nav class="glass-header sticky top-0 z-50 py-4 px-6">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-12 h-12 rounded-full border-2 border-secil-dark flex items-center justify-center group-hover:border-secil-accent transition-colors">
+                    <span class="font-serif font-bold text-xl text-secil-dark group-hover:text-secil-accent transition-colors">S</span>
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="font-serif text-2xl font-bold tracking-tight text-secil-dark uppercase">Seçil Mobilya</span>
+                    <span class="font-sans text-[0.6rem] tracking-[0.2em] text-secil-gray mt-1">Premium Living Sivas</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-10">
+                <a href="#koleksiyonlar" class="font-sans font-semibold text-sm tracking-wide text-secil-dark hover:text-secil-accent transition-colors uppercase">Koleksiyonlar</a>
+                <a href="#neden-biz" class="font-sans font-semibold text-sm tracking-wide text-secil-dark hover:text-secil-accent transition-colors uppercase">Neden Biz?</a>
+                <a href="#ilham" class="font-sans font-semibold text-sm tracking-wide text-secil-dark hover:text-secil-accent transition-colors uppercase">İlham</a>
+                <a href="#iletisim" class="font-sans font-semibold text-sm tracking-wide text-secil-dark hover:text-secil-accent transition-colors uppercase">İletişim</a>
+            </div>
+
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center gap-6">
+                <a href="https://www.instagram.com/secil.mobilya/" target="_blank" class="hidden md:flex text-secil-dark hover:text-secil-accent transition-colors text-2xl">
+                    <i class="ph-bold ph-instagram-logo"></i>
+                </a>
+                <a href="tel:03462238330" class="btn-premium hidden sm:inline-flex py-2 px-5">Bize Ulaşın</a>
+                <button class="lg:hidden text-secil-dark text-3xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="ph-bold ph-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-secil-light border-t border-secil-border p-6 shadow-xl">
+            <div class="flex flex-col gap-4">
+                <a href="#koleksiyonlar" class="font-sans font-medium text-secil-dark text-lg uppercase" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Koleksiyonlar</a>
+                <a href="#neden-biz" class="font-sans font-medium text-secil-dark text-lg uppercase" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Neden Biz?</a>
+                <a href="#ilham" class="font-sans font-medium text-secil-dark text-lg uppercase" onclick="document.getElementById('mobile-menu').classList.add('hidden')">İlham</a>
+                <a href="#iletisim" class="font-sans font-medium text-secil-dark text-lg uppercase" onclick="document.getElementById('mobile-menu').classList.add('hidden')">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION (Swiper) -->
+    <section class="w-full h-[90vh] min-h-[600px] relative">
+        <div class="swiper hero-swiper w-full h-full">
+            <div class="swiper-wrapper">
+                
+                <!-- Slide 1 -->
+                <div class="swiper-slide relative overflow-hidden">
+                    <div class="absolute inset-0 bg-black/40 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Modern Koltuk Takımı" class="hero-img absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6">
+                        <div class="hero-content-reveal">
+                            <span class="block font-sans text-white text-sm tracking-[0.3em] uppercase mb-4">Yeni Koleksiyon</span>
+                            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold mb-6 drop-shadow-lg">Zamansız <span class="italic text-secil-accent font-normal">Estetik</span></h1>
+                            <p class="font-sans text-gray-200 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">Evinizin her köşesinde hissedilen kalite ve kavisli hatların zarafetiyle tanışın.</p>
+                            <a href="#koleksiyonlar" class="btn-premium bg-secil-accent border-secil-accent hover:bg-white hover:text-secil-dark hover:border-white">Koleksiyonu Keşfet</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide relative overflow-hidden">
+                    <div class="absolute inset-0 bg-black/40 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Yemek Odası" class="hero-img absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6">
+                        <div class="hero-content-reveal">
+                            <span class="block font-sans text-white text-sm tracking-[0.3em] uppercase mb-4">Seçil Özel Tasarım</span>
+                            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold mb-6 drop-shadow-lg">Yemek <span class="italic text-secil-accent font-normal">Odaları</span></h1>
+                            <p class="font-sans text-gray-200 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">Sevdiklerinizle paylaştığınız o özel anları, lüks ve konforla taçlandırın.</p>
+                            <a href="#iletisim" class="btn-premium bg-secil-accent border-secil-accent hover:bg-white hover:text-secil-dark hover:border-white">Mağazamızı Ziyaret Edin</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Swiper Navigation -->
+            <div class="swiper-button-prev custom-nav-btn absolute left-4 lg:left-10 z-30"><i class="ph-bold ph-arrow-left text-xl"></i></div>
+            <div class="swiper-button-next custom-nav-btn absolute right-4 lg:right-10 z-30"><i class="ph-bold ph-arrow-right text-xl"></i></div>
+        </div>
+    </section>
+
+    <!-- 2. GİRİŞ & ABOUT -->
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-[1200px] mx-auto text-center">
+            <i class="ph-fill ph-quotes text-4xl text-secil-accent mb-6 inline-block opacity-50"></i>
+            <h2 class="font-serif text-3xl md:text-4xl text-secil-dark leading-relaxed font-medium mb-8" data-aos="fade-up">
+                Mobilya sadece bir eşya değil, yaşantınızın bir parçasıdır. <br class="hidden md:block">
+                Sivas'ın merkezinde, evinize değer katan lüksü ulaşılabilir kılıyoruz.
+            </h2>
+            <div class="w-24 h-1 bg-secil-accent mx-auto" data-aos="scale-x"></div>
+        </div>
+    </section>
+
+    <!-- 3. KOLEKSİYONLAR -->
+    <section id="koleksiyonlar" class="py-32 px-6">
+        <div class="max-w-[1400px] mx-auto">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
+                <div>
+                    <span class="font-sans text-secil-accent tracking-[0.2em] uppercase text-sm font-bold mb-3 block">Ürünlerimiz</span>
+                    <h2 class="font-serif text-5xl text-secil-dark font-bold">Özel Koleksiyonlar</h2>
+                </div>
+                <a href="https://www.instagram.com/secil.mobilya/" class="hidden md:flex items-center gap-2 font-sans font-bold text-sm tracking-widest uppercase text-secil-dark hover:text-secil-accent transition-colors pb-2 border-b border-secil-dark hover:border-secil-accent">
+                    Tümünü Gör <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                
+                <!-- Kategori 1 -->
+                <div class="group cursor-pointer" data-aos="fade-up">
+                    <div class="img-zoom h-[450px] md:h-[600px] w-full mb-6">
+                        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Koltuk Takımları" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="font-serif text-3xl text-secil-dark font-bold mb-2 group-hover:text-secil-accent transition-colors">Koltuk Takımları</h3>
+                            <p class="font-sans text-secil-gray">Modern kavisler, eşsiz konfor.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full border border-secil-border flex items-center justify-center text-secil-dark group-hover:bg-secil-accent group-hover:border-secil-accent group-hover:text-white transition-all">
+                            <i class="ph-bold ph-arrow-up-right text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 2 -->
+                <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="img-zoom h-[450px] md:h-[600px] w-full mb-6">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Yemek Odaları" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="font-serif text-3xl text-secil-dark font-bold mb-2 group-hover:text-secil-accent transition-colors">Yemek Odaları</h3>
+                            <p class="font-sans text-secil-gray">Zarif sofralar için kusursuz tasarımlar.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full border border-secil-border flex items-center justify-center text-secil-dark group-hover:bg-secil-accent group-hover:border-secil-accent group-hover:text-white transition-all">
+                            <i class="ph-bold ph-arrow-up-right text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 3 -->
+                <div class="group cursor-pointer" data-aos="fade-up">
+                    <div class="img-zoom h-[400px] w-full mb-6">
+                        <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Yatak Odaları" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="font-serif text-3xl text-secil-dark font-bold mb-2 group-hover:text-secil-accent transition-colors">Yatak Odaları</h3>
+                            <p class="font-sans text-secil-gray">Huzurlu uykunun adresi.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full border border-secil-border flex items-center justify-center text-secil-dark group-hover:bg-secil-accent group-hover:border-secil-accent group-hover:text-white transition-all">
+                            <i class="ph-bold ph-arrow-up-right text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 4 -->
+                <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="img-zoom h-[400px] w-full mb-6">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Kahve Köşesi & Aksesuarlar" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="font-serif text-3xl text-secil-dark font-bold mb-2 group-hover:text-secil-accent transition-colors">Kahve Köşesi</h3>
+                            <p class="font-sans text-secil-gray">Küçük ama etkili dokunuşlar.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full border border-secil-border flex items-center justify-center text-secil-dark group-hover:bg-secil-accent group-hover:border-secil-accent group-hover:text-white transition-all">
+                            <i class="ph-bold ph-arrow-up-right text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. NEDEN BİZ (Trust / Quality) -->
+    <section id="neden-biz" class="py-32 px-6 bg-secil-surface">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                
+                <div data-aos="fade-right">
+                    <div class="img-zoom relative h-[600px] w-full">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Kaliteli Üretim" class="w-full h-full object-cover">
+                        <div class="absolute -bottom-10 -right-10 bg-white p-8 shadow-premium hidden md:block">
+                            <div class="flex items-center gap-4 mb-4">
+                                <i class="ph-fill ph-star text-secil-accent text-3xl"></i>
+                                <i class="ph-fill ph-star text-secil-accent text-3xl"></i>
+                                <i class="ph-fill ph-star text-secil-accent text-3xl"></i>
+                                <i class="ph-fill ph-star text-secil-accent text-3xl"></i>
+                                <i class="ph-fill ph-star-half text-secil-accent text-3xl"></i>
+                            </div>
+                            <p class="font-serif font-bold text-2xl text-secil-dark">4.5 / 5</p>
+                            <p class="font-sans text-secil-gray text-sm">Google Müşteri Memnuniyeti</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left">
+                    <span class="font-sans text-secil-accent tracking-[0.2em] uppercase text-sm font-bold mb-4 block">Farkımız</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-secil-dark font-bold mb-8">Neden Seçil Mobilya'yı Seçmelisiniz?</h2>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="shrink-0 w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-sm text-secil-accent text-3xl">
+                                <i class="ph-fill ph-crown"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-2xl font-bold text-secil-dark mb-2">Premium Kalite & Tasarım</h4>
+                                <p class="font-sans text-secil-gray leading-relaxed">Özenle seçilmiş kumaşlar, son trend kavisli hatlar ve uzun ömürlü iskelet yapısıyla evinizde saray konforu.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="shrink-0 w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-sm text-secil-accent text-3xl">
+                                <i class="ph-fill ph-truck"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-2xl font-bold text-secil-dark mb-2">Sivas İçi Hızlı Teslimat</h4>
+                                <p class="font-sans text-secil-gray leading-relaxed">Satın aldığınız ürünleri kapınıza kadar özenle taşıyor ve güvenli bir şekilde ulaştırıyoruz.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="shrink-0 w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-sm text-secil-accent text-3xl">
+                                <i class="ph-fill ph-wrench"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-2xl font-bold text-secil-dark mb-2">Profesyonel Kurulum & Montaj</h4>
+                                <p class="font-sans text-secil-gray leading-relaxed">Mobilyalarınızın montajı alanında uzman ekibimiz tarafından hatasız bir şekilde gerçekleştirilir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. İLHAM VEREN MEKANLAR (Galeri) -->
+    <section id="ilham" class="py-32 px-6">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="font-serif text-4xl md:text-5xl text-secil-dark font-bold mb-4">İlham Veren Mekanlar</h2>
+                <p class="font-sans text-secil-gray text-lg">Müşterilerimizin evlerinden ve mağaza vitrinimizden eşsiz tasarımlar.</p>
+            </div>
+
+            <!-- Masonry-like Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="col-span-2 row-span-2 overflow-hidden rounded-sm" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Galeri 1" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+                </div>
+                <div class="overflow-hidden rounded-sm h-[250px] md:h-auto" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 2" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+                </div>
+                <div class="overflow-hidden rounded-sm h-[250px] md:h-auto" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1550226891-ef816aed4a98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 3" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+                </div>
+                <div class="overflow-hidden rounded-sm h-[250px] md:h-auto" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 4" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+                </div>
+                <div class="overflow-hidden rounded-sm h-[250px] md:h-auto" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Galeri 5" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="https://www.instagram.com/secil.mobilya/" target="_blank" class="btn-outline">
+                    <i class="ph-bold ph-instagram-logo text-xl"></i> Instagram'da Bizi Takip Edin
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer id="iletisim" class="bg-secil-dark text-white pt-24 pb-10 border-t-4 border-secil-accent">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-1">
+                    <a href="#" class="inline-flex flex-col leading-none mb-6">
+                        <span class="font-serif text-3xl font-bold tracking-tight text-white uppercase">Seçil Mobilya</span>
+                        <span class="font-sans text-[0.65rem] tracking-[0.2em] text-secil-accent mt-1">Premium Living Sivas</span>
+                    </a>
+                    <p class="font-sans text-gray-400 text-sm leading-relaxed mb-6">Sivas'ta lüks, konfor ve şıklığı bir araya getiren mobilya koleksiyonlarımızla yaşam alanlarınıza değer katıyoruz.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/secil.mobilya/" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secil-accent transition-colors"><i class="ph-fill ph-instagram-logo text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- İletişim -->
+                <div>
+                    <h4 class="font-serif font-bold text-xl mb-6">İletişim</h4>
+                    <ul class="space-y-4 font-sans text-gray-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-bold ph-map-pin text-secil-accent text-lg mt-0.5"></i>
+                            <span>Pulur Mh. Ahiemir Cd. No:13<br>Bankalar Cd. 1-2-3. Sokak<br>Sivas Merkez</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph-bold ph-phone text-secil-accent text-lg"></i>
+                            <span>(0346) 223 83 30</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Hızlı Menü -->
+                <div>
+                    <h4 class="font-serif font-bold text-xl mb-6">Hızlı Menü</h4>
+                    <ul class="space-y-3 font-sans text-gray-400 text-sm">
+                        <li><a href="#koleksiyonlar" class="hover:text-secil-accent transition-colors">Koleksiyonlar</a></li>
+                        <li><a href="#neden-biz" class="hover:text-secil-accent transition-colors">Neden Biz?</a></li>
+                        <li><a href="#ilham" class="hover:text-secil-accent transition-colors">İlham Veren Mekanlar</a></li>
+                        <li><a href="#iletisim" class="hover:text-secil-accent transition-colors">Mağaza İletişim</a></li>
+                    </ul>
+                </div>
+
+                <!-- Çalışma Saatleri -->
+                <div>
+                    <h4 class="font-serif font-bold text-xl mb-6">Çalışma Saatleri</h4>
+                    <ul class="space-y-3 font-sans text-gray-400 text-sm">
+                        <li class="flex justify-between border-b border-white/10 pb-2">
+                            <span>Pazartesi - Cuma:</span>
+                            <span class="text-white">09:00 - 19:00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-white/10 pb-2">
+                            <span>Cumartesi:</span>
+                            <span class="text-white">09:00 - 19:00</span>
+                        </li>
+                        <li class="flex justify-between pb-2">
+                            <span>Pazar:</span>
+                            <span class="text-secil-accent">Kapalı</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 font-sans text-xs text-gray-500">
+                <p>&copy; 2026 Seçil Mobilya Sivas. Tüm hakları saklıdır.</p>
+                <p>Designed with <i class="ph-fill ph-heart text-secil-accent"></i> for Premium Living</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Animation Init
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 50,
+        });
+
+        // Hero Swiper Init
+        const heroSwiper = new Swiper('.hero-swiper', {
+            effect: 'fade',
+            speed: 900,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        });
+    </script>
+</body>
+</html>

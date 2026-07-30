@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentapol | Premium Ağız ve Diş Sağlığı Polikliniği Sivas</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#061325',       // Ultra dark navy
+                            navyLight: '#0d223d',  // Lighter navy
+                            gold: '#C5A880',       // Champagne Gold
+                            goldDark: '#a3865c',
+                            pearl: '#FAFAFA',      // Off-white
+                            surface: '#FFFFFF',
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'hero-glow': 'radial-gradient(circle at 50% 50%, rgba(197, 168, 128, 0.15) 0%, rgba(6, 19, 37, 0) 50%)',
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+                        'gold-glow': '0 0 40px -10px rgba(197, 168, 128, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: theme('colors.brand.pearl');
+            color: theme('colors.brand.navy');
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.brand.pearl');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.brand.gold');
+            border-radius: 10px;
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: theme('boxShadow.glass');
+        }
+        .glass-dark {
+            background: rgba(6, 19, 37, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Buttons */
+        .btn-premium {
+            background: theme('colors.brand.navy');
+            color: theme('colors.brand.gold');
+            padding: 1.125rem 2.5rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            border: 1px solid transparent;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(197, 168, 128, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+        .btn-premium:hover::before {
+            left: 100%;
+        }
+        .btn-premium:hover {
+            box-shadow: theme('boxShadow.gold-glow');
+            border-color: theme('colors.brand.gold');
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background: theme('colors.brand.gold');
+            color: theme('colors.brand.navy');
+            padding: 1.125rem 2.5rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.4s ease;
+            border-radius: 2px;
+        }
+        .btn-gold:hover {
+            background: theme('colors.brand.goldDark');
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(197, 168, 128, 0.5);
+        }
+
+        /* Image Masking & Overlays */
+        .img-mask-arch {
+            /* Removed buggy border-radius overrides */
+        }
+
+        /* Animated Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            display: flex;
+        }
+        .marquee-content {
+            display: flex;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Bento Grid Hover Effects */
+        .bento-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 30px 60px -15px rgba(6, 19, 37, 0.08);
+        }
+        .bento-card .bento-img {
+            transition: transform 0.8s ease;
+        }
+        .bento-card:hover .bento-img {
+            transform: scale(1.05);
+        }
+        
+        /* Accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Top Info Bar -->
+    <div class="bg-brand-navy border-b border-white/5 h-[36px] hidden lg:flex items-center px-6 relative z-50 w-full">
+        <div class="max-w-[1600px] w-full mx-auto flex justify-between items-center text-[0.7rem] font-medium tracking-[0.15em] text-brand-gold uppercase">
+            <div class="flex gap-10">
+                <span class="flex items-center gap-2"><i class="ph-fill ph-map-pin text-sm"></i> Demircilerardı Mah. Atatürk Blv. No:141, Sivas</span>
+                <span class="flex items-center gap-2"><i class="ph-fill ph-clock text-sm"></i> Pzt-Cts: 09:30 - 19:00</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="tel:05313407159" class="hover:text-white transition-colors flex items-center gap-2"><i class="ph-fill ph-phone-call text-sm"></i> 0531 340 71 59</a>
+                <div class="w-[1px] h-3 bg-white/20"></div>
+                <a href="https://www.instagram.com/sivasdentapol/" target="_blank" class="hover:text-white transition-colors"><i class="ph-fill ph-instagram-logo text-sm"></i> sivasdentapol</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="absolute top-0 lg:top-[36px] left-0 w-full z-50 border-b border-white/10 lg:border-none transition-all duration-300" id="navbar">
+        <div class="max-w-[1600px] mx-auto px-6 py-4">
+            <div class="glass-panel lg:rounded-full lg:px-8 px-4 py-3 flex justify-between items-center">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="flex flex-col leading-none">
+                        <span class="font-sans font-black text-2xl tracking-tighter uppercase text-brand-navy">DENT<i class="ph-fill ph-tooth text-brand-gold"></i>POL</span>
+                        <span class="font-sans text-[0.55rem] font-bold tracking-[0.25em] text-brand-gold mt-1 uppercase">Ağız ve Diş Sağlığı</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#hakkimizda" class="text-xs font-semibold tracking-[0.1em] text-brand-navy hover:text-brand-gold transition-colors uppercase">Poliklinik</a>
+                    <a href="#gulus-tasarimi" class="text-xs font-semibold tracking-[0.1em] text-brand-navy hover:text-brand-gold transition-colors uppercase relative group">
+                        Gülüş Tasarımı <span class="absolute -top-2 -right-3 flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-gold opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-brand-gold"></span></span>
+                    </a>
+                    <a href="#uzmanliklar" class="text-xs font-semibold tracking-[0.1em] text-brand-navy hover:text-brand-gold transition-colors uppercase">Uzmanlıklar</a>
+                    <a href="#doktorlar" class="text-xs font-semibold tracking-[0.1em] text-brand-navy hover:text-brand-gold transition-colors uppercase">Hekimler</a>
+                </div>
+
+                <!-- CTA -->
+                <div class="flex items-center gap-4">
+                    <a href="tel:05313407159" class="btn-premium hidden md:inline-flex py-2.5 px-6">
+                        Randevu Al
+                    </a>
+                    <button class="lg:hidden text-brand-navy text-2xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i class="ph-bold ph-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden bg-white border-t border-gray-100 p-6 shadow-2xl absolute w-full left-0">
+            <div class="flex flex-col gap-4">
+                <a href="#hakkimizda" class="font-sans font-medium text-brand-navy text-sm tracking-widest border-b border-gray-100 pb-3 uppercase" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Poliklinik</a>
+                <a href="#gulus-tasarimi" class="font-sans font-medium text-brand-navy text-sm tracking-widest border-b border-gray-100 pb-3 uppercase" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Gülüş Tasarımı</a>
+                <a href="#uzmanliklar" class="font-sans font-medium text-brand-navy text-sm tracking-widest border-b border-gray-100 pb-3 uppercase" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Uzmanlıklar</a>
+                <a href="tel:05313407159" class="btn-gold w-full justify-center py-3 mt-2">Hemen Randevu Al</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION (DYNAMIC & PREMIUM) -->
+    <section class="relative w-full min-h-screen pt-32 pb-16 flex items-center overflow-hidden bg-brand-pearl">
+        <!-- Abstract Background Glows -->
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-hero-glow rounded-full mix-blend-multiply opacity-70 blur-3xl translate-x-1/3 -translate-y-1/4 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-navy/5 rounded-full blur-3xl -translate-x-1/4 translate-y-1/4 pointer-events-none"></div>
+
+        <div class="max-w-[1600px] mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Text Content -->
+            <div class="lg:col-span-6 2xl:col-span-5" data-aos="fade-up">
+                <div class="inline-flex items-center gap-3 px-4 py-2 border border-brand-gold/30 rounded-full mb-8">
+                    <span class="flex h-2 w-2 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-gold opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-brand-gold"></span></span>
+                    <span class="font-sans text-[0.65rem] font-bold tracking-[0.2em] text-brand-navy uppercase">Sivas'ın Dijital Diş Kliniği</span>
+                </div>
+                
+                <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-semibold text-brand-navy mb-6 leading-[1.05] tracking-tight">
+                    Yeni gülüşünüzü <br>
+                    <span class="italic font-light text-brand-gold">hayal etmeyin,</span> <br>
+                    önceden görün.
+                </h1>
+                
+                <p class="font-sans text-gray-600 text-lg md:text-xl leading-relaxed mb-10 font-light max-w-lg border-l-2 border-brand-gold pl-6">
+                    Dentapol'de, 3D dijital diş hekimliği ile tedaviye başlamadan sonucunuzu simüle ediyor, <strong>sıfır hata ve kusursuz estetikle</strong> hayalinizdeki gülüşü tasarlıyoruz.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="tel:05313407159" class="btn-premium shadow-gold-glow">
+                        <i class="ph-bold ph-calendar-plus text-lg"></i> Randevu Al
+                    </a>
+                    <a href="#gulus-tasarimi" class="btn-gold !bg-transparent border border-brand-gold hover:!bg-brand-gold hover:!text-white">
+                        Öncesi / Sonrası İncele
+                    </a>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="mt-12 flex items-center gap-8 pt-8 border-t border-brand-navy/10">
+                    <div>
+                        <div class="font-display font-bold text-3xl text-brand-navy">5k+</div>
+                        <div class="font-sans text-xs tracking-widest text-gray-500 uppercase mt-1">Mutlu Hasta</div>
+                    </div>
+                    <div>
+                        <div class="font-display font-bold text-3xl text-brand-navy">3D</div>
+                        <div class="font-sans text-xs tracking-widest text-gray-500 uppercase mt-1">Dijital Altyapı</div>
+                    </div>
+                    <div class="flex -space-x-4">
+                        <img class="w-12 h-12 rounded-full border-2 border-brand-pearl object-cover" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Hasta">
+                        <img class="w-12 h-12 rounded-full border-2 border-brand-pearl object-cover" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Hasta">
+                        <div class="w-12 h-12 rounded-full border-2 border-brand-pearl bg-brand-gold text-white flex items-center justify-center font-bold text-xs">
+                            4.9★
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Image Composition -->
+            <div class="lg:col-span-6 2xl:col-span-7 relative h-[500px] lg:h-[80vh] lg:max-h-[850px] w-full" data-aos="fade-left" data-aos-delay="200">
+                <!-- Main Hero Image -->
+                <div class="absolute right-0 bottom-0 w-full h-full rounded-[3rem] overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Smile Design" class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-1000">
+                </div>
+                
+                <!-- Floating Glass Card 1: Scanning -->
+                <div class="absolute top-1/4 -left-10 glass-panel p-4 rounded-xl flex items-center gap-4 animate-[bounce_4s_infinite] max-w-[220px]">
+                    <div class="w-12 h-12 rounded-full bg-brand-navy text-brand-gold flex items-center justify-center shrink-0">
+                        <i class="ph-fill ph-scan text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="font-sans text-[0.65rem] font-bold tracking-widest text-brand-navy uppercase mb-0.5">Aşama 1</div>
+                        <div class="font-display font-medium text-sm text-gray-700">3D Ağız İçi Tarama</div>
+                    </div>
+                </div>
+
+                <!-- Floating Glass Card 2: Simulation -->
+                <div class="absolute bottom-20 left-10 glass-panel p-5 rounded-xl flex flex-col gap-3 animate-[bounce_5s_infinite] shadow-xl">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-green-500/10 text-green-600 flex items-center justify-center shrink-0">
+                            <i class="ph-bold ph-check text-lg"></i>
+                        </div>
+                        <div class="font-display font-bold text-lg text-brand-navy">Simülasyon Hazır</div>
+                    </div>
+                    <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-brand-gold w-full animate-pulse"></div>
+                    </div>
+                    <div class="font-sans text-xs text-gray-500 text-center">%100 Estetik Uyum</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LOGO MARQUEE -->
+    <div class="bg-brand-navy py-6 border-y border-white/5">
+        <div class="marquee-container max-w-[1600px] mx-auto">
+            <div class="marquee-content items-center gap-16 px-8 text-white/40 font-sans font-medium text-sm tracking-[0.3em] uppercase">
+                <span>Diş Hekimliği</span> <span class="w-1 h-1 bg-brand-gold rounded-full"></span>
+                <span>Gülüş Tasarımı</span> <span class="w-1 h-1 bg-brand-gold rounded-full"></span>
+                <span>İmplantoloji</span> <span class="w-1 h-1 bg-brand-gold rounded-full"></span>
+                <span>Zirkonyum</span> <span class="w-1 h-1 bg-brand-gold rounded-full"></span>
+                <span>Estetik Diş</span> <span class="w-1 h-1 bg-brand-gold rounded-full"></span>
+                <span>Pedodonti</span> <span class="w-1 h-1 bg-brand-gold rounded-full"></span>
+                <span>Endodonti</span> <span class="w-1 h-1 bg-brand-gold rounded-full"></span>
+                <!-- Duplicate for loop -->
+                <span>Diş Hekimliği</span> <span class="w-1 h-1 bg-brand-gold rounded-full"></span>
+                <span>Gülüş Tasarımı</span> <span class="w-1 h-1 bg-brand-gold rounded-full"></span>
+                <span>İmplantoloji</span> <span class="w-1 h-1 bg-brand-gold rounded-full"></span>
+                <span>Zirkonyum</span> <span class="w-1 h-1 bg-brand-gold rounded-full"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. HAKKIMIZDA (BENTO GRID) -->
+    <section id="hakkimizda" class="py-32 px-6 bg-white relative">
+        <div class="max-w-[1600px] mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Header Card (Col 1-5) -->
+                <div class="lg:col-span-5 flex flex-col justify-center pr-10" data-aos="fade-right">
+                    <span class="text-brand-gold font-sans font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Neden Dentapol?</span>
+                    <h2 class="font-display text-4xl lg:text-5xl text-brand-navy font-bold mb-6 leading-[1.1]">Sıradan bir diş tedavisi değil,<br><span class="italic font-light">bir estetik yolculuğu.</span></h2>
+                    <p class="font-sans text-gray-600 text-base leading-relaxed mb-8 font-light">
+                        Dişçi koltuğu korkusunu, lüks bir spa deneyimine dönüştürüyoruz. Geleneksel ölçü alma yöntemlerini tamamen rafa kaldırdık. 3D dijital tarayıcılarımızla çenenizin haritasını çıkarıyor, size özel zirkonyum veya porselenleri sıfır hata ile üretiyoruz.
+                    </p>
+                    <a href="tel:05313407159" class="btn-outline font-semibold text-xs tracking-widest px-8 w-fit border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-brand-gold">Kliniğimizi Arayın</a>
+                </div>
+
+                <!-- Bento Gallery (Col 6-12) -->
+                <div class="lg:col-span-7 grid grid-cols-2 gap-4 h-[600px]" data-aos="fade-left">
+                    <!-- Big Image -->
+                    <div class="col-span-1 row-span-2 rounded-2xl overflow-hidden bento-card relative">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover bento-img" alt="Doktor">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 to-transparent flex flex-col justify-end p-8">
+                            <h3 class="text-white font-display text-2xl font-bold">Uzman Kadro</h3>
+                            <p class="text-white/70 font-sans text-sm mt-2">Uluslararası standartlarda eğitimli hekimler.</p>
+                        </div>
+                    </div>
+                    <!-- Top Right Small -->
+                    <div class="col-span-1 rounded-2xl overflow-hidden bento-card bg-brand-cream p-8 flex flex-col justify-between border border-brand-gold/20">
+                        <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-gold text-2xl shadow-sm">
+                            <i class="ph-fill ph-virus"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-brand-navy font-display text-xl font-bold mb-2">Premium Hijyen</h3>
+                            <p class="text-gray-600 font-sans text-xs leading-relaxed">Tam otomasyonlu sterilizasyon odalarımızla %100 güvenli alan.</p>
+                        </div>
+                    </div>
+                    <!-- Bottom Right Small -->
+                    <div class="col-span-1 rounded-2xl overflow-hidden bento-card relative">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover bento-img" alt="Klinik">
+                        <div class="absolute inset-0 bg-brand-navy/60 flex items-center justify-center">
+                            <a href="https://www.instagram.com/sivasdentapol/" target="_blank" class="w-16 h-16 rounded-full glass-panel flex items-center justify-center text-white text-2xl hover:scale-110 transition-transform">
+                                <i class="ph-fill ph-instagram-logo"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. GÜLÜŞ TASARIMI (BEFORE / AFTER & PROCESS) -->
+    <section id="gulus-tasarimi" class="py-32 px-6 bg-brand-navy text-white relative overflow-hidden">
+        <!-- Abstract BG -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[100px]"></div>
+        
+        <div class="max-w-[1600px] mx-auto relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <span class="text-brand-gold font-sans font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Smile Design</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">Mükemmel Gülüşün Matematiği</h2>
+                <p class="font-sans text-white/70 font-light text-lg">Yüz hatlarınıza, dudak yapınıza ve karakterinize en uygun gülüşü milimetrik hesaplamalarla tasarlıyoruz.</p>
+            </div>
+
+            <!-- The Process Timeline -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <!-- Connecting Line -->
+                <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-[1px] bg-white/20"></div>
+
+                <!-- Step 1 -->
+                <div class="relative text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-24 h-24 mx-auto glass-dark rounded-full flex items-center justify-center mb-6 relative z-10 border border-brand-gold/30 text-brand-gold text-3xl">
+                        <i class="ph-light ph-camera"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-3">1. Fotoğraf ve Tarama</h3>
+                    <p class="font-sans text-white/50 text-sm font-light leading-relaxed">Stüdyomuzda profesyonel fotoğraflarınız çekilir ve 3D ağız içi tarayıcılarla dişlerinizin dijital kopyası alınır.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="relative text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-24 h-24 mx-auto glass-dark rounded-full flex items-center justify-center mb-6 relative z-10 border border-brand-gold/30 text-brand-gold text-3xl">
+                        <i class="ph-light ph-bezier-curve"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-3">2. Dijital Tasarım</h3>
+                    <p class="font-sans text-white/50 text-sm font-light leading-relaxed">Özel yazılımlarla yüz hatlarınıza uygun "Altın Oran" hesaplanır ve size özel gülüş bilgisayarda tasarlanır.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="relative text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-24 h-24 mx-auto glass-dark rounded-full flex items-center justify-center mb-6 relative z-10 border border-brand-gold/30 text-brand-gold text-3xl">
+                        <i class="ph-light ph-magic-wand"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-3">3. Mock-Up (Ön Gösterim)</h3>
+                    <p class="font-sans text-white/50 text-sm font-light leading-relaxed">Tasarım, geçici malzemelerle dişlerinize uygulanır. Henüz dişe dokunulmadan sonucu aynada kendi yüzünüzde görürsünüz.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="relative text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-24 h-24 mx-auto bg-brand-gold rounded-full flex items-center justify-center mb-6 relative z-10 border border-brand-gold text-brand-navy text-3xl shadow-gold-glow">
+                        <i class="ph-fill ph-sparkle"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-3 text-brand-gold">4. Kusursuz Sonuç</h3>
+                    <p class="font-sans text-white/50 text-sm font-light leading-relaxed">Onayınızın ardından Zirkonyum veya E-Max porselenler üretilir ve kalıcı olarak uygulanır.</p>
+                </div>
+            </div>
+
+            <!-- Aesthetic Banner -->
+            <div class="mt-24 rounded-3xl bg-brand-navyLight border border-white/10 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-10" data-aos="zoom-in">
+                <div class="max-w-xl">
+                    <h3 class="font-display text-3xl font-bold mb-4">Peki, Zirkonyum mu <br>Metal Destekli Porselen mi?</h3>
+                    <p class="font-sans text-white/70 font-light text-sm leading-relaxed">
+                        Instagram'da en çok sorulan sorulardan biri. Zirkonyum, ışık geçirgenliği sayesinde doğal dişi birebir taklit eder, diş etinde morarma yapmaz. Estetik önceliğiniz ise Zirkonyum veya E-Max vazgeçilmezdir. Detaylı analiz için sizi kliniğimize bekliyoruz.
+                    </p>
+                </div>
+                <a href="tel:05313407159" class="btn-gold shrink-0">
+                    Bilgi ve Randevu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. UZMANLIK ALANLARI (MASONRY GRID) -->
+    <section id="uzmanliklar" class="py-32 px-6 bg-brand-pearl">
+        <div class="max-w-[1600px] mx-auto">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div class="max-w-2xl" data-aos="fade-right">
+                    <span class="text-brand-gold font-sans font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Tedavi Hizmetlerimiz</span>
+                    <h2 class="font-display text-4xl lg:text-5xl text-brand-navy font-bold">Sağlıklı Dişler, <br>Özgüvenli Gülüşler.</h2>
+                </div>
+                <div data-aos="fade-left">
+                    <p class="font-sans text-gray-500 font-light max-w-sm mb-6">Tüm dental ihtiyaçlarınız için modern tıp etiğine uygun, kalıcı ve estetik çözümler üretiyoruz.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1 -->
+                <div class="bg-white p-10 rounded-2xl border border-gray-100 hover:shadow-2xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 rounded-full bg-brand-cream text-brand-navy flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform group-hover:bg-brand-navy group-hover:text-brand-gold">
+                        <i class="ph-light ph-tooth"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-navy mb-4">İmplant Tedavisi</h3>
+                    <p class="font-sans text-gray-500 font-light text-sm leading-relaxed mb-8">Eksik dişlerin, çene kemiğine yerleştirilen titanyum köklerle telafi edilmesi. Doğal dişinize en yakın çiğneme hissini ve estetiği sağlar.</p>
+                    <div class="w-full h-[1px] bg-gray-100 mb-6 group-hover:bg-brand-gold/30 transition-colors"></div>
+                    <a href="tel:05313407159" class="text-brand-navy font-sans text-xs font-bold uppercase tracking-widest group-hover:text-brand-gold transition-colors inline-flex items-center gap-2">Hemen İletişime Geç <i class="ph-bold ph-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-10 rounded-2xl border border-gray-100 hover:shadow-2xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-full bg-brand-cream text-brand-navy flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform group-hover:bg-brand-navy group-hover:text-brand-gold">
+                        <i class="ph-light ph-diamond"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-navy mb-4">Estetik Dolgu</h3>
+                    <p class="font-sans text-gray-500 font-light text-sm leading-relaxed mb-8">Eski siyah (amalgam) dolguların, dişin doğal rengiyle birebir uyumlu kompozit dolgularla değiştirilmesi. Görünmez ve sağlam restorasyonlar.</p>
+                    <div class="w-full h-[1px] bg-gray-100 mb-6 group-hover:bg-brand-gold/30 transition-colors"></div>
+                    <a href="tel:05313407159" class="text-brand-navy font-sans text-xs font-bold uppercase tracking-widest group-hover:text-brand-gold transition-colors inline-flex items-center gap-2">Hemen İletişime Geç <i class="ph-bold ph-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-10 rounded-2xl border border-gray-100 hover:shadow-2xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-full bg-brand-cream text-brand-navy flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform group-hover:bg-brand-navy group-hover:text-brand-gold">
+                        <i class="ph-light ph-bandaids"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-navy mb-4">Kanal Tedavisi</h3>
+                    <p class="font-sans text-gray-500 font-light text-sm leading-relaxed mb-8">Enfekte olmuş veya çürümüş dişin, içindeki sinir dokusu temizlenerek kurtarılması. Modern döner aletlerle ağrısız ve hızlı seanslar.</p>
+                    <div class="w-full h-[1px] bg-gray-100 mb-6 group-hover:bg-brand-gold/30 transition-colors"></div>
+                    <a href="tel:05313407159" class="text-brand-navy font-sans text-xs font-bold uppercase tracking-widest group-hover:text-brand-gold transition-colors inline-flex items-center gap-2">Hemen İletişime Geç <i class="ph-bold ph-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-10 rounded-2xl border border-gray-100 hover:shadow-2xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 rounded-full bg-brand-cream text-brand-navy flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform group-hover:bg-brand-navy group-hover:text-brand-gold">
+                        <i class="ph-light ph-baby"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-navy mb-4">Çocuk Diş (Pedodonti)</h3>
+                    <p class="font-sans text-gray-500 font-light text-sm leading-relaxed mb-8">Çocuklarda diş hekimi fobisini önleyen iletişim teknikleriyle süt dişlerinin tedavisi ve koruyucu hekimlik (fissür örtücü, flor) uygulamaları.</p>
+                </div>
+
+                <!-- Card 5 (Dark Accent Card) -->
+                <div class="lg:col-span-2 bg-brand-navy p-10 rounded-2xl border border-white/5 relative overflow-hidden flex flex-col md:flex-row items-center gap-10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute right-0 top-0 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl"></div>
+                    <div class="flex-1 relative z-10">
+                        <h3 class="font-display text-3xl font-bold text-white mb-4">Gömülü 20 Yaş Çekimi</h3>
+                        <p class="font-sans text-white/70 font-light text-sm leading-relaxed mb-8">Çene cerrahisi standartlarında, panoramik röntgen destekli steril ve ağrısız çekim işlemleri. Komplikasyon riskini minimuma indiren cerrahi yaklaşım.</p>
+                        <a href="tel:05313407159" class="btn-gold">Randevu Al</a>
+                    </div>
+                    <div class="w-40 h-40 shrink-0 border-4 border-white/10 rounded-full flex items-center justify-center text-6xl text-brand-gold bg-brand-navyLight relative z-10">
+                        <i class="ph-light ph-scissors"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. DOKTOR PROFİLİ (DR. BERKAY TAŞLIK) -->
+    <section id="doktorlar" class="py-24 px-6 bg-white border-y border-gray-100">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="bg-brand-cream rounded-[2rem] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 lg:gap-24 relative overflow-hidden">
+                <!-- Abstract Deco -->
+                <div class="absolute -top-20 -left-20 text-[20rem] text-brand-gold opacity-[0.03] pointer-events-none leading-none"><i class="ph-fill ph-quotes"></i></div>
+
+                <div class="w-48 h-48 md:w-64 md:h-64 shrink-0 rounded-full overflow-hidden border-8 border-white shadow-xl relative z-10">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dr. Berkay Taşlık" class="w-full h-full object-cover">
+                </div>
+                
+                <div class="relative z-10 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white px-4 py-1.5 rounded-full text-brand-gold font-sans text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
+                        <i class="ph-fill ph-star"></i> Kurucu Hekim
+                    </div>
+                    <h3 class="font-display text-4xl font-bold text-brand-navy mb-2">Dt. Berkay Taşlık</h3>
+                    <p class="font-sans text-brand-goldDark font-medium text-sm tracking-widest uppercase mb-6">Estetik Diş Hekimliği & İmplantoloji</p>
+                    <p class="font-sans text-gray-600 font-light leading-relaxed mb-8 italic">
+                        "En iyi tedavi, hastanın klinikten sadece sağlıklı değil, özgüveni yerine gelmiş ve mutlu bir şekilde ayrıldığı tedavidir. Smile Design konseptiyle sanatı ve tıbbı birleştiriyoruz."
+                    </p>
+                    <div class="flex justify-center md:justify-start gap-4">
+                        <a href="https://www.instagram.com/berkaytaslik/" target="_blank" class="w-10 h-10 rounded-full bg-white text-brand-navy flex items-center justify-center shadow-sm hover:bg-brand-navy hover:text-white transition-colors">
+                            <i class="ph-fill ph-instagram-logo"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SSS (FAQ ACCORDION) -->
+    <section class="py-32 px-6 bg-brand-pearl">
+        <div class="max-w-[800px] mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand-gold font-sans font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Merak Edilenler</span>
+                <h2 class="font-display text-4xl font-bold text-brand-navy">Sıkça Sorulan Sorular</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm" data-aos="fade-up">
+                    <button class="w-full text-left px-8 py-6 flex justify-between items-center font-display font-bold text-lg text-brand-navy hover:text-brand-gold transition-colors focus:outline-none" onclick="toggleFaq(this)">
+                        Gülüş Tasarımı ne kadar sürer?
+                        <i class="ph-bold ph-caret-down text-brand-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer bg-gray-50/50">
+                        <p class="px-8 pb-6 text-gray-500 font-sans font-light text-sm leading-relaxed">
+                            Ön hazırlık, dijital tarama, mock-up (ön prova) ve provalar dahil olmak üzere genellikle 2 ila 3 seans arasında, ortalama 1 hafta içerisinde yeni gülüşünüze kavuşabilirsiniz.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <button class="w-full text-left px-8 py-6 flex justify-between items-center font-display font-bold text-lg text-brand-navy hover:text-brand-gold transition-colors focus:outline-none" onclick="toggleFaq(this)">
+                        İmplant tedavisi ağrılı mıdır?
+                        <i class="ph-bold ph-caret-down text-brand-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer bg-gray-50/50">
+                        <p class="px-8 pb-6 text-gray-500 font-sans font-light text-sm leading-relaxed">
+                            Kesinlikle hayır. İşlem lokal anestezi altında yapıldığı için operasyon sırasında hiçbir ağrı hissetmezsiniz. İşlem sonrası oluşabilecek hafif sızılar ise basit ağrı kesicilerle kolayca kontrol altına alınır.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <button class="w-full text-left px-8 py-6 flex justify-between items-center font-display font-bold text-lg text-brand-navy hover:text-brand-gold transition-colors focus:outline-none" onclick="toggleFaq(this)">
+                        Muayene ücretli mi?
+                        <i class="ph-bold ph-caret-down text-brand-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer bg-gray-50/50">
+                        <p class="px-8 pb-6 text-gray-500 font-sans font-light text-sm leading-relaxed">
+                            Ön muayene ve radyolojik (röntgen) değerlendirme sonucunda oluşturulacak tedavi planlaması için kliniğimizle iletişime geçebilirsiniz. Durumunuza özel detaylı bilgi muayene sonrasında verilir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. İLETİŞİM & FOOTER -->
+    <footer class="bg-brand-navy text-white relative">
+        <div class="h-2 w-full bg-gradient-to-r from-brand-navy via-brand-gold to-brand-navy"></div>
+        
+        <div class="max-w-[1600px] mx-auto px-6 pt-24 pb-12 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-4 lg:pr-12">
+                    <a href="#" class="flex items-center gap-3 mb-8">
+                        <div class="flex flex-col leading-none">
+                            <span class="font-sans font-black text-3xl tracking-tighter uppercase text-white">DENT<i class="ph-fill ph-tooth text-brand-gold"></i>POL</span>
+                            <span class="font-sans text-[0.6rem] font-bold tracking-[0.2em] text-brand-gold mt-1 uppercase">Ağız ve Diş Sağlığı</span>
+                        </div>
+                    </a>
+                    <p class="font-sans text-white/50 text-sm leading-relaxed mb-8 font-light">
+                        Sivas'ta estetik diş hekimliğinin premium adresi. Kişiye özel tedavi yaklaşımları ve uluslararası hijyen standartlarıyla hizmetinizdeyiz.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/sivasdentapol/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-gold hover:text-brand-navy transition-all text-lg">
+                            <i class="ph-fill ph-instagram-logo"></i>
+                        </a>
+                        <a href="https://www.instagram.com/berkaytaslik/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-gold hover:text-brand-navy transition-all text-lg" title="Dr. Berkay Taşlık">
+                            <i class="ph-fill ph-user"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hızlı Menü -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-sans font-semibold tracking-widest text-brand-gold text-xs uppercase mb-6">Kurumsal</h4>
+                    <ul class="space-y-4 font-sans text-white/60 text-sm font-light">
+                        <li><a href="#hakkimizda" class="hover:text-white transition-colors">Hakkımızda</a></li>
+                        <li><a href="#gulus-tasarimi" class="hover:text-white transition-colors">Smile Design</a></li>
+                        <li><a href="#uzmanliklar" class="hover:text-white transition-colors">Tedaviler</a></li>
+                        <li><a href="#doktorlar" class="hover:text-white transition-colors">Hekimlerimiz</a></li>
+                    </ul>
+                </div>
+
+                <!-- İletişim Bilgileri -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-sans font-semibold tracking-widest text-brand-gold text-xs uppercase mb-6">İletişim</h4>
+                    <ul class="space-y-6 font-sans text-white/70 text-sm font-light">
+                        <li class="flex items-start gap-4 group">
+                            <div class="text-brand-gold mt-1"><i class="ph-fill ph-map-pin text-xl"></i></div>
+                            <span class="leading-relaxed group-hover:text-white transition-colors cursor-default">Demircilerardı Mah. Atatürk Blv.<br>No:141, Merkez / SİVAS</span>
+                        </li>
+                        <li class="flex items-center gap-4 group">
+                            <div class="text-brand-gold"><i class="ph-fill ph-phone-call text-xl"></i></div>
+                            <a href="tel:05313407159" class="group-hover:text-white transition-colors font-semibold text-lg text-white">0531 340 71 59</a>
+                        </li>
+                        <li class="flex items-center gap-4 group">
+                            <div class="text-brand-gold"><i class="ph-fill ph-clock text-xl"></i></div>
+                            <span class="group-hover:text-white transition-colors cursor-default">Hafta İçi & Cmt: 09:30 - 19:00</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Randevu Kartı -->
+                <div class="lg:col-span-3">
+                    <div class="glass-dark p-8 rounded-2xl">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="ph-fill ph-calendar-plus text-brand-gold text-2xl"></i>
+                            <h4 class="font-display font-bold text-xl text-white">Randevu</h4>
+                        </div>
+                        <p class="font-sans text-xs text-white/50 mb-6 font-light leading-relaxed">Ön muayene ve detaylı tedavi planlaması için kliniğimizi arayın.</p>
+                        <a href="tel:05313407159" class="btn-gold w-full justify-center py-4 text-xs shadow-gold-glow">
+                            Şimdi Ara
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 font-sans text-xs text-white/40 font-light">
+                <p>&copy; 2026 Dentapol Ağız ve Diş Sağlığı Polikliniği. Tüm Hakları Saklıdır.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-white transition-colors">KVKK Aydınlatma Metni</a>
+                    <a href="#" class="hover:text-white transition-colors">Hasta Hakları</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Animation Init
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 50,
+            easing: 'ease-out-cubic',
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('fixed', 'bg-white/90', 'backdrop-blur-md', 'shadow-sm', '!top-0', 'py-2');
+                navbar.classList.remove('absolute', 'top-0', 'lg:top-[36px]', 'py-4', 'border-b', 'border-white/10');
+            } else {
+                navbar.classList.remove('fixed', 'bg-white/90', 'backdrop-blur-md', 'shadow-sm', '!top-0', 'py-2');
+                navbar.classList.add('absolute', 'top-0', 'lg:top-[36px]', 'py-4', 'border-b', 'border-white/10');
+            }
+        });
+
+        // FAQ Toggle
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            // Close others
+            document.querySelectorAll('.faq-answer').forEach(el => {
+                if(el !== answer) {
+                    el.style.maxHeight = null;
+                    el.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                }
+            });
+
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>

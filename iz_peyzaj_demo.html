@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İz Peyzaj | Sivas Tasarım Uygulama ve Mimarlık Ofisi</title>
+    <meta name="description" content="Peyzaj mimarları Rumeysa Çamayaz Çanaklıtaş ve Funda Nur Çongar Göktaş yönetiminde Sivas'ın en premium peyzaj, 3D proje, uygulama ve bakım merkezi.">
+    
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Lora (Serif for elegance/architecture) & Inter (Sans for modern read) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    },
+                    colors: {
+                        iz: {
+                            forest: '#1a3622',     // Dark Forest Green (Trust, Corporate)
+                            leaf: '#5c8a30',       // Vibrant Leaf Green (Action, Freshness)
+                            earth: '#8b6f4e',      // Earthy Brown (Detail, Accent)
+                            sand: '#f7f6f2',       // Warm Sand/Beige (Main BG instead of white)
+                            dark: '#1c1917',       // Dark text
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(26,54,34,0.1)',
+                        'green': '0 10px 25px -5px rgba(92, 138, 48, 0.4)',
+                        'card': '0 4px 20px -2px rgba(0, 0, 0, 0.05)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f7f6f2; /* iz-sand */
+            color: #1c1917;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Info Bar */
+        .top-bar {
+            background-color: #1a3622;
+            color: #f7f6f2;
+            font-size: 0.8rem;
+        }
+
+        /* Main Navbar */
+        .glass-nav {
+            background: rgba(247, 246, 242, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(26,54,34,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            color: #1a3622;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+        .nav-link:hover {
+            color: #5c8a30;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #5c8a30;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Buttons */
+        .btn-leaf {
+            background-color: #5c8a30;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0.25rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 25px -5px rgba(92, 138, 48, 0.4);
+            border: 1px solid #5c8a30;
+        }
+        .btn-leaf:hover {
+            background-color: #4a6e26;
+            border-color: #4a6e26;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(92, 138, 48, 0.5);
+        }
+
+        .btn-outline-forest {
+            background-color: transparent;
+            color: #1a3622;
+            border: 2px solid #1a3622;
+            padding: 1rem 2.5rem;
+            border-radius: 0.25rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-outline-forest:hover {
+            background-color: #1a3622;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero-bg {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(26,54,34,0.95) 0%, rgba(26,54,34,0.7) 50%, rgba(26,54,34,0.2) 100%);
+        }
+
+        /* Stats Counter Section */
+        .stats-bg {
+            background-color: #1a3622;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 4v-2h20v2H20zm0 4v-2h20v2H20zm0 4v-2h20v2H20zm0 4v-2h20v2H20z' fill='%235c8a30' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            color: white;
+        }
+
+        /* Service Cards (Bento) */
+        .service-card {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border-bottom: 3px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(26,54,34,0.15);
+            border-bottom-color: #5c8a30;
+        }
+        .service-icon {
+            font-size: 3rem;
+            color: #8b6f4e; /* Earth tone for icons */
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+        }
+        .service-card:hover .service-icon {
+            color: #5c8a30;
+            transform: scale(1.1);
+        }
+        .service-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 0.25rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.7s ease;
+        }
+        .service-card:hover .service-img {
+            transform: scale(1.05);
+        }
+
+        /* Feature List in Cards */
+        .feature-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #4b5563;
+            font-size: 0.95rem;
+        }
+        .feature-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #5c8a30;
+            font-size: 1.5rem;
+            line-height: 1rem;
+            top: 2px;
+        }
+
+        /* Trust Section Image */
+        .trust-image-container {
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(26,54,34,0.15);
+        }
+        .trust-image-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            pointer-events: none;
+        }
+        
+        /* FAQ Accordion */
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        .faq-question {
+            padding: 1.5rem 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #1a3622;
+        }
+        .faq-answer {
+            padding: 0 0 1.5rem 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+            color: #4b5563;
+            line-height: 1.7;
+            opacity: 0;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            opacity: 1;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+            color: #5c8a30;
+            font-size: 1.5rem;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Float WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 65px;
+            height: 65px;
+            background-color: #25D366; 
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            transition: all 0.3s ease;
+            animation: pulse-wa 2s infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #1ebe57;
+        }
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Forms */
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 0.25rem;
+            outline: none;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            color: #1a3622;
+        }
+        .form-input:focus {
+            border-color: #5c8a30;
+            box-shadow: 0 0 0 3px rgba(92, 138, 48, 0.1);
+        }
+        .form-label {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1a3622;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-iz-leaf selection:text-white overflow-x-hidden relative">
+
+    <!-- Top Info Bar -->
+    <div class="top-bar py-2 px-6 hidden md:block font-sans">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            <div class="flex gap-8">
+                <span class="flex items-center gap-2 opacity-90"><i class="ph-fill ph-map-pin text-iz-leaf"></i> Sivas Merkez, Atatürk Blv. No:99/B</span>
+                <span class="flex items-center gap-2 opacity-90"><i class="ph-fill ph-phone text-iz-leaf"></i> Keşif Hattı: 0538 506 11 80</span>
+                <span class="flex items-center gap-2 opacity-90"><i class="ph-fill ph-clock text-iz-leaf"></i> Pzt - Cmt: 08:00 - 19:00</span>
+            </div>
+            <div class="flex gap-4 font-semibold text-xs uppercase tracking-wider">
+                <span class="flex items-center gap-1"><i class="ph-fill ph-star text-iz-leaf"></i> 5.0 Google Puanı</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav sticky top-0 z-50 py-4 px-6">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center gap-8">
+            
+            <!-- Logo (Text Based Mimic) -->
+            <a href="#" class="flex flex-col shrink-0 group">
+                <div class="flex items-end gap-2">
+                    <i class="ph-fill ph-tree-evergreen text-4xl text-iz-forest group-hover:text-iz-leaf transition-colors"></i>
+                    <span class="font-serif text-3xl font-bold text-iz-forest tracking-tight">İZ PEYZAJ</span>
+                </div>
+                <span class="font-sans text-[0.65rem] uppercase tracking-[0.2em] text-iz-earth mt-1 ml-10">Tasarım • Uygulama • Bakım</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#hizmetlerimiz" class="nav-link">Mimari Hizmetler</a>
+                <a href="#projeler" class="nav-link">Uygulamalar</a>
+                <a href="#hakkimizda" class="nav-link">Mimarlarımız</a>
+                <a href="#sss" class="nav-link">S.S.S</a>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="#kesif-formu" class="btn-leaf py-2.5 px-6 text-sm"><i class="ph-bold ph-plant"></i> Ücretsiz Keşif</a>
+            </div>
+
+            <!-- Mobile Menu Btn -->
+            <button class="lg:hidden text-iz-forest text-4xl shrink-0" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="ph-bold ph-list"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-iz-sand/95 backdrop-blur-md border-t border-iz-forest/10 p-6 shadow-xl">
+            <div class="flex flex-col gap-4">
+                <a href="#hizmetlerimiz" class="font-sans font-medium text-iz-forest text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Mimari Hizmetler</a>
+                <a href="#projeler" class="font-sans font-medium text-iz-forest text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Uygulamalar</a>
+                <a href="#hakkimizda" class="font-sans font-medium text-iz-forest text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Mimarlarımız</a>
+                <a href="#sss" class="font-sans font-medium text-iz-forest text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden')">S.S.S</a>
+                <a href="#kesif-formu" class="btn-leaf justify-center mt-4" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Ücretsiz Keşif</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION (Immersive & Premium) -->
+    <section class="hero-bg relative w-full min-h-[80vh] py-24 flex items-center">
+        <div class="hero-overlay z-0"></div>
+        
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10 w-full">
+            <div class="max-w-3xl" data-aos="fade-right">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-white/10 backdrop-blur-md border border-white/20 text-white font-sans text-xs font-bold uppercase tracking-widest mb-8">
+                    <span class="w-2 h-2 rounded-full bg-iz-leaf animate-pulse"></span>
+                    Sivas'ın Premium Peyzaj Mimarlık Ofisi
+                </div>
+                
+                <h1 class="font-serif text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-6 drop-shadow-lg">
+                    Doğayı Tasarlıyor,<br>
+                    <span class="text-iz-leaf italic">Yaşam Alanlarına</span><br>
+                    Dönüştürüyoruz.
+                </h1>
+                
+                <p class="font-sans text-xl text-gray-200 mb-10 leading-relaxed max-w-2xl font-light">
+                    Sadece bahçenizi düzenlemiyoruz; diplomatik titizlikle mühendislik, 3D mimari tasarım ve kusursuz peyzaj uygulamalarıyla alanlarınıza prestij katıyoruz.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="#kesif-formu" class="btn-leaf justify-center text-lg">
+                        Projenizi Başlatalım
+                    </a>
+                    <a href="#hizmetlerimiz" class="btn-outline-forest border-white text-white hover:bg-white hover:text-iz-forest justify-center text-lg">
+                        <i class="ph-bold ph-compass"></i> Uzmanlıklarımızı Keşfedin
+                    </a>
+                </div>
+                
+                <!-- Trust Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mt-16 pt-10 border-t border-white/20">
+                    <div class="flex items-center gap-3">
+                        <div class="text-iz-leaf text-4xl"><i class="ph-fill ph-certificate"></i></div>
+                        <div>
+                            <div class="font-serif font-bold text-white text-lg">Mimari Proje</div>
+                            <div class="font-sans text-xs text-gray-300">Resmi Onaylı Çizimler</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="text-iz-leaf text-4xl"><i class="ph-fill ph-drop"></i></div>
+                        <div>
+                            <div class="font-serif font-bold text-white text-lg">Mühendislik</div>
+                            <div class="font-sans text-xs text-gray-300">Otomatik Sulama & Altyapı</div>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex items-center gap-3">
+                        <div class="text-iz-leaf text-4xl"><i class="ph-fill ph-shovel"></i></div>
+                        <div>
+                            <div class="font-serif font-bold text-white text-lg">Kusursuz Uygulama</div>
+                            <div class="font-sans text-xs text-gray-300">Sert Zemin ve Bitkilendirme</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. RAKAMLARLA İZ PEYZAJ (STATS) -->
+    <section class="stats-bg py-20 relative border-b-8 border-iz-leaf">
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-white/10">
+                <div data-aos="fade-up" data-aos-delay="0">
+                    <div class="text-5xl md:text-6xl font-serif font-bold text-white mb-2">45K+</div>
+                    <div class="text-sm font-sans text-gray-300 font-medium uppercase tracking-widest">m² Düzenlenen Alan</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl md:text-6xl font-serif font-bold text-iz-leaf mb-2">150+</div>
+                    <div class="text-sm font-sans text-gray-300 font-medium uppercase tracking-widest">Tamamlanan Proje</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl md:text-6xl font-serif font-bold text-white mb-2">12K+</div>
+                    <div class="text-sm font-sans text-gray-300 font-medium uppercase tracking-widest">Dikilen Ağaç & Bitki</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl md:text-6xl font-serif font-bold text-iz-leaf mb-2">5.0</div>
+                    <div class="text-sm font-sans text-gray-300 font-medium uppercase tracking-widest flex items-center justify-center gap-1">
+                        <i class="ph-fill ph-star"></i> Müşteri Memnuniyeti
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. HİZMETLER GENEL BAKIŞ (Bento Matrix) -->
+    <section id="hizmetlerimiz" class="py-32 px-6">
+        <div class="max-w-[1400px] mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <span class="inline-block px-3 py-1 bg-iz-leaf/10 text-iz-leaf font-bold text-sm rounded-sm mb-4 uppercase tracking-widest">Uzmanlık Alanlarımız</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-iz-forest mb-6">Her Metrekarede <span class="text-iz-earth italic">Mühendislik ve Sanat</span></h2>
+                <p class="font-sans text-gray-600 text-lg leading-relaxed">Bir bahçenin sadece güzel görünmesi yetmez, aynı zamanda doğru sulama, drenaj ve sürdürülebilir bitki ekolojisiyle yıllara meydan okuması gerekir.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- 3D Proje & Tasarım -->
+                <div class="service-card md:col-span-2 lg:col-span-2 bg-white" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row gap-10 items-center h-full">
+                        <div class="flex-1">
+                            <div class="service-icon"><i class="ph-fill ph-blueprint"></i></div>
+                            <h3 class="font-serif text-3xl font-bold text-iz-forest mb-4">Peyzaj Proje & 3D Tasarım</h3>
+                            <p class="font-sans text-gray-600 mb-6 text-lg leading-relaxed">İşe toprakla değil, mimari çizimle başlıyoruz. Hayalinizdeki bahçeyi milimetrik olarak modelliyor, bitkilerin büyüme evrelerini bile 3D sunumlarla size önceden gösteriyoruz.</p>
+                            <ul class="feature-list mb-8 font-medium">
+                                <li>Vaziyet planı ve kesit çizimleri</li>
+                                <li>Gündüz ve Gece aydınlatma 3D renderları</li>
+                                <li>Bitkisel ve Yapısal tasarım avan projeleri</li>
+                                <li>Belediye ve kurumsal ruhsat projeleri</li>
+                            </ul>
+                            <a href="#kesif-formu" class="font-sans font-bold text-iz-leaf hover:text-iz-forest transition flex items-center gap-2 uppercase tracking-wide text-sm">Örnek Projeleri İncele <i class="ph-bold ph-arrow-right"></i></a>
+                        </div>
+                        <div class="w-full md:w-[45%] h-full">
+                            <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="3D Peyzaj Projesi" class="rounded-sm shadow-md w-full h-[300px] md:h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yapısal Peyzaj -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="overflow-hidden rounded-sm mb-6 h-[200px]">
+                        <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sert Zemin" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-iz-forest mb-3">Sert Zemin & Yapısal</h3>
+                    <p class="font-sans text-gray-600 mb-6 leading-relaxed text-sm">Yürüyüş yolları, istinat duvarları, kamelyalar ve doğal taş uygulamaları ile bahçenizin iskeletini inşa ediyoruz.</p>
+                    <ul class="feature-list text-sm">
+                        <li>Doğal taş ve traverten kaplama</li>
+                        <li>Ahşap deck ve pergola sistemleri</li>
+                        <li>Süs havuzu ve şelale tasarımı</li>
+                    </ul>
+                </div>
+
+                <!-- Otomatik Sulama -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="overflow-hidden rounded-sm mb-6 h-[200px]">
+                        <img src="https://images.unsplash.com/photo-1584479898061-15742e14f50d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Otomatik Sulama" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-iz-forest mb-3">Otomatik Sulama</h3>
+                    <p class="font-sans text-gray-600 mb-6 leading-relaxed text-sm">Su israfını önleyen, her bitkinin ihtiyacına göre zaman ayarlı akıllı sulama mühendisliği.</p>
+                    <ul class="feature-list text-sm">
+                        <li>Damla ve yağmurlama sistemleri</li>
+                        <li>Zaman ayarlı akıllı kontrol üniteleri</li>
+                        <li>Drenaj ve altyapı çalışmaları</li>
+                    </ul>
+                </div>
+
+                <!-- Bitkisel Uygulama -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon"><i class="ph-fill ph-plant"></i></div>
+                    <h3 class="font-serif text-2xl font-bold text-iz-forest mb-3">Bitkisel Uygulama</h3>
+                    <p class="font-sans text-gray-600 mb-6 leading-relaxed text-sm">Sivas'ın iklimine (karasal) en uygun, uzun ömürlü ağaç ve rulo çim uygulamalarıyla kusursuz yeşillik.</p>
+                    <ul class="feature-list text-sm">
+                        <li>İklime uygun ithal/yerli bitki seçimi</li>
+                        <li>Hazır rulo çim serme işlemi</li>
+                        <li>Toprak tesviyesi ve gübreleme</li>
+                    </ul>
+                </div>
+
+                <!-- Bakım & Onarım -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon"><i class="ph-fill ph-scissors"></i></div>
+                    <h3 class="font-serif text-2xl font-bold text-iz-forest mb-3">Periyodik Bakım</h3>
+                    <p class="font-sans text-gray-600 mb-6 leading-relaxed text-sm">Villalar, kurumlar ve büyük siteler için yıllık periyodik bahçe bakım ve danışmanlık hizmetleri.</p>
+                    <ul class="feature-list text-sm">
+                        <li>Form budaması ve çim biçimi</li>
+                        <li>Mevsimsel bitki ilaçlama</li>
+                        <li>Hastalıklı bitki rehabilitasyonu</li>
+                    </ul>
+                </div>
+
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3.5. PROJELER (Gallery) -->
+    <section id="projeler" class="py-32 px-6 bg-iz-forest text-white">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <span class="inline-block px-3 py-1 bg-iz-leaf/20 text-iz-leaf font-bold text-sm rounded-sm mb-4 uppercase tracking-widest">Uygulamalar</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">Gerçeğe Dönüşen <span class="text-iz-earth italic">Tasarımlar</span></h2>
+                    <p class="font-sans text-gray-300 text-lg">Sivas ve çevresinde hayata geçirdiğimiz lüks peyzaj projelerinden bazı kareler.</p>
+                </div>
+                <a href="https://www.instagram.com/izpeyzaj/" target="_blank" class="font-sans font-bold text-iz-leaf hover:text-white transition mt-6 md:mt-0 flex items-center gap-2">Instagram'da Daha Fazlası <i class="ph-bold ph-instagram-logo"></i></a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="overflow-hidden rounded-sm h-[350px] group" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1558603668-6570496b66f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Villa Bahçesi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="overflow-hidden rounded-sm h-[350px] group" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Site Peyzajı" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="overflow-hidden rounded-sm h-[350px] group" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Yapısal Peyzaj" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. KURUCU MİMARLARIMIZ (Trust / Güven) -->
+    <section id="hakkimizda" class="py-32 px-6 bg-white border-y border-gray-200">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                
+                <!-- Content -->
+                <div data-aos="fade-right">
+                    <span class="inline-block px-3 py-1 bg-iz-earth/10 text-iz-earth font-bold text-sm rounded-sm mb-6 uppercase tracking-widest">Mimari Kadro</span>
+                    <h2 class="font-serif text-4xl font-bold text-iz-forest mb-6">İşi Şansa Değil,<br><span class="text-iz-leaf">Uzman Mimarlara Bırakın.</span></h2>
+                    <p class="font-sans text-gray-600 text-lg leading-relaxed mb-8">
+                        Peyzaj sadece toprağa fidan dikmek değildir. Estetik vizyon, iklim bilimi ve mühendislik gerektirir. İz Peyzaj, alanında lisans eğitimini tamamlamış profesyonel Peyzaj Mimarları tarafından kurulmuş ve yönetilmektedir.
+                    </p>
+
+                    <div class="bg-iz-sand p-6 rounded-sm border-l-4 border-iz-leaf mb-8">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-iz-forest flex items-center justify-center text-white text-xl"><i class="ph-fill ph-user"></i></div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-lg text-iz-forest">Peyzaj Mimarı Rumeysa Çamayaz Çanaklıtaş</h4>
+                                    <p class="font-sans text-sm text-gray-500">Kurucu Ortak & Tasarım Yöneticisi</p>
+                                </div>
+                            </div>
+                            <div class="w-full h-px bg-gray-200"></div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-iz-forest flex items-center justify-center text-white text-xl"><i class="ph-fill ph-user"></i></div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-lg text-iz-forest">Peyzaj Mimarı Funda Nur Çongar Göktaş</h4>
+                                    <p class="font-sans text-sm text-gray-500">Kurucu Ortak & Uygulama Yöneticisi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#kesif-formu" class="btn-leaf"><i class="ph-bold ph-coffee"></i> Mimarlarımızla Projenizi Konuşun</a>
+                </div>
+
+                <!-- Trust Image -->
+                <div class="trust-image-container" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1558603668-6570496b66f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Peyzaj Tasarım" class="w-full h-full object-cover">
+                    <!-- Overlapping Info Box -->
+                    <div class="absolute bottom-8 left-8 bg-white/95 backdrop-blur-sm p-6 rounded-sm shadow-xl max-w-[250px]">
+                        <div class="text-iz-earth text-4xl mb-3"><i class="ph-fill ph-quotes"></i></div>
+                        <p class="font-serif text-iz-forest text-sm font-semibold italic">"Doğanın kendi ritmini, modern mimariyle harmanlayarak zamansız mekanlar yaratıyoruz."</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FAQ & İLETİŞİM (Hipnotize Edici Keşif) -->
+    <section id="sss" class="py-32 px-6">
+        <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+            
+            <!-- FAQ -->
+            <div data-aos="fade-right">
+                <span class="inline-block px-3 py-1 bg-iz-forest text-white font-bold text-sm rounded-sm mb-6 uppercase tracking-widest">Merak Edilenler</span>
+                <h2 class="font-serif text-4xl font-bold text-iz-forest mb-10">Sıkça Sorulan Sorular</h2>
+                
+                <div class="space-y-2">
+                    <div class="faq-item active">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Bahçem için keşif ücretli mi?</span>
+                            <i class="ph-bold ph-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Hayır, Sivas merkez ve çevresi için yapacağımız ilk keşif ziyaretleri tamamen ücretsizdir. Mimar ekibimiz alanınızı inceler, toprak yapısını analiz eder ve size bir ön bütçe/fikir sunar.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Sivas ikliminde hangi bitkiler yaşar? Sivas'a uygun mu tasarlıyorsunuz?</span>
+                            <i class="ph-bold ph-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Sivas karasal ve sert bir iklime sahiptir. Sadece görsel güzelliğine aldanıp yanlış bitki seçimi yapmıyoruz. Eksi derecelere ve don olaylarına dayanıklı, Sivas florasına tam uyumlu ithal ve yerli bitkilerle uzun ömürlü tasarımlar yapıyoruz.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Otomatik sulama sistemi kurmak şart mı?</span>
+                            <i class="ph-bold ph-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Özellikle rulo çim ve bitkilerin eşit/düzenli sulanması hayati önem taşır. Manuel sulamada hem su israfı olur hem de bitkiler homojen su alamaz. Uzun vadede sağlıklı bir bahçe için otomatik sulama sistemini kesinlikle öneriyoruz ve altyapısını kuruyoruz.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Sitelere veya kurumlara aylık periyodik bakım yapıyor musunuz?</span>
+                            <i class="ph-bold ph-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Evet. Sadece tasarım ve uygulama değil, yaptığımız veya önceden var olan bahçelerin (büyük siteler, villalar, fabrika bahçeleri) periyodik bakımlarını (budama, çim biçimi, ilaçlama) profesyonel ekipmanlarla yapıyoruz.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div id="kesif-formu" class="bg-white p-10 rounded-sm shadow-card border-t-4 border-iz-leaf" data-aos="fade-left">
+                <h3 class="font-serif text-3xl font-bold text-iz-forest mb-2">Ücretsiz Keşif İste</h3>
+                <p class="font-sans text-gray-500 text-sm mb-8">Mimarlarımız alanınızı incelesin, size en uygun peyzaj projesini çizelim.</p>
+                
+                <form class="space-y-6" onsubmit="event.preventDefault(); alert('Talebiniz mimarlarımıza ulaştı. En kısa sürede sizinle iletişime geçeceğiz.');">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="form-label">Ad Soyad</label>
+                            <input type="text" class="form-input" required>
+                        </div>
+                        <div>
+                            <label class="form-label">Telefon Numarası</label>
+                            <input type="tel" class="form-input" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="form-label">Proje Tipi</label>
+                        <select class="form-input">
+                            <option>Müstakil / Villa Bahçesi</option>
+                            <option>Site / Toplu Konut Peyzajı</option>
+                            <option>Kurumsal / Ticari Alan</option>
+                            <option>Periyodik Bahçe Bakımı</option>
+                            <option>Otomatik Sulama & Altyapı</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Mesajınız (Alan büyüklüğü vb.)</label>
+                        <textarea class="form-input h-32 resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="btn-leaf w-full justify-center py-4 text-lg">Keşif Randevusu Oluştur</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="bg-iz-forest text-iz-sand pt-24 pb-12">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
+                
+                <!-- Logo & About -->
+                <div class="lg:col-span-1">
+                    <a href="#" class="flex flex-col shrink-0 mb-6">
+                        <div class="flex items-end gap-2">
+                            <i class="ph-fill ph-tree-evergreen text-4xl text-iz-leaf"></i>
+                            <span class="font-serif text-3xl font-bold text-white tracking-tight">İZ PEYZAJ</span>
+                        </div>
+                        <span class="font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gray-400 mt-1 ml-10">Sivas Mimarlık Ofisi</span>
+                    </a>
+                    <p class="font-sans text-sm text-gray-400 leading-relaxed mb-6 pr-4">
+                        Doğayı yaşam alanlarınıza entegre eden, mühendislik ve estetiği birleştiren profesyonel peyzaj mimarlığı ofisi.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/izpeyzaj/" target="_blank" class="w-10 h-10 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-iz-leaf hover:border-iz-leaf transition-all"><i class="ph-fill ph-instagram-logo"></i></a>
+                    </div>
+                </div>
+
+                <!-- Kurumsal -->
+                <div>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-white tracking-wide">Mimarlık Ofisimiz</h4>
+                    <ul class="font-sans text-sm text-gray-400 space-y-3">
+                        <li><a href="#hakkimizda" class="hover:text-iz-leaf transition-colors">Mimarlarımız (Hakkımızda)</a></li>
+                        <li><a href="#projeler" class="hover:text-iz-leaf transition-colors">Tamamlanan Projeler</a></li>
+                        <li><a href="#kesif-formu" class="hover:text-iz-leaf transition-colors">Ücretsiz Keşif</a></li>
+                        <li><a href="#" class="hover:text-iz-leaf transition-colors">KVKK ve Gizlilik</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hizmetler -->
+                <div>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-white tracking-wide">Uzmanlık Alanlarımız</h4>
+                    <ul class="font-sans text-sm text-gray-400 space-y-3">
+                        <li><a href="#hizmetlerimiz" class="hover:text-iz-leaf transition-colors">3D Tasarım ve Proje</a></li>
+                        <li><a href="#hizmetlerimiz" class="hover:text-iz-leaf transition-colors">Yapısal Sert Zemin İşleri</a></li>
+                        <li><a href="#hizmetlerimiz" class="hover:text-iz-leaf transition-colors">Bitkisel Peyzaj Uygulaması</a></li>
+                        <li><a href="#hizmetlerimiz" class="hover:text-iz-leaf transition-colors">Akıllı Otomatik Sulama</a></li>
+                        <li><a href="#hizmetlerimiz" class="hover:text-iz-leaf transition-colors">Periyodik Bakım Hizmeti</a></li>
+                    </ul>
+                </div>
+
+                <!-- İletişim -->
+                <div>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-white tracking-wide">Merkez Ofis</h4>
+                    <ul class="font-sans text-sm text-gray-400 space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-map-pin text-xl text-iz-leaf shrink-0 mt-0.5"></i>
+                            <span class="leading-relaxed">Demircilerardı, Atatürk Blv. No:99/B, 58000 Merkez/Sivas</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-phone text-xl text-iz-leaf shrink-0"></i>
+                            <span class="font-semibold text-white tracking-wide">0538 506 11 80</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-envelope-simple text-xl text-iz-leaf shrink-0"></i>
+                            <span>bilgi@izpeyzaj.com.tr</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center font-sans text-xs text-gray-500">
+                <p>&copy; 2026 İz Peyzaj Tasarım Uygulama. Tüm Hakları Saklıdır.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <span>Peyzaj Mimarları Odası Üyesi</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/905385061180" target="_blank" class="whatsapp-float" aria-label="WhatsApp Mimari Danışmanlık">
+        <i class="ph-bold ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Animation Init
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+            });
+        });
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            
+            // Close all other items
+            const allItems = document.querySelectorAll('.faq-item');
+            allItems.forEach(i => {
+                if(i !== item) i.classList.remove('active');
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diva VIP Cafe & Restaurant | Sivas'ın En Özel VIP Mekanı</title>
+    <meta name="description" content="Sivas Vatan Computer önünde 3 katlı salonumuz, Diva Davet Concept ve özel nargile keyfi ile hizmetinizdeyiz. Rezervasyon: 0507 279 94 06">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        diva: {
+                            gold: '#D4AF37',       // Lüks Altın
+                            goldLight: '#F3E5AB',  // Açık Altın
+                            goldDark: '#996515',   // Koyu Altın/Bronz
+                            black: '#0A0A0A',      // Gece Siyahı
+                            charcoal: '#1A1A1A',   // Antrasit
+                            gray: '#888888',       // Gri (Okunabilir alt metin)
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-gold': 'linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #996515 100%)',
+                        'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0A0A0A;
+            color: #E5E5E5;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: theme('colors.diva.gold');
+            color: theme('colors.diva.black');
+        }
+
+        /* Glassmorphism Header */
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        /* Text Gradients */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #996515 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Luxury Button */
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #996515 100%);
+            color: #0A0A0A;
+            padding: 1rem 2.5rem;
+            border-radius: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid #F3E5AB;
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.5);
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #996515 0%, #D4AF37 100%);
+            z-index: -1;
+            transition: opacity 0.4s ease;
+            opacity: 0;
+        }
+        .btn-gold:hover::before {
+            opacity: 1;
+        }
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px -10px rgba(212, 175, 55, 0.7);
+        }
+
+        .btn-outline-gold {
+            background: transparent;
+            color: #D4AF37;
+            padding: 1rem 2.5rem;
+            border-radius: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: all 0.4s ease;
+            border: 1px solid #D4AF37;
+        }
+        .btn-outline-gold:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: #F3E5AB;
+        }
+
+        /* Hero Overlay */
+        .hero-overlay {
+            background: radial-gradient(circle at center, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.95) 100%);
+        }
+
+        /* Gold Line Separator */
+        .gold-separator {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+            margin: 0 auto;
+        }
+
+        /* Cards */
+        .vip-card {
+            background: #1A1A1A;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .vip-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, #996515, #D4AF37, #996515);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        .vip-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 20px 40px -20px rgba(212, 175, 55, 0.2);
+        }
+        .vip-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Gallery Zoom */
+        .gallery-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+        .gallery-wrap img {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .gallery-wrap:hover img {
+            transform: scale(1.08);
+        }
+        .gallery-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,10,10,0.9), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 10;
+        }
+        .gallery-wrap:hover::before {
+            opacity: 1;
+        }
+        .gallery-text {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            z-index: 20;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        .gallery-wrap:hover .gallery-text {
+            bottom: 0;
+            opacity: 1;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-diva-gold selection:text-diva-black">
+
+    <!-- Top Info Bar -->
+    <div class="bg-black text-diva-gray py-2 px-6 hidden lg:block border-b border-white/5">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center text-xs tracking-widest uppercase">
+            <div class="flex gap-8">
+                <span class="flex items-center gap-2">
+                    <i class="ph-fill ph-map-pin text-diva-gold text-sm"></i> Pulur Mah. Vatan Computer Altı, Sivas
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="ph-fill ph-clock text-diva-gold text-sm"></i> 09:00 - 01:00 Arası Açık
+                </span>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="flex gap-4 border-r border-white/10 pr-6">
+                    <a href="https://www.instagram.com/diva_vip_cafe/" target="_blank" class="hover:text-diva-gold transition-colors"><i class="ph-fill ph-instagram-logo text-lg"></i></a>
+                </div>
+                <a href="tel:05072799406" class="flex items-center gap-2 text-white font-medium hover:text-diva-gold transition-colors">
+                    <i class="ph-fill ph-phone text-diva-gold text-lg"></i> 0507 279 94 06
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav sticky top-0 z-50 py-5 px-6">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="flex flex-col leading-none">
+                    <span class="font-serif text-3xl md:text-4xl font-bold text-gradient-gold tracking-wider">DIVA</span>
+                    <span class="font-sans text-[0.65rem] md:text-[0.7rem] font-bold text-white tracking-[0.3em] uppercase mt-1 pl-0.5">VIP CAFE & RESTAURANT</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden xl:flex items-center gap-10">
+                <a href="#mekanimiz" class="font-sans font-medium text-xs tracking-[0.15em] text-white hover:text-diva-gold transition-colors uppercase">Mekanımız</a>
+                <a href="#davet" class="font-sans font-medium text-xs tracking-[0.15em] text-white hover:text-diva-gold transition-colors uppercase">Diva Davet</a>
+                <a href="#lezzetler" class="font-sans font-medium text-xs tracking-[0.15em] text-white hover:text-diva-gold transition-colors uppercase">Menü & Lezzetler</a>
+                <a href="#galeri" class="font-sans font-medium text-xs tracking-[0.15em] text-white hover:text-diva-gold transition-colors uppercase">Galeri</a>
+            </div>
+
+            <!-- CTA & Mobile Menu -->
+            <div class="flex items-center gap-4">
+                <a href="tel:05072799406" class="btn-gold hidden md:inline-flex py-3 px-6 text-xs">
+                    <i class="ph-bold ph-calendar-plus text-base"></i> Rezervasyon
+                </a>
+                <button class="xl:hidden text-diva-gold text-3xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="ph-bold ph-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden xl:hidden absolute top-full left-0 w-full bg-[#111] border-t border-diva-gold/20 p-6 shadow-2xl">
+            <div class="flex flex-col gap-4">
+                <a href="#mekanimiz" class="font-sans font-medium text-white text-sm tracking-widest uppercase border-b border-white/5 pb-3" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Mekanımız</a>
+                <a href="#davet" class="font-sans font-medium text-white text-sm tracking-widest uppercase border-b border-white/5 pb-3" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Diva Davet Concept</a>
+                <a href="#lezzetler" class="font-sans font-medium text-white text-sm tracking-widest uppercase border-b border-white/5 pb-3" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Öne Çıkan Lezzetler</a>
+                <a href="#iletisim" class="font-sans font-medium text-white text-sm tracking-widest uppercase border-b border-white/5 pb-3" onclick="document.getElementById('mobile-menu').classList.add('hidden')">İletişim & Konum</a>
+                <a href="tel:05072799406" class="btn-gold w-full mt-4">
+                    Hemen Ara
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION (ULTRA LUXURY) -->
+    <section class="relative w-full h-[90vh] flex items-center justify-center overflow-hidden border-b border-diva-gold/20">
+        <!-- Background Video/Image Concept -->
+        <div class="absolute inset-0 z-0">
+            <!-- Using a dark, moody restaurant/bar image -->
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Diva VIP Interior" class="w-full h-full object-cover object-center scale-105 animate-[pulse_20s_ease-in-out_infinite]">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto" data-aos="zoom-in" data-aos-duration="1500">
+            <!-- Decorative Gold Element -->
+            <div class="flex items-center justify-center gap-4 mb-6 opacity-80">
+                <div class="w-12 h-[1px] bg-diva-gold"></div>
+                <i class="ph-fill ph-star-four text-diva-gold text-sm"></i>
+                <div class="w-12 h-[1px] bg-diva-gold"></div>
+            </div>
+            
+            <span class="block font-sans text-xs md:text-sm font-semibold tracking-[0.3em] text-white uppercase mb-4">Sivas'ın En Özel Noktası</span>
+            
+            <h1 class="font-serif text-6xl md:text-8xl lg:text-[7rem] font-bold text-white mb-6 leading-none">
+                <span class="text-gradient-gold drop-shadow-2xl">DIVA</span> VIP
+            </h1>
+            
+            <p class="font-serif italic text-xl md:text-3xl text-gray-300 mb-10 font-light">
+                3 Katlı Salonumuzla Eşsiz Bir Deneyim.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="tel:05072799406" class="btn-gold w-full sm:w-auto">
+                    Masanızı Ayırtın
+                </a>
+                <a href="#lezzetler" class="btn-outline-gold w-full sm:w-auto">
+                    Menüyü Keşfedin
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-10 opacity-70 animate-bounce">
+            <span class="font-sans text-[0.6rem] tracking-[0.2em] text-diva-gold uppercase">Keşfet</span>
+            <i class="ph-light ph-arrow-down text-diva-gold text-xl"></i>
+        </div>
+    </section>
+
+    <!-- 2. MEKANIMIZ (3 KATLI KONSEPT) -->
+    <section id="mekanimiz" class="py-24 px-6 relative">
+        <div class="max-w-[1400px] mx-auto">
+            
+            <div class="text-center mb-20" data-aos="fade-up">
+                <i class="ph-light ph-buildings text-4xl text-diva-gold mb-4"></i>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">3 Katlı <span class="text-gradient-gold">Eşsiz Deneyim</span></h2>
+                <div class="gold-separator mb-6"></div>
+                <p class="font-sans text-diva-gray text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                    Vatan Computer önünde yer alan 3 katlı devasa salonumuzda; giriş kattaki ferah cafemiz, orta kattaki premium restoranımız ve üst kattaki özel davet alanımızla Sivas'ta eğlence ve lezzetin VIP halini sunuyoruz.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Kat 1 -->
+                <div class="vip-card p-10 text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-20 h-20 mx-auto bg-black rounded-full border border-diva-gold/30 flex items-center justify-center text-4xl text-diva-gold mb-6 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+                        <i class="ph-light ph-coffee"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white mb-3">Giriş Kat: Cafe & Lounge</h3>
+                    <p class="font-sans text-sm text-diva-gray leading-relaxed mb-6">
+                        Günün yorgunluğunu atabileceğiniz, dünya kahveleri, premium nargile çeşitleri ve rahat oturma alanlarıyla donatılmış ferah cafe konseptimiz.
+                    </p>
+                    <span class="text-diva-gold font-sans text-xs tracking-widest uppercase font-semibold">Sıcak Sohbetler</span>
+                </div>
+
+                <!-- Kat 2 -->
+                <div class="vip-card p-10 text-center relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Subtle Glow -->
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-diva-gold/10 rounded-full blur-[50px] pointer-events-none"></div>
+                    
+                    <div class="w-20 h-20 mx-auto bg-black rounded-full border border-diva-gold/30 flex items-center justify-center text-4xl text-diva-gold mb-6 shadow-[0_0_30px_rgba(212,175,55,0.15)] relative z-10">
+                        <i class="ph-light ph-fork-knife"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white mb-3 relative z-10">Orta Kat: VIP Restaurant</h3>
+                    <p class="font-sans text-sm text-diva-gray leading-relaxed mb-6 relative z-10">
+                        Usta şeflerimizin ellerinden çıkan enfes fast-food menüleri, enfes dünya mutfağı ve serpme kahvaltımızla ziyafetin adresi.
+                    </p>
+                    <span class="text-diva-gold font-sans text-xs tracking-widest uppercase font-semibold relative z-10">Gurme Lezzetler</span>
+                </div>
+
+                <!-- Kat 3 -->
+                <div class="vip-card p-10 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto bg-black rounded-full border border-diva-gold/30 flex items-center justify-center text-4xl text-diva-gold mb-6 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+                        <i class="ph-light ph-crown"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white mb-3">Üst Kat: Diva Davet</h3>
+                    <p class="font-sans text-sm text-diva-gray leading-relaxed mb-6">
+                        Söz, nişan, doğum günü ve tüm özel organizasyonlarınız için tasarlanmış, tamamen size özel olarak süslenen şık davet salonumuz.
+                    </p>
+                    <span class="text-diva-gold font-sans text-xs tracking-widest uppercase font-semibold">Özel Günler</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. DIVA DAVET CONCEPT -->
+    <section id="davet" class="py-0 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+            
+            <!-- Left: Image -->
+            <div class="relative h-[400px] lg:h-auto" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Diva Davet Organizasyon" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 lg:from-transparent lg:to-black/80 to-transparent lg:via-black/40"></div>
+                <!-- Floating Badge -->
+                <div class="absolute top-8 left-8 bg-black/60 backdrop-blur-md border border-diva-gold/40 p-4 flex items-center gap-4 rounded-sm">
+                    <i class="ph-fill ph-confetti text-3xl text-diva-gold"></i>
+                    <div>
+                        <div class="font-serif text-white font-bold">Unutulmaz Anlar</div>
+                        <div class="font-sans text-xs text-diva-gold tracking-widest uppercase">Kusursuz Organizasyon</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Content -->
+            <div class="bg-diva-charcoal flex flex-col justify-center p-12 lg:p-24 relative overflow-hidden" data-aos="fade-left">
+                <!-- Decorative Pattern -->
+                <i class="ph-light ph-crown absolute -top-10 -right-10 text-[200px] text-white/5 rotate-12"></i>
+
+                <span class="font-sans text-xs font-semibold tracking-[0.3em] text-diva-gold uppercase mb-4 block">Üst Kat Özel Salonumuz</span>
+                <h2 class="font-serif text-4xl lg:text-5xl font-bold text-white mb-6">Diva <span class="text-gradient-gold">Davet Concept</span></h2>
+                <p class="font-sans text-gray-400 text-sm md:text-base leading-relaxed mb-8">
+                    Hayatınızın en anlamlı günlerini riske atmayın. Diva VIP Cafe'nin üst katında tamamen size özel olarak ayrılan "Diva Davet Concept" ile hayallerinizdeki organizasyonu gerçeğe dönüştürüyoruz.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-6 mb-10">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-diva-gold/10 flex items-center justify-center shrink-0">
+                            <i class="ph-bold ph-check text-diva-gold"></i>
+                        </div>
+                        <span class="font-serif text-white text-lg">Söz & Nişan</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-diva-gold/10 flex items-center justify-center shrink-0">
+                            <i class="ph-bold ph-check text-diva-gold"></i>
+                        </div>
+                        <span class="font-serif text-white text-lg">Doğum Günleri</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-diva-gold/10 flex items-center justify-center shrink-0">
+                            <i class="ph-bold ph-check text-diva-gold"></i>
+                        </div>
+                        <span class="font-serif text-white text-lg">Toplu Yemekler</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-diva-gold/10 flex items-center justify-center shrink-0">
+                            <i class="ph-bold ph-check text-diva-gold"></i>
+                        </div>
+                        <span class="font-serif text-white text-lg">Özel Süsleme</span>
+                    </div>
+                </div>
+
+                <a href="tel:05072799406" class="btn-outline-gold self-start">
+                    Tarihinizi Ayırtın
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. ÖNE ÇIKAN LEZZETLER (BENTO MENU) -->
+    <section id="lezzetler" class="py-24 px-6 bg-[#0a0a0a]">
+        <div class="max-w-[1400px] mx-auto">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <span class="font-sans text-xs font-semibold tracking-[0.3em] text-diva-gold uppercase mb-4 block">Usta Şeflerin Ellerinden</span>
+                    <h2 class="font-serif text-4xl lg:text-5xl font-bold text-white mb-6">VIP <span class="text-gradient-gold">Lezzet Şöleni</span></h2>
+                    <p class="font-sans text-diva-gray text-sm md:text-base leading-relaxed">
+                        Sivas'ta sadece mekanımızla değil, iddialı mutfağımızla da öne çıkıyoruz. Göz alıcı sunumlar ve damak çatlatan lezzetler Diva VIP menüsünde.
+                    </p>
+                </div>
+                <div class="hidden md:block">
+                    <a href="tel:05072799406" class="btn-outline-gold">Paket Servis İçin Ara</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                
+                <!-- Item 1: Serpme Kahvaltı (Large) -->
+                <div class="md:col-span-8 h-[400px] relative group overflow-hidden rounded-sm border border-white/10" data-aos="fade-up" data-aos-delay="0">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Serpme Kahvaltı" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-8">
+                        <span class="bg-diva-gold text-black font-bold font-sans text-[0.65rem] tracking-widest uppercase px-3 py-1 rounded-sm mb-4 inline-block">Hafta Sonu Klasiği</span>
+                        <h3 class="font-serif text-3xl text-white font-bold mb-2">Sınırsız Serpme Kahvaltı</h3>
+                        <p class="font-sans text-gray-300 text-sm max-w-md">Onlarca çeşit sıcak ve soğuk lezzet, sınırsız çay ve mükemmel sunum eşliğinde güne VIP bir başlangıç yapın.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Nargile & Lounge (Small) -->
+                <div class="md:col-span-4 h-[400px] relative group overflow-hidden rounded-sm border border-white/10" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Özel Kokteyller" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-8">
+                        <i class="ph-fill ph-martini text-3xl text-diva-gold mb-3"></i>
+                        <h3 class="font-serif text-2xl text-white font-bold mb-2">Özel Kokteyller</h3>
+                        <p class="font-sans text-gray-300 text-sm">Barmenimizin imza alkolsüz kokteylleri ve ferahlatıcı soğuk içecekler.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3: Fast Food (Small) -->
+                <div class="md:col-span-4 h-[400px] relative group overflow-hidden rounded-sm border border-white/10" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fast Food ve Pizza" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-8">
+                        <i class="ph-fill ph-pizza text-3xl text-diva-gold mb-3"></i>
+                        <h3 class="font-serif text-2xl text-white font-bold mb-2">Fast Food & Atıştırmalık</h3>
+                        <p class="font-sans text-gray-300 text-sm">Ev yapımı burgerler, enfes pizzalar ve çıtır atıştırmalık tabakları.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4: Restaurant (Large) -->
+                <div class="md:col-span-8 h-[400px] relative group overflow-hidden rounded-sm border border-white/10" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Dünya Mutfağı" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-8">
+                        <span class="bg-diva-gold text-black font-bold font-sans text-[0.65rem] tracking-widest uppercase px-3 py-1 rounded-sm mb-4 inline-block">Ana Yemekler</span>
+                        <h3 class="font-serif text-3xl text-white font-bold mb-2">Dünya Mutfağı Seçkileri</h3>
+                        <p class="font-sans text-gray-300 text-sm max-w-md">Özel soslu et yemekleri, taze makarnalar ve şefin tavsiyesi lezzetlerle akşam yemeklerinizi ziyafete dönüştürün.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="tel:05072799406" class="btn-outline-gold w-full justify-center">Paket Servis İçin Ara</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. IŞILTILI GALERİ -->
+    <section id="galeri" class="py-24 px-6 bg-[#111] border-y border-white/5">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-serif text-4xl lg:text-5xl font-bold text-white mb-6">VIP <span class="text-gradient-gold">Atmosfer</span></h2>
+                <div class="gold-separator mb-6"></div>
+                <p class="font-sans text-diva-gray text-sm md:text-base max-w-2xl mx-auto">Kliniğimiz, pardon mekanımızdaki :), o muazzam atmosferi ve keyifli anları keşfedin.</p>
+            </div>
+
+            <!-- Masonry Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="gallery-wrap col-span-2 row-span-2 h-[400px] md:h-[600px] rounded-sm" data-aos="zoom-in" data-aos-delay="0">
+                    <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Organizasyon" class="w-full h-full object-cover">
+                    <div class="gallery-text">
+                        <h4 class="font-serif text-2xl text-white font-bold">Özel Davetler</h4>
+                    </div>
+                </div>
+                <div class="gallery-wrap h-[192px] md:h-[292px] rounded-sm" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="İçecekler" class="w-full h-full object-cover">
+                    <div class="gallery-text">
+                        <h4 class="font-serif text-lg text-white font-bold">Kokteyller</h4>
+                    </div>
+                </div>
+                <div class="gallery-wrap h-[192px] md:h-[292px] rounded-sm" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Yemekler" class="w-full h-full object-cover">
+                    <div class="gallery-text">
+                        <h4 class="font-serif text-lg text-white font-bold">Pizza & Fast Food</h4>
+                    </div>
+                </div>
+                <div class="gallery-wrap col-span-2 h-[192px] md:h-[292px] rounded-sm" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="İç Mekan" class="w-full h-full object-cover">
+                    <div class="gallery-text">
+                        <h4 class="font-serif text-xl text-white font-bold">Lounge Alanı</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center" data-aos="fade-up">
+                <a href="https://www.instagram.com/diva_vip_cafe/" target="_blank" class="inline-flex items-center gap-2 font-sans font-bold text-diva-gold hover:text-white transition-colors border-b border-diva-gold pb-1 uppercase tracking-widest text-sm">
+                    <i class="ph-bold ph-instagram-logo text-xl"></i> Instagram'da Daha Fazlası
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. İLETİŞİM & FOOTER -->
+    <footer id="iletisim" class="bg-black pt-24 pb-12 border-t border-diva-gold/30 relative overflow-hidden">
+        <!-- Decor pattern -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-diva-gold/5 blur-[100px] rounded-full"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-diva-gold/5 blur-[100px] rounded-full"></div>
+        
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+                
+                <!-- Brand Info (Col span 4) -->
+                <div class="lg:col-span-4 pr-0 lg:pr-8">
+                    <a href="#" class="flex flex-col leading-none mb-6">
+                        <span class="font-serif text-3xl md:text-4xl font-bold text-gradient-gold tracking-wider">DIVA</span>
+                        <span class="font-sans text-[0.65rem] font-bold text-white tracking-[0.3em] uppercase mt-1 pl-0.5">VIP CAFE & RESTAURANT</span>
+                    </a>
+                    <p class="font-sans text-diva-gray text-sm leading-relaxed mb-8">
+                        Sivas'ın kalbinde, lüksü, lezzeti ve eğlenceyi 3 katlı muazzam konseptiyle birleştiren VIP mekan.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/diva_vip_cafe/" target="_blank" class="w-12 h-12 rounded-full border border-diva-gold/30 flex items-center justify-center hover:bg-diva-gold hover:text-black transition-all duration-300 text-xl text-diva-gold">
+                            <i class="ph-fill ph-instagram-logo"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full border border-diva-gold/30 flex items-center justify-center hover:bg-diva-gold hover:text-black transition-all duration-300 text-xl text-diva-gold">
+                            <i class="ph-fill ph-facebook-logo"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hızlı Menü (Col span 2) -->
+                <div class="lg:col-span-2 lg:ml-auto">
+                    <h4 class="font-serif font-bold text-xl mb-8 text-white">Menü</h4>
+                    <ul class="space-y-4 font-sans text-diva-gray text-sm tracking-widest uppercase">
+                        <li><a href="#mekanimiz" class="hover:text-diva-gold transition-colors">Mekanımız</a></li>
+                        <li><a href="#davet" class="hover:text-diva-gold transition-colors">Diva Davet</a></li>
+                        <li><a href="#lezzetler" class="hover:text-diva-gold transition-colors">Lezzetler</a></li>
+                        <li><a href="#galeri" class="hover:text-diva-gold transition-colors">Galeri</a></li>
+                    </ul>
+                </div>
+
+                <!-- İletişim Bilgileri (Col span 3) -->
+                <div class="lg:col-span-3 lg:ml-auto">
+                    <h4 class="font-serif font-bold text-xl mb-8 text-white">İletişim & Konum</h4>
+                    <ul class="space-y-6 font-sans text-gray-300 text-sm">
+                        <li class="flex items-start gap-4">
+                            <i class="ph-fill ph-map-pin text-diva-gold text-2xl shrink-0"></i>
+                            <span class="leading-relaxed">Pulur Mah. Ahi Emir Caddesi No:21/1<br>Vatan Computer Altı<br>Merkez / SİVAS</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <i class="ph-fill ph-phone-call text-diva-gold text-2xl shrink-0"></i>
+                            <a href="tel:05072799406" class="text-white font-bold text-lg hover:text-diva-gold transition-colors tracking-wider">0507 279 94 06</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Rezervasyon (Col span 3) -->
+                <div class="lg:col-span-3 lg:ml-auto w-full">
+                    <h4 class="font-serif font-bold text-xl mb-8 text-white">Rezervasyon</h4>
+                    <div class="bg-[#151515] p-6 rounded-sm border border-white/5">
+                        <p class="font-sans text-sm text-diva-gray mb-6">Davet konsepti ve VIP salonlarımız için yerinizi şimdiden ayırtın.</p>
+                        <a href="tel:05072799406" class="btn-gold w-full text-center py-4 text-xs">
+                            <i class="ph-bold ph-phone"></i> Hemen Arayın
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 font-sans text-xs text-diva-gray font-medium tracking-widest uppercase">
+                <p>&copy; 2026 Diva VIP Cafe & Restaurant. Sivas.</p>
+                <div class="flex items-center gap-2">
+                    Premium Design by <i class="ph-fill ph-crown text-diva-gold text-lg"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Animation Init
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 50,
+            easing: 'ease-out-cubic',
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekno Dünya | Sivas'ın En Büyük Teknoloji ve Servis Merkezi</title>
+    <meta name="description" content="Sivas'ta bilgisayar, güvenlik sistemleri, yazar kasa POS, seslendirme, beyaz eşya satışı ve kurumsal teknik servis hizmetleri. Teknolojiye dair her şey Tekno Dünya'da.">
+    
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Outfit (Display) & Inter (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        tekno: {
+                            orange: '#ff6600',     // Vibrant Orange
+                            blue: '#0044cc',       // Tech Blue
+                            darkBlue: '#002b80',   // Deep Blue
+                            lightBlue: '#e6f0ff',
+                            gray: '#f8f9fa',       // Light gray bg
+                            dark: '#111827',       // Main text color
+                            darker: '#030712'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,68,204,0.08)',
+                        'orange': '0 10px 25px -5px rgba(255, 102, 0, 0.4)',
+                        'blue': '0 10px 25px -5px rgba(0, 68, 204, 0.4)',
+                        'card': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 40px -10px rgba(255, 102, 0, 0.5)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #111827;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Info Bar */
+        .top-bar {
+            background-color: #002b80;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        /* Main Navbar */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            color: #111827;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+        .nav-link:hover {
+            color: #ff6600;
+        }
+        
+        /* Buttons */
+        .btn-orange {
+            background-color: #ff6600;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 25px -5px rgba(255, 102, 0, 0.4);
+        }
+        .btn-orange:hover {
+            background-color: #e65c00;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(255, 102, 0, 0.5);
+        }
+
+        .btn-blue {
+            background-color: #0044cc;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 68, 204, 0.4);
+        }
+        .btn-blue:hover {
+            background-color: #002b80;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(0, 68, 204, 0.5);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #0044cc;
+            border: 2px solid #0044cc;
+            padding: 0.8rem 2rem;
+            border-radius: 0.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-outline:hover {
+            background-color: #0044cc;
+            color: white;
+        }
+
+        /* Hero Dual Section */
+        .hero-pattern {
+            background-color: #f8f9fa;
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background: white;
+            border-top: 1px solid #f3f4f6;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 40s linear infinite;
+        }
+        .marquee-content span {
+            display: inline-block;
+            padding: 0 4rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: #d1d5db;
+            transition: color 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+        .marquee-content span:hover {
+            color: #0044cc;
+            transform: scale(1.1);
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border: 1px solid #f3f4f6;
+            border-radius: 1rem;
+            padding: 3rem 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(0,68,204,0.03) 0%, rgba(255,102,0,0.03) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            border-color: transparent;
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-icon-wrapper {
+            width: 80px; height: 80px;
+            border-radius: 1.2rem;
+            background: #e6f0ff;
+            color: #0044cc;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.4s ease;
+        }
+        .service-card:hover .service-icon-wrapper {
+            background: #ff6600;
+            color: white;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Feature List in Cards */
+        .feature-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+        }
+        .feature-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #ff6600;
+            font-weight: bold;
+        }
+
+        /* Stats Counter Section */
+        .stats-bg {
+            background-color: #002b80;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230044cc' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            color: white;
+        }
+
+        /* Split Section Image */
+        .split-image-container {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .split-image-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 8px solid white;
+            border-radius: 1.5rem;
+            pointer-events: none;
+        }
+        
+        /* FAQ Accordion */
+        .faq-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        .faq-item.active {
+            border-color: #0044cc;
+            box-shadow: 0 10px 25px -5px rgba(0, 68, 204, 0.1);
+        }
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #111827;
+        }
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+        .faq-item.active .faq-answer {
+            padding-bottom: 1.5rem;
+            max-height: 500px;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+            color: #ff6600;
+            font-size: 1.5rem;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Product Cards */
+        .product-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .product-card:hover {
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+            border-color: #ff6600;
+            transform: translateY(-5px);
+        }
+        .product-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .product-img-wrapper img {
+            max-height: 80%;
+            max-width: 80%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.1);
+        }
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #ff6600;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* Float WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 70px;
+            height: 70px;
+            background-color: #ff6600; 
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 4px 20px rgba(255, 102, 0, 0.5);
+            z-index: 100;
+            transition: all 0.3s ease;
+            animation: pulse-wa 2s infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #cc5200;
+        }
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(255, 102, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
+        }
+
+        /* Forms */
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            outline: none;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        .form-input:focus {
+            border-color: #0044cc;
+            box-shadow: 0 0 0 4px rgba(0, 68, 204, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-tekno-orange selection:text-white">
+
+    <!-- Top Info Bar -->
+    <div class="top-bar py-2 px-6 hidden md:block font-sans">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            <div class="flex gap-8">
+                <span class="flex items-center gap-2"><i class="ph-fill ph-map-pin text-tekno-orange"></i> Sivas Merkez, İş Yerimiz</span>
+                <span class="flex items-center gap-2"><i class="ph-fill ph-phone text-tekno-orange"></i> Teknik Servis & Çağrı: 0346 XXX XX XX</span>
+                <span class="flex items-center gap-2"><i class="ph-fill ph-clock text-tekno-orange"></i> Çalışma Saatleri: 08:30 - 19:30</span>
+            </div>
+            <div class="flex gap-4 font-semibold">
+                <a href="#b2b-form" class="hover:text-tekno-orange transition-colors flex items-center gap-1"><i class="ph-bold ph-buildings"></i> B2B Kurumsal Başvuru</a>
+                <span class="text-white/30">|</span>
+                <a href="#servis-durumu" class="hover:text-tekno-orange transition-colors flex items-center gap-1"><i class="ph-bold ph-wrench"></i> Servis Cihazı Sorgula</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav sticky top-0 z-50 py-5 px-6">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center gap-8">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center shrink-0 group">
+                <div class="bg-tekno-orange px-4 py-2 rounded-l-lg transition-colors group-hover:bg-tekno-blue">
+                    <span class="font-display text-3xl font-black text-white tracking-tight">TEKNO</span>
+                </div>
+                <div class="bg-white border-y-4 border-r-4 border-tekno-blue px-4 py-2 rounded-r-lg -ml-1 transition-colors group-hover:border-tekno-orange">
+                    <span class="font-display text-3xl font-black text-tekno-blue tracking-tight group-hover:text-tekno-orange">DÜNYA</span>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#hizmetlerimiz" class="nav-link">Neler Yapıyoruz?</a>
+                <a href="#yazarkasa-pos" class="nav-link">Yazar Kasa & POS</a>
+                <a href="#guvenlik-kamera" class="nav-link">Güvenlik & Kamera</a>
+                <a href="#bilgisayar-ag" class="nav-link">Bilgisayar & Ağ</a>
+                <a href="#teknik-servis" class="nav-link">Yetkili Servis</a>
+                <a href="#sss" class="nav-link">S.S.S</a>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="tel:+903460000000" class="btn-outline py-2 px-4 text-sm"><i class="ph-bold ph-phone-call"></i> Bizi Arayın</a>
+            </div>
+
+            <!-- Mobile Menu Btn -->
+            <button class="lg:hidden text-tekno-dark text-4xl shrink-0">
+                <i class="ph-bold ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION (Massive & Immersive) -->
+    <section class="hero-pattern relative w-full overflow-hidden border-b border-gray-200">
+        <div class="max-w-[1400px] mx-auto px-6 py-20 md:py-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div data-aos="fade-right" class="z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm text-tekno-blue font-display text-sm font-bold uppercase mb-8">
+                    <span class="w-2 h-2 rounded-full bg-tekno-orange animate-ping absolute"></span>
+                    <span class="w-2 h-2 rounded-full bg-tekno-orange"></span>
+                    Sivas'ın Teknoloji Tedarikçisi
+                </div>
+                
+                <h1 class="font-display text-5xl md:text-7xl font-black text-tekno-dark leading-[1.05] mb-6">
+                    Teknolojiye Dair <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-tekno-blue to-tekno-orange">Her Şey.</span>
+                </h1>
+                
+                <p class="font-sans text-xl text-gray-600 mb-10 leading-relaxed max-w-xl">
+                    Kurumsal altyapılardan bireysel elektronik ihtiyaçlarınıza kadar devasa ürün yelpazesi. Yazar kasa POS'tan güvenlik kameralarına, bilgisayardan beyaz eşyaya kadar <strong>Sivas'ta tam donanımlı yetkili satış ve profesyonel teknik servis merkeziyiz.</strong>
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="#hizmetlerimiz" class="btn-orange justify-center">
+                        Tüm Hizmetleri Keşfet
+                    </a>
+                    <a href="#kurumsal-form" class="btn-blue justify-center bg-tekno-darkBlue">
+                        <i class="ph-bold ph-buildings"></i> İşletmeniz İçin Teklif Alın
+                    </a>
+                </div>
+                
+                <!-- Trust Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-16 pt-10 border-t border-gray-200">
+                    <div>
+                        <div class="text-tekno-orange text-3xl mb-2"><i class="ph-fill ph-check-circle"></i></div>
+                        <div class="font-display font-bold text-gray-900 text-lg">Resmi Distribütör</div>
+                        <div class="font-sans text-sm text-gray-500 mt-1">Yüzlerce marka bayiliği</div>
+                    </div>
+                    <div>
+                        <div class="text-tekno-blue text-3xl mb-2"><i class="ph-fill ph-wrench"></i></div>
+                        <div class="font-display font-bold text-gray-900 text-lg">Garantili Servis</div>
+                        <div class="font-sans text-sm text-gray-500 mt-1">Alanında uzman teknisyenler</div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="text-tekno-dark text-3xl mb-2"><i class="ph-fill ph-truck"></i></div>
+                        <div class="font-display font-bold text-gray-900 text-lg">Yerinde Kurulum</div>
+                        <div class="font-sans text-sm text-gray-500 mt-1">İşletmenize özel keşif</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Images (Floating Composition) -->
+            <div class="relative h-[500px] md:h-[650px] w-full" data-aos="fade-left">
+                <!-- Abstract Blur -->
+                <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gradient-to-r from-tekno-blue/20 to-tekno-orange/20 rounded-full blur-[80px] transform -translate-y-1/2"></div>
+                
+                <!-- Main Image (Tech Setup) -->
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Bilgisayar ve Teknoloji" class="absolute top-10 right-10 w-[70%] h-[70%] object-cover rounded-3xl shadow-2xl border-8 border-white z-10">
+                
+                <!-- POS Image Floating -->
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Yazar Kasa POS" class="absolute bottom-10 right-0 w-[50%] h-[40%] object-cover rounded-2xl shadow-2xl border-4 border-white z-20 hover:scale-105 transition-transform duration-500">
+                
+                <!-- CCTV Image Floating -->
+                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Güvenlik Kamerası" class="absolute top-32 left-0 w-[45%] h-[40%] object-cover rounded-2xl shadow-2xl border-4 border-white z-20 hover:scale-105 transition-transform duration-500">
+
+                <!-- Floating Badge -->
+                <div class="absolute bottom-32 left-10 bg-white p-5 rounded-2xl shadow-xl z-30 flex items-center gap-4 animate-bounce" style="animation-duration: 4s;">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-3xl">
+                        <i class="ph-fill ph-headset"></i>
+                    </div>
+                    <div>
+                        <div class="font-display font-black text-xl text-tekno-dark">7/24</div>
+                        <div class="text-sm text-gray-500 font-medium">B2B Teknik Destek</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 2. MARQUEE (BRANDS - ÇÖZÜM ORTAKLARI) -->
+    <div class="py-4 text-center bg-white border-b border-gray-100">
+        <span class="font-display text-sm font-bold text-gray-400 uppercase tracking-widest">Yetkili Satıcı ve Servis Noktası Olduğumuz Dev Markalar</span>
+    </div>
+    <div class="marquee-container py-8">
+        <div class="marquee-content flex gap-12 items-center">
+            <!-- Duplicated content for infinite scroll effect -->
+            <span>BEKO</span><span>PROFILO</span><span>VERA</span><span>EPSON</span><span>SAMSUNG</span>
+            <span>LENOVO</span><span>ASUS</span><span>HP</span><span>SHARP</span><span>DELL</span>
+            <span>PANASONIC</span><span>NVIDIA</span><span>TOSHIBA</span><span>INTEL</span><span>LG</span>
+            <span>ACER</span><span>TP-LINK</span><span>SONY</span><span>PARADOX</span><span>AKINSOFT</span>
+            <span>BEKO</span><span>PROFILO</span><span>VERA</span><span>EPSON</span><span>SAMSUNG</span>
+            <span>LENOVO</span><span>ASUS</span><span>HP</span><span>SHARP</span><span>DELL</span>
+            <span>PANASONIC</span><span>NVIDIA</span><span>TOSHIBA</span><span>INTEL</span><span>LG</span>
+            <span>ACER</span><span>TP-LINK</span><span>SONY</span><span>PARADOX</span><span>AKINSOFT</span>
+        </div>
+    </div>
+
+    <!-- 3. RAKAMLARLA BİZ (STATS) -->
+    <section class="stats-bg py-20 relative">
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+                <div data-aos="fade-up" data-aos-delay="0">
+                    <div class="text-5xl md:text-7xl font-display font-black text-tekno-orange mb-4">15+</div>
+                    <div class="text-lg font-sans text-blue-100 font-medium">Yıllık Tecrübe</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl md:text-7xl font-display font-black text-white mb-4">5000+</div>
+                    <div class="text-lg font-sans text-blue-100 font-medium">Kurulan POS & Kasa</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl md:text-7xl font-display font-black text-white mb-4">10K+</div>
+                    <div class="text-lg font-sans text-blue-100 font-medium">Montajlanan Kamera</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl md:text-7xl font-display font-black text-tekno-orange mb-4">%99</div>
+                    <div class="text-lg font-sans text-blue-100 font-medium">Müşteri Memnuniyeti</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. HİZMETLER GENEL BAKIŞ (Bento Grid) -->
+    <section id="hizmetlerimiz" class="py-32 px-6 bg-white">
+        <div class="max-w-[1400px] mx-auto">
+            
+            <div class="text-center max-w-4xl mx-auto mb-20" data-aos="fade-up">
+                <h2 class="font-display text-4xl md:text-5xl font-black text-tekno-dark mb-6">Her Sektöre Uygun <span class="text-tekno-blue">Profesyonel Çözümler</span></h2>
+                <p class="font-sans text-gray-600 text-xl leading-relaxed">İşletmenizin altyapısını kuruyor, evinizin teknolojik ihtiyaçlarını karşılıyoruz. Sadece ürün satmıyor, projeler üretiyor ve anında teknik destek sağlıyoruz.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Yazar Kasa POS -->
+                <div class="service-card lg:col-span-2 bg-gradient-to-br from-gray-50 to-white" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row gap-8 items-center h-full">
+                        <div class="flex-1">
+                            <span class="inline-block px-4 py-1.5 bg-tekno-orange/10 text-tekno-orange font-bold text-sm rounded-md mb-6 uppercase tracking-wider">Kurumsal Çözüm / B2B</span>
+                            <h3 class="font-display text-4xl font-black text-tekno-dark mb-4">Yazar Kasa & POS Sistemleri</h3>
+                            <p class="font-sans text-gray-600 mb-6 text-lg leading-relaxed">Market, Kafe, Restoran veya Mağaza... İşletmenizin kalbi olan ödeme sistemlerinde <strong>Beko, Profilo, Vera</strong> gibi dev markaların yetkili satış ve kurulum merkeziyiz.</p>
+                            <ul class="feature-list mb-8 font-medium">
+                                <li>Yeni Nesil ÖKC (Ödeme Kaydedici Cihaz) Kurulumu</li>
+                                <li>Mali hafıza değişimi ve devir işlemleri</li>
+                                <li>E-Fatura, E-Arşiv entegrasyonları (Akinsoft vb.)</li>
+                                <li>7/24 yerinde müdahale ve yedek cihaz garantisi</li>
+                            </ul>
+                            <a href="#kurumsal-form" class="btn-blue py-3"><i class="ph-bold ph-buildings"></i> İşletmem İçin Fiyat Al</a>
+                        </div>
+                        <div class="w-full md:w-[40%]">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="POS Sistemleri" class="rounded-xl shadow-lg w-full h-auto object-cover border-4 border-white">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Güvenlik Sistemleri -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon-wrapper">
+                        <i class="ph-fill ph-video-camera"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-black text-tekno-dark mb-4">Güvenlik & Kamera</h3>
+                    <p class="font-sans text-gray-600 mb-6 leading-relaxed">Gözünüz arkada kalmasın. Yüksek çözünürlüklü (IP/AHD) kamera sistemleri, yüz tanıma ve plaka okuma entegrasyonları.</p>
+                    <ul class="feature-list mb-8 text-sm">
+                        <li>Dış mekan / Gece görüşlü kameralar</li>
+                        <li>Hırsız Alarm Sistemleri (Paradox vb.)</li>
+                        <li>Yangın İhbar & Söndürme sistemleri</li>
+                        <li>Uzaktan izleme ve bulut kayıt</li>
+                    </ul>
+                </div>
+
+                <!-- Bilgisayar & IT -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon-wrapper">
+                        <i class="ph-fill ph-desktop-tower"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-black text-tekno-dark mb-4">IT, PC & Sunucu</h3>
+                    <p class="font-sans text-gray-600 mb-6 leading-relaxed">Eviniz için oyuncu bilgisayarları, ofisiniz için kurumsal sunucu (server) ve kablolama çözümleri.</p>
+                    <ul class="feature-list mb-8 text-sm">
+                        <li>Sunucu Kabin & Network (Ağ) kurulumu</li>
+                        <li>Masaüstü, Laptop ve OEM parçalar</li>
+                        <li>Kurumsal bakım anlaşmaları (SLA)</li>
+                        <li>Virüs temizliği ve veri kurtarma</li>
+                    </ul>
+                </div>
+
+                <!-- Ses & Görüntüleme -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon-wrapper">
+                        <i class="ph-fill ph-speaker-hifi"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-black text-tekno-dark mb-4">Ses ve Görüntüleme</h3>
+                    <p class="font-sans text-gray-600 mb-6 leading-relaxed">Mekanınızın akustiğine uygun profesyonel seslendirme ve dev ekran projeksiyon sistemleri kurulumu.</p>
+                    <ul class="feature-list mb-8 text-sm">
+                        <li>Okul, cami ve fabrika seslendirmeleri</li>
+                        <li>Konferans salonu projeksiyon çözümleri</li>
+                        <li>Mağaza içi anons ve müzik sistemleri</li>
+                        <li>Profesyonel amfi ve mikrofonlar</li>
+                    </ul>
+                </div>
+
+                <!-- Beyaz Eşya & Küçük Ev Aletleri -->
+                <div class="service-card lg:col-span-1" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon-wrapper">
+                        <i class="ph-fill ph-thermometer-cold"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-black text-tekno-dark mb-4">Beyaz Eşya & Ev Aletleri</h3>
+                    <p class="font-sans text-gray-600 mb-6 leading-relaxed">Dünya markalarının en güncel ankastre, buzdolabı ve küçük ev aletleri uygun fiyat garantisiyle mağazamızda.</p>
+                    <ul class="feature-list mb-8 text-sm">
+                        <li>Çeyiz paketleri ve indirimler</li>
+                        <li>Klimalar ve ısıtma sistemleri</li>
+                        <li>Süpürge, ütü ve mutfak aletleri</li>
+                        <li>Aynı gün teslimat ve kurulum</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ÖNE ÇIKAN ÜRÜNLER (E-TİCARET VİTRİNİ) -->
+    <section class="py-24 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <span class="inline-block px-4 py-1.5 bg-tekno-orange/10 text-tekno-orange font-bold text-sm rounded-md mb-4 uppercase tracking-wider">Online Mağaza</span>
+                    <h2 class="font-display text-4xl font-black text-tekno-dark mb-4">Çok Satan <span class="text-tekno-orange">Ürünlerimiz</span></h2>
+                    <p class="font-sans text-gray-600 text-lg">Hem işletmeniz hem de eviniz için Sivas'taki en geniş stoklu ürün yelpazesi.</p>
+                </div>
+                <a href="#" class="font-display font-bold text-tekno-blue hover:text-tekno-orange transition mt-6 md:mt-0 flex items-center gap-2">Tüm Ürünleri Gör <i class="ph-bold ph-arrow-right"></i></a>
+            </div>
+
+            <!-- 12 Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                
+                <!-- Product 1 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="product-img-wrapper">
+                        <div class="product-badge">Çok Satan</div>
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Beko 300 TR">
+                    </div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">Yazar Kasa POS</div>
+                    <h3 class="font-display font-bold text-lg text-tekno-dark mb-3 leading-tight">Beko 300 TR Yeni Nesil Yazar Kasa POS</h3>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div class="font-sans font-bold text-xl text-tekno-dark">Fiyat Sorunuz</div>
+                        <button class="w-10 h-10 rounded-full bg-tekno-gray flex items-center justify-center text-tekno-blue hover:bg-tekno-orange hover:text-white transition"><i class="ph-bold ph-shopping-cart-simple"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dahua Kamera">
+                    </div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">Güvenlik Kamerası</div>
+                    <h3 class="font-display font-bold text-lg text-tekno-dark mb-3 leading-tight">Dahua 4 Kameralı Dış Mekan Güvenlik Seti</h3>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div class="font-sans font-bold text-xl text-tekno-dark">Stokta Var</div>
+                        <button class="w-10 h-10 rounded-full bg-tekno-gray flex items-center justify-center text-tekno-blue hover:bg-tekno-orange hover:text-white transition"><i class="ph-bold ph-shopping-cart-simple"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-img-wrapper">
+                        <div class="product-badge bg-tekno-blue">Kurumsal</div>
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Lenovo V15">
+                    </div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">Bilgisayar</div>
+                    <h3 class="font-display font-bold text-lg text-tekno-dark mb-3 leading-tight">Lenovo V15 Intel Core i5 Kurumsal Laptop</h3>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div class="font-sans font-bold text-xl text-tekno-dark">Fiyat Sorunuz</div>
+                        <button class="w-10 h-10 rounded-full bg-tekno-gray flex items-center justify-center text-tekno-blue hover:bg-tekno-orange hover:text-white transition"><i class="ph-bold ph-shopping-cart-simple"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Profilo Ankastre">
+                    </div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">Beyaz Eşya</div>
+                    <h3 class="font-display font-bold text-lg text-tekno-dark mb-3 leading-tight">Profilo 3'lü Beyaz Cam Ankastre Set</h3>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div class="font-sans font-bold text-xl text-tekno-dark">Kampanyalı</div>
+                        <button class="w-10 h-10 rounded-full bg-tekno-gray flex items-center justify-center text-tekno-blue hover:bg-tekno-orange hover:text-white transition"><i class="ph-bold ph-shopping-cart-simple"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="filter: hue-rotate(90deg);" alt="Profilo S900">
+                    </div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">Yazar Kasa POS</div>
+                    <h3 class="font-display font-bold text-lg text-tekno-dark mb-3 leading-tight">Profilo S900 E-Fatura Uyumlu Mobil POS</h3>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div class="font-sans font-bold text-xl text-tekno-dark">Fiyat Sorunuz</div>
+                        <button class="w-10 h-10 rounded-full bg-tekno-gray flex items-center justify-center text-tekno-blue hover:bg-tekno-orange hover:text-white transition"><i class="ph-bold ph-shopping-cart-simple"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="filter: grayscale(100%);" alt="Epson L3250">
+                    </div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">Yazıcı & Baskı</div>
+                    <h3 class="font-display font-bold text-lg text-tekno-dark mb-3 leading-tight">Epson EcoTank L3250 Wi-Fi Tanklı Yazıcı</h3>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div class="font-sans font-bold text-xl text-tekno-dark">Stokta Var</div>
+                        <button class="w-10 h-10 rounded-full bg-tekno-gray flex items-center justify-center text-tekno-blue hover:bg-tekno-orange hover:text-white transition"><i class="ph-bold ph-shopping-cart-simple"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-img-wrapper">
+                        <div class="product-badge bg-tekno-blue">Network</div>
+                        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="filter: sepia(50%);" alt="TP-Link">
+                    </div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">Ağ Çözümleri</div>
+                    <h3 class="font-display font-bold text-lg text-tekno-dark mb-3 leading-tight">TP-Link Deco M4 Tüm Ev Mesh Wi-Fi Sistemi</h3>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div class="font-sans font-bold text-xl text-tekno-dark">Stokta Var</div>
+                        <button class="w-10 h-10 rounded-full bg-tekno-gray flex items-center justify-center text-tekno-blue hover:bg-tekno-orange hover:text-white transition"><i class="ph-bold ph-shopping-cart-simple"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="filter: brightness(1.2);" alt="Beko Klima">
+                    </div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">İklimlendirme</div>
+                    <h3 class="font-display font-bold text-lg text-tekno-dark mb-3 leading-tight">Beko 12000 BTU Ekolojik Inverter Klima</h3>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div class="font-sans font-bold text-xl text-tekno-dark">Kampanyalı</div>
+                        <button class="w-10 h-10 rounded-full bg-tekno-gray flex items-center justify-center text-tekno-blue hover:bg-tekno-orange hover:text-white transition"><i class="ph-bold ph-shopping-cart-simple"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="filter: hue-rotate(180deg);" alt="Paradox Alarm">
+                    </div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">Güvenlik & Alarm</div>
+                    <h3 class="font-display font-bold text-lg text-tekno-dark mb-3 leading-tight">Paradox Hırsız Alarm Seti ve Montajı</h3>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div class="font-sans font-bold text-xl text-tekno-dark">Kurulum Dahil</div>
+                        <button class="w-10 h-10 rounded-full bg-tekno-gray flex items-center justify-center text-tekno-blue hover:bg-tekno-orange hover:text-white transition"><i class="ph-bold ph-shopping-cart-simple"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="filter: contrast(1.5);" alt="Oyuncu Monitörü">
+                    </div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">Çevre Birimleri</div>
+                    <h3 class="font-display font-bold text-lg text-tekno-dark mb-3 leading-tight">Asus TUF Gaming 27" 165Hz IPS Monitör</h3>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div class="font-sans font-bold text-xl text-tekno-dark">Stokta Var</div>
+                        <button class="w-10 h-10 rounded-full bg-tekno-gray flex items-center justify-center text-tekno-blue hover:bg-tekno-orange hover:text-white transition"><i class="ph-bold ph-shopping-cart-simple"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 11 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-img-wrapper">
+                        <div class="product-badge bg-tekno-blue">B2B</div>
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="filter: hue-rotate(270deg);" alt="HP Sunucu">
+                    </div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">Sunucu / Server</div>
+                    <h3 class="font-display font-bold text-lg text-tekno-dark mb-3 leading-tight">HP ProLiant MicroServer Gen10 Plus</h3>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div class="font-sans font-bold text-xl text-tekno-dark">Fiyat Sorunuz</div>
+                        <button class="w-10 h-10 rounded-full bg-tekno-gray flex items-center justify-center text-tekno-blue hover:bg-tekno-orange hover:text-white transition"><i class="ph-bold ph-shopping-cart-simple"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 12 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="filter: invert(0.1);" alt="Vera Yazar Kasa">
+                    </div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">Yazar Kasa POS</div>
+                    <h3 class="font-display font-bold text-lg text-tekno-dark mb-3 leading-tight">Vera Delta Yeni Nesil Temassız POS</h3>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div class="font-sans font-bold text-xl text-tekno-dark">Kurulum Dahil</div>
+                        <button class="w-10 h-10 rounded-full bg-tekno-gray flex items-center justify-center text-tekno-blue hover:bg-tekno-orange hover:text-white transition"><i class="ph-bold ph-shopping-cart-simple"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. TEKNİK SERVİS (Deep Dive) -->
+
+    <section id="teknik-servis" class="py-32 px-6 bg-tekno-gray border-y border-gray-200">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                
+                <!-- Servis Image -->
+                <div class="split-image-container" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Teknik Servis Laboratuvarı" class="w-full h-full object-cover">
+                    <!-- Overlapping Info Box -->
+                    <div class="absolute bottom-10 -right-10 bg-white p-8 rounded-2xl shadow-2xl max-w-sm hidden md:block">
+                        <div class="text-tekno-orange text-5xl mb-4"><i class="ph-fill ph-wrench"></i></div>
+                        <h4 class="font-display font-black text-2xl mb-2">Uzman Laboratuvar</h4>
+                        <p class="font-sans text-gray-600 text-sm">Cihazlarınız amatör ellere bırakılmaz. Antistatik ortamda, profesyonel ekipmanlarla onarım yapılır.</p>
+                    </div>
+                </div>
+
+                <!-- Servis Content -->
+                <div data-aos="fade-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-tekno-orange/10 text-tekno-orange font-display text-sm font-bold uppercase mb-6">
+                        <i class="ph-fill ph-cpu"></i> Kapsamlı Onarım Merkezi
+                    </div>
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-tekno-dark mb-6">Satmakla Bitmiyor, <br><span class="text-tekno-blue">Asıl İşimiz Servis!</span></h2>
+                    <p class="font-sans text-gray-600 text-xl leading-relaxed mb-10">
+                        Bir cihazı almak işin kolay kısmıdır. Önemli olan, o cihaz arızalandığında karşınızda muhatap bulabilmektir. Tekno Dünya olarak Sivas'taki en donanımlı yetkili servis laboratuvarlarından birine sahibiz.
+                    </p>
+
+                    <div class="space-y-6 mb-12">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-tekno-orange shrink-0 text-2xl"><i class="ph-bold ph-rocket"></i></div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl mb-1">Anında Arıza Tespiti</h4>
+                                <p class="font-sans text-gray-600">Cihazınız servisimize girdiği an barkodlanır, son teknoloji cihazlarla arızası tespit edilip size şeffaf fiyat sunulur.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-tekno-orange shrink-0 text-2xl"><i class="ph-bold ph-shield-check"></i></div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl mb-1">Garantili Yedek Parça</h4>
+                                <p class="font-sans text-gray-600">Kullandığımız tüm yedek parçalar orijinal ve yetkili distribütör garantilidir. Yan sanayi sürprizleri yaşamazsınız.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-tekno-orange shrink-0 text-2xl"><i class="ph-bold ph-map-pin-line"></i></div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl mb-1">Yerinde Müdahale (İşletmeler)</h4>
+                                <p class="font-sans text-gray-600">Restoranınızın POS cihazı mı bozuldu? Kameralarınız mı koptu? Özel donanımlı servis araçlarımızla dakikalar içinde iş yerinizdeyiz.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="tel:+903460000000" class="btn-orange"><i class="ph-bold ph-phone-call"></i> Servis Çağırın</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 6. FAQ (Sıkça Sorulan Sorular) -->
+    <section id="sss" class="py-32 px-6 bg-white">
+        <div class="max-w-[1000px] mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display text-4xl md:text-5xl font-black text-tekno-dark mb-4">Sıkça Sorulan Sorular</h2>
+                <p class="font-sans text-gray-600 text-lg">Hizmetlerimiz ve işleyişimiz hakkında merak ettikleriniz.</p>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item active">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Yazar kasa devir ve kurulum işlemlerini siz mi yapıyorsunuz?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Evet, tamamen biz yapıyoruz. Yeni cihaz alımlarında veya 2. el devir işlemlerinde maliye bildirimlerinden, cihazın işletme kurulumuna kadar tüm süreci anahtar teslim olarak yönetiyoruz. Profilo, Beko, Vera gibi markaların yetkili servisiyiz.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>İş yerime güvenlik kamerası kurdurmak istiyorum, keşif ücretli mi?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Hayır, Sivas merkezdeki işletmeler ve evler için güvenlik kamerası ve alarm sistemi keşiflerimiz tamamen ücretsizdir. Uzman ekibimiz mekanınıza gelir, kör noktaları belirler ve size en uygun sistemi projelendirip fiyatlandırır.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Aldığım beyaz eşyanın kurulumunu ne zaman yapıyorsunuz?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Stoklarımızda bulunan ürünler için aynı gün içerisinde Sivas içi adresinize teslimat ve yetkili servis kurulumu sağlamaktayız.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Kurumsal firmalar için "Bakım Anlaşması" yapıyor musunuz?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Kesinlikle. Fabrikalar, hastaneler, büyük market zincirleri ve ofisler için yıllık veya aylık periyotlarda IT (Bilgisayar/Ağ) ve Güvenlik sistemleri periyodik bakım anlaşmaları (SLA) yapıyoruz. Olası arızalarda öncelikli müdahale hakkı kazanıyorsunuz.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CTA & FORMLAR (Hipnotize Edici İletişim Alanı) -->
+    <section id="kurumsal-form" class="py-24 px-6 relative overflow-hidden">
+        <!-- Dynamic Gradient BG -->
+        <div class="absolute inset-0 bg-gradient-to-br from-tekno-blue to-tekno-darkBlue z-0"></div>
+        <!-- Decorative Grid -->
+        <div class="absolute inset-0 z-0 opacity-10" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+        <div class="max-w-[1400px] mx-auto relative z-10">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div>
+                    <span class="inline-block px-4 py-1.5 bg-tekno-blue/10 text-tekno-blue font-bold text-sm rounded-md mb-6 uppercase tracking-wider">Profesyonel İletişim</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-tekno-dark mb-6">İşletmenizin Teknolojik <br>Altyapısı Bize Emanet.</h2>
+                    <p class="font-sans text-gray-600 text-lg mb-8 leading-relaxed">Yeni bir mekan mı açıyorsunuz? (Kafe, Market, Ofis). Kameralardan pos cihazlarına, anons sisteminden bilgisayar ağlarına kadar tüm teknolojik altyapınızı tek elden anahtar teslim kuralım.</p>
+                    
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center gap-4 text-tekno-dark font-display font-bold text-xl">
+                            <div class="w-12 h-12 rounded-full bg-tekno-orange/10 flex items-center justify-center text-tekno-orange text-2xl"><i class="ph-fill ph-phone-call"></i></div>
+                            0346 XXX XX XX
+                        </div>
+                        <div class="flex items-center gap-4 text-tekno-dark font-display font-bold text-xl">
+                            <div class="w-12 h-12 rounded-full bg-tekno-blue/10 flex items-center justify-center text-tekno-blue text-2xl"><i class="ph-fill ph-envelope"></i></div>
+                            kurumsal@teknodunya.com.tr
+                        </div>
+                        <div class="flex items-center gap-4 text-tekno-dark font-display font-bold text-xl">
+                            <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 text-2xl"><i class="ph-fill ph-map-pin"></i></div>
+                            Sivas Merkez, Vitrinteki Adres
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-tekno-gray p-8 rounded-2xl border border-gray-200">
+                    <h3 class="font-display text-2xl font-black text-tekno-dark mb-6">Ücretsiz Keşif & Teklif Formu</h3>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Form başarıyla gönderildi. Müşteri temsilcimiz sizinle iletişime geçecektir.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-sans text-sm font-semibold text-gray-700 mb-2">Ad Soyad / Firma Adı</label>
+                                <input type="text" class="form-input" placeholder="Firma Adı Ltd. Şti." required>
+                            </div>
+                            <div>
+                                <label class="block font-sans text-sm font-semibold text-gray-700 mb-2">Telefon Numarası</label>
+                                <input type="tel" class="form-input" placeholder="05XX XXX XX XX" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-sans text-sm font-semibold text-gray-700 mb-2">İhtiyaç Duyduğunuz Sistemler</label>
+                            <select class="form-input">
+                                <option>Yazar Kasa & POS Kurulumu</option>
+                                <option>Güvenlik Kamerası & Alarm</option>
+                                <option>Bilgisayar ve Sunucu Ağı</option>
+                                <option>Seslendirme ve Anons Sistemi</option>
+                                <option>Tam Kapsamlı (Anahtar Teslim Proje)</option>
+                                <option>Diğer</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-sans text-sm font-semibold text-gray-700 mb-2">Mesajınız (Opsiyonel)</label>
+                            <textarea class="form-input h-32 resize-none" placeholder="Projeniz hakkında kısa bilgi verin..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-orange w-full justify-center text-lg mt-4 py-4">Teklif İste</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 8. FOOTER -->
+    <footer class="bg-tekno-darker text-gray-300 pt-24 pb-12 border-t-4 border-tekno-orange">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16 border-b border-white/10 pb-16">
+                
+                <!-- Logo & About (2 cols) -->
+                <div class="lg:col-span-2 pr-0 lg:pr-12">
+                    <a href="#" class="flex items-center shrink-0 mb-8">
+                        <div class="bg-tekno-orange px-3 py-2 rounded-l-lg">
+                            <span class="font-display text-2xl font-black text-white">TEKNO</span>
+                        </div>
+                        <div class="bg-white border-y-2 border-r-2 border-tekno-blue px-3 py-2 rounded-r-lg -ml-1">
+                            <span class="font-display text-2xl font-black text-tekno-blue">DÜNYA</span>
+                        </div>
+                    </a>
+                    <p class="font-sans text-sm leading-relaxed mb-8 opacity-80">
+                        Teknolojiye dair her şey Tekno Dünya'da! Bilgisayar, güvenlik sistemleri, yazar kasa POS, seslendirme, beyaz eşya satışı ve uzman teknik servis. Sivas'ın en güçlü teknoloji altyapı sağlayıcısı.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-tekno-orange hover:text-white transition-all text-xl"><i class="ph-fill ph-instagram-logo"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-tekno-blue hover:text-white transition-all text-xl"><i class="ph-fill ph-facebook-logo"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all text-xl"><i class="ph-fill ph-whatsapp-logo"></i></a>
+                    </div>
+                </div>
+
+                <!-- Hızlı Menü -->
+                <div class="lg:col-span-1">
+                    <h4 class="font-display text-lg font-bold mb-6 text-white uppercase tracking-wider">Hızlı Menü</h4>
+                    <ul class="font-sans text-sm space-y-3 opacity-80">
+                        <li><a href="#" class="hover:text-tekno-orange transition-colors">Ana Sayfa</a></li>
+                        <li><a href="#hizmetlerimiz" class="hover:text-tekno-orange transition-colors">Hizmetlerimiz</a></li>
+                        <li><a href="#teknik-servis" class="hover:text-tekno-orange transition-colors">Teknik Servis</a></li>
+                        <li><a href="#sss" class="hover:text-tekno-orange transition-colors">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="#kurumsal-form" class="hover:text-tekno-orange transition-colors">İletişim</a></li>
+                    </ul>
+                </div>
+
+                <!-- Çözümler -->
+                <div class="lg:col-span-1">
+                    <h4 class="font-display text-lg font-bold mb-6 text-white uppercase tracking-wider">Çözümlerimiz</h4>
+                    <ul class="font-sans text-sm space-y-3 opacity-80">
+                        <li><a href="#" class="hover:text-tekno-orange transition-colors">Yazar Kasa & POS</a></li>
+                        <li><a href="#" class="hover:text-tekno-orange transition-colors">Güvenlik Kamerası</a></li>
+                        <li><a href="#" class="hover:text-tekno-orange transition-colors">Hırsız & Yangın Alarmı</a></li>
+                        <li><a href="#" class="hover:text-tekno-orange transition-colors">Kurumsal Ağ (Network)</a></li>
+                        <li><a href="#" class="hover:text-tekno-orange transition-colors">Ses & Anons Sistemleri</a></li>
+                    </ul>
+                </div>
+
+                <!-- İletişim -->
+                <div class="lg:col-span-1">
+                    <h4 class="font-display text-lg font-bold mb-6 text-white uppercase tracking-wider">İletişim</h4>
+                    <ul class="font-sans text-sm space-y-4 opacity-80">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-map-pin text-xl text-tekno-orange shrink-0 mt-1"></i>
+                            <span>Sivas Merkez<br>Tekno Dünya Mağazası</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-phone text-xl text-tekno-orange shrink-0"></i>
+                            <span>0346 XXX XX XX</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-envelope-simple text-xl text-tekno-orange shrink-0"></i>
+                            <span>bilgi@teknodunya.com.tr</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center font-sans text-sm opacity-60">
+                <p>&copy; 2026 Tekno Dünya - Teknolojiye Dair Her Şey. Tüm Hakları Saklıdır.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">KVK Aydınlatma</a>
+                    <a href="#" class="hover:text-white">Çerez Politikası</a>
+                    <a href="#" class="hover:text-white">Mesafeli Satış Sözleşmesi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/903460000000" target="_blank" class="whatsapp-float" aria-label="WhatsApp İletişim">
+        <i class="ph-bold ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100,
+            });
+        });
+
+        // FAQ Toggle Script
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            
+            // Close all other items
+            const allItems = document.querySelectorAll('.faq-item');
+            allItems.forEach(i => {
+                if(i !== item) i.classList.remove('active');
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

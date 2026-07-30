@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sivas Bölge Veteriner Kliniği | Kapsamlı Hayvan Hastanesi</title>
+    <meta name="description" content="Sivas'ın can dostları için 7/24 hizmet veren en kapsamlı ve donanımlı veteriner kliniği. Cerrahi, radyoloji, laboratuvar ve koruyucu hekimlik.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        vet: {
+                            blue: '#0EA5E9',      // Sky 500
+                            darkBlue: '#0284C7',  // Sky 600
+                            navy: '#0F172A',      // Slate 900 (En koyu metin/bg)
+                            dark: '#1E293B',      // Slate 800 (Koyu metin)
+                            gray: '#475569',      // Slate 600 (Okunabilir alt metin, Slate 500 yerine 600 seçildi)
+                            light: '#F8FAFC',     // Slate 50
+                            accent: '#F59E0B',    // Amber 500 (Dikkat çeken vurgu rengi)
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(14, 165, 233, 0.15)',
+                        'card': '0 10px 30px -10px rgba(0, 0, 0, 0.08)',
+                        'floating': '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FAFAFA;
+            color: theme('colors.vet.gray');
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: theme('colors.vet.blue');
+            color: white;
+        }
+
+        /* Hero Gradient - Daha yüksek opaklık ve daha koyu zemin */
+        .hero-gradient {
+            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 45%, rgba(255,255,255,0.4) 100%);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-gradient {
+                background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 60%, rgba(255,255,255,0.7) 100%);
+            }
+        }
+
+        /* Glassmorphism */
+        .glass-header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(14, 165, 233, 0.15);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: theme('boxShadow.card');
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: theme('colors.vet.blue');
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px -10px theme('colors.vet.blue');
+        }
+        .btn-primary:hover {
+            background-color: theme('colors.vet.darkBlue');
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -10px theme('colors.vet.darkBlue');
+        }
+
+        .btn-emergency {
+            background-color: #EF4444; /* Red 500 */
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px -10px #EF4444;
+            animation: pulse-red 2s infinite;
+        }
+        .btn-emergency:hover {
+            background-color: #DC2626;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -10px #DC2626;
+            animation: none;
+        }
+
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        /* Detailed Service Card */
+        .service-card-pro {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid theme('colors.slate.100');
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .service-card-pro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, theme('colors.vet.light') 0%, white 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .service-card-pro:hover {
+            transform: translateY(-8px);
+            box-shadow: theme('boxShadow.floating');
+            border-color: theme('colors.vet.blue');
+        }
+        .service-card-pro:hover::before {
+            opacity: 1;
+        }
+        
+        .icon-box-pro {
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 1.2rem;
+            background: theme('colors.vet.light');
+            color: theme('colors.vet.blue');
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+        }
+        .service-card-pro:hover .icon-box-pro {
+            background: theme('colors.vet.blue');
+            color: white;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            border-bottom: 1px solid theme('colors.slate.200');
+        }
+        .faq-button {
+            width: 100%;
+            text-align: left;
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            color: theme('colors.vet.dark');
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        .faq-button:hover {
+            color: theme('colors.vet.blue');
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out, opacity 0.3s ease;
+            opacity: 0;
+            color: theme('colors.vet.gray');
+            line-height: 1.7;
+        }
+        .faq-item.active .faq-content {
+            padding-bottom: 1.5rem;
+            opacity: 1;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: theme('colors.vet.blue');
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Top Info Bar (Detailed) -->
+    <div class="bg-vet-navy text-slate-300 py-3 px-6 hidden lg:block border-b border-white/10">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center text-sm font-medium">
+            <div class="flex gap-8">
+                <span class="flex items-center gap-2 hover:text-white transition-colors cursor-default">
+                    <i class="ph-fill ph-map-pin text-vet-blue text-lg"></i> Pulur Mah. Ahi Emir Cad. Sivas Merkez
+                </span>
+                <span class="flex items-center gap-2 hover:text-white transition-colors cursor-default">
+                    <i class="ph-fill ph-clock text-vet-blue text-lg"></i> Pzt-Cmt: 09:00 - 19:00 | Acil: 7/24
+                </span>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="flex gap-4 border-r border-slate-700 pr-6">
+                    <a href="#" class="hover:text-vet-blue transition-colors"><i class="ph-fill ph-facebook-logo text-xl"></i></a>
+                    <a href="https://www.instagram.com/sivasbolgevet/" target="_blank" class="hover:text-vet-blue transition-colors"><i class="ph-fill ph-instagram-logo text-xl"></i></a>
+                    <a href="#" class="hover:text-vet-blue transition-colors"><i class="ph-fill ph-whatsapp-logo text-xl"></i></a>
+                </div>
+                <a href="tel:05316907223" class="flex items-center gap-2 text-white font-bold tracking-wide hover:text-vet-blue transition-colors">
+                    <i class="ph-fill ph-phone-call text-vet-blue text-lg animate-pulse"></i> 0531 690 72 23
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Nav -->
+    <nav class="glass-header sticky top-0 z-50 py-4 px-6">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-4 group">
+                <div class="w-14 h-14 bg-gradient-to-br from-vet-blue to-vet-darkBlue rounded-xl flex items-center justify-center text-white text-3xl shadow-soft transition-transform duration-500 group-hover:rotate-12">
+                    <i class="ph-fill ph-paw-print"></i>
+                </div>
+                <div class="flex flex-col leading-tight">
+                    <span class="font-display text-2xl font-extrabold text-vet-navy tracking-tight">Sivas Bölge</span>
+                    <span class="font-display text-[0.85rem] font-bold text-vet-blue tracking-[0.15em] uppercase mt-0.5">Veteriner Kliniği</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden xl:flex items-center gap-10">
+                <a href="#hakkimizda" class="font-display font-bold text-[0.95rem] text-vet-navy hover:text-vet-blue transition-colors">Kurumsal</a>
+                <a href="#hizmetler" class="font-display font-bold text-[0.95rem] text-vet-navy hover:text-vet-blue transition-colors">Hizmetlerimiz</a>
+                <a href="#teknoloji" class="font-display font-bold text-[0.95rem] text-vet-navy hover:text-vet-blue transition-colors">Teknolojimiz</a>
+                <a href="#sss" class="font-display font-bold text-[0.95rem] text-vet-navy hover:text-vet-blue transition-colors">S.S.S.</a>
+                <a href="#galeri" class="font-display font-bold text-[0.95rem] text-vet-navy hover:text-vet-blue transition-colors">Galeri</a>
+            </div>
+
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="tel:05316907223" class="btn-primary hidden md:inline-flex">
+                    Randevu Oluştur <i class="ph-bold ph-arrow-right"></i>
+                </a>
+                <button class="xl:hidden text-vet-navy text-3xl p-2 hover:bg-slate-100 rounded-lg transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="ph-bold ph-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden xl:hidden absolute top-full left-0 w-full bg-white border-t border-slate-100 p-6 shadow-2xl">
+            <div class="flex flex-col gap-6">
+                <a href="#hakkimizda" class="font-display font-bold text-vet-navy text-lg border-b border-slate-100 pb-2" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Kurumsal</a>
+                <a href="#hizmetler" class="font-display font-bold text-vet-navy text-lg border-b border-slate-100 pb-2" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Hizmetlerimiz</a>
+                <a href="#teknoloji" class="font-display font-bold text-vet-navy text-lg border-b border-slate-100 pb-2" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Teknoloji & Altyapı</a>
+                <a href="#iletisim" class="font-display font-bold text-vet-navy text-lg border-b border-slate-100 pb-2" onclick="document.getElementById('mobile-menu').classList.add('hidden')">İletişim & Harita</a>
+                <a href="tel:05316907223" class="btn-emergency w-full mt-4">
+                    <i class="ph-bold ph-phone-call"></i> Acil Durum Ara
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. ENHANCED HERO SECTION -->
+    <section class="relative w-full min-h-[90vh] bg-white flex items-center overflow-hidden border-b border-slate-200">
+        <!-- Background Image -->
+        <div class="absolute inset-0 md:left-1/4 lg:left-1/3 z-0 h-full">
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Profesyonel Veteriner Hekim" class="w-full h-full object-cover object-center">
+            <!-- Enhanced High Contrast Gradient -->
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10 w-full pt-16 pb-24 md:py-0">
+            <div class="max-w-2xl" data-aos="fade-right">
+                
+                <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-blue-50 text-vet-blue font-display text-sm font-bold tracking-wide mb-8 border border-blue-100 shadow-sm">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-vet-blue opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-vet-blue"></span>
+                    </span>
+                    Sivas'ın En Kapsamlı Hayvan Hastanesi
+                </div>
+                
+                <h1 class="font-display text-5xl md:text-6xl lg:text-[5rem] text-vet-navy font-extrabold leading-[1.1] mb-8 tracking-tight">
+                    Can Dostlarınız <br>
+                    <span class="text-vet-blue relative">
+                        Tam Güvende
+                        <svg class="absolute w-full h-4 -bottom-1 left-0 text-vet-light opacity-50 z-[-1]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 10 Q 50 0 100 10" fill="currentColor"></path></svg>
+                    </span>
+                </h1>
+                
+                <p class="font-sans text-vet-gray text-lg md:text-xl leading-relaxed mb-10 max-w-xl font-medium">
+                    Modern tıbbi cihazlarımız, uzman hekim kadromuz ve tam donanımlı operasyon odalarımızla sevimli dostlarımızın sağlığı için <strong class="text-vet-navy">7/24 kesintisiz</strong> hizmet veriyoruz.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="tel:05316907223" class="btn-emergency">
+                        <i class="ph-bold ph-ambulance text-xl"></i> Acil Müdahale
+                    </a>
+                    <a href="#hizmetler" class="bg-white text-vet-navy border-2 border-slate-200 hover:border-vet-blue hover:text-vet-blue padding px-8 py-4 rounded-full font-display font-bold text-center transition-colors flex items-center justify-center gap-2">
+                        Tüm Hizmetler <i class="ph-bold ph-caret-down"></i>
+                    </a>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="mt-12 flex items-center gap-8 border-t border-slate-200 pt-8">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-green-50 text-green-500 flex items-center justify-center text-2xl">
+                            <i class="ph-fill ph-shield-check"></i>
+                        </div>
+                        <div class="leading-tight">
+                            <div class="font-display font-bold text-vet-navy">Lisanslı</div>
+                            <div class="font-sans text-xs text-vet-gray font-medium">Veteriner Hekimler</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-vet-blue flex items-center justify-center text-2xl">
+                            <i class="ph-fill ph-first-aid"></i>
+                        </div>
+                        <div class="leading-tight">
+                            <div class="font-display font-bold text-vet-navy">7/24 Aktif</div>
+                            <div class="font-sans text-xs text-vet-gray font-medium">Acil Servis</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ACİL DURUM BANDI (TRUST STRIP) -->
+    <section class="bg-vet-navy py-12 relative overflow-hidden">
+        <!-- Decor pattern -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+                <div class="px-6 py-4 md:py-0" data-aos="fade-up" data-aos-delay="0">
+                    <i class="ph-fill ph-ambulance text-4xl text-vet-blue mb-4"></i>
+                    <h3 class="font-display text-white text-xl font-bold mb-2">Acil Travma Müdahalesi</h3>
+                    <p class="font-sans text-slate-400 text-sm leading-relaxed">Trafik kazası, yüksekten düşme ve zehirlenme vakalarında anında müdahale kapasitesi.</p>
+                </div>
+                <div class="px-6 py-4 md:py-0" data-aos="fade-up" data-aos-delay="100">
+                    <i class="ph-fill ph-hospital text-4xl text-vet-blue mb-4"></i>
+                    <h3 class="font-display text-white text-xl font-bold mb-2">Tam Donanımlı Yoğun Bakım</h3>
+                    <p class="font-sans text-slate-400 text-sm leading-relaxed">Kritik hastalarımız için oksijen destekli, ısı kontrollü özel yoğun bakım üniteleri.</p>
+                </div>
+                <div class="px-6 py-4 md:py-0" data-aos="fade-up" data-aos-delay="200">
+                    <i class="ph-fill ph-microscope text-4xl text-vet-blue mb-4"></i>
+                    <h3 class="font-display text-white text-xl font-bold mb-2">Hızlı Laboratuvar Sonucu</h3>
+                    <p class="font-sans text-slate-400 text-sm leading-relaxed">Kan sayımı ve biyokimyasal analizleri dakikalar içinde sonuçlandıran kendi laboratuvarımız.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. HAKKIMIZDA (DEEP DIVE) -->
+    <section id="hakkimizda" class="py-24 px-6 bg-white">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left: Image Composition -->
+                <div class="relative" data-aos="fade-right">
+                    <div class="absolute inset-0 bg-vet-blue/5 rounded-3xl transform -rotate-3 scale-105 z-0"></div>
+                    <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Uzman Veteriner Muayenesi" class="rounded-3xl shadow-floating w-full h-[550px] object-cover relative z-10">
+                    
+                    <!-- Floating Stats Card -->
+                    <div class="glass-card absolute bottom-8 -right-8 p-6 rounded-2xl hidden md:flex items-center gap-5 z-20 animate-[bounce_4s_infinite]">
+                        <div class="w-14 h-14 bg-vet-blue rounded-full flex items-center justify-center text-3xl text-white">
+                            <i class="ph-fill ph-heartbeat"></i>
+                        </div>
+                        <div>
+                            <p class="font-display font-extrabold text-3xl text-vet-navy leading-none">1000+</p>
+                            <p class="font-sans text-sm font-semibold text-vet-gray mt-1">İyileşen Hasta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Text Content -->
+                <div data-aos="fade-left" class="lg:pl-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-12 h-1 bg-vet-blue rounded-full"></span>
+                        <span class="text-vet-blue font-display font-bold tracking-[0.15em] uppercase text-sm">Kurumsal Kimliğimiz</span>
+                    </div>
+                    
+                    <h2 class="font-display text-4xl lg:text-5xl text-vet-navy font-extrabold mb-6 leading-tight">Sivas'ın En Kapsamlı <br>Hayvan Hastanesi Standardı</h2>
+                    
+                    <p class="font-sans text-vet-gray text-lg leading-relaxed mb-6 font-medium">
+                        Bir petshop veya basit bir muayenehane değiliz. Sivas Bölge Veteriner Kliniği, gelişmiş tıp teknolojilerini şefkatle harmanlayan tam teşekküllü bir sağlık merkezidir.
+                    </p>
+                    <p class="font-sans text-vet-gray text-[1.05rem] leading-relaxed mb-8">
+                        Amacımız, minik dostlarımızın hastalıklarını sadece geçiştirmek değil, en kök nedene inerek kesin tanı koymak ve hayat standartlarını maksimuma çıkarmaktır. Doğru teşhisin hayat kurtardığına inanıyoruz.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-blue-50 text-vet-blue flex items-center justify-center text-xl shrink-0">
+                                <i class="ph-bold ph-shield-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-vet-navy mb-1">Uluslararası Standartlar</h4>
+                                <p class="font-sans text-sm text-vet-gray leading-relaxed">Sterilizasyon ve tedavi protokollerinde dünya standartlarını uyguluyoruz.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-blue-50 text-vet-blue flex items-center justify-center text-xl shrink-0">
+                                <i class="ph-bold ph-users"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-vet-navy mb-1">Deneyimli Kadro</h4>
+                                <p class="font-sans text-sm text-vet-gray leading-relaxed">Farklı uzmanlık alanlarına sahip veteriner hekimlerden oluşan büyük bir aileyiz.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#iletisim" class="btn-primary">
+                        Kliğimizi Ziyaret Edin <i class="ph-bold ph-map-pin ml-1"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. KAPSAMLI HİZMETLERİMİZ (BENTO GRID) -->
+    <section id="hizmetler" class="py-24 px-6 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-[1400px] mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-vet-blue font-display font-bold tracking-[0.15em] uppercase text-sm mb-4 block">Geniş Çaplı Hizmet Ağı</span>
+                <h2 class="font-display text-4xl lg:text-5xl text-vet-navy font-extrabold mb-6">Her Tıbbi İhtiyaca <br>Profesyonel Çözüm</h2>
+                <p class="font-sans text-vet-gray text-lg font-medium">Bölgenin referans kliniği olarak, en karmaşık vakalardan rutin kontrollere kadar eksiksiz veterinerlik hizmeti sunuyoruz.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Hizmet 1 -->
+                <div class="service-card-pro" data-aos="fade-up" data-aos-delay="0">
+                    <div class="icon-box-pro">
+                        <i class="ph-fill ph-scan"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-vet-navy mb-3">Radyoloji & Görüntüleme</h3>
+                    <p class="font-sans text-vet-gray leading-relaxed mb-4">Dijital röntgen ve renkli doppler ultrasonografi sistemlerimizle iç organ yapılarının, kemik kırıklarının ve gebeliğin en hassas şekilde incelenmesi.</p>
+                    <ul class="font-sans text-sm text-vet-gray space-y-2">
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-vet-blue"></i> Dijital CR Röntgen</li>
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-vet-blue"></i> İleri Düzey Ultrasonografi</li>
+                    </ul>
+                </div>
+
+                <!-- Hizmet 2 -->
+                <div class="service-card-pro" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box-pro">
+                        <i class="ph-fill ph-scissors"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-vet-navy mb-3">Cerrahi Operasyonlar</h3>
+                    <p class="font-sans text-vet-gray leading-relaxed mb-4">Kapalı devre gaz anestezisi güvenliğiyle; kısırlaştırma, yumuşak doku, ortopedi ve travma cerrahisi müdahalelerini tam donanımlı ameliyathanemizde gerçekleştiriyoruz.</p>
+                    <ul class="font-sans text-sm text-vet-gray space-y-2">
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-vet-blue"></i> Gaz Anestezisi (Güvenli)</li>
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-vet-blue"></i> Ortopedik ve Genel Cerrahi</li>
+                    </ul>
+                </div>
+
+                <!-- Hizmet 3 -->
+                <div class="service-card-pro" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box-pro">
+                        <i class="ph-fill ph-test-tube"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-vet-navy mb-3">Tam Teşekküllü Laboratuvar</h3>
+                    <p class="font-sans text-vet-gray leading-relaxed mb-4">Hastalıkların kesin teşhisi için kan sayımı (hemogram), biyokimya, idrar analizi ve hızlı viral testleri kliniğimiz bünyesinde dakikalar içinde sonuçlandırıyoruz.</p>
+                    <ul class="font-sans text-sm text-vet-gray space-y-2">
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-vet-blue"></i> Biyokimya ve Hemogram</li>
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-vet-blue"></i> Anında Hızlı Testler</li>
+                    </ul>
+                </div>
+
+                <!-- Hizmet 4 -->
+                <div class="service-card-pro" data-aos="fade-up" data-aos-delay="0">
+                    <div class="icon-box-pro">
+                        <i class="ph-fill ph-shield-plus"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-vet-navy mb-3">Koruyucu Hekimlik</h3>
+                    <p class="font-sans text-vet-gray leading-relaxed mb-4">Dostlarımızın hastalanmasını beklemeden; yaşa ve ırka özel aşı takvimi, iç/dış parazit mücadele programı ve resmi mikroçip kayıt işlemlerini titizlikle takip ediyoruz.</p>
+                    <ul class="font-sans text-sm text-vet-gray space-y-2">
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-vet-blue"></i> Kişiselleştirilmiş Aşı Takvimi</li>
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-vet-blue"></i> Yasal Mikroçip Uygulaması</li>
+                    </ul>
+                </div>
+
+                <!-- Hizmet 5 -->
+                <div class="service-card-pro" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box-pro">
+                        <i class="ph-fill ph-tooth"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-vet-navy mb-3">Ağız ve Diş Sağlığı</h3>
+                    <p class="font-sans text-vet-gray leading-relaxed mb-4">Kedi ve köpeklerde sıkça görülen ağız kokusu, diş eti hastalıkları ve çürükleri engellemek için ultrasonik kavitron cihazlarıyla tartarlarını (diş taşı) temizliyoruz.</p>
+                    <ul class="font-sans text-sm text-vet-gray space-y-2">
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-vet-blue"></i> Ultrasonik Tartar Temizliği</li>
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-vet-blue"></i> Diş Çekimi ve Tedavisi</li>
+                    </ul>
+                </div>
+
+                <!-- Hizmet 6 -->
+                <div class="service-card-pro" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box-pro">
+                        <i class="ph-fill ph-bed"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-vet-navy mb-3">Yatılı Tedavi & Yoğun Bakım</h3>
+                    <p class="font-sans text-vet-gray leading-relaxed mb-4">Enfeksiyöz hastalıklara yakalanan, ağır travma geçiren veya ameliyat sonrası bakıma ihtiyaç duyan hastalarımız için 7/24 gözetimli özel oksijenli yatan hasta üniteleri.</p>
+                    <ul class="font-sans text-sm text-vet-gray space-y-2">
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-vet-blue"></i> İklimlendirmeli Oksijen Kabini</li>
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-check text-vet-blue"></i> 24 Saat Hekim Gözetimi</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. TEKNOLOJİK ALTYAPI (TRUST/AUTHORITY) -->
+    <section id="teknoloji" class="py-24 px-6 bg-vet-navy text-white relative overflow-hidden">
+        <!-- Abstract Bg -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-vet-blue opacity-5 transform skew-x-12 translate-x-32"></div>
+        
+        <div class="max-w-[1400px] mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div data-aos="fade-right">
+                    <span class="text-vet-blue font-display font-bold tracking-[0.15em] uppercase text-sm mb-4 block">Neden Bölgenin Referans Kliniğiyiz?</span>
+                    <h2 class="font-display text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">İleri Teknoloji ve <br>Doğru Teşhisin Gücü</h2>
+                    <p class="font-sans text-slate-300 text-lg leading-relaxed mb-8">
+                        Veteriner tıbbında teşhis koymak cihazsız yapılamaz. Hayvanlar bize neresinin ağrıdığını söyleyemezler. Bu yüzden son teknoloji cihazlara yatırım yapıyor, onlara sessizce "Nasıl hissediyorsun?" diye sorma yeteneği kazanıyoruz.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-5 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
+                            <div class="w-12 h-12 bg-vet-blue rounded-xl flex items-center justify-center text-2xl shrink-0">
+                                <i class="ph-bold ph-cpu"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-xl font-bold mb-2">Dijital Görüntüleme Mimarisi</h4>
+                                <p class="font-sans text-sm text-slate-400 leading-relaxed">Klasik filmlerin aksine sıfır hata payıyla çalışan dijital paneller, iç hastalıklarında milimetrik detayları görmemizi sağlar.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-5 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
+                            <div class="w-12 h-12 bg-vet-blue rounded-xl flex items-center justify-center text-2xl shrink-0">
+                                <i class="ph-bold ph-heart-half"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-xl font-bold mb-2">Kapalı Devre Gaz Anestezisi</h4>
+                                <p class="font-sans text-slate-400 text-sm leading-relaxed">En yaşlı ve kritik hastaların bile ameliyatlarını güvenle yapabilmemizi sağlayan, anında uyandırılabilen ileri anestezi protokolü.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80" alt="Veteriner Teknoloji" class="w-full h-full object-cover rounded-2xl transform translate-y-8 shadow-2xl opacity-90 hover:opacity-100 transition-opacity">
+                    <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80" alt="Laboratuvar İncelemesi" class="w-full h-full object-cover rounded-2xl -translate-y-8 shadow-2xl opacity-90 hover:opacity-100 transition-opacity">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. S.S.S. (SIKÇA SORULAN SORULAR) -->
+    <section id="sss" class="py-24 px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-vet-blue font-display font-bold tracking-[0.15em] uppercase text-sm mb-4 block">Aklınıza Takılanlar</span>
+                <h2 class="font-display text-4xl font-extrabold text-vet-navy mb-6">Sıkça Sorulan Sorular</h2>
+                <p class="font-sans text-vet-gray text-lg">Hasta sahiplerimizin kliniğimiz ve süreçler hakkında en çok merak ettiği soruları yanıtladık.</p>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item border border-slate-200 rounded-2xl px-6 bg-white overflow-hidden" onclick="this.classList.toggle('active')">
+                    <button class="faq-button focus:outline-none">
+                        Kısırlaştırma operasyonu için en uygun yaş/zaman nedir?
+                        <i class="ph-bold ph-caret-down faq-icon text-xl text-slate-400"></i>
+                    </button>
+                    <div class="faq-content">
+                        Kedi ve köpeklerde kısırlaştırma işlemi genellikle 6 aylıktan itibaren önerilmektedir. Erken yaşta yapılan kısırlaştırma operasyonları ileride oluşabilecek rahim enfeksiyonları, meme tümörleri ve testis kanseri gibi ölümcül hastalıkların riskini büyük oranda düşürmektedir. Detaylı muayene sonrası hekimimiz en doğru zamanı belirleyecektir.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item border border-slate-200 rounded-2xl px-6 bg-white overflow-hidden" onclick="this.classList.toggle('active')">
+                    <button class="faq-button focus:outline-none">
+                        Acil durumlarda gece kliniğe gelebilir miyiz?
+                        <i class="ph-bold ph-caret-down faq-icon text-xl text-slate-400"></i>
+                    </button>
+                    <div class="faq-content">
+                        Evet. Sivas Bölge Veteriner Kliniği olarak 7/24 Acil Servis mantığıyla hizmet vermekteyiz. Mesai saatleri dışında yaşanabilecek trafik kazası, zehirlenme, yüksekten düşme gibi hayati tehlike arz eden durumlarda acil hattımızı arayarak doğrudan kliniğimize gelebilirsiniz. Nöbetçi ekibimiz her zaman hazırdır.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item border border-slate-200 rounded-2xl px-6 bg-white overflow-hidden" onclick="this.classList.toggle('active')">
+                    <button class="faq-button focus:outline-none">
+                        İç ve dış parazit uygulamaları ne sıklıkla yapılmalıdır?
+                        <i class="ph-bold ph-caret-down faq-icon text-xl text-slate-400"></i>
+                    </button>
+                    <div class="faq-content">
+                        Evcil hayvanınızın tamamen evde yaşaması parazit riski taşımadığı anlamına gelmez. Ayakkabılarımızla bile parazit yumurtalarını eve taşıyabiliriz. Bu sebeple iç ve dış parazit koruyucu damla veya tablet uygulamalarının rutin olarak her 2 ayda bir (mevsimsel durumlara göre hekim onayıyla) tekrarlanması gerekmektedir.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item border border-slate-200 rounded-2xl px-6 bg-white overflow-hidden" onclick="this.classList.toggle('active')">
+                    <button class="faq-button focus:outline-none">
+                        Yavru hayvanımın aşılarına ne zaman başlamalıyım?
+                        <i class="ph-bold ph-caret-down faq-icon text-xl text-slate-400"></i>
+                    </button>
+                    <div class="faq-content">
+                        Yavru kedi ve köpeklerde anne sütünden geçen antikorların koruyuculuğu 6-8 haftalıkken azalmaya başlar. Bu nedenle ilk karma aşılarına ve parazit mücadelelerine 45-60 günlük (yaklaşık 2 aylık) olduklarında başlanmalıdır. Aşısız yavruların dışarı çıkarılmaması ve diğer hayvanlarla temas ettirilmemesi hayati önem taşır.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. GALERİ (MASONRY GRID) -->
+    <section id="galeri" class="py-24 px-6 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-up">
+                <div>
+                    <h2 class="font-display text-4xl text-vet-navy font-bold mb-3">Klinikten Kareler</h2>
+                    <p class="font-sans text-vet-gray text-lg font-medium">Mutlu patiler, başarılı operasyonlar ve modern kliniğimizden kesitler.</p>
+                </div>
+                <a href="https://www.instagram.com/sivasbolgevet/" target="_blank" class="hidden md:flex items-center gap-2 font-display font-bold text-vet-navy hover:text-vet-blue transition-colors pb-1 border-b-2 border-transparent hover:border-vet-blue">
+                    <i class="ph-bold ph-instagram-logo text-xl"></i> Instagram'da Bizi Takip Edin
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="gallery-img aspect-square col-span-2 row-span-2" data-aos="zoom-in" data-aos-delay="0">
+                    <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Mutlu Köpek Hastamız" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-img aspect-square" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kedi Muayenesi" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-img aspect-square" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hekim Kontrolü" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-img aspect-square col-span-2 md:col-span-1" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Klinik Ortamı" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-img aspect-square col-span-2 md:col-span-1" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80" alt="Radyoloji ve İnceleme" class="w-full h-full object-cover object-left">
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="https://www.instagram.com/sivasbolgevet/" target="_blank" class="bg-white border border-slate-200 text-vet-navy font-bold py-4 rounded-xl w-full flex items-center justify-center gap-2 shadow-sm">
+                    <i class="ph-bold ph-instagram-logo text-xl"></i> Instagram Hesabımız
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. İLETİŞİM & DEV FOOTER -->
+    <footer id="iletisim" class="bg-vet-navy text-white pt-24 pb-12 border-t-[8px] border-vet-blue relative overflow-hidden">
+        <!-- Decor pattern -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#ffffff 2px, transparent 2px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+                
+                <!-- Brand Info (Col span 4) -->
+                <div class="lg:col-span-4">
+                    <a href="#" class="flex items-center gap-4 mb-8 group">
+                        <div class="w-12 h-12 bg-vet-blue rounded-xl flex items-center justify-center text-white text-2xl shadow-soft">
+                            <i class="ph-fill ph-paw-print"></i>
+                        </div>
+                        <div class="flex flex-col leading-tight">
+                            <span class="font-display text-2xl font-extrabold text-white tracking-tight">Sivas Bölge</span>
+                            <span class="font-display text-[0.75rem] font-bold text-vet-blue tracking-[0.2em] uppercase mt-1">Veteriner Kliniği</span>
+                        </div>
+                    </a>
+                    <p class="font-sans text-slate-400 text-sm leading-relaxed mb-8 pr-4">
+                        Sivas'ta minik dostlarımızın sağlığı için 7/24 hizmet veren; cerrahi, dahiliye, görüntüleme ve koruyucu hekimlik alanlarında donanımlı referans hayvan hastanesi.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/sivasbolgevet/" target="_blank" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-vet-blue hover:scale-110 transition-all duration-300 text-2xl text-white">
+                            <i class="ph-fill ph-instagram-logo"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-vet-blue hover:scale-110 transition-all duration-300 text-2xl text-white">
+                            <i class="ph-fill ph-facebook-logo"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-vet-blue hover:scale-110 transition-all duration-300 text-2xl text-white">
+                            <i class="ph-fill ph-whatsapp-logo"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hızlı Menü (Col span 2) -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-display font-bold text-lg mb-8 text-white">Hızlı Menü</h4>
+                    <ul class="space-y-4 font-sans text-slate-400 font-medium text-sm">
+                        <li><a href="#hakkimizda" class="hover:text-vet-blue transition-colors flex items-center gap-2"><i class="ph-bold ph-caret-right text-vet-blue"></i> Kurumsal</a></li>
+                        <li><a href="#hizmetler" class="hover:text-vet-blue transition-colors flex items-center gap-2"><i class="ph-bold ph-caret-right text-vet-blue"></i> Hizmetlerimiz</a></li>
+                        <li><a href="#teknoloji" class="hover:text-vet-blue transition-colors flex items-center gap-2"><i class="ph-bold ph-caret-right text-vet-blue"></i> Teknolojimiz</a></li>
+                        <li><a href="#sss" class="hover:text-vet-blue transition-colors flex items-center gap-2"><i class="ph-bold ph-caret-right text-vet-blue"></i> S.S.S.</a></li>
+                        <li><a href="#galeri" class="hover:text-vet-blue transition-colors flex items-center gap-2"><i class="ph-bold ph-caret-right text-vet-blue"></i> Galeri</a></li>
+                    </ul>
+                </div>
+
+                <!-- İletişim Bilgileri (Col span 3) -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-display font-bold text-lg mb-8 text-white">İletişim & Randevu</h4>
+                    <ul class="space-y-6 font-sans text-slate-400 text-sm">
+                        <li class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-slate-800 text-vet-blue flex items-center justify-center text-xl shrink-0">
+                                <i class="ph-fill ph-map-pin"></i>
+                            </div>
+                            <span class="leading-relaxed mt-1">Pulur Mahallesi Ahi Emir Caddesi<br>Merkez / SİVAS</span>
+                        </li>
+                        <li class="flex items-center gap-4 group">
+                            <div class="w-10 h-10 rounded-lg bg-slate-800 text-vet-blue flex items-center justify-center text-xl shrink-0 group-hover:bg-vet-blue group-hover:text-white transition-colors">
+                                <i class="ph-fill ph-phone-call"></i>
+                            </div>
+                            <a href="tel:05316907223" class="text-white font-bold text-xl hover:text-vet-blue transition-colors">0531 690 72 23</a>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-red-500/20 text-red-500 flex items-center justify-center text-xl shrink-0">
+                                <i class="ph-fill ph-ambulance"></i>
+                            </div>
+                            <span class="text-white font-bold tracking-wide">7/24 Acil Müdahale</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Çalışma Saatleri (Col span 3) -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-display font-bold text-lg mb-8 text-white">Çalışma Programı</h4>
+                    <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
+                        <ul class="space-y-4 font-sans text-sm text-slate-300">
+                            <li class="flex justify-between items-center border-b border-slate-700 pb-3">
+                                <span class="font-medium text-slate-400">Pzt - Cuma</span>
+                                <span class="font-bold text-white">09:00 - 19:00</span>
+                            </li>
+                            <li class="flex justify-between items-center border-b border-slate-700 pb-3">
+                                <span class="font-medium text-slate-400">Cumartesi</span>
+                                <span class="font-bold text-white">09:00 - 19:00</span>
+                            </li>
+                            <li class="flex justify-between items-center pb-1">
+                                <span class="font-medium text-slate-400">Pazar</span>
+                                <span class="font-bold text-red-400">Nöbetçi Hekim</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 font-sans text-xs text-slate-500 font-medium">
+                <p>&copy; 2026 Sivas Bölge Veteriner Kliniği. Tüm Hakları Saklıdır.</p>
+                <div class="flex items-center gap-1">
+                    Tasarlayan: <i class="ph-fill ph-heart text-vet-blue mx-1"></i> <span class="text-slate-400">Animal Lovers Team</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Animation Init
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 20,
+            easing: 'ease-out-cubic',
+        });
+    </script>
+</body>
+</html>
