@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akademi Turizm | Sivas Öğrenci ve Personel Taşımacılığı</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            orange: '#F97316', /* Turuncu */
+                            dark: '#0F172A', /* Koyu Lacivert/Siyah */
+                            gray: '#F8FAFC',
+                            textMuted: '#64748B'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'marquee': 'marquee 30s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        body {
+            background-color: theme('colors.brand.gray');
+            color: theme('colors.brand.dark');
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E2E8F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.brand.orange');
+            border-radius: 5px;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+        }
+
+        .btn-primary {
+            background-color: theme('colors.brand.orange');
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px 0 rgba(249, 115, 22, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .btn-primary:hover {
+            background-color: #EA580C;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: theme('colors.brand.dark');
+            border: 2px solid theme('colors.brand.dark');
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline:hover {
+            background-color: theme('colors.brand.dark');
+            color: white;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2.5rem 2rem;
+            transition: all 0.4s ease;
+            border: 1px solid #E2E8F0;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background-color: theme('colors.brand.orange');
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        .service-card:hover::before {
+            height: 100%;
+        }
+        .service-card:hover h3, .service-card:hover p, .service-card:hover .service-icon {
+            color: white;
+        }
+        .service-icon {
+            font-size: 3rem;
+            color: theme('colors.brand.orange');
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .accordion-content {
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-content.active {
+            max-height: 500px;
+            opacity: 1;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-orange selection:text-white">
+
+    <!-- TOP BAR -->
+    <div class="bg-brand-dark text-white py-2 px-6 hidden md:block text-xs font-semibold tracking-wider uppercase">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-2"><i class="ph-bold ph-map-pin"></i> Sivas Merkez</span>
+                <span class="flex items-center gap-2"><i class="ph-bold ph-shield-check text-brand-orange"></i> Güvenli Yolculuk</span>
+            </div>
+            <div class="flex gap-4 items-center">
+                <a href="tel:03462213435" class="flex items-center gap-2 hover:text-brand-orange transition-colors">
+                    <i class="ph-bold ph-phone"></i> 0(346) 221 34 35
+                </a>
+                <span class="opacity-50">|</span>
+                <a href="tel:05077727346" class="flex items-center gap-2 hover:text-brand-orange transition-colors">
+                    <i class="ph-bold ph-device-mobile"></i> 0507 772 73 46
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="glass-nav fixed w-full z-50 transition-all duration-300 top-0 md:top-[32px]" id="navbar">
+        <div class="max-w-[1400px] mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3">
+                <div class="flex items-center">
+                    <!-- Text Logo -->
+                    <h1 class="font-display font-black text-3xl italic text-brand-dark tracking-tighter">
+                        Akademi<span class="text-brand-orange">Turizm</span>
+                    </h1>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8 font-bold text-brand-dark text-sm uppercase tracking-wide">
+                <a href="#hakkimizda" class="hover:text-brand-orange transition-colors">Kurumsal</a>
+                <a href="#hizmetler" class="hover:text-brand-orange transition-colors">Hizmetlerimiz</a>
+                <a href="#filo" class="hover:text-brand-orange transition-colors">Araç Filomuz</a>
+                <a href="#iletisim" class="hover:text-brand-orange transition-colors">İletişim</a>
+            </div>
+
+            <!-- CTA -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="https://www.instagram.com/akademitursivas/" target="_blank" class="w-10 h-10 rounded-full border-2 border-brand-dark flex items-center justify-center text-brand-dark hover:bg-brand-dark hover:text-white transition-all text-xl">
+                    <i class="ph-bold ph-instagram-logo"></i>
+                </a>
+                <a href="https://www.facebook.com/sivasakademitur" target="_blank" class="w-10 h-10 rounded-full border-2 border-brand-dark flex items-center justify-center text-brand-dark hover:bg-brand-dark hover:text-white transition-all text-xl">
+                    <i class="ph-bold ph-facebook-logo"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="lg:hidden text-3xl text-brand-dark">
+                <i class="ph-bold ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-white">
+        <!-- Decoration -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-gray -skew-x-12 origin-top-right z-0 hidden lg:block"></div>
+        <div class="absolute -bottom-20 -left-20 text-[400px] text-brand-orange opacity-[0.03] z-0 pointer-events-none">
+            <i class="ph-fill ph-van"></i>
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Text Content -->
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-100 text-brand-orange font-bold text-xs uppercase tracking-widest mb-6 border border-orange-200">
+                        <i class="ph-fill ph-star"></i> Sivas'ın Lider Taşımacılık Firması
+                    </div>
+                    <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-black text-brand-dark leading-[1.1] mb-6 uppercase">
+                        Geleceğinizi <br>
+                        <span class="text-brand-orange relative">
+                            Güvenle
+                            <svg class="absolute w-full h-4 -bottom-1 left-0 text-brand-dark/10" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                        </span> Taşıyoruz.
+                    </h1>
+                    <p class="text-lg text-brand-textMuted mb-8 max-w-xl font-medium leading-relaxed">
+                        Akademi Tur olarak; sevgili öğrencilerimizi ve kıymetli personellerinizi her gün zamanında, konforlu ve en üst düzey güvenlik standartlarıyla taşıyoruz. Sivas'ta taşımacılığın güvenilir yüzü.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#iletisim" class="btn-primary flex items-center justify-center gap-2">
+                            <i class="ph-bold ph-phone-call text-xl"></i> İletişime Geçin
+                        </a>
+                        <a href="#hizmetler" class="btn-outline flex items-center justify-center gap-2">
+                            Hizmetlerimiz
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Images -->
+                <div class="relative h-[500px] md:h-[600px] animate-float" data-aos="fade-left">
+                    <div class="w-full h-full rounded-[2rem] overflow-hidden shadow-2xl relative border-8 border-white bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Öğrenci Servisi" class="w-full h-full object-cover">
+                        <!-- Gradient Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent"></div>
+                        <div class="absolute bottom-8 left-8 right-8">
+                            <h3 class="text-white font-display font-bold text-2xl mb-2">2025/2026 Eğitim Dönemi</h3>
+                            <p class="text-gray-300 font-medium text-sm">Öğrenci servis kayıtlarımız başlamıştır.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -left-6 md:-left-12 top-1/4 bg-white p-5 rounded-2xl shadow-xl flex items-center gap-4 border border-gray-100">
+                        <div class="w-14 h-14 rounded-full bg-orange-100 text-brand-orange flex items-center justify-center text-3xl">
+                            <i class="ph-fill ph-map-pin-line"></i>
+                        </div>
+                        <div>
+                            <p class="font-display font-black text-brand-dark text-xl">Araç Takip</p>
+                            <p class="text-xs font-bold text-brand-textMuted uppercase">Anlık Konum Sistemi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. İSTATİSTİKLER -->
+    <section class="py-12 bg-brand-dark border-t-4 border-brand-orange">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/10">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="font-display font-black text-4xl md:text-5xl text-brand-orange mb-2">15+</div>
+                    <div class="text-sm font-bold text-gray-300 uppercase tracking-widest">Yıllık Tecrübe</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="font-display font-black text-4xl md:text-5xl text-brand-orange mb-2">50+</div>
+                    <div class="text-sm font-bold text-gray-300 uppercase tracking-widest">Modern Araç</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="font-display font-black text-4xl md:text-5xl text-brand-orange mb-2">2500+</div>
+                    <div class="text-sm font-bold text-gray-300 uppercase tracking-widest">Günlük Yolcu</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="font-display font-black text-4xl md:text-5xl text-brand-orange mb-2">%100</div>
+                    <div class="text-sm font-bold text-gray-300 uppercase tracking-widest">Müşteri Memnuniyeti</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. HAKKIMIZDA & VİZYON -->
+    <section id="hakkimizda" class="py-24 bg-white relative">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h4 class="text-brand-orange font-bold tracking-widest uppercase text-sm mb-3">Kurumsal</h4>
+                    <h2 class="font-display text-4xl lg:text-5xl font-black text-brand-dark mb-6">Her Türlü Zorluklara Rağmen İşini Büyük Bir Özveriyle Yapan Ekip</h2>
+                    <p class="text-lg text-brand-textMuted mb-6 font-medium leading-relaxed">
+                        Saygıdeğer kurum idarecilerimiz, kıymetli velilerimiz ve sevgili öğrencilerimiz; Akademi Tur olarak sektördeki öncü konumumuzu yıllardır korumanın gururunu yaşıyoruz.
+                    </p>
+                    <p class="text-lg text-brand-textMuted mb-8 font-medium leading-relaxed">
+                        Bu dönem içerisinde bizlerle işbirliği yapan kurum idarecilerimize, her türlü zor koşullarda bizleri anlayışla karşılayan velilerimize ve geleceğimiz olan öğrencilerimize sonsuz teşekkür ederiz.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 rounded-full bg-brand-gray flex items-center justify-center border-2 border-brand-orange">
+                            <i class="ph-fill ph-check-circle text-2xl text-brand-orange"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-brand-dark">Resmi Belgeli</h4>
+                            <p class="text-sm text-brand-textMuted">Tüm Ulaştırma Bakanlığı yetki belgelerine sahibiz.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Personel Taşıma" class="w-full h-64 object-cover rounded-2xl shadow-lg mt-8">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Öğrenci Taşıma" class="w-full h-64 object-cover rounded-2xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. HİZMETLERİMİZ -->
+    <section id="hizmetler" class="py-24 bg-brand-gray">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h4 class="text-brand-orange font-bold tracking-widest uppercase text-sm mb-3">Çözümlerimiz</h4>
+                <h2 class="font-display text-4xl lg:text-5xl font-black text-brand-dark mb-6">Size Özel Taşımacılık Hizmetleri</h2>
+                <p class="text-brand-textMuted font-medium text-lg">Konfor, güvenlik ve dakiklik prensiplerimizle tüm ulaşım ihtiyaçlarınıza profesyonel çözümler üretiyoruz.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Hizmet 1 -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="0">
+                    <i class="ph-fill ph-student service-icon"></i>
+                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-3">Öğrenci Taşımacılığı</h3>
+                    <p class="text-brand-textMuted font-medium leading-relaxed">Geleceğimizin teminatı çocuklarımızı, uzman hosteslerimiz ve deneyimli şoförlerimiz eşliğinde evden okula, okuldan eve güvenle taşıyoruz.</p>
+                </div>
+
+                <!-- Hizmet 2 -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="100">
+                    <i class="ph-fill ph-users-three service-icon"></i>
+                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-3">Personel Taşımacılığı</h3>
+                    <p class="text-brand-textMuted font-medium leading-relaxed">Kurum ve kuruluşların personelini, zaman kaybı yaşatmadan, iş stresinden uzak konforlu araçlarımızla dakik bir şekilde iş yerlerine ulaştırıyoruz.</p>
+                </div>
+
+                <!-- Hizmet 3 -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="200">
+                    <i class="ph-fill ph-map-trifold service-icon"></i>
+                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-3">Gezi & Aktivite Organizasyonları</h3>
+                    <p class="text-brand-textMuted font-medium leading-relaxed">Okul gezileri, kültür turları ve rafting turu gibi sosyal aktivitelere özel, lüks turizm araçlarımızla ulaşım desteği sağlıyoruz.</p>
+                </div>
+
+                <!-- Hizmet 4 -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="0">
+                    <i class="ph-fill ph-radar service-icon"></i>
+                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-3">Araç Takip Sistemi</h3>
+                    <p class="text-brand-textMuted font-medium leading-relaxed">Tüm araçlarımız GPS araç takip sistemi ile 7/24 izlenmektedir. Velilerimiz araç konumunu anlık olarak takip edebilir.</p>
+                </div>
+
+                <!-- Hizmet 5 -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="100">
+                    <i class="ph-fill ph-drop service-icon"></i>
+                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-3">Araç Dezenfektasyonu</h3>
+                    <p class="text-brand-textMuted font-medium leading-relaxed">Sağlığınız bizim için önemli. Araç filomuz, yetkili ekipler tarafından düzenli periyotlarla titizlikle dezenfekte edilmektedir.</p>
+                </div>
+
+                <!-- Hizmet 6 -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="200">
+                    <i class="ph-fill ph-steering-wheel service-icon"></i>
+                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-3">Profesyonel Şoförler</h3>
+                    <p class="text-brand-textMuted font-medium leading-relaxed">Psikoteknik testlerden başarıyla geçmiş, ileri sürüş teknikleri eğitimi almış, deneyimli ve güler yüzlü sürücü kadrosu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 6. SIKÇA SORULAN SORULAR -->
+    <section class="py-24 bg-brand-gray">
+        <div class="max-w-[900px] mx-auto px-6" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <h4 class="text-brand-orange font-bold tracking-widest uppercase text-sm mb-3">Bilgi Merkezi</h4>
+                <h2 class="font-display text-4xl font-black text-brand-dark">Sıkça Sorulan Sorular</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="accordion-header w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition-colors text-left font-display font-bold text-lg text-brand-dark">
+                        Araç takip sistemini nasıl kullanabilirim?
+                        <i class="ph-bold ph-caret-down accordion-icon text-brand-orange text-xl"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-50 px-6">
+                        <p class="pb-6 text-brand-textMuted font-medium">Kayıt işleminiz tamamlandıktan sonra sizlere verilen kullanıcı adı ve şifre ile web sitemiz veya mobil uygulamamız üzerinden aracın anlık konumunu takip edebilirsiniz.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="accordion-header w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition-colors text-left font-display font-bold text-lg text-brand-dark">
+                        Servis araçlarınızın güvenlik standartları nelerdir?
+                        <i class="ph-bold ph-caret-down accordion-icon text-brand-orange text-xl"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-50 px-6">
+                        <p class="pb-6 text-brand-textMuted font-medium">Tüm araçlarımız 5 yaşından küçük olup, 3 nokta emniyet kemeri, sensörlü kapılar, araç içi kamera sistemi ve "Okul Taşıtı" standartlarına harfiyen uygundur. Ayrıca deneyimli hosteslerimiz yolculuk boyunca öğrencilerimize eşlik etmektedir.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="accordion-header w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition-colors text-left font-display font-bold text-lg text-brand-dark">
+                        Sivas merkeze uzak bölgelere hizmetiniz var mı?
+                        <i class="ph-bold ph-caret-down accordion-icon text-brand-orange text-xl"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-50 px-6">
+                        <p class="pb-6 text-brand-textMuted font-medium">Güzergahlarımız her eğitim-öğretim yılı başında öğrencilerin dağılımına göre optimize edilmektedir. Lütfen tam adresinizi ileterek ofisimizden güzergah uygunluğu hakkında bilgi alınız.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="accordion-header w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition-colors text-left font-display font-bold text-lg text-brand-dark">
+                        Araçların dezenfeksiyon işlemleri ne sıklıkla yapılıyor?
+                        <i class="ph-bold ph-caret-down accordion-icon text-brand-orange text-xl"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-50 px-6">
+                        <p class="pb-6 text-brand-textMuted font-medium">Tüm araçlarımız her gün servis bitiminde standart temizlikten geçmekte, haftalık olarak da uzman ekiplerce profesyonel ULV cihazlarıyla detaylı dezenfekte edilmektedir.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. İLETİŞİM -->
+    <section id="iletisim" class="py-0 relative">
+        <div class="grid lg:grid-cols-2">
+            <!-- Contact Info -->
+            <div class="bg-brand-dark p-12 lg:p-24 text-white">
+                <h4 class="text-brand-orange font-bold tracking-widest uppercase text-sm mb-3">İletişim</h4>
+                <h2 class="font-display text-4xl lg:text-5xl font-black mb-10">Bizimle İletişime Geçin.</h2>
+
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-2xl flex-shrink-0 text-brand-orange">
+                            <i class="ph-fill ph-map-pin"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-1 font-display">Adres</h4>
+                            <p class="text-gray-400 font-medium leading-relaxed">Pulur mahallesi Eski Garajlar sokak <br>Kule Evler D blok no:3, Sivas 58000</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-2xl flex-shrink-0 text-brand-orange">
+                            <i class="ph-fill ph-phone-call"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-1 font-display">Telefon</h4>
+                            <p class="text-gray-400 font-medium leading-relaxed">Ofis: 0(346) 221 34 35<br>Mobil: 0507 772 73 46</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-2xl flex-shrink-0 text-brand-orange">
+                            <i class="ph-fill ph-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-1 font-display">E-Posta</h4>
+                            <p class="text-gray-400 font-medium leading-relaxed">info@akademitur.com.tr</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 flex gap-4">
+                    <a href="https://www.instagram.com/akademitursivas/" target="_blank" class="w-12 h-12 rounded-full bg-white text-brand-dark flex items-center justify-center text-2xl hover:bg-brand-orange hover:text-white transition-colors">
+                        <i class="ph-fill ph-instagram-logo"></i>
+                    </a>
+                    <a href="https://www.facebook.com/sivasakademitur" target="_blank" class="w-12 h-12 rounded-full bg-white text-brand-dark flex items-center justify-center text-2xl hover:bg-brand-orange hover:text-white transition-colors">
+                        <i class="ph-fill ph-facebook-logo"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Map (Placeholder visual) -->
+            <div class="h-[400px] lg:h-auto bg-gray-200 relative">
+                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Harita" class="w-full h-full object-cover grayscale opacity-80">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="bg-white p-6 rounded-2xl shadow-2xl text-center max-w-[250px] animate-float border-t-4 border-brand-orange">
+                        <i class="ph-fill ph-map-pin text-4xl text-brand-orange mb-2"></i>
+                        <h3 class="font-display font-black text-brand-dark text-xl">Akademi Tur</h3>
+                        <p class="text-sm text-brand-textMuted font-medium mt-1">Sivas Merkez Ofisi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#0b1120] text-gray-400 py-16 text-sm">
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                <h3 class="text-white font-display font-black text-2xl mb-4 italic">Akademi<span class="text-brand-orange">Turizm</span></h3>
+                <p class="mb-4">Geleceğinizi güvenle taşıyoruz. Sivas'ın lider öğrenci ve personel taşımacılığı markası.</p>
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/akademitursivas/" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-brand-orange transition-colors"><i class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="https://www.facebook.com/sivasakademitur" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-brand-orange transition-colors"><i class="ph-fill ph-facebook-logo"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider">Hızlı Linkler</h4>
+                <ul class="space-y-2">
+                    <li><a href="#hakkimizda" class="hover:text-brand-orange transition-colors">Kurumsal</a></li>
+                    <li><a href="#hizmetler" class="hover:text-brand-orange transition-colors">Hizmetlerimiz</a></li>
+                    <li><a href="#iletisim" class="hover:text-brand-orange transition-colors">İletişim</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider">Hizmetlerimiz</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-brand-orange transition-colors">Öğrenci Taşımacılığı</a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors">Personel Taşımacılığı</a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors">Gezi ve Aktivite</a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors">Araç Takip Sistemi</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider">İletişim</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3"><i class="ph-fill ph-map-pin text-brand-orange mt-1"></i> Pulur mah. Eski Garajlar sok. Kule Evler D blok no:3, Sivas</li>
+                    <li class="flex items-center gap-3"><i class="ph-fill ph-phone text-brand-orange"></i> 0(346) 221 34 35</li>
+                    <li class="flex items-center gap-3"><i class="ph-fill ph-device-mobile text-brand-orange"></i> 0507 772 73 46</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-[1400px] mx-auto px-6 mt-12 pt-8 border-t border-white/10 text-center">
+            <p>&copy; 2026 Akademi Tur Öğrenci ve Personel Taşımacılığı. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/905077727346" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-4xl shadow-lg hover:scale-110 hover:bg-[#1EBE57] transition-all z-50">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('md:top-[32px]');
+                nav.classList.add('top-0');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('md:top-[32px]');
+            }
+        });
+
+        // FAQ Accordion
+        const accordions = document.querySelectorAll('.accordion-header');
+        accordions.forEach(acc => {
+            acc.addEventListener('click', () => {
+                const isActive = acc.classList.contains('active');
+                
+                // Close all
+                accordions.forEach(a => {
+                    a.classList.remove('active');
+                    a.nextElementSibling.classList.remove('active');
+                });
+
+                // Open clicked if it wasn't active
+                if (!isActive) {
+                    acc.classList.add('active');
+                    acc.nextElementSibling.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
