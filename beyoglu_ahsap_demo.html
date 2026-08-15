@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyoğlu Ahşap | Ahşap Merdiven, Veranda, Sedir & Masif Mobilya Sivas</title>
+    <meta name="description" content="Sivas'ta 1. sınıf masif ahşap merdiven, veranda, kamelya, sedir ve şark köşesi, doğal kütük masa, ağaç torna ve özel mobilya imalatı. Siz hayal edin, biz yapalım.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        display: ['Cinzel', 'serif'],
+                    },
+                    colors: {
+                        wood: {
+                            dark: '#18110B',      /* Koyu fırınlanmış meşe / zemin */
+                            espresso: '#24170E',  /* Zengin ceviz kahvesi */
+                            rich: '#3D2516',      /* Sıcak kütük kahvesi */
+                            amber: '#C27838',     /* Taba / Teak ana vurgusu */
+                            gold: '#D4AF37',      /* Pirinç / Altın yaldız */
+                            cream: '#FAF6F0',     /* Asil krem zemin */
+                            parchment: '#F2EADF', /* Sıcak kart zemini */
+                            border: '#E5D8C5',    /* İnce ahşap bordürü */
+                            forest: '#1E382B',    /* Doğal orman yeşili */
+                        }
+                    },
+                    boxShadow: {
+                        'wood': '0 20px 35px -10px rgba(36, 23, 14, 0.09)',
+                        'wood-hover': '0 25px 50px -12px rgba(36, 23, 14, 0.18)',
+                        'gold-glow': '0 0 25px rgba(212, 175, 55, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --color-cream: #FAF6F0;
+            --color-dark: #18110B;
+            --color-amber: #C27838;
+            --color-gold: #D4AF37;
+            --color-border: #E5D8C5;
+        }
+
+        body {
+            background-color: var(--color-cream);
+            color: var(--color-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Timber Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #18110B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C27838;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D98E4E;
+        }
+
+        /* Luxury Glass Navigation */
+        .wood-nav {
+            background: rgba(24, 17, 11, 0.98);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* Wood Buttons */
+        .btn-wood-primary {
+            background: linear-gradient(135deg, #C27838 0%, #9E561F 100%);
+            color: #FFFFFF;
+            padding: 0.85rem 2rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 10px 22px -4px rgba(194, 120, 56, 0.45);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+        }
+        .btn-wood-primary:hover {
+            background: linear-gradient(135deg, #D48847 0%, #B06227 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px -4px rgba(194, 120, 56, 0.6);
+            border-color: #D4AF37;
+            color: #FFFFFF;
+        }
+
+        .btn-wood-outline {
+            background: transparent;
+            color: #FAF6F0;
+            border: 1.5px solid rgba(212, 175, 55, 0.7);
+            padding: 0.85rem 2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn-wood-outline:hover {
+            background: rgba(212, 175, 55, 0.18);
+            border-color: #D4AF37;
+            color: #D4AF37;
+            transform: translateY(-2px);
+        }
+
+        .btn-wa-green {
+            background: #25D366;
+            color: #FFFFFF;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px -4px rgba(37, 211, 102, 0.45);
+        }
+        .btn-wa-green:hover {
+            background: #20BA5A;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px -4px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Card Styles */
+        .wood-card {
+            background: #FFFFFF;
+            border-radius: 1.25rem;
+            border: 1px solid #E5D8C5;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .wood-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 40px -10px rgba(36, 23, 14, 0.15);
+            border-color: #C27838;
+        }
+        .wood-card .card-img {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .wood-card:hover .card-img {
+            transform: scale(1.06);
+        }
+
+        /* Wood Grain Pattern Overlay */
+        .wood-pattern {
+            background-image: radial-gradient(rgba(36, 23, 14, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* Floating Button Pulse Animation */
+        @keyframes pulseGlowWood {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+        }
+        .wa-floating-btn {
+            animation: pulseGlowWood 2.5s infinite;
+        }
+    </style>
+</head>
+<body class="selection:bg-wood-amber selection:text-white">
+
+    <!-- 0. TOP ANNOUNCEMENT BAR -->
+    <div class="bg-wood-dark text-wood-cream border-b border-white/10 py-2.5 px-4 text-xs font-sans">
+        <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-center md:text-left">
+            <div class="flex items-center gap-3 text-xs font-medium tracking-wide flex-wrap justify-center md:justify-start">
+                <span class="inline-flex items-center gap-1.5 text-wood-gold font-bold">
+                    <i class="ph-fill ph-sketch-logo text-sm"></i> Siz Hayal Edin, Biz Yapalım
+                </span>
+                <span class="text-white/30">•</span>
+                <span class="text-gray-300">
+                    <i class="ph-fill ph-tree text-wood-amber"></i> %100 Fırınlanmış Masif Ağaç & Özel Ölçü İmalat
+                </span>
+                <span class="text-white/30 hidden sm:inline">•</span>
+                <span class="text-gray-300 hidden sm:inline">
+                    <i class="ph-fill ph-ruler text-wood-gold"></i> Sivas İçi Ücretsiz Yerinde Keşif
+                </span>
+            </div>
+            
+            <div class="flex items-center gap-4 text-xs font-medium">
+                <span class="text-gray-300 flex items-center gap-1">
+                    <i class="ph-fill ph-phone-call text-wood-amber"></i> Tel: 0533 635 11 34
+                </span>
+                <span class="text-white/30">•</span>
+                <a href="https://wa.me/905336351134?text=Merhaba,%20Beyoğlu%20Ahşap%20özel%20imalat%20ve%20keşif%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="text-wood-gold hover:text-white font-bold flex items-center gap-1 transition-colors">
+                    <i class="ph-fill ph-whatsapp-logo text-green-400 text-sm"></i> WhatsApp Hızlı Teklif
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. STICKY LUXURY NAVBAR -->
+    <nav class="wood-nav sticky top-0 z-50 py-3.5 px-6 transition-all duration-300">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-wood-amber to-wood-espresso flex items-center justify-center text-wood-gold border border-wood-gold/40 shadow-md group-hover:scale-105 transition-transform">
+                    <i class="ph-fill ph-tree text-2xl text-wood-gold"></i>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-baseline gap-1.5">
+                        <span class="font-display text-xl sm:text-2xl font-black tracking-widest text-white leading-none">BEYOĞLU</span>
+                        <span class="font-serif italic text-wood-gold text-base sm:text-lg font-bold">Ahşap</span>
+                    </div>
+                    <span class="font-sans text-[9px] tracking-[0.25em] text-wood-amber uppercase font-semibold mt-1">Özel İmalat • Merdiven & Masif</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex items-center gap-8 font-sans text-sm font-semibold tracking-wide text-gray-200">
+                <a href="#hakkimizda" class="hover:text-wood-amber transition-colors py-1">Kurumsal</a>
+                <a href="#hizmetler" class="hover:text-wood-amber transition-colors py-1">Uzmanlık Alanlarımız</a>
+                <a href="#merdiven" class="hover:text-wood-amber transition-colors py-1">Ahşap Merdiven</a>
+                <a href="#galeri" class="hover:text-wood-amber transition-colors py-1">Projelerimiz</a>
+                <a href="#surec" class="hover:text-wood-amber transition-colors py-1">Nasıl Çalışıyoruz?</a>
+                <a href="#iletisim" class="hover:text-wood-amber transition-colors py-1">İletişim</a>
+            </div>
+
+            <!-- Fast Contact CTA -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://www.instagram.com/sivas_beyoglu_ahsap/" target="_blank" class="text-gray-300 hover:text-wood-amber transition-colors p-2 text-xl" title="Instagram'da Takip Et">
+                    <i class="ph-fill ph-instagram-logo"></i>
+                </a>
+                <a href="https://wa.me/905336351134?text=Merhaba,%20ahşap%20projemiz%20için%20ücretsiz%20keşif%20ve%20fiyat%20teklifi%20istiyoruz." target="_blank" class="btn-wa-green px-4 py-2 rounded-full text-xs uppercase tracking-wider flex items-center gap-1.5">
+                    <i class="ph-fill ph-whatsapp-logo text-base"></i>
+                    <span>Ücretsiz Keşif İste</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="lg:hidden text-wood-amber text-3xl p-1" onclick="toggleMobileMenu()">
+                <i class="ph-bold ph-list"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-wood-dark border-t border-white/10 mt-3 px-6 py-5 space-y-3 font-sans font-medium text-gray-200">
+            <a href="#hakkimizda" onclick="toggleMobileMenu()" class="block text-sm hover:text-wood-amber py-1.5 border-b border-white/5">Kurumsal Profil</a>
+            <a href="#hizmetler" onclick="toggleMobileMenu()" class="block text-sm hover:text-wood-amber py-1.5 border-b border-white/5">Uzmanlık Alanlarımız</a>
+            <a href="#merdiven" onclick="toggleMobileMenu()" class="block text-sm hover:text-wood-amber py-1.5 border-b border-white/5">Ahşap Merdiven Sistemleri</a>
+            <a href="#galeri" onclick="toggleMobileMenu()" class="block text-sm hover:text-wood-amber py-1.5 border-b border-white/5">Uygulama Projelerimiz</a>
+            <a href="#surec" onclick="toggleMobileMenu()" class="block text-sm hover:text-wood-amber py-1.5 border-b border-white/5">İmalat & Montaj Süreci</a>
+            <a href="#iletisim" onclick="toggleMobileMenu()" class="block text-sm hover:text-wood-amber py-1.5">İletişim & Atölye</a>
+            <div class="pt-2">
+                <a href="https://wa.me/905336351134" target="_blank" class="btn-wa-green w-full py-2.5 rounded-xl text-center text-xs justify-center flex items-center gap-2">
+                    <i class="ph-fill ph-whatsapp-logo text-base"></i> WhatsApp Keşif Hattı
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION -->
+    <section class="relative min-h-[88vh] bg-wood-dark text-white flex items-center overflow-hidden border-b border-white/10">
+        <!-- Background Imagery -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" alt="Lüks Masif Ahşap Merdiven ve Mimari İç Mekan" class="w-full h-full object-cover opacity-35 scale-105 transition-transform duration-1000">
+            <div class="absolute inset-0 bg-gradient-to-r from-wood-dark via-wood-dark/90 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-wood-dark via-transparent to-black/40"></div>
+        </div>
+
+        <div class="relative z-10 max-w-[1400px] mx-auto px-6 py-16 lg:py-24 w-full">
+            <div class="max-w-3xl" data-aos="fade-right" data-aos-duration="900">
+                
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-wood-rich/90 border border-wood-gold/40 text-wood-gold font-sans text-xs font-bold tracking-widest uppercase mb-6 shadow-gold-glow">
+                    <span class="w-2 h-2 rounded-full bg-wood-gold animate-ping"></span>
+                    <i class="ph-fill ph-hammer"></i> Sivas Özel Ahşap Zanaatı & İmalat
+                </div>
+                
+                <h1 class="font-serif text-3xl sm:text-5xl lg:text-[4.25rem] font-bold leading-[1.1] mb-6 text-wood-cream">
+                    Doğanın Sıcaklığı, <br>
+                    <span class="italic font-normal text-wood-amber">Ustalığın Zirvesi.</span> <br>
+                    <span class="font-display tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-wood-gold via-wood-amber to-amber-200">Masif Ahşap</span> Sanatı.
+                </h1>
+                
+                <p class="font-sans text-gray-300 text-base md:text-lg font-light leading-relaxed mb-8 max-w-2xl">
+                    1. sınıf fırınlanmış meşe, ceviz, gürgen ve çam ağaçlarıyla; villalarınıza özel <strong>ahşap merdivenler</strong>, bahçelerinize <strong>veranda ve kamelyalar</strong>, mekanlarınıza <strong>kütük masa ve sedir takımları</strong> üretiyoruz.
+                </p>
+                
+                <!-- CTA Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 sm:items-center">
+                    <a href="#hizmetler" class="btn-wood-primary">
+                        Hizmetleri İncele <i class="ph-bold ph-arrow-down text-base"></i>
+                    </a>
+                    <a href="https://wa.me/905336351134?text=Merhaba,%20Beyoğlu%20Ahşap%20imalat%20modellerini%20inceledim,%20özel%20projemiz%20için%20fiyat%20almak%20istiyorum." target="_blank" class="btn-wood-outline">
+                        <i class="ph-fill ph-whatsapp-logo text-green-400 text-lg"></i> WhatsApp Keşif Talebi
+                    </a>
+                </div>
+
+                <!-- Trust Metrics Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 pt-8 border-t border-white/15">
+                    <div class="flex flex-col">
+                        <div class="text-wood-gold font-display text-2xl font-bold">%100</div>
+                        <div class="text-gray-300 text-xs font-semibold uppercase tracking-wider mt-0.5">Fırınlanmış Masif Ağaç</div>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-wood-gold font-display text-2xl font-bold">Özel</div>
+                        <div class="text-gray-300 text-xs font-semibold uppercase tracking-wider mt-0.5">3D Tasarım & Ölçü</div>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-wood-gold font-display text-2xl font-bold">Ağaç Torna</div>
+                        <div class="text-gray-300 text-xs font-semibold uppercase tracking-wider mt-0.5">Usta El İşçiliği</div>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-wood-gold font-display text-2xl font-bold">Ücretsiz</div>
+                        <div class="text-gray-300 text-xs font-semibold uppercase tracking-wider mt-0.5">Sivas İçi Keşif</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Decorative Watermark Badge -->
+        <div class="hidden xl:flex absolute right-16 bottom-16 w-36 h-36 rounded-full border-2 border-dashed border-wood-gold/40 items-center justify-center p-3 text-center opacity-60 pointer-events-none">
+            <div class="text-wood-gold font-display text-[9px] tracking-widest uppercase font-bold leading-tight">
+                ★ BEYOĞLU AHŞAP ★<br>
+                <span class="text-base font-black text-white">SİVAS</span><br>
+                ÖZEL İMALAT
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. VALUE PROPOSITION (NEDEN BEYOĞLU AHŞAP?) -->
+    <section id="hakkimizda" class="py-12 bg-wood-parchment border-b border-wood-border">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="flex items-start gap-3.5 bg-white/80 p-4 rounded-xl border border-wood-border">
+                    <div class="w-11 h-11 rounded-lg bg-wood-espresso text-wood-gold flex items-center justify-center text-xl shrink-0">
+                        <i class="ph-fill ph-tree"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-wood-dark text-base mb-0.5">1. Sınıf Fırınlanmış Ağaç</h4>
+                        <p class="text-xs text-wood-rich/80 leading-relaxed">Nem oranı dengelenmiş ceviz, meşe ve çam; yıllar geçse de dönme ve çatlama yapmaz.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3.5 bg-white/80 p-4 rounded-xl border border-wood-border">
+                    <div class="w-11 h-11 rounded-lg bg-wood-espresso text-wood-gold flex items-center justify-center text-xl shrink-0">
+                        <i class="ph-fill ph-ruler"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-wood-dark text-base mb-0.5">Milimetrik Özel Ölçü</h4>
+                        <p class="text-xs text-wood-rich/80 leading-relaxed">Mekanınızın mimari yapısına göre sıfırdan projelendirilen eşsiz merdiven ve mobilyalar.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3.5 bg-white/80 p-4 rounded-xl border border-wood-border">
+                    <div class="w-11 h-11 rounded-lg bg-wood-espresso text-wood-gold flex items-center justify-center text-xl shrink-0">
+                        <i class="ph-fill ph-hammer"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-wood-dark text-base mb-0.5">Geleneksel Ağaç Torna</h4>
+                        <p class="text-xs text-wood-rich/80 leading-relaxed">Özel torna ayaklar, el oyması küpeşteler ve dekoratif ahşap sanat eserleri.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3.5 bg-white/80 p-4 rounded-xl border border-wood-border">
+                    <div class="w-11 h-11 rounded-lg bg-wood-espresso text-wood-gold flex items-center justify-center text-xl shrink-0">
+                        <i class="ph-fill ph-shield-check"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-wood-dark text-base mb-0.5">Kusursuz Montaj Güvencesi</h4>
+                        <p class="text-xs text-wood-rich/80 leading-relaxed">Kendi ustalarımızla temiz, ses yapmayan ve sağlam yerinde montaj garantisi.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. UZMANLIK ALANLARIMIZ & ÜRÜN KATEGORİLERİ -->
+    <section id="hizmetler" class="py-20 bg-wood-cream relative wood-pattern">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+                <span class="text-wood-amber font-sans font-bold text-xs uppercase tracking-[0.25em] block mb-2">USTALIK VE İMALAT</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-wood-dark mb-3">Neler Üretiyoruz?</h2>
+                <div class="w-16 h-1 bg-wood-amber mx-auto mb-3"></div>
+                <p class="text-wood-rich/80 text-sm font-normal">Siz hayal edin, biz en kaliteli masif ağaçlarla yaşam alanlarınıza hayat verelim.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Category 1: Ahşap Merdiven Sistemleri -->
+                <div class="wood-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dubleks ve Villa Ahşap Merdiven" class="card-img w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-wood-espresso text-wood-gold font-sans text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-wood-gold/30">Ana Uzmanlık</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-wood-dark mb-2">Ahşap Merdiven Sistemleri</h3>
+                            <p class="text-xs sm:text-sm text-wood-rich/80 mb-4 leading-relaxed">
+                                Dubleks, tripleks ve villa merdivenleri. Masif gürgen/meşe basamaklar, tornalı küpeşteler, modern cam/metal korkuluklar ve gizli LED aydınlatmalar.
+                            </p>
+                            <ul class="text-xs text-wood-dark font-medium space-y-1.5 mb-6 pt-3 border-t border-wood-border">
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Beton Üzeri Ahşap Kaplama</li>
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Kendinden Taşıyıcı Omurgalı Merdiven</li>
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Gıcırdama Yapmayan Özel Sabitleme</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/905336351134?text=Ahşap%20merdiven%20modelleri%20ve%20fiyatları%20hakkında%20keşif%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-wood-amber font-bold text-xs uppercase tracking-wider hover:text-wood-dark transition-colors">
+                            Merdiven Projesi Başlat <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 2: Veranda, Kamelya & Çardak -->
+                <div class="wood-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ahşap Veranda ve Kamelya" class="card-img w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-wood-amber text-white font-sans text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Dış Mekan</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-wood-dark mb-2">Veranda, Kamelya & Çardak</h3>
+                            <p class="text-xs sm:text-sm text-wood-rich/80 mb-4 leading-relaxed">
+                                Dört mevsim dış hava koşullarına dayanıklı, emprenye edilmiş masif çam ve meşe bahçe verendaları, ahşap teraslar ve kamelyalar.
+                            </p>
+                            <ul class="text-xs text-wood-dark font-medium space-y-1.5 mb-6 pt-3 border-t border-wood-border">
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Emprenyeli Su Geçirmez Ahşap</li>
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Ahşap Pergola & Gölgelikler</li>
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Bahçe Oturma Grupları & Çardaklar</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/905336351134?text=Veranda%20ve%20kamelya%20yaptırmak%20istiyorum,%20fiyat%20alabilir%20miyim?" target="_blank" class="inline-flex items-center gap-2 text-wood-amber font-bold text-xs uppercase tracking-wider hover:text-wood-dark transition-colors">
+                            Veranda Teklifi Al <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 3: Sedir & Şark Köşesi Takımları -->
+                <div class="wood-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ahşap Sedir ve Şark Köşesi" class="card-img w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-wood-rich text-wood-gold font-sans text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Geleneksel & Modern</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-wood-dark mb-2">Sedir & Şark Köşesi</h3>
+                            <p class="text-xs sm:text-sm text-wood-rich/80 mb-4 leading-relaxed">
+                                Anadolu kültürünün sıcaklığını modern konforla buluşturan sandıklı ahşap sedirler, şark köşesi oturma grupları ve masif orta sehpalar.
+                            </p>
+                            <ul class="text-xs text-wood-dark font-medium space-y-1.5 mb-6 pt-3 border-t border-wood-border">
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Sandıklı Fonksiyonel Alt Bölmeler</li>
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> L Tipi ve Özel Oda Ölçüsü İmalat</li>
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Ortopedik Sünger ve Kumaş Uyumu</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/905336351134?text=Sedir%20ve%20şark%20köşesi%20modelleriniz%20hakkında%20bilgi%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-wood-amber font-bold text-xs uppercase tracking-wider hover:text-wood-dark transition-colors">
+                            Sedir Modellerini İncele <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 4: Doğal Kütük & Epoksi Masalar -->
+                <div class="wood-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Doğal Kütük Masa ve Masif Mobilya" class="card-img w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-wood-espresso text-wood-gold font-sans text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Doğal Doku</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-wood-dark mb-2">Doğal Kütük & Masif Masa</h3>
+                            <p class="text-xs sm:text-sm text-wood-rich/80 mb-4 leading-relaxed">
+                                Yıllanmış ceviz ve meşe ağaçlarının doğal damar desenlerini koruyarak ürettiğimiz yemek masaları, çalışma masaları ve epoksi detaylar.
+                            </p>
+                            <ul class="text-xs text-wood-dark font-medium space-y-1.5 mb-6 pt-3 border-t border-wood-border">
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Fırınlanmış Tek Parça Masif Kütük</li>
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Fırın Boyalı Metal ve Ahşap Ayaklar</li>
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Çizilmeye Dayanıklı Doğal Yağ/Cila</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/905336351134?text=Doğal%20kütük%20ve%20masif%20masa%20modellerini%20görmek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-wood-amber font-bold text-xs uppercase tracking-wider hover:text-wood-dark transition-colors">
+                            Masa Siparişi Ver <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 5: Ağaç Torna & Dekorasyon (Mantar/Zigon Sehpa) -->
+                <div class="wood-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ağaç Torna Zanaatı ve Mantar Sehpa" class="card-img w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-wood-amber text-white font-sans text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">El Sanatı</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-wood-dark mb-2">Ağaç Torna & Dekoratif Sehpa</h3>
+                            <p class="text-xs sm:text-sm text-wood-rich/80 mb-4 leading-relaxed">
+                                Torna tezgahında şekillendirilen mantar sehpalar, zigon sehpa takımları, ahşap bahçe salıncakları, komidinler ve dekoratif aksesuarlar.
+                            </p>
+                            <ul class="text-xs text-wood-dark font-medium space-y-1.5 mb-6 pt-3 border-t border-wood-border">
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Popüler Masif Mantar Sehpa Modelleri</li>
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Tornalı Zigon Sehpa ve Komidinler</li>
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Bahçe & Teras Ahşap Salıncakları</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/905336351134?text=Mantar%20sehpa%20ve%20dekorasyon%20ürünleri%20fiyatlarını%20öğrenmek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-wood-amber font-bold text-xs uppercase tracking-wider hover:text-wood-dark transition-colors">
+                            Dekorasyon Ürünleri <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 6: TV Ünitesi & Özel Duvar Paneli -->
+                <div class="wood-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ahşap TV Ünitesi ve Duvar Paneli" class="card-img w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-wood-espresso text-wood-gold font-sans text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">İç Mimari</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-wood-dark mb-2">TV Ünitesi & Ahşap Panel</h3>
+                            <p class="text-xs sm:text-sm text-wood-rich/80 mb-4 leading-relaxed">
+                                Akustik ahşap çıtalı duvar kaplamaları, gizli LED ışıklı masif TV konsolları, kitaplıklar ve lüks oda bölücü seperatörler.
+                            </p>
+                            <ul class="text-xs text-wood-dark font-medium space-y-1.5 mb-6 pt-3 border-t border-wood-border">
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Doğal Meşe & Ceviz Çıtalı Duvarlar</li>
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Özel Tasarım TV Sehpaları & Dolaplar</li>
+                                <li class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Masif Kitaplık & Seperatör Sistemleri</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/905336351134?text=Özel%20TV%20ünitesi%20ve%20ahşap%20duvar%20kaplama%20için%20fiyat%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-wood-amber font-bold text-xs uppercase tracking-wider hover:text-wood-dark transition-colors">
+                            TV Ünitesi Projesi <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. MERDİVEN VE ÖZEL İMALAT VURGUSU (FEATURE HIGHLIGHT) -->
+    <section id="merdiven" class="py-24 bg-wood-espresso text-white relative overflow-hidden border-t border-b border-white/10">
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <div class="relative" data-aos="fade-right">
+                    <div class="relative z-10 rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Beyoğlu Ahşap Atölye Zanaatı" class="w-full h-[450px] object-cover">
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -right-6 bg-wood-rich/95 backdrop-blur-md p-6 rounded-2xl border border-wood-gold/40 shadow-2xl max-w-xs hidden sm:block z-20">
+                        <div class="flex items-center gap-2.5 mb-2">
+                            <i class="ph-fill ph-seal-check text-2xl text-wood-gold"></i>
+                            <span class="font-display font-bold text-xs tracking-wider text-white uppercase">SİVAS USTA ELLERİ</span>
+                        </div>
+                        <p class="text-xs text-gray-300 font-light leading-relaxed">
+                            Her merdiven basamağını atölyemizde milimetrik ölçüp zımparalayarak fırınlanmış masif ağaçtan hazırlıyoruz.
+                        </p>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left">
+                    <span class="text-wood-gold font-sans font-bold text-xs uppercase tracking-[0.25em] block mb-3">MİMARİ ZARAFET</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-wood-cream mb-6 leading-tight">
+                        Evinizin Ruhunu Değiştiren <br><span class="text-wood-amber italic">Ahşap Merdivenler.</span>
+                    </h2>
+                    
+                    <p class="text-gray-300 font-light text-base leading-relaxed mb-6">
+                        Merdiven, bir dubleks veya villanın sadece katlar arası geçişi değil; mekanın en göz alıcı mimari merkezidir. <strong>Beyoğlu Ahşap</strong> olarak, betonarme veya çelik konstrüksiyon üzerine ses yapmayan, gıcırdamayan, 1. sınıf masif basamak ve korkuluk sistemleri inşa ediyoruz.
+                    </p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-wood-amber/20 text-wood-gold flex items-center justify-center text-sm shrink-0 mt-0.5">
+                                <i class="ph-bold ph-check"></i>
+                            </div>
+                            <p class="text-sm text-gray-300"><strong>Gürgen & Meşe Masif Basamak:</strong> Ağır darbelere ve çizilmelere karşı ultra dayanıklı çift kat parke cilası.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-wood-amber/20 text-wood-gold flex items-center justify-center text-sm shrink-0 mt-0.5">
+                                <i class="ph-bold ph-check"></i>
+                            </div>
+                            <p class="text-sm text-gray-300"><strong>Tornalı veya Cam Korkuluk:</strong> İster klasik oymalı torna baba ve küpeşteler, ister modern temperli cam/ferforje kombinasyonları.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-wood-amber/20 text-wood-gold flex items-center justify-center text-sm shrink-0 mt-0.5">
+                                <i class="ph-bold ph-check"></i>
+                            </div>
+                            <p class="text-sm text-gray-300"><strong>Sensörlü Gizli LED Aydınlatma:</strong> Basamak altına entegre edilen modern gece aydınlatmaları.</p>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/905336351134?text=Merhaba,%20merdiven%20yaptırmak%20istiyorum,%20Sivas%20içi%20yerinde%20keşif%20yapabilir%20misiniz?" target="_blank" class="btn-wood-primary">
+                        <i class="ph-fill ph-ruler text-lg"></i> Ücretsiz Yerinde Keşif İste
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. NASIL ÇALIŞIYORUZ? (4 ADIMLI SÜREÇ) -->
+    <section id="surec" class="py-20 bg-wood-parchment border-b border-wood-border">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="text-center max-w-xl mx-auto mb-14" data-aos="fade-up">
+                <span class="text-wood-amber font-sans font-bold text-xs uppercase tracking-[0.25em] block mb-2">HATA PAYSIZ İMALAT</span>
+                <h3 class="font-serif text-3xl sm:text-4xl font-bold text-wood-dark">4 Adımda Hayalinizdeki Ahşap</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-white p-6 rounded-2xl border border-wood-border shadow-wood text-center flex flex-col items-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-14 h-14 rounded-2xl bg-wood-espresso text-wood-gold flex items-center justify-center text-xl font-display font-bold mb-4">
+                        01
+                    </div>
+                    <h4 class="font-serif font-bold text-lg text-wood-dark mb-2">Ücretsiz Keşif & Ölçüm</h4>
+                    <p class="text-xs text-wood-rich/80 leading-relaxed">Sivas merkez ve ilçelerinde yerinize gelip lazer metre ile milimetrik ölçü alıyoruz.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-wood-border shadow-wood text-center flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-2xl bg-wood-espresso text-wood-gold flex items-center justify-center text-xl font-display font-bold mb-4">
+                        02
+                    </div>
+                    <h4 class="font-serif font-bold text-lg text-wood-dark mb-2">Ağaç Seçimi & Tasarım</h4>
+                    <p class="text-xs text-wood-rich/80 leading-relaxed">Ceviz, meşe, gürgen veya çam; zevkinize ve bütçenize en uygun ağaç türünü belirliyoruz.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-wood-border shadow-wood text-center flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-2xl bg-wood-espresso text-wood-gold flex items-center justify-center text-xl font-display font-bold mb-4">
+                        03
+                    </div>
+                    <h4 class="font-serif font-bold text-lg text-wood-dark mb-2">Hassas Atölye İmalatı</h4>
+                    <p class="text-xs text-wood-rich/80 leading-relaxed">Fırınlanmış ağaçları torna ve usta marangozluk tezgahlarımızda özenle işliyoruz.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-wood-border shadow-wood text-center flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-2xl bg-wood-espresso text-wood-gold flex items-center justify-center text-xl font-display font-bold mb-4">
+                        04
+                    </div>
+                    <h4 class="font-serif font-bold text-lg text-wood-dark mb-2">Kusursuz Montaj</h4>
+                    <p class="text-xs text-wood-rich/80 leading-relaxed">Belirlenen günde evinize gelip temiz, sağlam ve eksiksiz montajı tamamlıyoruz.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. PROJELER & UYGULAMA GALERİSİ -->
+    <section id="galeri" class="py-20 bg-wood-cream relative">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12" data-aos="fade-up">
+                <div>
+                    <span class="text-wood-amber font-sans font-bold text-xs uppercase tracking-[0.25em] block mb-2">GERÇEK İMALATLARIMIZ</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-wood-dark">Son Projelerimizden Kareler</h2>
+                </div>
+                <a href="https://www.instagram.com/sivas_beyoglu_ahsap/" target="_blank" class="btn-wood-primary py-3 px-6 text-xs shrink-0">
+                    <i class="ph-bold ph-instagram-logo text-base"></i> @sivas_beyoglu_ahsap Takip Et
+                </a>
+            </div>
+
+            <!-- Visual Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-wood border border-wood-border" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Villa Merdiven Projesi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-wood-dark via-wood-dark/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-5 text-white">
+                        <span class="text-[10px] text-wood-gold uppercase tracking-widest font-bold">Merdiven İmalatı</span>
+                        <h4 class="font-serif font-bold text-base">Dubleks Masif Merdiven</h4>
+                    </div>
+                </div>
+
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-wood border border-wood-border" data-aos="fade-up" data-aos-delay="50">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Masif Veranda Projesi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-wood-dark via-wood-dark/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-5 text-white">
+                        <span class="text-[10px] text-wood-gold uppercase tracking-widest font-bold">Dış Mekan</span>
+                        <h4 class="font-serif font-bold text-base">Bahçe Veranda & Kamelya</h4>
+                    </div>
+                </div>
+
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-wood border border-wood-border" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Doğal Ceviz Kütük Masa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-wood-dark via-wood-dark/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-5 text-white">
+                        <span class="text-[10px] text-wood-gold uppercase tracking-widest font-bold">Özel Mobilya</span>
+                        <h4 class="font-serif font-bold text-base">Masif Ceviz Yemek Masası</h4>
+                    </div>
+                </div>
+
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-wood border border-wood-border" data-aos="fade-up" data-aos-delay="150">
+                    <img src="https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Torna Ahşap Mantar Sehpa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-wood-dark via-wood-dark/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-5 text-white">
+                        <span class="text-[10px] text-wood-gold uppercase tracking-widest font-bold">Ağaç Torna</span>
+                        <h4 class="font-serif font-bold text-base">Özel Tasarım Mantar Sehpa</h4>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Direct Fast Quote Box -->
+            <div class="mt-14 p-8 rounded-3xl bg-wood-espresso text-white border border-wood-gold/30 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+                <div>
+                    <h4 class="font-serif text-2xl font-bold text-wood-gold mb-2">Aklınızda Özel Bir Model mi Var?</h4>
+                    <p class="text-xs sm:text-sm text-gray-300 font-light max-w-xl">
+                        İnternette veya dergide gördüğünüz beğendiğiniz ahşap merdiven, masa veya mobilya fotoğrafını WhatsApp'tan atın; birebir aynısını ölçülerinize göre yapalım.
+                    </p>
+                </div>
+                <a href="https://wa.me/905336351134?text=Merhaba,%20istediğim%20ahşap%20modelinin%20fotoğrafını%20göndermek%20istiyorum." target="_blank" class="btn-wa-green px-8 py-4 rounded-full text-xs uppercase tracking-wider whitespace-nowrap flex items-center gap-2">
+                    <i class="ph-fill ph-camera text-xl"></i> Fotoğraf Gönder, Fiyat Al
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8. İLETİŞİM, ATÖLYE & KONUM -->
+    <section id="iletisim" class="py-20 bg-wood-parchment relative border-t border-wood-border">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Contact Details -->
+                <div data-aos="fade-right">
+                    <span class="text-wood-amber font-sans font-bold text-xs uppercase tracking-[0.25em] block mb-2">BİZE ULAŞIN</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-wood-dark mb-4">Atölyemize Bekleriz</h2>
+                    
+                    <p class="text-wood-rich/80 font-light text-sm sm:text-base mb-8 leading-relaxed">
+                        Sivas'taki imalat atölyemizde ağaç kokusunu soluyabilir, fırınlanmış masif ağaçlarımızı ve torna numunelerimizi yakından inceleyebilirsiniz.
+                    </p>
+
+                    <div class="space-y-4">
+                        
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-wood-border shadow-sm">
+                            <div class="w-11 h-11 rounded-lg bg-wood-cream text-wood-amber flex items-center justify-center text-2xl shrink-0">
+                                <i class="ph-fill ph-map-pin"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-wood-dark text-base mb-0.5">İmalat & Atölye</h4>
+                                <p class="text-xs sm:text-sm text-wood-rich/80 leading-relaxed">
+                                    Merkez / Sivas (58000)<br>
+                                    Tüm Sivas il ve ilçelerine yerinde keşif & montaj
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-wood-border shadow-sm">
+                            <div class="w-11 h-11 rounded-lg bg-wood-cream text-wood-amber flex items-center justify-center text-2xl shrink-0">
+                                <i class="ph-fill ph-phone-call"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-wood-dark text-base mb-0.5">Telefon & WhatsApp Hattı</h4>
+                                <p class="text-xs sm:text-sm text-wood-rich/80 mb-0.5">0533 635 11 34</p>
+                                <span class="text-[11px] text-green-700 font-semibold flex items-center gap-1">
+                                    <i class="ph-fill ph-check-circle"></i> Mesai saatlerinde ortalama 5 dk içinde hızlı yanıt
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-wood-border shadow-sm">
+                            <div class="w-11 h-11 rounded-lg bg-wood-cream text-wood-amber flex items-center justify-center text-2xl shrink-0">
+                                <i class="ph-fill ph-instagram-logo"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-wood-dark text-base mb-0.5">Sosyal Medya & Güncel İşler</h4>
+                                <a href="https://www.instagram.com/sivas_beyoglu_ahsap/" target="_blank" class="text-xs sm:text-sm text-wood-amber hover:text-wood-dark font-semibold transition-colors">
+                                    @sivas_beyoglu_ahsap (230+ Gönderi)
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Map / Action Card -->
+                <div class="relative" data-aos="fade-left">
+                    <div class="p-7 rounded-2xl bg-wood-espresso text-white shadow-2xl border border-wood-gold/30 relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                                <span class="text-xs text-wood-gold font-mono ml-2">beyoglu_ahsap_sivas.gmaps</span>
+                            </div>
+
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-wood-gold mb-2">Sivas Beyoğlu Ahşap İmalat</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 font-light mb-5 leading-relaxed">
+                                Evinize veya villanıza ahşap merdiven, veranda veya özel sedir yaptırmayı düşünüyorsanız, bir telefonla adresinize gelip ölçü alıyoruz.
+                            </p>
+
+                            <!-- Map Mock Visual -->
+                            <div class="w-full h-52 rounded-xl bg-wood-dark border border-white/10 flex flex-col items-center justify-center text-center p-4 mb-5 group">
+                                <i class="ph-fill ph-tree text-5xl text-wood-amber/60 mb-2 group-hover:scale-105 transition-transform"></i>
+                                <span class="font-serif text-white font-bold text-sm sm:text-base">Beyoğlu Ahşap Atölyesi</span>
+                                <span class="text-xs text-wood-amber mt-0.5">Sivas Merkez & Çevre İlçeler</span>
+                            </div>
+
+                            <a href="https://wa.me/905336351134?text=Merhaba,%20Sivas%20içinde%20keşif%20için%20adresimi%20iletmek%20istiyorum." target="_blank" class="btn-wood-primary w-full justify-center text-xs py-3.5">
+                                <i class="ph-fill ph-whatsapp-logo text-base"></i> WhatsApp'tan Keşif Randevusu Al
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FOOTER -->
+    <footer class="bg-wood-dark text-white pt-14 pb-8 border-t border-white/10 font-sans">
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border-b border-white/10 pb-10 mb-6">
+            
+            <div class="lg:col-span-1">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-lg bg-wood-amber flex items-center justify-center text-wood-gold font-bold">
+                        <i class="ph-fill ph-tree text-xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display text-lg font-bold tracking-widest text-white leading-none">BEYOĞLU AHŞAP</span>
+                        <span class="text-[8.5px] tracking-[0.2em] text-wood-amber uppercase font-semibold mt-0.5">Sivas Özel Ahşap İmalat</span>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-400 font-light leading-relaxed mb-5">
+                    Sivas'ta ahşap merdiven, veranda, kamelya, sedir takımı, doğal kütük masa ve ağaç torna zanaatı. Siz hayal edin, biz yapalım.
+                </p>
+                <div class="flex items-center gap-2.5">
+                    <a href="https://www.instagram.com/sivas_beyoglu_ahsap/" target="_blank" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-wood-amber hover:text-white transition-colors">
+                        <i class="ph-fill ph-instagram-logo text-sm"></i>
+                    </a>
+                    <a href="https://wa.me/905336351134" target="_blank" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-green-500 hover:text-white transition-colors">
+                        <i class="ph-fill ph-whatsapp-logo text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-serif font-bold text-white mb-4 text-xs tracking-wider uppercase text-wood-gold">Hizmetlerimiz</h4>
+                <ul class="space-y-2 text-xs text-gray-400 font-light">
+                    <li><a href="#hizmetler" class="hover:text-wood-amber transition-colors">Dubleks Ahşap Merdivenler</a></li>
+                    <li><a href="#hizmetler" class="hover:text-wood-amber transition-colors">Ahşap Veranda & Kamelya</a></li>
+                    <li><a href="#hizmetler" class="hover:text-wood-amber transition-colors">Sedir & Şark Köşesi Takımları</a></li>
+                    <li><a href="#hizmetler" class="hover:text-wood-amber transition-colors">Doğal Kütük Yemek Masaları</a></li>
+                    <li><a href="#hizmetler" class="hover:text-wood-amber transition-colors">Mantar & Zigon Sehpalar</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-serif font-bold text-white mb-4 text-xs tracking-wider uppercase text-wood-gold">Güvencelerimiz</h4>
+                <ul class="space-y-2 text-xs text-gray-400 font-light">
+                    <li><span class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> %100 Fırınlanmış Masif Ağaç</span></li>
+                    <li><span class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Milimetrik Özel Ölçü İmalat</span></li>
+                    <li><span class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Geleneksel Ağaç Torna Ustalığı</span></li>
+                    <li><span class="flex items-center gap-1.5"><i class="ph-bold ph-check text-wood-amber"></i> Sivas İçi Ücretsiz Keşif</span></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-serif font-bold text-white mb-4 text-xs tracking-wider uppercase text-wood-gold">İletişim & Sipariş</h4>
+                <p class="text-xs text-gray-400 font-light leading-relaxed mb-2">
+                    Sivas Merkez & Çevre İlçeler<br>
+                    Özel İmalat Atölyesi
+                </p>
+                <a href="https://wa.me/905336351134" target="_blank" class="text-xs text-wood-gold hover:text-white font-bold block mb-0.5">
+                    Tel: 0533 635 11 34
+                </a>
+                <span class="text-[11px] text-gray-500">Instagram: @sivas_beyoglu_ahsap</span>
+            </div>
+
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-gray-500 font-light">
+            <p>&copy; 2026 Beyoğlu Ahşap. Tüm Hakları Saklıdır. Sivas Özel Masif Ahşap İmalatı.</p>
+            <p class="text-gray-600">Siz Hayal Edin, Biz Yapalım.</p>
+        </div>
+    </footer>
+
+    <!-- 10. FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/905336351134?text=Merhaba,%20Beyoğlu%20Ahşap%20imalat%20ve%20keşif%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="fixed bottom-6 right-6 z-50 w-13 h-13 p-3.5 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl wa-floating-btn hover:scale-110 transition-transform" title="WhatsApp Keşif & Sipariş">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700,
+            once: true,
+            offset: 30,
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

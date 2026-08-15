@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onur Tente & Pergola Sistemleri | Sivas</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    },
+                    colors: {
+                        tente: {
+                            orange: '#FF5A00',   /* Logo Orange */
+                            dark: '#0F0F0F',     /* Pure Dark */
+                            gray: '#1A1A1A',     /* Card Gray */
+                            light: '#F8F9FA',    /* Clean White */
+                            steel: '#3F3F46',    /* Steel/Metal tone */
+                        }
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M0 0h40v40H0V0zm20 20h20v20H20V20zM0 20h20v20H0V20z\" fill=\"%231f1f1f\" fill-opacity=\"0.4\" fill-rule=\"evenodd\"/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        body {
+            background-color: theme('colors.tente.dark');
+            color: white;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Industrial Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.tente.dark');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.tente.orange');
+            border-radius: 0px;
+        }
+
+        .glass-nav {
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .btn-orange {
+            background-color: theme('colors.tente.orange');
+            color: white;
+            padding: 1rem 2.5rem;
+            font-family: theme('fontFamily.display');
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+        }
+        .btn-orange:hover {
+            background-color: #E04D00;
+            transform: translateX(5px);
+        }
+
+        .btn-outline {
+            border: 2px solid theme('colors.tente.orange');
+            color: theme('colors.tente.orange');
+            background-color: transparent;
+            padding: 1rem 2.5rem;
+            font-family: theme('fontFamily.display');
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+        }
+        .btn-outline:hover {
+            background-color: theme('colors.tente.orange');
+            color: white;
+        }
+
+        .section-title {
+            font-family: theme('fontFamily.display');
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 4rem;
+            }
+        }
+        
+        .section-subtitle {
+            color: theme('colors.tente.orange');
+            font-family: theme('fontFamily.display');
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .section-subtitle::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: theme('colors.tente.orange');
+        }
+
+        /* Product Card */
+        .product-card {
+            background: theme('colors.tente.gray');
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: theme('colors.tente.orange');
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background-color: theme('colors.tente.orange');
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: 10;
+        }
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .product-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 90, 0, 0.1);
+            color: theme('colors.tente.orange');
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+
+        /* Diagonal lines overlay */
+        .diagonal-stripes {
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 90, 0, 0.05) 10px,
+                rgba(255, 90, 0, 0.05) 20px
+            );
+        }
+    </style>
+</head>
+<body class="selection:bg-tente-orange selection:text-white">
+
+    <!-- NAVBAR -->
+    <nav class="glass-nav sticky top-0 z-50 py-4 px-6">
+        <div class="max-w-[1500px] mx-auto flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-4 group">
+                <!-- Sun / Tent Logo Icon -->
+                <div class="relative w-12 h-12 flex items-center justify-center">
+                    <div class="absolute w-8 h-8 bg-gradient-to-t from-tente-orange to-yellow-400 rounded-full top-0"></div>
+                    <div class="absolute bottom-1 w-full h-6 bg-tente-dark border-t-2 border-white flex justify-center clip-triangle" style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"></div>
+                </div>
+                <div class="flex flex-col">
+                    <h1 class="font-display text-2xl font-bold tracking-wider text-white leading-none uppercase">ONUR TENTE</h1>
+                    <span class="font-sans text-[10px] tracking-[0.2em] text-gray-400 mt-1 uppercase font-semibold">Pergola & Cam Sistemleri</span>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex items-center gap-8 font-sans text-sm font-semibold tracking-wide text-gray-300">
+                <a href="#kurumsal" class="hover:text-tente-orange transition-colors">Kurumsal</a>
+                <a href="#urunler" class="hover:text-tente-orange transition-colors">Sistemler & Ürünler</a>
+                <a href="#projeler" class="hover:text-tente-orange transition-colors">Projelerimiz</a>
+                <a href="#iletisim" class="hover:text-tente-orange transition-colors">İletişim</a>
+            </div>
+
+            <!-- CTA & Contact -->
+            <div class="hidden md:flex items-center gap-6">
+                <div class="text-right">
+                    <p class="font-sans text-xs text-gray-400 uppercase tracking-widest">Sipariş & Bilgi</p>
+                    <a href="tel:05446055265" class="font-display text-xl text-white hover:text-tente-orange transition-colors font-bold">0544 605 52 65</a>
+                </div>
+                <a href="https://wa.me/905446055265" class="w-12 h-12 bg-green-500 hover:bg-green-600 rounded-none flex items-center justify-center text-white text-2xl transition-colors" style="clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);">
+                    <i class="ph-fill ph-whatsapp-logo"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Btn -->
+            <button class="lg:hidden text-tente-orange text-3xl">
+                <i class="ph-bold ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section class="relative w-full h-[90vh] min-h-[700px] flex items-center overflow-hidden bg-tente-dark">
+        <!-- Background Image -->
+        <div class="absolute inset-0 w-full h-full z-0">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Dış Mekan Pergola" class="w-full h-full object-cover opacity-40 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-r from-tente-dark via-tente-dark/80 to-transparent"></div>
+            <div class="diagonal-stripes absolute inset-0 mix-blend-overlay opacity-30"></div>
+        </div>
+
+        <div class="relative z-10 max-w-[1500px] mx-auto px-6 w-full">
+            <div class="max-w-3xl" data-aos="fade-right">
+                
+                <div class="inline-flex items-center gap-3 px-4 py-2 border border-tente-orange/30 bg-tente-orange/10 text-tente-orange font-sans text-sm font-bold tracking-widest uppercase mb-8">
+                    <i class="ph-fill ph-sun"></i> Sivas'ın Lider Branda Tedarikçisi
+                </div>
+                
+                <h1 class="font-display text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1.05] text-white mb-6 uppercase">
+                    Açık Alanlarınızı <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-tente-orange to-yellow-500">Yeniden Keşfedin.</span>
+                </h1>
+                
+                <p class="font-sans text-lg md:text-xl text-gray-300 mb-10 leading-relaxed font-light max-w-2xl">
+                    Otomatik pergola, giyotin cam ve akıllı gölgelendirme sistemleriyle, <strong>4 mevsim konforu</strong> mekanlarınıza taşıyoruz. Kafe, restoran ve villalar için özel mimari çözümler.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="#urunler" class="btn-orange">
+                        Sistemleri İncele <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                    <a href="#projeler" class="btn-outline">
+                        Projelerimiz
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Scroll Down indicator -->
+        <div class="absolute bottom-0 right-12 z-10 hidden lg:flex flex-col items-center">
+            <span class="font-sans text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-6 rotate-90 origin-bottom whitespace-nowrap">Aşağı Kaydır</span>
+            <div class="w-[2px] h-24 bg-gray-800 relative">
+                <div class="absolute top-0 left-0 w-full h-1/2 bg-tente-orange animate-[bounce_2s_infinite]"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. HAKKIMIZDA (KURUMSAL) -->
+    <section id="kurumsal" class="py-24 bg-tente-gray relative border-t border-white/5 bg-grid-pattern">
+        <div class="max-w-[1500px] mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <div class="relative" data-aos="fade-right">
+                    <!-- Industrial Image Frame -->
+                    <div class="relative p-4 border-2 border-tente-steel">
+                        <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Kafe Dış Mekan" class="w-full h-auto object-cover filter grayscale hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute -bottom-6 -right-6 bg-tente-orange p-6 text-white max-w-xs shadow-2xl">
+                            <h4 class="font-display text-3xl font-bold mb-1">10+ Yıl</h4>
+                            <p class="font-sans text-sm font-semibold uppercase tracking-wider">Sektörel Tecrübe & Güven</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left">
+                    <span class="section-subtitle">Hakkımızda</span>
+                    <h2 class="section-title mb-6">Mekanlara Mimari <br><span class="text-tente-orange">Estetik Katıyoruz.</span></h2>
+                    
+                    <p class="font-sans text-gray-400 text-lg leading-relaxed mb-6">
+                        <strong>Onur Tente & Pergola Sistemleri</strong> olarak Sivas 4 Eylül Sanayi Sitesi'ndeki üretim merkezimizden, tüm Türkiye'ye ve yerel işletmelere üst düzey gölgelendirme çözümleri üretiyoruz.
+                    </p>
+                    <p class="font-sans text-gray-400 text-lg leading-relaxed mb-10">
+                        NexQ Coffee gibi prestijli mekanların dış alan projelerinden, müstakil evlerin kış bahçesi sistemlerine kadar geniş bir yelpazede hizmet veriyoruz. Motorlu ve akıllı sistemlerimiz sayesinde tek tuşla hava şartlarına hükmedin.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-8 pt-6 border-t border-white/10">
+                        <div class="flex flex-col gap-2">
+                            <i class="ph-light ph-shield-check text-4xl text-tente-orange"></i>
+                            <h4 class="font-display text-xl font-bold text-white uppercase tracking-wide">Premium Malzeme</h4>
+                            <p class="font-sans text-sm text-gray-500">Avrupa standartlarında kumaş ve paslanmaz alüminyum profil.</p>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <i class="ph-light ph-wrench text-4xl text-tente-orange"></i>
+                            <h4 class="font-display text-xl font-bold text-white uppercase tracking-wide">Uzman Montaj</h4>
+                            <p class="font-sans text-sm text-gray-500">Alanında uzman ekibimizle hızlı ve kusursuz kurulum garantisi.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ÜRÜNLER & SİSTEMLER -->
+    <section id="urunler" class="py-24 bg-tente-dark relative border-t border-white/5">
+        <div class="absolute top-0 right-0 w-1/2 h-full diagonal-stripes opacity-30 pointer-events-none"></div>
+
+        <div class="max-w-[1500px] mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <span class="section-subtitle">Ürün Yelpazemiz</span>
+                    <h2 class="section-title mb-0">Teknoloji & Tasarımın <br>Buluştuğu Sistemler</h2>
+                </div>
+                <div>
+                    <p class="font-sans text-gray-400 text-lg mb-4 max-w-md">Kullanım amacınıza ve mekanın mimarisine en uygun sistemi seçin, konforun tadını çıkarın.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Ürün 1 -->
+                <div class="product-card p-10 flex flex-col" data-aos="fade-up" data-aos-delay="0">
+                    <div class="product-icon"><i class="ph-fill ph-rows"></i></div>
+                    <h3 class="font-display text-2xl font-bold mb-4 text-white uppercase tracking-wide">Otomatik Pergola</h3>
+                    <p class="font-sans text-gray-400 text-sm mb-8 leading-relaxed flex-grow">
+                        Açılır kapanır tavan sistemi. Kötü hava koşullarında mekanı kapalı tutarken, güneşli günlerde tamamen açık bir alan sunar. LED aydınlatma entegrasyonu.
+                    </p>
+                    <a href="#iletisim" class="font-sans text-tente-orange font-bold text-sm tracking-widest uppercase flex items-center gap-2 mt-auto hover:text-white transition-colors">
+                        Sipariş Ver <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Ürün 2 -->
+                <div class="product-card p-10 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-icon"><i class="ph-fill ph-squares-four"></i></div>
+                    <h3 class="font-display text-2xl font-bold mb-4 text-white uppercase tracking-wide">Giyotin Cam Sistemleri</h3>
+                    <p class="font-sans text-gray-400 text-sm mb-8 leading-relaxed flex-grow">
+                        Dikey hareket eden motorlu cam paneller. Restoran ve kafeler için idealdir, hem rüzgar kırıcı hem de küpeşte görevi görür.
+                    </p>
+                    <a href="#iletisim" class="font-sans text-tente-orange font-bold text-sm tracking-widest uppercase flex items-center gap-2 mt-auto hover:text-white transition-colors">
+                        Sipariş Ver <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Ürün 3 -->
+                <div class="product-card p-10 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-icon"><i class="ph-fill ph-storefront"></i></div>
+                    <h3 class="font-display text-2xl font-bold mb-4 text-white uppercase tracking-wide">Kasetli Tente</h3>
+                    <p class="font-sans text-gray-400 text-sm mb-8 leading-relaxed flex-grow">
+                        Tente kumaşının ve mekanizmasının kapalı konumdayken tam koruma altına alındığı, modern ve estetik görünümlü gölgelendirme sistemi.
+                    </p>
+                    <a href="#iletisim" class="font-sans text-tente-orange font-bold text-sm tracking-widest uppercase flex items-center gap-2 mt-auto hover:text-white transition-colors">
+                        Sipariş Ver <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Ürün 4 -->
+                <div class="product-card p-10 flex flex-col" data-aos="fade-up" data-aos-delay="0">
+                    <div class="product-icon"><i class="ph-fill ph-house-line"></i></div>
+                    <h3 class="font-display text-2xl font-bold mb-4 text-white uppercase tracking-wide">Wintent Tente</h3>
+                    <p class="font-sans text-gray-400 text-sm mb-8 leading-relaxed flex-grow">
+                        Pencere önleri ve mağaza vitrinleri için tasarlanmış, açısı ayarlanabilen, hem güneşten koruyan hem de şık duran pencere tentesi.
+                    </p>
+                    <a href="#iletisim" class="font-sans text-tente-orange font-bold text-sm tracking-widest uppercase flex items-center gap-2 mt-auto hover:text-white transition-colors">
+                        Sipariş Ver <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Ürün 5 -->
+                <div class="product-card p-10 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-icon"><i class="ph-fill ph-arrows-out-line-horizontal"></i></div>
+                    <h3 class="font-display text-2xl font-bold mb-4 text-white uppercase tracking-wide">Mafsallı Tente</h3>
+                    <p class="font-sans text-gray-400 text-sm mb-8 leading-relaxed flex-grow">
+                        Klasik ve en çok tercih edilen, ekonomik gölgelendirme çözümü. Kollu yapısı sayesinde manuel veya motorlu olarak açılıp kapanabilir.
+                    </p>
+                    <a href="#iletisim" class="font-sans text-tente-orange font-bold text-sm tracking-widest uppercase flex items-center gap-2 mt-auto hover:text-white transition-colors">
+                        Sipariş Ver <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Ürün 6 -->
+                <div class="product-card p-10 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-icon"><i class="ph-fill ph-buildings"></i></div>
+                    <h3 class="font-display text-2xl font-bold mb-4 text-white uppercase tracking-wide">Özel Branda & Kış Bahçesi</h3>
+                    <p class="font-sans text-gray-400 text-sm mb-8 leading-relaxed flex-grow">
+                        İşletmelere veya evlere özel ölçülerde üretilen sabit branda yapıları, şeffaf kapamalar ve kış bahçesi projeleri.
+                    </p>
+                    <a href="#iletisim" class="font-sans text-tente-orange font-bold text-sm tracking-widest uppercase flex items-center gap-2 mt-auto hover:text-white transition-colors">
+                        Sipariş Ver <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. İLETİŞİM & LOKASYON -->
+    <section id="iletisim" class="py-0 relative bg-tente-gray border-t border-white/5">
+        <div class="grid lg:grid-cols-2">
+            
+            <!-- Görsel -->
+            <div class="h-[400px] lg:h-auto relative hidden lg:block">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Modern Mimari" class="w-full h-full object-cover grayscale opacity-50">
+                <div class="absolute inset-0 bg-tente-orange/10 mix-blend-multiply"></div>
+                <!-- Geometrik Overlay -->
+                <div class="absolute inset-0 border-[20px] border-tente-gray"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="bg-tente-dark/90 backdrop-blur p-8 text-center border border-tente-orange/30">
+                        <h3 class="font-display text-4xl text-white font-bold mb-2 uppercase">Projeleriniz İçin</h3>
+                        <p class="font-sans text-tente-orange tracking-widest uppercase text-sm">Ücretsiz Keşif Hizmeti</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- İletişim Formu / Bilgiler -->
+            <div class="p-12 lg:p-24 flex flex-col justify-center bg-tente-gray bg-grid-pattern">
+                <span class="section-subtitle">İletişim</span>
+                <h2 class="section-title mb-12">Bize Ulaşın</h2>
+
+                <div class="space-y-10 mb-12">
+                    <div class="flex items-start gap-6 group">
+                        <div class="w-16 h-16 bg-tente-dark border border-white/10 flex items-center justify-center group-hover:border-tente-orange transition-colors shrink-0" style="clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);">
+                            <i class="ph-light ph-map-pin text-3xl text-tente-orange"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-display text-xl mb-2 text-white uppercase tracking-wide">Üretim & Ofis</h4>
+                            <p class="text-gray-400 font-sans leading-relaxed">Gültepe Mahallesi, 4 Eylül Sanayi Sitesi No:9AA<br>Sivas 58060</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-6 group">
+                        <div class="w-16 h-16 bg-tente-dark border border-white/10 flex items-center justify-center group-hover:border-tente-orange transition-colors shrink-0" style="clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);">
+                            <i class="ph-light ph-phone-call text-3xl text-tente-orange"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-display text-xl mb-2 text-white uppercase tracking-wide">Telefon & WhatsApp</h4>
+                            <p class="text-gray-400 font-sans leading-relaxed text-lg">0544 605 52 65</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-6 group">
+                        <div class="w-16 h-16 bg-tente-dark border border-white/10 flex items-center justify-center group-hover:border-tente-orange transition-colors shrink-0" style="clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);">
+                            <i class="ph-light ph-instagram-logo text-3xl text-tente-orange"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-display text-xl mb-2 text-white uppercase tracking-wide">Sosyal Medya</h4>
+                            <a href="https://www.instagram.com/onurtentee/" target="_blank" class="text-gray-400 font-sans leading-relaxed hover:text-white transition-colors">@onurtentee</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/905446055265" class="btn-orange w-full py-4 text-lg">
+                    <i class="ph-fill ph-whatsapp-logo text-2xl"></i> WhatsApp'tan Fiyat Alın
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black pt-20 pb-10 border-t border-tente-orange/20">
+        <div class="max-w-[1500px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            
+            <div class="lg:col-span-1">
+                <a href="#" class="flex items-center gap-3 mb-6">
+                    <h1 class="font-display font-bold text-2xl tracking-wider text-white uppercase">ONUR <span class="text-tente-orange">TENTE</span></h1>
+                </a>
+                <p class="text-gray-500 font-sans text-sm leading-relaxed mb-6">
+                    Sivas'ın yenilikçi gölgelendirme ve cam sistemleri üreticisi. Otomatik pergola, giyotin cam ve endüstriyel branda çözümleriyle mekanlarınıza değer katıyoruz.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-display font-bold text-white mb-6 tracking-wider uppercase text-lg">Hızlı Erişim</h4>
+                <ul class="space-y-3 font-sans text-sm text-gray-400">
+                    <li><a href="#kurumsal" class="hover:text-tente-orange transition-colors">Kurumsal Profil</a></li>
+                    <li><a href="#urunler" class="hover:text-tente-orange transition-colors">Sistemler & Ürünler</a></li>
+                    <li><a href="https://www.onurcadirvetente.com" target="_blank" class="hover:text-tente-orange transition-colors">Resmi Web Sitesi</a></li>
+                    <li><a href="#iletisim" class="hover:text-tente-orange transition-colors">İletişim Bilgileri</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-display font-bold text-white mb-6 tracking-wider uppercase text-lg">Hizmetlerimiz</h4>
+                <ul class="space-y-3 font-sans text-sm text-gray-400">
+                    <li><a href="#" class="hover:text-tente-orange transition-colors">Otomatik Pergola (Açılır Tavan)</a></li>
+                    <li><a href="#" class="hover:text-tente-orange transition-colors">Motorlu Giyotin Cam</a></li>
+                    <li><a href="#" class="hover:text-tente-orange transition-colors">Wintent & Kasetli Tente</a></li>
+                    <li><a href="#" class="hover:text-tente-orange transition-colors">Özel Kış Bahçesi Yapımı</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-display font-bold text-white mb-6 tracking-wider uppercase text-lg">Adres</h4>
+                <p class="text-gray-400 font-sans text-sm leading-relaxed mb-4">
+                    Gültepe Mahallesi, 4 Eylül Sanayi Sitesi<br>No:9AA Sivas/Merkez
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/onurtentee/" target="_blank" class="w-12 h-12 bg-tente-gray flex items-center justify-center text-tente-orange hover:bg-tente-orange hover:text-white transition-colors" style="clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);">
+                        <i class="ph-fill ph-instagram-logo text-xl"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="max-w-[1500px] mx-auto px-6 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-sans text-gray-600 uppercase tracking-widest">
+            <p>&copy; 2026 Onur Tente & Pergola Sistemleri. Tüm Hakları Saklıdır.</p>
+            <p>Endüstriyel Gölgelendirme Sistemleri</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+    </script>
+</body>
+</html>

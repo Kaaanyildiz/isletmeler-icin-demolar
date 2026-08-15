@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zorlu Kundura | 1981'den Beri Hakiki Deri Erkek Ayakkabı & Zanaat</title>
+    <meta name="description" content="1981'den beri Sivas'ta el işçiliği ve %100 hakiki deri erkek ayakkabı, klasik kundura, comfort sneaker ve Chelsea bot modelleri. WhatsApp hızlı sipariş ve değişim güvencesi.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        display: ['Cinzel', 'serif'],
+                    },
+                    colors: {
+                        leather: {
+                            espresso: '#140D07',  /* En koyu deri kahvesi */
+                            roast: '#24170E',     /* Koyu sıcak kahve */
+                            rich: '#3A2417',      /* Zengin deri tonu */
+                            cognac: '#A85A28',    /* Konyak / Taba ana vurgu */
+                            tan: '#C67D48',       /* Taba açık ton */
+                            gold: '#D4AF37',      /* Pirinç / Altın yaldız */
+                            cream: '#FAF6F0',     /* Asil krem zemin */
+                            parchment: '#F2EADF', /* Sıcak kart zemini */
+                            border: '#E5D8C5',    /* İnce zanaat bordürü */
+                            darkBorder: '#3D2A1D',/* Koyu mod bordürü */
+                        }
+                    },
+                    boxShadow: {
+                        'leather': '0 20px 35px -10px rgba(36, 23, 14, 0.08)',
+                        'leather-dark': '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                        'gold-glow': '0 0 25px rgba(212, 175, 55, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --color-cream: #FAF6F0;
+            --color-espresso: #140D07;
+            --color-cognac: #A85A28;
+            --color-tan: #C67D48;
+            --color-gold: #D4AF37;
+            --color-border: #E5D8C5;
+        }
+
+        body {
+            background-color: var(--color-cream);
+            color: var(--color-espresso);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Heritage Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #140D07;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A85A28;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C67D48;
+        }
+
+        /* Heritage Glass Navigation */
+        .heritage-nav {
+            background: rgba(20, 13, 7, 0.98);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* Leather Buttons */
+        .btn-cognac {
+            background: linear-gradient(135deg, #A85A28 0%, #874218 100%);
+            color: #FAF6F0;
+            padding: 0.85rem 2rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 8px 20px -4px rgba(168, 90, 40, 0.45);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+        }
+        .btn-cognac:hover {
+            background: linear-gradient(135deg, #BA6630 0%, #99491A 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px -4px rgba(168, 90, 40, 0.6);
+            border-color: #D4AF37;
+            color: #FFFFFF;
+        }
+
+        .btn-outline-gold {
+            background: transparent;
+            color: #FAF6F0;
+            border: 1.5px solid rgba(212, 175, 55, 0.7);
+            padding: 0.85rem 2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn-outline-gold:hover {
+            background: rgba(212, 175, 55, 0.18);
+            border-color: #D4AF37;
+            color: #D4AF37;
+            transform: translateY(-2px);
+        }
+
+        .btn-wa-action {
+            background: #25D366;
+            color: #FFFFFF;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 18px -3px rgba(37, 211, 102, 0.45);
+        }
+        .btn-wa-action:hover {
+            background: #20BA5A;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px -3px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Leather Texture Overlay */
+        .leather-pattern {
+            background-image: radial-gradient(rgba(36, 23, 14, 0.06) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* Product Card Styles */
+        .shoe-card {
+            background: #FFFFFF;
+            border-radius: 1.25rem;
+            border: 1px solid #E5D8C5;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .shoe-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -10px rgba(36, 23, 14, 0.14);
+            border-color: #A85A28;
+        }
+        .shoe-card .card-img {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .shoe-card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        /* Tab Active State */
+        .tab-btn.active {
+            background: #24170E !important;
+            color: #FAF6F0 !important;
+            border-color: #D4AF37 !important;
+            box-shadow: 0 4px 12px rgba(36, 23, 14, 0.2);
+        }
+
+        /* Pulse glow for floating button */
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+        }
+        .wa-floating-btn {
+            animation: pulseGlow 2.5s infinite;
+        }
+
+        /* Stamp */
+        .stamp-1981 {
+            border: 2px dashed rgba(212, 175, 55, 0.65);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="selection:bg-leather-cognac selection:text-white">
+
+    <!-- 0. TOP HERITAGE ANNOUNCEMENT BAR -->
+    <div class="bg-leather-espresso text-leather-cream border-b border-leather-darkBorder py-2.5 px-4 text-xs font-sans">
+        <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-center md:text-left">
+            <div class="flex items-center gap-3 text-xs font-medium tracking-wide flex-wrap justify-center md:justify-start">
+                <span class="inline-flex items-center gap-1.5 text-leather-gold font-bold">
+                    <i class="ph-fill ph-seal-check text-sm"></i> 1981'den Beri Sivas Zanaatı
+                </span>
+                <span class="text-leather-tan/50">•</span>
+                <span class="text-gray-300">
+                    <i class="ph-fill ph-shield-check text-leather-gold"></i> %100 Hakiki Deri & Faturalı Satış
+                </span>
+            </div>
+            
+            <div class="flex items-center gap-4 text-xs font-medium">
+                <span class="text-gray-300 flex items-center gap-1.5">
+                    <i class="ph-bold ph-arrows-clockwise text-leather-tan"></i> Birebir Numara Değişimi
+                </span>
+                <span class="text-leather-tan/50">•</span>
+                <a href="https://wa.me/905386796484" target="_blank" class="text-leather-gold hover:text-white font-bold flex items-center gap-1 transition-colors">
+                    <i class="ph-fill ph-whatsapp-logo text-green-400 text-sm"></i> Sipariş: 0538 679 64 84
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. STICKY LUXURY NAVBAR -->
+    <nav class="heritage-nav sticky top-0 z-50 py-3.5 px-6 transition-all duration-300">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-leather-cognac to-leather-roast flex items-center justify-center text-leather-gold border border-leather-gold/50 shadow-md group-hover:border-leather-gold transition-all">
+                    <i class="ph-fill ph-crown text-xl"></i>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-baseline gap-1.5">
+                        <span class="font-display text-xl sm:text-2xl font-black tracking-widest text-white leading-none">ZORLU</span>
+                        <span class="font-serif italic text-leather-gold text-base sm:text-lg font-bold">Kundura</span>
+                    </div>
+                    <span class="font-sans text-[9px] tracking-[0.25em] text-leather-tan uppercase font-semibold mt-1">Est. 1981 • Hakiki Deri</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex items-center gap-8 font-sans text-sm font-semibold tracking-wide text-gray-200">
+                <a href="#koleksiyon" class="hover:text-leather-tan transition-colors py-1">Koleksiyonlar</a>
+                <a href="#one-cikanlar" class="hover:text-leather-tan transition-colors py-1">Modeller</a>
+                <a href="#zanaat" class="hover:text-leather-tan transition-colors py-1">Hakkımızda (1981)</a>
+                <a href="#musteri-yorumlari" class="hover:text-leather-tan transition-colors py-1">Müşteri Yorumları</a>
+                <a href="#iletisim" class="hover:text-leather-tan transition-colors py-1">İletişim & Konum</a>
+            </div>
+
+            <!-- WhatsApp Fast Order CTA -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://www.instagram.com/zorlukundura/" target="_blank" class="text-gray-300 hover:text-leather-tan transition-colors p-2 text-xl" title="Instagram'da Takip Et">
+                    <i class="ph-fill ph-instagram-logo"></i>
+                </a>
+                <a href="https://wa.me/905386796484?text=Merhaba,%20Zorlu%20Kundura%20web%20sitenizden%20modelleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa-action px-4 py-2 rounded-full text-xs uppercase tracking-wider flex items-center gap-1.5">
+                    <i class="ph-fill ph-whatsapp-logo text-base"></i>
+                    <span>Hızlı Sipariş</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-leather-tan text-3xl p-1" onclick="toggleMobileMenu()">
+                <i class="ph-bold ph-list"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-leather-espresso border-t border-leather-darkBorder mt-3 px-6 py-5 space-y-3 font-sans font-medium text-gray-200">
+            <a href="#koleksiyon" onclick="toggleMobileMenu()" class="block text-sm hover:text-leather-tan py-1.5 border-b border-white/5">Koleksiyonlar</a>
+            <a href="#one-cikanlar" onclick="toggleMobileMenu()" class="block text-sm hover:text-leather-tan py-1.5 border-b border-white/5">Yeni Sezon Modeller</a>
+            <a href="#zanaat" onclick="toggleMobileMenu()" class="block text-sm hover:text-leather-tan py-1.5 border-b border-white/5">Hikayemiz (1981'den Beri)</a>
+            <a href="#musteri-yorumlari" onclick="toggleMobileMenu()" class="block text-sm hover:text-leather-tan py-1.5 border-b border-white/5">Müşteri Yorumları</a>
+            <a href="#iletisim" onclick="toggleMobileMenu()" class="block text-sm hover:text-leather-tan py-1.5">İletişim & Mağaza</a>
+            <div class="pt-2">
+                <a href="https://wa.me/905386796484" target="_blank" class="btn-wa-action w-full py-2.5 rounded-xl text-center text-xs justify-center flex items-center gap-2">
+                    <i class="ph-fill ph-whatsapp-logo text-base"></i> WhatsApp Sipariş Hattı
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION -->
+    <section class="relative min-h-[85vh] bg-leather-espresso text-white flex items-center overflow-hidden border-b border-leather-darkBorder">
+        <!-- Background Imagery -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" alt="Hakiki Deri Erkek Ayakkabı Zanaatı" class="w-full h-full object-cover object-[75%_center] opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-r from-leather-espresso via-leather-espresso/90 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-leather-espresso via-transparent to-black/30"></div>
+        </div>
+
+        <div class="relative z-10 max-w-[1400px] mx-auto px-6 py-16 lg:py-24 w-full">
+            <div class="max-w-3xl" data-aos="fade-right" data-aos-duration="900">
+                
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-leather-rich border border-leather-gold/40 text-leather-gold font-sans text-xs font-bold tracking-widest uppercase mb-6 shadow-gold-glow">
+                    <span class="w-2 h-2 rounded-full bg-leather-gold animate-ping"></span>
+                    <i class="ph-fill ph-sketch-logo"></i> 1981'den Günümüze Sivas Zanaatı
+                </div>
+                
+                <h1 class="font-serif text-3xl sm:text-5xl lg:text-[4.25rem] font-bold leading-[1.1] mb-6 text-leather-cream">
+                    Adımlarınıza <br>
+                    <span class="italic font-normal text-leather-tan">Değer Katan</span> <br>
+                    <span class="font-display tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-leather-gold via-leather-tan to-amber-200">Hakiki Deri</span> Asaleti.
+                </h1>
+                
+                <p class="font-sans text-gray-300 text-base md:text-lg font-light leading-relaxed mb-8 max-w-2xl">
+                    40 yılı aşkın ayakkabı ustalığı, anatomik comfort taban konforu ve %100 dana derisi kalitesiyle buluştu. Kendi stüdyomuzda çekilen orijinal modellerle, Türkiye'nin her yerine doğrudan imalattan kapınıza teslim.
+                </p>
+                
+                <!-- CTA Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 sm:items-center">
+                    <a href="#one-cikanlar" class="btn-cognac">
+                        Yeni Sezonu Keşfet <i class="ph-bold ph-arrow-down text-base"></i>
+                    </a>
+                    <a href="https://wa.me/905386796484?text=Merhaba,%20Zorlu%20Kundura%20modellerinizi%20inceledim,%20siparis%20vermek%20istiyorum." target="_blank" class="btn-outline-gold">
+                        <i class="ph-fill ph-whatsapp-logo text-green-400 text-lg"></i> WhatsApp'tan Sipariş Ver
+                    </a>
+                </div>
+
+                <!-- Trust Stats Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 pt-8 border-t border-leather-darkBorder">
+                    <div class="flex flex-col">
+                        <div class="text-leather-gold font-display text-2xl font-bold">1981</div>
+                        <div class="text-gray-400 text-xs font-semibold uppercase tracking-wider mt-0.5">Kuruluş & Tecrübe</div>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-leather-gold font-display text-2xl font-bold">%100</div>
+                        <div class="text-gray-400 text-xs font-semibold uppercase tracking-wider mt-0.5">Hakiki Dana Derisi</div>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-leather-gold font-display text-2xl font-bold">Birebir</div>
+                        <div class="text-gray-400 text-xs font-semibold uppercase tracking-wider mt-0.5">Değişim Garantisi</div>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-leather-gold font-display text-2xl font-bold">Hızlı</div>
+                        <div class="text-gray-400 text-xs font-semibold uppercase tracking-wider mt-0.5">Faturalı Kargo</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Decorative Stamp -->
+        <div class="hidden xl:flex absolute right-16 bottom-16 w-32 h-32 stamp-1981 items-center justify-center p-2 text-center opacity-60 pointer-events-none">
+            <div class="text-leather-gold font-display text-[9px] tracking-widest uppercase font-bold leading-tight">
+                ★ ZORLU KUNDURA ★<br>
+                <span class="text-base font-black text-white">1981</span><br>
+                SİVAS MERKEZ
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. AYRICALIKLARIMIZ -->
+    <section class="py-12 bg-leather-parchment border-b border-leather-border">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="flex items-start gap-3.5 bg-white/70 p-4 rounded-xl border border-leather-border/60">
+                    <div class="w-11 h-11 rounded-lg bg-leather-roast text-leather-gold flex items-center justify-center text-xl shrink-0">
+                        <i class="ph-fill ph-medal"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-leather-espresso text-base mb-0.5">%100 Hakiki Deri</h4>
+                        <p class="text-xs text-leather-rich/80 leading-relaxed">Nefes alan, terletmeyen ve ayağın formunu alan 1. sınıf dana derisi.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3.5 bg-white/70 p-4 rounded-xl border border-leather-border/60">
+                    <div class="w-11 h-11 rounded-lg bg-leather-roast text-leather-gold flex items-center justify-center text-xl shrink-0">
+                        <i class="ph-fill ph-camera"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-leather-espresso text-base mb-0.5">Orijinal Kendi Çekimimiz</h4>
+                        <p class="text-xs text-leather-rich/80 leading-relaxed">Gördüğünüz ayakkabının birebir aynısı gelir; fotoğraflar kendi stüdyomuzdur.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3.5 bg-white/70 p-4 rounded-xl border border-leather-border/60">
+                    <div class="w-11 h-11 rounded-lg bg-leather-roast text-leather-gold flex items-center justify-center text-xl shrink-0">
+                        <i class="ph-fill ph-arrows-clockwise"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-leather-espresso text-base mb-0.5">Numara Değişim Güvencesi</h4>
+                        <p class="text-xs text-leather-rich/80 leading-relaxed">Numaranız tam oturmazsa hızlı ve sorunsuz birebir numara değişimi sağlıyoruz.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3.5 bg-white/70 p-4 rounded-xl border border-leather-border/60">
+                    <div class="w-11 h-11 rounded-lg bg-leather-roast text-leather-gold flex items-center justify-center text-xl shrink-0">
+                        <i class="ph-fill ph-receipt"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-leather-espresso text-base mb-0.5">Faturalı & Yasal Satış</h4>
+                        <p class="text-xs text-leather-rich/80 leading-relaxed">Sivas 4 Eylül Sanayi Sitesi'ndeki fiziksel mağazamızdan faturalı güvenli alışveriş.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. KOLEKSİYONLAR -->
+    <section id="koleksiyon" class="py-20 bg-leather-cream relative leather-pattern">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+                <span class="text-leather-cognac font-sans font-bold text-xs uppercase tracking-[0.25em] block mb-2">ZORLU KUNDURA SERİSİ</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-leather-espresso mb-3">Deri Koleksiyonlarımız</h2>
+                <div class="w-16 h-1 bg-leather-cognac mx-auto mb-3"></div>
+                <p class="text-leather-rich/80 text-sm font-normal">Ofiste şıklık, günlük hayatta kusursuz ortopedik rahatlık arayan beyler için özel hazırlandı.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Collection 1 -->
+                <div class="rounded-2xl overflow-hidden shadow-leather border border-leather-border bg-white flex flex-col" data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Klasik Kundura & Oxford" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-leather-espresso text-leather-gold font-sans text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-leather-gold/30">Premium Seri</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-leather-espresso mb-2">Klasik & Oxford Kundura</h3>
+                            <p class="text-leather-rich/80 text-xs sm:text-sm mb-5 leading-relaxed">Takım elbiseler ve özel davetler için tasarlanan kösele tabanlı ve asil dikişli modeller.</p>
+                        </div>
+                        <a href="https://wa.me/905386796484?text=Klasik%20ve%20Oxford%20kundura%20modellerinizi%20incelemek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-leather-cognac font-bold text-xs uppercase tracking-wider hover:text-leather-espresso transition-colors">
+                            Modelleri WhatsApp'tan İste <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Collection 2 -->
+                <div class="rounded-2xl overflow-hidden shadow-leather border border-leather-border bg-white flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Deri Comfort & Sneaker" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-leather-cognac text-white font-sans text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Çok Satan</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-leather-espresso mb-2">Comfort & Deri Sneaker</h3>
+                            <p class="text-leather-rich/80 text-xs sm:text-sm mb-5 leading-relaxed">Yumuşak ortopedik taban teknolojisi ve spor şıklığı birleştiren, gün boyu yormayan ayakkabılar.</p>
+                        </div>
+                        <a href="https://wa.me/905386796484?text=Comfort%20ve%20deri%20sneaker%20modellerinizi%20gormek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-leather-cognac font-bold text-xs uppercase tracking-wider hover:text-leather-espresso transition-colors">
+                            Modelleri WhatsApp'tan İste <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Collection 3 -->
+                <div class="rounded-2xl overflow-hidden shadow-leather border border-leather-border bg-white flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chelsea & Deri Botlar" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-leather-roast text-leather-gold font-sans text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Kış Sezonu</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-leather-espresso mb-2">Chelsea & Deri Bot</h3>
+                            <p class="text-leather-rich/80 text-xs sm:text-sm mb-5 leading-relaxed">Hakiki süet ve vidala deri, sıcak astar ve kaymaz kauçuk tabanlı kışlık şık bot koleksiyonu.</p>
+                        </div>
+                        <a href="https://wa.me/905386796484?text=Chelsea%20ve%20deri%20bot%20modellerini%20incelemek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-leather-cognac font-bold text-xs uppercase tracking-wider hover:text-leather-espresso transition-colors">
+                            Modelleri WhatsApp'tan İste <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ÖNE ÇIKAN MODELLER (8 MODELLİK ZENGİN KATALOG) -->
+    <section id="one-cikanlar" class="py-20 bg-white border-t border-b border-leather-border">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10" data-aos="fade-up">
+                <div>
+                    <span class="text-leather-cognac font-sans font-bold text-xs uppercase tracking-[0.25em] block mb-2">VİTRİN & STOKTAKİ MODELLER</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-leather-espresso">Öne Çıkan Ayakkabılarımız</h2>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterShoes('all', this)" class="tab-btn active px-4 py-2 rounded-full border border-leather-border font-sans text-xs font-bold tracking-wider uppercase transition-all">Tümü</button>
+                    <button onclick="filterShoes('comfort', this)" class="tab-btn px-4 py-2 rounded-full border border-leather-border bg-white text-leather-espresso hover:border-leather-cognac font-sans text-xs font-bold tracking-wider uppercase transition-all">Comfort Sneaker</button>
+                    <button onclick="filterShoes('klasik', this)" class="tab-btn px-4 py-2 rounded-full border border-leather-border bg-white text-leather-espresso hover:border-leather-cognac font-sans text-xs font-bold tracking-wider uppercase transition-all">Klasik Kundura</button>
+                    <button onclick="filterShoes('bot', this)" class="tab-btn px-4 py-2 rounded-full border border-leather-border bg-white text-leather-espresso hover:border-leather-cognac font-sans text-xs font-bold tracking-wider uppercase transition-all">Chelsea & Bot</button>
+                </div>
+            </div>
+
+            <!-- Products Grid (8 Distinct Shoe Models) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="productGrid">
+                
+                <!-- Product 1: Siyah Comfort Delikli Model -->
+                <div class="shoe-card" data-category="comfort" data-aos="fade-up">
+                    <div class="h-60 bg-leather-parchment relative overflow-hidden flex items-center justify-center p-3">
+                        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Zorlu Siyah Comfort Deri Ayakkabı" class="card-img w-full h-full object-contain">
+                        <span class="absolute top-3 left-3 bg-leather-espresso text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Hakiki Dana Derisi</span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-1.5">
+                                <span class="text-xs font-semibold text-leather-cognac uppercase tracking-wider">Comfort Sneaker</span>
+                                <div class="flex text-amber-500 text-xs">
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif font-bold text-leather-espresso text-lg mb-1">Zorlu Black Stealth Comfort</h3>
+                            <p class="text-xs text-leather-rich/80 mb-3">Lazer delikli nefes alan saya, anatomik poliüretan hafif taban.</p>
+                            
+                            <div class="mb-4">
+                                <span class="text-[11px] font-bold text-gray-500 uppercase block mb-1">Numaralar:</span>
+                                <div class="flex gap-1.5">
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">40</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">41</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">42</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">43</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">44</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-leather-border flex items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs text-gray-400 line-through block">1.850 TL</span>
+                                <span class="font-display font-bold text-lg text-leather-cognac">1.390 TL</span>
+                            </div>
+                            <a href="https://wa.me/905386796484?text=Merhaba,%20Zorlu%20Black%20Stealth%20Comfort%20modeli%20(1.390%20TL)%20hakkında%20siparis%20vermek%20istiyorum." target="_blank" class="btn-wa-action px-3 py-2 rounded-xl text-xs flex items-center gap-1">
+                                <i class="ph-fill ph-whatsapp-logo text-base"></i> Sipariş Ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: Bej / Haki Delikli Model -->
+                <div class="shoe-card" data-category="comfort" data-aos="fade-up" data-aos-delay="50">
+                    <div class="h-60 bg-leather-parchment relative overflow-hidden flex items-center justify-center p-3">
+                        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Zorlu Bej Haki Nubuk Comfort" class="card-img w-full h-full object-contain">
+                        <span class="absolute top-3 left-3 bg-leather-cognac text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Hakiki Nubuk Deri</span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-1.5">
+                                <span class="text-xs font-semibold text-leather-cognac uppercase tracking-wider">Yazlık Seri</span>
+                                <div class="flex text-amber-500 text-xs">
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif font-bold text-leather-espresso text-lg mb-1">Zorlu Desert Khaki Comfort</h3>
+                            <p class="text-xs text-leather-rich/80 mb-3">Özel işlem görmüş nefes alan nubuk deri saya, yumuşak dikişli taban.</p>
+                            
+                            <div class="mb-4">
+                                <span class="text-[11px] font-bold text-gray-500 uppercase block mb-1">Numaralar:</span>
+                                <div class="flex gap-1.5">
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">40</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">41</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">42</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">43</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">44</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-leather-border flex items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs text-gray-400 line-through block">1.750 TL</span>
+                                <span class="font-display font-bold text-lg text-leather-cognac">1.290 TL</span>
+                            </div>
+                            <a href="https://wa.me/905386796484?text=Merhaba,%20Zorlu%20Desert%20Khaki%20modeli%20(1.290%20TL)%20hakkında%20siparis%20vermek%20istiyorum." target="_blank" class="btn-wa-action px-3 py-2 rounded-xl text-xs flex items-center gap-1">
+                                <i class="ph-fill ph-whatsapp-logo text-base"></i> Sipariş Ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: Taba Klasik Oxford -->
+                <div class="shoe-card" data-category="klasik" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-60 bg-leather-parchment relative overflow-hidden flex items-center justify-center p-3">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Zorlu Taba Klasik Oxford Kundura" class="card-img w-full h-full object-contain">
+                        <span class="absolute top-3 left-3 bg-leather-roast text-leather-gold text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">El Yapımı Zanaat</span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-1.5">
+                                <span class="text-xs font-semibold text-leather-cognac uppercase tracking-wider">Klasik Kundura</span>
+                                <div class="flex text-amber-500 text-xs">
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif font-bold text-leather-espresso text-lg mb-1">Zorlu Heritage Tan Oxford</h3>
+                            <p class="text-xs text-leather-rich/80 mb-3">Geleneksel kalıp, antik finisajlı taba dana derisi ve kösele taban.</p>
+                            
+                            <div class="mb-4">
+                                <span class="text-[11px] font-bold text-gray-500 uppercase block mb-1">Numaralar:</span>
+                                <div class="flex gap-1.5">
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">40</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">41</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">42</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">43</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">44</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-leather-border flex items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs text-gray-400 line-through block">2.100 TL</span>
+                                <span class="font-display font-bold text-lg text-leather-cognac">1.590 TL</span>
+                            </div>
+                            <a href="https://wa.me/905386796484?text=Merhaba,%20Zorlu%20Heritage%20Tan%20Oxford%20(1.590%20TL)%20icin%20siparis%20vermek%20istiyorum." target="_blank" class="btn-wa-action px-3 py-2 rounded-xl text-xs flex items-center gap-1">
+                                <i class="ph-fill ph-whatsapp-logo text-base"></i> Sipariş Ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: Süet Chelsea Bot -->
+                <div class="shoe-card" data-category="bot" data-aos="fade-up" data-aos-delay="150">
+                    <div class="h-60 bg-leather-parchment relative overflow-hidden flex items-center justify-center p-3">
+                        <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Zorlu Süet Chelsea Bot" class="card-img w-full h-full object-contain">
+                        <span class="absolute top-3 left-3 bg-leather-rich text-leather-gold text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Kışlık Koleksiyon</span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-1.5">
+                                <span class="text-xs font-semibold text-leather-cognac uppercase tracking-wider">Chelsea Bot</span>
+                                <div class="flex text-amber-500 text-xs">
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif font-bold text-leather-espresso text-lg mb-1">Zorlu Suede Chelsea Bot</h3>
+                            <p class="text-xs text-leather-rich/80 mb-3">Su itici hakiki süet, esnek yan lastikler ve sıcak tutan astar yapısı.</p>
+                            
+                            <div class="mb-4">
+                                <span class="text-[11px] font-bold text-gray-500 uppercase block mb-1">Numaralar:</span>
+                                <div class="flex gap-1.5">
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">40</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">41</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">42</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">43</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">44</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-leather-border flex items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs text-gray-400 line-through block">2.250 TL</span>
+                                <span class="font-display font-bold text-lg text-leather-cognac">1.690 TL</span>
+                            </div>
+                            <a href="https://wa.me/905386796484?text=Merhaba,%20Zorlu%20Suede%20Chelsea%20Bot%20(1.690%20TL)%20hakkında%20siparis%20vermek%20istiyorum." target="_blank" class="btn-wa-action px-3 py-2 rounded-xl text-xs flex items-center gap-1">
+                                <i class="ph-fill ph-whatsapp-logo text-base"></i> Sipariş Ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5: Kahverengi Klasik Brogue Wingtip -->
+                <div class="shoe-card" data-category="klasik" data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-60 bg-leather-parchment relative overflow-hidden flex items-center justify-center p-3">
+                        <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Zorlu Kahve Wingtip Brogue Kundura" class="card-img w-full h-full object-contain">
+                        <span class="absolute top-3 left-3 bg-leather-roast text-leather-gold text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">İşlemeli Zanaat</span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-1.5">
+                                <span class="text-xs font-semibold text-leather-cognac uppercase tracking-wider">Klasik Kundura</span>
+                                <div class="flex text-amber-500 text-xs">
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif font-bold text-leather-espresso text-lg mb-1">Zorlu Wingtip Brogue Brown</h3>
+                            <p class="text-xs text-leather-rich/80 mb-3">Özel brogue lazer delik işlemeli burun, cilalı birinci sınıf vaketa deri.</p>
+                            
+                            <div class="mb-4">
+                                <span class="text-[11px] font-bold text-gray-500 uppercase block mb-1">Numaralar:</span>
+                                <div class="flex gap-1.5">
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">40</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">41</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">42</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">43</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">44</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-leather-border flex items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs text-gray-400 line-through block">2.300 TL</span>
+                                <span class="font-display font-bold text-lg text-leather-cognac">1.650 TL</span>
+                            </div>
+                            <a href="https://wa.me/905386796484?text=Merhaba,%20Zorlu%20Wingtip%20Brogue%20(1.650%20TL)%20için%20siparis%20vermek%20istiyorum." target="_blank" class="btn-wa-action px-3 py-2 rounded-xl text-xs flex items-center gap-1">
+                                <i class="ph-fill ph-whatsapp-logo text-base"></i> Sipariş Ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6: Beyaz / Lacivert Taban Comfort Deri Sneaker -->
+                <div class="shoe-card" data-category="comfort" data-aos="fade-up" data-aos-delay="50">
+                    <div class="h-60 bg-leather-parchment relative overflow-hidden flex items-center justify-center p-3">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Zorlu White Active Deri Sneaker" class="card-img w-full h-full object-contain">
+                        <span class="absolute top-3 left-3 bg-leather-cognac text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Hafif Taban</span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-1.5">
+                                <span class="text-xs font-semibold text-leather-cognac uppercase tracking-wider">Comfort Sneaker</span>
+                                <div class="flex text-amber-500 text-xs">
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif font-bold text-leather-espresso text-lg mb-1">Zorlu White Active Sneaker</h3>
+                            <p class="text-xs text-leather-rich/80 mb-3">Yumuşak dana derisi, darbe emici ergonomik taban, günlük kullanım.</p>
+                            
+                            <div class="mb-4">
+                                <span class="text-[11px] font-bold text-gray-500 uppercase block mb-1">Numaralar:</span>
+                                <div class="flex gap-1.5">
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">40</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">41</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">42</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">43</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">44</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-leather-border flex items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs text-gray-400 line-through block">1.890 TL</span>
+                                <span class="font-display font-bold text-lg text-leather-cognac">1.350 TL</span>
+                            </div>
+                            <a href="https://wa.me/905386796484?text=Merhaba,%20Zorlu%20White%20Active%20Sneaker%20(1.350%20TL)%20icin%20siparis%20vermek%20istiyorum." target="_blank" class="btn-wa-action px-3 py-2 rounded-xl text-xs flex items-center gap-1">
+                                <i class="ph-fill ph-whatsapp-logo text-base"></i> Sipariş Ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7: Siyah Deri Chelsea Bot -->
+                <div class="shoe-card" data-category="bot" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-60 bg-leather-parchment relative overflow-hidden flex items-center justify-center p-3">
+                        <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Zorlu Siyah Deri Chelsea Bot" class="card-img w-full h-full object-contain">
+                        <span class="absolute top-3 left-3 bg-leather-espresso text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Hakiki Vidala Deri</span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-1.5">
+                                <span class="text-xs font-semibold text-leather-cognac uppercase tracking-wider">Chelsea Bot</span>
+                                <div class="flex text-amber-500 text-xs">
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif font-bold text-leather-espresso text-lg mb-1">Zorlu Black Leather Chelsea</h3>
+                            <p class="text-xs text-leather-rich/80 mb-3">Parlak vidala hakiki deri, esnek konç yapısı ve kaydırmaz kış tabanı.</p>
+                            
+                            <div class="mb-4">
+                                <span class="text-[11px] font-bold text-gray-500 uppercase block mb-1">Numaralar:</span>
+                                <div class="flex gap-1.5">
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">40</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">41</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">42</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">43</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">44</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-leather-border flex items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs text-gray-400 line-through block">2.350 TL</span>
+                                <span class="font-display font-bold text-lg text-leather-cognac">1.750 TL</span>
+                            </div>
+                            <a href="https://wa.me/905386796484?text=Merhaba,%20Zorlu%20Black%20Leather%20Chelsea%20(1.750%20TL)%20icin%20siparis%20vermek%20istiyorum." target="_blank" class="btn-wa-action px-3 py-2 rounded-xl text-xs flex items-center gap-1">
+                                <i class="ph-fill ph-whatsapp-logo text-base"></i> Sipariş Ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8: Siyah Klasik Derby Kundura -->
+                <div class="shoe-card" data-category="klasik" data-aos="fade-up" data-aos-delay="150">
+                    <div class="h-60 bg-leather-parchment relative overflow-hidden flex items-center justify-center p-3">
+                        <img src="https://images.unsplash.com/photo-1582588678413-dbf45f4823e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Zorlu Siyah Klasik Derby Kundura" class="card-img w-full h-full object-contain">
+                        <span class="absolute top-3 left-3 bg-leather-espresso text-leather-gold text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Takım Elbise Serisi</span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-1.5">
+                                <span class="text-xs font-semibold text-leather-cognac uppercase tracking-wider">Klasik Kundura</span>
+                                <div class="flex text-amber-500 text-xs">
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                    <i class="ph-fill ph-star"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif font-bold text-leather-espresso text-lg mb-1">Zorlu Black Formal Derby</h3>
+                            <p class="text-xs text-leather-rich/80 mb-3">Pürüzsüz siyah napa deri, konforlu iç taban ve klasik sade şıklık.</p>
+                            
+                            <div class="mb-4">
+                                <span class="text-[11px] font-bold text-gray-500 uppercase block mb-1">Numaralar:</span>
+                                <div class="flex gap-1.5">
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">40</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">41</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">42</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">43</span>
+                                    <span class="w-7 h-7 rounded border border-leather-border text-xs font-semibold flex items-center justify-center text-leather-espresso bg-leather-cream">44</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-leather-border flex items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs text-gray-400 line-through block">2.050 TL</span>
+                                <span class="font-display font-bold text-lg text-leather-cognac">1.490 TL</span>
+                            </div>
+                            <a href="https://wa.me/905386796484?text=Merhaba,%20Zorlu%20Black%20Formal%20Derby%20(1.490%20TL)%20hakkında%20siparis%20vermek%20istiyorum." target="_blank" class="btn-wa-action px-3 py-2 rounded-xl text-xs flex items-center gap-1">
+                                <i class="ph-fill ph-whatsapp-logo text-base"></i> Sipariş Ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Instagram Store Banner -->
+            <div class="mt-12 p-6 sm:p-8 rounded-2xl bg-leather-parchment border border-leather-border flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-4 sm:gap-5">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 flex items-center justify-center text-white text-2xl sm:text-3xl shadow-md shrink-0">
+                        <i class="ph-fill ph-instagram-logo"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-lg sm:text-xl text-leather-espresso">Daha Fazla Model Instagram Sayfamızda!</h4>
+                        <p class="text-xs sm:text-sm text-leather-rich/80 font-normal">Hergün güncellenen yeni modeller, canlı video çekimleri ve müşteri memnuniyetleri için takip edin.</p>
+                    </div>
+                </div>
+                <a href="https://www.instagram.com/zorlukundura/" target="_blank" class="btn-cognac py-3 px-6 text-xs shrink-0">
+                    <i class="ph-bold ph-instagram-logo text-base"></i> @zorlukundura Takip Et
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. THE CRAFTSMANSHIP & HERITAGE (1981'DEN BERİ HİKAYEMİZ) -->
+    <section id="zanaat" class="py-20 bg-leather-espresso text-white relative overflow-hidden border-b border-leather-darkBorder">
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Craft Visual Collage -->
+                <div class="relative" data-aos="fade-right">
+                    <div class="relative z-10 rounded-2xl overflow-hidden border-2 border-leather-darkBorder shadow-leather-dark">
+                        <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Geleneksel Ayakkabı Ustalığı" class="w-full h-[400px] object-cover">
+                    </div>
+                    
+                    <!-- Floating Heritage Card -->
+                    <div class="absolute -bottom-6 -left-6 bg-leather-rich/95 backdrop-blur-md p-5 rounded-xl border border-leather-gold/40 shadow-2xl max-w-xs hidden sm:block z-20">
+                        <div class="flex items-center gap-2.5 mb-1.5">
+                            <i class="ph-fill ph-seal-check text-xl text-leather-gold"></i>
+                            <span class="font-display font-bold text-xs tracking-wider text-white">USTA İŞÇİLİĞİ</span>
+                        </div>
+                        <p class="text-[11px] text-gray-300 font-light leading-relaxed">
+                            Sivas 4 Eylül Sanayi Sitesi'ndeki atölyemizde her ayakkabı tek tek elden geçer ve kontrol edilir.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Story Text -->
+                <div data-aos="fade-left">
+                    <span class="text-leather-gold font-sans font-bold text-xs uppercase tracking-[0.25em] block mb-2">ZANAATIN VE GÜVENİN ADRESİ</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-leather-cream mb-5 leading-tight">
+                        1981'den Beri Değişmeyen <br><span class="text-leather-tan italic">Kalite & Dürüstlük.</span>
+                    </h2>
+                    
+                    <p class="text-gray-300 font-light text-sm sm:text-base leading-relaxed mb-4">
+                        <strong>Zorlu Kundura</strong>, 1981 yılında Sivas'ta mütevazı bir ayakkabı atölyesinde başlayan ve bugün Türkiye genelinde binlerce müşterisine güvenle ulaşan köklü bir erkek ayakkabı markasıdır.
+                    </p>
+                    
+                    <p class="text-gray-300 font-light text-sm sm:text-base leading-relaxed mb-6">
+                        Bizim için ayakkabı sadece bir aksesuar değil; gün boyu bedeninizi taşıyan, sağlığınızı ve duruşunuzu etkileyen bir zanaat eseridir. Bu yüzden ürünlerimizde <strong>asla suni malzeme kullanmıyor</strong>, yalnızca hakiki dana derisi, nefes alan iç astar ve yormayan ortopedik kalıplar tercih ediyoruz.
+                    </p>
+
+                    <!-- Feature Pillars -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-leather-darkBorder">
+                        <div class="flex gap-3 items-start">
+                            <div class="w-9 h-9 rounded-lg bg-leather-cognac/20 text-leather-gold flex items-center justify-center text-lg shrink-0 border border-leather-gold/20">
+                                <i class="ph-bold ph-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-white text-sm">Hakiki Dana Derisi</h4>
+                                <p class="text-[11px] text-gray-400 mt-0.5">Sentetik içermez, koku yapmaz, uzun yıllar dayanır.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 items-start">
+                            <div class="w-9 h-9 rounded-lg bg-leather-cognac/20 text-leather-gold flex items-center justify-center text-lg shrink-0 border border-leather-gold/20">
+                                <i class="ph-bold ph-handshake"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-white text-sm">Faturalı & Yasal Garanti</h4>
+                                <p class="text-[11px] text-gray-400 mt-0.5">Numara uymadığında sorgusuz hızlı değişim imkanı.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. MÜŞTERİ YORUMLARI -->
+    <section id="musteri-yorumlari" class="py-20 bg-leather-cream relative">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+                <span class="text-leather-cognac font-sans font-bold text-xs uppercase tracking-[0.25em] block mb-2">MÜŞTERİ MEMNUNİYETİ</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-leather-espresso mb-3">Kullananlar Ne Diyor?</h2>
+                <div class="w-16 h-1 bg-leather-cognac mx-auto mb-3"></div>
+                <p class="text-leather-rich/80 text-sm font-normal">Instagram üzerinden Türkiye'nin dört bir yanından gelen gerçek kullanıcı deneyimleri.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Review 1 -->
+                <div class="bg-white p-7 rounded-2xl border border-leather-border shadow-leather flex flex-col justify-between" data-aos="fade-up" data-aos-delay="0">
+                    <div>
+                        <div class="flex text-amber-500 text-sm mb-3">
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                        </div>
+                        <p class="text-leather-rich/90 font-normal text-xs sm:text-sm leading-relaxed mb-5 italic">
+                            "Sivas'tan İstanbul'a sipariş verdim, 2 günde elime ulaştı. Ayakkabının derisi o kadar yumuşak ki ayağa ilk giyişte oturdu, hiç vurma yapmadı. Fotoğraftakinin aynısı geldi, esnaflığınız için teşekkürler."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-3 border-t border-leather-border/60">
+                        <div class="w-9 h-9 rounded-full bg-leather-parchment text-leather-cognac font-bold flex items-center justify-center text-xs">
+                            MK
+                        </div>
+                        <div>
+                            <h5 class="font-serif font-bold text-leather-espresso text-xs sm:text-sm">Murat Karaca</h5>
+                            <span class="text-[10px] text-gray-500">İstanbul • Comfort Model Aldı</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-7 rounded-2xl border border-leather-border shadow-leather flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="flex text-amber-500 text-sm mb-3">
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                        </div>
+                        <p class="text-leather-rich/90 font-normal text-xs sm:text-sm leading-relaxed mb-5 italic">
+                            "Numara konusunda tereddüt etmiştim, WhatsApp'tan hemen yardımcı oldular. 42 numara tam oldu. Hakiki deri kokusunu kutuyu açar açmaz alıyorsunuz. Değişim garantisi vermeleri de büyük güven."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-3 border-t border-leather-border/60">
+                        <div class="w-9 h-9 rounded-full bg-leather-parchment text-leather-cognac font-bold flex items-center justify-center text-xs">
+                            AT
+                        </div>
+                        <div>
+                            <h5 class="font-serif font-bold text-leather-espresso text-xs sm:text-sm">Ahmet Turan</h5>
+                            <span class="text-[10px] text-gray-500">Ankara • Klasik Oxford Aldı</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-7 rounded-2xl border border-leather-border shadow-leather flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="flex text-amber-500 text-sm mb-3">
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                        </div>
+                        <p class="text-leather-rich/90 font-normal text-xs sm:text-sm leading-relaxed mb-5 italic">
+                            "Chelsea bot aldım geçen kış, tüm kış giydim su geçirmedi ve derisi çatlamadı. Bu yaz da comfort delikli sneaker aldım. Gerçekten 1981'den beri bu işi yapmanın hakkını veriyorsunuz."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-3 border-t border-leather-border/60">
+                        <div class="w-9 h-9 rounded-full bg-leather-parchment text-leather-cognac font-bold flex items-center justify-center text-xs">
+                            SY
+                        </div>
+                        <div>
+                            <h5 class="font-serif font-bold text-leather-espresso text-xs sm:text-sm">Serdar Yıldız</h5>
+                            <span class="text-[10px] text-gray-500">İzmir • Chelsea & Sneaker Aldı</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. NASIL SİPARİŞ VERİLİR? -->
+    <section class="py-16 bg-leather-roast text-white border-t border-b border-leather-darkBorder">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="text-center max-w-xl mx-auto mb-12">
+                <span class="text-leather-gold font-sans font-bold text-xs uppercase tracking-[0.25em] block mb-2">KOLAY VE GÜVENLİ ALIŞVERİŞ</span>
+                <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white">4 Adımda Kapınızda</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="text-center flex flex-col items-center bg-leather-espresso/60 p-6 rounded-2xl border border-leather-darkBorder">
+                    <div class="w-14 h-14 rounded-xl bg-leather-espresso border border-leather-gold/30 text-leather-gold flex items-center justify-center text-xl font-display font-bold mb-3">
+                        01
+                    </div>
+                    <h4 class="font-serif font-bold text-base text-white mb-1.5">Modelini Seç</h4>
+                    <p class="text-xs text-gray-300 font-light leading-relaxed">Sitemizden veya Instagram sayfamızdan beğendiğin modelin görselini belirle.</p>
+                </div>
+
+                <div class="text-center flex flex-col items-center bg-leather-espresso/60 p-6 rounded-2xl border border-leather-darkBorder">
+                    <div class="w-14 h-14 rounded-xl bg-leather-espresso border border-leather-gold/30 text-leather-gold flex items-center justify-center text-xl font-display font-bold mb-3">
+                        02
+                    </div>
+                    <h4 class="font-serif font-bold text-base text-white mb-1.5">WhatsApp'tan Yaz</h4>
+                    <p class="text-xs text-gray-300 font-light leading-relaxed">Ayak numaranı ve adres bilgilerini 0538 679 64 84 hattımıza hızlıca ilet.</p>
+                </div>
+
+                <div class="text-center flex flex-col items-center bg-leather-espresso/60 p-6 rounded-2xl border border-leather-darkBorder">
+                    <div class="w-14 h-14 rounded-xl bg-leather-espresso border border-leather-gold/30 text-leather-gold flex items-center justify-center text-xl font-display font-bold mb-3">
+                        03
+                    </div>
+                    <h4 class="font-serif font-bold text-base text-white mb-1.5">Hızlı & Faturalı Kargo</h4>
+                    <p class="text-xs text-gray-300 font-light leading-relaxed">Siparişin özel Zorlu Kundura kutusunda faturasıyla aynı gün kargoya verilsin.</p>
+                </div>
+
+                <div class="text-center flex flex-col items-center bg-leather-espresso/60 p-6 rounded-2xl border border-leather-darkBorder">
+                    <div class="w-14 h-14 rounded-xl bg-leather-espresso border border-leather-gold/30 text-leather-gold flex items-center justify-center text-xl font-display font-bold mb-3">
+                        04
+                    </div>
+                    <h4 class="font-serif font-bold text-base text-white mb-1.5">Değişim Güvencesi</h4>
+                    <p class="text-xs text-gray-300 font-light leading-relaxed">Numaran tam oturmazsa anında birebir numara değişimi garantisiyle kullan.</p>
+                </div>
+
+            </div>
+
+            <!-- Action Button -->
+            <div class="mt-12 text-center">
+                <a href="https://wa.me/905386796484?text=Merhaba,%20siparis%20vermek%20istiyorum." target="_blank" class="btn-wa-action px-7 py-3.5 rounded-full text-xs uppercase tracking-wider inline-flex items-center gap-2.5">
+                    <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                    <span>Şimdi WhatsApp Siparişini Başlat</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 9. İLETİŞİM & MAĞAZA BİLGİLERİ -->
+    <section id="iletisim" class="py-20 bg-leather-cream relative">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Contact Info -->
+                <div data-aos="fade-right">
+                    <span class="text-leather-cognac font-sans font-bold text-xs uppercase tracking-[0.25em] block mb-2">BİZE ULAŞIN</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-leather-espresso mb-4">Mağazamıza Bekleriz</h2>
+                    
+                    <p class="text-leather-rich/80 font-light text-sm sm:text-base mb-8 leading-relaxed">
+                        Sivas Merkez'deki satış mağazamızda tüm modellerimizi yakından deneyebilir, sıcak çayımızı içerken zanaatkarlık ürünlerimizi inceleyebilirsiniz.
+                    </p>
+
+                    <div class="space-y-4">
+                        
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-leather-border shadow-sm">
+                            <div class="w-11 h-11 rounded-lg bg-leather-parchment text-leather-cognac flex items-center justify-center text-2xl shrink-0">
+                                <i class="ph-fill ph-map-pin"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-leather-espresso text-base mb-0.5">Fiziksel Mağaza Adresi</h4>
+                                <p class="text-xs sm:text-sm text-leather-rich/80 leading-relaxed">
+                                    4 Eylül Sanayi Sitesi 19. Sk. No:11<br>
+                                    Merkez / Sivas (Posta Kodu: 58000)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-leather-border shadow-sm">
+                            <div class="w-11 h-11 rounded-lg bg-leather-parchment text-leather-cognac flex items-center justify-center text-2xl shrink-0">
+                                <i class="ph-fill ph-phone-call"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-leather-espresso text-base mb-0.5">WhatsApp & Sipariş Hattı</h4>
+                                <p class="text-xs sm:text-sm text-leather-rich/80 mb-0.5">0538 679 64 84</p>
+                                <span class="text-[11px] text-green-700 font-semibold flex items-center gap-1">
+                                    <i class="ph-fill ph-check-circle"></i> Mesai saatlerinde ortalama 5 dk içinde yanıt
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-leather-border shadow-sm">
+                            <div class="w-11 h-11 rounded-lg bg-leather-parchment text-leather-cognac flex items-center justify-center text-2xl shrink-0">
+                                <i class="ph-fill ph-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-leather-espresso text-base mb-0.5">Çalışma Saatleri</h4>
+                                <p class="text-xs sm:text-sm text-leather-rich/80">
+                                    Pazartesi - Cumartesi: 08:30 - 19:30<br>
+                                    Pazar: Kapalı (WhatsApp siparişleri açıktır)
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Map Frame -->
+                <div class="relative" data-aos="fade-left">
+                    <div class="p-7 rounded-2xl bg-leather-roast text-white shadow-2xl border border-leather-darkBorder relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                                <span class="text-xs text-gray-400 font-mono ml-2">sivas_magaza_konumu.gmaps</span>
+                            </div>
+
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-leather-gold mb-2">Sivas 4 Eylül Sanayi Sitesi</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 font-light mb-5 leading-relaxed">
+                                Sanayi girişinden kolayca ulaşabileceğiniz merkezi konumumuzla hizmetinizdeyiz. Yol tarifi almak için aşağıdaki butona tıklayabilirsiniz.
+                            </p>
+
+                            <!-- Map Mock Visual -->
+                            <div class="w-full h-52 rounded-xl bg-leather-espresso border border-leather-darkBorder flex flex-col items-center justify-center text-center p-4 mb-5 group">
+                                <i class="ph-fill ph-map-trifold text-5xl text-leather-tan/40 mb-2 group-hover:scale-105 transition-transform"></i>
+                                <span class="font-serif text-white font-bold text-sm sm:text-base">Zorlu Kundura Mağazası</span>
+                                <span class="text-xs text-leather-tan mt-0.5">19. Sokak No:11 Sivas</span>
+                            </div>
+
+                            <a href="https://maps.google.com/?q=4+Eylül+Sanayi+Sitesi+Sivas" target="_blank" class="btn-cognac w-full justify-center text-xs py-3">
+                                <i class="ph-fill ph-navigation-arrow text-base"></i> Google Haritalarda Yol Tarifi Al
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FOOTER -->
+    <footer class="bg-leather-espresso text-white pt-14 pb-8 border-t border-leather-darkBorder font-sans">
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border-b border-leather-darkBorder pb-10 mb-6">
+            
+            <div class="lg:col-span-1">
+                <div class="flex items-center gap-2.5 mb-3">
+                    <div class="w-8 h-8 rounded-lg bg-leather-cognac flex items-center justify-center text-leather-gold font-bold">
+                        <i class="ph-fill ph-crown text-lg"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display text-lg font-bold tracking-widest text-white leading-none">ZORLU KUNDURA</span>
+                        <span class="text-[8px] tracking-[0.25em] text-leather-tan uppercase font-semibold mt-0.5">1981'den Beri Sivas</span>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-400 font-light leading-relaxed mb-5">
+                    Sivas'ın 40 yıllık köklü ayakkabı zanaatı. %100 hakiki deri erkek ayakkabı, klasik kundura, comfort sneaker ve bot modellerinde kalite ve güven.
+                </p>
+                <div class="flex items-center gap-2.5">
+                    <a href="https://www.instagram.com/zorlukundura/" target="_blank" class="w-8 h-8 rounded-full bg-leather-rich flex items-center justify-center text-gray-300 hover:bg-leather-cognac hover:text-white transition-colors">
+                        <i class="ph-fill ph-instagram-logo text-sm"></i>
+                    </a>
+                    <a href="https://wa.me/905386796484" target="_blank" class="w-8 h-8 rounded-full bg-leather-rich flex items-center justify-center text-gray-300 hover:bg-green-500 hover:text-white transition-colors">
+                        <i class="ph-fill ph-whatsapp-logo text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-serif font-bold text-white mb-4 text-xs tracking-wider uppercase text-leather-gold">Kategoriler</h4>
+                <ul class="space-y-2 text-xs text-gray-400 font-light">
+                    <li><a href="#one-cikanlar" class="hover:text-leather-tan transition-colors">Comfort & Deri Sneaker</a></li>
+                    <li><a href="#one-cikanlar" class="hover:text-leather-tan transition-colors">Klasik & Kösele Kundura</a></li>
+                    <li><a href="#one-cikanlar" class="hover:text-leather-tan transition-colors">Chelsea & Deri Kışlık Bot</a></li>
+                    <li><a href="#one-cikanlar" class="hover:text-leather-tan transition-colors">Yazlık Delikli Deri Modeller</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-serif font-bold text-white mb-4 text-xs tracking-wider uppercase text-leather-gold">Kurumsal & Güvenceler</h4>
+                <ul class="space-y-2 text-xs text-gray-400 font-light">
+                    <li><span class="flex items-center gap-1.5"><i class="ph-bold ph-check text-leather-tan"></i> 1981'den Beri Hizmetinizde</span></li>
+                    <li><span class="flex items-center gap-1.5"><i class="ph-bold ph-check text-leather-tan"></i> Faturalı Yasal Satış</span></li>
+                    <li><span class="flex items-center gap-1.5"><i class="ph-bold ph-check text-leather-tan"></i> Birebir Numara Değişimi</span></li>
+                    <li><span class="flex items-center gap-1.5"><i class="ph-bold ph-check text-leather-tan"></i> Orijinal Stüdyo Çekimleri</span></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-serif font-bold text-white mb-4 text-xs tracking-wider uppercase text-leather-gold">İletişim & Sipariş</h4>
+                <p class="text-xs text-gray-400 font-light leading-relaxed mb-2">
+                    4 Eylül Sanayi Sitesi 19. Sk. No:11<br>
+                    Merkez / Sivas
+                </p>
+                <a href="https://wa.me/905386796484" target="_blank" class="text-xs text-leather-gold hover:text-white font-bold block mb-0.5">
+                    WhatsApp: 0538 679 64 84
+                </a>
+                <span class="text-[11px] text-gray-500">Instagram: @zorlukundura</span>
+            </div>
+
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-gray-500 font-light">
+            <p>&copy; 2026 Zorlu Kundura. Tüm Hakları Saklıdır. Hakiki Deri Erkek Ayakkabı Zanaatı.</p>
+            <p class="text-gray-600">Sivas 4 Eylül Sanayi Sitesi No:11</p>
+        </div>
+    </footer>
+
+    <!-- 11. FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/905386796484?text=Merhaba,%20Zorlu%20Kundura%20web%20sitenizden%20modelleriniz%20hakkında%20bilgi%20ve%20siparis%20icin%20yazıyorum." target="_blank" class="fixed bottom-6 right-6 z-50 w-13 h-13 p-3.5 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl wa-floating-btn hover:scale-110 transition-transform" title="WhatsApp Sipariş Hattı">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700,
+            once: true,
+            offset: 30,
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+
+        // Product Category Filter (Robust Implementation)
+        function filterShoes(category, targetButton) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            if (targetButton) {
+                targetButton.classList.add('active');
+            }
+
+            const cards = document.querySelectorAll('.shoe-card');
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

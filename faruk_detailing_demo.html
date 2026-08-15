@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faruk Detailing® Premium | PPF Kaplama, Seramik & Boya Koruma Sivas</title>
+    <meta name="description" content="Sivas'ın lider premium oto detailing stüdyosu. TPU PPF şeffaf kaplama, 9H seramik kaplama, çizik giderme pasta cila ve detaylı iç temizlik. Allianz Sigorta güvencesiyle.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                        tech: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        fd: {
+                            cyan: '#00B4D8',      /* Canlı Neon Cam Mavisi */
+                            cyanDark: '#0077B6',  /* Derin Cyan */
+                            yellow: '#F59E0B',    /* Enerjik Altın Sarısı */
+                            orange: '#FF5500',    /* Kepenk Turuncusu Vurgusu */
+                            carbon: '#0F172A',    /* Vurgulu Karbon / Koyu Lacivert */
+                            dark: '#0A0F1D',      /* En koyu metin / zemin */
+                            light: '#F8FAFC',     /* Aydınlık Ana Zemin */
+                            ice: '#F1F5F9',       /* Buz Grisi Kart Zemini */
+                            cardBg: '#FFFFFF',    /* Bembeyaz Parlak Kart */
+                            border: '#E2E8F0',    /* Temiz Sınır Çizgisi */
+                        }
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 10px 30px -5px rgba(0, 180, 216, 0.4)',
+                        'neon-yellow': '0 10px 30px -5px rgba(245, 158, 11, 0.4)',
+                        'card-glow': '0 20px 40px -12px rgba(0, 180, 216, 0.15)',
+                        'luxury': '0 25px 50px -12px rgba(15, 23, 42, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --color-light: #F8FAFC;
+            --color-dark: #0A0F1D;
+            --color-cyan: #00B4D8;
+            --color-yellow: #F59E0B;
+            --color-border: #E2E8F0;
+        }
+
+        body {
+            background-color: var(--color-light);
+            color: var(--color-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom High-Tech Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00B4D8 0%, #F59E0B 100%);
+            border-radius: 4px;
+        }
+
+        /* Bright Glassmorphism Navigation */
+        .fd-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(0, 180, 216, 0.25);
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+        }
+
+        /* Flashy Gradient Buttons */
+        .btn-fd-cyan {
+            background: linear-gradient(135deg, #00B4D8 0%, #0077B6 100%);
+            color: #FFFFFF;
+            padding: 0.85rem 2rem;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 0.75rem;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 10px 25px -4px rgba(0, 180, 216, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .btn-fd-cyan:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -4px rgba(0, 180, 216, 0.65);
+            background: linear-gradient(135deg, #00C8F0 0%, #0088D0 100%);
+            color: #FFFFFF;
+        }
+
+        .btn-fd-yellow {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            color: #FFFFFF;
+            padding: 0.85rem 2rem;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 0.75rem;
+            transition: all 0.35s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 10px 25px -4px rgba(245, 158, 11, 0.4);
+        }
+        .btn-fd-yellow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -4px rgba(245, 158, 11, 0.6);
+            background: linear-gradient(135deg, #FBBF24 0%, #EA580C 100%);
+            color: #FFFFFF;
+        }
+
+        .btn-fd-outline {
+            background: transparent;
+            color: var(--color-dark);
+            border: 1.5px solid var(--color-cyan);
+            padding: 0.85rem 2rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn-fd-outline:hover {
+            background: rgba(0, 180, 216, 0.1);
+            color: #0077B6;
+            transform: translateY(-2px);
+        }
+
+        /* Bright Studio Honeycomb Pattern */
+        .studio-pattern {
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(0, 180, 216, 0.05) 0%, transparent 60%),
+                linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        /* Flashy Service Card */
+        .service-card {
+            background: #FFFFFF;
+            border-radius: 1.25rem;
+            border: 1px solid #E2E8F0;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04);
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #00B4D8;
+            box-shadow: 0 20px 40px -10px rgba(0, 180, 216, 0.2);
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, #00B4D8, #F59E0B);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            z-index: 10;
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-card .card-img {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover .card-img {
+            transform: scale(1.06);
+        }
+
+        /* Allianz Trust Badge */
+        .allianz-badge {
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.12) 0%, rgba(245, 158, 11, 0.08) 100%);
+            border: 1px solid rgba(0, 180, 216, 0.35);
+        }
+
+        /* Floating WhatsApp Button Pulse */
+        @keyframes pulseGlowCyan {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            50% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+        }
+        .wa-floating-btn {
+            animation: pulseGlowCyan 2.5s infinite;
+        }
+    </style>
+</head>
+<body class="selection:bg-fd-cyan selection:text-white">
+
+    <!-- 0. TOP VIP ANNOUNCEMENT BAR (CONTRAST DARK HEADER) -->
+    <div class="bg-fd-carbon text-gray-200 border-b border-white/10 py-2.5 px-4 text-xs font-sans">
+        <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-center md:text-left">
+            <div class="flex items-center gap-3 text-xs font-medium tracking-wide flex-wrap justify-center md:justify-start">
+                <span class="inline-flex items-center gap-1.5 text-fd-cyan font-bold">
+                    <i class="ph-fill ph-shield-check text-sm"></i> Allianz Sigorta Güvenceli Garaj
+                </span>
+                <span class="text-white/20">•</span>
+                <span class="text-white font-medium">
+                    <i class="ph-fill ph-map-pin text-fd-yellow"></i> 4 Eylül Sanayi Sitesi 17. Sanayi Sokak, SİVAS
+                </span>
+                <span class="text-white/20 hidden sm:inline">•</span>
+                <span class="text-gray-300 hidden sm:inline">
+                    <i class="ph-fill ph-star text-fd-yellow"></i> Sivas'ın 1 Numaralı Detailing Stüdyosu
+                </span>
+            </div>
+            
+            <div class="flex items-center gap-4 text-xs font-medium">
+                <a href="https://www.instagram.com/farukdetailing/" target="_blank" class="text-gray-300 hover:text-fd-cyan transition-colors flex items-center gap-1">
+                    <i class="ph-fill ph-instagram-logo text-sm"></i> 7.5K+ Takipçi (Mavi Tikli)
+                </a>
+                <span class="text-white/20">•</span>
+                <a href="https://wa.me/905000000000?text=Merhaba,%20Faruk%20Detailing%20için%20randevu%20ve%20fiyat%20bilgisi%20almak%20istiyorum." target="_blank" class="text-fd-yellow hover:text-white font-bold flex items-center gap-1 transition-colors">
+                    <i class="ph-fill ph-whatsapp-logo text-green-400 text-sm"></i> VIP Randevu Hattı
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. STICKY LIGHT & GLOSSY NAVBAR -->
+    <nav class="fd-nav sticky top-0 z-50 py-3.5 px-6 transition-all duration-300">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fd-carbon to-slate-900 flex items-center justify-center text-fd-cyan shadow-md group-hover:scale-105 transition-transform border border-fd-cyan/40">
+                    <i class="ph-fill ph-sparkle text-2xl text-fd-cyan"></i>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-1.5">
+                        <span class="font-tech text-2xl sm:text-3xl font-black tracking-tight text-fd-cyanDark leading-none">Faruk</span>
+                        <span class="font-tech text-2xl sm:text-3xl font-black tracking-tight text-fd-yellow leading-none">Detailing</span>
+                        <span class="text-[9px] text-fd-carbon border border-fd-carbon/40 rounded px-1 font-bold">®</span>
+                    </div>
+                    <span class="font-tech text-[8.5px] tracking-[0.35em] text-gray-500 uppercase font-bold mt-0.5">P R E M I U M • S İ V A S</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex items-center gap-8 font-sans text-sm font-bold tracking-wide text-gray-700">
+                <a href="#hizmetler" class="hover:text-fd-cyan transition-colors py-1">Hizmetlerimiz</a>
+                <a href="#ppf-kaplama" class="hover:text-fd-cyan transition-colors py-1 flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-fd-cyan animate-pulse"></span> PPF Kaplama
+                </a>
+                <a href="#seramik" class="hover:text-fd-cyan transition-colors py-1">9H Seramik</a>
+                <a href="#hesaplayici" class="hover:text-fd-cyan transition-colors py-1">Fiyat Hesapla</a>
+                <a href="#galeri" class="hover:text-fd-cyan transition-colors py-1">VIP Garaj</a>
+                <a href="#iletisim" class="hover:text-fd-cyan transition-colors py-1">İletişim & Konum</a>
+            </div>
+
+            <!-- Fast Appointment CTA -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#hesaplayici" class="btn-fd-cyan py-2.5 px-5 text-xs">
+                    <i class="ph-bold ph-calendar-check text-base"></i> Hemen Randevu Al
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="lg:hidden text-fd-carbon text-3xl p-1" onclick="toggleMobileMenu()">
+                <i class="ph-bold ph-list"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-fd-border mt-3 px-6 py-5 space-y-3 font-sans font-semibold text-gray-800 shadow-xl">
+            <a href="#hizmetler" onclick="toggleMobileMenu()" class="block text-sm hover:text-fd-cyan py-1.5 border-b border-gray-100">Uygulamalar & Hizmetler</a>
+            <a href="#ppf-kaplama" onclick="toggleMobileMenu()" class="block text-sm hover:text-fd-cyan py-1.5 border-b border-gray-100">TPU PPF Şeffaf Kaplama</a>
+            <a href="#seramik" onclick="toggleMobileMenu()" class="block text-sm hover:text-fd-cyan py-1.5 border-b border-gray-100">9H Grafen & Seramik Koruma</a>
+            <a href="#hesaplayici" onclick="toggleMobileMenu()" class="block text-sm hover:text-fd-cyan py-1.5 border-b border-gray-100">Fiyat & Paket Hesaplayıcı</a>
+            <a href="#galeri" onclick="toggleMobileMenu()" class="block text-sm hover:text-fd-cyan py-1.5 border-b border-gray-100">VIP Garaj & Referanslar</a>
+            <a href="#iletisim" onclick="toggleMobileMenu()" class="block text-sm hover:text-fd-cyan py-1.5">İletişim & Stüdyo Konumu</a>
+            <div class="pt-2">
+                <a href="https://wa.me/905000000000" target="_blank" class="btn-fd-yellow w-full py-3 rounded-xl text-center text-xs justify-center flex items-center gap-2">
+                    <i class="ph-fill ph-whatsapp-logo text-base"></i> WhatsApp'tan Hemen Randevu Al
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION (BRIGHT SHOWROOM & HYPER-GLOSS LIGHTING) -->
+    <section class="relative min-h-[85vh] bg-gradient-to-b from-slate-900 via-fd-carbon to-slate-900 text-white flex items-center overflow-hidden border-b border-fd-border">
+        <!-- Background Studio Imagery -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" alt="Lüks Otomobil Detailing ve PPF Kaplama Sivas" class="w-full h-full object-cover opacity-45 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-[1400px] mx-auto px-6 py-16 lg:py-24 w-full">
+            <div class="max-w-3xl" data-aos="fade-right" data-aos-duration="900">
+                
+                <!-- Allianz Trust Pill -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full allianz-badge text-sky-300 font-tech text-xs font-bold tracking-widest uppercase mb-6 shadow-neon-cyan">
+                    <span class="w-2 h-2 rounded-full bg-fd-cyan animate-ping"></span>
+                    <i class="ph-fill ph-shield-check text-base text-fd-cyan"></i> Allianz Sigorta Güvencesiyle
+                </div>
+                
+                <h1 class="font-display text-4xl sm:text-6xl lg:text-[4.75rem] font-black leading-[1.05] mb-6 text-white uppercase tracking-tight">
+                    Kusursuz Parlaklık, <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-fd-cyan to-fd-yellow drop-shadow-[0_0_25px_rgba(0,180,216,0.5)]">
+                        Üst Düzey Koruma.
+                    </span>
+                </h1>
+                
+                <p class="font-sans text-gray-200 text-base md:text-lg font-light leading-relaxed mb-8 max-w-2xl">
+                    Sivas'ın en donanımlı tozsuz LED stüdyosunda; <strong>TPU PPF Şeffaf Kaplama, 9H Seramik Koruma, Mikron Hassasiyetli Çizik Giderme</strong> ve VIP Detaylı İç Bakım ile aracınızı ilk günkü showroom ihtişamına kavuşturuyoruz.
+                </p>
+                
+                <!-- CTA Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 sm:items-center">
+                    <a href="#hizmetler" class="btn-fd-cyan">
+                        Hizmetleri İncele <i class="ph-bold ph-shield-star text-lg"></i>
+                    </a>
+                    <a href="https://wa.me/905000000000?text=Merhaba,%20Faruk%20Detailing%20hizmetleri%20için%20fiyat%20ve%20randevu%20almak%20istiyorum." target="_blank" class="btn-fd-yellow">
+                        <i class="ph-fill ph-whatsapp-logo text-white text-xl"></i> Fiyat & Randevu Al
+                    </a>
+                </div>
+
+                <!-- Studio Quality Badges -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 pt-8 border-t border-white/20">
+                    <div class="flex flex-col">
+                        <div class="text-sky-400 font-tech text-2xl sm:text-3xl font-bold">10 Yıl</div>
+                        <div class="text-gray-300 text-xs font-semibold uppercase tracking-wider mt-0.5">TPU PPF Garantisi</div>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-fd-yellow font-tech text-2xl sm:text-3xl font-bold">9H+</div>
+                        <div class="text-gray-300 text-xs font-semibold uppercase tracking-wider mt-0.5">Grafen & Seramik</div>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-sky-400 font-tech text-2xl sm:text-3xl font-bold">%100</div>
+                        <div class="text-gray-300 text-xs font-semibold uppercase tracking-wider mt-0.5">Allianz Sigortalı</div>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-fd-yellow font-tech text-2xl sm:text-3xl font-bold">Tozsuz</div>
+                        <div class="text-gray-300 text-xs font-semibold uppercase tracking-wider mt-0.5">Özel LED Stüdyo</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ALLIANZ & GÜVENİLİRLİK BANDI (AYDINLIK & FERAH) -->
+    <section class="py-12 bg-white border-b border-fd-border relative">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                
+                <div class="flex items-center gap-4 bg-fd-ice p-5 rounded-2xl border border-fd-border shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-sky-100 text-fd-cyanDark flex items-center justify-center text-2xl shrink-0 border border-sky-200">
+                        <i class="ph-fill ph-shield-check"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-display font-bold text-fd-carbon text-sm uppercase tracking-wide">Allianz Sigorta Güvencesi</h4>
+                        <p class="text-xs text-gray-600 mt-0.5">Aracınız stüdyomuza girdiği andan itibaren tam kapsamlı sigorta teminatı altındadır.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 bg-fd-ice p-5 rounded-2xl border border-fd-border shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-fd-yellow flex items-center justify-center text-2xl shrink-0 border border-amber-200">
+                        <i class="ph-fill ph-sun"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-display font-bold text-fd-carbon text-sm uppercase tracking-wide">Hexagonal LED Spektrum</h4>
+                        <p class="text-xs text-gray-600 mt-0.5">Çiziklerin ve harelerin %100 görünmesini sağlayan profesyonel ışık tüneli.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 bg-fd-ice p-5 rounded-2xl border border-fd-border shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-sky-100 text-fd-cyanDark flex items-center justify-center text-2xl shrink-0 border border-sky-200">
+                        <i class="ph-fill ph-medal"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-display font-bold text-fd-carbon text-sm uppercase tracking-wide">Sertifikalı Orijinal Ürünler</h4>
+                        <p class="text-xs text-gray-600 mt-0.5">Dünyaca onaylı premium PPF filmleri ve nano seramik kaplama kimyasalları.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. UZMANLIK ALANLARIMIZ (6 PARLAK & DETAYLI HİZMET KARTI) -->
+    <section id="hizmetler" class="py-20 bg-fd-light relative studio-pattern">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+                <span class="text-fd-cyanDark font-tech font-bold text-xs uppercase tracking-[0.3em] block mb-2">PROFESYONEL UYGULAMALAR</span>
+                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-fd-dark uppercase tracking-tight">Otomobilinize Özel Hizmetler</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-fd-cyan to-fd-yellow mx-auto mb-3 mt-3"></div>
+                <p class="text-gray-600 text-sm font-normal">Her araç bir sanat eseridir. Aracınızın fabrika çıkış kondisyonunu ömür boyu koruyoruz.</p>
+            </div>
+
+            <!-- Service Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                
+                <!-- Service 1: PPF Kaplama -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="TPU PPF Şeffaf Kaplama" class="card-img w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-fd-cyanDark text-white font-tech text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">Zırh Koruma</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-xl text-fd-dark mb-2">TPU Şeffaf PPF Kaplama</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                                Taş sıçramalarına, anahtar çiziklerine ve güneş yanıklarına karşı kendi kendini ısıyla onaran (self-healing) 190-210 mikron TPU koruma filmi.
+                            </p>
+                            <ul class="text-xs text-gray-700 space-y-2 mb-5 pt-3 border-t border-fd-border font-medium">
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-cyanDark text-base"></i> Tam Boy veya Ön 3 Parça Koruma</li>
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-cyanDark text-base"></i> Sararma ve Çatlamaya Karşı 5-10 Yıl Garanti</li>
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-cyanDark text-base"></i> Parlak veya Mat (Stealth) Seçenekleri</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/905000000000?text=Merhaba,%20PPF%20kaplama%20fiyatı%20ve%20detayları%20öğrenmek%20istiyorum." target="_blank" class="btn-fd-cyan py-2.5 px-4 text-xs justify-center">
+                            PPF Fiyatı Al <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2: 9H Seramik & Grafen -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="9H Seramik Kaplama" class="card-img w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-fd-yellow text-white font-tech text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">Ayna Parlaklığı</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-xl text-fd-dark mb-2">9H Grafen & Seramik Kaplama</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                                Boyanın derinlik ve ıslak parlaklık kazanmasını sağlayan, su ve kir tutmayan hidrofobik nano teknoloji seramik zırh.
+                            </p>
+                            <ul class="text-xs text-gray-700 space-y-2 mb-5 pt-3 border-t border-fd-border font-medium">
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-yellow text-base"></i> 3 ve 5 Yıllık Dayanım Seçenekleri</li>
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-yellow text-base"></i> Asit Yağmuru & Kuş Pisliği Direnci</li>
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-yellow text-base"></i> Kolay Yıkanma & Leke Tutmama</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/905000000000?text=Merhaba,%20Seramik%20kaplama%20hakkında%20fiyat%20almak%20istiyorum." target="_blank" class="btn-fd-yellow py-2.5 px-4 text-xs justify-center">
+                            Seramik Teklifi Al <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Boya Düzeltme & Çizik Giderme -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Boya Düzeltme ve Pasta Cila" class="card-img w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-fd-cyanDark text-white font-tech text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">Hassas Polisaj</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-xl text-fd-dark mb-2">Boya Düzeltme (Correction)</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                                Mikron ölçüm cihazıyla verniğe zarar vermeden; fırça çizikleri, hareler ve hologramları %95 oranında yok eden çok aşamalı polisaj.
+                            </p>
+                            <ul class="text-xs text-gray-700 space-y-2 mb-5 pt-3 border-t border-fd-border font-medium">
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-cyanDark text-base"></i> Ağır / Orta / İnce Pasta Kombinasyonu</li>
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-cyanDark text-base"></i> Hologram ve Hareleri Tamamen Yok Etme</li>
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-cyanDark text-base"></i> Parlaklık Sabitleyici Cila Katmanı</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/905000000000?text=Merhaba,%20pasta%20cila%20ve%20çizik%20giderme%20fiyatı%20öğrenmek%20istiyorum." target="_blank" class="btn-fd-cyan py-2.5 px-4 text-xs justify-center">
+                            Çizik Giderme Teklifi <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4: Detaylı İç Temizlik & Ozon -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Detaylı İç Temizlik ve Sterilizasyon" class="card-img w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-fd-yellow text-white font-tech text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">Klinik Hijyen</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-xl text-fd-dark mb-2">Detaylı İç Bakım & Ozon</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                                Taban halısından tavana, havalandırma kanallarından kapı fitillerine kadar buharlı derin temizlik ve ozonla %99.9 bakteri sterilizasyonu.
+                            </p>
+                            <ul class="text-xs text-gray-700 space-y-2 mb-5 pt-3 border-t border-fd-border font-medium">
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-yellow text-base"></i> Koltuk, Taban, Tavan ve Bagaj Yıkama</li>
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-yellow text-base"></i> Torpido ve Plastik Yenileme & Koruma</li>
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-yellow text-base"></i> Kötü Koku ve Bakteri Yok Etme</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/905000000000?text=Merhaba,%20detaylı%20iç%20temizlik%20için%20randevu%20almak%20istiyorum." target="_blank" class="btn-fd-yellow py-2.5 px-4 text-xs justify-center">
+                            İç Temizlik Randevusu <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 5: Deri Koltuk Bakımı & Kalkanı -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Deri Koltuk Bakımı ve Koruma" class="card-img w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-fd-cyanDark text-white font-tech text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">Deri Kalkanı</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-xl text-fd-dark mb-2">Deri Bakımı & Seramik Kalkan</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                                Hakiki deri koltukların çatlamasını, kot boyası transferini ve yıpranmasını önleyen nano seramik deri kalkanı uygulaması.
+                            </p>
+                            <ul class="text-xs text-gray-700 space-y-2 mb-5 pt-3 border-t border-fd-border font-medium">
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-cyanDark text-base"></i> Deri Nemlendirme & Esneklik Kazandırma</li>
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-cyanDark text-base"></i> Kot Boyası ve Sıvı Leke Koruması</li>
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-cyanDark text-base"></i> Mat ve Orijinal Fabrika Görünümü</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/905000000000?text=Merhaba,%20deri%20koltuk%20bakımı%20ve%20koruma%20fiyatı%20öğrenmek%20istiyorum." target="_blank" class="btn-fd-cyan py-2.5 px-4 text-xs justify-center">
+                            Deri Koruma Fiyatı <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 6: Cam Filmi & Far Restorasyonu -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Isı Kontrol Cam Filmi ve Far Temizliği" class="card-img w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-fd-yellow text-white font-tech text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">Isı Koruması</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-xl text-fd-dark mb-2">Cam Filmi & Far Yenileme</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                                %99 UV ve %80 ısı engelleyici birinci sınıf çizilmez cam filmleri ile sararmış farların ilk günkü berraklığına kavuşturulması.
+                            </p>
+                            <ul class="text-xs text-gray-700 space-y-2 mb-5 pt-3 border-t border-fd-border font-medium">
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-yellow text-base"></i> Güneş Işınlarına Karşı Yüksek Isı Kalkanı</li>
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-yellow text-base"></i> Sararmış & Matlaşmış Far Restorasyonu</li>
+                                <li class="flex items-center gap-2"><i class="ph-bold ph-check text-fd-yellow text-base"></i> Far PPF Şeffaf Koruma Filmi</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/905000000000?text=Merhaba,%20cam%20filmi%20ve%20far%20restorasyonu%20fiyatı%20almak%20istiyorum." target="_blank" class="btn-fd-yellow py-2.5 px-4 text-xs justify-center">
+                            Cam Filmi Teklifi <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. İNTERAKTİF FİYAT & PAKET HESAPLAYICI (AYDINLIK & CAFCAFLI) -->
+    <section id="hesaplayici" class="py-20 bg-white border-t border-b border-fd-border relative">
+        <div class="max-w-[1100px] mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
+                <span class="text-fd-cyanDark font-tech font-bold text-xs uppercase tracking-[0.3em] block mb-2">AKILLI TEKLİF SİSTEMİ</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-black text-fd-dark uppercase tracking-tight">Aracınız İçin Özel Teklif Alın</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-fd-cyan to-fd-yellow mx-auto mb-3 mt-3"></div>
+                <p class="text-gray-600 text-xs sm:text-sm">Aracınızın segmentini ve istediğiniz uygulamayı seçin, WhatsApp'tan anında fiyat teklifi gelsin.</p>
+            </div>
+
+            <div class="bg-fd-light p-8 sm:p-10 rounded-3xl border border-fd-border shadow-luxury" data-aos="fade-up">
+                
+                <!-- Step 1: Vehicle Type Selection -->
+                <div class="mb-8">
+                    <label class="font-tech text-xs uppercase tracking-wider text-fd-cyanDark font-bold block mb-3">1. Araç Segmentinizi Seçin:</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <button type="button" onclick="selectCarType(this, 'Sedan / Hatchback')" class="car-type-btn p-4 rounded-xl border border-fd-border bg-white text-left hover:border-fd-cyan transition-all flex items-center gap-3 shadow-sm">
+                            <i class="ph-fill ph-car text-2xl text-fd-cyanDark"></i>
+                            <div>
+                                <span class="font-display font-bold text-sm text-fd-dark block">Sedan / Hatchback</span>
+                                <span class="text-[11px] text-gray-500">BMW 3/5, Audi A3/A4, Golf</span>
+                            </div>
+                        </button>
+
+                        <button type="button" onclick="selectCarType(this, 'SUV / Crossover')" class="car-type-btn active p-4 rounded-xl border-2 border-fd-cyan bg-sky-50 text-left hover:border-fd-cyan transition-all flex items-center gap-3 shadow-md">
+                            <i class="ph-fill ph-jeep text-2xl text-fd-cyanDark"></i>
+                            <div>
+                                <span class="font-display font-bold text-sm text-fd-dark block">SUV / Crossover</span>
+                                <span class="text-[11px] text-gray-600">Range Rover, X5, Q7, Tiguan</span>
+                            </div>
+                        </button>
+
+                        <button type="button" onclick="selectCarType(this, 'Ultra Lüks / E-Segment')" class="car-type-btn p-4 rounded-xl border border-fd-border bg-white text-left hover:border-fd-cyan transition-all flex items-center gap-3 shadow-sm">
+                            <i class="ph-fill ph-crown text-2xl text-fd-yellow"></i>
+                            <div>
+                                <span class="font-display font-bold text-sm text-fd-dark block">Ultra Lüks & G-Class</span>
+                                <span class="text-[11px] text-gray-500">Porsche, G-Wagon, 7 Serisi</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Service Selection -->
+                <div class="mb-8">
+                    <label class="font-tech text-xs uppercase tracking-wider text-fd-yellow font-bold block mb-3">2. Uygulama Tercihinizi Belirleyin:</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                        <label class="flex items-center gap-3 p-4 rounded-xl border border-fd-border bg-white cursor-pointer hover:border-fd-cyan transition-all shadow-sm">
+                            <input type="checkbox" name="services" value="Tam Boy TPU PPF Kaplama" class="w-4 h-4 accent-cyan-600" checked>
+                            <span class="text-xs sm:text-sm font-semibold text-fd-dark">Komple TPU Şeffaf PPF Kaplama (10 Yıl Garanti)</span>
+                        </label>
+
+                        <label class="flex items-center gap-3 p-4 rounded-xl border border-fd-border bg-white cursor-pointer hover:border-fd-cyan transition-all shadow-sm">
+                            <input type="checkbox" name="services" value="9H Grafen Seramik Kaplama" class="w-4 h-4 accent-cyan-600">
+                            <span class="text-xs sm:text-sm font-semibold text-fd-dark">9H Grafen & Seramik Koruma (Ayna Parlaklığı)</span>
+                        </label>
+
+                        <label class="flex items-center gap-3 p-4 rounded-xl border border-fd-border bg-white cursor-pointer hover:border-fd-cyan transition-all shadow-sm">
+                            <input type="checkbox" name="services" value="Boya Düzeltme & Pasta Cila" class="w-4 h-4 accent-cyan-600">
+                            <span class="text-xs sm:text-sm font-semibold text-fd-dark">Çizik Giderme & Hare Düzeltme (Correction)</span>
+                        </label>
+
+                        <label class="flex items-center gap-3 p-4 rounded-xl border border-fd-border bg-white cursor-pointer hover:border-fd-cyan transition-all shadow-sm">
+                            <input type="checkbox" name="services" value="VIP Detaylı İç Temizlik ve Ozon" class="w-4 h-4 accent-cyan-600">
+                            <span class="text-xs sm:text-sm font-semibold text-fd-dark">VIP Detaylı İç Temizlik & Ozon Sterilizasyonu</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 3: Action Output -->
+                <div class="pt-6 border-t border-fd-border flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="text-center sm:text-left">
+                        <span class="text-xs text-gray-500 block font-medium">Seçtiğiniz paket detayları WhatsApp üzerinden anında iletilecektir.</span>
+                        <span class="text-xs text-fd-cyanDark font-bold flex items-center gap-1 justify-center sm:justify-start mt-0.5">
+                            <i class="ph-bold ph-shield-check"></i> Allianz Sigortalı Garaj Güvencesiyle
+                        </span>
+                    </div>
+                    <button type="button" onclick="sendCalculatedQuote()" class="btn-fd-cyan w-full sm:w-auto py-3.5 px-8 text-xs sm:text-sm">
+                        <i class="ph-fill ph-whatsapp-logo text-xl"></i> WhatsApp'tan Fiyat Teklifi Al
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. VIP GARAJ GALERİSİ -->
+    <section id="galeri" class="py-20 bg-fd-light relative">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12" data-aos="fade-up">
+                <div>
+                    <span class="text-fd-cyanDark font-tech font-bold text-xs uppercase tracking-[0.3em] block mb-2">FARUK DETAILING VIP GARAJ</span>
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-fd-dark uppercase tracking-tight">Stüdyomuzdan Çıkan Yıldızlar</h2>
+                </div>
+                <a href="https://www.instagram.com/farukdetailing/" target="_blank" class="btn-fd-yellow py-3 px-6 text-xs shrink-0">
+                    <i class="ph-bold ph-instagram-logo text-base"></i> @farukdetailing Takip Et
+                </a>
+            </div>
+
+            <!-- Visual Grid of High End Cars -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="group relative h-72 rounded-2xl overflow-hidden border border-fd-border shadow-sm bg-white" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Porsche PPF Kaplama" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-5 text-white">
+                        <span class="text-[10px] text-sky-400 uppercase tracking-widest font-tech font-bold">Tam Boy TPU PPF</span>
+                        <h4 class="font-display font-bold text-base">Porsche 911 / Taycan</h4>
+                    </div>
+                </div>
+
+                <div class="group relative h-72 rounded-2xl overflow-hidden border border-fd-border shadow-sm bg-white" data-aos="fade-up" data-aos-delay="50">
+                    <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Mercedes G-Class Seramik" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-5 text-white">
+                        <span class="text-[10px] text-amber-400 uppercase tracking-widest font-tech font-bold">9H Grafen Seramik</span>
+                        <h4 class="font-display font-bold text-base">Mercedes G-Wagon & AMG</h4>
+                    </div>
+                </div>
+
+                <div class="group relative h-72 rounded-2xl overflow-hidden border border-fd-border shadow-sm bg-white" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="BMW 7 Serisi Çizik Giderme" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-5 text-white">
+                        <span class="text-[10px] text-sky-400 uppercase tracking-widest font-tech font-bold">Paint Correction</span>
+                        <h4 class="font-display font-bold text-base">BMW i7 / XM / 7 Serisi</h4>
+                    </div>
+                </div>
+
+                <div class="group relative h-72 rounded-2xl overflow-hidden border border-fd-border shadow-sm bg-white" data-aos="fade-up" data-aos-delay="150">
+                    <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Range Rover Detaylı Bakım" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-5 text-white">
+                        <span class="text-[10px] text-amber-400 uppercase tracking-widest font-tech font-bold">Showroom Full Bakım</span>
+                        <h4 class="font-display font-bold text-base">Range Rover Vogue</h4>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. İLETİŞİM, STÜDYO & HARİTA (AYDINLIK) -->
+    <section id="iletisim" class="py-20 bg-white relative border-t border-fd-border">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Contact Info -->
+                <div data-aos="fade-right">
+                    <span class="text-fd-cyanDark font-tech font-bold text-xs uppercase tracking-[0.3em] block mb-2">BİZE ULAŞIN</span>
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-fd-dark uppercase tracking-tight mb-4">Stüdyomuza Bekleriz</h2>
+                    
+                    <p class="text-gray-600 text-sm sm:text-base mb-8 leading-relaxed">
+                        Aracınızı yerinde inceleyelim, boya kalınlığını mikron ölçüm cihazımızla tespit edip en uygun koruma paketini birlikte belirleyelim.
+                    </p>
+
+                    <div class="space-y-4">
+                        
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-fd-light border border-fd-border shadow-sm">
+                            <div class="w-11 h-11 rounded-lg bg-sky-100 text-fd-cyanDark flex items-center justify-center text-2xl shrink-0 border border-sky-200">
+                                <i class="ph-fill ph-map-pin"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-fd-dark text-base mb-0.5">Stüdyo Adresi</h4>
+                                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                                    4 Eylül Sanayi Sitesi 17. Sanayi Sokak No:14<br>
+                                    Merkez / Sivas (58000)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-fd-light border border-fd-border shadow-sm">
+                            <div class="w-11 h-11 rounded-lg bg-amber-100 text-fd-yellow flex items-center justify-center text-2xl shrink-0 border border-amber-200">
+                                <i class="ph-fill ph-phone-call"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-fd-dark text-base mb-0.5">VIP Randevu & WhatsApp</h4>
+                                <p class="text-xs sm:text-sm text-gray-600 mb-0.5">WhatsApp / GSM: 0544 000 00 00</p>
+                                <span class="text-[11px] text-green-600 font-semibold flex items-center gap-1">
+                                    <i class="ph-fill ph-check-circle"></i> Mesai saatlerinde ortalama 3 dk içinde hızlı yanıt
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-fd-light border border-fd-border shadow-sm">
+                            <div class="w-11 h-11 rounded-lg bg-sky-100 text-fd-cyanDark flex items-center justify-center text-2xl shrink-0 border border-sky-200">
+                                <i class="ph-fill ph-instagram-logo"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-fd-dark text-base mb-0.5">Sosyal Medya</h4>
+                                <a href="https://www.instagram.com/farukdetailing/" target="_blank" class="text-xs sm:text-sm text-fd-cyanDark hover:underline font-semibold">
+                                    @farukdetailing (Mavi Tikli Resmi Hesap)
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Google Maps Frame -->
+                <div class="relative" data-aos="fade-left">
+                    <div class="p-7 rounded-2xl bg-fd-carbon text-white shadow-2xl border border-fd-cyan/30 relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                                <span class="text-xs text-sky-300 font-mono ml-2">faruk_detailing_sivas.gmaps</span>
+                            </div>
+
+                            <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-2">Sivas 4 Eylül Sanayi Sitesi</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 font-light mb-5 leading-relaxed">
+                                17. Sanayi Sokak'ta bulunan kapalı tozsuz stüdyomuza kolayca ulaşabilir, aracınızı güvenle teslim edebilirsiniz.
+                            </p>
+
+                            <!-- Map Mock Visual -->
+                            <div class="w-full h-52 rounded-xl bg-slate-900 border border-white/10 flex flex-col items-center justify-center text-center p-4 mb-5 group">
+                                <i class="ph-fill ph-car text-5xl text-fd-cyan/70 mb-2 group-hover:scale-105 transition-transform"></i>
+                                <span class="font-display text-white font-bold text-sm sm:text-base">Faruk Detailing® Premium Stüdyo</span>
+                                <span class="text-xs text-fd-yellow mt-0.5">17. Sanayi Sokak Sivas</span>
+                            </div>
+
+                            <a href="https://maps.google.com/?q=4+Eylül+Sanayi+Sitesi+Sivas" target="_blank" class="btn-fd-cyan w-full justify-center text-xs py-3.5">
+                                <i class="ph-fill ph-navigation-arrow text-base"></i> Google Haritalarda Yol Tarifi Al
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER -->
+    <footer class="bg-fd-carbon text-white pt-14 pb-8 border-t border-white/10 font-sans">
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border-b border-white/10 pb-10 mb-6">
+            
+            <div class="lg:col-span-1">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="font-tech text-2xl font-black text-fd-cyan">Faruk</span>
+                    <span class="font-tech text-2xl font-black text-fd-yellow">Detailing</span>
+                    <span class="text-[10px] text-fd-yellow border border-fd-yellow/50 rounded px-1 font-bold">®</span>
+                </div>
+                <p class="text-xs text-gray-400 font-light leading-relaxed mb-5">
+                    Sivas'ın lüks otomobil koruma ve detailing stüdyosu. TPU PPF şeffaf kaplama, seramik kaplama ve mikron pasta cila uygulamaları.
+                </p>
+                <div class="flex items-center gap-2.5">
+                    <a href="https://www.instagram.com/farukdetailing/" target="_blank" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:text-fd-cyan hover:border-fd-cyan transition-colors">
+                        <i class="ph-fill ph-instagram-logo text-sm"></i>
+                    </a>
+                    <a href="https://wa.me/905000000000" target="_blank" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-green-500 hover:text-white transition-colors">
+                        <i class="ph-fill ph-whatsapp-logo text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-display font-bold text-white mb-4 text-xs tracking-wider uppercase text-fd-cyan">Hizmetlerimiz</h4>
+                <ul class="space-y-2 text-xs text-gray-400 font-light">
+                    <li><a href="#ppf-kaplama" class="hover:text-fd-cyan transition-colors">TPU PPF Şeffaf Kaplama</a></li>
+                    <li><a href="#seramik" class="hover:text-fd-cyan transition-colors">9H Grafen & Seramik Koruma</a></li>
+                    <li><a href="#hizmetler" class="hover:text-fd-cyan transition-colors">Boya Düzeltme & Pasta Cila</a></li>
+                    <li><a href="#hizmetler" class="hover:text-fd-cyan transition-colors">VIP Detaylı İç Temizlik</a></li>
+                    <li><a href="#hizmetler" class="hover:text-fd-cyan transition-colors">Deri Koltuk Kalkanı & Bakım</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-display font-bold text-white mb-4 text-xs tracking-wider uppercase text-fd-cyan">Güvencelerimiz</h4>
+                <ul class="space-y-2 text-xs text-gray-400 font-light">
+                    <li><span class="flex items-center gap-1.5 text-gray-300"><i class="ph-bold ph-check text-fd-cyan"></i> Allianz Sigorta Güvencesi</span></li>
+                    <li><span class="flex items-center gap-1.5 text-gray-300"><i class="ph-bold ph-check text-fd-cyan"></i> 10 Yıl Garantili TPU PPF</span></li>
+                    <li><span class="flex items-center gap-1.5 text-gray-300"><i class="ph-bold ph-check text-fd-cyan"></i> Tozsuz LED Işık Tüneli</span></li>
+                    <li><span class="flex items-center gap-1.5 text-gray-300"><i class="ph-bold ph-check text-fd-cyan"></i> Mikron Boya Ölçüm Garantisi</span></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-display font-bold text-white mb-4 text-xs tracking-wider uppercase text-fd-cyan">İletişim & Konum</h4>
+                <p class="text-xs text-gray-400 font-light leading-relaxed mb-2">
+                    4 Eylül Sanayi Sitesi 17. Sanayi Sk.<br>
+                    Merkez / Sivas
+                </p>
+                <a href="https://wa.me/905000000000" target="_blank" class="text-xs text-fd-yellow hover:text-white font-bold block mb-0.5">
+                    WhatsApp: 0544 000 00 00
+                </a>
+                <span class="text-[11px] text-gray-500">Instagram: @farukdetailing</span>
+            </div>
+
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-gray-500 font-light">
+            <p>&copy; 2026 Faruk Detailing® Premium. Tüm Hakları Saklıdır. Sivas Lüks Oto Bakım & PPF Stüdyosu.</p>
+            <p class="text-gray-400">Allianz Sigorta Güvencesiyle</p>
+        </div>
+    </footer>
+
+    <!-- 9. FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/905000000000?text=Merhaba,%20Faruk%20Detailing%20aracıma%20randevu%20ve%20fiyat%20almak%20istiyorum." target="_blank" class="fixed bottom-6 right-6 z-50 w-13 h-13 p-3.5 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl wa-floating-btn hover:scale-110 transition-transform" title="WhatsApp Randevu Hattı">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700,
+            once: true,
+            offset: 30,
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+
+        // Active car segment variable
+        let selectedCarSegment = 'SUV / Crossover';
+
+        function selectCarType(button, segment) {
+            const buttons = document.querySelectorAll('.car-type-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'border-2', 'border-fd-cyan', 'bg-sky-50', 'shadow-md');
+                btn.classList.add('border', 'border-fd-border', 'bg-white', 'shadow-sm');
+            });
+            button.classList.add('active', 'border-2', 'border-fd-cyan', 'bg-sky-50', 'shadow-md');
+            button.classList.remove('border', 'border-fd-border', 'bg-white', 'shadow-sm');
+            selectedCarSegment = segment;
+        }
+
+        function sendCalculatedQuote() {
+            const checkboxes = document.querySelectorAll('input[name="services"]:checked');
+            const selectedServices = Array.from(checkboxes).map(cb => cb.value);
+            
+            let message = `Merhaba Faruk Detailing,%20aracım%20için%20fiyat%20ve%20randevu%20almak%20istiyorum.%0A%0A`;
+            message += `🚗%20*Araç%20Segmenti:*%20${encodeURIComponent(selectedCarSegment)}%0A`;
+            
+            if (selectedServices.length > 0) {
+                message += `🛠️%20*Talep%20Edilen%20Uygulamalar:*%0A`;
+                selectedServices.forEach(s => {
+                    message += `•%20${encodeURIComponent(s)}%0A`;
+                });
+            } else {
+                message += `🛠️%20*Uygulama:*%20Detaylı%20paket%20bilgisi%20istiyorum.%0A`;
+            }
+            
+            message += `%0AUygun%20randevu%20tarihlerini%20ve%20fiyat%20teklifini%20öğrenebilir%20miyim?`;
+            
+            window.open(`https://wa.me/905000000000?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
