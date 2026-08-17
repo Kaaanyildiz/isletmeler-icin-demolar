@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MÜTEVAZİ CAM & ZÜCCACİYE | Sivas - Cam, Porselen, Sunum & Çeyiz Mağazası</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cinzel"', 'serif'],
+                        playfair: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        mc: {
+                            950: '#070707',
+                            900: '#111111',
+                            850: '#181818',
+                            800: '#222222',
+                            gold: '#D4AF37',
+                            goldLight: '#F5E6B3',
+                            goldDark: '#AA820A',
+                            bronze: '#C59B27',
+                            pearl: '#FAF8F5',
+                            cream: '#F4EFE6',
+                            stone: '#EAE6DF',
+                            muted: '#8E8A83'
+                        }
+                    },
+                    boxShadow: {
+                        'luxury': '0 20px 40px -15px rgba(212, 175, 55, 0.15)',
+                        'gold-glow': '0 0 25px rgba(212, 175, 55, 0.25)',
+                        'card-soft': '0 10px 30px -5px rgba(0, 0, 0, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #070707; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #AA820A; }
+
+        /* Gold Gradient Elements */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FFF6D6 0%, #D4AF37 50%, #AA820A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bg-gradient-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA820A 100%);
+        }
+
+        .border-gradient-gold {
+            border-image: linear-gradient(135deg, #D4AF37, #AA820A) 1;
+        }
+
+        /* Subtle Noise Overlay */
+        .noise-bg {
+            position: relative;
+        }
+        .noise-bg::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Active Filter Tab */
+        .mc-tab.active {
+            background-color: #D4AF37;
+            color: #070707;
+            border-color: #D4AF37;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+        }
+
+        /* Highlight Ring */
+        .story-ring {
+            background: linear-gradient(45deg, #D4AF37, #FFF6D6, #AA820A, #D4AF37);
+            padding: 2.5px;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+        .story-ring:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-mc-pearl text-mc-950 font-sans antialiased selection:bg-mc-gold selection:text-black">
+
+    <!-- 1. TOP ANNOUNCEMENT HUB (Crucial Local Bio Info) -->
+    <div class="bg-mc-950 text-white text-[11px] font-sans border-b border-mc-gold/20 relative z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap justify-between items-center gap-3">
+            
+            <!-- Left Info -->
+            <div class="flex items-center gap-6 flex-wrap">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="font-bold text-mc-goldLight tracking-wider uppercase">Şeyhşamil Mağazamız:</span>
+                    <span class="text-stone-300">Haftanın Her Günü Açık (09:00 - 20:00)</span>
+                </div>
+                <span class="text-stone-600 hidden md:inline">|</span>
+                <div class="hidden md:flex items-center gap-2 text-stone-300">
+                    <i class="fa-solid fa-location-dot text-mc-gold"></i>
+                    <span>Kazım Karabekir Cad. Sivas / Merkez</span>
+                </div>
+            </div>
+
+            <!-- Right: Strictly "Kargomuz Yoktur - Elden Teslim" -->
+            <div class="flex items-center gap-4">
+                <div class="inline-flex items-center gap-1.5 bg-mc-gold/15 border border-mc-gold/40 px-3 py-0.5 rounded-full text-mc-goldLight font-bold">
+                    <i class="fa-solid fa-bag-shopping text-mc-gold text-[10px]"></i>
+                    <span>KARGOMUZ YOKTUR • MAĞAZADAN ELDEN TESLİM</span>
+                </div>
+                <span class="text-stone-600 hidden sm:inline">|</span>
+                <a href="https://instagram.com/mutevazicam" target="_blank" class="hover:text-mc-gold transition-colors flex items-center gap-1.5 text-stone-300 font-semibold">
+                    <i class="fa-brands fa-instagram text-pink-400 text-sm"></i> 13.7k Takipçi
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 2. LUXURY MAIN NAVIGATION -->
+    <header class="bg-mc-900/95 backdrop-blur-md sticky top-0 z-40 border-b border-mc-gold/30 shadow-xl transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                
+                <!-- Brand Logo (Gold Monogram & Cinzel Typography) -->
+                <a href="#" class="flex items-center gap-4 group shrink-0">
+                    <div class="w-14 h-14 rounded-full border-2 border-mc-gold flex items-center justify-center relative overflow-hidden bg-mc-950 shadow-gold-glow group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-gold opacity-15"></div>
+                        <span class="font-serif text-2xl font-bold text-gradient-gold">MC</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-1.5">
+                            <span class="font-serif font-black text-2xl tracking-[0.15em] text-white">MÜTEVAZİ</span>
+                            <span class="font-serif font-bold text-2xl tracking-[0.15em] text-mc-gold">CAM</span>
+                        </div>
+                        <span class="text-[0.62rem] font-sans tracking-[0.3em] uppercase text-mc-goldLight/70 font-semibold mt-0.5">
+                            Züccaciye • Çeyiz • Mutfak Eşyaları
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden lg:flex items-center space-x-7 text-xs font-bold uppercase tracking-wider text-stone-300">
+                    <a href="#kategoriler" class="hover:text-mc-gold transition-colors py-2 relative group">
+                        Kategoriler
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-mc-gold transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#vitrin" class="hover:text-mc-gold transition-colors py-2 relative group">
+                        Yeni Gelenler
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-mc-gold transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#kadehler" class="hover:text-mc-gold transition-colors py-2 relative group">
+                        Cam & Kadeh
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-mc-gold transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#fincan" class="hover:text-mc-gold transition-colors py-2 relative group">
+                        Kahve & Fincan
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-mc-gold transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#ceyiz-paketi" class="hover:text-mc-gold transition-colors py-2 relative group text-mc-gold flex items-center gap-1">
+                        <i class="fa-solid fa-gem text-[10px]"></i> Çeyiz Paketi
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-mc-gold transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#magaza" class="hover:text-mc-gold transition-colors py-2 relative group">
+                        Mağazamız & Konum
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-mc-gold transition-all group-hover:w-full"></span>
+                    </a>
+                </nav>
+
+                <!-- Action Button & WhatsApp Line -->
+                <div class="flex items-center gap-3 shrink-0">
+                    <a href="https://maps.google.com/?q=Sivas+Merkez+Seyhsamil+Kazim+Karabekir+Cad" target="_blank" 
+                       class="hidden sm:inline-flex items-center gap-2 bg-mc-800 hover:bg-mc-700 text-stone-200 border border-mc-gold/40 px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all">
+                        <i class="fa-solid fa-location-dot text-mc-gold"></i>
+                        <span>Yol Tarifi</span>
+                    </a>
+
+                    <a href="https://wa.me/905000000000?text=Merhaba,%20Mütevazi%20Cam%20ürünleri%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" 
+                       class="inline-flex items-center gap-2 bg-gradient-gold hover:brightness-110 text-mc-950 px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider shadow-gold-glow transition-all">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Fiyat & Stok Sor</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION (Dark Luxury Glamour Atmosphere) -->
+    <section class="relative bg-mc-950 text-white min-h-[85vh] flex items-center noise-bg overflow-hidden border-b-4 border-mc-gold">
+        
+        <!-- High-Resolution Tableware Backdrop -->
+        <div class="absolute inset-0 z-0 opacity-35 bg-[url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center mix-blend-luminosity"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-mc-950 via-mc-950/90 to-mc-950/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-mc-950 via-transparent to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Details -->
+                <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
+                    
+                    <div class="inline-flex items-center gap-2.5 bg-mc-900/90 border border-mc-gold/40 px-4 py-2 rounded-full text-xs font-bold text-mc-goldLight tracking-wider uppercase shadow-lg">
+                        <i class="fa-solid fa-crown text-mc-gold"></i>
+                        <span>Sivas'ın En Zengin Züccaciye & Çeyiz Mağazası</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-black tracking-tight leading-[1.08]">
+                        Sofralarınıza <br>
+                        <span class="text-gradient-gold">Değer Katan</span> Zarafet & <br>
+                        Göz Alıcı Sunumlar.
+                    </h1>
+
+                    <p class="text-stone-300 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Figürlü ince cam kadehlerden mermer desenli porselen fincanlara, döner stantlı baharatlıklardan bambu banyo aksesuarlarına kadar aradığınız en trend parçalar <strong>Şeyhşamil mağazamızda</strong>.
+                    </p>
+
+                    <!-- 3 Feature Tags -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3.5 pt-2 max-w-xl mx-auto lg:mx-0">
+                        <div class="bg-mc-900/80 border border-mc-gold/30 p-3.5 rounded-xl text-left">
+                            <div class="text-mc-gold text-lg mb-1"><i class="fa-solid fa-wine-glass"></i></div>
+                            <div class="font-bold text-xs text-white">İnce Cam & Kadeh</div>
+                            <div class="text-[11px] text-stone-400">100+ Figürlü Model</div>
+                        </div>
+
+                        <div class="bg-mc-900/80 border border-mc-gold/30 p-3.5 rounded-xl text-left">
+                            <div class="text-mc-gold text-lg mb-1"><i class="fa-solid fa-mug-hot"></i></div>
+                            <div class="font-bold text-xs text-white">Lüks Fincan Grubu</div>
+                            <div class="text-[11px] text-stone-400">Yaldızlı & Porselen</div>
+                        </div>
+
+                        <div class="bg-mc-900/80 border border-mc-gold/30 p-3.5 rounded-xl text-left col-span-2 sm:col-span-1">
+                            <div class="text-mc-gold text-lg mb-1"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                            <div class="font-bold text-xs text-white">Elden Teslimat</div>
+                            <div class="text-[11px] text-stone-400">Sıfır Kırılma Riski</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-3">
+                        <a href="#vitrin" class="bg-gradient-gold hover:brightness-110 text-mc-950 font-sans font-black uppercase tracking-wider px-8 py-4 rounded-xl text-xs transition-all shadow-gold-glow flex items-center gap-2">
+                            <span>Koleksiyonu İncele</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#ceyiz-paketi" class="bg-white/10 hover:bg-white/20 text-white font-sans font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-xs border border-white/20 transition-all backdrop-blur-sm flex items-center gap-2">
+                            <i class="fa-solid fa-gem text-mc-gold"></i>
+                            <span>Çeyiz Paketi Danışmanı</span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Right Hero Image Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        
+                        <!-- Main Card -->
+                        <div class="rounded-3xl overflow-hidden border-2 border-mc-gold/60 shadow-2xl bg-mc-900 group relative">
+                            <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=900&auto=format&fit=crop" 
+                                 alt="Mütevazi Cam Lüks Sofra Sunumu" 
+                                 class="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-mc-950 via-mc-950/20 to-transparent"></div>
+
+                            <div class="absolute bottom-6 left-6 right-6 p-5 bg-mc-900/90 backdrop-blur-md rounded-2xl border border-mc-gold/40">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-[10px] text-mc-gold font-bold uppercase tracking-wider">Haftanın Trendi</span>
+                                        <h3 class="text-white font-serif font-bold text-lg">Altın Yaldızlı Ayaklı Kadeh Seti</h3>
+                                    </div>
+                                    <span class="px-3 py-1 bg-mc-gold text-mc-950 font-black text-xs rounded-lg">
+                                        Stokta
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Stat Badge 1 -->
+                        <div class="absolute -top-6 -left-6 bg-mc-900 border border-mc-gold p-4 rounded-2xl shadow-2xl hidden sm:flex items-center gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-mc-gold text-mc-950 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-store"></i>
+                            </div>
+                            <div>
+                                <div class="text-[0.65rem] text-stone-400 uppercase tracking-wider">Sivas Şeyhşamil</div>
+                                <div class="font-serif font-bold text-sm text-white">Fiziksel Showroom</div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Stat Badge 2 -->
+                        <div class="absolute -bottom-6 -right-6 bg-mc-gold text-mc-950 p-4 rounded-2xl shadow-2xl hidden sm:block">
+                            <div class="font-serif font-black text-2xl leading-none">13.7K+</div>
+                            <div class="text-[0.65rem] font-bold uppercase tracking-wider mt-1">Instagram Takipçisi</div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. HIGHLIGHTS CATEGORY BAR (Instagram Highlight Style with Working Images) -->
+    <section id="kategoriler" class="py-16 bg-mc-cream border-b border-stone-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-mc-goldDark font-bold uppercase tracking-widest text-xs">Instagram'dan İlham Aldık</span>
+                    <h2 class="font-serif text-3xl font-black text-mc-950 tracking-tight mt-1">
+                        Öne Çıkan <span class="text-mc-goldDark">Kategoriler</span>
+                    </h2>
+                </div>
+                <p class="text-stone-600 text-xs sm:text-sm max-w-md">
+                    Şeyhşamil mağazamızda her gün yenilenen yüzlerce çeşit ürünü reyonlarına göre keşfedin.
+                </p>
+            </div>
+
+            <!-- Categories Horizontal Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+                
+                <!-- Category 1: İnce Çeşit -->
+                <a href="#vitrin" onclick="filterMutevazi('kadeh')" class="flex flex-col items-center text-center group cursor-pointer">
+                    <div class="story-ring mb-3">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white bg-mc-900 relative">
+                            <img src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?q=80&w=400&auto=format&fit=crop" 
+                                 alt="İnce Çeşit Kadehler" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <span class="font-serif font-bold text-sm text-mc-950 group-hover:text-mc-goldDark transition-colors">İnce Çeşit</span>
+                    <span class="text-[11px] text-stone-500 mt-0.5">Kadeh & Meşrubat</span>
+                </a>
+
+                <!-- Category 2: Türk Kahvesi -->
+                <a href="#vitrin" onclick="filterMutevazi('kahve')" class="flex flex-col items-center text-center group cursor-pointer">
+                    <div class="story-ring mb-3">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white bg-mc-900 relative">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=400&auto=format&fit=crop" 
+                                 alt="Türk Kahvesi Fincanları" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <span class="font-serif font-bold text-sm text-mc-950 group-hover:text-mc-goldDark transition-colors">Türk Kahvesi</span>
+                    <span class="text-[11px] text-stone-500 mt-0.5">Porselen Fincanlar</span>
+                </a>
+
+                <!-- Category 3: Sunum & Tepsi -->
+                <a href="#vitrin" onclick="filterMutevazi('sunum')" class="flex flex-col items-center text-center group cursor-pointer">
+                    <div class="story-ring mb-3">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white bg-mc-900 relative">
+                            <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=400&auto=format&fit=crop" 
+                                 alt="Sunum ve Tepsiler" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <span class="font-serif font-bold text-sm text-mc-950 group-hover:text-mc-goldDark transition-colors">Sunum</span>
+                    <span class="text-[11px] text-stone-500 mt-0.5">Tepsi, Supla & Tabak</span>
+                </a>
+
+                <!-- Category 4: Baharatlıklar -->
+                <a href="#vitrin" onclick="filterMutevazi('baharat')" class="flex flex-col items-center text-center group cursor-pointer">
+                    <div class="story-ring mb-3">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white bg-mc-900 relative">
+                            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=400&auto=format&fit=crop" 
+                                 alt="Baharatlıklar ve Kavanozlar" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <span class="font-serif font-bold text-sm text-mc-950 group-hover:text-mc-goldDark transition-colors">Baharatlıklar</span>
+                    <span class="text-[11px] text-stone-500 mt-0.5">Döner Stant & Cam</span>
+                </a>
+
+                <!-- Category 5: Demlik & Pişirme -->
+                <a href="#vitrin" onclick="filterMutevazi('mutfak')" class="flex flex-col items-center text-center group cursor-pointer">
+                    <div class="story-ring mb-3">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white bg-mc-900 relative">
+                            <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=400&auto=format&fit=crop" 
+                                 alt="Demlikler ve Çay Setleri" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <span class="font-serif font-bold text-sm text-mc-950 group-hover:text-mc-goldDark transition-colors">Demlikler</span>
+                    <span class="text-[11px] text-stone-500 mt-0.5">Emaye, Çelik & Borcam</span>
+                </a>
+
+                <!-- Category 6: Banyo & Dekor -->
+                <a href="#vitrin" onclick="filterMutevazi('banyo')" class="flex flex-col items-center text-center group cursor-pointer">
+                    <div class="story-ring mb-3">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white bg-mc-900 relative">
+                            <img src="https://images.unsplash.com/photo-1615865417491-9941019fbc00?q=80&w=400&auto=format&fit=crop" 
+                                 alt="Banyo ve Ev Aksesuarları" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <span class="font-serif font-bold text-sm text-mc-950 group-hover:text-mc-goldDark transition-colors">Ev & Banyo</span>
+                    <span class="text-[11px] text-stone-500 mt-0.5">Bambu & Seramik Set</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. KAPSAMLI İNTERAKTİF ÜRÜN VİTRİNİ & KATALOG -->
+    <section id="vitrin" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+                <span class="text-mc-goldDark font-bold uppercase tracking-widest text-xs">Mağaza Teşhir Listesi</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-black text-mc-950 tracking-tight mt-1">
+                    Göz Alıcı <span class="text-mc-goldDark">Züccaciye Koleksiyonu</span>
+                </h2>
+                <p class="text-stone-600 text-sm mt-1">Şeyhşamil mağazamızda fiziki olarak sergilenen güncel ve çok satan modeller.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterMutevazi('all')" class="mc-tab active px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider border border-stone-300 transition-all">
+                    Tüm Vitrin
+                </button>
+                <button onclick="filterMutevazi('kadeh')" class="mc-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white border border-stone-300 text-stone-700 hover:border-mc-gold transition-all">
+                    Cam & Kadeh
+                </button>
+                <button onclick="filterMutevazi('kahve')" class="mc-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white border border-stone-300 text-stone-700 hover:border-mc-gold transition-all">
+                    Kahve & Fincan
+                </button>
+                <button onclick="filterMutevazi('sunum')" class="mc-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white border border-stone-300 text-stone-700 hover:border-mc-gold transition-all">
+                    Sunum & Servis
+                </button>
+                <button onclick="filterMutevazi('mutfak')" class="mc-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white border border-stone-300 text-stone-700 hover:border-mc-gold transition-all">
+                    Mutfak & Baharat
+                </button>
+                <button onclick="filterMutevazi('banyo')" class="mc-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white border border-stone-300 text-stone-700 hover:border-mc-gold transition-all">
+                    Banyo & Dekor
+                </button>
+            </div>
+        </div>
+
+        <!-- Product Grid (100% Working, Tested & Relevant Images) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="mutevaziGrid">
+            
+            <!-- Item 1: Figürlü Cam Kadeh -->
+            <div class="mutevazi-card kadeh bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-card-soft hover:shadow-luxury transition-all flex flex-col group" id="kadehler">
+                <div class="relative h-72 overflow-hidden bg-mc-950">
+                    <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=800&auto=format&fit=crop" 
+                         alt="Figürlü Ayaklı Cam Kadeh Takımı" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-mc-950 text-mc-gold text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-mc-gold/40">
+                        6'lı Kadeh Takımı
+                    </span>
+                    <span class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm text-mc-950 text-xs font-bold px-3 py-1 rounded-lg shadow">
+                        Kristal Kesim & Altın Yaldız
+                    </span>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="text-xs text-mc-goldDark font-bold mb-1">İnce Çeşit Serisi</div>
+                    <h3 class="font-serif font-bold text-xl text-mc-950 mb-2 group-hover:text-mc-goldDark transition-colors">
+                        Prenses Serisi Figürlü Ayaklı Kadehler
+                    </h3>
+                    <p class="text-stone-600 text-xs leading-relaxed mb-6 flex-grow">
+                        Özel gün ve davet sofralarınız için tasarlanmış, el işçiliği yaldızlı zarif ayak detayı ve çizilmeye dayanıklı parlak kristal cam.
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between mt-auto">
+                        <span class="text-emerald-600 text-xs font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check"></i> Mağazada Hazır
+                        </span>
+                        <a href="https://wa.me/905000000000?text=Prenses%20Serisi%20Figürlü%20Kadeh%20Takımı%20fiyatını%20öğrenmek%20istiyorum." target="_blank" 
+                           class="text-xs bg-mc-950 hover:bg-mc-gold hover:text-mc-950 text-white font-bold px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-brands fa-whatsapp"></i> Fiyat Sor
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Porselen Kahve Fincanı -->
+            <div class="mutevazi-card kahve bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-card-soft hover:shadow-luxury transition-all flex flex-col group" id="fincan">
+                <div class="relative h-72 overflow-hidden bg-mc-950">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop" 
+                         alt="Lüks Mermer Desen Kahve Fincanı" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-mc-gold text-mc-950 text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        6 Kişilik Fincan Seti
+                    </span>
+                    <span class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm text-mc-950 text-xs font-bold px-3 py-1 rounded-lg shadow">
+                        Özel Tabaklıklı
+                    </span>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="text-xs text-mc-goldDark font-bold mb-1">Mien Porselen Grubu</div>
+                    <h3 class="font-serif font-bold text-xl text-mc-950 mb-2 group-hover:text-mc-goldDark transition-colors">
+                        Mermer Desen Gold Yaldızlı Kahve Fincanları
+                    </h3>
+                    <p class="text-stone-600 text-xs leading-relaxed mb-6 flex-grow">
+                        Bulaşık makinesinde solmayan gerçek altın yaldız bordür, ergonomik tutuş sağlayan lüks kulplar ve mermer desenli şık sunum tabağı.
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between mt-auto">
+                        <span class="text-emerald-600 text-xs font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check"></i> Çok Satan
+                        </span>
+                        <a href="https://wa.me/905000000000?text=Mermer%20Desen%20Kahve%20Fincanı%20seti%20hakkında%20bilgi%20istiyorum." target="_blank" 
+                           class="text-xs bg-mc-950 hover:bg-mc-gold hover:text-mc-950 text-white font-bold px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-brands fa-whatsapp"></i> Fiyat Sor
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Sunum Tepsisi & Supla -->
+            <div class="mutevazi-card sunum bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-card-soft hover:shadow-luxury transition-all flex flex-col group">
+                <div class="relative h-72 overflow-hidden bg-mc-950">
+                    <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=800&auto=format&fit=crop" 
+                         alt="Lüks Aynalı Sunum Tepsisi" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-mc-950 text-mc-gold text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-mc-gold/40">
+                        Sunum & İkramlık
+                    </span>
+                    <span class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm text-mc-950 text-xs font-bold px-3 py-1 rounded-lg shadow">
+                        Aynalı & Gold Kulplu
+                    </span>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="text-xs text-mc-goldDark font-bold mb-1">Gelin Çeyizi Özel</div>
+                    <h3 class="font-serif font-bold text-xl text-mc-950 mb-2 group-hover:text-mc-goldDark transition-colors">
+                        Lüks Aynalı Nişan & Misafir Sunum Tepsisi
+                    </h3>
+                    <p class="text-stone-600 text-xs leading-relaxed mb-6 flex-grow">
+                        Kararmaz metal çerçeveli, kristal ayna tabanlı ve ağır döküm gold kulplu ihtişamlı salon ve kahve ikram tepsisi.
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between mt-auto">
+                        <span class="text-emerald-600 text-xs font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check"></i> Sınırlı Stok
+                        </span>
+                        <a href="https://wa.me/905000000000?text=Aynalı%20Sunum%20Tepsisi%20fiyatını%20öğrenmek%20istiyorum." target="_blank" 
+                           class="text-xs bg-mc-950 hover:bg-mc-gold hover:text-mc-950 text-white font-bold px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-brands fa-whatsapp"></i> Fiyat Sor
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4: Döner Stantlı Baharatlık -->
+            <div class="mutevazi-card mutfak bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-card-soft hover:shadow-luxury transition-all flex flex-col group">
+                <div class="relative h-72 overflow-hidden bg-mc-950">
+                    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=800&auto=format&fit=crop" 
+                         alt="Döner Stantlı Cam Baharatlık Seti" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-mc-gold text-mc-950 text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        12 Parça Baharatlık
+                    </span>
+                    <span class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm text-mc-950 text-xs font-bold px-3 py-1 rounded-lg shadow">
+                        360° Döner Mekanizma
+                    </span>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="text-xs text-mc-goldDark font-bold mb-1">Mutfak Düzenleyiciler</div>
+                    <h3 class="font-serif font-bold text-xl text-mc-950 mb-2 group-hover:text-mc-goldDark transition-colors">
+                        Bambu Kapaklı Döner Cam Baharat Seti
+                    </h3>
+                    <p class="text-stone-600 text-xs leading-relaxed mb-6 flex-grow">
+                        Hava almayan doğal bambu kapaklar, paslanmaz stant iskeleti, etiketli şık cam kavanozlar ve pratik 360 derece döner taban.
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between mt-auto">
+                        <span class="text-emerald-600 text-xs font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check"></i> Mağazada Hazır
+                        </span>
+                        <a href="https://wa.me/905000000000?text=Döner%20Baharatlık%20Seti%20hakkında%20fiyat%20öğrenmek%20istiyorum." target="_blank" 
+                           class="text-xs bg-mc-950 hover:bg-mc-gold hover:text-mc-950 text-white font-bold px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-brands fa-whatsapp"></i> Fiyat Sor
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5: Bambu Banyo & Aksesuar Seti -->
+            <div class="mutevazi-card banyo bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-card-soft hover:shadow-luxury transition-all flex flex-col group">
+                <div class="relative h-72 overflow-hidden bg-mc-950">
+                    <img src="https://images.unsplash.com/photo-1615865417491-9941019fbc00?q=80&w=800&auto=format&fit=crop" 
+                         alt="Lüks Bambu Banyo Aksesuar Seti" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-mc-950 text-mc-gold text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-mc-gold/40">
+                        5'li Banyo Seti
+                    </span>
+                    <span class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm text-mc-950 text-xs font-bold px-3 py-1 rounded-lg shadow">
+                        Çöp Kovası + Sıvı Sabunluk
+                    </span>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="text-xs text-mc-goldDark font-bold mb-1">Ev & Banyo Dekorasyonu</div>
+                    <h3 class="font-serif font-bold text-xl text-mc-950 mb-2 group-hover:text-mc-goldDark transition-colors">
+                        Çizgili Mat Dokulu Bambu Kapak Banyo Takımı
+                    </h3>
+                    <p class="text-stone-600 text-xs leading-relaxed mb-6 flex-grow">
+                        Modern pastel tonlu gövde, suya dayanıklı doğal bambu kapaklar, pedallı çöp kovası, tuvalet fırçası ve sıvı sabunluk kombinasyonu.
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between mt-auto">
+                        <span class="text-emerald-600 text-xs font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check"></i> Yeni Sezon
+                        </span>
+                        <a href="https://wa.me/905000000000?text=Bambu%20Banyo%20Seti%20fiyatını%20öğrenmek%20istiyorum." target="_blank" 
+                           class="text-xs bg-mc-950 hover:bg-mc-gold hover:text-mc-950 text-white font-bold px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-brands fa-whatsapp"></i> Fiyat Sor
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6: Demlik & Çaydanlık -->
+            <div class="mutevazi-card mutfak bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-card-soft hover:shadow-luxury transition-all flex flex-col group">
+                <div class="relative h-72 overflow-hidden bg-mc-950">
+                    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=800&auto=format&fit=crop" 
+                         alt="Emaye ve Borcam Demlik Seti" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-mc-gold text-mc-950 text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Demlik & Pişirme
+                    </span>
+                    <span class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm text-mc-950 text-xs font-bold px-3 py-1 rounded-lg shadow">
+                        Isıya Dayanıklı Borosilikat
+                    </span>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="text-xs text-mc-goldDark font-bold mb-1">Çay Saati Özel</div>
+                    <h3 class="font-serif font-bold text-xl text-mc-950 mb-2 group-hover:text-mc-goldDark transition-colors">
+                        Ateşe Dayanıklı Cam Demlik & Süzgeçli Çaydanlık
+                    </h3>
+                    <p class="text-stone-600 text-xs leading-relaxed mb-6 flex-grow">
+                        Direkt ocak üstünde kullanılabilen borosilikat cam hazne, paslanmaz çelik süzgeç ve damlatmayan özel döküm ağız tasarımı.
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between mt-auto">
+                        <span class="text-emerald-600 text-xs font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check"></i> Stokta Hazır
+                        </span>
+                        <a href="https://wa.me/905000000000?text=Cam%20Demlik%20ve%20çaydanlık%20fiyatını%20öğrenmek%20istiyorum." target="_blank" 
+                           class="text-xs bg-mc-950 hover:bg-mc-gold hover:text-mc-950 text-white font-bold px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-brands fa-whatsapp"></i> Fiyat Sor
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. ÇEYİZ & DÜĞÜN PAKETİ DANIŞMANI (GELİNLERE ÖZEL DEV KAMPANYA) -->
+    <section id="ceyiz-paketi" class="py-24 bg-mc-950 text-white relative noise-bg overflow-hidden border-t-4 border-b-4 border-mc-gold">
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Details -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-mc-gold/20 border border-mc-gold/40 text-mc-goldLight px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-gem text-mc-gold"></i> Sivas'ta Evlenen Çiftlere Özel
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-black tracking-tight leading-tight">
+                        Eksiksiz Çeyiz & <br>
+                        <span class="text-gradient-gold">Züccaciye Paketi</span>
+                    </h2>
+
+                    <p class="text-stone-300 text-base font-light leading-relaxed">
+                        Çeyiz alışverişinde parça parça aramakla vakit kaybetmeyin! Misafir kadehlerinden günlük su setlerine, kahve fincanlarından sunum tepsilerine ve baharatlıklara kadar <strong>tüm sofra ve mutfak gereçlerinizi tek pakette toplayın</strong>; avantajlı paket indirimlerimizden faydalanın.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="bg-mc-900/90 p-4 rounded-xl border border-mc-gold/30">
+                            <div class="text-mc-gold font-bold text-sm mb-1 flex items-center gap-2">
+                                <i class="fa-solid fa-wine-glass"></i> Sofra & Kadeh Paketi
+                            </div>
+                            <ul class="text-xs text-stone-300 space-y-1.5">
+                                <li>• 12 Kişilik Ayaklı Kadeh Seti</li>
+                                <li>• 12 Kişilik Su & Meşrubat Bardağı</li>
+                                <li>• Gold Detaylı Karaf & Sürahi</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-mc-900/90 p-4 rounded-xl border border-mc-gold/30">
+                            <div class="text-mc-gold font-bold text-sm mb-1 flex items-center gap-2">
+                                <i class="fa-solid fa-kitchen-set"></i> Mutfak & Sunum Paketi
+                            </div>
+                            <ul class="text-xs text-stone-300 space-y-1.5">
+                                <li>• 6'lı Porselen Fincan Takımı</li>
+                                <li>• Döner Stantlı 12'li Baharatlık</li>
+                                <li>• Aynalı Nişan/Misafir Sunum Tepsisi</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-mc-gold/10 border border-mc-gold/30 text-xs text-stone-300 flex items-center gap-3">
+                        <i class="fa-solid fa-box-open text-mc-gold text-2xl shrink-0"></i>
+                        <span><strong>Görerek & Beğenerek Alın:</strong> İnternet alışverişlerindeki gibi kırık veya çizik ürün sürprizi yok. Mağazamızda tek tek kontrol edip teslim alabilirsiniz.</span>
+                    </div>
+                </div>
+
+                <!-- Right Form: Çeyiz Teklif Formu -->
+                <div class="lg:col-span-6">
+                    <div class="bg-mc-900 p-8 sm:p-10 rounded-3xl border-2 border-mc-gold/60 shadow-2xl">
+                        
+                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-mc-800">
+                            <div>
+                                <h4 class="font-serif font-bold text-2xl text-white">Çeyiz Paketi Fiyatı Alın</h4>
+                                <p class="text-xs text-stone-400 mt-0.5">Seçtiğiniz ürünlere özel WhatsApp'tan liste ve teklif gönderelim.</p>
+                            </div>
+                            <i class="fa-solid fa-gift text-3xl text-mc-gold"></i>
+                        </div>
+
+                        <form onsubmit="handleCeyizSubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-stone-300 tracking-wider mb-1.5">Adınız & Soyadınız</label>
+                                <input type="text" id="ceyizName" placeholder="Örn: Ayşe & Mehmet" required
+                                       class="w-full bg-mc-950 border border-mc-gold/40 rounded-xl px-4 py-3 text-sm text-white focus:border-mc-gold focus:outline-none">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-stone-300 tracking-wider mb-1.5">İhtiyaç / Paket Türü</label>
+                                    <select id="ceyizType" class="w-full bg-mc-950 border border-mc-gold/40 rounded-xl px-4 py-3 text-sm text-white focus:border-mc-gold focus:outline-none">
+                                        <option value="Full Züccaciye Çeyiz Paketi">Full Çeyiz (Kadeh + Fincan + Sunum + Mutfak)</option>
+                                        <option value="Sadece Cam & Kadeh Setleri">Sadece Cam & Kadeh Setleri</option>
+                                        <option value="Kahve Fincanları & Sunum Tepsileri">Kahve Fincanları & Sunum Tepsileri</option>
+                                        <option value="Banyo & Ev Dekorasyon Seti">Banyo & Ev Dekorasyon Seti</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-stone-300 tracking-wider mb-1.5">Düğün / Hazırlık Tarihi</label>
+                                    <input type="text" id="ceyizDate" placeholder="Örn: Yaz 2026 / Bu Ay" required
+                                           class="w-full bg-mc-950 border border-mc-gold/40 rounded-xl px-4 py-3 text-sm text-white focus:border-mc-gold focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-stone-300 tracking-wider mb-1.5">Özel İstekleriniz / Zevkiniz</label>
+                                <textarea id="ceyizNote" rows="3" placeholder="Örn: Altın yaldızlı kadehler, mermer desen fincanlar ve aynalı tepsilerle ilgili fiyat listesi rica ediyorum..." required
+                                          class="w-full bg-mc-950 border border-mc-gold/40 rounded-xl p-3.5 text-sm text-white focus:border-mc-gold focus:outline-none resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-gradient-gold hover:brightness-110 text-mc-950 font-black uppercase tracking-wider py-4 rounded-xl text-sm transition-all shadow-gold-glow flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Paket Teklifini WhatsApp'tan Al</span>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. NEDEN MÜTEVAZİ CAM? (4 TEMEL İŞLETME AVANTAJI) -->
+    <section class="py-20 bg-white border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-mc-goldDark font-bold uppercase tracking-widest text-xs">Müşteri Deneyimi & Güvence</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-black text-mc-950 tracking-tight mt-1">
+                    Neden <span class="text-mc-goldDark">Mütevazi Cam?</span>
+                </h2>
+                <p class="text-stone-600 text-sm mt-2">Sivas'ta binlerce evin ve sofranın ilk tercihi olmamızı sağlayan değerlerimiz.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Pillar 1 -->
+                <div class="bg-mc-pearl p-8 rounded-2xl border border-stone-200 hover:border-mc-gold hover:shadow-card-soft transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-mc-gold/15 text-mc-goldDark flex items-center justify-center text-2xl mb-6 group-hover:bg-mc-gold group-hover:text-mc-950 transition-all">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-mc-950 mb-2">Görerek & Dokunarak</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">
+                        İnternet siparişlerindeki gibi kırık veya defolu çıkma riski yok. Mağazamızda elinize alıp ışığına ve kalitesine bakarak seçin.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-mc-pearl p-8 rounded-2xl border border-stone-200 hover:border-mc-gold hover:shadow-card-soft transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-mc-gold/15 text-mc-goldDark flex items-center justify-center text-2xl mb-6 group-hover:bg-mc-gold group-hover:text-mc-950 transition-all">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-mc-950 mb-2">En Son Trendler</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">
+                        Instagram'da ve sosyal medyada viral olan en yeni kadeh, fincan ve sunumluk modelleri anında raflarımızda yerini alır.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-mc-pearl p-8 rounded-2xl border border-stone-200 hover:border-mc-gold hover:shadow-card-soft transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-mc-gold/15 text-mc-goldDark flex items-center justify-center text-2xl mb-6 group-hover:bg-mc-gold group-hover:text-mc-950 transition-all">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-mc-950 mb-2">Uygun Fiyat Avantajı</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">
+                        Yüksek kaliteli porselen ve cam eşyaları, aracı maliyetleri olmadan Sivas halkına doğrudan en makul fiyatlarla ulaştırıyoruz.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="bg-mc-pearl p-8 rounded-2xl border border-stone-200 hover:border-mc-gold hover:shadow-card-soft transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-mc-gold/15 text-mc-goldDark flex items-center justify-center text-2xl mb-6 group-hover:bg-mc-gold group-hover:text-mc-950 transition-all">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-mc-950 mb-2">Haftanın 7 Günü Açık</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">
+                        Hafta sonları dahil haftanın her günü Şeyhşamil Kazım Karabekir Caddesi'ndeki ferah mağazamızda hizmetinizdeyiz.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. INSTAGRAM VİTRİNİ & REELS AKIŞI (13.7K Takipçili Sosyal Medya Hissi) -->
+    <section class="py-20 bg-mc-cream border-b border-stone-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-12 gap-4">
+                <div>
+                    <span class="text-mc-goldDark font-bold uppercase tracking-widest text-xs">@mutevazicam Instagram Akışı</span>
+                    <h2 class="font-serif text-3xl font-black text-mc-950 tracking-tight mt-1">
+                        Vitrinden <span class="text-mc-goldDark">Canlı Kesitler & Trendler</span>
+                    </h2>
+                </div>
+                <a href="https://instagram.com/mutevazicam" target="_blank" class="inline-flex items-center gap-2 bg-mc-950 hover:bg-mc-gold hover:text-mc-950 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition-all shadow-md">
+                    <i class="fa-brands fa-instagram text-pink-400 text-base"></i>
+                    <span>Sayfamızı Takip Edin (13.7K)</span>
+                </a>
+            </div>
+
+            <!-- 4 Reel-Like Video Cards with Working Images -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Reel 1 -->
+                <div class="bg-mc-950 rounded-2xl overflow-hidden relative group aspect-[9/14] shadow-card-soft">
+                    <img src="https://images.unsplash.com/photo-1579227114347-15d08fc37cae?q=80&w=600&auto=format&fit=crop" 
+                         alt="Figürlü Cam Kadehler" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-95">
+                    <div class="absolute inset-0 bg-gradient-to-t from-mc-950 via-transparent to-black/30"></div>
+                    
+                    <div class="absolute top-4 right-4 w-9 h-9 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20">
+                        <i class="fa-solid fa-play text-xs pl-0.5"></i>
+                    </div>
+
+                    <div class="absolute bottom-5 left-5 right-5 text-white">
+                        <span class="text-[10px] bg-mc-gold text-mc-950 font-bold px-2 py-0.5 rounded uppercase">Yeni Seri</span>
+                        <h4 class="font-serif font-bold text-sm mt-1.5">Figürlü Cam Kadehler Satışta ✨</h4>
+                        <p class="text-[11px] text-stone-300 mt-1 font-light">"Kızlar tükenmeden bu ürünü hemen alın..."</p>
+                    </div>
+                </div>
+
+                <!-- Reel 2 -->
+                <div class="bg-mc-950 rounded-2xl overflow-hidden relative group aspect-[9/14] shadow-card-soft">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" 
+                         alt="Mien Porselen Fincanlar" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-95">
+                    <div class="absolute inset-0 bg-gradient-to-t from-mc-950 via-transparent to-black/30"></div>
+                    
+                    <div class="absolute top-4 right-4 w-9 h-9 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20">
+                        <i class="fa-solid fa-play text-xs pl-0.5"></i>
+                    </div>
+
+                    <div class="absolute bottom-5 left-5 right-5 text-white">
+                        <span class="text-[10px] bg-mc-gold text-mc-950 font-bold px-2 py-0.5 rounded uppercase">Stoklar Yenilendi</span>
+                        <h4 class="font-serif font-bold text-sm mt-1.5">Mien Porselen Kupalar & Fincanlar ☕</h4>
+                        <p class="text-[11px] text-stone-300 mt-1 font-light">6'lı ve 2'li hediye kutulu alternatifler.</p>
+                    </div>
+                </div>
+
+                <!-- Reel 3 -->
+                <div class="bg-mc-950 rounded-2xl overflow-hidden relative group aspect-[9/14] shadow-card-soft">
+                    <img src="https://images.unsplash.com/photo-1615865417491-9941019fbc00?q=80&w=600&auto=format&fit=crop" 
+                         alt="Bambu Banyo Setleri" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-95">
+                    <div class="absolute inset-0 bg-gradient-to-t from-mc-950 via-transparent to-black/30"></div>
+                    
+                    <div class="absolute top-4 right-4 w-9 h-9 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20">
+                        <i class="fa-solid fa-play text-xs pl-0.5"></i>
+                    </div>
+
+                    <div class="absolute bottom-5 left-5 right-5 text-white">
+                        <span class="text-[10px] bg-emerald-500 text-white font-bold px-2 py-0.5 rounded uppercase">Çok Satan</span>
+                        <h4 class="font-serif font-bold text-sm mt-1.5">Çizgili Bambu Banyo Takımı 🌿</h4>
+                        <p class="text-[11px] text-stone-300 mt-1 font-light">5 Parça tam takım banyo düzeni.</p>
+                    </div>
+                </div>
+
+                <!-- Reel 4 -->
+                <div class="bg-mc-950 rounded-2xl overflow-hidden relative group aspect-[9/14] shadow-card-soft">
+                    <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=600&auto=format&fit=crop" 
+                         alt="Yapay Çiçek & Vazo Düzenleme" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-95">
+                    <div class="absolute inset-0 bg-gradient-to-t from-mc-950 via-transparent to-black/30"></div>
+                    
+                    <div class="absolute top-4 right-4 w-9 h-9 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20">
+                        <i class="fa-solid fa-play text-xs pl-0.5"></i>
+                    </div>
+
+                    <div class="absolute bottom-5 left-5 right-5 text-white">
+                        <span class="text-[10px] bg-mc-gold text-mc-950 font-bold px-2 py-0.5 rounded uppercase">Ev Dekorasyon</span>
+                        <h4 class="font-serif font-bold text-sm mt-1.5">Dekoratif Vazolar & Yapay Çiçekler 🌸</h4>
+                        <p class="text-[11px] text-stone-300 mt-1 font-light">Salonunuzun havasını değiştirecek aranjmanlar.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. S.S.S. (SIKÇA SORULAN SORULAR) -->
+    <section class="py-20 bg-white border-b border-stone-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <i class="fa-solid fa-circle-question text-3xl text-mc-goldDark mb-3"></i>
+                <h2 class="text-3xl font-serif font-black uppercase text-mc-950 tracking-tight">Sıkça Sorulan Sorular</h2>
+                <p class="text-stone-600 text-sm mt-1">Mütevazi Cam alışverişi, kargo politikası ve mağaza ziyaretleri hakkında merak edilenler.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <details class="group bg-mc-pearl border border-stone-200 rounded-2xl p-5 cursor-pointer hover:border-mc-gold transition-colors">
+                    <summary class="font-serif font-bold text-base text-mc-950 flex justify-between items-center outline-none">
+                        <span>Neden kargo seçeneği sunmuyorsunuz?</span>
+                        <span class="text-mc-goldDark group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-200 pt-3">
+                        Züccaciye, ince cam kadeh ve porselen ürünlerimiz son derece hassas ve kırılgandır. Kargo süreçlerinde yaşanan kırılma ve deformasyon mağduriyetlerinin önüne geçmek; müşterilerimizin ürünü bizzat görerek, dokunarak ve sağlamlığından emin olarak teslim almasını sağlamak için sadece <strong>Sivas Şeyhşamil mağazamızdan elden teslim</strong> hizmeti veriyoruz.
+                    </div>
+                </details>
+
+                <!-- FAQ 2 -->
+                <details class="group bg-mc-pearl border border-stone-200 rounded-2xl p-5 cursor-pointer hover:border-mc-gold transition-colors">
+                    <summary class="font-serif font-bold text-base text-mc-950 flex justify-between items-center outline-none">
+                        <span>Düğün ve çeyiz alışverişleri için toplu paket indirimi yapıyor musunuz?</span>
+                        <span class="text-mc-goldDark group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-200 pt-3">
+                        Evet! Kadeh setleri, fincan takımları, tepsiler ve mutfak gereçlerini kapsayan toplu çeyiz alımlarında çiftlerimize özel paket indirimleri ve hediye ürün avantajları sunmaktayız.
+                    </div>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details class="group bg-mc-pearl border border-stone-200 rounded-2xl p-5 cursor-pointer hover:border-mc-gold transition-colors">
+                    <summary class="font-serif font-bold text-base text-mc-950 flex justify-between items-center outline-none">
+                        <span>Instagram sayfanızda gördüğümüz ürünleri telefonla ayırtabilir miyiz?</span>
+                        <span class="text-mc-goldDark group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-200 pt-3">
+                        Evet, Instagram DM veya WhatsApp hattımız üzerinden ürün görselini ileterek aynı gün içerisinde mağazamızdan teslim almak üzere adınıza ayırtabilirsiniz.
+                    </div>
+                </details>
+
+                <!-- FAQ 4 -->
+                <details class="group bg-mc-pearl border border-stone-200 rounded-2xl p-5 cursor-pointer hover:border-mc-gold transition-colors">
+                    <summary class="font-serif font-bold text-base text-mc-950 flex justify-between items-center outline-none">
+                        <span>Mağazanız haftanın hangi günleri açık?</span>
+                        <span class="text-mc-goldDark group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-200 pt-3">
+                        Mütevazi Cam, pazar günleri de dahil olmak üzere <strong>haftanın her günü 09:00 - 20:00 saatleri arasında</strong> kesintisiz hizmet vermektedir.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. MAĞAZAMIZ & İLETİŞİM HUB (ŞEYHŞAMİL MERKEZ) -->
+    <section id="magaza" class="py-20 bg-mc-pearl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="bg-mc-950 rounded-3xl p-8 sm:p-14 border-2 border-mc-gold/60 shadow-2xl noise-bg relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-mc-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid lg:grid-cols-12 gap-12 items-center relative z-10">
+                    
+                    <!-- Left Contact Info -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <span class="text-mc-gold font-bold text-xs uppercase tracking-widest">Fiziki Mağaza Ziyareti</span>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight">
+                            Şeyhşamil'deki <br>
+                            <span class="text-gradient-gold">Showroomumuza Bekleriz</span>
+                        </h2>
+                        <p class="text-stone-300 text-sm sm:text-base font-light leading-relaxed max-w-xl">
+                            Evinizin zarafetini tamamlayacak yüzlerce çeşit cam, porselen ve hediyelik eşyayı yerinde incelemek, çeyiz listenizi uzman danışmanlarımızla oluşturmak için sizleri mağazamıza kahveye bekliyoruz.
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-mc-gold/20 border border-mc-gold/40 text-mc-gold flex items-center justify-center shrink-0 mt-1">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-serif font-bold text-sm">Açık Adres</h4>
+                                    <p class="text-stone-400 text-xs mt-0.5">Şeyhşamil Mah. Kazım Karabekir Cad. <br><strong>SİVAS / MERKEZ (Sivas 0058)</strong></p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-mc-gold/20 border border-mc-gold/40 text-mc-gold flex items-center justify-center shrink-0 mt-1">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-serif font-bold text-sm">Çalışma Günleri & Saatleri</h4>
+                                    <p class="text-stone-400 text-xs mt-0.5">Haftanın 7 Günü Kesintisiz: 09:00 - 20:00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <a href="https://maps.google.com/?q=Sivas+Merkez+Seyhsamil+Kazim+Karabekir+Cad" target="_blank" 
+                               class="bg-gradient-gold hover:brightness-110 text-mc-950 font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-xl transition-all shadow-gold-glow flex items-center gap-2">
+                                <i class="fa-solid fa-diamond-turn-right"></i>
+                                <span>Haritada Yol Tarifi Al</span>
+                            </a>
+                            <a href="https://instagram.com/mutevazicam" target="_blank" 
+                               class="bg-mc-900 hover:bg-mc-800 text-white font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-xl border border-mc-gold/40 transition-all flex items-center gap-2">
+                                <i class="fa-brands fa-instagram text-pink-400 text-base"></i>
+                                <span>Instagram'dan Konum İste</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Showcase Image -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="rounded-2xl overflow-hidden border-2 border-mc-gold/50 shadow-2xl relative group">
+                            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800&auto=format&fit=crop" 
+                                 alt="Mütevazi Cam Mağaza İçi" 
+                                 class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-mc-950 via-transparent to-transparent"></div>
+                            
+                            <div class="absolute bottom-4 left-4 right-4 p-4 bg-mc-900/90 backdrop-blur-md rounded-xl border border-mc-gold/30">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-mc-gold text-mc-950 flex items-center justify-center font-black">
+                                        <i class="fa-solid fa-store"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-white font-serif font-bold text-xs">Mütevazi Cam Sivas</div>
+                                        <div class="text-[10px] text-mc-gold">Görerek & Beğenerek Alışveriş</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 11. CLASSIC 4-COLUMN FOOTER -->
+    <footer class="bg-mc-950 text-stone-400 pt-16 pb-8 border-t-4 border-mc-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 border-b border-stone-800 pb-12">
+                
+                <!-- Column 1: Brand & Overview -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full border border-mc-gold flex items-center justify-center bg-mc-900">
+                            <span class="font-serif font-bold text-mc-gold text-sm">MC</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-serif font-bold text-xl text-white tracking-wider">MÜTEVAZİ CAM</span>
+                            <span class="text-[0.6rem] text-mc-gold tracking-widest uppercase">Züccaciye & Çeyiz</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-xs text-stone-400 leading-relaxed mb-6 font-light">
+                        Sivas'ta sofralara zarafet katan ince cam kadehler, porselen fincanlar, sunumluklar ve çeyizlik mutfak gereçleri ile hizmetinizdeyiz.
+                    </p>
+
+                    <div class="flex items-center gap-3">
+                        <a href="https://instagram.com/mutevazicam" target="_blank" class="w-9 h-9 rounded-xl bg-mc-900 hover:bg-pink-600 text-white flex items-center justify-center text-sm transition-colors border border-stone-800">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/905000000000" target="_blank" class="w-9 h-9 rounded-xl bg-mc-900 hover:bg-emerald-600 text-white flex items-center justify-center text-sm transition-colors border border-stone-800">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="https://maps.google.com/?q=Sivas+Merkez+Seyhsamil+Kazim+Karabekir+Cad" target="_blank" class="w-9 h-9 rounded-xl bg-mc-900 hover:bg-mc-gold hover:text-mc-950 text-white flex items-center justify-center text-sm transition-colors border border-stone-800">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Ürün Koleksiyonları -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider mb-5 border-l-2 border-mc-gold pl-2.5">
+                        Koleksiyonlar
+                    </h4>
+                    <ul class="space-y-2.5 text-xs text-stone-400 font-light">
+                        <li><a href="#vitrin" onclick="filterMutevazi('kadeh')" class="hover:text-mc-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mc-gold"></i> Ayaklı Cam Kadehler</a></li>
+                        <li><a href="#vitrin" onclick="filterMutevazi('kahve')" class="hover:text-mc-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mc-gold"></i> Porselen Kahve Fincanları</a></li>
+                        <li><a href="#vitrin" onclick="filterMutevazi('sunum')" class="hover:text-mc-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mc-gold"></i> Aynalı Sunum Tepsileri</a></li>
+                        <li><a href="#vitrin" onclick="filterMutevazi('mutfak')" class="hover:text-mc-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mc-gold"></i> Döner Stantlı Baharatlıklar</a></li>
+                        <li><a href="#vitrin" onclick="filterMutevazi('mutfak')" class="hover:text-mc-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mc-gold"></i> Borosilikat Cam Demlikler</a></li>
+                        <li><a href="#vitrin" onclick="filterMutevazi('banyo')" class="hover:text-mc-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mc-gold"></i> Bambu Banyo Aksesuarları</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Hızlı Menü & Çeyiz -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider mb-5 border-l-2 border-mc-gold pl-2.5">
+                        Hızlı Menü
+                    </h4>
+                    <ul class="space-y-2.5 text-xs text-stone-400 font-light">
+                        <li><a href="#ceyiz-paketi" class="hover:text-mc-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mc-gold"></i> Çeyiz Paketi Danışmanı</a></li>
+                        <li><a href="#kategoriler" class="hover:text-mc-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mc-gold"></i> Öne Çıkan Kategoriler</a></li>
+                        <li><a href="#magaza" class="hover:text-mc-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mc-gold"></i> Mağaza Konumu & Kroki</a></li>
+                        <li><a href="https://instagram.com/mutevazicam" target="_blank" class="hover:text-mc-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mc-gold"></i> Instagram Canlı Vitrin</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Mağaza İletişim Detayları -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider mb-5 border-l-2 border-mc-gold pl-2.5">
+                        Mağazamız (Sivas)
+                    </h4>
+                    <div class="space-y-3 text-xs text-stone-400 font-light">
+                        <div>
+                            <div class="text-white font-bold text-xs flex items-center gap-1.5">
+                                <i class="fa-solid fa-store text-mc-gold"></i> Şeyhşamil Showroom:
+                            </div>
+                            <p class="text-[0.7rem] text-stone-400 mt-1">Şeyhşamil Mh. Kazım Karabekir Cd. <br>Sivas / Merkez (Sivas 0058)</p>
+                        </div>
+                        <div class="pt-2 border-t border-stone-800">
+                            <span class="text-emerald-400 font-bold text-[11px] block">Haftanın Her Günü Açığız</span>
+                            <span class="text-[11px] text-stone-400">Çalışma Saatleri: 09:00 - 20:00</span>
+                        </div>
+                        <div class="pt-2 border-t border-stone-800">
+                            <span class="text-mc-gold font-bold text-[10px] uppercase">Önemli Bilgi:</span>
+                            <p class="text-[10px] text-stone-400">Kargomuz yoktur, mağazadan elden teslimat yapılmaktadır.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="text-center text-xs text-stone-500">
+                <p>&copy; 2026 MÜTEVAZİ CAM & ZÜCCACİYE. Tüm Hakları Saklıdır. Sivas / Merkez.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Category Filter
+        function filterMutevazi(category) {
+            const tabs = document.querySelectorAll('.mc-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                tab.classList.add('bg-white', 'text-stone-700');
+            });
+
+            // If event was triggered by tab click
+            if (window.event && window.event.target && window.event.target.classList.contains('mc-tab')) {
+                window.event.target.classList.add('active');
+                window.event.target.classList.remove('bg-white', 'text-stone-700');
+            } else {
+                // Find matching tab button
+                tabs.forEach(tab => {
+                    if (category === 'all' && tab.textContent.includes('Tüm')) {
+                        tab.classList.add('active');
+                        tab.classList.remove('bg-white', 'text-stone-700');
+                    }
+                });
+            }
+
+            const cards = document.querySelectorAll('.mutevazi-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Çeyiz Teklif Formu Submit
+        function handleCeyizSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('ceyizName').value;
+            const type = document.getElementById('ceyizType').value;
+            const date = document.getElementById('ceyizDate').value;
+            const note = document.getElementById('ceyizNote').value;
+
+            const text = `*MÜTEVAZİ CAM SİVAS - ÇEYİZ & ZÜCCACİYE PAKETİ TEKLİF TALEBİ*\n\n` +
+                         `*Müşteri / Çift:* ${name}\n` +
+                         `*İstenen Paket Türü:* ${type}\n` +
+                         `*Tahmini Düğün / Teslim Tarihi:* ${date}\n` +
+                         `*Özel İstekler & Notlar:* ${note}\n\n` +
+                         `_Bu talep Mütevazi Cam web sitesi üzerinden iletilmiştir._`;
+
+            const url = `https://wa.me/905000000000?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

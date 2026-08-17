@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DENİZ MOBİLYA & DTM | Sivas - Mobilya, Profilo Beyaz Eşya & Yapı Projeleri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        outfit: ['"Outfit"', 'sans-serif'],
+                        playfair: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        earth: {
+                            50: '#FAFAF9',
+                            100: '#F5F5F4',
+                            200: '#E7E5E4',
+                            300: '#D6D3D1',
+                            400: '#A8A29E',
+                            500: '#78716C',
+                            600: '#57534E',
+                            700: '#44403C',
+                            800: '#292524',
+                            900: '#1C1917',
+                        },
+                        deniz: {
+                            blue: '#4A6B7C', // Muted elegant blue
+                            gold: '#B4905A', // Sophisticated gold
+                        }
+                    },
+                    boxShadow: {
+                        'elegant': '0 20px 40px -15px rgba(0,0,0,0.05)',
+                        'elegant-hover': '0 30px 60px -15px rgba(0,0,0,0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Minimalist Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FAFAF9; }
+        ::-webkit-scrollbar-thumb { background: #D6D3D1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #A8A29E; }
+
+        /* Smooth reveal animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+
+        /* Filter Tab Active */
+        .deniz-tab.active {
+            border-bottom: 2px solid #292524;
+            color: #292524;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-earth-50 text-earth-800 font-sans antialiased selection:bg-deniz-gold selection:text-white">
+
+    <!-- 1. DUAL STORE TOP HUB (MINIMALIST) -->
+    <div class="bg-earth-900 text-earth-200 text-[11px] font-outfit tracking-[0.1em] uppercase py-2">
+        <div class="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 flex flex-wrap justify-between items-center gap-3">
+            
+            <div class="flex items-center gap-6 flex-wrap">
+                <!-- Store 1 -->
+                <div class="inline-flex items-center gap-2">
+                    <span class="text-earth-400">Mobilya:</span>
+                    <span>Şeyhşamil Mh.</span>
+                    <a href="tel:03462110404" class="text-white hover:text-deniz-gold transition-colors font-semibold">
+                        0346 211 04 04
+                    </a>
+                </div>
+
+                <span class="text-earth-700 hidden lg:inline">|</span>
+
+                <!-- Store 2 -->
+                <div class="hidden lg:inline-flex items-center gap-2">
+                    <span class="text-earth-400">Profilo DTM:</span>
+                    <span>Atatürk Cd.</span>
+                    <a href="tel:03465028584" class="text-white hover:text-deniz-gold transition-colors font-semibold">
+                        0346 502 85 84
+                    </a>
+                </div>
+            </div>
+
+            <!-- Perks -->
+            <div class="flex items-center gap-4 hidden sm:flex">
+                <span class="text-deniz-gold">Sivas İçi Ücretsiz Teslimat</span>
+                <span class="text-earth-700">|</span>
+                <a href="https://instagram.com/denizmobilyasivas" target="_blank" class="hover:text-white transition-colors flex items-center gap-1.5">
+                    <i class="fa-brands fa-instagram text-sm"></i> @denizmobilyasivas
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 2. MAIN NAVIGATION (ELEGANT & SPACIOUS) -->
+    <header class="bg-white/80 backdrop-blur-xl sticky top-0 z-50 border-b border-earth-100 transition-all">
+        <div class="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="flex items-center justify-between h-24">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex flex-col group shrink-0">
+                    <div class="font-playfair text-2xl tracking-[0.15em] text-earth-900 group-hover:text-deniz-gold transition-colors">
+                        DENİZ
+                    </div>
+                    <span class="text-[9px] font-outfit tracking-[0.3em] uppercase text-earth-400 mt-0.5">
+                        Mobilya & DTM
+                    </span>
+                </a>
+
+                <!-- Desktop Links -->
+                <nav class="hidden xl:flex items-center gap-10 text-[11px] font-outfit font-medium uppercase tracking-[0.15em] text-earth-600">
+                    <a href="#koleksiyonlar" class="hover:text-earth-900 transition-colors">Koleksiyonlar</a>
+                    <a href="#profilo" class="hover:text-earth-900 transition-colors">Profilo</a>
+                    <a href="#yapi-projeleri" class="hover:text-earth-900 transition-colors">Yapı Projeleri</a>
+                    <a href="#yatak-baza" class="hover:text-earth-900 transition-colors">Yatak Serisi</a>
+                    <a href="#magazalar" class="hover:text-earth-900 transition-colors">Mağazalar</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="flex items-center gap-5 shrink-0">
+                    <a href="#dugun-paketi" class="hidden sm:inline-block text-[11px] font-outfit font-medium uppercase tracking-[0.15em] text-earth-600 hover:text-deniz-gold transition-colors">
+                        Çeyiz Paketi
+                    </a>
+
+                    <a href="https://wa.me/903462110404" target="_blank" 
+                       class="inline-flex items-center gap-2 bg-earth-900 hover:bg-earth-800 text-white px-6 py-3.5 text-[11px] font-outfit font-medium uppercase tracking-[0.15em] transition-all">
+                        <span>İletişime Geç</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION (EDITORIAL & AIRY) -->
+    <section class="relative bg-earth-100 overflow-hidden">
+        <div class="grid lg:grid-cols-2 min-h-[85vh]">
+            
+            <!-- Hero Left: Typography & Space -->
+            <div class="flex flex-col justify-center px-6 sm:px-12 lg:px-24 py-20 lg:py-0 relative z-10">
+                <div class="max-w-xl opacity-0 animate-fade-up">
+                    <div class="flex items-center gap-3 mb-8">
+                        <span class="w-12 h-[1px] bg-deniz-gold"></span>
+                        <span class="text-[10px] font-outfit font-medium uppercase tracking-[0.2em] text-earth-500">2026 Tasarım Koleksiyonu</span>
+                    </div>
+
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-playfair leading-[1.1] text-earth-900 mb-8">
+                        Yaşam <br>
+                        alanlarınıza <br>
+                        <span class="italic text-earth-500">ferah bir nefes.</span>
+                    </h1>
+
+                    <p class="text-earth-600 text-sm sm:text-base font-light leading-relaxed mb-12 max-w-md">
+                        Modern mobilya tasarımları, Profilo yetkili bayi güvencesi ve kişiye özel yapı projeleri ile Sivas'ta evinizi yeniden tasarlıyoruz.
+                    </p>
+
+                    <div class="flex items-center gap-6">
+                        <a href="#koleksiyonlar" class="border-b border-earth-900 text-earth-900 pb-1 text-xs font-outfit font-medium uppercase tracking-[0.15em] hover:text-deniz-gold hover:border-deniz-gold transition-all flex items-center gap-2">
+                            Koleksiyonu Keşfet
+                        </a>
+                        <a href="#dugun-paketi" class="text-earth-500 text-xs font-outfit font-medium uppercase tracking-[0.15em] hover:text-earth-900 transition-all">
+                            Düğün Paketleri
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Right: Large Image -->
+            <div class="relative h-[60vh] lg:h-auto opacity-0 animate-fade-up delay-200">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1600&auto=format&fit=crop" 
+                     alt="Minimalist Modern Salon" 
+                     class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-earth-900/5 mix-blend-multiply"></div>
+                
+                <!-- Floating Minimal Card -->
+                <div class="absolute bottom-10 right-10 bg-white p-6 shadow-elegant max-w-xs hidden sm:block">
+                    <div class="text-[10px] font-outfit font-medium uppercase tracking-[0.2em] text-earth-400 mb-2">Öne Çıkan</div>
+                    <div class="font-playfair text-xl text-earth-900 mb-1">Lumina Koltuk Takımı</div>
+                    <div class="text-xs text-earth-500 font-light">Keten doku ve minimal hatlar.</div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- 4. THREE PILLARS (ELEGANT CARDS WITH WIDE SPACING) -->
+    <section class="py-32 bg-white">
+        <div class="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+            
+            <div class="text-center mb-20">
+                <h2 class="text-3xl sm:text-4xl font-playfair text-earth-900 mb-4">Hizmet Alanlarımız</h2>
+                <p class="text-earth-500 text-sm font-light">Evinizin tüm ihtiyaçları için üç farklı uzmanlık alanı.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-16">
+                
+                <!-- Pillar 1 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/3] overflow-hidden mb-8 bg-earth-50">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800&auto=format&fit=crop" 
+                             alt="Mobilya" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    </div>
+                    <span class="text-[10px] font-outfit font-medium uppercase tracking-[0.2em] text-deniz-gold mb-3 block">Şeyhşamil Showroom</span>
+                    <h3 class="font-playfair text-2xl text-earth-900 mb-3">Modern Mobilya</h3>
+                    <p class="text-earth-500 text-sm font-light leading-relaxed mb-6">
+                        Leke tutmayan ithal kumaşlı salon takımları, açılır mekanizmalı yemek masaları ve yatak odası serileri.
+                    </p>
+                    <a href="#koleksiyonlar" class="text-xs font-outfit uppercase tracking-[0.15em] text-earth-900 border-b border-earth-200 pb-1 group-hover:border-earth-900 transition-colors">İncele</a>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="group cursor-pointer" id="profilo">
+                    <div class="aspect-[4/3] overflow-hidden mb-8 bg-earth-50">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop" 
+                             alt="Profilo Beyaz Eşya" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    </div>
+                    <span class="text-[10px] font-outfit font-medium uppercase tracking-[0.2em] text-earth-400 mb-3 block">Atatürk Cd. Showroom</span>
+                    <h3 class="font-playfair text-2xl text-earth-900 mb-3">Profilo Beyaz Eşya</h3>
+                    <p class="text-earth-500 text-sm font-light leading-relaxed mb-6">
+                        No-Frost buzdolapları, çamaşır makineleri ve ankastre setlerde 3 yıl yetkili servis garantisi.
+                    </p>
+                    <a href="tel:03465028584" class="text-xs font-outfit uppercase tracking-[0.15em] text-earth-900 border-b border-earth-200 pb-1 group-hover:border-earth-900 transition-colors">İletişim</a>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="group cursor-pointer" id="yapi-projeleri">
+                    <div class="aspect-[4/3] overflow-hidden mb-8 bg-earth-50">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" 
+                             alt="Yapı Projeleri" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    </div>
+                    <span class="text-[10px] font-outfit font-medium uppercase tracking-[0.2em] text-earth-400 mb-3 block">Özel İmalat</span>
+                    <h3 class="font-playfair text-2xl text-earth-900 mb-3">İç Mimarlık & Yapı</h3>
+                    <p class="text-earth-500 text-sm font-light leading-relaxed mb-6">
+                        Evinizin mimarisine özel akrilik/lake mutfak dolapları, raylı giyinme odaları ve anahtar teslim projeler.
+                    </p>
+                    <a href="https://wa.me/903462110404" class="text-xs font-outfit uppercase tracking-[0.15em] text-earth-900 border-b border-earth-200 pb-1 group-hover:border-earth-900 transition-colors">Danışmanlık Al</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. EDITORIAL PRODUCT SHOWCASE (VITRİN) -->
+    <section id="koleksiyonlar" class="py-32 bg-earth-50 border-t border-earth-200">
+        <div class="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                <div>
+                    <h2 class="text-3xl sm:text-5xl font-playfair text-earth-900 mb-4">Öne Çıkanlar</h2>
+                    <p class="text-earth-500 text-sm font-light">Showroomlarımızda sergilenen güncel modellerimiz.</p>
+                </div>
+
+                <!-- Minimalist Tabs -->
+                <div class="flex flex-wrap gap-6 font-outfit text-xs uppercase tracking-[0.15em] text-earth-400">
+                    <button onclick="filterDeniz('all')" class="deniz-tab active pb-1 hover:text-earth-900 transition-colors">Tümü</button>
+                    <button onclick="filterDeniz('salon')" class="deniz-tab pb-1 hover:text-earth-900 transition-colors">Salon</button>
+                    <button onclick="filterDeniz('yemek')" class="deniz-tab pb-1 hover:text-earth-900 transition-colors">Yemek Odası</button>
+                    <button onclick="filterDeniz('yatak')" class="deniz-tab pb-1 hover:text-earth-900 transition-colors">Yatak Odası</button>
+                </div>
+            </div>
+
+            <!-- Product Grid (Asymmetric & Spacious) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24" id="denizProductGrid">
+                
+                <!-- Product 1 -->
+                <div class="deniz-card salon flex flex-col group">
+                    <div class="aspect-[4/5] overflow-hidden bg-earth-100 mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Koltuk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    </div>
+                    <div class="text-center px-4">
+                        <h3 class="font-playfair text-2xl text-earth-900 mb-2">Milos Nubuk</h3>
+                        <p class="text-earth-500 text-xs font-light mb-4">Silinebilir nubuk kumaş, gürgen iskelet.</p>
+                        <a href="https://wa.me/903462110404" class="text-[10px] font-outfit uppercase tracking-[0.2em] text-earth-900 border border-earth-200 px-6 py-2.5 hover:bg-earth-900 hover:text-white transition-all">
+                            Fiyat Sor
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2 (Slightly offset visually by standardizing aspect ratio but varying image content) -->
+                <div class="deniz-card yemek flex flex-col group md:mt-16">
+                    <div class="aspect-[4/5] overflow-hidden bg-earth-100 mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Yemek Odası" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    </div>
+                    <div class="text-center px-4">
+                        <h3 class="font-playfair text-2xl text-earth-900 mb-2">Calacatta Serisi</h3>
+                        <p class="text-earth-500 text-xs font-light mb-4">Parlak mermer desen, frenli menteşe.</p>
+                        <a href="https://wa.me/903462110404" class="text-[10px] font-outfit uppercase tracking-[0.2em] text-earth-900 border border-earth-200 px-6 py-2.5 hover:bg-earth-900 hover:text-white transition-all">
+                            Fiyat Sor
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="deniz-card yatak flex flex-col group">
+                    <div class="aspect-[4/5] overflow-hidden bg-earth-100 mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Yatak Odası" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    </div>
+                    <div class="text-center px-4">
+                        <h3 class="font-playfair text-2xl text-earth-900 mb-2">Palermo Döşemeli</h3>
+                        <p class="text-earth-500 text-xs font-light mb-4">Pocket yaylı yatak ve çelik karkas baza.</p>
+                        <a href="https://wa.me/903462110404" class="text-[10px] font-outfit uppercase tracking-[0.2em] text-earth-900 border border-earth-200 px-6 py-2.5 hover:bg-earth-900 hover:text-white transition-all">
+                            Fiyat Sor
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="deniz-card salon flex flex-col group md:mt-16">
+                    <div class="aspect-[4/5] overflow-hidden bg-earth-100 mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Köşe Koltuk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    </div>
+                    <div class="text-center px-4">
+                        <h3 class="font-playfair text-2xl text-earth-900 mb-2">Nordic L-Koltuk</h3>
+                        <p class="text-earth-500 text-xs font-light mb-4">Gri keten, yatak olabilen sırt mekanizması.</p>
+                        <a href="https://wa.me/903462110404" class="text-[10px] font-outfit uppercase tracking-[0.2em] text-earth-900 border border-earth-200 px-6 py-2.5 hover:bg-earth-900 hover:text-white transition-all">
+                            Fiyat Sor
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. WEDDING PACKAGE (SOFT & CALM ELEGANCE) -->
+    <section id="dugun-paketi" class="py-32 bg-earth-900 text-earth-200">
+        <div class="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                
+                <!-- Text & Info -->
+                <div>
+                    <span class="text-[10px] font-outfit font-medium uppercase tracking-[0.2em] text-deniz-gold mb-6 block">Yeni Evleneceklere</span>
+                    
+                    <h2 class="text-4xl sm:text-5xl font-playfair text-white mb-8 leading-tight">
+                        Komple <span class="italic text-earth-400">Düğün</span> Paketi.
+                    </h2>
+
+                    <p class="text-earth-400 text-base font-light leading-relaxed mb-10 max-w-md">
+                        Mobilya ve Profilo beyaz eşya ihtiyaçlarınızı tek bir noktadan çözün. Dev paket indiriminden yararlanın ve düğün tarihinize kadar depolarımızda ücretsiz muhafaza imkanı sağlayalım.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-8 mb-12 border-t border-earth-800 pt-10">
+                        <div>
+                            <div class="font-outfit font-medium text-sm text-white mb-3">Mobilya Paketi</div>
+                            <ul class="text-xs text-earth-500 space-y-2 font-light">
+                                <li>Koltuk Takımı (3+3+1+1)</li>
+                                <li>Yatak Odası Takımı</li>
+                                <li>Yemek Odası Takımı</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-outfit font-medium text-sm text-white mb-3">Profilo Paketi</div>
+                            <ul class="text-xs text-earth-500 space-y-2 font-light">
+                                <li>No-Frost Buzdolabı</li>
+                                <li>9 Kg Çamaşır Makinesi</li>
+                                <li>5 Programlı Bulaşık Mak.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clean Form -->
+                <div class="bg-earth-800 p-10 sm:p-14 border border-earth-700">
+                    <h4 class="font-playfair text-2xl text-white mb-8">Teklif Alın</h4>
+
+                    <form onsubmit="handleWeddingPackage(event)" class="space-y-6">
+                        <div>
+                            <input type="text" id="weddingName" placeholder="Adınız & Soyadınız" required
+                                   class="w-full bg-transparent border-b border-earth-600 pb-3 text-sm text-white placeholder:text-earth-500 focus:border-white focus:outline-none transition-colors">
+                        </div>
+
+                        <div>
+                            <select id="weddingType" class="w-full bg-earth-800 border-b border-earth-600 pb-3 text-sm text-white focus:border-white focus:outline-none transition-colors appearance-none">
+                                <option value="Full Çeyiz (Mobilya + Profilo Beyaz Eşya)">Full Çeyiz (Mobilya + Profilo)</option>
+                                <option value="Sadece Mobilya Düğün Paketi">Sadece Mobilya Düğün Paketi</option>
+                                <option value="Sadece Profilo Beyaz Eşya Paketi">Sadece Profilo Beyaz Eşya Paketi</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <input type="text" id="weddingDate" placeholder="Tahmini Düğün / Teslim Tarihi" required
+                                   class="w-full bg-transparent border-b border-earth-600 pb-3 text-sm text-white placeholder:text-earth-500 focus:border-white focus:outline-none transition-colors">
+                        </div>
+
+                        <div>
+                            <textarea id="weddingNote" rows="2" placeholder="Özel İstekleriniz..." required
+                                      class="w-full bg-transparent border-b border-earth-600 pb-3 text-sm text-white placeholder:text-earth-500 focus:border-white focus:outline-none transition-colors resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-white text-earth-900 font-outfit font-medium uppercase tracking-[0.15em] py-4 text-xs hover:bg-earth-200 transition-colors mt-4">
+                            WhatsApp'tan Gönder
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. MATTRESS TECH (AIRY & CLINICAL) -->
+    <section id="yatak-baza" class="py-32 bg-white">
+        <div class="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                
+                <!-- Image -->
+                <div class="aspect-[4/5] sm:aspect-square bg-earth-50 overflow-hidden order-2 lg:order-1">
+                    <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=1200&auto=format&fit=crop" 
+                         alt="Yatak Teknolojisi" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Text -->
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-4xl font-playfair text-earth-900 mb-6 leading-tight">
+                        Kesintisiz, <br>
+                        <span class="italic text-earth-400">sağlıklı uyku.</span>
+                    </h2>
+                    
+                    <p class="text-earth-500 text-sm font-light leading-relaxed mb-12 max-w-md">
+                        Çelik karkaslı çift amortisörlü bazalarımız ve bağımsız pocket yay teknolojisine sahip ortopedik yatak serilerimizle her sabah dinç uyanacaksınız.
+                    </p>
+
+                    <div class="space-y-8">
+                        <div class="border-l border-earth-200 pl-6">
+                            <h4 class="font-outfit font-medium text-sm text-earth-900 mb-1">5 Bölgeli Pocket Yay</h4>
+                            <p class="text-xs text-earth-500 font-light">Eşlerin hareketinden etkilenmeyen bağımsız yay sistemi.</p>
+                        </div>
+
+                        <div class="border-l border-earth-200 pl-6">
+                            <h4 class="font-outfit font-medium text-sm text-earth-900 mb-1">Doğal Örme Kumaş</h4>
+                            <p class="text-xs text-earth-500 font-light">Nefes alan, terletmeyen antibakteriyel doku.</p>
+                        </div>
+
+                        <div class="border-l border-earth-200 pl-6">
+                            <h4 class="font-outfit font-medium text-sm text-earth-900 mb-1">Çelik Karkas Baza</h4>
+                            <p class="text-xs text-earth-500 font-light">Emniyet kilitli amortisörler ve ağır hizmet tipi iskelet.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. STORES & FOOTER (MINIMAL & CLASSIC) -->
+    <footer id="magazalar" class="bg-earth-100 pt-32 pb-12 border-t border-earth-200 text-earth-600">
+        <div class="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
+                
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <div class="font-playfair text-2xl tracking-[0.15em] text-earth-900 mb-6">DENİZ</div>
+                    <p class="text-xs font-light leading-relaxed mb-6">
+                        Modern mobilya, Profilo yetkili bayi ve kişiye özel yapı projeleri ile Sivas'ta yaşam alanlarınızı tasarlıyoruz.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://instagram.com/denizmobilyasivas" class="text-earth-400 hover:text-earth-900 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/903462110404" class="text-earth-400 hover:text-earth-900 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Store 1 -->
+                <div>
+                    <h4 class="font-outfit font-medium text-[10px] uppercase tracking-[0.2em] text-earth-900 mb-6">Mobilya Showroom</h4>
+                    <address class="not-italic text-xs font-light leading-relaxed mb-4">
+                        Şeyhşamil Mh.<br>
+                        Kazım Karabekir Cd. No:52<br>
+                        Sivas / Merkez
+                    </address>
+                    <a href="tel:03462110404" class="text-xs font-medium text-earth-900 hover:text-deniz-gold transition-colors block mb-2">0346 211 04 04</a>
+                    <a href="https://maps.google.com/?q=Deniz+Mobilya+Sivas+Seyhsamil" target="_blank" class="text-[10px] uppercase tracking-[0.1em] border-b border-earth-300 pb-0.5 hover:text-earth-900 transition-colors">Yol Tarifi</a>
+                </div>
+
+                <!-- Store 2 -->
+                <div>
+                    <h4 class="font-outfit font-medium text-[10px] uppercase tracking-[0.2em] text-earth-900 mb-6">Profilo Mağazası</h4>
+                    <address class="not-italic text-xs font-light leading-relaxed mb-4">
+                        Atatürk Cd.<br>
+                        Eski Sanayi Sitesi Karşısı<br>
+                        Sivas / Merkez
+                    </address>
+                    <a href="tel:03465028584" class="text-xs font-medium text-earth-900 hover:text-deniz-gold transition-colors block mb-2">0346 502 85 84</a>
+                    <a href="https://maps.google.com/?q=Deniz+Profilo+Sivas+Ataturk+Caddesi" target="_blank" class="text-[10px] uppercase tracking-[0.1em] border-b border-earth-300 pb-0.5 hover:text-earth-900 transition-colors">Yol Tarifi</a>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-outfit font-medium text-[10px] uppercase tracking-[0.2em] text-earth-900 mb-6">Keşfet</h4>
+                    <ul class="space-y-3 text-xs font-light">
+                        <li><a href="#koleksiyonlar" class="hover:text-earth-900 transition-colors">Salon Takımları</a></li>
+                        <li><a href="#koleksiyonlar" class="hover:text-earth-900 transition-colors">Yemek Odaları</a></li>
+                        <li><a href="#dugun-paketi" class="hover:text-earth-900 transition-colors">Düğün Paketleri</a></li>
+                        <li><a href="#yapi-projeleri" class="hover:text-earth-900 transition-colors">Özel Ölçü Mutfak</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom -->
+            <div class="text-center pt-8 border-t border-earth-200 text-[10px] font-light uppercase tracking-wider text-earth-500">
+                <p>&copy; 2026 DENİZ MOBİLYA & DTM. Tüm Hakları Saklıdır.</p>
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Category Filter
+        function filterDeniz(category) {
+            const tabs = document.querySelectorAll('.deniz-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.deniz-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Wedding Package Form submission
+        function handleWeddingPackage(e) {
+            e.preventDefault();
+            const name = document.getElementById('weddingName').value;
+            const type = document.getElementById('weddingType').value;
+            const date = document.getElementById('weddingDate').value;
+            const note = document.getElementById('weddingNote').value;
+
+            const text = `*DENİZ MOBİLYA & PROFİLO - DÜĞÜN / ÇEYİZ PAKETİ TEKLİF TALEBİ*\n\n` +
+                         `*Müşteri / Çift:* ${name}\n` +
+                         `*Paket Seçimi:* ${type}\n` +
+                         `*Tahmini Tarih:* ${date}\n` +
+                         `*Notlar:* ${note}\n\n` +
+                         `_Web sitesi üzerinden gönderildi._`;
+
+            const url = `https://wa.me/903462110404?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

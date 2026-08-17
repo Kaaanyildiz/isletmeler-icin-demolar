@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARİSSA PASTA & BAKLAVA | Sivas - Butik Pasta, Fıstıklı Baklava, Dondurma & Kuru Pasta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Modern Luxury & Bakery Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        cinzel: ['"Cinzel"', 'serif'],
+                    },
+                    colors: {
+                        sarissa: {
+                            emerald: '#008744',      // Neon/Acrylic emerald from signboard
+                            emeraldDark: '#034726',  // Deep forest green
+                            emeraldLight: '#10B981', // Bright emerald accent
+                            emeraldSoft: '#E6F4EA',  // Very soft mint/cream for cards
+                            dark: '#0D1117',         // Rich onyx black
+                            darkSurface: '#161B22',  // Card dark surface
+                            gold: '#D4AF37',         // Warm butter/bakery gold
+                            goldLight: '#FFF4D2',
+                            cream: '#FCFBF7',        // Fresh pastry cream background
+                            stone: '#F4F2EC',        // Subtle border stone
+                        }
+                    },
+                    boxShadow: {
+                        'emerald-glow': '0 0 25px rgba(0, 135, 68, 0.35)',
+                        'gold-glow': '0 0 20px rgba(212, 175, 55, 0.3)',
+                        'card-soft': '0 12px 30px -8px rgba(3, 71, 38, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0D1117; }
+        ::-webkit-scrollbar-thumb { background: #008744; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #10B981; }
+
+        /* Subtle Luxury Bakery Pattern */
+        .bg-bakery-pattern {
+            background-color: #FCFBF7;
+            background-image: radial-gradient(#008744 0.6px, transparent 0.6px), radial-gradient(#D4AF37 0.6px, #FCFBF7 0.6px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+            background-opacity: 0.03;
+        }
+
+        /* Scalloped Awning Effect (Matching physical storefront) */
+        .awning-edge {
+            background: linear-gradient(135deg, #034726 0%, #008744 100%);
+            position: relative;
+        }
+        .awning-edge::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-image: radial-gradient(circle at 10px 0, #008744 10px, transparent 10px);
+            background-size: 20px 10px;
+        }
+
+        .text-gradient-emerald {
+            background: linear-gradient(135deg, #10B981 0%, #008744 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FFF4D2 0%, #D4AF37 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Story Circle Gradient */
+        .story-emerald-ring {
+            background: linear-gradient(45deg, #008744, #10B981, #D4AF37, #008744);
+            padding: 3px;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+        .story-emerald-ring:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 20px rgba(0, 135, 68, 0.5);
+        }
+
+        /* Active Filter Tab */
+        .sarissa-tab.active {
+            background-color: #008744;
+            color: #FFFFFF;
+            border-color: #008744;
+            box-shadow: 0 6px 18px rgba(0, 135, 68, 0.35);
+        }
+    </style>
+</head>
+<body class="bg-sarissa-cream text-sarissa-dark font-sans antialiased selection:bg-sarissa-emerald selection:text-white">
+
+    <!-- 1. TOP ANNOUNCEMENT HUB (Store Hours, Sivas Delivery, Fresh Notice) -->
+    <div class="bg-sarissa-dark text-white text-[11px] font-sans border-b border-sarissa-emerald/30 relative z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap justify-between items-center gap-3">
+            
+            <!-- Left Info -->
+            <div class="flex items-center gap-6 flex-wrap">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-sarissa-emeraldLight animate-pulse"></span>
+                    <span class="font-bold text-sarissa-emeraldLight tracking-wider uppercase">SİVAS MERKEZ:</span>
+                    <span class="text-stone-300">Her Gün 08:00 - 23:00 Açık • Sıcak & Taze Üretim</span>
+                </div>
+                <span class="text-stone-700 hidden md:inline">|</span>
+                <div class="hidden md:flex items-center gap-2 text-stone-300">
+                    <i class="fa-solid fa-cake-candles text-sarissa-gold"></i>
+                    <span>Özel Gün & Düğün Pastaları İçin 2 Gün Önceden Sipariş Alınır</span>
+                </div>
+            </div>
+
+            <!-- Right: Dondurma & WhatsApp Line -->
+            <div class="flex items-center gap-4">
+                <div class="inline-flex items-center gap-1.5 bg-sarissa-emeraldDark/80 border border-sarissa-emerald px-3 py-0.5 rounded-full text-sarissa-goldLight font-bold">
+                    <i class="fa-solid fa-ice-cream text-sarissa-emeraldLight"></i>
+                    <span>Maraş Dondurması Reyonumuz Açık</span>
+                </div>
+                <span class="text-stone-700 hidden sm:inline">|</span>
+                <a href="https://instagram.com/sarissa_pastanesi_sivas" target="_blank" class="hover:text-sarissa-emeraldLight transition-colors flex items-center gap-1.5 text-stone-300 font-bold">
+                    <i class="fa-brands fa-instagram text-pink-400 text-sm"></i> @sarissa_pastanesi_sivas
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 2. BRAND SIGNBOARD HEADER (Matching Green & Dark Acrylic Storefront) -->
+    <header class="bg-sarissa-dark/95 backdrop-blur-md sticky top-0 z-40 border-b-2 border-sarissa-emerald shadow-xl transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                
+                <!-- Logo & Signboard Identity -->
+                <a href="#" class="flex items-center gap-4 group shrink-0">
+                    <div class="w-14 h-14 rounded-2xl bg-sarissa-emeraldDark border-2 border-sarissa-emerald flex items-center justify-center relative overflow-hidden shadow-emerald-glow group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-br from-sarissa-emeraldLight/20 to-transparent"></div>
+                        <i class="fa-solid fa-crown text-2xl text-sarissa-gold"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-2">
+                            <span class="font-cinzel font-black text-2xl sm:text-3xl tracking-[0.12em] text-white">SARİSSA</span>
+                            <span class="px-2 py-0.5 bg-sarissa-emerald text-white text-[10px] font-black uppercase tracking-widest rounded">SİVAS</span>
+                        </div>
+                        <span class="text-[0.68rem] font-sans tracking-[0.25em] uppercase text-sarissa-gold font-bold mt-0.5 flex items-center gap-2">
+                            <span>PASTA</span> • <span>BAKLAVA</span> • <span>DONDURMA</span>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden lg:flex items-center space-x-7 text-xs font-bold uppercase tracking-wider text-stone-300">
+                    <a href="#kategoriler" class="hover:text-sarissa-emeraldLight transition-colors py-2 relative group">
+                        Reyonlarımız
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-sarissa-emerald transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#vitrin" class="hover:text-sarissa-emeraldLight transition-colors py-2 relative group">
+                        Tatlı Vitrini
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-sarissa-emerald transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#baklava" class="hover:text-sarissa-emeraldLight transition-colors py-2 relative group">
+                        Baklavalar
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-sarissa-emerald transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#ozel-pasta" class="hover:text-sarissa-emeraldLight transition-colors py-2 relative group text-sarissa-gold flex items-center gap-1.5">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xs"></i> Pasta Tasarla
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-sarissa-gold transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#neden-sarissa" class="hover:text-sarissa-emeraldLight transition-colors py-2 relative group">
+                        Neden Sarissa?
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-sarissa-emerald transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#magaza" class="hover:text-sarissa-emeraldLight transition-colors py-2 relative group">
+                        Kafe & Konum
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-sarissa-emerald transition-all group-hover:w-full"></span>
+                    </a>
+                </nav>
+
+                <!-- Action Button & WhatsApp Order -->
+                <div class="flex items-center gap-3 shrink-0">
+                    <a href="https://maps.google.com/?q=Sarissa+Pasta+Baklava+Sivas" target="_blank" 
+                       class="hidden sm:inline-flex items-center gap-2 bg-sarissa-darkSurface hover:bg-stone-800 text-stone-200 border border-sarissa-emerald/40 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all">
+                        <i class="fa-solid fa-location-dot text-sarissa-emeraldLight"></i>
+                        <span>Yol Tarifi</span>
+                    </a>
+
+                    <a href="https://wa.me/905000000000?text=Merhaba,%20Sarissa%20Pastanesi'nden%20pasta/baklava%20siparişi%20vermek%20istiyorum." target="_blank" 
+                       class="inline-flex items-center gap-2 bg-sarissa-emerald hover:bg-sarissa-emeraldLight text-white px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider shadow-emerald-glow transition-all">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Hemen Sipariş Ver</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION (Dark Acrylic & Emerald Bakery Atmosphere) -->
+    <section class="relative bg-sarissa-dark text-white min-h-[85vh] flex items-center overflow-hidden border-b-4 border-sarissa-emerald">
+        
+        <!-- High-Resolution Bakery Showcase Backdrop -->
+        <div class="absolute inset-0 z-0 opacity-25 bg-[url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center mix-blend-luminosity"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-sarissa-dark via-sarissa-dark/95 to-sarissa-dark/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-sarissa-dark via-transparent to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Details -->
+                <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
+                    
+                    <div class="inline-flex items-center gap-2.5 bg-sarissa-emeraldDark/90 border border-sarissa-emerald px-4 py-2 rounded-full text-xs font-bold text-sarissa-goldLight tracking-wider uppercase shadow-lg">
+                        <i class="fa-solid fa-award text-sarissa-gold"></i>
+                        <span>Gelenekten Geleceğe Sivas'ın En Taze Lezzet Durağı</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold tracking-tight leading-[1.1]">
+                        Usta Ellerden <br>
+                        <span class="text-gradient-emerald">Butik Pasta</span> & <br>
+                        <span class="text-gradient-gold">Çıtır Antep Baklavası.</span>
+                    </h1>
+
+                    <p class="text-stone-300 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Her sabah fırından yeni çıkmış sıcacık baklavalar, özel günleriniz için kişiye özel tasarlanan yaş pastalar, nefis kuru pastalar ve hakiki Maraş dondurması ile Şeyhşamil'deki nezih salonumuzda hizmetinizdeyiz.
+                    </p>
+
+                    <!-- 4 Live Counter Trust Badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 max-w-2xl mx-auto lg:mx-0">
+                        <div class="bg-sarissa-darkSurface/90 border border-sarissa-emerald/30 p-3.5 rounded-2xl text-left">
+                            <div class="text-sarissa-emeraldLight text-xl mb-1"><i class="fa-solid fa-cake-candles"></i></div>
+                            <div class="font-bold text-xs text-white">Butik Pasta</div>
+                            <div class="text-[11px] text-stone-400">Kişiye Özel Tasarım</div>
+                        </div>
+
+                        <div class="bg-sarissa-darkSurface/90 border border-sarissa-emerald/30 p-3.5 rounded-2xl text-left">
+                            <div class="text-sarissa-gold text-xl mb-1"><i class="fa-solid fa-plate-wheat"></i></div>
+                            <div class="font-bold text-xs text-white">Antep Baklavası</div>
+                            <div class="text-[11px] text-stone-400">Hakiki Tereyağlı</div>
+                        </div>
+
+                        <div class="bg-sarissa-darkSurface/90 border border-sarissa-emerald/30 p-3.5 rounded-2xl text-left">
+                            <div class="text-sarissa-emeraldLight text-xl mb-1"><i class="fa-solid fa-ice-cream"></i></div>
+                            <div class="font-bold text-xs text-white">Maraş Dondurma</div>
+                            <div class="text-[11px] text-stone-400">Doğal & Katkısız</div>
+                        </div>
+
+                        <div class="bg-sarissa-darkSurface/90 border border-sarissa-emerald/30 p-3.5 rounded-2xl text-left">
+                            <div class="text-sarissa-gold text-xl mb-1"><i class="fa-solid fa-mug-hot"></i></div>
+                            <div class="font-bold text-xs text-white">Kafe Alanı</div>
+                            <div class="text-[11px] text-stone-400">Nezih Oturma Alanı</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-3">
+                        <a href="#ozel-pasta" class="bg-sarissa-emerald hover:bg-sarissa-emeraldLight text-white font-sans font-black uppercase tracking-wider px-8 py-4 rounded-xl text-xs transition-all shadow-emerald-glow flex items-center gap-2">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>Özel Pasta Siparişi Ver</span>
+                        </a>
+                        <a href="#vitrin" class="bg-white/10 hover:bg-white/20 text-white font-sans font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-xs border border-white/20 transition-all backdrop-blur-sm flex items-center gap-2">
+                            <span>Lezzet Vitrinini İncele</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Right Hero Image Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        
+                        <!-- Main Card -->
+                        <div class="rounded-3xl overflow-hidden border-2 border-sarissa-emerald shadow-2xl bg-sarissa-darkSurface group relative">
+                            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=900&auto=format&fit=crop" 
+                                 alt="Sarissa Pasta & Baklava Lüks Ürünler" 
+                                 class="w-full h-[460px] object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-sarissa-dark via-sarissa-dark/20 to-transparent"></div>
+
+                            <div class="absolute bottom-6 left-6 right-6 p-5 bg-sarissa-darkSurface/95 backdrop-blur-md rounded-2xl border border-sarissa-emerald/50">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-[10px] text-sarissa-gold font-bold uppercase tracking-wider">Günün Spesiyali</span>
+                                        <h3 class="text-white font-serif font-bold text-lg">Orman Meyveli Çikolatalı Yaş Pasta</h3>
+                                    </div>
+                                    <span class="px-3 py-1 bg-sarissa-emerald text-white font-black text-xs rounded-lg shadow">
+                                        Taptaze
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge 1 (Storefront Awnings Reference) -->
+                        <div class="absolute -top-6 -left-6 bg-sarissa-dark border-2 border-sarissa-emerald p-4 rounded-2xl shadow-2xl hidden sm:flex items-center gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-sarissa-emerald text-white flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-store"></i>
+                            </div>
+                            <div>
+                                <div class="text-[0.65rem] text-stone-400 uppercase tracking-wider">Sivas Şeyhşamil</div>
+                                <div class="font-serif font-bold text-sm text-white">Sarissa Showroom & Kafe</div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge 2 (Baklava Award) -->
+                        <div class="absolute -bottom-6 -right-6 bg-sarissa-emeraldDark border border-sarissa-gold p-4 rounded-2xl shadow-2xl hidden sm:block">
+                            <div class="font-cinzel font-black text-2xl text-sarissa-gold leading-none">%100</div>
+                            <div class="text-[0.65rem] font-bold uppercase tracking-wider text-white mt-1">Doğal Antep Fıstığı & Tereyağ</div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. HIGHLIGHTS CATEGORY REYONLARI (6 Dairelik Hikaye Vitrini) -->
+    <section id="kategoriler" class="py-16 bg-white border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-sarissa-emerald font-bold uppercase tracking-widest text-xs">Reyonlarımız & Lezzet Yelpazesi</span>
+                    <h2 class="font-serif text-3xl font-bold text-sarissa-dark tracking-tight mt-1">
+                        Sarissa <span class="text-sarissa-emerald">Lezzet Dünyası</span>
+                    </h2>
+                </div>
+                <p class="text-stone-600 text-xs sm:text-sm max-w-md">
+                    Şeyhşamil mağazamızda her gün taze pişirilen ve özenle hazırlanan zengin reyonlarımız.
+                </p>
+            </div>
+
+            <!-- Categories Horizontal Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+                
+                <!-- Category 1: Butik Yaş Pasta -->
+                <a href="#vitrin" onclick="filterSarissa('pasta')" class="flex flex-col items-center text-center group cursor-pointer">
+                    <div class="story-emerald-ring mb-3">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white bg-sarissa-dark relative">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=400&auto=format&fit=crop" 
+                                 alt="Butik Yaş Pasta" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <span class="font-serif font-bold text-sm text-sarissa-dark group-hover:text-sarissa-emerald transition-colors">Butik Pasta</span>
+                    <span class="text-[11px] text-stone-500 mt-0.5">Yaş & Tasarım Pasta</span>
+                </a>
+
+                <!-- Category 2: Fıstıklı Baklava -->
+                <a href="#vitrin" onclick="filterSarissa('baklava')" class="flex flex-col items-center text-center group cursor-pointer">
+                    <div class="story-emerald-ring mb-3">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white bg-sarissa-dark relative">
+                            <img src="https://images.unsplash.com/photo-1519869325930-281384150729?q=80&w=400&auto=format&fit=crop" 
+                                 alt="Fıstıklı Baklava" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <span class="font-serif font-bold text-sm text-sarissa-dark group-hover:text-sarissa-emerald transition-colors">Baklavalar</span>
+                    <span class="text-[11px] text-stone-500 mt-0.5">Çıtır Antep Fıstıklı</span>
+                </a>
+
+                <!-- Category 3: Doğal Dondurma -->
+                <a href="#vitrin" onclick="filterSarissa('dondurma')" class="flex flex-col items-center text-center group cursor-pointer">
+                    <div class="story-emerald-ring mb-3">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white bg-sarissa-dark relative">
+                            <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?q=80&w=400&auto=format&fit=crop" 
+                                 alt="Maraş Dondurması" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <span class="font-serif font-bold text-sm text-sarissa-dark group-hover:text-sarissa-emerald transition-colors">Dondurma</span>
+                    <span class="text-[11px] text-stone-500 mt-0.5">Hakiki Maraş Usulü</span>
+                </a>
+
+                <!-- Category 4: Kuru Pasta & Kurabiye -->
+                <a href="#vitrin" onclick="filterSarissa('kuru')" class="flex flex-col items-center text-center group cursor-pointer">
+                    <div class="story-emerald-ring mb-3">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white bg-sarissa-dark relative">
+                            <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=400&auto=format&fit=crop" 
+                                 alt="Kuru Pasta ve Kurabiye" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <span class="font-serif font-bold text-sm text-sarissa-dark group-hover:text-sarissa-emerald transition-colors">Kuru Pasta</span>
+                    <span class="text-[11px] text-stone-500 mt-0.5">Tatlı, Tuzlu & Kandil</span>
+                </a>
+
+                <!-- Category 5: Düğün & Nişan Pastaları -->
+                <a href="#vitrin" onclick="filterSarissa('dugun')" class="flex flex-col items-center text-center group cursor-pointer">
+                    <div class="story-emerald-ring mb-3">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white bg-sarissa-dark relative">
+                            <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?q=80&w=400&auto=format&fit=crop" 
+                                 alt="Düğün ve Nişan Pastaları" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <span class="font-serif font-bold text-sm text-sarissa-dark group-hover:text-sarissa-emerald transition-colors">Özel Günler</span>
+                    <span class="text-[11px] text-stone-500 mt-0.5">Düğün, Nişan & Söz</span>
+                </a>
+
+                <!-- Category 6: Sütlü & Şerbetli Tatlılar -->
+                <a href="#vitrin" onclick="filterSarissa('sutlu')" class="flex flex-col items-center text-center group cursor-pointer">
+                    <div class="story-emerald-ring mb-3">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white bg-sarissa-dark relative">
+                            <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=400&auto=format&fit=crop" 
+                                 alt="Sütlü Tatlılar ve Ekler" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <span class="font-serif font-bold text-sm text-sarissa-dark group-hover:text-sarissa-emerald transition-colors">Sütlü Tatlı</span>
+                    <span class="text-[11px] text-stone-500 mt-0.5">Ekler, Profiterol & Trileçe</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. KAPSAMLI İNTERAKTİF LEZZET VİTRİNİ & MENÜ -->
+    <section id="vitrin" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+                <span class="text-sarissa-emerald font-bold uppercase tracking-widest text-xs">Günlük Taze Üretim Listesi</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-sarissa-dark tracking-tight mt-1">
+                    Sarissa <span class="text-sarissa-emerald">Vitrin Spesiyalleri</span>
+                </h2>
+                <p class="text-stone-600 text-sm mt-1">Şeyhşamil mağazamızda sıcak fırından çıkan ve reyonlarda yerini alan lezzetler.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterSarissa('all')" class="sarissa-tab active px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider border border-stone-300 transition-all">
+                    Tüm Lezzetler
+                </button>
+                <button onclick="filterSarissa('pasta')" class="sarissa-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white border border-stone-300 text-stone-700 hover:border-sarissa-emerald transition-all">
+                    Butik & Yaş Pasta
+                </button>
+                <button onclick="filterSarissa('baklava')" class="sarissa-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white border border-stone-300 text-stone-700 hover:border-sarissa-emerald transition-all">
+                    Baklavalar
+                </button>
+                <button onclick="filterSarissa('dondurma')" class="sarissa-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white border border-stone-300 text-stone-700 hover:border-sarissa-emerald transition-all">
+                    Dondurma
+                </button>
+                <button onclick="filterSarissa('kuru')" class="sarissa-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white border border-stone-300 text-stone-700 hover:border-sarissa-emerald transition-all">
+                    Kuru Pasta
+                </button>
+                <button onclick="filterSarissa('dugun')" class="sarissa-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white border border-stone-300 text-stone-700 hover:border-sarissa-emerald transition-all">
+                    Düğün & Nişan
+                </button>
+            </div>
+        </div>
+
+        <!-- Product Grid (100% Tested Working Images) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="sarissaGrid">
+            
+            <!-- Item 1: Butik Yaş Pasta -->
+            <div class="sarissa-card pasta bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-card-soft hover:shadow-emerald-glow transition-all flex flex-col group">
+                <div class="relative h-72 overflow-hidden bg-sarissa-dark">
+                    <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=800&auto=format&fit=crop" 
+                         alt="Çilekli Kremalı Butik Yaş Pasta" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-sarissa-emerald text-white text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                        Günlük Taze
+                    </span>
+                    <span class="absolute bottom-4 right-4 bg-sarissa-dark/95 backdrop-blur-sm text-sarissa-gold text-xs font-bold px-3 py-1 rounded-lg border border-sarissa-gold/30">
+                        6-8 & 10-12 Kişilik
+                    </span>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="text-xs text-sarissa-emerald font-bold mb-1">Yaş Pasta Reyonu</div>
+                    <h3 class="font-serif font-bold text-xl text-sarissa-dark mb-2 group-hover:text-sarissa-emerald transition-colors">
+                        Taze Çilekli Belçika Çikolatalı Yaş Pasta
+                    </h3>
+                    <p class="text-stone-600 text-xs leading-relaxed mb-6 flex-grow">
+                        Hafif pastacı kreması, taze bahçe çilekleri, yumuşacık pandispanya ve hakiki Belçika çikolatalı ganaj kaplama.
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between mt-auto">
+                        <span class="text-emerald-700 text-xs font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check text-sarissa-emerald"></i> Reyonda Hazır
+                        </span>
+                        <a href="https://wa.me/905000000000?text=Çilekli%20Yaş%20Pasta%20fiyatını%20ve%20stok%20durumunu%20öğrenmek%20istiyorum." target="_blank" 
+                           class="text-xs bg-sarissa-dark hover:bg-sarissa-emerald text-white font-bold px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5 shadow">
+                            <i class="fa-brands fa-whatsapp"></i> Sipariş Ver
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Antep Fıstıklı Baklava -->
+            <div class="sarissa-card baklava bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-card-soft hover:shadow-emerald-glow transition-all flex flex-col group" id="baklava">
+                <div class="relative h-72 overflow-hidden bg-sarissa-dark">
+                    <img src="https://images.unsplash.com/photo-1519869325930-281384150729?q=80&w=800&auto=format&fit=crop" 
+                         alt="Antep Fıstıklı Çıtır Baklava" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-sarissa-gold text-sarissa-dark text-[0.65rem] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                        Özel Üretim
+                    </span>
+                    <span class="absolute bottom-4 right-4 bg-sarissa-dark/95 backdrop-blur-sm text-sarissa-emeraldLight text-xs font-bold px-3 py-1 rounded-lg border border-sarissa-emerald/30">
+                        Kilo / Tepsi Satış
+                    </span>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="text-xs text-sarissa-emerald font-bold mb-1">Geleneksel Baklava Reyonu</div>
+                    <h3 class="font-serif font-bold text-xl text-sarissa-dark mb-2 group-hover:text-sarissa-emerald transition-colors">
+                        Hakiki Tereyağlı Antep Fıstıklı Baklava
+                    </h3>
+                    <p class="text-stone-600 text-xs leading-relaxed mb-6 flex-grow">
+                        40 kat incecik el açması yufka, birinci kalite boz fıstık ve Urfa sade yağıyla çıtır çıtır pişen eşsiz Sarissa baklavası.
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between mt-auto">
+                        <span class="text-emerald-700 text-xs font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check text-sarissa-emerald"></i> Sıcak Fırından
+                        </span>
+                        <a href="https://wa.me/905000000000?text=Fıstıklı%20Baklava%20fiyatı%20ve%20tepsi%20siparişi%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" 
+                           class="text-xs bg-sarissa-dark hover:bg-sarissa-emerald text-white font-bold px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5 shadow">
+                            <i class="fa-brands fa-whatsapp"></i> Sipariş Ver
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Doğal Maraş Dondurması -->
+            <div class="sarissa-card dondurma bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-card-soft hover:shadow-emerald-glow transition-all flex flex-col group">
+                <div class="relative h-72 overflow-hidden bg-sarissa-dark">
+                    <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?q=80&w=800&auto=format&fit=crop" 
+                         alt="Doğal Maraş Usulü Dondurma" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-sarissa-emerald text-white text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                        Dondurma Reyonu
+                    </span>
+                    <span class="absolute bottom-4 right-4 bg-sarissa-dark/95 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-lg border border-sarissa-emerald/30">
+                        Külah & Kilo ile
+                    </span>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="text-xs text-sarissa-emerald font-bold mb-1">Dondurma & Soğuk Lezzetler</div>
+                    <h3 class="font-serif font-bold text-xl text-sarissa-dark mb-2 group-hover:text-sarissa-emerald transition-colors">
+                        Keçi Sütlü & Salep Özlü Hakiki Maraş Dondurması
+                    </h3>
+                    <p class="text-stone-600 text-xs leading-relaxed mb-6 flex-grow">
+                        Sade, çikolatalı, Antep fıstıklı, karamelli ve mevsim meyveli çeşitleriyle baklavanın en lezzetli eşlikçisi.
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between mt-auto">
+                        <span class="text-emerald-700 text-xs font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check text-sarissa-emerald"></i> Her Gün Taze
+                        </span>
+                        <a href="https://wa.me/905000000000?text=Kilo%20ile%20Maraş%20dondurması%20paket%20siparişi%20vermek%20istiyorum." target="_blank" 
+                           class="text-xs bg-sarissa-dark hover:bg-sarissa-emerald text-white font-bold px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5 shadow">
+                            <i class="fa-brands fa-whatsapp"></i> Sipariş Ver
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4: Karışık Kuru Pasta Kutusu -->
+            <div class="sarissa-card kuru bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-card-soft hover:shadow-emerald-glow transition-all flex flex-col group">
+                <div class="relative h-72 overflow-hidden bg-sarissa-dark">
+                    <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=800&auto=format&fit=crop" 
+                         alt="Karışık Tatlı ve Tuzlu Kuru Pasta" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-sarissa-emeraldDark text-sarissa-gold text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-sarissa-emerald">
+                        Tatlı & Tuzlu
+                    </span>
+                    <span class="absolute bottom-4 right-4 bg-sarissa-dark/95 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-lg">
+                        500gr / 1kg Kutulu
+                    </span>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="text-xs text-sarissa-emerald font-bold mb-1">Kurabiye & Kuru Pasta</div>
+                    <h3 class="font-serif font-bold text-xl text-sarissa-dark mb-2 group-hover:text-sarissa-emerald transition-colors">
+                        Lüks Karışık Tatlı & Tuzlu Kuru Pasta Çeşitleri
+                    </h3>
+                    <p class="text-stone-600 text-xs leading-relaxed mb-6 flex-grow">
+                        Çörekotlu tuzlu çubuklar, un kurabiyeleri, çikolatalı bisküviler, fındıklı tartlar ve özel davet ikramlıkları.
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between mt-auto">
+                        <span class="text-emerald-700 text-xs font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check text-sarissa-emerald"></i> Günlük Taze
+                        </span>
+                        <a href="https://wa.me/905000000000?text=Kuru%20pasta%20kutusu%20ve%20fiyatlar%20hakkında%20bilgi%20istiyorum." target="_blank" 
+                           class="text-xs bg-sarissa-dark hover:bg-sarissa-emerald text-white font-bold px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5 shadow">
+                            <i class="fa-brands fa-whatsapp"></i> Sipariş Ver
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5: Düğün & Nişan Pastası -->
+            <div class="sarissa-card dugun bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-card-soft hover:shadow-emerald-glow transition-all flex flex-col group">
+                <div class="relative h-72 overflow-hidden bg-sarissa-dark">
+                    <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?q=80&w=800&auto=format&fit=crop" 
+                         alt="Çok Katlı Nişan ve Düğün Pastası" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-sarissa-gold text-sarissa-dark text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Özel Merasim
+                    </span>
+                    <span class="absolute bottom-4 right-4 bg-sarissa-dark/95 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-lg">
+                        Katlı & Maket Seçenekli
+                    </span>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="text-xs text-sarissa-emerald font-bold mb-1">Gelin & Damat Özel</div>
+                    <h3 class="font-serif font-bold text-xl text-sarissa-dark mb-2 group-hover:text-sarissa-emerald transition-colors">
+                        Zarif Çiçek Süslemeli Katlı Nişan & Düğün Pastası
+                    </h3>
+                    <p class="text-stone-600 text-xs leading-relaxed mb-6 flex-grow">
+                        Çiftlerin isimlerinin yazılı olduğu, canlı çiçek aranjmanlı, kesim seremonisine ve davetlilere ikrama özel lüks tasarım.
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between mt-auto">
+                        <span class="text-emerald-700 text-xs font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check text-sarissa-emerald"></i> Randevulu Üretim
+                        </span>
+                        <a href="https://wa.me/905000000000?text=Düğün/Nişan%20pastası%20tasarımı%20ve%20fiyatı%20öğrenmek%20istiyorum." target="_blank" 
+                           class="text-xs bg-sarissa-dark hover:bg-sarissa-emerald text-white font-bold px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5 shadow">
+                            <i class="fa-brands fa-whatsapp"></i> Tasarım Sor
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6: Çocuk Doğum Günü Butik Pastası -->
+            <div class="sarissa-card pasta bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-card-soft hover:shadow-emerald-glow transition-all flex flex-col group">
+                <div class="relative h-72 overflow-hidden bg-sarissa-dark">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=800&auto=format&fit=crop" 
+                         alt="Çocuk Doğum Günü Karakterli Pasta" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-sarissa-emerald text-white text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                        Çocuk & Genç
+                    </span>
+                    <span class="absolute bottom-4 right-4 bg-sarissa-dark/95 backdrop-blur-sm text-sarissa-gold text-xs font-bold px-3 py-1 rounded-lg">
+                        Figürlü Şeker Hamuru
+                    </span>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="text-xs text-sarissa-emerald font-bold mb-1">Doğum Günü Konseptleri</div>
+                    <h3 class="font-serif font-bold text-xl text-sarissa-dark mb-2 group-hover:text-sarissa-emerald transition-colors">
+                        Prenses & Süper Kahraman Temalı Butik Pastalar
+                    </h3>
+                    <p class="text-stone-600 text-xs leading-relaxed mb-6 flex-grow">
+                        Çocuğunuzun en sevdiği çizgi film karakteri ve renkleriyle özel olarak hazırlanan lezzetli, hafif ve neşeli doğum günü pastası.
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between mt-auto">
+                        <span class="text-emerald-700 text-xs font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check text-sarissa-emerald"></i> Birebir Model
+                        </span>
+                        <a href="https://wa.me/905000000000?text=Çocuk%20doğum%20günü%20butik%20pastası%20siparişi%20vermek%20istiyorum." target="_blank" 
+                           class="text-xs bg-sarissa-dark hover:bg-sarissa-emerald text-white font-bold px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5 shadow">
+                            <i class="fa-brands fa-whatsapp"></i> Model İlet
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. ÖZEL PASTA & MERASİM SİPARİŞ DANIŞMANI (İnteraktif Form) -->
+    <section id="ozel-pasta" class="py-24 bg-sarissa-dark text-white relative overflow-hidden border-t-4 border-b-4 border-sarissa-emerald">
+        
+        <!-- Ambient Green Glow Behind -->
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-sarissa-emerald/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-sarissa-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-sarissa-emeraldDark/80 border border-sarissa-emerald text-sarissa-goldLight px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-wand-magic-sparkles text-sarissa-gold"></i> Hayalinizdeki Pastayı Birlikte Tasarlayalım
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight leading-tight">
+                        Özel Günlerinize <br>
+                        <span class="text-gradient-emerald">Unutulmaz Bir Lezzet</span> & <br>
+                        <span class="text-gradient-gold">Görsel Zarafet.</span>
+                    </h2>
+
+                    <p class="text-stone-300 text-base font-light leading-relaxed">
+                        İster Instagram'da beğendiğiniz bir modelin ekran görüntüsünü bize getirin, ister çocuğunuzun sevdiği bir kahramanın konseptini tarif edin. Sarissa ustaları en taze malzemelerle hayalinizdeki pastayı birebir gerçeğe dönüştürür.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="bg-sarissa-darkSurface/90 p-4 rounded-2xl border border-sarissa-emerald/40">
+                            <div class="text-sarissa-emeraldLight font-bold text-sm mb-1 flex items-center gap-2">
+                                <i class="fa-solid fa-gem"></i> Nişan & Söz Merasimi
+                            </div>
+                            <p class="text-xs text-stone-300 leading-relaxed">
+                                Çiftlerin isimlerine özel tasarım, zarif çiçek detayları ve taze kuru pasta & baklava ikramlık paketleri.
+                            </p>
+                        </div>
+
+                        <div class="bg-sarissa-darkSurface/90 p-4 rounded-2xl border border-sarissa-gold/40">
+                            <div class="text-sarissa-gold font-bold text-sm mb-1 flex items-center gap-2">
+                                <i class="fa-solid fa-cake-candles"></i> Doğum Günü & Kutlamalar
+                            </div>
+                            <p class="text-xs text-stone-300 leading-relaxed">
+                                Yaş ve tema konseptli butik pastalar, çocuk figürleri, hafif pastacı kreması ve meyveli/çikolatalı alternatifler.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-sarissa-emeraldDark/40 border border-sarissa-emerald text-xs text-stone-300 flex items-center gap-3.5">
+                        <i class="fa-solid fa-truck text-sarissa-gold text-2xl shrink-0"></i>
+                        <span><strong>Sivas İçi Güvenli Teslimat:</strong> Katlı ve hassas butik pastalarınızı özel soğutmalı araç veya korumalı kutularda adresinize kadar sağlam teslim ediyoruz.</span>
+                    </div>
+                </div>
+
+                <!-- Right Form: Interaktif Sipariş Formu -->
+                <div class="lg:col-span-6">
+                    <div class="bg-sarissa-darkSurface p-8 sm:p-10 rounded-3xl border-2 border-sarissa-emerald shadow-2xl">
+                        
+                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-stone-800">
+                            <div>
+                                <h4 class="font-serif font-bold text-2xl text-white">Özel Pasta Siparişi Oluştur</h4>
+                                <p class="text-xs text-stone-400 mt-0.5">Bilgileri doldurun, WhatsApp'tan anında fiyat ve onay iletelim.</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-2xl bg-sarissa-emerald text-white flex items-center justify-center text-xl shadow">
+                                <i class="fa-solid fa-cake-candles"></i>
+                            </div>
+                        </div>
+
+                        <form onsubmit="handleSarissaOrder(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-stone-300 tracking-wider mb-1.5">Adınız & Soyadınız</label>
+                                <input type="text" id="sarissaName" placeholder="Örn: Ayşenur Yılmaz" required
+                                       class="w-full bg-sarissa-dark border border-sarissa-emerald/40 rounded-xl px-4 py-3 text-sm text-white focus:border-sarissa-emeraldLight focus:outline-none">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-stone-300 tracking-wider mb-1.5">Pasta Konsepti</label>
+                                    <select id="sarissaType" class="w-full bg-sarissa-dark border border-sarissa-emerald/40 rounded-xl px-4 py-3 text-sm text-white focus:border-sarissa-emeraldLight focus:outline-none">
+                                        <option value="Doğum Günü Butik Pastası">Doğum Günü Butik Pastası</option>
+                                        <option value="Nişan & Söz Pastası">Nişan & Söz Pastası</option>
+                                        <option value="Düğün Pastası (Çok Katlı)">Düğün Pastası (Çok Katlı)</option>
+                                        <option value="Tepsi Baklava & Kuru Pasta Seti">Tepsi Baklava & Kuru Pasta Seti</option>
+                                        <option value="Yıl Dönümü & Özel Kutlama">Yıl Dönümü & Özel Kutlama</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-stone-300 tracking-wider mb-1.5">Kişi Sayısı</label>
+                                    <select id="sarissaSize" class="w-full bg-sarissa-dark border border-sarissa-emerald/40 rounded-xl px-4 py-3 text-sm text-white focus:border-sarissa-emeraldLight focus:outline-none">
+                                        <option value="6 - 8 Kişilik">6 - 8 Kişilik</option>
+                                        <option value="10 - 12 Kişilik">10 - 12 Kişilik</option>
+                                        <option value="15 - 20 Kişilik">15 - 20 Kişilik</option>
+                                        <option value="25 - 30 Kişilik (Büyük)">25 - 30 Kişilik (Büyük)</option>
+                                        <option value="Katlı Merasim Pastası (50+ Kişi)">Katlı Merasim Pastası (50+ Kişi)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-stone-300 tracking-wider mb-1.5">Teslimat Tarihi</label>
+                                    <input type="date" id="sarissaDate" required
+                                           class="w-full bg-sarissa-dark border border-sarissa-emerald/40 rounded-xl px-4 py-3 text-sm text-white focus:border-sarissa-emeraldLight focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-stone-300 tracking-wider mb-1.5">İç Malzeme / Aroma</label>
+                                    <select id="sarissaFlavor" class="w-full bg-sarissa-dark border border-sarissa-emerald/40 rounded-xl px-4 py-3 text-sm text-white focus:border-sarissa-emeraldLight focus:outline-none">
+                                        <option value="Çikolatalı & Muzlu & Fıstıklı">Çikolatalı & Muzlu & Fıstıklı</option>
+                                        <option value="Taze Çilekli & Beyaz Kremalı">Taze Çilekli & Beyaz Kremalı</option>
+                                        <option value="Frambuazlı & Bitter Çikolatalı">Frambuazlı & Bitter Çikolatalı</option>
+                                        <option value="Krokanlı & Karamel Çikolatalı">Krokanlı & Karamel Çikolatalı</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-stone-300 tracking-wider mb-1.5">Pasta Üzerine Yazılacak Yazı / Model Notu</label>
+                                <textarea id="sarissaNote" rows="2" placeholder="Örn: İyi ki doğdun Prensesim 5 Yaşında. Örnek görseli WhatsApp açılınca göndereceğim..." required
+                                          class="w-full bg-sarissa-dark border border-sarissa-emerald/40 rounded-xl p-3 text-sm text-white focus:border-sarissa-emeraldLight focus:outline-none resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-sarissa-emerald hover:bg-sarissa-emeraldLight text-white font-black uppercase tracking-wider py-4 rounded-xl text-sm transition-all shadow-emerald-glow flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Siparişi WhatsApp'tan Hemen Gönder</span>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. NEDEN SARİSSA PASTA & BAKLAVA? (4 Temel Kalite Standardı) -->
+    <section id="neden-sarissa" class="py-20 bg-white border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-sarissa-emerald font-bold uppercase tracking-widest text-xs">Lezzet Standartlarımız & Güven</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-sarissa-dark tracking-tight mt-1">
+                    Neden <span class="text-sarissa-emerald">Sarissa Pasta & Baklava?</span>
+                </h2>
+                <p class="text-stone-600 text-sm mt-2">Sivas'ın özel günlerinde ve tatlı saatlerinde ilk akla gelen adres olmamızı sağlayan değerlerimiz.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Pillar 1 -->
+                <div class="bg-sarissa-cream p-8 rounded-3xl border border-stone-200 hover:border-sarissa-emerald hover:shadow-card-soft transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-sarissa-emerald/15 text-sarissa-emerald flex items-center justify-center text-2xl mb-6 group-hover:bg-sarissa-emerald group-hover:text-white transition-all">
+                        <i class="fa-solid fa-wheat-awn"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-sarissa-dark mb-2">%100 Doğal Tereyağı & Fıstık</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">
+                        Baklavalarımızda ve pastalarımızda glikoz şurubu veya katkı maddesi kullanmıyor; hakiki sade yağ ve birinci sınıf Antep fıstığı kullanıyoruz.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-sarissa-cream p-8 rounded-3xl border border-stone-200 hover:border-sarissa-emerald hover:shadow-card-soft transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-sarissa-emerald/15 text-sarissa-emerald flex items-center justify-center text-2xl mb-6 group-hover:bg-sarissa-emerald group-hover:text-white transition-all">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-sarissa-dark mb-2">Birebir Model Tasarımı</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">
+                        Gördüğünüz veya hayal ettiğiniz pasta modelinin fotoğrafını getirin; usta şeflerimiz en ince detayına kadar birebir tasarlasın.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-sarissa-cream p-8 rounded-3xl border border-stone-200 hover:border-sarissa-emerald hover:shadow-card-soft transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-sarissa-emerald/15 text-sarissa-emerald flex items-center justify-center text-2xl mb-6 group-hover:bg-sarissa-emerald group-hover:text-white transition-all">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-sarissa-dark mb-2">Her Sabah Sıcak Çıkış</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">
+                        Her gün sabah 08:00 itibarıyla fırınımızdan çıkan çıtır baklavalar, sıcak poğaçalar ve taze yaş pastalarla reyonlarımız yenilenir.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="bg-sarissa-cream p-8 rounded-3xl border border-stone-200 hover:border-sarissa-emerald hover:shadow-card-soft transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-sarissa-emerald/15 text-sarissa-emerald flex items-center justify-center text-2xl mb-6 group-hover:bg-sarissa-emerald group-hover:text-white transition-all">
+                        <i class="fa-solid fa-mug-saucer"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-sarissa-dark mb-2">Nezih Kafe & Aile Salonu</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">
+                        Şeyhşamil mağazamızda aileniz ve sevdiklerinizle sıcacık çay/kahve eşliğinde tatlılarınızı tadabileceğiniz ferah oturma salonu.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. S.S.S. (SIKÇA SORULAN SORULAR) -->
+    <section class="py-20 bg-sarissa-cream border-b border-stone-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <i class="fa-solid fa-circle-question text-3xl text-sarissa-emerald mb-3"></i>
+                <h2 class="text-3xl font-serif font-bold text-sarissa-dark tracking-tight">Sıkça Sorulan Sorular</h2>
+                <p class="text-stone-600 text-sm mt-1">Pasta siparişi, baklava tepsileri ve mağazamız hakkında merak edilenler.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <details class="group bg-white border border-stone-200 rounded-2xl p-5 cursor-pointer hover:border-sarissa-emerald transition-colors">
+                    <summary class="font-serif font-bold text-base text-sarissa-dark flex justify-between items-center outline-none">
+                        <span>Özel tasarım butik pastayı kaç gün önceden sipariş vermeliyim?</span>
+                        <span class="text-sarissa-emerald group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+                        Şeker hamurlu, figürlü, nişan veya düğün pastaları gibi özel işçilik gerektiren modeller için en az <strong>2 ile 3 gün önceden</strong> sipariş oluşturmanızı öneriyoruz. Standart yaş pastalarımız ise her an vitrinimizde taze olarak hazır bulunmaktadır.
+                    </div>
+                </details>
+
+                <!-- FAQ 2 -->
+                <details class="group bg-white border border-stone-200 rounded-2xl p-5 cursor-pointer hover:border-sarissa-emerald transition-colors">
+                    <summary class="font-serif font-bold text-base text-sarissa-dark flex justify-between items-center outline-none">
+                        <span>Düğün, nişan ve mevlid için tepsi baklava ve toplu kuru pasta alabiliyor muyuz?</span>
+                        <span class="text-sarissa-emerald group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+                        Evet! Sivas içi tüm düğün, söz, nişan ve mevlid organizasyonlarınız için kiloluk ya da tepsi bazında sıcak fırın çıkışlı baklava ve karışık tatlı/tuzlu kuru pasta siparişlerinizi özel indirimli fiyatlarla hazırlıyoruz.
+                    </div>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details class="group bg-white border border-stone-200 rounded-2xl p-5 cursor-pointer hover:border-sarissa-emerald transition-colors">
+                    <summary class="font-serif font-bold text-base text-sarissa-dark flex justify-between items-center outline-none">
+                        <span>Maraş dondurması paket servisi yapıyor musunuz?</span>
+                        <span class="text-sarissa-emerald group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+                        Evet, hakiki Maraş usulü dondurmamızı özel ısı yalıtımlı strafor kutularda paketleyerek erimeden evinize ulaştırabileceğiniz şekilde hazırlıyoruz.
+                    </div>
+                </details>
+
+                <!-- FAQ 4 -->
+                <details class="group bg-white border border-stone-200 rounded-2xl p-5 cursor-pointer hover:border-sarissa-emerald transition-colors">
+                    <summary class="font-serif font-bold text-base text-sarissa-dark flex justify-between items-center outline-none">
+                        <span>Mağazanız haftanın hangi günleri açık?</span>
+                        <span class="text-sarissa-emerald group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+                        Sarissa Pasta & Baklava, pazar günleri dahil olmak üzere <strong>haftanın her günü sabah 08:00'den gece 23:00'e kadar</strong> aralıksız hizmet vermektedir.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. MAĞAZAMIZ, KAFE & İLETİŞİM HUB (Şeyhşamil Merkez) -->
+    <section id="magaza" class="py-20 bg-sarissa-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="bg-sarissa-dark rounded-3xl p-8 sm:p-14 border-2 border-sarissa-emerald shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-sarissa-emerald/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid lg:grid-cols-12 gap-12 items-center relative z-10">
+                    
+                    <!-- Left Contact Details -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <span class="text-sarissa-emerald font-bold text-xs uppercase tracking-widest">Sıcak Bir Çay & Tatlı Keyfi</span>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight">
+                            Şeyhşamil'deki <br>
+                            <span class="text-gradient-emerald">Salonumuza Bekleriz</span>
+                        </h2>
+                        <p class="text-stone-300 text-sm sm:text-base font-light leading-relaxed max-w-xl">
+                            İster akşam ailenizle nefis bir dilim taze pasta ve çay eşliğinde sohbet edin, ister özel günleriniz için pasta modellerimizi vitrinde yakından inceleyip siparişinizi oluşturun.
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-sarissa-emerald/20 border border-sarissa-emerald text-sarissa-emeraldLight flex items-center justify-center shrink-0 mt-1">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-serif font-bold text-sm">Açık Adres</h4>
+                                    <p class="text-stone-400 text-xs mt-0.5">Şeyhşamil Mahallesi, Sivas / Merkez</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-sarissa-emerald/20 border border-sarissa-emerald text-sarissa-emeraldLight flex items-center justify-center shrink-0 mt-1">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-serif font-bold text-sm">Çalışma Saatleri</h4>
+                                    <p class="text-stone-400 text-xs mt-0.5">Haftanın 7 Günü: 08:00 - 23:00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <a href="https://maps.google.com/?q=Sarissa+Pasta+Baklava+Sivas" target="_blank" 
+                               class="bg-sarissa-emerald hover:bg-sarissa-emeraldLight text-white font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-xl transition-all shadow-emerald-glow flex items-center gap-2">
+                                <i class="fa-solid fa-diamond-turn-right"></i>
+                                <span>Haritada Yol Tarifi Al</span>
+                            </a>
+                            <a href="https://instagram.com/sarissa_pastanesi_sivas" target="_blank" 
+                               class="bg-sarissa-darkSurface hover:bg-stone-800 text-white font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-xl border border-sarissa-emerald/50 transition-all flex items-center gap-2">
+                                <i class="fa-brands fa-instagram text-pink-400 text-base"></i>
+                                <span>Instagram'da Takip Et</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Showcase Image (Storefront Vibe) -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="rounded-2xl overflow-hidden border-2 border-sarissa-emerald shadow-2xl relative group">
+                            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800&auto=format&fit=crop" 
+                                 alt="Sarissa Pasta Baklava Fırın & Kafe" 
+                                 class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-sarissa-dark via-transparent to-transparent"></div>
+                            
+                            <div class="absolute bottom-4 left-4 right-4 p-4 bg-sarissa-darkSurface/95 backdrop-blur-md rounded-xl border border-sarissa-emerald/40">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-sarissa-emerald text-white flex items-center justify-center font-black">
+                                        <i class="fa-solid fa-store"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-white font-serif font-bold text-xs">Sarissa Pasta & Baklava</div>
+                                        <div class="text-[10px] text-sarissa-gold">Şeyhşamil / Sivas</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 10. CLASSIC 4-COLUMN FOOTER (Brand Green & Dark) -->
+    <footer class="bg-sarissa-dark text-stone-400 pt-16 pb-8 border-t-4 border-sarissa-emerald">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 border-b border-stone-800 pb-12">
+                
+                <!-- Column 1: Brand -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-sarissa-emeraldDark border border-sarissa-emerald flex items-center justify-center text-sarissa-gold font-bold">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-cinzel font-bold text-xl text-white tracking-wider">SARİSSA</span>
+                            <span class="text-[0.6rem] text-sarissa-emeraldLight tracking-widest uppercase">Pasta • Baklava • Dondurma</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-xs text-stone-400 leading-relaxed mb-6 font-light">
+                        Sivas'ta sofralara tat katan el açması çıtır baklavalar, özel gün butik pastaları, Maraş dondurması ve taze kuru pastalarla hizmetinizdeyiz.
+                    </p>
+
+                    <div class="flex items-center gap-3">
+                        <a href="https://instagram.com/sarissa_pastanesi_sivas" target="_blank" class="w-9 h-9 rounded-xl bg-sarissa-darkSurface hover:bg-pink-600 text-white flex items-center justify-center text-sm transition-colors border border-stone-800">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/905000000000" target="_blank" class="w-9 h-9 rounded-xl bg-sarissa-darkSurface hover:bg-emerald-600 text-white flex items-center justify-center text-sm transition-colors border border-stone-800">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="https://maps.google.com/?q=Sarissa+Pasta+Baklava+Sivas" target="_blank" class="w-9 h-9 rounded-xl bg-sarissa-darkSurface hover:bg-sarissa-emerald text-white flex items-center justify-center text-sm transition-colors border border-stone-800">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Reyonlar -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider mb-5 border-l-2 border-sarissa-emerald pl-2.5">
+                        Lezzet Reyonlarımız
+                    </h4>
+                    <ul class="space-y-2.5 text-xs text-stone-400 font-light">
+                        <li><a href="#vitrin" onclick="filterSarissa('pasta')" class="hover:text-sarissa-emeraldLight transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-sarissa-emerald"></i> Butik Yaş Pastalar</a></li>
+                        <li><a href="#vitrin" onclick="filterSarissa('baklava')" class="hover:text-sarissa-emeraldLight transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-sarissa-emerald"></i> Fıstıklı Antep Baklavası</a></li>
+                        <li><a href="#vitrin" onclick="filterSarissa('dondurma')" class="hover:text-sarissa-emeraldLight transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-sarissa-emerald"></i> Hakiki Maraş Dondurması</a></li>
+                        <li><a href="#vitrin" onclick="filterSarissa('kuru')" class="hover:text-sarissa-emeraldLight transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-sarissa-emerald"></i> Tatlı & Tuzlu Kuru Pasta</a></li>
+                        <li><a href="#vitrin" onclick="filterSarissa('dugun')" class="hover:text-sarissa-emeraldLight transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-sarissa-emerald"></i> Nişan & Düğün Pastası</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Hızlı Erişim -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider mb-5 border-l-2 border-sarissa-emerald pl-2.5">
+                        Hızlı Erişim
+                    </h4>
+                    <ul class="space-y-2.5 text-xs text-stone-400 font-light">
+                        <li><a href="#ozel-pasta" class="hover:text-sarissa-emeraldLight transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-sarissa-emerald"></i> Özel Pasta Sipariş Formu</a></li>
+                        <li><a href="#kategoriler" class="hover:text-sarissa-emeraldLight transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-sarissa-emerald"></i> Öne Çıkan Reyonlar</a></li>
+                        <li><a href="#neden-sarissa" class="hover:text-sarissa-emeraldLight transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-sarissa-emerald"></i> Kalite Prensiplerimiz</a></li>
+                        <li><a href="#magaza" class="hover:text-sarissa-emeraldLight transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-sarissa-emerald"></i> Mağaza Konumu & Kroki</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: İletişim Detayları -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider mb-5 border-l-2 border-sarissa-emerald pl-2.5">
+                        Mağazamız (Sivas)
+                    </h4>
+                    <div class="space-y-3 text-xs text-stone-400 font-light">
+                        <div>
+                            <div class="text-white font-bold text-xs flex items-center gap-1.5">
+                                <i class="fa-solid fa-store text-sarissa-emerald"></i> Şeyhşamil Salonu:
+                            </div>
+                            <p class="text-[0.7rem] text-stone-400 mt-1">Şeyhşamil Mah. Sivas / Merkez</p>
+                        </div>
+                        <div class="pt-2 border-t border-stone-800">
+                            <span class="text-emerald-400 font-bold text-[11px] block">Haftanın Her Günü Açığız</span>
+                            <span class="text-[11px] text-stone-400">Çalışma Saatleri: 08:00 - 23:00</span>
+                        </div>
+                        <div class="pt-2 border-t border-stone-800">
+                            <span class="text-sarissa-gold font-bold text-[10px] uppercase">Özel Sipariş:</span>
+                            <p class="text-[10px] text-stone-400">2-3 gün önceden model iletiniz.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="text-center text-xs text-stone-500">
+                <p>&copy; 2026 SARİSSA PASTA & BAKLAVA. Tüm Hakları Saklıdır. Sivas / Merkez.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Category Filter
+        function filterSarissa(category) {
+            const tabs = document.querySelectorAll('.sarissa-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                tab.classList.add('bg-white', 'text-stone-700');
+            });
+
+            if (window.event && window.event.target && window.event.target.classList.contains('sarissa-tab')) {
+                window.event.target.classList.add('active');
+                window.event.target.classList.remove('bg-white', 'text-stone-700');
+            } else {
+                tabs.forEach(tab => {
+                    if (category === 'all' && tab.textContent.includes('Tüm')) {
+                        tab.classList.add('active');
+                        tab.classList.remove('bg-white', 'text-stone-700');
+                    }
+                });
+            }
+
+            const cards = document.querySelectorAll('.sarissa-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // WhatsApp Order Submit Handler
+        function handleSarissaOrder(e) {
+            e.preventDefault();
+            const name = document.getElementById('sarissaName').value;
+            const type = document.getElementById('sarissaType').value;
+            const size = document.getElementById('sarissaSize').value;
+            const date = document.getElementById('sarissaDate').value;
+            const flavor = document.getElementById('sarissaFlavor').value;
+            const note = document.getElementById('sarissaNote').value;
+
+            const text = `*🟢 SARİSSA PASTA & BAKLAVA SİVAS - ÖZEL SİPARİŞ TALEBİ 🟢*\n\n` +
+                         `*Müşteri:* ${name}\n` +
+                         `*Konsept / Ürün:* ${type}\n` +
+                         `*Kişi Sayısı / Gramaj:* ${size}\n` +
+                         `*Teslimat Tarihi:* ${date}\n` +
+                         `*İç Malzeme / Aroma:* ${flavor}\n\n` +
+                         `*Pasta Üzerine Yazılacak Not / Özel İstek:* ${note}\n\n` +
+                         `_Bu sipariş talebi Sarissa web sitesi üzerinden oluşturulmuştur. Örnek görsel varsa bu sohbete iletebilirsiniz._`;
+
+            const url = `https://wa.me/905000000000?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

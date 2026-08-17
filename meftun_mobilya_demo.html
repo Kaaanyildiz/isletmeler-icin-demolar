@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meftun Mobilya | İnegöl Mobilyası, Armis Yatak & Düğün Paketleri Sivas</title>
+    <meta name="description" content="Sivas'ın en büyük mobilya plazası. İnegöl Mobilyası, Armis Yatak ve Pierre Cardin yetkili bayisi. Lüks koltuk takımları, düğün paketleri ve yatak-baza setleri.">
+    
+    <!-- Google Fonts: Outfit (Modern Plaza Display) & Plus Jakarta Sans & Cormorant Garamond -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    },
+                    colors: {
+                        mf: {
+                            orange: '#E05A36',    /* Meftun Logo Turuncu/Terrakota */
+                            orangeLight: '#F97316',
+                            gold: '#F59E0B',      /* Sıcak Amber Vurgusu */
+                            navy: '#0F172A',      /* Plaza Koyu Lacivert */
+                            slate: '#1E293B',     /* Koyu Gri Panel */
+                            cream: '#FAF8F5',     /* Asil Porselen Kremi */
+                            linen: '#F3EFEA',     /* Keten Arka Plan */
+                            card: '#FFFFFF',      /* Bembeyaz Kart */
+                            border: '#E8E2D8',    /* İnce Sınır Çizgisi */
+                        }
+                    },
+                    boxShadow: {
+                        'mf-card': '0 20px 40px -15px rgba(15, 23, 42, 0.07)',
+                        'mf-hover': '0 25px 50px -12px rgba(224, 90, 54, 0.22)',
+                        'mf-orange': '0 10px 25px -4px rgba(224, 90, 54, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-cream: #FAF8F5;
+            --text-navy: #0F172A;
+            --color-orange: #E05A36;
+            --color-gold: #F59E0B;
+            --color-border: #E8E2D8;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-navy);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F3EFEA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E05A36;
+            border-radius: 999px;
+        }
+
+        /* Floating Island Navbar */
+        .mf-nav {
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(232, 226, 216, 0.9);
+            box-shadow: 0 15px 35px -10px rgba(15, 23, 42, 0.05);
+        }
+
+        /* Double-Bezel Architecture */
+        .bezel-outer {
+            background: rgba(232, 226, 216, 0.45);
+            padding: 0.35rem;
+            border-radius: 1.75rem;
+            border: 1px solid rgba(232, 226, 216, 0.9);
+            transition: all 0.45s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .bezel-inner {
+            background: #FFFFFF;
+            border-radius: calc(1.75rem - 0.35rem);
+            overflow: hidden;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .bezel-outer:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.1);
+            border-color: #E05A36;
+        }
+        .bezel-outer:hover img {
+            transform: scale(1.05);
+        }
+        .bezel-inner img {
+            transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+
+        /* Button-in-Button Luxury CTA */
+        .btn-meftun-primary {
+            background: linear-gradient(135deg, #E05A36 0%, #C44522 100%);
+            color: #FFFFFF;
+            padding: 0.5rem 0.5rem 0.5rem 1.6rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+            box-shadow: 0 10px 25px -5px rgba(224, 90, 54, 0.35);
+        }
+        .btn-meftun-primary .icon-bubble {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.35s ease;
+        }
+        .btn-meftun-primary:hover {
+            background: linear-gradient(135deg, #F97316 0%, #E05A36 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -5px rgba(224, 90, 54, 0.55);
+        }
+        .btn-meftun-primary:hover .icon-bubble {
+            background: #FFFFFF;
+            color: #E05A36;
+            transform: translateX(3px);
+        }
+
+        .btn-meftun-ghost {
+            background: transparent;
+            color: #0F172A;
+            border: 1.5px solid rgba(15, 23, 42, 0.2);
+            padding: 0.5rem 0.5rem 0.5rem 1.6rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+        .btn-meftun-ghost .icon-bubble {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 9999px;
+            background: rgba(15, 23, 42, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.35s ease;
+        }
+        .btn-meftun-ghost:hover {
+            border-color: #E05A36;
+            color: #E05A36;
+            background: rgba(224, 90, 54, 0.05);
+            transform: translateY(-2px);
+        }
+        .btn-meftun-ghost:hover .icon-bubble {
+            background: #E05A36;
+            color: #FFFFFF;
+            transform: translateX(3px);
+        }
+
+        /* Floating WhatsApp Button Pulse */
+        @keyframes pulseGlowOrange {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(224, 90, 54, 0.6); }
+            50% { box-shadow: 0 0 0 14px rgba(224, 90, 54, 0); }
+        }
+        .wa-floating-btn {
+            animation: pulseGlowOrange 2.5s infinite;
+        }
+    </style>
+</head>
+<body class="selection:bg-mf-orange selection:text-white">
+
+    <!-- 0. FLOATING ISLAND NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:pt-6 pointer-events-none">
+        <nav class="max-w-6xl mx-auto mf-nav rounded-full px-5 sm:px-8 py-3.5 flex items-center justify-between pointer-events-auto transition-all">
+            
+            <!-- Logo (Meftun Triple Triangle Emblem) -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-mf-orange via-mf-orangeLight to-amber-400 flex items-center justify-center text-white text-lg shadow-md group-hover:scale-105 transition-transform">
+                    <i class="ph-fill ph-house-line"></i>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-baseline gap-1">
+                        <span class="font-display text-xl sm:text-2xl font-black tracking-tight text-mf-navy leading-none">meftun</span>
+                        <span class="font-display text-xs sm:text-sm font-bold text-mf-orange">mobilya</span>
+                    </div>
+                    <span class="font-sans text-[8.5px] tracking-[0.25em] text-gray-500 uppercase font-semibold mt-0.5">Sivas • Kalitenin Adresi</span>
+                </div>
+            </a>
+
+            <!-- Nav Links -->
+            <div class="hidden md:flex items-center gap-7 font-sans text-xs uppercase tracking-[0.12em] font-bold text-mf-navy/80">
+                <a href="#salon" class="hover:text-mf-orange transition-colors">Salon & Koltuk</a>
+                <a href="#dugun-paketleri" class="hover:text-mf-orange transition-colors flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-mf-orange animate-ping"></span> Düğün Paketleri
+                </a>
+                <a href="#armis-yatak" class="hover:text-mf-orange transition-colors">Armis Yatak & Baza</a>
+                <a href="#yemek-odasi" class="hover:text-mf-orange transition-colors">Yemek Odası</a>
+                <a href="#hesaplayici" class="hover:text-mf-orange transition-colors">Paket Fiyatı Al</a>
+                <a href="#subeler" class="hover:text-mf-orange transition-colors">2 Büyük Şube</a>
+            </div>
+
+            <!-- Header Action Button -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/903462111142?text=Merhaba,%20Meftun%20Mobilya%20koleksiyonları%20ve%20kampanyalar%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-meftun-primary py-1.5 pl-4 pr-1.5 text-xs hidden sm:inline-flex">
+                    <span>Fiyat & Katalog</span>
+                    <span class="icon-bubble !w-7 !h-7 text-xs">
+                        <i class="ph-bold ph-arrow-up-right"></i>
+                    </span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-mf-navy p-1 text-2xl" onclick="toggleMobileMenu()">
+                    <i class="ph-bold ph-list"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden max-w-sm mx-auto mt-3 bg-white/95 backdrop-blur-2xl rounded-3xl p-6 shadow-2xl border border-mf-border space-y-3 pointer-events-auto">
+            <a href="#salon" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-mf-navy py-2 border-b border-gray-100">Koltuk & Salon Takımları</a>
+            <a href="#dugun-paketleri" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-mf-navy py-2 border-b border-gray-100">2026 Düğün Paketleri</a>
+            <a href="#armis-yatak" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-mf-navy py-2 border-b border-gray-100">Armis Yatak & Baza Dünyası</a>
+            <a href="#yemek-odasi" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-mf-navy py-2 border-b border-gray-100">Yemek Odası & Masalar</a>
+            <a href="#hesaplayici" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-mf-navy py-2 border-b border-gray-100">Fiyat & Paket Hesapla</a>
+            <a href="#subeler" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-mf-navy py-2">Şeyh Şamil & Numune Şubeleri</a>
+            <div class="pt-2">
+                <a href="https://wa.me/903462111142" target="_blank" class="btn-meftun-primary w-full justify-between text-xs py-2.5">
+                    <span>WhatsApp Danışma Hattı</span>
+                    <span class="icon-bubble !w-7 !h-7"><i class="ph-bold ph-whatsapp-logo"></i></span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. EDITORIAL HERO SECTION (PLAZA LUXURY) -->
+    <section class="relative min-h-[92vh] pt-32 pb-20 flex items-center justify-center overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 w-full">
+            
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left: Typography & Plaza Story -->
+                <div class="lg:col-span-6 flex flex-col justify-center" data-aos="fade-up" data-aos-duration="900">
+                    
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-mf-linen border border-mf-border text-mf-navy font-sans text-[10px] uppercase tracking-[0.25em] font-semibold w-max mb-6">
+                        <i class="ph-fill ph-seal-check text-mf-orange"></i>
+                        İnegöl Mobilyası • Armis Yatak • Pierre Cardin
+                    </div>
+
+                    <h1 class="font-display text-4xl sm:text-6xl lg:text-[4.5rem] font-black leading-[1.06] tracking-tight text-mf-navy mb-6">
+                        Evinize <br>
+                        <span class="font-serif italic font-normal text-mf-orange">Meftun</span> Olun.
+                    </h1>
+
+                    <p class="font-sans text-gray-600 text-sm sm:text-base font-normal leading-relaxed mb-8 max-w-lg">
+                        Sivas'ın 2 dev mobilya plazasıyla; İnegöl'ün en seçkin <strong>koltuk takımları</strong>, avantajlı <strong>düğün paketleri</strong> ve <strong>Armis ortopedik yatak</strong> konforu, <strong>ücretsiz nakliye & montaj</strong> ayrıcalığıyla evinizde.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4">
+                        <a href="#dugun-paketleri" class="btn-meftun-primary">
+                            <span>Düğün Paketlerini Keşfet</span>
+                            <span class="icon-bubble">
+                                <i class="ph-bold ph-heart"></i>
+                            </span>
+                        </a>
+                        <a href="https://wa.me/903462111142?text=Merhaba,%20Meftun%20Mobilya%20kampanyalı%20fiyat%20listesini%20istiyorum." target="_blank" class="btn-meftun-ghost">
+                            <span>Katalog & Fiyat İste</span>
+                            <span class="icon-bubble">
+                                <i class="ph-bold ph-whatsapp-logo"></i>
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Micro Metrics Bar -->
+                    <div class="grid grid-cols-3 gap-6 pt-10 mt-10 border-t border-mf-border">
+                        <div>
+                            <span class="font-display text-2xl font-bold text-mf-navy block">10.000+</span>
+                            <span class="font-sans text-[10px] uppercase tracking-wider text-gray-500 font-semibold">Mutlu Ev</span>
+                        </div>
+                        <div>
+                            <span class="font-display text-2xl font-bold text-mf-navy block">2 Büyük Şube</span>
+                            <span class="font-sans text-[10px] uppercase tracking-wider text-gray-500 font-semibold">Şeyh Şamil & Numune</span>
+                        </div>
+                        <div>
+                            <span class="font-display text-2xl font-bold text-mf-orange block">%25 İndirim</span>
+                            <span class="font-sans text-[10px] uppercase tracking-wider text-gray-500 font-semibold">Lansman Fırsatları</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: Visual Showroom Card -->
+                <div class="lg:col-span-6 relative" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="bezel-outer">
+                        <div class="bezel-inner relative aspect-[4/3] sm:aspect-[16/12]">
+                            <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Meftun Mobilya Sivas Lüks Koltuk Takımı" class="w-full h-full object-cover">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-mf-navy/80 via-transparent to-transparent"></div>
+
+                            <!-- Bottom Floating Label -->
+                            <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white z-10">
+                                <div>
+                                    <span class="text-[10px] uppercase tracking-[0.2em] font-medium text-mf-linen block">2026 Koleksiyonu</span>
+                                    <h3 class="font-display text-lg sm:text-xl font-bold">İtalyan Bukle & Nubuk Oturma Grubu</h3>
+                                </div>
+                                <a href="https://wa.me/903462111142?text=Koltuk%20takımı%20modelleriniz%20ve%20kampanyaları%20hakkında%20fiyat%20istiyorum." target="_blank" class="bg-white/20 hover:bg-white text-white hover:text-mf-navy backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold tracking-wider transition-all flex items-center gap-1.5 shrink-0">
+                                    <span>Fiyat Al</span>
+                                    <i class="ph-bold ph-whatsapp-logo"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 2. RESMİ MARKA ORTAKLIKLARI BANDI -->
+    <section class="py-12 bg-white border-t border-b border-mf-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center">
+                
+                <div class="flex items-center gap-4 p-5 rounded-2xl bg-mf-cream border border-mf-border shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-orange-100 text-mf-orange flex items-center justify-center text-2xl shrink-0">
+                        <i class="ph-fill ph-bed"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-display font-bold text-mf-navy text-sm uppercase tracking-wider">ARMİS YATAK YETKİLİ BAYİ</h4>
+                        <p class="text-xs text-gray-500">Omurga dostu ortopedik yataklar ve çelik sandıklı baza serileri.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 p-5 rounded-2xl bg-mf-cream border border-mf-border shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-mf-gold flex items-center justify-center text-2xl shrink-0">
+                        <i class="ph-fill ph-crown"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-display font-bold text-mf-navy text-sm uppercase tracking-wider">PIERRE CARDIN HOME</h4>
+                        <p class="text-xs text-gray-500">Fransız zarafetini evinize taşıyan lüks halı ve mobilya tasarımları.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 p-5 rounded-2xl bg-mf-cream border border-mf-border shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-slate-100 text-mf-navy flex items-center justify-center text-2xl shrink-0">
+                        <i class="ph-fill ph-couch"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-display font-bold text-mf-navy text-sm uppercase tracking-wider">İNEGÖL MOBİLYASI</h4>
+                        <p class="text-xs text-gray-500">Doğrudan fabrika çıkış fiyatları ve 1. sınıf işçilik güvencesi.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. RÜYA DÜĞÜN PAKETLERİ (ÖZEL KAMPANYA ALANI) -->
+    <section id="dugun-paketleri" class="py-24 bg-mf-navy text-white relative overflow-hidden border-b border-mf-border">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-16" data-aos="fade-up">
+                <div>
+                    <span class="text-mf-orange font-sans text-xs uppercase tracking-[0.25em] font-bold block mb-2">2026 ÇEYİZ FIRSATI</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-black text-white">Meftun Rüya Düğün Paketleri</h2>
+                    <p class="text-gray-300 text-sm sm:text-base mt-2 max-w-2xl font-light">
+                        Yatak Odası + Yemek Odası + Koltuk Takımı tek fiyatta! Sivas'ın en çok tercih edilen komple ev kurma paketleri.
+                    </p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/15 flex items-center gap-3 shrink-0">
+                    <i class="ph-fill ph-gift text-3xl text-mf-orange"></i>
+                    <div>
+                        <span class="text-xs text-gray-300 block">Düğün Paketi Alanlara</span>
+                        <span class="font-display font-bold text-sm text-white">Armis Yatak veya Sehpa Hediyesi!</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wedding Package Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Package 1 -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col justify-between hover:border-mf-orange transition-all" data-aos="fade-up" data-aos-delay="0">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-white/10 text-white font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-white/20">Ekonomik Konsept</span>
+                            <span class="text-mf-gold text-xs font-bold flex items-center gap-1"><i class="ph-fill ph-star"></i> İnegöl Seri</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl text-white mb-2">Asil Gold Düğün Seti</h3>
+                        <p class="text-xs text-gray-300 mb-6 font-light leading-relaxed">Modern hatlara sahip 6 kapaklı gardırop, açılır yemek masası ve yataklı nubuk koltuk takımı.</p>
+                        
+                        <div class="space-y-3 mb-8 pt-4 border-t border-white/10 text-xs text-gray-200 font-light">
+                            <div class="flex items-center gap-2"><i class="ph-bold ph-check text-mf-orange"></i> <strong>Koltuk Takımı:</strong> 3+3+1+1 Yataklı ve Sandıklı Nubuk Takım</div>
+                            <div class="flex items-center gap-2"><i class="ph-bold ph-check text-mf-orange"></i> <strong>Yatak Odası:</strong> 6 Kapaklı Dolap + Sandıklı Baza + Başlık</div>
+                            <div class="flex items-center gap-2"><i class="ph-bold ph-check text-mf-orange"></i> <strong>Yemek Odası:</strong> Açılır Masa + 6 Sandalye + Aynalı Konsol</div>
+                            <div class="flex items-center gap-2"><i class="ph-bold ph-check text-mf-gold"></i> <strong>Hediye:</strong> 3'lü Zigon Sehpa & Ücretsiz Montaj</div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/903462111142?text=Asil%20Gold%20Düğün%20Seti%20kampanya%20fiyatını%20öğrenmek%20istiyorum." target="_blank" class="btn-meftun-ghost !text-white !border-white/20 hover:!border-white w-full justify-between text-xs py-2.5">
+                        <span>Paket Fiyatı Al</span>
+                        <span class="icon-bubble !bg-white/10 !text-white"><i class="ph-bold ph-arrow-right"></i></span>
+                    </a>
+                </div>
+
+                <!-- Package 2: Featured -->
+                <div class="bg-gradient-to-b from-white/10 to-white/5 border-2 border-mf-orange rounded-3xl p-8 flex flex-col justify-between shadow-2xl relative" data-aos="fade-up" data-aos-delay="100">
+                    <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-mf-orange text-white font-sans text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full shadow-md">En Çok Satan Düğün Paketi</span>
+                    <div>
+                        <div class="flex justify-between items-start mb-4 mt-2">
+                            <span class="bg-mf-orange/20 text-mf-orange font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-mf-orange/30">VIP Plaza Seri</span>
+                            <span class="text-mf-gold text-xs font-bold flex items-center gap-1"><i class="ph-fill ph-star"></i> Özel Lansman</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl text-white mb-2">Zümrüt Lüks Çeyiz Paketi</h3>
+                        <p class="text-xs text-gray-300 mb-6 font-light leading-relaxed">İtalyan dikişli relax bukle koltuk takımı, sürgülü aynalı gardırop ve mermer desenli şık yemek masası.</p>
+                        
+                        <div class="space-y-3 mb-8 pt-4 border-t border-white/10 text-xs text-gray-200 font-light">
+                            <div class="flex items-center gap-2"><i class="ph-bold ph-check text-mf-orange"></i> <strong>Koltuk Takımı:</strong> İtalyan Relax Mekanizmalı Bukle Koltuk Grubu</div>
+                            <div class="flex items-center gap-2"><i class="ph-bold ph-check text-mf-orange"></i> <strong>Yatak Odası:</strong> Sürgülü LED'li Dolap + Çelik Baza + Başlık</div>
+                            <div class="flex items-center gap-2"><i class="ph-bold ph-check text-mf-orange"></i> <strong>Yemek Odası:</strong> Mermer Desen Açılır Masa + 6 Sandalye + Konsol</div>
+                            <div class="flex items-center gap-2"><i class="ph-bold ph-check text-mf-gold"></i> <strong>Hediye:</strong> Armis Ortopedik Çift Kişilik Yatak</div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/903462111142?text=Zümrüt%20Lüks%20Çeyiz%20Paketi%20fiyatını%20ve%20kampanya%20detaylarını%20istiyorum." target="_blank" class="btn-meftun-primary w-full justify-between text-xs py-3">
+                        <span>İndirimli Fiyatı İste</span>
+                        <span class="icon-bubble"><i class="ph-bold ph-arrow-right"></i></span>
+                    </a>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col justify-between hover:border-mf-orange transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-white/10 text-white font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-white/20">Modern İskandinav</span>
+                            <span class="text-mf-gold text-xs font-bold flex items-center gap-1"><i class="ph-fill ph-star"></i> Trend</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl text-white mb-2">Modern Loft Düğün Paketi</h3>
+                        <p class="text-xs text-gray-300 mb-6 font-light leading-relaxed">Ferah ve aydınlık daireler için tasarlanmış kompakt, fonksiyonel ve leke tutmaz kumaşlı konsept seti.</p>
+                        
+                        <div class="space-y-3 mb-8 pt-4 border-t border-white/10 text-xs text-gray-200 font-light">
+                            <div class="flex items-center gap-2"><i class="ph-bold ph-check text-mf-orange"></i> <strong>Koltuk Takımı:</strong> 3+3+1 Yataklı & Sandıklı Modern Oturma Grubu</div>
+                            <div class="flex items-center gap-2"><i class="ph-bold ph-check text-mf-orange"></i> <strong>Yatak Odası:</strong> 5 Kapaklı Dolap + Çelik Baza + Başlık + Şifonyer</div>
+                            <div class="flex items-center gap-2"><i class="ph-bold ph-check text-mf-orange"></i> <strong>Yemek Odası:</strong> 6 Kişilik Açılır Masa + Sandalyeler + TV Sehpası</div>
+                            <div class="flex items-center gap-2"><i class="ph-bold ph-check text-mf-gold"></i> <strong>Hediye:</strong> Orta Sehpa Seti & Ücretsiz Teslimat</div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/903462111142?text=Modern%20Loft%20Düğün%20Paketi%20hakkında%20bilgi%20istiyorum." target="_blank" class="btn-meftun-ghost !text-white !border-white/20 hover:!border-white w-full justify-between text-xs py-2.5">
+                        <span>Paket Fiyatı Al</span>
+                        <span class="icon-bubble !bg-white/10 !text-white"><i class="ph-bold ph-arrow-right"></i></span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. TÜM MOBİLYA KOLEKSİYONLARI (BENTO GRID) -->
+    <section id="salon" class="py-24 bg-mf-linen/50 border-b border-mf-border">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16" data-aos="fade-up">
+                <div>
+                    <span class="text-mf-orange font-sans text-xs uppercase tracking-[0.25em] font-bold block mb-2">PLAZA KOLEKSİYONLARI</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-black text-mf-navy">Yaşam Alanı Seçenekleri</h2>
+                </div>
+                <p class="text-gray-600 text-xs sm:text-sm max-w-md font-normal leading-relaxed">
+                    İnegöl Mobilyası, Armis Yatak ve Pierre Cardin kalitesiyle evinizin her köşesine zarafet katıyoruz.
+                </p>
+            </div>
+
+            <!-- Bento Products Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                
+                <!-- 1. Koltuk Takımları (Span 7) -->
+                <div class="md:col-span-7 bezel-outer" data-aos="fade-up">
+                    <div class="bezel-inner p-8 sm:p-10 relative group min-h-[380px] justify-between">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Lüks Koltuk Takımı İnegöl Mobilyası" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-mf-navy/85 via-mf-navy/30 to-transparent"></div>
+                        
+                        <div class="relative z-10">
+                            <span class="bg-white/90 backdrop-blur-md text-mf-navy font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">Yataklı & Sandıklı</span>
+                        </div>
+
+                        <div class="relative z-10 text-white mt-24">
+                            <h3 class="font-display text-2xl sm:text-3xl font-bold mb-2">Koltuk & Salon Takımları</h3>
+                            <p class="text-xs sm:text-sm text-mf-linen max-w-md font-light mb-4">
+                                Leke tutmaz silinebilir nubuk ve İtalyan bukle kumaşlar, 32 DNS ortopedik sünger konforu ve yatak mekanizmaları.
+                            </p>
+                            <a href="https://wa.me/903462111142?text=Koltuk%20takımı%20modellerinizi%20görmek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-mf-gold hover:text-white transition-colors">
+                                Koltuk Modellerini Gör <i class="ph-bold ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Armis Yatak & Baza (Span 5) -->
+                <div id="armis-yatak" class="md:col-span-5 bezel-outer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bezel-inner p-8 sm:p-10 relative group min-h-[380px] justify-between">
+                        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Armis Yatak ve Baza Dünyası" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-mf-navy/85 via-mf-navy/30 to-transparent"></div>
+                        
+                        <div class="relative z-10">
+                            <span class="bg-mf-orange text-white font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">Armis Yatak Yetkili Bayi</span>
+                        </div>
+
+                        <div class="relative z-10 text-white mt-24">
+                            <h3 class="font-display text-2xl sm:text-3xl font-bold mb-2">Armis Yatak & Baza Serisi</h3>
+                            <p class="text-xs sm:text-sm text-mf-linen font-light mb-4">
+                                Omurga dostu tam ortopedik yaylı/visco yataklar, çelik profilli ağır yük amortisörlü bazalar ve şık başlıklar.
+                            </p>
+                            <a href="https://wa.me/903462111142?text=Armis%20yatak%20ve%20baza%20fiyatlarını%20öğrenmek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-mf-gold hover:text-white transition-colors">
+                                Yatak & Baza Fiyatları <i class="ph-bold ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Yemek Odası & Açılır Masalar (Span 5) -->
+                <div id="yemek-odasi" class="md:col-span-5 bezel-outer" data-aos="fade-up" data-aos-delay="0">
+                    <div class="bezel-inner p-8 sm:p-10 relative group min-h-[360px] justify-between">
+                        <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Yemek Odası ve Açılır Masa Takımları" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-mf-navy/85 via-mf-navy/30 to-transparent"></div>
+                        
+                        <div class="relative z-10">
+                            <span class="bg-white/90 backdrop-blur-md text-mf-navy font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">Açılır Masalar</span>
+                        </div>
+
+                        <div class="relative z-10 text-white mt-20">
+                            <h3 class="font-display text-2xl sm:text-3xl font-bold mb-2">Yemek Odası & Masa Setleri</h3>
+                            <p class="text-xs sm:text-sm text-mf-linen font-light mb-4">
+                                Misafirleriniz için 8-10 kişiye açılan mermer desen ve ahşap masalar, ergonomik sandalyeler ve konsollar.
+                            </p>
+                            <a href="https://wa.me/903462111142?text=Yemek%20odası%20ve%20masa%20takımlarını%20görmek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-mf-gold hover:text-white transition-colors">
+                                Masa Takımlarını Gör <i class="ph-bold ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Köşe & L Koltuklar (Span 7) -->
+                <div class="md:col-span-7 bezel-outer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bezel-inner p-8 sm:p-10 relative group min-h-[360px] justify-between">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Köşe Koltuk ve L Takımları" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-mf-navy/85 via-mf-navy/30 to-transparent"></div>
+                        
+                        <div class="relative z-10">
+                            <span class="bg-mf-orange text-white font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">Modüler Lüks</span>
+                        </div>
+
+                        <div class="relative z-10 text-white mt-20">
+                            <h3 class="font-display text-2xl sm:text-3xl font-bold mb-2">Köşe & L Koltuk Takımları</h3>
+                            <p class="text-xs sm:text-sm text-mf-linen max-w-md font-light mb-4">
+                                Odanızın alanına göre yönü değiştirilebilen, yatak ve baza özellikli çağdaş köşe koltuk çözümleri.
+                            </p>
+                            <a href="https://wa.me/903462111142?text=Köşe%20koltuk%20modellerini%20incelemek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-mf-gold hover:text-white transition-colors">
+                                Köşe Modellerini İncele <i class="ph-bold ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. İNTERAKTİF "EVİNİ MEFTUN ET" FİYAT & PAKET HESAPLAYICI -->
+    <section id="hesaplayici" class="py-24 bg-white relative border-b border-mf-border">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <div class="text-center max-w-xl mx-auto mb-14" data-aos="fade-up">
+                <span class="text-mf-orange font-sans text-xs uppercase tracking-[0.25em] font-bold block mb-2">DANIŞMA & HIZLI TEKLİF</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-black text-mf-navy">Kendi Ev Paketini Seç</h2>
+                <p class="text-gray-600 text-xs sm:text-sm mt-2">İhtiyacınız olan ürünleri seçin; Sivas içi ücretsiz teslimat ve montaj dahil anında teklif gelsin.</p>
+            </div>
+
+            <div class="bezel-outer" data-aos="fade-up">
+                <div class="bezel-inner p-8 sm:p-12">
+                    
+                    <!-- Step 1: Category Selection -->
+                    <div class="mb-8">
+                        <label class="font-sans text-xs uppercase tracking-widest text-gray-500 font-bold block mb-3">1. İhtiyaç Türünüzü Seçin:</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <button type="button" onclick="setMeftunType(this, 'Düğün / Çeyiz Paketi')" class="meftun-type-btn active p-4 rounded-2xl border-2 border-mf-orange bg-orange-50 text-left transition-all">
+                                <span class="font-display font-bold text-base text-mf-navy block">Düğün Paketi (Tam Ev)</span>
+                                <span class="text-[11px] text-gray-500">Salon + Yatak + Yemek</span>
+                            </button>
+                            <button type="button" onclick="setMeftunType(this, 'Koltuk & Salon Takımı')" class="meftun-type-btn p-4 rounded-2xl border border-mf-border bg-white text-left hover:border-mf-orange transition-all">
+                                <span class="font-display font-bold text-base text-mf-navy block">Koltuk & Salon</span>
+                                <span class="text-[11px] text-gray-500">Yataklı Nubuk / Bukle</span>
+                            </button>
+                            <button type="button" onclick="setMeftunType(this, 'Armis Yatak & Baza Seti')" class="meftun-type-btn p-4 rounded-2xl border border-mf-border bg-white text-left hover:border-mf-orange transition-all">
+                                <span class="font-display font-bold text-base text-mf-navy block">Armis Yatak & Baza</span>
+                                <span class="text-[11px] text-gray-500">Ortopedik Yatak + Çelik Baza</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Feature Checkboxes -->
+                    <div class="mb-8">
+                        <label class="font-sans text-xs uppercase tracking-widest text-gray-500 font-bold block mb-3">2. Dahil Edilecek Özellikleri Seçin:</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="flex items-center gap-3 p-4 rounded-2xl border border-mf-border bg-mf-cream cursor-pointer hover:border-mf-orange transition-all shadow-sm">
+                                <input type="checkbox" name="meftun_features" value="İnegöl Yataklı & Sandıklı Koltuk Takımı" class="w-4 h-4 accent-orange-600" checked>
+                                <span class="text-xs sm:text-sm font-medium text-mf-navy">İnegöl Yataklı & Sandıklı Koltuk Takımı</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-4 rounded-2xl border border-mf-border bg-mf-cream cursor-pointer hover:border-mf-orange transition-all shadow-sm">
+                                <input type="checkbox" name="meftun_features" value="Geniş Gardıroplu Yatak Odası Takımı" class="w-4 h-4 accent-orange-600" checked>
+                                <span class="text-xs sm:text-sm font-medium text-mf-navy">Geniş Gardıroplu Yatak Odası Takımı</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-4 rounded-2xl border border-mf-border bg-mf-cream cursor-pointer hover:border-mf-orange transition-all shadow-sm">
+                                <input type="checkbox" name="meftun_features" value="Açılır Masa & 6 Sandalye" class="w-4 h-4 accent-orange-600" checked>
+                                <span class="text-xs sm:text-sm font-medium text-mf-navy">Açılır Yemek Masası & 6 Sandalye</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-4 rounded-2xl border border-mf-border bg-mf-cream cursor-pointer hover:border-mf-orange transition-all shadow-sm">
+                                <input type="checkbox" name="meftun_features" value="Armis Ortopedik Yatak ve Çelik Baza" class="w-4 h-4 accent-orange-600">
+                                <span class="text-xs sm:text-sm font-medium text-mf-navy">Armis Çift Kişilik Yatak + Çelik Baza</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Action Output -->
+                    <div class="pt-6 border-t border-mf-border flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div class="text-center sm:text-left">
+                            <span class="text-xs text-gray-500 font-medium block">Sivas içi tüm adreslere ücretsiz nakliye ve profesyonel montaj hediyedir.</span>
+                            <span class="text-xs text-mf-orange font-bold flex items-center gap-1 mt-0.5 justify-center sm:justify-start">
+                                <i class="ph-bold ph-truck"></i> Sivas İçi Ücretsiz Nakliye + Kurulum
+                            </span>
+                        </div>
+                        <button type="button" onclick="sendMeftunQuote()" class="btn-meftun-primary w-full sm:w-auto">
+                            <span>WhatsApp'tan Teklif Al</span>
+                            <span class="icon-bubble"><i class="ph-bold ph-whatsapp-logo"></i></span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. ŞUBELERİMİZ & 2 BÜYÜK MAĞAZA BİLGİSİ -->
+    <section id="subeler" class="py-24 bg-mf-cream relative border-b border-mf-border">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-mf-orange font-sans text-xs uppercase tracking-[0.25em] font-bold block mb-2">SİVAS'TA 2 DEV SHOWROOM</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-black text-mf-navy">Mağazalarımız</h2>
+                <div class="w-16 h-1 bg-mf-orange mx-auto mb-3 mt-3"></div>
+                <p class="text-gray-600 text-sm font-normal">Yüzlerce koltuk takımı, yatak odası ve Armis yatak teşhirimizi yakından görmek için sizleri plazamıza bekliyoruz.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Branch 1: Şeyh Şamil Plaza -->
+                <div class="bg-white rounded-3xl p-8 border border-mf-border shadow-mf-card flex flex-col justify-between" data-aos="fade-right">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-orange-100 text-mf-orange font-sans text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Şube 1 • Merkez Plaza</span>
+                            <span class="text-xs text-green-600 font-bold flex items-center gap-1"><i class="ph-fill ph-clock"></i> Haftanın 7 Günü Açık</span>
+                        </div>
+                        <h3 class="font-display font-black text-2xl text-mf-navy mb-2">Şeyh Şamil Plazası</h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mb-6 leading-relaxed">
+                            Şeyh Şamil Mah. Kazım Karabekir Cad. No:8\A Merkez/SİVAS<br>
+                            Çok katlı salon takımları, yemek odaları ve düğün paketleri ana showroomu.
+                        </p>
+
+                        <div class="space-y-2.5 mb-6 text-xs text-gray-700 font-medium">
+                            <div class="flex items-center gap-2"><i class="ph-fill ph-phone-call text-mf-orange text-base"></i> Tel: 0346 211 11 42</div>
+                            <div class="flex items-center gap-2"><i class="ph-fill ph-instagram-logo text-mf-orange text-base"></i> @meftunmobilya_sivas (10.2K Takipçi)</div>
+                        </div>
+                    </div>
+
+                    <a href="https://maps.google.com/?q=Şeyh+Şamil+Kazım+Karabekir+Cad+No+8+A+Sivas" target="_blank" class="btn-meftun-primary w-full justify-center text-xs py-3">
+                        <i class="ph-fill ph-navigation-arrow text-base"></i> Şeyh Şamil Plazaya Yol Tarifi Al
+                    </a>
+                </div>
+
+                <!-- Branch 2: Numune Hastanesi Yanı -->
+                <div class="bg-white rounded-3xl p-8 border border-mf-border shadow-mf-card flex flex-col justify-between" data-aos="fade-left">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-amber-100 text-mf-gold font-sans text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Şube 2 • Numune Yanı</span>
+                            <span class="text-xs text-green-600 font-bold flex items-center gap-1"><i class="ph-fill ph-clock"></i> Haftanın 7 Günü Açık</span>
+                        </div>
+                        <h3 class="font-display font-black text-2xl text-mf-navy mb-2">Numune Hastanesi Yanı Şubesi</h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mb-6 leading-relaxed">
+                            Yeşilyurt Mah. Şifa Cad. No:35/A (Numune Hastanesi Yanı) Merkez/SİVAS<br>
+                            Armis Yatak dünyası, baza-başlık ve köşe koltuk teşhir showroomu.
+                        </p>
+
+                        <div class="space-y-2.5 mb-6 text-xs text-gray-700 font-medium">
+                            <div class="flex items-center gap-2"><i class="ph-fill ph-phone-call text-mf-orange text-base"></i> Tel: 0346 211 11 42</div>
+                            <div class="flex items-center gap-2"><i class="ph-fill ph-truck text-mf-orange text-base"></i> Sivas İçi Ücretsiz Nakliye ve Montaj</div>
+                        </div>
+                    </div>
+
+                    <a href="https://maps.google.com/?q=Yeşilyurt+Mah+Şifa+Cad+No+35+A+Sivas" target="_blank" class="btn-meftun-ghost w-full justify-center text-xs py-3">
+                        <i class="ph-fill ph-navigation-arrow text-base"></i> Numune Şubesine Yol Tarifi Al
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. FOOTER -->
+    <footer class="bg-mf-navy text-white pt-20 pb-10 border-t border-white/10 font-sans">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+                
+                <div class="md:col-span-5">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-xl bg-mf-orange flex items-center justify-center text-white text-base">
+                            <i class="ph-fill ph-house-line"></i>
+                        </div>
+                        <span class="font-display text-2xl font-black tracking-widest text-white">MEFTUN MOBİLYA</span>
+                    </div>
+                    <p class="text-xs text-gray-400 font-light leading-relaxed max-w-sm mb-6">
+                        Sivas'ın lider mobilya plazası. İnegöl Mobilyası, Armis Yatak ve Pierre Cardin yetkili bayisi. Lüks koltuk takımları ve komple düğün paketleri.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="https://www.instagram.com/meftunmobilya_sivas/" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-mf-orange hover:text-white transition-colors">
+                            <i class="ph-fill ph-instagram-logo text-base"></i>
+                        </a>
+                        <a href="https://wa.me/903462111142" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-green-500 hover:text-white transition-colors">
+                            <i class="ph-fill ph-whatsapp-logo text-base"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3">
+                    <h4 class="font-display text-xs uppercase tracking-[0.2em] font-bold text-mf-orange mb-4">Koleksiyonlarımız</h4>
+                    <ul class="space-y-2.5 text-xs text-gray-400 font-light">
+                        <li><a href="#dugun-paketleri" class="hover:text-white transition-colors">2026 Düğün Paketleri</a></li>
+                        <li><a href="#salon" class="hover:text-white transition-colors">Koltuk & Salon Takımları</a></li>
+                        <li><a href="#armis-yatak" class="hover:text-white transition-colors">Armis Yatak & Baza Serisi</a></li>
+                        <li><a href="#yemek-odasi" class="hover:text-white transition-colors">Açılır Yemek Masaları</a></li>
+                        <li><a href="#salon" class="hover:text-white transition-colors">Köşe & L Koltuklar</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4">
+                    <h4 class="font-display text-xs uppercase tracking-[0.2em] font-bold text-mf-orange mb-4">Plaza & Şubelerimiz</h4>
+                    <p class="text-xs text-gray-400 font-light leading-relaxed mb-3">
+                        <strong>1. Şube:</strong> Şeyh Şamil Mah. Kazım Karabekir Cad. No:8\A<br>
+                        <strong>2. Şube:</strong> Yeşilyurt Mah. Şifa Cad. No:35/A (Numune Yanı)
+                    </p>
+                    <a href="https://wa.me/903462111142" target="_blank" class="text-xs text-mf-orange hover:underline font-bold block mb-1">
+                        Tel: 0346 211 11 42
+                    </a>
+                    <span class="text-[11px] text-gray-500">Instagram: @meftunmobilya_sivas (10.2K)</span>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-gray-500 font-light">
+                <p>&copy; 2026 Meftun Mobilya. Tüm Hakları Saklıdır. Sivas İnegöl Mobilyası & Armis Yatak Satış Merkezi.</p>
+                <p>Kalitenin Adresi • Evinize Meftun Olun</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 8. FLOATING WHATSAPP CONCIERGE -->
+    <a href="https://wa.me/903462111142?text=Merhaba,%20Meftun%20Mobilya%20modelleri%20ve%20kampanyaları%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-mf-orange text-white rounded-full flex items-center justify-center text-2xl shadow-2xl wa-floating-btn hover:scale-110 transition-transform" title="WhatsApp Bilgi & Sipariş">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 40,
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+
+        // Custom Selection Variable
+        let selectedMeftunType = 'Düğün / Çeyiz Paketi';
+
+        function setMeftunType(button, type) {
+            const buttons = document.querySelectorAll('.meftun-type-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'border-2', 'border-mf-orange', 'bg-orange-50');
+                btn.classList.add('border', 'border-mf-border', 'bg-white');
+            });
+            button.classList.add('active', 'border-2', 'border-mf-orange', 'bg-orange-50');
+            button.classList.remove('border', 'border-mf-border', 'bg-white');
+            selectedMeftunType = type;
+        }
+
+        function sendMeftunQuote() {
+            const checkboxes = document.querySelectorAll('input[name="meftun_features"]:checked');
+            const selectedFeatures = Array.from(checkboxes).map(cb => cb.value);
+
+            let message = `Merhaba Meftun Mobilya,%20evimiz%20için%20özel%20fiyat%20teklifi%20almak%20istiyoruz.%0A%0A`;
+            message += `🛋️%20*İhtiyaç%20Türü:*%20${encodeURIComponent(selectedMeftunType)}%0A`;
+            
+            if (selectedFeatures.length > 0) {
+                message += `📦%20*Seçilen%20Mobilyalar:*%0A`;
+                selectedFeatures.forEach(feat => {
+                    message += `•%20${encodeURIComponent(feat)}%0A`;
+                });
+            } else {
+                message += `📦%20*Talep:*%202026%20Düğün%20paketi%20ve%20kampanyalı%20katalog%20istiyorum.%0A`;
+            }
+
+            message += `%0ASivas%20içi%20ücretsiz%20nakliye%20ve%20montaj%20dahil%20fiyat%20bilgisi%20alabilir%20miyiz?`;
+
+            window.open(`https://wa.me/903462111142?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>

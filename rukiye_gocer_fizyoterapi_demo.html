@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fzt. Rukiye Göçer | Fizyoterapi & Klinik Reformer Pilates Sivas</title>
+    <meta name="description" content="Sivas'ta Fizyoterapist Rukiye Göçer ile Manuel Terapi, Kişiye Özel Reformer Pilates, Hamile Pilatesi, Ortopedik Rehabilitasyon ve Duruş Düzeltme.">
+    
+    <!-- Google Fonts: Cormorant Garamond (Calming Editorial Serif) & Plus Jakarta Sans & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                        display: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        rg: {
+                            sage: '#2D4B3E',       /* Şifalı Okaliptüs / Adaçayı Yeşili */
+                            sageLight: '#436B59',
+                            sageSoft: '#EBF1ED',   /* Çok Yumuşak Adaçayı Arka Planı */
+                            petal: '#E4A28F',      /* Şeftali / Gül / Hamile Pilatesi Vurgusu */
+                            petalLight: '#FBF2EF',
+                            cream: '#FAF8F5',      /* Mineral Porselen Kremi */
+                            linen: '#F4EFEA',      /* Doğal Keten */
+                            forest: '#14241D',     /* Koyu Botanik Metin */
+                            border: '#E2DBD0',     /* Zarif İnce Çerçeve */
+                            gold: '#C59B58',       /* Şampanya Detay */
+                        }
+                    },
+                    boxShadow: {
+                        'rg-card': '0 20px 40px -15px rgba(20, 36, 29, 0.05)',
+                        'rg-hover': '0 25px 50px -12px rgba(45, 75, 62, 0.18)',
+                        'rg-glow': '0 10px 30px -5px rgba(228, 162, 143, 0.35)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-cream: #FAF8F5;
+            --text-forest: #14241D;
+            --color-sage: #2D4B3E;
+            --color-petal: #E4A28F;
+            --color-border: #E2DBD0;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-forest);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4EFEA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #436B59;
+            border-radius: 999px;
+        }
+
+        /* Floating Island Navbar */
+        .rg-nav {
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 219, 208, 0.9);
+            box-shadow: 0 15px 35px -10px rgba(20, 36, 29, 0.04);
+        }
+
+        /* Double-Bezel Architecture */
+        .bezel-outer {
+            background: rgba(226, 219, 208, 0.45);
+            padding: 0.35rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(226, 219, 208, 0.9);
+            transition: all 0.45s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .bezel-inner {
+            background: #FFFFFF;
+            border-radius: calc(2rem - 0.35rem);
+            overflow: hidden;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .bezel-outer:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(45, 75, 62, 0.12);
+            border-color: #436B59;
+        }
+        .bezel-outer:hover img {
+            transform: scale(1.04);
+        }
+        .bezel-inner img {
+            transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+
+        /* Button-in-Button Serene CTA */
+        .btn-rg-primary {
+            background: #2D4B3E;
+            color: #FFFFFF;
+            padding: 0.5rem 0.5rem 0.5rem 1.6rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+            box-shadow: 0 10px 25px -5px rgba(45, 75, 62, 0.25);
+        }
+        .btn-rg-primary .icon-bubble {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.35s ease;
+        }
+        .btn-rg-primary:hover {
+            background: #14241D;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -5px rgba(20, 36, 29, 0.4);
+        }
+        .btn-rg-primary:hover .icon-bubble {
+            background: #E4A28F;
+            color: #14241D;
+            transform: translateX(3px);
+        }
+
+        .btn-rg-ghost {
+            background: transparent;
+            color: #2D4B3E;
+            border: 1.5px solid rgba(45, 75, 62, 0.3);
+            padding: 0.5rem 0.5rem 0.5rem 1.6rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+        .btn-rg-ghost .icon-bubble {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 9999px;
+            background: rgba(45, 75, 62, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .btn-rg-ghost:hover {
+            border-color: #2D4B3E;
+            background: rgba(45, 75, 62, 0.05);
+            transform: translateY(-2px);
+        }
+        .btn-rg-ghost:hover .icon-bubble {
+            background: #2D4B3E;
+            color: #FFFFFF;
+            transform: translateX(3px);
+        }
+
+        /* Floating WhatsApp Button Pulse */
+        @keyframes pulseGlowSage {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(45, 75, 62, 0.6); }
+            50% { box-shadow: 0 0 0 14px rgba(45, 75, 62, 0); }
+        }
+        .wa-floating-btn {
+            animation: pulseGlowSage 2.5s infinite;
+        }
+    </style>
+</head>
+<body class="selection:bg-rg-sage selection:text-white">
+
+    <!-- 0. FLOATING ISLAND NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:pt-6 pointer-events-none">
+        <nav class="max-w-6xl mx-auto rg-nav rounded-full px-5 sm:px-8 py-3.5 flex items-center justify-between pointer-events-auto transition-all">
+            
+            <!-- Logo (Botanical Spine Symbol) -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-rg-sage flex items-center justify-center text-rg-petal text-xl shadow-md group-hover:scale-105 transition-transform border border-white/20">
+                    <i class="ph-fill ph-plant"></i>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-baseline gap-1.5">
+                        <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-rg-forest leading-none">Fzt. Rukiye Göçer</span>
+                    </div>
+                    <span class="font-sans text-[8.5px] tracking-[0.22em] text-gray-500 uppercase font-semibold mt-0.5">Fizyoterapi & Reformer Pilates • Sivas</span>
+                </div>
+            </a>
+
+            <!-- Nav Links -->
+            <div class="hidden md:flex items-center gap-7 font-sans text-xs uppercase tracking-[0.12em] font-bold text-rg-forest/80">
+                <a href="#hizmetler" class="hover:text-rg-sage transition-colors">Uzmanlıklar</a>
+                <a href="#reformer" class="hover:text-rg-sage transition-colors">Reformer Pilates</a>
+                <a href="#hamile-pilatesi" class="hover:text-rg-sage transition-colors">Hamile Pilatesi</a>
+                <a href="#manuel-terapi" class="hover:text-rg-sage transition-colors">Manuel Terapi</a>
+                <a href="#degerlendirme" class="hover:text-rg-sage transition-colors flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-rg-petal animate-pulse"></span> Ön Değerlendirme
+                </a>
+                <a href="#iletisim" class="hover:text-rg-sage transition-colors">İletişim</a>
+            </div>
+
+            <!-- Header Action Button -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/905441234567?text=Merhaba%20Fizyoterapist%20Rukiye%20Hanım,%20kliniğinizden%20seans%20ve%20ön%20değerlendirme%20randevusu%20almak%20istiyorum." target="_blank" class="btn-rg-primary py-1.5 pl-4 pr-1.5 text-xs hidden sm:inline-flex">
+                    <span>Randevu Al</span>
+                    <span class="icon-bubble !w-7 !h-7 text-xs">
+                        <i class="ph-bold ph-calendar-plus"></i>
+                    </span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-rg-forest p-1 text-2xl" onclick="toggleMobileMenu()">
+                    <i class="ph-bold ph-list"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden max-w-sm mx-auto mt-3 bg-white/95 backdrop-blur-2xl rounded-3xl p-6 shadow-2xl border border-rg-border space-y-3 pointer-events-auto">
+            <a href="#hizmetler" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-rg-forest py-2 border-b border-gray-100">Klinik Uzmanlıklarımız</a>
+            <a href="#reformer" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-rg-forest py-2 border-b border-gray-100">Kişiye Özel Reformer Pilates</a>
+            <a href="#hamile-pilatesi" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-rg-forest py-2 border-b border-gray-100">Hamile & Doğum Sonrası Pilates</a>
+            <a href="#manuel-terapi" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-rg-forest py-2 border-b border-gray-100">Manuel Terapi & Omurga Sağlığı</a>
+            <a href="#degerlendirme" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-rg-forest py-2 border-b border-gray-100">Ağrı & Hedef Değerlendirme</a>
+            <a href="#iletisim" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-rg-forest py-2">Şeyh Şamil Kliniğimiz</a>
+            <div class="pt-2">
+                <a href="https://wa.me/905441234567" target="_blank" class="btn-rg-primary w-full justify-between text-xs py-2.5">
+                    <span>WhatsApp Randevu Hattı</span>
+                    <span class="icon-bubble !w-7 !h-7"><i class="ph-bold ph-whatsapp-logo"></i></span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. EDITORIAL HERO SECTION (ORGANIC WELLNESS & TRUST) -->
+    <section class="relative min-h-[92vh] pt-32 pb-20 flex items-center justify-center overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 w-full">
+            
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left: Clinical Philosophy & Story -->
+                <div class="lg:col-span-6 flex flex-col justify-center" data-aos="fade-up" data-aos-duration="900">
+                    
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rg-sageSoft border border-rg-sage/20 text-rg-sage font-sans text-[10px] uppercase tracking-[0.25em] font-semibold w-max mb-6">
+                        <i class="ph-fill ph-heartbeat text-rg-petal"></i>
+                        Fizyoterapi Özel Sağlık Meslek Hizmet Birimi
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-6xl lg:text-[4.5rem] font-bold leading-[1.08] tracking-tight text-rg-forest mb-6">
+                        Bedeninizi Dinleyin, <br>
+                        <span class="italic font-normal text-rg-sage">Ağrısız Harekete</span> <br>
+                        Adım Atın.
+                    </h1>
+
+                    <p class="font-sans text-gray-600 text-sm sm:text-base font-normal leading-relaxed mb-8 max-w-lg">
+                        Fizyoterapist <strong>Rukiye Göçer</strong> eşliğinde; bel ve boyun fıtığı rehabilitasyonu, duruş düzeltme, kişiye özel <strong>Reformer Pilates</strong> seansları ve <strong>Hamile Pilatesi</strong> ile yaşam kalitenizi yeniden kazanın.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4">
+                        <a href="https://wa.me/905441234567?text=Merhaba%20Fzt.%20Rukiye%20Hanım,%20ücretsiz%20postür%20analizi%20ve%20ön%20değerlendirme%20randevusu%20almak%20istiyorum." target="_blank" class="btn-rg-primary">
+                            <span>Ön Değerlendirme Randevusu</span>
+                            <span class="icon-bubble">
+                                <i class="ph-bold ph-calendar-check"></i>
+                            </span>
+                        </a>
+                        <a href="#reformer" class="btn-rg-ghost">
+                            <span>Reformer Seansları</span>
+                            <span class="icon-bubble">
+                                <i class="ph-bold ph-arrow-down"></i>
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Clinical Badges -->
+                    <div class="grid grid-cols-3 gap-6 pt-10 mt-10 border-t border-rg-border">
+                        <div>
+                            <span class="font-serif text-2xl font-bold text-rg-forest block">Fizyoterapist</span>
+                            <span class="font-sans text-[10px] uppercase tracking-wider text-gray-500 font-semibold">Birebir Klinik Takip</span>
+                        </div>
+                        <div>
+                            <span class="font-serif text-2xl font-bold text-rg-forest block">1-2-3 Kişilik</span>
+                            <span class="font-sans text-[10px] uppercase tracking-wider text-gray-500 font-semibold">Butik Reformer</span>
+                        </div>
+                        <div>
+                            <span class="font-serif text-2xl font-bold text-rg-sage block">Kişiye Özel</span>
+                            <span class="font-sans text-[10px] uppercase tracking-wider text-gray-500 font-semibold">Tedavi & Egzersiz</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: Visual Clinical Card -->
+                <div class="lg:col-span-6 relative" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="bezel-outer">
+                        <div class="bezel-inner relative aspect-[4/3] sm:aspect-[16/12]">
+                            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Fzt. Rukiye Göçer Sivas Reformer Pilates Stüdyosu" class="w-full h-full object-cover">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-rg-forest/80 via-transparent to-transparent"></div>
+
+                            <!-- Bottom Floating Label -->
+                            <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white z-10">
+                                <div>
+                                    <span class="text-[10px] uppercase tracking-[0.2em] font-medium text-rg-petal block">Fizyoterapist Eşliğinde</span>
+                                    <h3 class="font-serif text-lg sm:text-xl font-bold">Klinik Reformer Pilates & Postür Düzeltme</h3>
+                                </div>
+                                <a href="https://wa.me/905441234567?text=Reformer%20pilates%20seansları%20ve%20fiyatları%20hakkında%20bilgi%20istiyorum." target="_blank" class="bg-white/20 hover:bg-white text-white hover:text-rg-forest backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold tracking-wider transition-all flex items-center gap-1.5 shrink-0">
+                                    <span>Danış</span>
+                                    <i class="ph-bold ph-whatsapp-logo"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 2. KLİNİK UZMANLIKLARIMIZ (BENTO GRID SHOWCASE) -->
+    <section id="hizmetler" class="py-24 bg-rg-sageSoft/60 border-t border-b border-rg-border">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16" data-aos="fade-up">
+                <div>
+                    <span class="text-rg-sage font-sans text-xs uppercase tracking-[0.25em] font-bold block mb-2">SAĞLIKLI HAREKET & TEDAVİ</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-rg-forest">Klinik Hizmet Alanlarımız</h2>
+                </div>
+                <p class="text-gray-600 text-xs sm:text-sm max-w-md font-normal leading-relaxed">
+                    Ağrıyı sadece baskılamak yerine; kök nedenini postür ve biyomekanik testlerle tespit edip kalıcı iyileşme sağlıyoruz.
+                </p>
+            </div>
+
+            <!-- Bento Grid of Services -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                
+                <!-- 1. Reformer Pilates (Span 7) -->
+                <div id="reformer" class="md:col-span-7 bezel-outer" data-aos="fade-up">
+                    <div class="bezel-inner p-8 sm:p-10 relative group min-h-[380px] justify-between">
+                        <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Klinik Reformer Pilates Bireysel ve Düet Seanslar" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rg-forest/85 via-rg-forest/35 to-transparent"></div>
+                        
+                        <div class="relative z-10 flex gap-2">
+                            <span class="bg-white/90 backdrop-blur-md text-rg-forest font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">Bireysel • 2 Kişilik • 3 Kişilik</span>
+                        </div>
+
+                        <div class="relative z-10 text-white mt-24">
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold mb-2">Klinik Reformer Pilates</h3>
+                            <p class="text-xs sm:text-sm text-rg-linen max-w-md font-light mb-4">
+                                Sıradan spor salonu mantığından uzak; fizyoterapist kontrolünde omurgayı hizalayan, derin core kaslarını güçlendiren ve sıkılaşma sağlayan güvenli seanslar.
+                            </p>
+                            <a href="https://wa.me/905441234567?text=Reformer%20pilates%20seans%20detaylarını%20öğrenmek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-rg-petal hover:text-white transition-colors">
+                                Seans Saatlerini Öğren <i class="ph-bold ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Manuel Terapi & Omurga (Span 5) -->
+                <div id="manuel-terapi" class="md:col-span-5 bezel-outer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bezel-inner p-8 sm:p-10 relative group min-h-[380px] justify-between">
+                        <img src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Manuel Terapi ve Omurga Mobilizasyonu" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rg-forest/85 via-rg-forest/35 to-transparent"></div>
+                        
+                        <div class="relative z-10">
+                            <span class="bg-rg-sage text-white font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">Ağrısız Hareket</span>
+                        </div>
+
+                        <div class="relative z-10 text-white mt-24">
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold mb-2">Manuel Terapi & Fıtık Tedavisi</h3>
+                            <p class="text-xs sm:text-sm text-rg-linen font-light mb-4">
+                                Bel, boyun, sırt tutulmaları, siyatik ve eklem kısıtlılıklarında elle uygulanan özel mobilizasyon ve doku rahatlatma teknikleri.
+                            </p>
+                            <a href="https://wa.me/905441234567?text=Manuel%20terapi%20tedavisi%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-rg-petal hover:text-white transition-colors">
+                                Manuel Terapi Randevusu <i class="ph-bold ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Hamile Pilatesi & Pelvik Taban (Span 5) -->
+                <div id="hamile-pilatesi" class="md:col-span-5 bezel-outer" data-aos="fade-up" data-aos-delay="0">
+                    <div class="bezel-inner p-8 sm:p-10 relative group min-h-[360px] justify-between">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Hamile Pilatesi ve Doğum Öncesi Egzersiz" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rg-forest/85 via-rg-forest/35 to-transparent"></div>
+                        
+                        <div class="relative z-10">
+                            <span class="bg-rg-petal text-rg-forest font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">Anne & Bebek Sağlığı</span>
+                        </div>
+
+                        <div class="relative z-10 text-white mt-20">
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold mb-2">Hamile & Doğum Pilatesi</h3>
+                            <p class="text-xs sm:text-sm text-rg-linen font-light mb-4">
+                                Gebelik sürecinde omurgadaki yükü azaltan, bel ve kalça ağrılarını gideren, pelvik tabanı doğuma hazırlayan özel egzersizler.
+                            </p>
+                            <a href="https://wa.me/905441234567?text=Hamile%20pilatesi%20programınız%20hakkında%20bilgi%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-rg-petal hover:text-white transition-colors">
+                                Hamile Pilatesi Detayları <i class="ph-bold ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Ortopedik / Nörolojik / Postür (Span 7) -->
+                <div class="md:col-span-7 bezel-outer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bezel-inner p-8 sm:p-10 relative group min-h-[360px] justify-between">
+                        <img src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Ortopedik Rehabilitasyon ve Duruş Düzeltme" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rg-forest/85 via-rg-forest/35 to-transparent"></div>
+                        
+                        <div class="relative z-10">
+                            <span class="bg-white/90 backdrop-blur-md text-rg-forest font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">Skolyoz • Kifoz • Menisküs</span>
+                        </div>
+
+                        <div class="relative z-10 text-white mt-20">
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold mb-2">Ortopedik & Nörolojik Rehabilitasyon</h3>
+                            <p class="text-xs sm:text-sm text-rg-linen max-w-md font-light mb-4">
+                                Skolyoz ve duruş bozuklukları, omuz-diz eklem ameliyatları sonrası kuvvetlendirme ve nörolojik hareket kazanım terapileri.
+                            </p>
+                            <a href="https://wa.me/905441234567?text=Ortopedik%20rehabilitasyon%20ve%20skolyoz%20tedavisi%20hakkında%20danışmak%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-rg-petal hover:text-white transition-colors">
+                                Tedavi Danışmanlığı Al <i class="ph-bold ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. REFORMER PİLATES SEANS SEÇENEKLERİ (1'E 1, 2'Lİ, 3'LÜ) -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-rg-sage font-sans text-xs uppercase tracking-[0.25em] font-bold block mb-2">BUTİK VE KONFORLU STÜDYO</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-rg-forest">Reformer Pilates Seans Yapısı</h2>
+                <div class="w-16 h-1 bg-rg-petal mx-auto mb-3 mt-3"></div>
+                <p class="text-gray-600 text-sm font-normal">Tüm seanslar doğrudan Fizyoterapist Rukiye Göçer tarafından yönetilir; her hareket anatomik yapınıza göre ayarlanır.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- 1: Bireysel VIP Seans -->
+                <div class="p-8 rounded-3xl bg-rg-cream border border-rg-border shadow-sm flex flex-col justify-between hover:border-rg-sage transition-all" data-aos="fade-up" data-aos-delay="0">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-rg-sage flex items-center justify-center text-2xl mb-6">
+                            <i class="ph-fill ph-user"></i>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest text-rg-sage font-bold block mb-1">Maksimum Odak</span>
+                        <h3 class="font-serif font-bold text-2xl text-rg-forest mb-3">Bireysel (1'e 1) Klinik Seans</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed mb-6">
+                            Fıtık, skolyoz, aşırı omurga ağrısı veya özel hedefi olan danışanlar için tüm dikkatin ve cihazın sadece size tahsis edildiği özel seans.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-gray-700 font-medium mb-8 pt-4 border-t border-rg-border">
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-rg-sage"></i> Biyomekanik Postür Analizi</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-rg-sage"></i> Ağrı Noktalarına Manuel Müdahale</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-rg-sage"></i> Tamamen Kişiselleştirilmiş Tempo</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/905441234567?text=Birebir%201'e%201%20Reformer%20seansı%20hakkında%20bilgi%20ve%20fiyat%20almak%20istiyorum." target="_blank" class="btn-rg-primary w-full justify-between text-xs py-2.5">
+                        <span>Bireysel Seans Ayarla</span>
+                        <span class="icon-bubble"><i class="ph-bold ph-arrow-right"></i></span>
+                    </a>
+                </div>
+
+                <!-- 2: 2 Kişilik Düet Seans -->
+                <div class="p-8 rounded-3xl bg-rg-cream border-2 border-rg-sage shadow-md flex flex-col justify-between relative" data-aos="fade-up" data-aos-delay="100">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-rg-sage text-white font-sans text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">En Popüler Tercih</span>
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-orange-50 text-rg-petal flex items-center justify-center text-2xl mb-6 mt-2">
+                            <i class="ph-fill ph-users"></i>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest text-rg-petal font-bold block mb-1">Arkadaşınızla / Eşinizle</span>
+                        <h3 class="font-serif font-bold text-2xl text-rg-forest mb-3">2 Kişilik (Düet) Seans</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed mb-6">
+                            Yakınınızla birlikte hem motive edici hem de fizyoterapist kontrolünde kontrollü ve keyifli bir reformer deneyimi.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-gray-700 font-medium mb-8 pt-4 border-t border-rg-border">
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-rg-sage"></i> 2 Kişiye Özel Eşzamanlı Program</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-rg-sage"></i> Karşılıklı Yüksek Motivasyon</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-rg-sage"></i> Avantajlı Paket Fiyatları</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/905441234567?text=2%20Kişilik%20Reformer%20seansları%20için%20randevu%20ve%20fiyat%20öğrenmek%20istiyorum." target="_blank" class="btn-rg-primary w-full justify-between text-xs py-2.5">
+                        <span>Düet Seans Bilgisi Al</span>
+                        <span class="icon-bubble"><i class="ph-bold ph-arrow-right"></i></span>
+                    </a>
+                </div>
+
+                <!-- 3: 3 Kişilik Trio Seans -->
+                <div class="p-8 rounded-3xl bg-rg-cream border border-rg-border shadow-sm flex flex-col justify-between hover:border-rg-sage transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-rg-sage flex items-center justify-center text-2xl mb-6">
+                            <i class="ph-fill ph-users-three"></i>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest text-rg-sage font-bold block mb-1">Küçük Grup Konforu</span>
+                        <h3 class="font-serif font-bold text-2xl text-rg-forest mb-3">3 Kişilik (Trio) Seans</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed mb-6">
+                            Kalabalık gruplardan uzak, maksimum 3 kişiyle sınırlı butik reformer seansları. Hem bütçe dostu hem de profesyonel.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-gray-700 font-medium mb-8 pt-4 border-t border-rg-border">
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-rg-sage"></i> Maksimum 3 Kişilik Butik Ortam</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-rg-sage"></i> Düzenli Omurga & Esneklik Takibi</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-rg-sage"></i> Haftalık Esnek Seans Saatleri</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/905441234567?text=3%20Kişilik%20Trio%20Reformer%20seansı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-rg-primary w-full justify-between text-xs py-2.5">
+                        <span>Trio Seans Bilgisi Al</span>
+                        <span class="icon-bubble"><i class="ph-bold ph-arrow-right"></i></span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. İNTERAKTİF "AĞRI & HEDEF ÖN DEĞERLENDİRME" ASİSTANI -->
+    <section id="degerlendirme" class="py-24 bg-rg-sageSoft/70 relative border-t border-b border-rg-border">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <div class="text-center max-w-xl mx-auto mb-14" data-aos="fade-up">
+                <span class="text-rg-sage font-sans text-xs uppercase tracking-[0.25em] font-bold block mb-2">KİŞİYE ÖZEL YOL HARİTASI</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-rg-forest">Ağrı & Hedef Analizi</h2>
+                <p class="text-gray-600 text-xs sm:text-sm mt-2">Bedeninizin ihtiyacını seçin; Fizyoterapist Rukiye Göçer ile durumunuzu değerlendirelim.</p>
+            </div>
+
+            <div class="bezel-outer" data-aos="fade-up">
+                <div class="bezel-inner p-8 sm:p-12">
+                    
+                    <!-- Step 1: Goal/Pain Selection -->
+                    <div class="mb-8">
+                        <label class="font-sans text-xs uppercase tracking-widest text-gray-500 font-bold block mb-3">1. Başvuru Amacınız / Öncelikli Şikayetiniz:</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <button type="button" onclick="setPhysioGoal(this, 'Bel / Boyun Fıtığı & Omurga Ağrısı')" class="physio-goal-btn active p-4 rounded-2xl border-2 border-rg-sage bg-white text-left transition-all">
+                                <span class="font-serif font-bold text-base text-rg-forest block">Bel & Boyun Ağrısı</span>
+                                <span class="text-[11px] text-gray-500">Fıtık, Tutulma, Siyatik</span>
+                            </button>
+                            <button type="button" onclick="setPhysioGoal(this, 'Reformer Pilates ile Duruş & Sıkılaşma')" class="physio-goal-btn p-4 rounded-2xl border border-rg-border bg-white text-left hover:border-rg-sage transition-all">
+                                <span class="font-serif font-bold text-base text-rg-forest block">Reformer Pilates</span>
+                                <span class="text-[11px] text-gray-500">Postür, Esneklik, Sıkılaşma</span>
+                            </button>
+                            <button type="button" onclick="setPhysioGoal(this, 'Hamilelik / Doğum Sonrası Egzersiz')" class="physio-goal-btn p-4 rounded-2xl border border-rg-border bg-white text-left hover:border-rg-sage transition-all">
+                                <span class="font-serif font-bold text-base text-rg-forest block">Hamile Pilatesi</span>
+                                <span class="text-[11px] text-gray-500">Pelvik Taban & Rahatlama</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Session Preference Selection -->
+                    <div class="mb-8">
+                        <label class="font-sans text-xs uppercase tracking-widest text-gray-500 font-bold block mb-3">2. Tercih Ettiğiniz Seans Biçimi:</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <label class="flex items-center gap-3 p-4 rounded-2xl border border-rg-border bg-white cursor-pointer hover:border-rg-sage transition-all">
+                                <input type="radio" name="physio_session_type" value="Bireysel 1'e 1 Seans" class="w-4 h-4 accent-emerald-700" checked>
+                                <span class="text-xs sm:text-sm font-medium text-rg-forest">Bireysel (1'e 1 VIP)</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-4 rounded-2xl border border-rg-border bg-white cursor-pointer hover:border-rg-sage transition-all">
+                                <input type="radio" name="physio_session_type" value="2 Kişilik Düet Seans" class="w-4 h-4 accent-emerald-700">
+                                <span class="text-xs sm:text-sm font-medium text-rg-forest">2 Kişilik (Düet)</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-4 rounded-2xl border border-rg-border bg-white cursor-pointer hover:border-rg-sage transition-all">
+                                <input type="radio" name="physio_session_type" value="3 Kişilik Trio Seans" class="w-4 h-4 accent-emerald-700">
+                                <span class="text-xs sm:text-sm font-medium text-rg-forest">3 Kişilik (Trio)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Action Output -->
+                    <div class="pt-6 border-t border-rg-border flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div class="text-center sm:text-left">
+                            <span class="text-xs text-gray-500 font-medium block">Kliniğimizde kadın danışanlarımıza özel hijyenik ve sakin bir ortam sunulmaktadır.</span>
+                            <span class="text-xs text-rg-sage font-bold flex items-center gap-1 mt-0.5 justify-center sm:justify-start">
+                                <i class="ph-bold ph-shield-check"></i> Fizyoterapist Denetiminde Güvenli Hareket
+                            </span>
+                        </div>
+                        <button type="button" onclick="sendPhysioAssessment()" class="btn-rg-primary w-full sm:w-auto">
+                            <span>WhatsApp'tan Danış</span>
+                            <span class="icon-bubble"><i class="ph-bold ph-whatsapp-logo"></i></span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. İLETİŞİM & KLİNİK BİLGİLERİ -->
+    <section id="iletisim" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5" data-aos="fade-right">
+                    <span class="text-rg-sage font-sans text-xs uppercase tracking-[0.25em] font-bold block mb-2">KLİNİK KONUMU</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-rg-forest mb-6">Kliniğimize Bekleriz</h2>
+                    
+                    <p class="text-gray-600 text-sm leading-relaxed mb-8">
+                        Şeyh Şamil Mahallesi'ndeki kliniğimizde huzurlu bir ortamda fizyoterapi muayenesi olabilir, reformer cihazlarımızı deneyimleyebilirsiniz.
+                    </p>
+
+                    <div class="space-y-4">
+                        
+                        <div class="p-6 rounded-3xl bg-rg-cream border border-rg-border shadow-sm">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-rg-sage flex items-center justify-center text-xl shrink-0">
+                                    <i class="ph-fill ph-map-pin"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-lg text-rg-forest mb-0.5">Klinik Adresi</h4>
+                                    <p class="text-xs text-gray-600 leading-relaxed">
+                                        Şeyh Şamil Mahallesi Kazım Karabekir Caddesi No:30<br>
+                                        Merkez / SİVAS (58050)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 rounded-3xl bg-rg-cream border border-rg-border shadow-sm">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-rg-sage flex items-center justify-center text-xl shrink-0">
+                                    <i class="ph-fill ph-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-lg text-rg-forest mb-0.5">Seans & Çalışma Saatleri</h4>
+                                    <p class="text-xs text-gray-600 mb-1">Pazartesi - Cumartesi: 09:00 - 19:30 (Randevulu)</p>
+                                    <span class="text-[11px] text-emerald-700 font-semibold flex items-center gap-1">
+                                        <i class="ph-fill ph-check-circle"></i> Kişiye özel randevu saatleri planlanmaktadır
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7" data-aos="fade-left">
+                    <div class="bezel-outer">
+                        <div class="bezel-inner aspect-[16/11] p-8 relative flex flex-col justify-end bg-rg-forest text-white">
+                            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Fzt. Rukiye Göçer Sivas Kliniği" class="absolute inset-0 w-full h-full object-cover opacity-60">
+                            <div class="absolute inset-0 bg-gradient-to-t from-rg-forest via-rg-forest/40 to-transparent"></div>
+                            
+                            <div class="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                                <div>
+                                    <span class="text-[10px] uppercase tracking-widest text-rg-petal font-bold block mb-1">Özel Sağlık Meslek Hizmet Birimi</span>
+                                    <h3 class="font-serif text-2xl font-bold">Fzt. Rukiye Göçer</h3>
+                                    <p class="text-xs text-gray-300 font-light mt-0.5">Şeyh Şamil Mah. Kazım Karabekir Cad. No:30 Sivas</p>
+                                </div>
+                                <a href="https://maps.google.com/?q=Şeyh+Şamil+Kazım+Karabekir+Cad+No+30+Sivas" target="_blank" class="btn-rg-primary !bg-white !text-rg-forest text-xs py-1.5 px-3">
+                                    <span>Yol Tarifi Al</span>
+                                    <span class="icon-bubble !bg-rg-forest/10"><i class="ph-bold ph-navigation-arrow"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="bg-rg-forest text-white pt-20 pb-10 border-t border-white/10 font-sans">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+                
+                <div class="md:col-span-5">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 rounded-full bg-rg-sage flex items-center justify-center text-rg-petal text-lg">
+                            <i class="ph-fill ph-plant"></i>
+                        </div>
+                        <span class="font-serif text-2xl font-bold tracking-wide text-white">Fzt. Rukiye Göçer</span>
+                    </div>
+                    <p class="text-xs text-gray-300 font-light leading-relaxed max-w-sm mb-6">
+                        Fizyoterapi Özel Sağlık Meslek Hizmet Birimi. Manuel Terapi, Kişiye Özel Reformer Pilates, Hamile Pilatesi ve Ortopedik Rehabilitasyon.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="https://www.instagram.com/fzt.rukiyegocer.sivas/" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-rg-petal hover:text-rg-forest transition-colors">
+                            <i class="ph-fill ph-instagram-logo text-base"></i>
+                        </a>
+                        <a href="https://wa.me/905441234567" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-green-500 hover:text-white transition-colors">
+                            <i class="ph-fill ph-whatsapp-logo text-base"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3">
+                    <h4 class="font-serif text-xs uppercase tracking-[0.2em] font-bold text-rg-petal mb-4">Hizmetlerimiz</h4>
+                    <ul class="space-y-2.5 text-xs text-gray-300 font-light">
+                        <li><a href="#reformer" class="hover:text-white transition-colors">Klinik Reformer Pilates</a></li>
+                        <li><a href="#manuel-terapi" class="hover:text-white transition-colors">Manuel Terapi & Fıtık</a></li>
+                        <li><a href="#hamile-pilatesi" class="hover:text-white transition-colors">Hamile & Doğum Pilatesi</a></li>
+                        <li><a href="#hizmetler" class="hover:text-white transition-colors">Postür & Skolyoz Düzeltme</a></li>
+                        <li><a href="#hizmetler" class="hover:text-white transition-colors">Ortopedik Rehabilitasyon</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4">
+                    <h4 class="font-serif text-xs uppercase tracking-[0.2em] font-bold text-rg-petal mb-4">Klinik & İletişim</h4>
+                    <p class="text-xs text-gray-300 font-light leading-relaxed mb-3">
+                        Şeyh Şamil Mah. Kazım Karabekir Cad. No:30<br>
+                        Merkez / SİVAS (58050)
+                    </p>
+                    <a href="https://wa.me/905441234567" target="_blank" class="text-xs text-rg-petal hover:underline font-bold block mb-1">
+                        WhatsApp Randevu & Bilgi Hattı
+                    </a>
+                    <span class="text-[11px] text-gray-400">Instagram: @fzt.rukiyegocer.sivas</span>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-gray-400 font-light">
+                <p>&copy; 2026 Fzt. Rukiye Göçer. Tüm Hakları Saklıdır. Fizyoterapi & Klinik Pilates Merkezi Sivas.</p>
+                <p>Ağrısız Harekete Adım Atın ✨</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 7. FLOATING WHATSAPP CONCIERGE -->
+    <a href="https://wa.me/905441234567?text=Merhaba%20Fizyoterapist%20Rukiye%20Hanım,%20kliniğinizden%20seans%20randevusu%20almak%20istiyorum." target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-rg-sage text-white rounded-full flex items-center justify-center text-2xl shadow-2xl wa-floating-btn hover:scale-110 transition-transform" title="WhatsApp Randevu">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 40,
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+
+        // Custom Selection Variable
+        let selectedPhysioGoal = 'Bel / Boyun Fıtığı & Omurga Ağrısı';
+
+        function setPhysioGoal(button, goal) {
+            const buttons = document.querySelectorAll('.physio-goal-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'border-2', 'border-rg-sage');
+                btn.classList.add('border', 'border-rg-border');
+            });
+            button.classList.add('active', 'border-2', 'border-rg-sage');
+            button.classList.remove('border', 'border-rg-border');
+            selectedPhysioGoal = goal;
+        }
+
+        function sendPhysioAssessment() {
+            const sessionType = document.querySelector('input[name="physio_session_type"]:checked')?.value || "Bireysel Seans";
+
+            let message = `Merhaba Fizyoterapist Rukiye Hanım,%20kliniğinizden%20ön%20değerlendirme%20ve%20seans%20randevusu%20almak%20istiyorum.%0A%0A`;
+            message += `🌸%20*Başvuru%20Nedeni%20/%20Hedef:*%20${encodeURIComponent(selectedPhysioGoal)}%0A`;
+            message += `🧘%20*Tercih%20Edilen%20Seans:*%20${encodeURIComponent(sessionType)}%0A%0A`;
+            message += `Müsait%20gün%20ve%20saatleriniz%20hakkında%20bilgi%20alabilir%20miyim?`;
+
+            window.open(`https://wa.me/905441234567?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>

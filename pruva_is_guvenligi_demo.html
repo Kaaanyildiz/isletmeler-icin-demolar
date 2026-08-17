@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRUVA İş Ekipmanları & İş Güvenliği - Kendi İmalatımız</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        oswald: ['Oswald', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            900: '#0B1120',
+                            800: '#0F172A',
+                            700: '#1E293B',
+                            600: '#334155',
+                        },
+                        safety: {
+                            orange: '#EA580C',
+                            red: '#DC2626',
+                            yellow: '#EAB308',
+                        },
+                        concrete: {
+                            light: '#F8FAFC',
+                            DEFAULT: '#F1F5F9',
+                            dark: '#CBD5E1',
+                        }
+                    },
+                    backgroundImage: {
+                        'hazard-stripes': 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.1) 10px, rgba(0,0,0,0.1) 20px)',
+                        'hazard-stripes-orange': 'repeating-linear-gradient(45deg, #EA580C, #EA580C 10px, #C2410C 10px, #C2410C 20px)',
+                        'blueprint': 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Utility Classes for Industrial Look */
+        .sharp-border { border-radius: 2px; }
+        .heavy-border { border: 3px solid #0F172A; }
+        
+        /* Ticker Animation */
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-ticker {
+            animation: ticker 20s linear infinite;
+        }
+
+        /* Diagonal Cut Accents */
+        .clip-diagonal {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), 0 100%);
+        }
+        .clip-diagonal-reverse {
+            clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
+        }
+
+        /* FAQ Accordion */
+        .faq-details > summary { list-style: none; }
+        .faq-details > summary::-webkit-details-marker { display: none; }
+        
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-concrete-light text-navy-800 font-sans selection:bg-safety-orange selection:text-white">
+
+    <!-- Top Utility Bar -->
+    <div class="bg-safety-red text-white py-2 text-xs sm:text-sm font-semibold tracking-widest text-center uppercase">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-6">
+            <span><i class="fa-solid fa-triangle-exclamation mr-1"></i> %100 Kendi İmalatımız</span>
+            <span class="hidden sm:inline">•</span>
+            <span><i class="fa-solid fa-industry mr-1"></i> Sivas Merkezli Üretim</span>
+            <span class="hidden md:inline">•</span>
+            <span class="hidden md:inline"><i class="fa-solid fa-truck-fast mr-1"></i> Türkiye'nin Her Yerine Toptan Gönderim</span>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="bg-navy-900 text-white sticky top-0 z-50 border-b-4 border-safety-orange shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="bg-safety-orange text-navy-900 p-2 sharp-border transform -skew-x-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-helmet-safety text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-oswald text-2xl font-bold tracking-wider leading-none group-hover:text-safety-orange transition-colors">PRUVA</span>
+                        <span class="text-[0.65rem] text-concrete-dark tracking-[0.2em] font-oswald uppercase">Özvatanlar İş Ekipmanları</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex space-x-6 xl:space-x-8 font-oswald uppercase tracking-widest text-sm font-medium">
+                    <a href="#hakkimizda" class="hover:text-safety-orange transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-industry text-concrete-dark"></i> Hakkımızda
+                    </a>
+                    <a href="#urunler" class="hover:text-safety-orange transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-vest text-concrete-dark"></i> Ürünler
+                    </a>
+                    <a href="#sektorler" class="hover:text-safety-orange transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-hard-hat text-concrete-dark"></i> Sektörler
+                    </a>
+                    <a href="#sss" class="hover:text-safety-orange transition-colors flex items-center gap-2">
+                        <i class="fa-regular fa-circle-question text-concrete-dark"></i> S.S.S.
+                    </a>
+                    <a href="#kurumsal" class="hover:text-safety-orange transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-briefcase text-concrete-dark"></i> Kurumsal
+                    </a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex">
+                    <a href="https://wa.me/905452792607" target="_blank" class="bg-safety-orange hover:bg-white hover:text-navy-900 text-white font-oswald uppercase font-bold tracking-widest px-6 py-3 transition-all sharp-border border-2 border-transparent hover:border-safety-orange flex items-center gap-2 shadow-md hover:shadow-xl">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Fiyat Listesi İste
+                    </a>
+                </div>
+
+                <!-- Mobile Toggle -->
+                <button class="lg:hidden text-white hover:text-safety-orange focus:outline-none text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hazard Stripes Separator -->
+    <div class="h-2 w-full bg-hazard-stripes-orange"></div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-navy-800 text-white overflow-hidden py-24 lg:py-32 clip-diagonal">
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-luminosity"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-800/90 to-transparent"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-12 gap-8 items-center z-10">
+            <div class="md:col-span-7 space-y-8">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-navy-700 border border-safety-orange text-safety-orange text-xs font-oswald uppercase tracking-widest font-bold sharp-border">
+                    <span class="w-2 h-2 rounded-full bg-safety-orange animate-pulse"></span>
+                    Fabrikadan Doğrudan Satış
+                </div>
+                
+                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-oswald font-bold leading-[0.9] uppercase tracking-tight">
+                    Giyin,<br>
+                    Kuşan,<br>
+                    <span class="text-safety-orange text-shadow-lg">Savun.</span>
+                </h1>
+                
+                <p class="text-concrete-dark text-lg sm:text-xl font-medium max-w-xl border-l-4 border-safety-orange pl-4 bg-navy-900/40 p-4 sharp-border">
+                    Sivas'ın önde gelen iş elbisesi üreticisi Pruva; kurumunuza özel nakışlı iş elbiseleri, softshell montlar ve endüstriyel güvenlik ekipmanlarını <strong class="text-white">doğrudan fabrikadan</strong> firmanıza sunar. Aracı yok, komisyon yok.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#urunler" class="bg-safety-orange text-white font-oswald uppercase font-bold tracking-widest px-8 py-4 text-center hover:bg-orange-600 transition-colors sharp-border text-lg shadow-lg">
+                        Ürün Kataloğu <i class="fa-solid fa-arrow-down ml-2"></i>
+                    </a>
+                    <a href="https://wa.me/905452792607" target="_blank" class="bg-navy-900/80 border-2 border-concrete-dark hover:border-white text-white font-oswald uppercase font-bold tracking-widest px-8 py-4 text-center transition-colors sharp-border text-lg backdrop-blur-sm">
+                        <i class="fa-solid fa-phone mr-2"></i> 0545 279 26 07
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Data Tags (Right Side) -->
+            <div class="md:col-span-5 hidden md:flex flex-col gap-4 justify-center items-end">
+                <div class="bg-navy-900/80 backdrop-blur-md p-6 border-r-4 border-safety-orange sharp-border shadow-2xl max-w-sm text-right">
+                    <div class="text-3xl text-safety-orange mb-2"><i class="fa-solid fa-certificate"></i></div>
+                    <div class="font-oswald font-bold text-2xl uppercase tracking-wide">CE Standartlarında Üretim</div>
+                    <p class="text-concrete-dark text-sm mt-2">Avrupa normlarına uygun kumaş ve yansıtıcı materyal kullanımı ile maksimum personel güvenliği.</p>
+                </div>
+                
+                <div class="bg-navy-900/80 backdrop-blur-md p-6 border-r-4 border-safety-yellow sharp-border shadow-2xl max-w-sm text-right">
+                    <div class="text-3xl text-safety-yellow mb-2"><i class="fa-solid fa-truck-fast"></i></div>
+                    <div class="font-oswald font-bold text-2xl uppercase tracking-wide">Toptan Teslimat Garantisi</div>
+                    <p class="text-concrete-dark text-sm mt-2">Siparişleriniz üretim planlamasına alınarak taahhüt edilen tarihte deponuza veya şantiyenize teslim edilir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Banner Ticker -->
+    <div class="bg-safety-yellow py-3 overflow-hidden border-y-4 border-navy-900 shadow-inner">
+        <div class="flex whitespace-nowrap animate-ticker text-navy-900 font-oswald font-bold text-lg uppercase tracking-widest">
+            <span class="mx-6"><i class="fa-solid fa-industry"></i> %100 Kendi İmalatımız</span>
+            <span class="mx-6">•</span>
+            <span class="mx-6"><i class="fa-solid fa-shirt"></i> Kurumsal Nakış Hizmeti</span>
+            <span class="mx-6">•</span>
+            <span class="mx-6"><i class="fa-solid fa-truck"></i> Türkiye'nin Her Yerine Kargo</span>
+            <span class="mx-6">•</span>
+            <span class="mx-6"><i class="fa-solid fa-tags"></i> Toptan Alımda Özel İskonto</span>
+            <span class="mx-6">•</span>
+            <!-- Repeat for seamless scroll -->
+            <span class="mx-6"><i class="fa-solid fa-industry"></i> %100 Kendi İmalatımız</span>
+            <span class="mx-6">•</span>
+            <span class="mx-6"><i class="fa-solid fa-shirt"></i> Kurumsal Nakış Hizmeti</span>
+            <span class="mx-6">•</span>
+            <span class="mx-6"><i class="fa-solid fa-truck"></i> Türkiye'nin Her Yerine Kargo</span>
+            <span class="mx-6">•</span>
+            <span class="mx-6"><i class="fa-solid fa-tags"></i> Toptan Alımda Özel İskonto</span>
+        </div>
+    </div>
+
+    <!-- Hakkımızda / İmalat Gücü -->
+    <section id="hakkimizda" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <!-- Image Side -->
+            <div class="relative group">
+                <div class="absolute inset-0 bg-safety-orange transform translate-x-4 translate-y-4 sharp-border"></div>
+                <div class="absolute inset-0 bg-navy-900 transform -translate-x-4 -translate-y-4 sharp-border"></div>
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" alt="Pruva Atölye" class="relative z-10 w-full h-[500px] object-cover sharp-border grayscale group-hover:grayscale-0 transition-all duration-700">
+                
+                <!-- Floating stat -->
+                <div class="absolute -bottom-8 -right-8 z-20 bg-white heavy-border p-6 sharp-border shadow-xl">
+                    <div class="font-oswald text-5xl font-bold text-navy-900 mb-1">10+</div>
+                    <div class="text-sm font-bold text-safety-orange uppercase tracking-widest">Yıllık Tecrübe</div>
+                </div>
+            </div>
+            
+            <!-- Text Side -->
+            <div class="space-y-6">
+                <div class="inline-flex items-center gap-2 text-safety-orange font-oswald uppercase tracking-widest font-bold">
+                    <i class="fa-solid fa-gear animate-spin-slow"></i> Hakkımızda
+                </div>
+                <h2 class="text-4xl md:text-5xl font-oswald font-bold uppercase text-navy-900 tracking-tight leading-tight">
+                    Hazır Alıp Satmıyoruz,<br>
+                    <span class="text-safety-orange">Biz Üretiyoruz.</span>
+                </h2>
+                <div class="h-1 w-24 bg-navy-900"></div>
+                
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    Pruva İş Ekipmanları (Özvatanlar), Sivas merkezli fabrikasında kurumların ihtiyaçlarına yönelik özel iş elbiseleri ve güvenlik ekipmanları imal eden lider bir üreticidir. 
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    Amacımız, personelinizi sadece giydirmek değil; onları her türlü zorlu çalışma koşulunda dış etkenlerden koruyacak, aynı zamanda kurumsal kimliğinizi sahaya yansıtacak dayanıklı ve fonksiyonel kıyafetler tasarlamaktır. <strong>Kumaş seçiminden dijital nakış aşamasına kadar</strong> tüm süreçler kendi bünyemizde titizlikle yürütülür.
+                </p>
+
+                <div class="grid grid-cols-2 gap-6 pt-6">
+                    <div class="border-l-4 border-safety-orange pl-4 bg-white p-4 sharp-border shadow-sm">
+                        <i class="fa-solid fa-shirt text-2xl text-navy-900 mb-2"></i>
+                        <h4 class="font-oswald font-bold uppercase text-lg mb-1">Özel Dikim</h4>
+                        <p class="text-sm text-gray-500">Firmanıza özel kurumsal renklerde pantolon, mont ve yelek üretimi.</p>
+                    </div>
+                    <div class="border-l-4 border-safety-orange pl-4 bg-white p-4 sharp-border shadow-sm">
+                        <i class="fa-solid fa-gem text-2xl text-navy-900 mb-2"></i>
+                        <h4 class="font-oswald font-bold uppercase text-lg mb-1">Logo Nakışı</h4>
+                        <p class="text-sm text-gray-500">Yıkanmaya ve aşınmaya dayanıklı endüstriyel nakış uygulaması.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hizmet Verdiğimiz Sektörler (Dark Section) -->
+    <section id="sektorler" class="bg-navy-900 text-white py-24 border-y-4 border-safety-orange relative clip-diagonal-reverse">
+        <div class="absolute inset-0 bg-hazard-stripes opacity-5 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-oswald font-bold uppercase tracking-tight mb-4">Hizmet Verdiğimiz <span class="text-safety-orange">Sektörler</span></h2>
+                <div class="h-1 w-24 bg-safety-orange mx-auto mb-6"></div>
+                <p class="text-concrete-dark">Her sektörün riski ve ihtiyacı farklıdır. Pruva olarak, sektörel standartlara uygun teknik giysiler ve ekipmanlar tedarik ediyoruz.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Sektor 1 -->
+                <div class="bg-navy-800 border border-navy-700 p-6 sharp-border text-center hover:border-safety-orange transition-colors group cursor-default">
+                    <i class="fa-solid fa-person-digging text-4xl text-concrete-dark group-hover:text-safety-orange mb-4 transition-colors"></i>
+                    <h3 class="font-oswald font-bold uppercase tracking-wider text-lg mb-2">İnşaat & Şantiye</h3>
+                    <p class="text-sm text-gray-400">Yüksek görünürlüklü montlar, baretler, çelik burunlu ayakkabılar.</p>
+                </div>
+                <!-- Sektor 2 -->
+                <div class="bg-navy-800 border border-navy-700 p-6 sharp-border text-center hover:border-safety-orange transition-colors group cursor-default">
+                    <i class="fa-solid fa-truck-moving text-4xl text-concrete-dark group-hover:text-safety-orange mb-4 transition-colors"></i>
+                    <h3 class="font-oswald font-bold uppercase tracking-wider text-lg mb-2">Lojistik & Depo</h3>
+                    <p class="text-sm text-gray-400">Soğuk hava depo montları, esnek çalışma pantolonları, yelekler.</p>
+                </div>
+                <!-- Sektor 3 -->
+                <div class="bg-navy-800 border border-navy-700 p-6 sharp-border text-center hover:border-safety-orange transition-colors group cursor-default">
+                    <i class="fa-solid fa-shield-halved text-4xl text-concrete-dark group-hover:text-safety-orange mb-4 transition-colors"></i>
+                    <h3 class="font-oswald font-bold uppercase tracking-wider text-lg mb-2">Özel Güvenlik</h3>
+                    <p class="text-sm text-gray-400">Güvenlik personeli üniformaları, armalı montlar, teçhizat kılıfları.</p>
+                </div>
+                <!-- Sektor 4 -->
+                <div class="bg-navy-800 border border-navy-700 p-6 sharp-border text-center hover:border-safety-orange transition-colors group cursor-default">
+                    <i class="fa-solid fa-gears text-4xl text-concrete-dark group-hover:text-safety-orange mb-4 transition-colors"></i>
+                    <h3 class="font-oswald font-bold uppercase tracking-wider text-lg mb-2">Endüstri & Fabrika</h3>
+                    <p class="text-sm text-gray-400">Alev almaz tulumlar, aside dayanıklı eldivenler, koruyucu gözlükler.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comprehensive Product Categories -->
+    <section id="urunler" class="py-24 bg-concrete-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 text-safety-orange font-oswald uppercase tracking-widest font-bold mb-2">
+                        <i class="fa-solid fa-box-open"></i> Ürün Yelpazemiz
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-oswald font-bold text-navy-900 uppercase tracking-tight">Kapsamlı <span class="text-safety-orange">Katalog</span></h2>
+                </div>
+                <a href="https://wa.me/905452792607" class="mt-6 md:mt-0 text-navy-900 font-oswald font-bold uppercase tracking-widest hover:text-safety-orange border-b-2 border-navy-900 hover:border-safety-orange pb-1 transition-all">
+                    Tüm Ürün Listesi İçin Ulaşın <i class="fa-solid fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Category 1 -->
+                <div class="group bg-white heavy-border sharp-border overflow-hidden flex flex-col h-full hover:shadow-2xl transition-all">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop" alt="İş Montları" class="object-cover w-full h-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute top-4 left-4 bg-safety-red text-white text-xs font-oswald font-bold px-3 py-1 uppercase tracking-widest sharp-border">Çok Satan</div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h3 class="font-oswald text-2xl font-bold uppercase tracking-wide text-navy-900 border-b-2 border-concrete-dark pb-3 mb-4">Dış Giyim & Montlar</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Soğuk hava koşullarına ve yağmura karşı tam koruma sağlayan, reflektör detaylı yüksek görünürlüklü kışlık dış giyim ürünleri.</p>
+                        <ul class="space-y-2 text-sm font-medium text-navy-800 mb-8">
+                            <li><i class="fa-solid fa-check text-safety-orange mr-2"></i> Softshell Rüzgarlık Montlar</li>
+                            <li><i class="fa-solid fa-check text-safety-orange mr-2"></i> İçi Kürklü Kabanlar</li>
+                            <li><i class="fa-solid fa-check text-safety-orange mr-2"></i> Su İtici Yağmurluklar</li>
+                        </ul>
+                        <a href="https://wa.me/905452792607" class="mt-auto block w-full text-center border-2 border-navy-900 text-navy-900 font-oswald uppercase tracking-widest font-bold py-3 hover:bg-navy-900 hover:text-white transition-colors sharp-border">Detaylar</a>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="group bg-white heavy-border sharp-border overflow-hidden flex flex-col h-full hover:shadow-2xl transition-all relative">
+                    <div class="absolute -inset-1 bg-hazard-stripes-orange opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none"></div>
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?q=80&w=800&auto=format&fit=crop" alt="İş Elbiseleri" class="object-cover w-full h-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col z-10 bg-white">
+                        <h3 class="font-oswald text-2xl font-bold uppercase tracking-wide text-navy-900 border-b-2 border-concrete-dark pb-3 mb-4">İş Elbiseleri & Takımlar</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Atölye, şantiye ve fabrika çalışanları için esnek, çok cepli ve aşınmaya dayanıklı gabardin/alpaka kumaş iş giysileri.</p>
+                        <ul class="space-y-2 text-sm font-medium text-navy-800 mb-8">
+                            <li><i class="fa-solid fa-check text-safety-orange mr-2"></i> Askılı ve Belden İş Pantolonları</li>
+                            <li><i class="fa-solid fa-check text-safety-orange mr-2"></i> Teknik Tulumlar</li>
+                            <li><i class="fa-solid fa-check text-safety-orange mr-2"></i> Personel Tişört ve Yelekleri</li>
+                        </ul>
+                        <a href="https://wa.me/905452792607" class="mt-auto block w-full text-center border-2 border-navy-900 text-navy-900 font-oswald uppercase tracking-widest font-bold py-3 hover:bg-navy-900 hover:text-white transition-colors sharp-border">Detaylar</a>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="group bg-white heavy-border sharp-border overflow-hidden flex flex-col h-full hover:shadow-2xl transition-all">
+                    <div class="relative h-64 overflow-hidden bg-navy-900 flex justify-center items-center">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop" alt="İş Güvenliği" class="object-cover w-full h-full grayscale group-hover:grayscale-0 group-hover:scale-105 opacity-80 transition-all duration-500">
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h3 class="font-oswald text-2xl font-bold uppercase tracking-wide text-navy-900 border-b-2 border-concrete-dark pb-3 mb-4">Kişisel Koruyucu Donanım</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Çalışanlarınızı iş kazalarına karşı koruyacak, CE belgeli ve standartlara uygun temel iş güvenliği ekipmanları.</p>
+                        <ul class="space-y-2 text-sm font-medium text-navy-800 mb-8">
+                            <li><i class="fa-solid fa-check text-safety-orange mr-2"></i> Baretler & Koruyucu Gözlükler</li>
+                            <li><i class="fa-solid fa-check text-safety-orange mr-2"></i> Çelik Burunlu İş Ayakkabıları</li>
+                            <li><i class="fa-solid fa-check text-safety-orange mr-2"></i> Nitril ve Deri İş Eldivenleri</li>
+                        </ul>
+                        <a href="https://wa.me/905452792607" class="mt-auto block w-full text-center border-2 border-navy-900 text-navy-900 font-oswald uppercase tracking-widest font-bold py-3 hover:bg-navy-900 hover:text-white transition-colors sharp-border">Detaylar</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ / Sıkça Sorulan Sorular -->
+    <section id="sss" class="py-24 bg-white border-y border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <i class="fa-regular fa-comments text-4xl text-safety-orange mb-4"></i>
+                <h2 class="text-3xl md:text-4xl font-oswald font-bold uppercase tracking-tight text-navy-900">Kurumsal Siparişler İçin <br> Sıkça Sorulan Sorular</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <details class="faq-details group border-2 border-navy-900 sharp-border p-6 cursor-pointer bg-concrete-light open:bg-white transition-colors">
+                    <summary class="font-oswald text-xl font-bold uppercase tracking-wide text-navy-900 flex justify-between items-center outline-none">
+                        Minimum toptan sipariş miktarınız nedir?
+                        <span class="text-safety-orange group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="mt-4 text-gray-600 pt-4 border-t border-gray-200 text-sm md:text-base leading-relaxed">
+                        Toptan imalat için minimum sipariş miktarımız (MOQ) ürüne ve nakış detayına göre değişiklik göstermekle birlikte, genellikle <strong>20 adet</strong> olarak belirlenmiştir. Stoklu standart ürünlerimizde adet sınırlaması bulunmamaktadır.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 2 -->
+                <details class="faq-details group border-2 border-navy-900 sharp-border p-6 cursor-pointer bg-concrete-light open:bg-white transition-colors">
+                    <summary class="font-oswald text-xl font-bold uppercase tracking-wide text-navy-900 flex justify-between items-center outline-none">
+                        Firma logomuzu ürünlere işleyebiliyor musunuz?
+                        <span class="text-safety-orange group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="mt-4 text-gray-600 pt-4 border-t border-gray-200 text-sm md:text-base leading-relaxed">
+                        Evet. Kendi bünyemizde bulunan endüstriyel dijital nakış makinelerimiz ile firmanızın logosunu mont, tişört, yelek ve tulumların göğüs veya sırt kısımlarına yüksek kalitede işliyoruz. Baskıya göre çok daha uzun ömürlü ve prestijlidir.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 3 -->
+                <details class="faq-details group border-2 border-navy-900 sharp-border p-6 cursor-pointer bg-concrete-light open:bg-white transition-colors">
+                    <summary class="font-oswald text-xl font-bold uppercase tracking-wide text-navy-900 flex justify-between items-center outline-none">
+                        Teslimat süresi ortalama ne kadar sürer?
+                        <span class="text-safety-orange group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="mt-4 text-gray-600 pt-4 border-t border-gray-200 text-sm md:text-base leading-relaxed">
+                        Sipariş adedine ve özel üretim taleplerinize (özel renk, nakış vs.) göre teslimat süresi değişir. Standart toptan siparişler onaylandıktan sonra <strong>7 ile 14 iş günü</strong> içerisinde Türkiye'nin her yerine kargo veya ambar yoluyla sevk edilir.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 4 -->
+                <details class="faq-details group border-2 border-navy-900 sharp-border p-6 cursor-pointer bg-concrete-light open:bg-white transition-colors">
+                    <summary class="font-oswald text-xl font-bold uppercase tracking-wide text-navy-900 flex justify-between items-center outline-none">
+                        Türkiye'nin her yerine gönderim yapıyor musunuz?
+                        <span class="text-safety-orange group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="mt-4 text-gray-600 pt-4 border-t border-gray-200 text-sm md:text-base leading-relaxed">
+                        Evet, imalatımız Sivas merkezli olmakla birlikte, anlaşmalı kargo ve ambar şirketleri aracılığıyla 81 ile şantiyenize veya fabrikanıza doğrudan, güvenli teslimat sağlıyoruz.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- B2B Order Form Section (Blueprint Style) -->
+    <section id="kurumsal" class="py-24 bg-navy-900 relative">
+        <!-- Blueprint Background Pattern -->
+        <div class="absolute inset-0 bg-blueprint opacity-20 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white heavy-border sharp-border overflow-hidden flex flex-col lg:flex-row shadow-2xl">
+                
+                <!-- Info Side -->
+                <div class="bg-navy-800 text-white p-10 lg:w-2/5 flex flex-col justify-center relative overflow-hidden border-b-4 lg:border-b-0 lg:border-r-4 border-safety-orange">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-safety-orange opacity-10 transform translate-x-16 -translate-y-16 rounded-full"></div>
+                    
+                    <h3 class="text-3xl font-oswald font-bold uppercase tracking-wide mb-2">Hızlı Teklif Sistemi</h3>
+                    <p class="text-safety-orange font-mono text-sm mb-8">&lt; Toptan Alım İçin Tasarlanmıştır &gt;</p>
+                    
+                    <p class="text-concrete-dark font-light mb-8 leading-relaxed">
+                        Aşağıdaki formu kullanarak ihtiyaçlarınızı bize WhatsApp üzerinden anında iletebilirsiniz. Ekibimiz talebinizi inceler ve size özel en iyi <strong>fabrika çıkış fiyatını</strong> kısa sürede sunar.
+                    </p>
+                    
+                    <ul class="space-y-4 font-oswald tracking-wide mb-12 text-concrete-light">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-ruler-combined text-safety-orange text-xl"></i> Ücretsiz Beden ve Numune Desteği</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-wand-magic-sparkles text-safety-orange text-xl"></i> Ücretsiz Logo Dijitalleştirme</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-handshake text-safety-orange text-xl"></i> Uzun Vadeli Kurumsal Anlaşmalar</li>
+                    </ul>
+
+                    <div class="mt-auto border-t border-navy-700 pt-6">
+                        <div class="text-xs text-concrete-dark font-oswald uppercase tracking-widest mb-2">Direkt İletişim Hattı</div>
+                        <div class="text-3xl font-bold text-white hover:text-safety-orange transition-colors">
+                            <a href="tel:+905452792607"><i class="fa-solid fa-phone mr-2 text-safety-orange"></i> 0545 279 26 07</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Form Side -->
+                <div class="p-10 lg:w-3/5 bg-concrete-light">
+                    <div class="flex items-center justify-between mb-8">
+                        <h4 class="font-oswald text-2xl font-bold text-navy-900 uppercase tracking-wide">Proje & Sipariş Detayları</h4>
+                        <i class="fa-brands fa-whatsapp text-4xl text-green-500"></i>
+                    </div>
+                    
+                    <form action="https://wa.me/905452792607" method="get" target="_blank" class="space-y-6">
+                        <!-- Company Info -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-navy-700 uppercase tracking-widest mb-2">Firma Adı</label>
+                                <input type="text" placeholder="Şirketinizin Adı" class="w-full border-2 border-gray-300 p-3 sharp-border focus:border-safety-orange focus:outline-none bg-white font-mono text-sm transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-navy-700 uppercase tracking-widest mb-2">Personel Sayısı (Yaklaşık)</label>
+                                <input type="number" placeholder="Örn: 50" class="w-full border-2 border-gray-300 p-3 sharp-border focus:border-safety-orange focus:outline-none bg-white font-mono text-sm transition-colors">
+                            </div>
+                        </div>
+                        
+                        <!-- Checkboxes -->
+                        <div class="bg-white p-6 border-2 border-gray-300 sharp-border">
+                            <label class="block text-xs font-bold text-navy-700 uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">İlgilendiğiniz Ürün Grupları</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 font-oswald uppercase text-sm tracking-wide text-navy-800">
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <div class="w-5 h-5 border-2 border-navy-400 group-hover:border-safety-orange flex items-center justify-center sharp-border"></div>
+                                    Softshell Mont
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <div class="w-5 h-5 border-2 border-navy-400 group-hover:border-safety-orange flex items-center justify-center sharp-border"></div>
+                                    İş Tulumu
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <div class="w-5 h-5 border-2 border-navy-400 group-hover:border-safety-orange flex items-center justify-center sharp-border"></div>
+                                    Reflektörlü Yelek
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <div class="w-5 h-5 border-2 border-navy-400 group-hover:border-safety-orange flex items-center justify-center sharp-border"></div>
+                                    İş Pantolonu
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <div class="w-5 h-5 border-2 border-navy-400 group-hover:border-safety-orange flex items-center justify-center sharp-border"></div>
+                                    Güvenlik Ekipmanı
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <div class="w-5 h-5 border-2 border-navy-400 group-hover:border-safety-orange flex items-center justify-center sharp-border"></div>
+                                    <span class="text-safety-orange font-bold">Logo Nakışı</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Details -->
+                        <div>
+                            <label class="block text-xs font-bold text-navy-700 uppercase tracking-widest mb-2">Ek Talepleriniz & Notlarınız</label>
+                            <textarea rows="3" placeholder="Örn: Kurumsal rengimiz lacivert-turuncu. Logomuz sırt ve sol göğüste olacak..." class="w-full border-2 border-gray-300 p-4 sharp-border focus:border-safety-orange focus:outline-none bg-white font-mono text-sm resize-none transition-colors"></textarea>
+                        </div>
+                        
+                        <!-- Submit -->
+                        <button type="submit" class="w-full bg-safety-orange hover:bg-navy-900 text-white font-oswald uppercase tracking-widest font-bold py-5 transition-colors sharp-border flex justify-center items-center gap-3 text-lg group">
+                            <i class="fa-brands fa-whatsapp text-2xl group-hover:scale-110 transition-transform"></i> Bilgileri Gönder ve Teklif Al
+                        </button>
+                        <p class="text-center text-xs font-mono text-gray-500 mt-2">Bu butona tıkladığınızda bilgileriniz düzenlenmiş bir mesaj olarak WhatsApp'a aktarılır.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="iletisim" class="bg-navy-900 text-white pt-20 pb-8 border-t-8 border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-navy-800 pb-12">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-safety-orange text-navy-900 p-2 sharp-border transform -skew-x-6">
+                            <i class="fa-solid fa-helmet-safety text-2xl"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-oswald text-3xl font-bold tracking-wider leading-none">PRUVA</span>
+                            <span class="text-[0.65rem] text-safety-orange tracking-[0.2em] font-oswald uppercase">Özvatanlar</span>
+                        </div>
+                    </div>
+                    <p class="text-concrete-dark mb-8 font-light max-w-md leading-relaxed">
+                        Sivas'tan tüm Türkiye'ye yüksek kaliteli, CE standartlarına uygun iş giysileri ve koruyucu donanımlar. Uzun ömürlü kullanım, yüksek güvenlik ve şık kurumsal görünüm için doğru adres.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/pruvaisgekipmanlari" target="_blank" class="w-12 h-12 bg-navy-800 flex items-center justify-center sharp-border hover:bg-safety-orange hover:-translate-y-1 transition-all">
+                            <i class="fa-brands fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-navy-800 flex items-center justify-center sharp-border hover:bg-safety-orange hover:-translate-y-1 transition-all">
+                            <i class="fa-brands fa-facebook-f text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-oswald font-bold text-xl uppercase tracking-widest mb-6 border-l-4 border-safety-orange pl-3">İletişim Bilgileri</h4>
+                    <ul class="space-y-5 text-concrete-dark">
+                        <li class="flex items-start gap-4">
+                            <div class="bg-navy-800 p-2 sharp-border text-safety-orange"><i class="fa-solid fa-location-dot"></i></div>
+                            <span class="text-sm">Şeyhşamil Mah. Kazım Karabekir Cad. No:32/A<br><strong class="text-white">Merkez / SİVAS</strong></span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="bg-navy-800 p-2 sharp-border text-safety-orange"><i class="fa-solid fa-phone"></i></div>
+                            <a href="tel:+905452792607" class="hover:text-white transition-colors font-bold text-lg">0545 279 26 07</a>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="bg-green-600/20 p-2 sharp-border text-green-500"><i class="fa-brands fa-whatsapp text-lg"></i></div>
+                            <a href="https://wa.me/905452792607" class="hover:text-white transition-colors text-sm">WhatsApp Sipariş Hattı</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Fast Links & Hours -->
+                <div>
+                    <h4 class="font-oswald font-bold text-xl uppercase tracking-widest mb-6 border-l-4 border-safety-orange pl-3">Hızlı Menü</h4>
+                    <ul class="space-y-3 font-oswald uppercase tracking-wide text-sm text-concrete-dark mb-8">
+                        <li><a href="#hakkimizda" class="hover:text-safety-orange transition-colors"><i class="fa-solid fa-angle-right mr-2 text-safety-orange"></i> Fabrika & Hakkımızda</a></li>
+                        <li><a href="#urunler" class="hover:text-safety-orange transition-colors"><i class="fa-solid fa-angle-right mr-2 text-safety-orange"></i> Tüm Ürünler</a></li>
+                        <li><a href="#sss" class="hover:text-safety-orange transition-colors"><i class="fa-solid fa-angle-right mr-2 text-safety-orange"></i> Toptan Alım S.S.S.</a></li>
+                    </ul>
+
+                    <h4 class="font-oswald font-bold text-sm uppercase tracking-widest mb-3 border-l-4 border-navy-600 pl-3 text-gray-400">Çalışma Saatleri</h4>
+                    <div class="text-sm font-mono text-gray-500">
+                        <p>Hafta İçi: <span class="text-gray-300">08:30 - 18:30</span></p>
+                        <p>Cumartesi: <span class="text-gray-300">09:00 - 15:00</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs sm:text-sm text-concrete-dark font-oswald uppercase tracking-wider">
+                <p>&copy; 2026 PRUVA İş Ekipmanları - ÖZVATANLAR. Tüm Hakları Saklıdır.</p>
+                <div class="mt-4 md:mt-0 flex gap-4">
+                    <span class="opacity-50 flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-safety-orange"></i> Güvenli İmalat
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

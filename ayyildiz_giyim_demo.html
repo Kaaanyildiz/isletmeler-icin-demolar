@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AY YILDIZ GİYİM | Sivas - Kadın, Erkek, Çocuk & İç Giyim Butiği</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        display: ['"Cinzel"', 'serif'],
+                    },
+                    colors: {
+                        boutique: {
+                            dark: '#141210',
+                            charcoal: '#211D1A',
+                            cream: '#FAF7F2',
+                            sand: '#F2ECE4',
+                            beige: '#E6DCCE',
+                            rose: '#C38D86',
+                            roseDark: '#A36861',
+                            gold: '#C5A880',
+                            terracotta: '#B85C47'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(20, 18, 16, 0.07)',
+                        'hover-card': '0 30px 60px -12px rgba(195, 141, 134, 0.18)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Editorial text styles */
+        .editorial-title {
+            letter-spacing: -0.02em;
+            line-height: 0.95;
+        }
+        
+        .gold-shimmer {
+            background: linear-gradient(135deg, #FAF7F2 0%, #C5A880 50%, #FAF7F2 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Subtle Luxury Border */
+        .luxury-border {
+            border: 1px solid rgba(197, 168, 128, 0.3);
+        }
+
+        /* Running Ticker */
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: scroll-left 25s linear infinite;
+        }
+
+        /* Filter tab active state */
+        .fashion-tab.active {
+            background-color: #141210;
+            color: #FAF7F2;
+            border-color: #141210;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FAF7F2; }
+        ::-webkit-scrollbar-thumb { background: #C38D86; border-radius: 3px; }
+    </style>
+</head>
+<body class="bg-boutique-cream text-boutique-dark font-sans selection:bg-boutique-rose selection:text-white antialiased">
+
+    <!-- 1. EDITORIAL TOP ANNOUNCEMENT -->
+    <div class="bg-boutique-dark text-boutique-cream text-[0.7rem] uppercase tracking-[0.25em] py-2.5 px-4 text-center border-b border-boutique-charcoal">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <span class="hidden md:inline-block text-boutique-gold font-serif italic tracking-wider">Zeynep & Ramazan Yanık Güvencesiyle</span>
+            <div class="flex items-center gap-4">
+                <span class="inline-flex items-center gap-1.5 font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-boutique-rose animate-pulse"></span>
+                    Yeni Sezon Koleksiyonu Mağazamızda!
+                </span>
+                <span class="text-stone-600">|</span>
+                <span class="text-stone-400">Şeyh Şamil Mh. Kazım Karabekir Bulvarı No:44/B - Sivas</span>
+            </div>
+            <a href="tel:05316701705" class="hover:text-boutique-gold transition-colors font-medium flex items-center gap-1.5">
+                <i class="fa-solid fa-phone text-xs text-boutique-gold"></i> 0531 670 1705
+            </a>
+        </div>
+    </div>
+
+    <!-- 2. BOUTIQUE STICKY NAVIGATION -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-boutique-beige shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Left: Refined Brand Logo -->
+                <a href="#" class="flex items-center gap-3.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-full bg-boutique-dark text-boutique-gold border border-boutique-gold/40 flex items-center justify-center text-lg shadow-sm group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-1.5">
+                            <span class="font-display font-bold text-xl sm:text-2xl tracking-[0.2em] text-boutique-dark uppercase group-hover:text-boutique-rose transition-colors leading-none">
+                                AY YILDIZ
+                            </span>
+                            <span class="text-xs font-serif italic text-boutique-rose font-medium">Giyim</span>
+                        </div>
+                        <span class="text-[0.6rem] font-sans tracking-[0.3em] uppercase text-stone-400 font-medium mt-0.5">
+                            Zeynep & Ramazan Yanık • Sivas
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Center: Clean & Spaced Navigation -->
+                <nav class="hidden lg:flex items-center space-x-7 text-xs font-semibold tracking-[0.16em] uppercase text-stone-700">
+                    <a href="#koleksiyon" class="hover:text-boutique-rose transition-colors py-2 relative group">
+                        Koleksiyon
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-boutique-rose transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#kadin" class="hover:text-boutique-rose transition-colors py-2 relative group">
+                        Kadın Modası
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-boutique-rose transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#erkek" class="hover:text-boutique-rose transition-colors py-2 relative group">
+                        Erkek Giyim
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-boutique-rose transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#cocuk" class="hover:text-boutique-rose transition-colors py-2 relative group">
+                        Çocuk Reyonu
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-boutique-rose transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#ic-giyim" class="hover:text-boutique-rose transition-colors py-2 relative group">
+                        Pijama & İç Giyim
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-boutique-rose transition-all group-hover:w-full"></span>
+                    </a>
+                </nav>
+
+                <!-- Right: Action Buttons & Social -->
+                <div class="flex items-center gap-3 shrink-0">
+                    <a href="https://instagram.com/ayyildizgiyim58" target="_blank" 
+                       class="w-10 h-10 rounded-full border border-stone-200 bg-stone-50 flex items-center justify-center text-stone-700 hover:bg-boutique-rose hover:border-boutique-rose hover:text-white transition-all shadow-sm" title="Instagram Profilimiz">
+                        <i class="fa-brands fa-instagram text-sm"></i>
+                    </a>
+                    
+                    <a href="https://wa.me/905316701705?text=Merhaba,%20Ay%20Yıldız%20Giyim%20ürünleri%20hakkında%20bilgi%20ve%20beden%20sormak%20istiyorum." target="_blank" 
+                       class="inline-flex items-center gap-2 bg-boutique-dark hover:bg-boutique-rose text-boutique-cream px-4 sm:px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all shadow-md">
+                        <i class="fa-brands fa-whatsapp text-sm text-emerald-400"></i>
+                        <span class="hidden sm:inline">WhatsApp</span> Sipariş
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. RUNNING MARQUEE TICKER (LUXURY RUNWAY STYLE) -->
+    <div class="bg-boutique-sand py-2.5 border-b border-boutique-beige overflow-hidden">
+        <div class="animate-marquee whitespace-nowrap text-xs font-serif tracking-[0.2em] uppercase text-stone-700">
+            <span class="mx-8">✨ YENİ SEZON ELBİSELER</span>
+            <span class="mx-8">✦ TRENÇKOT & KAP MODELLERİ</span>
+            <span class="mx-8">✨ ŞIK BAYAN GÖMLEK & TUNİKLER</span>
+            <span class="mx-8">✦ ERKEK GİYİM & TRİKO</span>
+            <span class="mx-8">✨ ÇOCUK ELBİSE VE TAKIMLARI</span>
+            <span class="mx-8">✦ PİJAMA & FANTEZİ İÇ GİYİM</span>
+            <span class="mx-8">✨ KALİTELİ ÇORAP ÇEŞİTLERİ</span>
+            <!-- duplicate for infinite loop -->
+            <span class="mx-8">✨ YENİ SEZON ELBİSELER</span>
+            <span class="mx-8">✦ TRENÇKOT & KAP MODELLERİ</span>
+            <span class="mx-8">✨ ŞIK BAYAN GÖMLEK & TUNİKLER</span>
+            <span class="mx-8">✦ ERKEK GİYİM & TRİKO</span>
+            <span class="mx-8">✨ ÇOCUK ELBİSE VE TAKIMLARI</span>
+            <span class="mx-8">✦ PİJAMA & FANTEZİ İÇ GİYİM</span>
+        </div>
+    </div>
+
+    <!-- 4. EDITORIAL HERO SECTION (MAGAZINE COVER STYLE) -->
+    <section class="relative overflow-hidden py-12 lg:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Typography & Pitch -->
+                <div class="lg:col-span-6 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 border-b border-boutique-gold pb-1 text-boutique-roseDark font-serif italic text-base">
+                        <span>Ailenizin Şıklık Durağı • Sivas</span>
+                    </div>
+
+                    <h1 class="text-5xl sm:text-6xl xl:text-7xl font-serif text-boutique-dark editorial-title font-medium">
+                        Zarafet, Kalite <br>
+                        <span class="italic font-normal text-boutique-rose">ve Güncel Moda</span> <br>
+                        Tek Bir Çatıda.
+                    </h1>
+
+                    <p class="text-stone-600 text-base sm:text-lg font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        Ay Yıldız Giyim; kadın giyimden erkek modasına, çocuk elbiselerinden pijama ve fantezi iç çamaşırı koleksiyonlarına kadar en trend parçaları Sivas'ta beğeninize sunuyor.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#koleksiyon" class="bg-boutique-dark hover:bg-boutique-rose text-boutique-cream px-8 py-4 rounded-full text-xs font-semibold tracking-[0.2em] uppercase transition-all shadow-lg hover:shadow-boutique-rose/30 text-center">
+                            Koleksiyonu Keşfet <i class="fa-solid fa-arrow-down ml-2"></i>
+                        </a>
+                        <a href="#kombin-asistani" class="border border-boutique-dark hover:bg-boutique-dark hover:text-white text-boutique-dark px-8 py-4 rounded-full text-xs font-semibold tracking-[0.2em] uppercase transition-all text-center">
+                            <i class="fa-solid fa-wand-magic-sparkles mr-2 text-boutique-gold"></i> Beden & Model Sor
+                        </a>
+                    </div>
+
+                    <!-- Micro Features -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-boutique-beige text-center lg:text-left">
+                        <div>
+                            <div class="font-serif text-2xl sm:text-3xl font-bold text-boutique-dark">%100</div>
+                            <div class="text-[0.65rem] tracking-wider uppercase text-stone-500 mt-0.5">Kaliteli Kumaş</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-2xl sm:text-3xl font-bold text-boutique-dark">Haftalık</div>
+                            <div class="text-[0.65rem] tracking-wider uppercase text-stone-500 mt-0.5">Yeni Modeller</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-2xl sm:text-3xl font-bold text-boutique-dark">Uygun</div>
+                            <div class="text-[0.65rem] tracking-wider uppercase text-stone-500 mt-0.5">Butik Fiyatlar</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Editorial Visual Composition -->
+                <div class="lg:col-span-6 relative">
+                    <div class="grid grid-cols-12 gap-4 items-center">
+                        
+                        <!-- Main Card -->
+                        <div class="col-span-8 relative">
+                            <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl luxury-border relative group">
+                                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop" 
+                                     alt="Yeni Sezon Kadın Koleksiyonu" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-boutique-dark/60 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-6 left-6 right-6 text-white">
+                                    <span class="text-[0.65rem] tracking-[0.25em] uppercase font-serif italic text-boutique-gold">Yeni Sezon</span>
+                                    <h3 class="font-serif text-2xl font-normal">Kadın Elbise & Tunikler</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Stacked Cards -->
+                        <div class="col-span-4 space-y-4">
+                            <div class="aspect-square rounded-xl overflow-hidden shadow-md luxury-border group relative">
+                                <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=400&auto=format&fit=crop" 
+                                     alt="Trençkot & Dış Giyim" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <span class="absolute bottom-2 left-2 text-[0.6rem] bg-boutique-dark/80 text-white px-2 py-0.5 rounded backdrop-blur-sm">
+                                    Trençkotlar
+                                </span>
+                            </div>
+
+                            <div class="aspect-square rounded-xl overflow-hidden shadow-md luxury-border group relative">
+                                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=400&auto=format&fit=crop" 
+                                     alt="Çocuk Koleksiyonu" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <span class="absolute bottom-2 left-2 text-[0.6rem] bg-boutique-dark/80 text-white px-2 py-0.5 rounded backdrop-blur-sm">
+                                    Çocuk Giyim
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOUR CORE FAMILY CATEGORIES (FROM INSTAGRAM BIO) -->
+    <section class="py-16 bg-white border-y border-boutique-beige">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-boutique-roseDark font-serif italic text-base">Tüm Aile İçin Seçkin Parçalar</span>
+                <h2 class="text-3xl sm:text-4xl font-serif text-boutique-dark uppercase tracking-wide mt-1">
+                    Ana Reyonlarımız
+                </h2>
+                <div class="w-16 h-0.5 bg-boutique-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Pillar 1: Kadın Giyim -->
+                <div class="group relative bg-boutique-cream rounded-2xl overflow-hidden border border-boutique-beige p-4 hover:shadow-hover-card transition-all" id="kadin">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop" 
+                             alt="Bayan Giyim" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-boutique-dark/20 group-hover:bg-transparent transition-colors"></div>
+                        <span class="absolute top-3 right-3 bg-white/90 text-boutique-dark text-[0.65rem] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                            Bayan Giyim
+                        </span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-boutique-dark mb-1">Kadın & Tesettür Modası</h3>
+                    <p class="text-stone-500 text-xs mb-4 leading-relaxed">Elbiseler, şık tunikler, mevsimlik trençkotlar, keten & saten gömlekler.</p>
+                    <a href="https://wa.me/905316701705?text=Bayan%20giyim%20modellerini%20görmek%20istiyorum." target="_blank" 
+                       class="text-xs font-semibold text-boutique-roseDark group-hover:text-boutique-dark flex items-center gap-1.5 transition-colors">
+                        <span>Modelleri İncele</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Pillar 2: Erkek Giyim -->
+                <div class="group relative bg-boutique-cream rounded-2xl overflow-hidden border border-boutique-beige p-4 hover:shadow-hover-card transition-all" id="erkek">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=600&auto=format&fit=crop" 
+                             alt="Erkek Giyim" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-boutique-dark/20 group-hover:bg-transparent transition-colors"></div>
+                        <span class="absolute top-3 right-3 bg-white/90 text-boutique-dark text-[0.65rem] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                            Bay Giyim
+                        </span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-boutique-dark mb-1">Erkek Giyim & Kombinler</h3>
+                    <p class="text-stone-500 text-xs mb-4 leading-relaxed">Günlük şık gömlekler, trikolar, pantolonlar ve mevsimlik ceketler.</p>
+                    <a href="https://wa.me/905316701705?text=Erkek%20giyim%20çeşitlerini%20öğrenmek%20istiyorum." target="_blank" 
+                       class="text-xs font-semibold text-boutique-roseDark group-hover:text-boutique-dark flex items-center gap-1.5 transition-colors">
+                        <span>Modelleri İncele</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Pillar 3: Çocuk Giyim -->
+                <div class="group relative bg-boutique-cream rounded-2xl overflow-hidden border border-boutique-beige p-4 hover:shadow-hover-card transition-all" id="cocuk">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=600&auto=format&fit=crop" 
+                             alt="Çocuk Giyim" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-boutique-dark/20 group-hover:bg-transparent transition-colors"></div>
+                        <span class="absolute top-3 right-3 bg-white/90 text-boutique-dark text-[0.65rem] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                            Çocuk Reyonu
+                        </span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-boutique-dark mb-1">Çocuk & Genç Modası</h3>
+                    <p class="text-stone-500 text-xs mb-4 leading-relaxed">Kız ve erkek çocuk günlük elbiseleri, rahat takımlar, bayramlıklar.</p>
+                    <a href="https://wa.me/905316701705?text=Çocuk%20giyim%20koleksiyonunu%20öğrenmek%20istiyorum." target="_blank" 
+                       class="text-xs font-semibold text-boutique-roseDark group-hover:text-boutique-dark flex items-center gap-1.5 transition-colors">
+                        <span>Modelleri İncele</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Pillar 4: İç Giyim & Pijama -->
+                <div class="group relative bg-boutique-cream rounded-2xl overflow-hidden border border-boutique-beige p-4 hover:shadow-hover-card transition-all" id="ic-giyim">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop" 
+                             alt="Pijama ve İç Giyim" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-boutique-dark/20 group-hover:bg-transparent transition-colors"></div>
+                        <span class="absolute top-3 right-3 bg-white/90 text-boutique-dark text-[0.65rem] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                            İç Giyim & Çorap
+                        </span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-boutique-dark mb-1">Pijama & Fantezi İç Giyim</h3>
+                    <p class="text-stone-500 text-xs mb-4 leading-relaxed">Pamuklu ve saten pijama takımları, fantezi iç giyim, kaliteli çoraplar.</p>
+                    <a href="https://wa.me/905316701705?text=Pijama%20ve%20iç%20giyim%20çeşitleri%20hakkında%20bilgi%20istiyorum." target="_blank" 
+                       class="text-xs font-semibold text-boutique-roseDark group-hover:text-boutique-dark flex items-center gap-1.5 transition-colors">
+                        <span>Modelleri İncele</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. INTERACTIVE VİTRİN / LOOKBOOK EXPLORER -->
+    <section id="koleksiyon" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+                <span class="text-boutique-roseDark font-serif italic text-base">Haftanın Öne Çıkan Parçaları</span>
+                <h2 class="text-4xl font-serif text-boutique-dark uppercase tracking-wide mt-1">
+                    Vitrin Koleksiyonu
+                </h2>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterLookbook('all')" class="fashion-tab active px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-stone-300 transition-all">
+                    Tüm Koleksiyon
+                </button>
+                <button onclick="filterLookbook('kadin-elbise')" class="fashion-tab px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-white border border-stone-300 text-stone-700 hover:border-boutique-dark transition-all">
+                    Elbise & Tunik
+                </button>
+                <button onclick="filterLookbook('dis-giyim')" class="fashion-tab px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-white border border-stone-300 text-stone-700 hover:border-boutique-dark transition-all">
+                    Trençkot & Dış Giyim
+                </button>
+                <button onclick="filterLookbook('pijama-ic')" class="fashion-tab px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-white border border-stone-300 text-stone-700 hover:border-boutique-dark transition-all">
+                    Pijama & Ev Giyimi
+                </button>
+            </div>
+        </div>
+
+        <!-- Catalog Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="lookbookGrid">
+            
+            <!-- Item 1: Kadın Elbise -->
+            <div class="lookbook-item kadin-elbise bg-white rounded-2xl overflow-hidden border border-boutique-beige shadow-soft hover:shadow-hover-card transition-all group">
+                <div class="aspect-[3/4] overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop" 
+                         alt="Zarif Bayan Elbise" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-boutique-dark text-boutique-cream text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Trend Model
+                    </span>
+                    <button onclick="quickInquiry('Zarif Kuşaklı Bayan Elbise')" class="absolute bottom-4 right-4 bg-white/90 hover:bg-boutique-rose hover:text-white text-boutique-dark text-xs font-semibold px-4 py-2 rounded-full shadow-md backdrop-blur-sm transition-all flex items-center gap-1.5">
+                        <i class="fa-brands fa-whatsapp text-sm text-emerald-500"></i> Beden / Renk Sor
+                    </button>
+                </div>
+                <div class="p-6">
+                    <span class="text-[0.65rem] uppercase tracking-widest text-stone-400 font-medium">Bayan Giyim</span>
+                    <h3 class="font-serif text-xl font-bold text-boutique-dark mt-1 mb-2">Kuşaklı & Dökümlü Sezon Elbisesi</h3>
+                    <p class="text-stone-500 text-xs leading-relaxed mb-4">Nefes alan pamuk-viskon kumaş, rahat kalıp, farklı renk seçenekleri ile mağazamızda.</p>
+                    <div class="flex items-center justify-between text-xs border-t border-stone-100 pt-3">
+                        <span class="text-stone-600 font-medium">Bedenler: 38 - 46</span>
+                        <span class="text-boutique-roseDark font-bold">Stokta Mevcut</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Trençkot -->
+            <div class="lookbook-item dis-giyim bg-white rounded-2xl overflow-hidden border border-boutique-beige shadow-soft hover:shadow-hover-card transition-all group">
+                <div class="aspect-[3/4] overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=800&auto=format&fit=crop" 
+                         alt="Mevsimlik Trençkot" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-boutique-rose text-white text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Yeni Sezon
+                    </span>
+                    <button onclick="quickInquiry('Mevsimlik Astarlı Trençkot')" class="absolute bottom-4 right-4 bg-white/90 hover:bg-boutique-rose hover:text-white text-boutique-dark text-xs font-semibold px-4 py-2 rounded-full shadow-md backdrop-blur-sm transition-all flex items-center gap-1.5">
+                        <i class="fa-brands fa-whatsapp text-sm text-emerald-500"></i> Beden / Renk Sor
+                    </button>
+                </div>
+                <div class="p-6">
+                    <span class="text-[0.65rem] uppercase tracking-widest text-stone-400 font-medium">Dış Giyim</span>
+                    <h3 class="font-serif text-xl font-bold text-boutique-dark mt-1 mb-2">Astarlı & Kemerli Trençkot</h3>
+                    <p class="text-stone-500 text-xs leading-relaxed mb-4">Su itici kaliteli gabardin doku, bej, camel ve siyah renk seçenekleriyle şıklığınızı tamamlar.</p>
+                    <div class="flex items-center justify-between text-xs border-t border-stone-100 pt-3">
+                        <span class="text-stone-600 font-medium">Bedenler: 36 - 44</span>
+                        <span class="text-boutique-roseDark font-bold">Stokta Mevcut</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Pijama & İç Giyim -->
+            <div class="lookbook-item pijama-ic bg-white rounded-2xl overflow-hidden border border-boutique-beige shadow-soft hover:shadow-hover-card transition-all group">
+                <div class="aspect-[3/4] overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop" 
+                         alt="Pijama ve İç Giyim" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-boutique-gold text-boutique-dark text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Özel Koleksiyon
+                    </span>
+                    <button onclick="quickInquiry('Pamuklu Pijama ve İç Giyim Çeşitleri')" class="absolute bottom-4 right-4 bg-white/90 hover:bg-boutique-rose hover:text-white text-boutique-dark text-xs font-semibold px-4 py-2 rounded-full shadow-md backdrop-blur-sm transition-all flex items-center gap-1.5">
+                        <i class="fa-brands fa-whatsapp text-sm text-emerald-500"></i> Beden / Renk Sor
+                    </button>
+                </div>
+                <div class="p-6">
+                    <span class="text-[0.65rem] uppercase tracking-widest text-stone-400 font-medium">Ev Giyimi & İç Giyim</span>
+                    <h3 class="font-serif text-xl font-bold text-boutique-dark mt-1 mb-2">Pamuklu Pijama & Fantezi İç Çamaşırı</h3>
+                    <p class="text-stone-500 text-xs leading-relaxed mb-4">Ten dostu yumuşak dokulu pijama takımları, gecelikler ve zengin çorap çeşitleri.</p>
+                    <div class="flex items-center justify-between text-xs border-t border-stone-100 pt-3">
+                        <span class="text-stone-600 font-medium">S - M - L - XL - XXL</span>
+                        <span class="text-boutique-roseDark font-bold">Stokta Mevcut</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. AKILLI KOMBİN & BEDEN DANIŞMANI (WHATSAPP CONCIERGE) -->
+    <section id="kombin-asistani" class="py-20 bg-boutique-dark text-boutique-cream relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-gradient-to-br from-boutique-charcoal via-stone-900 to-boutique-dark border border-boutique-gold/30 rounded-3xl p-8 sm:p-14 shadow-2xl">
+                
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-6 space-y-6">
+                        <div class="inline-flex items-center gap-2 text-boutique-gold font-serif italic text-base">
+                            <i class="fa-solid fa-sparkles"></i> Kişisel Butik Danışmanlığı
+                        </div>
+
+                        <h2 class="text-4xl sm:text-5xl font-serif text-white editorial-title">
+                            Mağazaya Gelmeden, <br>
+                            <span class="text-boutique-rose">Beden & Modelini Seç!</span>
+                        </h2>
+
+                        <p class="text-stone-300 text-base font-light leading-relaxed">
+                            Aradığınız kıyafetin rengini, bedenini veya kombin önerisini seçin; <strong>Zeynep & Ramazan Yanık</strong> olarak mağazamızdaki güncel askı fotoğraflarını ve detaylı videolarını doğrudan WhatsApp üzerinden sizinle paylaşalım.
+                        </p>
+
+                        <div class="space-y-3 pt-2 text-sm text-stone-300">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-boutique-gold"></i>
+                                <span>Canlı askı ve manken üzerinden model videosu gönderimi</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-boutique-gold"></i>
+                                <span>Doğru beden ölçüsü danışmanlığı & hızlı ayırma imkanı</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-boutique-gold"></i>
+                                <span>Sivas içi aynı gün mağazadan teslim alma veya kargo desteği</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Concierge Form -->
+                    <div class="lg:col-span-6">
+                        <div class="bg-boutique-dark p-6 sm:p-8 rounded-2xl border border-stone-800 shadow-xl">
+                            <h3 class="font-serif text-2xl text-white mb-2">Hızlı Model / Beden Talebi</h3>
+                            <p class="text-xs text-stone-400 mb-6">WhatsApp butik hattımıza anında yönlendirilirsiniz.</p>
+
+                            <form onsubmit="handleFashionInquiry(event)" class="space-y-4">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs uppercase tracking-wider text-stone-400 mb-1.5">Kategori</label>
+                                        <select id="fashionCat" class="w-full bg-stone-900 border border-stone-700 rounded-lg p-3 text-sm text-white focus:border-boutique-rose focus:outline-none">
+                                            <option value="Bayan Elbise / Tunik">Bayan Elbise / Tunik</option>
+                                            <option value="Trençkot / Dış Giyim">Trençkot / Dış Giyim</option>
+                                            <option value="Erkek Giyim">Erkek Giyim</option>
+                                            <option value="Çocuk Giyim">Çocuk Giyim</option>
+                                            <option value="Pijama / Fantezi İç Giyim">Pijama / Fantezi İç Giyim</option>
+                                            <option value="Çorap & Aksesuar">Çorap & Aksesuar</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs uppercase tracking-wider text-stone-400 mb-1.5">Bedeniniz</label>
+                                        <input type="text" id="fashionSize" placeholder="Örn: 38, M, 42, 6-7 Yaş" required
+                                               class="w-full bg-stone-900 border border-stone-700 rounded-lg p-3 text-sm text-white focus:border-boutique-rose focus:outline-none">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs uppercase tracking-wider text-stone-400 mb-1.5">Aradığınız Renk veya Özel İstek</label>
+                                    <textarea id="fashionNote" rows="3" placeholder="Örn: Siyah kuşaklı trençkot modellerinin fotoğraflarını ve fiyatını öğrenmek istiyorum..." required
+                                              class="w-full bg-stone-900 border border-stone-700 rounded-lg p-3 text-sm text-white focus:border-boutique-rose focus:outline-none resize-none"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full bg-boutique-rose hover:bg-boutique-roseDark text-white py-4 rounded-xl text-xs font-semibold tracking-[0.2em] uppercase transition-all shadow-lg flex items-center justify-center gap-2">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                    <span>Fotoğraf & Beden Bilgisi İste</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. HAKKIMIZDA & MAĞAZA ATMOSFERİ -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6">
+                    <span class="text-boutique-roseDark font-serif italic text-base">Zeynep & Ramazan Yanık</span>
+                    <h2 class="text-4xl sm:text-5xl font-serif text-boutique-dark leading-tight">
+                        Sivas Şeyh Şamil'de <br>
+                        <span class="italic text-boutique-rose">Samimi Esnaflık & Güncel Moda</span>
+                    </h2>
+                    
+                    <p class="text-stone-600 font-light text-base leading-relaxed">
+                        Ay Yıldız Giyim olarak, Sivas Şeyh Şamil Mahallesi Kazım Karabekir Bulvarı'ndaki mağazamızda ailenizin tüm giyim ihtiyaçlarını tek bir çatı altında topluyoruz.
+                    </p>
+                    <p class="text-stone-600 font-light text-base leading-relaxed">
+                        Modayı yakından takip eden vizyonumuzla, her hafta yenilenen askılarımızda kaliteli kumaşları, zarif dikiş detaylarını ve bütçe dostu fiyatları bir arada sunuyoruz. İster günlük rahatlık, ister özel gün şıklığı olsun; Ay Yıldız Giyim'de kendinize ve sevdiklerinize uygun bir parça mutlaka bulacaksınız.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-boutique-beige">
+                        <div class="p-4 rounded-xl bg-boutique-cream border border-boutique-beige">
+                            <i class="fa-solid fa-store text-xl text-boutique-gold mb-2"></i>
+                            <h4 class="font-serif font-bold text-boutique-dark text-lg">Geniş Mağaza</h4>
+                            <p class="text-xs text-stone-500">Rahat alışveriş ve deneme kabinleri.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-boutique-cream border border-boutique-beige">
+                            <i class="fa-solid fa-heart text-xl text-boutique-rose mb-2"></i>
+                            <h4 class="font-serif font-bold text-boutique-dark text-lg">Güler Yüz</h4>
+                            <p class="text-xs text-stone-500">Müşteri memnuniyeti odaklı hizmet.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Store / Lifestyle Image -->
+                <div class="relative">
+                    <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl luxury-border">
+                        <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Ay Yıldız Giyim Butik Mağazası" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-boutique-dark text-white p-6 rounded-2xl shadow-xl hidden sm:block border border-boutique-gold/40 max-w-xs">
+                        <div class="text-boutique-gold font-serif italic text-sm">Haftanın 7 Günü Açık</div>
+                        <div class="font-serif text-lg font-bold text-white mt-1">Kapımız Sizlere Her Zaman Açık</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. S.S.S. (FREQUENTLY ASKED QUESTIONS) -->
+    <section class="py-16 bg-boutique-sand">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <i class="fa-regular fa-circle-question text-2xl text-boutique-gold mb-2"></i>
+                <h2 class="text-3xl font-serif text-boutique-dark uppercase tracking-wide">Merak Edilenler</h2>
+                <p class="text-stone-500 text-xs mt-1">Ay Yıldız Giyim alışveriş süreçleri ve mağaza hakkında sıkça sorulanlar.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <details class="group bg-white border border-boutique-beige rounded-xl p-5 cursor-pointer shadow-sm hover:border-boutique-rose transition-colors">
+                    <summary class="font-serif font-bold text-lg text-boutique-dark flex justify-between items-center outline-none">
+                        <span>Yeni sezon ürünleriniz ne sıklıkla güncelleniyor?</span>
+                        <span class="text-boutique-rose group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down text-sm"></i></span>
+                    </summary>
+                    <div class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+                        Mağazamızın askıları her hafta düzenli olarak yenilenir. Sezonun en trend kadın, erkek ve çocuk modelleri, pijama ve iç giyim çeşitleri haftalık sevkiyatlarla mağazamıza ulaşmaktadır.
+                    </div>
+                </details>
+
+                <!-- FAQ 2 -->
+                <details class="group bg-white border border-boutique-beige rounded-xl p-5 cursor-pointer shadow-sm hover:border-boutique-rose transition-colors">
+                    <summary class="font-serif font-bold text-lg text-boutique-dark flex justify-between items-center outline-none">
+                        WhatsApp üzerinden sipariş verip kargo ile teslim alabilir miyim?</span>
+                        <span class="text-boutique-rose group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down text-sm"></i></span>
+                    </summary>
+                    <div class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+                        Evet. Beğendiğiniz modelin fotoğrafını bize WhatsApp üzerinden ileterek beden ve stok teyidi alabilir, dilerseniz Sivas içi mağazamızdan teslim alabilir veya anlaşmalı kargo ile adresinize gönderttirtebilirsiniz.
+                    </div>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details class="group bg-white border border-boutique-beige rounded-xl p-5 cursor-pointer shadow-sm hover:border-boutique-rose transition-colors">
+                    <summary class="font-serif font-bold text-lg text-boutique-dark flex justify-between items-center outline-none">
+                        Mağazada beden değişimi yapabiliyor muyuz?</span>
+                        <span class="text-boutique-rose group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down text-sm"></i></span>
+                    </summary>
+                    <div class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+                        Kullanılmamış ve etiketi çıkarılmamış ürünlerinizde (hijyen kuralları gereği fantezi iç çamaşırı hariç) makul süre içerisinde mağazamızdan kolaylıkla beden veya model değişimi yapabilirsiniz.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. CLASSIC 4-COLUMN FOOTER (ELEGANT EDITORIAL STYLE) -->
+    <footer class="bg-boutique-dark text-stone-300 pt-16 pb-8 border-t-2 border-boutique-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 border-b border-stone-800 pb-12">
+                
+                <!-- Column 1: Brand & Bio -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="font-display font-bold text-2xl tracking-[0.2em] text-white uppercase">AY YILDIZ</span>
+                        <span class="text-xs text-boutique-gold font-serif italic">Giyim</span>
+                    </div>
+                    <p class="text-xs text-stone-400 leading-relaxed mb-6 font-light">
+                        Zeynep & Ramazan Yanık güvencesiyle Sivas'ta bay, bayan, çocuk giyim ve iç giyim alanında en kaliteli ve şık ürünleri sizlerle buluşturuyoruz.
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <a href="https://instagram.com/ayyildizgiyim58" target="_blank" class="w-9 h-9 rounded-full bg-stone-900 hover:bg-boutique-rose text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/905316701705" target="_blank" class="w-9 h-9 rounded-full bg-stone-900 hover:bg-emerald-600 text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="tel:05316701705" class="w-9 h-9 rounded-full bg-stone-900 hover:bg-boutique-gold hover:text-boutique-dark text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Reyonlar & Koleksiyon -->
+                <div>
+                    <h4 class="font-serif text-lg text-white uppercase tracking-wider mb-5 border-l-2 border-boutique-gold pl-2.5">
+                        Koleksiyonlar
+                    </h4>
+                    <ul class="space-y-2.5 text-xs text-stone-400 font-light">
+                        <li><a href="#kadin" class="hover:text-boutique-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-boutique-gold"></i> Bayan Elbise & Tunikler</a></li>
+                        <li><a href="#kadin" class="hover:text-boutique-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-boutique-gold"></i> Trençkot & Dış Giyim</a></li>
+                        <li><a href="#kadin" class="hover:text-boutique-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-boutique-gold"></i> Bayan Gömlek & Bluzlar</a></li>
+                        <li><a href="#erkek" class="hover:text-boutique-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-boutique-gold"></i> Bay Giyim & Triko</a></li>
+                        <li><a href="#cocuk" class="hover:text-boutique-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-boutique-gold"></i> Çocuk & Bebek Kıyafetleri</a></li>
+                        <li><a href="#ic-giyim" class="hover:text-boutique-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-boutique-gold"></i> Pijama & Fantezi İç Giyim</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Hızlı Erişim -->
+                <div>
+                    <h4 class="font-serif text-lg text-white uppercase tracking-wider mb-5 border-l-2 border-boutique-gold pl-2.5">
+                        Hızlı Menü
+                    </h4>
+                    <ul class="space-y-2.5 text-xs text-stone-400 font-light">
+                        <li><a href="#koleksiyon" class="hover:text-boutique-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-boutique-gold"></i> Vitrin & Trend Modeller</a></li>
+                        <li><a href="#kombin-asistani" class="hover:text-boutique-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-boutique-gold"></i> Canlı Beden & Askı Danışmanı</a></li>
+                        <li><a href="https://instagram.com/ayyildizgiyim58" target="_blank" class="hover:text-boutique-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-boutique-gold"></i> Instagram'da Bizi Takip Edin</a></li>
+                        <li><a href="#iletisim" class="hover:text-boutique-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-boutique-gold"></i> Mağaza Konumu & Yol Tarifi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: İletişim & Adres -->
+                <div id="iletisim">
+                    <h4 class="font-serif text-lg text-white uppercase tracking-wider mb-5 border-l-2 border-boutique-gold pl-2.5">
+                        İletişim & Konum
+                    </h4>
+                    <ul class="space-y-3 text-xs text-stone-400 font-light">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-location-dot text-boutique-gold mt-0.5 text-sm"></i>
+                            <span>Şeyh Şamil Mh. Kazım Karabekir Bulv. No:44/B<br><strong class="text-white font-medium">Merkez / SİVAS</strong></span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-phone text-boutique-gold text-sm"></i>
+                            <a href="tel:05316701705" class="text-white hover:text-boutique-gold font-bold font-serif text-base tracking-wider">0531 670 1705</a>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+                            <a href="https://wa.me/905316701705" class="hover:text-white">WhatsApp Butik Hattı</a>
+                        </li>
+                        <li class="pt-2 border-t border-stone-800 text-[0.7rem] text-stone-500">
+                            Pazartesi - Pazar: 09:00 - 20:30
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center text-xs text-stone-500 font-light">
+                <p>&copy; 2026 AY YILDIZ GİYİM (Zeynep & Ramazan Yanık). Tüm Hakları Saklıdır. Sivas.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Lookbook Filter Tab Logic
+        function filterLookbook(category) {
+            const tabs = document.querySelectorAll('.fashion-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                tab.classList.add('bg-white', 'text-stone-700');
+            });
+
+            event.target.classList.add('active');
+            event.target.classList.remove('bg-white', 'text-stone-700');
+
+            const items = document.querySelectorAll('.lookbook-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Quick WhatsApp Inquiry from product card
+        function quickInquiry(productName) {
+            const text = `Merhaba Zeynep Hanım / Ramazan Bey, Ay Yıldız Giyim web sitenizden "${productName}" modelini gördüm. Güncel renk seçenekleri ve beden stokları hakkında bilgi alabilir miyim?`;
+            const url = `https://wa.me/905316701705?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+
+        // Concierge WhatsApp Form
+        function handleFashionInquiry(e) {
+            e.preventDefault();
+            const cat = document.getElementById('fashionCat').value;
+            const size = document.getElementById('fashionSize').value;
+            const note = document.getElementById('fashionNote').value;
+
+            const message = `*AY YILDIZ GİYİM - BEDEN & MODEL DANIŞMA TALEBİ*\n\n` +
+                            `*İlgilenilen Reyon:* ${cat}\n` +
+                            `*Aranan Beden:* ${size}\n` +
+                            `*Talep & Not:* ${note}\n\n` +
+                            `_Bu mesaj Ay Yıldız Giyim web sitesi üzerinden gönderilmiştir._`;
+
+            const url = `https://wa.me/905316701705?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

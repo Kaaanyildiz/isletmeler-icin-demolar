@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saray Pastanesi | Sivas - Saraylara Layıksınız</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Lato', 'sans-serif'],
+                    },
+                    colors: {
+                        chocolate: {
+                            900: '#1A0F0A',
+                            800: '#2D1810',
+                            700: '#3D2314',
+                            600: '#5C3A21',
+                        },
+                        cream: {
+                            DEFAULT: '#FAF7F2',
+                            100: '#FFFDF9',
+                            200: '#F2ECE1',
+                        },
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#E6C762',
+                            dark: '#AA8825',
+                        },
+                        ruby: {
+                            DEFAULT: '#9B2226',
+                        }
+                    },
+                    backgroundImage: {
+                        'noise': 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E")',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Golden Foil Text Effect */
+        .gold-text {
+            background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Scalloped Borders */
+        .scalloped-top { position: relative; }
+        .scalloped-top::before {
+            content: ""; position: absolute; top: -15px; left: 0; width: 100%; height: 30px;
+            background-size: 30px 30px; background-image: radial-gradient(circle at 15px 0, transparent 16px, #FAF7F2 17px);
+        }
+
+        .scalloped-bottom { position: relative; }
+        .scalloped-bottom::after {
+            content: ""; position: absolute; bottom: -15px; left: 0; width: 100%; height: 30px;
+            background-size: 30px 30px; background-image: radial-gradient(circle at 15px 30px, transparent 16px, #FAF7F2 17px);
+            z-index: 10;
+        }
+
+        .elegant-hover { transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        html { scroll-behavior: smooth; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FAF7F2; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; }
+    </style>
+</head>
+<body class="bg-cream text-chocolate-800 font-sans selection:bg-gold selection:text-chocolate-900 overflow-x-hidden">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-chocolate-900 text-gold-light py-2 px-4 text-xs tracking-[0.2em] uppercase text-center font-serif relative overflow-hidden">
+        <div class="absolute inset-0 bg-noise opacity-30"></div>
+        <span class="relative z-10">Sivas'ta İki Şube ile Hizmetinizdeyiz: Şeyhşamil & Yenişehir</span>
+    </div>
+
+    <!-- Elegant Navigation (Fixed Header Layout) -->
+    <header class="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-gold/30 transition-all duration-500 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Center/Left Logo (Fixed to be horizontal to prevent breaking) -->
+                <a href="#" class="flex items-center gap-3 transform hover:scale-105 elegant-hover">
+                    <div class="w-12 h-12 rounded-full border border-gold flex items-center justify-center">
+                        <i class="fa-solid fa-crown text-xl text-gold"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-black text-2xl tracking-widest uppercase text-chocolate-900 leading-none">Saray</span>
+                        <span class="font-sans text-[0.65rem] tracking-[0.3em] uppercase text-chocolate-600 mt-1">Pastanesi</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center space-x-8 font-serif italic text-lg text-chocolate-600">
+                    <a href="#hakkimizda" class="hover:text-gold transition-colors relative group">
+                        Hikayemiz
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-500 group-hover:w-full"></span>
+                    </a>
+                    <a href="#lezzetler" class="hover:text-gold transition-colors relative group">
+                        Lezzet Vitrini
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-500 group-hover:w-full"></span>
+                    </a>
+                    <a href="#menu" class="hover:text-gold transition-colors relative group">
+                        Öne Çıkanlar
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-500 group-hover:w-full"></span>
+                    </a>
+                    <a href="#subeler" class="hover:text-gold transition-colors relative group">
+                        Şubeler
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-500 group-hover:w-full"></span>
+                    </a>
+                </nav>
+
+                <!-- Right Nav / Action -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="https://instagram.com/saraypastanesisivas" target="_blank" class="w-10 h-10 rounded-full border border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-white elegant-hover">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://ig.me/m/saraypastanesisivas" target="_blank" class="bg-chocolate-900 text-gold text-xs font-sans tracking-[0.2em] uppercase px-5 py-2 hover:bg-gold hover:text-chocolate-900 transition-colors">
+                        Sipariş Ver
+                    </a>
+                </div>
+
+                <!-- Mobile menu -->
+                <div class="lg:hidden flex items-center">
+                    <button class="text-chocolate-900 hover:text-gold focus:outline-none text-2xl">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-chocolate-900">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=2000&auto=format&fit=crop" alt="Premium Cakes" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-chocolate-900 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-10">
+            <div class="text-gold mb-6 animate-pulse">
+                <i class="fa-solid fa-star text-sm"></i>
+                <i class="fa-solid fa-star text-lg mx-1"></i>
+                <i class="fa-solid fa-star text-sm"></i>
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-black text-white mb-6 leading-tight drop-shadow-2xl">
+                Saraylara <br> <span class="gold-text font-italic">Layıksınız</span>
+            </h1>
+            <p class="text-cream-200 text-lg md:text-xl font-light tracking-wide mb-10 max-w-2xl mx-auto font-serif italic">
+                Köy tereyağı ile hazırlanan geleneksel tatlılardan, usta ellerden çıkan özel tasarım pastalara... Sivas'ın en seçkin lezzet durağı.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6">
+                <a href="#lezzetler" class="bg-gold hover:bg-gold-light text-chocolate-900 font-sans font-bold tracking-[0.2em] uppercase px-10 py-4 rounded-sm elegant-hover shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                    Vitrinimizi Gezin
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scallop transition -->
+    <div class="w-full h-8 bg-chocolate-900 relative">
+        <div class="absolute bottom-0 w-full h-8 bg-cream" style="mask-image: radial-gradient(circle at 15px 0, transparent 16px, black 17px); mask-size: 30px 30px; -webkit-mask-image: radial-gradient(circle at 15px 0, transparent 16px, black 17px); -webkit-mask-size: 30px 30px;"></div>
+    </div>
+
+    <!-- Hikayemiz & Kalite (About Us) -->
+    <section id="hakkimizda" class="py-24 bg-cream relative">
+        <div class="absolute inset-0 bg-noise opacity-40 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative">
+                    <div class="relative w-4/5 mx-auto lg:mr-auto lg:ml-0">
+                        <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=800&auto=format&fit=crop" alt="Usta Ellerde Pasta" class="w-full h-auto rounded-t-full rounded-b-lg shadow-2xl border-4 border-white">
+                        <div class="absolute -bottom-10 -right-10 w-2/3 border-4 border-white rounded-lg shadow-2xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1514517521153-1be72277b32f?q=80&w=600&auto=format&fit=crop" alt="Dilim Pasta" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute top-10 -left-6 w-24 h-24 bg-chocolate-900 rounded-full flex items-center justify-center shadow-lg border-2 border-gold">
+                            <span class="text-gold font-serif font-bold text-center leading-tight">
+                                <span class="text-lg">%100</span><br><span class="text-[0.65rem] uppercase tracking-wider">Köy Tereyağı</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2 text-center lg:text-left">
+                    <h4 class="text-gold font-sans font-bold tracking-[0.3em] uppercase text-sm mb-4">Saray Pastanesi Güvencesi</h4>
+                    <h2 class="text-4xl lg:text-5xl font-serif text-chocolate-900 mb-8 leading-snug">
+                        Ustalarımızın Ellerinden, <br><span class="italic text-chocolate-600">Sizin Sofralarınıza</span>
+                    </h2>
+                    <p class="text-chocolate-700 font-sans leading-relaxed mb-6 text-lg font-light">
+                        Sivas Şeyhşamil ve Yenişehir şubelerimizde, uzun yıllardır kaliteden ödün vermeden, en taze malzemelerle üretim yapıyoruz. Her zaman taze, her zaman birinci sınıf kalite mottomuzla, tatlı krizlerinize saraylara layık çözümler sunuyoruz.
+                    </p>
+                    <p class="text-chocolate-700 font-sans leading-relaxed mb-8 text-lg font-light">
+                        Ürünlerimizde glikoz şurubu kullanmıyor, baklavalarımızda ve su böreklerimizde <strong class="font-serif italic text-xl text-chocolate-900">gerçek yöresel köy tereyağı</strong> tercih ediyoruz. Kendi imalatımız olan özel tasarım düğün pastaları ve günlük sütlü tatlılarımızla fark yaratıyoruz.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 mt-10 border-t border-gold/20 pt-10">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-wheat-awn text-2xl text-gold"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-serif font-bold text-chocolate-900 text-lg mb-1">Doğal Malzeme</h5>
+                                <p class="text-sm text-chocolate-600 font-light">Katkısız ve organik birinci sınıf içerikler.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-cake-candles text-2xl text-gold"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-serif font-bold text-chocolate-900 text-lg mb-1">Günlük İmalat</h5>
+                                <p class="text-sm text-chocolate-600 font-light">Her sabah taze olarak tezgaha çıkan ürünler.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lezzet Vitrini (Categories) -->
+    <section id="lezzetler" class="py-24 bg-chocolate-900 text-cream relative scalloped-bottom">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')] opacity-5"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h4 class="text-gold font-sans font-bold tracking-[0.3em] uppercase text-sm mb-4">Geniş Ürün Yelpazesi</h4>
+                <h2 class="text-4xl lg:text-5xl font-serif text-white mb-6">Lezzet Vitrinimiz</h2>
+                <div class="w-24 h-px bg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Category 1 -->
+                <div class="group relative overflow-hidden rounded-t-full border border-chocolate-700 bg-chocolate-800 hover:border-gold elegant-hover cursor-pointer shadow-lg">
+                    <div class="aspect-[3/4] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=600&auto=format&fit=crop" alt="Baklava" class="w-full h-full object-cover group-hover:scale-110 elegant-hover opacity-80 group-hover:opacity-100">
+                    </div>
+                    <div class="absolute bottom-0 w-full p-6 bg-gradient-to-t from-chocolate-900 via-chocolate-900/80 to-transparent">
+                        <h3 class="font-serif text-2xl text-gold mb-1 group-hover:-translate-y-2 elegant-hover">Geleneksel Tatlılar</h3>
+                        <p class="text-sm text-cream-200 opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 elegant-hover font-light">Köy Tereyağlı Baklava, Su Böreği</p>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="group relative overflow-hidden rounded-t-full border border-chocolate-700 bg-chocolate-800 hover:border-gold elegant-hover cursor-pointer lg:mt-12 shadow-lg">
+                    <div class="aspect-[3/4] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600&auto=format&fit=crop" alt="Yaş Pasta" class="w-full h-full object-cover group-hover:scale-110 elegant-hover opacity-80 group-hover:opacity-100">
+                    </div>
+                    <div class="absolute bottom-0 w-full p-6 bg-gradient-to-t from-chocolate-900 via-chocolate-900/80 to-transparent">
+                        <h3 class="font-serif text-2xl text-gold mb-1 group-hover:-translate-y-2 elegant-hover">Yaş Pastalar</h3>
+                        <p class="text-sm text-cream-200 opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 elegant-hover font-light">Taze Meyveli, Çikolatalı Özel Pastalar</p>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="group relative overflow-hidden rounded-t-full border border-chocolate-700 bg-chocolate-800 hover:border-gold elegant-hover cursor-pointer shadow-lg">
+                    <div class="aspect-[3/4] overflow-hidden bg-white">
+                        <img src="https://images.unsplash.com/photo-1514517521153-1be72277b32f?q=80&w=600&auto=format&fit=crop" alt="Dünya Lezzetleri" class="w-full h-full object-cover group-hover:scale-110 elegant-hover opacity-80 group-hover:opacity-100">
+                    </div>
+                    <div class="absolute bottom-0 w-full p-6 bg-gradient-to-t from-chocolate-900 via-chocolate-900/80 to-transparent">
+                        <h3 class="font-serif text-2xl text-gold mb-1 group-hover:-translate-y-2 elegant-hover">Dünya Lezzetleri</h3>
+                        <p class="text-sm text-cream-200 opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 elegant-hover font-light">Dubai Çikolatası, Cheesecake, Trileçe</p>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="group relative overflow-hidden rounded-t-full border border-chocolate-700 bg-chocolate-800 hover:border-gold elegant-hover cursor-pointer lg:mt-12 shadow-lg">
+                    <div class="aspect-[3/4] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=600&auto=format&fit=crop" alt="Sütlü Tatlılar" class="w-full h-full object-cover group-hover:scale-110 elegant-hover opacity-80 group-hover:opacity-100">
+                    </div>
+                    <div class="absolute bottom-0 w-full p-6 bg-gradient-to-t from-chocolate-900 via-chocolate-900/80 to-transparent">
+                        <h3 class="font-serif text-2xl text-gold mb-1 group-hover:-translate-y-2 elegant-hover">Sütlü Tatlılar</h3>
+                        <p class="text-sm text-cream-200 opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 elegant-hover font-light">Bol Fındıklı Fırın Sütlaç, Supangle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expanded Menu / Öne Çıkanlar (New Content) -->
+    <section id="menu" class="py-24 bg-cream">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <i class="fa-solid fa-utensils text-3xl text-gold mb-4"></i>
+                <h2 class="text-4xl font-serif text-chocolate-900 mb-4">Öne Çıkan İmza Lezzetlerimiz</h2>
+                <p class="text-chocolate-600 font-serif italic">Müşterilerimizin vazgeçemediği en özel tariflerimiz.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Menu Item 1 -->
+                <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-gold/20 shadow-sm hover:shadow-md">
+                    <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=150&h=150&fit=crop" alt="Soğuk Baklava" class="w-24 h-24 rounded-full object-cover border-2 border-gold/50 shadow-inner">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-center mb-1 border-b border-dotted border-chocolate-300 pb-1">
+                            <h3 class="font-serif font-bold text-xl text-chocolate-900">Özel Soğuk Baklava</h3>
+                            <span class="font-serif text-gold font-bold">Popüler</span>
+                        </div>
+                        <p class="text-sm text-chocolate-600 font-light mt-2">Bol sütlü, yoğun çikolata serpmeli, hafif ve ferahlatıcı efsane lezzet.</p>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2 -->
+                <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-gold/20 shadow-sm hover:shadow-md">
+                    <img src="https://images.unsplash.com/photo-1514517521153-1be72277b32f?q=80&w=150&h=150&fit=crop" alt="Dubai Çikolatası" class="w-24 h-24 rounded-full object-cover border-2 border-gold/50 shadow-inner">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-center mb-1 border-b border-dotted border-chocolate-300 pb-1">
+                            <h3 class="font-serif font-bold text-xl text-chocolate-900">Dubai Çikolatası</h3>
+                            <span class="font-serif text-gold font-bold">Yeni</span>
+                        </div>
+                        <p class="text-sm text-chocolate-600 font-light mt-2">İçi çıtır kadayıf ve özel fıstık kreması dolgulu, kalın Belçika çikolatası kaplamalı.</p>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-gold/20 shadow-sm hover:shadow-md">
+                    <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=150&h=150&fit=crop" alt="Fırın Sütlaç" class="w-24 h-24 rounded-full object-cover border-2 border-gold/50 shadow-inner">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-center mb-1 border-b border-dotted border-chocolate-300 pb-1">
+                            <h3 class="font-serif font-bold text-xl text-chocolate-900">Fırında Sütlaç</h3>
+                        </div>
+                        <p class="text-sm text-chocolate-600 font-light mt-2">Köy sütü ile hazırlanan, üzeri nar gibi kızarmış, bol fındık döküm geleneksel tat.</p>
+                    </div>
+                </div>
+
+                <!-- Menu Item 4 -->
+                <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-gold/20 shadow-sm hover:shadow-md">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=150&h=150&fit=crop" alt="Köy Tereyağlı Su Böreği" class="w-24 h-24 rounded-full object-cover border-2 border-gold/50 shadow-inner">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-center mb-1 border-b border-dotted border-chocolate-300 pb-1">
+                            <h3 class="font-serif font-bold text-xl text-chocolate-900">Köy Tereyağlı Su Böreği</h3>
+                            <span class="font-serif text-gold font-bold">Sıcak</span>
+                        </div>
+                        <p class="text-sm text-chocolate-600 font-light mt-2">İncecik açılmış yufka, bol peynir ve halis köy tereyağı ile fırından yeni çıkmış çıtırlık.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Custom Cakes Call to Action -->
+            <div class="mt-16 bg-white border border-gold/30 rounded-lg p-10 text-center shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-bl-full"></div>
+                <div class="absolute bottom-0 left-0 w-32 h-32 bg-gold/5 rounded-tr-full"></div>
+                <h2 class="text-3xl font-serif text-chocolate-900 mb-4 relative z-10">Özel Günlerinize Özel Pastalar</h2>
+                <p class="text-chocolate-600 mb-6 max-w-2xl mx-auto relative z-10">Düğün, nişan, doğum günü ve kutlamalarınız için kişiye özel tasarım pastalar hazırlıyoruz. Sizin hayaliniz, bizim usta ellerimizde şekilleniyor.</p>
+                <a href="https://ig.me/m/saraypastanesisivas" target="_blank" class="inline-block bg-chocolate-900 text-gold font-sans uppercase tracking-widest px-8 py-3 text-sm hover:bg-chocolate-800 elegant-hover relative z-10 rounded shadow-md">
+                    Tasarım Pastalar İçin İletişime Geçin
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Müşteri Yorumları -->
+    <section class="py-20 bg-chocolate-900 text-cream relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-serif text-center mb-12 text-gold">Müşterilerimizin Kaleminden</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-chocolate-800 p-8 rounded-tr-3xl rounded-bl-3xl border border-chocolate-700 relative">
+                    <i class="fa-solid fa-quote-left text-4xl text-gold/20 absolute top-4 left-4"></i>
+                    <div class="flex text-gold mb-4 relative z-10">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-cream-200 font-serif italic mb-6 relative z-10">"Sivas'ta soğuk baklavayı ilk kez burada yedim ve bayıldım. Çikolata kalitesi gerçekten üst düzey. Personel de her zaman çok güler yüzlü."</p>
+                    <p class="font-sans font-bold text-sm tracking-widest uppercase text-gold">- Ayşe Y.</p>
+                </div>
+                
+                <div class="bg-chocolate-800 p-8 rounded-tr-3xl rounded-bl-3xl border border-chocolate-700 relative mt-0 md:-mt-6 shadow-2xl">
+                    <i class="fa-solid fa-quote-left text-4xl text-gold/20 absolute top-4 left-4"></i>
+                    <div class="flex text-gold mb-4 relative z-10">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-cream-200 font-serif italic mb-6 relative z-10">"Kızımın doğum günü için özel tasarım bir pasta yaptırdık. Hem görsel olarak harikaydı hem de içi dopdolu taze meyveydi. Elinize sağlık!"</p>
+                    <p class="font-sans font-bold text-sm tracking-widest uppercase text-gold">- Mehmet T.</p>
+                </div>
+
+                <div class="bg-chocolate-800 p-8 rounded-tr-3xl rounded-bl-3xl border border-chocolate-700 relative">
+                    <i class="fa-solid fa-quote-left text-4xl text-gold/20 absolute top-4 left-4"></i>
+                    <div class="flex text-gold mb-4 relative z-10">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-cream-200 font-serif italic mb-6 relative z-10">"Sabahları işe gitmeden önce uğrayıp sıcak su böreği almak vazgeçilmezim oldu. Köy tereyağının kokusu dükkanın dışına kadar taşıyor."</p>
+                    <p class="font-sans font-bold text-sm tracking-widest uppercase text-gold">- Elif B.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Şubelerimiz (Locations) -->
+    <section id="subeler" class="py-24 bg-cream relative">
+        <div class="absolute inset-0 bg-noise opacity-40 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <i class="fa-solid fa-map-location-dot text-3xl text-gold mb-4"></i>
+                <h2 class="text-4xl font-serif text-chocolate-900">Sizi Ağırlamaktan Mutluluk Duyarız</h2>
+                <div class="w-24 h-px bg-gold mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                <!-- Şube 1 -->
+                <div class="bg-white border border-gold/20 p-8 text-center hover:border-gold elegant-hover shadow-lg rounded-sm relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                    <div class="w-16 h-16 rounded-full bg-cream border border-gold flex items-center justify-center mx-auto mb-6 text-gold text-2xl font-serif">
+                        1
+                    </div>
+                    <h3 class="font-serif text-2xl text-chocolate-900 mb-2">Şeyhşamil Şubesi</h3>
+                    <p class="text-chocolate-600 font-light mb-6">Şeyhşamil Mahallesi,<br>Sivas Merkez</p>
+                    <a href="https://maps.google.com/?q=Saray+Pastanesi+Sivas+Seyhsamil" target="_blank" class="inline-block border border-gold text-chocolate-900 font-sans text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-colors px-6 py-2 rounded">
+                        <i class="fa-solid fa-diamond-turn-right mr-2"></i> Yol Tarifi
+                    </a>
+                </div>
+
+                <!-- Şube 2 -->
+                <div class="bg-white border border-gold/20 p-8 text-center hover:border-gold elegant-hover shadow-lg rounded-sm relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                    <div class="w-16 h-16 rounded-full bg-cream border border-gold flex items-center justify-center mx-auto mb-6 text-gold text-2xl font-serif">
+                        2
+                    </div>
+                    <h3 class="font-serif text-2xl text-chocolate-900 mb-2">Yenişehir Şubesi</h3>
+                    <p class="text-chocolate-600 font-light mb-6">Yenişehir Merkez,<br>Sivas Merkez</p>
+                    <a href="https://maps.google.com/?q=Saray+Pastanesi+Sivas+Yenisehir" target="_blank" class="inline-block border border-gold text-chocolate-900 font-sans text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-colors px-6 py-2 rounded">
+                        <i class="fa-solid fa-diamond-turn-right mr-2"></i> Yol Tarifi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classic 4-Column Footer -->
+    <footer class="bg-chocolate-900 text-cream-200 pt-16 pb-8 border-t-4 border-gold relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Column 1: Brand & About -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-full border border-gold flex items-center justify-center">
+                            <i class="fa-solid fa-crown text-xl text-gold"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-serif font-black text-2xl tracking-widest uppercase text-white leading-none">Saray</span>
+                            <span class="font-sans text-[0.65rem] tracking-[0.3em] uppercase text-gold mt-1">Pastanesi</span>
+                        </div>
+                    </div>
+                    <p class="text-sm font-light leading-relaxed mb-6">
+                        Sivas'ta uzun yıllara dayanan tecrübemiz ve ilk günkü heyecanımızla, en taze malzemeleri kullanarak ürettiğimiz lezzetleri sofralarınıza taşıyoruz. Saraylara layıksınız.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/saraypastanesisivas" target="_blank" class="w-10 h-10 rounded-full bg-chocolate-800 border border-chocolate-700 flex items-center justify-center hover:bg-gold hover:text-chocolate-900 hover:border-gold transition-all">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-chocolate-800 border border-chocolate-700 flex items-center justify-center hover:bg-gold hover:text-chocolate-900 hover:border-gold transition-all">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="font-serif text-lg text-white mb-6 border-b border-chocolate-700 pb-2 inline-block">Hızlı Menü</h4>
+                    <ul class="space-y-3 text-sm font-light">
+                        <li><a href="#hakkimizda" class="hover:text-gold transition-colors flex items-center"><i class="fa-solid fa-chevron-right text-[10px] text-gold mr-2"></i> Hikayemiz</a></li>
+                        <li><a href="#lezzetler" class="hover:text-gold transition-colors flex items-center"><i class="fa-solid fa-chevron-right text-[10px] text-gold mr-2"></i> Lezzet Vitrini</a></li>
+                        <li><a href="#menu" class="hover:text-gold transition-colors flex items-center"><i class="fa-solid fa-chevron-right text-[10px] text-gold mr-2"></i> İmza Lezzetler (Menü)</a></li>
+                        <li><a href="#subeler" class="hover:text-gold transition-colors flex items-center"><i class="fa-solid fa-chevron-right text-[10px] text-gold mr-2"></i> Şubelerimiz</a></li>
+                        <li><a href="https://ig.me/m/saraypastanesisivas" class="hover:text-gold transition-colors flex items-center"><i class="fa-solid fa-chevron-right text-[10px] text-gold mr-2"></i> Özel Sipariş Ver</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Info -->
+                <div>
+                    <h4 class="font-serif text-lg text-white mb-6 border-b border-chocolate-700 pb-2 inline-block">İletişim Bilgileri</h4>
+                    <ul class="space-y-4 text-sm font-light">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot text-gold mt-1 mr-3 w-4 text-center"></i>
+                            <span><strong>Şeyhşamil:</strong> Şeyhşamil Mahallesi, Sivas Merkez</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot text-gold mt-1 mr-3 w-4 text-center"></i>
+                            <span><strong>Yenişehir:</strong> Yenişehir Merkez, Sivas Merkez</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-brands fa-instagram text-gold mr-3 w-4 text-center"></i>
+                            <a href="https://instagram.com/saraypastanesisivas" class="hover:text-white transition-colors">@saraypastanesisivas</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Working Hours -->
+                <div>
+                    <h4 class="font-serif text-lg text-white mb-6 border-b border-chocolate-700 pb-2 inline-block">Çalışma Saatleri</h4>
+                    <p class="text-sm font-light mb-4">Şubelerimiz haftanın her günü taze ürünlerle sizleri bekliyor.</p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex justify-between border-b border-chocolate-800 pb-2">
+                            <span class="text-gold">Pazartesi - Cuma</span>
+                            <span>07:00 - 23:00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-chocolate-800 pb-2 pt-1">
+                            <span class="text-gold">Cumartesi</span>
+                            <span>07:00 - 23:30</span>
+                        </li>
+                        <li class="flex justify-between pt-1">
+                            <span class="text-gold">Pazar</span>
+                            <span>07:00 - 23:30</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright Banner -->
+            <div class="border-t border-chocolate-800 pt-6 text-center text-xs tracking-widest uppercase">
+                <p>&copy; 2026 Saray Pastanesi - Sivas. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Navbar Scroll Script -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-cream', 'shadow-md');
+                navbar.classList.remove('bg-cream/95');
+            } else {
+                navbar.classList.remove('bg-cream', 'shadow-md');
+                navbar.classList.add('bg-cream/95');
+            }
+        });
+    </script>
+</body>
+</html>

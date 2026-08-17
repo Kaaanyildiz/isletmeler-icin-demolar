@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurtoğlu Mobilya | İnegöl Mobilyası & Mimari Yaşam Alanları Sivas</title>
+    <meta name="description" content="Sivas'ta İnegöl mobilyası zarafeti. Özel tasarım koltuk takımları, 2026 düğün paketleri, Sude baza-yatak serisi ve yemek odaları. Sivas içi ücretsiz nakliye ve montaj.">
+    
+    <!-- Google Fonts: Cormorant Garamond (Editorial Luxury Serif) & Plus Jakarta Sans & Italiana -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons (Light / Precision) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                        display: ['Italiana', 'serif'],
+                    },
+                    colors: {
+                        stone: {
+                            chalk: '#F9F7F2',     /* Sıcak traverten / kağıt zemin */
+                            linen: '#F2EDE4',     /* Keten arka plan */
+                            greige: '#E4DDD3',    /* İpeksi grej ara ton */
+                            espresso: '#1A1410',  /* En koyu ceviz / metin */
+                            walnut: '#2E2219',    /* Sıcak ahşap kahvesi */
+                            sand: '#A89F91',      /* Nötr mimari gri */
+                        },
+                        accent: {
+                            cyan: '#0E8388',      /* Kurtoğlu İnegöl İmzası (Mineral Teal) */
+                            cyanLight: '#2EAEB4',
+                            gold: '#C59B58',      /* Fırçalanmış Şampanya Altın */
+                            terracotta: '#C86D51',/* Sıcak pişmiş toprak */
+                        }
+                    },
+                    boxShadow: {
+                        'soft-ambient': '0 30px 60px -15px rgba(26, 20, 16, 0.06)',
+                        'double-bezel': 'inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 20px 40px -15px rgba(26, 20, 16, 0.05)',
+                        'float-nav': '0 20px 40px -10px rgba(26, 20, 16, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-chalk: #F9F7F2;
+            --text-espresso: #1A1410;
+            --accent-cyan: #0E8388;
+            --accent-gold: #C59B58;
+            --border-subtle: #E8E2D7;
+        }
+
+        body {
+            background-color: var(--bg-chalk);
+            color: var(--text-espresso);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Architectural Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F2EDE4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C59B58;
+            border-radius: 999px;
+        }
+
+        /* Floating Island Navbar */
+        .floating-island-nav {
+            background: rgba(249, 247, 242, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(232, 226, 215, 0.8);
+        }
+
+        /* Double-Bezel Architecture */
+        .double-bezel-outer {
+            background: rgba(232, 226, 215, 0.45);
+            padding: 0.35rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(232, 226, 215, 0.8);
+            transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .double-bezel-inner {
+            background: #FFFFFF;
+            border-radius: calc(2rem - 0.35rem);
+            overflow: hidden;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .double-bezel-outer:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(26, 20, 16, 0.1);
+            border-color: #C59B58;
+        }
+
+        /* Button-in-Button Architecture */
+        .btn-luxury-primary {
+            background: #1A1410;
+            color: #FAF8F5;
+            padding: 0.5rem 0.5rem 0.5rem 1.6rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+            box-shadow: 0 10px 25px -5px rgba(26, 20, 16, 0.25);
+        }
+        .btn-luxury-primary .icon-bubble {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #FAF8F5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+        .btn-luxury-primary:hover {
+            background: #0E8388;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -5px rgba(14, 131, 136, 0.4);
+        }
+        .btn-luxury-primary:hover .icon-bubble {
+            background: #FFFFFF;
+            color: #0E8388;
+            transform: translateX(3px);
+        }
+
+        .btn-luxury-ghost {
+            background: transparent;
+            color: #1A1410;
+            border: 1px solid rgba(26, 20, 16, 0.2);
+            padding: 0.5rem 0.5rem 0.5rem 1.6rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.35s ease;
+        }
+        .btn-luxury-ghost .icon-bubble {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 9999px;
+            background: rgba(26, 20, 16, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.35s ease;
+        }
+        .btn-luxury-ghost:hover {
+            border-color: #1A1410;
+            background: rgba(26, 20, 16, 0.04);
+            transform: translateY(-2px);
+        }
+        .btn-luxury-ghost:hover .icon-bubble {
+            background: #1A1410;
+            color: #FFFFFF;
+            transform: translateX(3px);
+        }
+
+        /* Hotspot / Shop the Look Dots */
+        .hotspot-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3), 0 10px 20px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+            position: absolute;
+            z-index: 20;
+        }
+        .hotspot-dot::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 9999px;
+            background: #0E8388;
+        }
+        .hotspot-dot:hover {
+            transform: scale(1.25);
+            background: #FFFFFF;
+        }
+
+        /* Floating WhatsApp Button Pulse */
+        @keyframes pulseGlowTeal {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(14, 131, 136, 0.6); }
+            50% { box-shadow: 0 0 0 14px rgba(14, 131, 136, 0); }
+        }
+        .wa-floating-btn {
+            animation: pulseGlowTeal 2.5s infinite;
+        }
+    </style>
+</head>
+<body class="selection:bg-accent-cyan selection:text-white">
+
+    <!-- 0. FLOATING ISLAND NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:pt-6 pointer-events-none">
+        <nav class="max-w-6xl mx-auto floating-island-nav rounded-full px-5 sm:px-8 py-3.5 shadow-float-nav flex items-center justify-between pointer-events-auto transition-all">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-8 h-8 rounded-full bg-stone-espresso flex items-center justify-center text-white text-xs font-display tracking-widest group-hover:bg-accent-cyan transition-colors">
+                    K
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display text-lg sm:text-xl font-bold tracking-widest text-stone-espresso leading-none">KURTOĞLU</span>
+                    <span class="font-sans text-[8px] tracking-[0.3em] text-accent-cyan uppercase font-bold mt-0.5">İnegöl Mobilyası • Sivas</span>
+                </div>
+            </a>
+
+            <!-- Nav Links -->
+            <div class="hidden md:flex items-center gap-8 font-sans text-xs uppercase tracking-[0.15em] font-semibold text-stone-walnut/80">
+                <a href="#koleksiyon" class="hover:text-accent-cyan transition-colors">Koleksiyonlar</a>
+                <a href="#lookbook" class="hover:text-accent-cyan transition-colors flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-gold"></span> Düğün Paketleri
+                </a>
+                <a href="#kumas" class="hover:text-accent-cyan transition-colors">Kumaş & Doku</a>
+                <a href="#hesaplayici" class="hover:text-accent-cyan transition-colors">Paket Tasarla</a>
+                <a href="#magazalar" class="hover:text-accent-cyan transition-colors">Showroomlar</a>
+            </div>
+
+            <!-- Header Action -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/905408771752?text=Merhaba,%20Kurtoğlu%20Mobilya%20koleksiyonları%20ve%20fiyatlar%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-luxury-primary py-1.5 pl-4 pr-1.5 text-xs hidden sm:inline-flex">
+                    <span>Keşif & Fiyat</span>
+                    <span class="icon-bubble !w-7 !h-7 text-xs">
+                        <i class="ph-bold ph-arrow-up-right"></i>
+                    </span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-stone-espresso p-1 text-2xl" onclick="toggleMobileMenu()">
+                    <i class="ph-bold ph-list"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden max-w-sm mx-auto mt-3 bg-white/95 backdrop-blur-2xl rounded-3xl p-6 shadow-2xl border border-stone-greige space-y-4 pointer-events-auto">
+            <a href="#koleksiyon" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-stone-espresso py-2 border-b border-stone-chalk">Koleksiyonlar</a>
+            <a href="#lookbook" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-stone-espresso py-2 border-b border-stone-chalk">2026 Düğün Paketleri</a>
+            <a href="#kumas" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-stone-espresso py-2 border-b border-stone-chalk">Kumaş & Doku Kartelası</a>
+            <a href="#hesaplayici" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-stone-espresso py-2 border-b border-stone-chalk">Düğün Paketi Fiyat Hesapla</a>
+            <a href="#magazalar" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-bold text-stone-espresso py-2">Sivas Şubelerimiz</a>
+            <div class="pt-2">
+                <a href="https://wa.me/905408771752" target="_blank" class="btn-luxury-primary w-full justify-between text-xs py-2.5">
+                    <span>WhatsApp Showroom Hattı</span>
+                    <span class="icon-bubble !w-7 !h-7"><i class="ph-bold ph-whatsapp-logo"></i></span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. EDITORIAL HERO SECTION (EDITORIAL MAGAZINE COVER VIBE) -->
+    <section class="relative min-h-[92vh] pt-32 pb-20 flex items-center justify-center overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 w-full">
+            
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left: Editorial Typography Block -->
+                <div class="lg:col-span-5 flex flex-col justify-center" data-aos="fade-up" data-aos-duration="1000">
+                    
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-stone-linen border border-stone-greige text-stone-espresso font-sans text-[10px] uppercase tracking-[0.25em] font-semibold w-max mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span>
+                        İnegöl Mobilyası • 2026 Koleksiyonu
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-6xl lg:text-[4.25rem] font-normal leading-[1.05] tracking-tight text-stone-espresso mb-6">
+                        Yaşam <br>
+                        <span class="italic font-light">alanlarına</span> <br>
+                        <span class="font-display uppercase tracking-wider text-accent-cyan">İnegöl</span> zarafeti.
+                    </h1>
+
+                    <p class="font-sans text-stone-walnut/70 text-sm sm:text-base font-normal leading-relaxed mb-8 max-w-md">
+                        Sivas'ta lüks bukle ve nubuk dokular, fırınlanmış gürgen iskeletler ve özel tasarım düğün paketleri. Sivas içi <strong>ücretsiz nakliye ve profesyonel montaj</strong> ile evinizde.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4">
+                        <a href="#lookbook" class="btn-luxury-primary">
+                            <span>Düğün Paketlerini Keşfet</span>
+                            <span class="icon-bubble">
+                                <i class="ph-bold ph-arrow-right"></i>
+                            </span>
+                        </a>
+                        <a href="#koleksiyon" class="btn-luxury-ghost">
+                            <span>Koleksiyonu Gör</span>
+                            <span class="icon-bubble">
+                                <i class="ph-bold ph-eye"></i>
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Micro Metrics Bar -->
+                    <div class="grid grid-cols-3 gap-6 pt-10 mt-10 border-t border-stone-greige/80">
+                        <div>
+                            <span class="font-display text-2xl font-bold text-stone-espresso block">%100</span>
+                            <span class="font-sans text-[10px] uppercase tracking-wider text-stone-sand font-semibold">İnegöl Üretimi</span>
+                        </div>
+                        <div>
+                            <span class="font-display text-2xl font-bold text-stone-espresso block">2 Şube</span>
+                            <span class="font-sans text-[10px] uppercase tracking-wider text-stone-sand font-semibold">Huzur & Kepçeli</span>
+                        </div>
+                        <div>
+                            <span class="font-display text-2xl font-bold text-accent-cyan block">0 TL</span>
+                            <span class="font-sans text-[10px] uppercase tracking-wider text-stone-sand font-semibold">Nakliye & Montaj</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: High-End Interactive Showroom Card with Hotspots -->
+                <div class="lg:col-span-7 relative" data-aos="fade-left" data-aos-duration="1100">
+                    <div class="double-bezel-outer">
+                        <div class="double-bezel-inner relative aspect-[4/3] sm:aspect-[16/11]">
+                            
+                            <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Kurtoğlu Mobilya İtalyan Bukle Salon Koleksiyonu" class="w-full h-full object-cover">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-stone-espresso/60 via-transparent to-transparent"></div>
+
+                            <!-- Hotspot 1: Sofa -->
+                            <div class="hotspot-dot group" style="top: 60%; left: 45%;">
+                                <div class="hidden group-hover:block absolute bottom-8 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md p-3 rounded-xl shadow-2xl border border-stone-greige text-left z-30 pointer-events-none transition-all">
+                                    <span class="text-[9px] uppercase tracking-widest text-accent-cyan font-bold block">İnegöl Seri</span>
+                                    <h4 class="font-serif font-bold text-sm text-stone-espresso leading-tight">Milano Bukle 3'lü Koltuk</h4>
+                                    <span class="text-[11px] text-stone-sand mt-0.5 block">Yataklı & Silinebilir Kumaş</span>
+                                </div>
+                            </div>
+
+                            <!-- Hotspot 2: Coffee Table -->
+                            <div class="hotspot-dot group" style="top: 78%; left: 30%;">
+                                <div class="hidden group-hover:block absolute bottom-8 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md p-3 rounded-xl shadow-2xl border border-stone-greige text-left z-30 pointer-events-none transition-all">
+                                    <span class="text-[9px] uppercase tracking-widest text-accent-gold font-bold block">Masif Detay</span>
+                                    <h4 class="font-serif font-bold text-sm text-stone-espresso leading-tight">Traverten Ahşap Orta Sehpa</h4>
+                                </div>
+                            </div>
+
+                            <!-- Hotspot 3: Chandelier / Lighting -->
+                            <div class="hotspot-dot group" style="top: 25%; left: 65%;">
+                                <div class="hidden group-hover:block absolute bottom-8 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md p-3 rounded-xl shadow-2xl border border-stone-greige text-left z-30 pointer-events-none transition-all">
+                                    <span class="text-[9px] uppercase tracking-widest text-accent-cyan font-bold block">Aksesuar</span>
+                                    <h4 class="font-serif font-bold text-sm text-stone-espresso leading-tight">Brushed Gold Aydınlatma</h4>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Floating Label -->
+                            <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white z-10">
+                                <div>
+                                    <span class="text-[10px] uppercase tracking-[0.2em] font-medium text-stone-linen/80 block">Look 01 • Salon Konsepti</span>
+                                    <h3 class="font-serif text-xl sm:text-2xl font-normal">Milano Fildişi Bukle Oturma Grubu</h3>
+                                </div>
+                                <a href="https://wa.me/905408771752?text=Milano%20Bukle%20Koltuk%20Takımı%20fiyatını%20öğrenmek%20istiyorum." target="_blank" class="bg-white/20 hover:bg-white text-white hover:text-stone-espresso backdrop-blur-md px-4 py-2 rounded-full text-xs font-semibold tracking-wider transition-all flex items-center gap-1.5 shrink-0">
+                                    <span>Fiyat Sor</span>
+                                    <i class="ph-bold ph-whatsapp-logo text-sm"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 2. ARCHITECTURAL BENTO GRID (CURATED CATEGORIES) -->
+    <section id="koleksiyon" class="py-28 bg-stone-linen/60 border-t border-b border-stone-greige">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16" data-aos="fade-up">
+                <div>
+                    <span class="text-accent-cyan font-sans text-xs uppercase tracking-[0.25em] font-bold block mb-2">ÖZEL SEÇKİ</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-normal text-stone-espresso">Koleksiyonlar & Alanlar</h2>
+                </div>
+                <p class="text-stone-walnut/70 text-xs sm:text-sm max-w-md font-normal leading-relaxed">
+                    Her biri İnegöl'ün en usta atölyelerinde şekillendirilen, dayanıklılığı ve estetiği bir arada sunan mobilya serileri.
+                </p>
+            </div>
+
+            <!-- Asymmetrical Bento Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                
+                <!-- Bento 1: Oturma Grupları (Span 7) -->
+                <div class="md:col-span-7 double-bezel-outer" data-aos="fade-up">
+                    <div class="double-bezel-inner p-8 sm:p-10 relative group min-h-[380px] justify-between">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Koltuk Takımı İnegöl Mobilyası" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-espresso/80 via-stone-espresso/20 to-transparent"></div>
+                        
+                        <div class="relative z-10">
+                            <span class="bg-white/90 backdrop-blur-md text-stone-espresso font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">Yataklı & Sandıklı</span>
+                        </div>
+
+                        <div class="relative z-10 text-white mt-24">
+                            <h3 class="font-serif text-2xl sm:text-3xl font-normal mb-2">Oturma Grupları & Koltuklar</h3>
+                            <p class="text-xs sm:text-sm text-stone-linen/90 max-w-md font-light mb-4">
+                                Silinebilir İtalyan nubuk ve bukle kumaşlar, 32 DNS ortopedik sünger konforu ve tek hareketle yatak olabilen mekanizmalar.
+                            </p>
+                            <a href="https://wa.me/905408771752?text=Koltuk%20takımları%20kataloğunu%20almak%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-accent-gold hover:text-white transition-colors">
+                                Modelleri İncele <i class="ph-bold ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento 2: Yatak Odası & Sude Baza (Span 5) -->
+                <div class="md:col-span-5 double-bezel-outer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="double-bezel-inner p-8 sm:p-10 relative group min-h-[380px] justify-between">
+                        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Yatak Odası ve Baza Seti" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-espresso/80 via-stone-espresso/20 to-transparent"></div>
+                        
+                        <div class="relative z-10">
+                            <span class="bg-accent-gold text-white font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">Sude Baza Serisi</span>
+                        </div>
+
+                        <div class="relative z-10 text-white mt-24">
+                            <h3 class="font-serif text-2xl sm:text-3xl font-normal mb-2">Yatak Odası & Baza Setleri</h3>
+                            <p class="text-xs sm:text-sm text-stone-linen/90 font-light mb-4">
+                                Geniş iç hacimli çelik profil amortisörlü bazalar, şık kapitone başlıklar ve dolap sistemleri.
+                            </p>
+                            <a href="https://wa.me/905408771752?text=Sude%20baza%20ve%20yatak%20odası%20modellerini%20görmek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-accent-cyanLight hover:text-white transition-colors">
+                                Baza & Yatak Fiyatları <i class="ph-bold ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento 3: Yemek Odası & Açılır Masalar (Span 5) -->
+                <div class="md:col-span-5 double-bezel-outer" data-aos="fade-up" data-aos-delay="0">
+                    <div class="double-bezel-inner p-8 sm:p-10 relative group min-h-[360px] justify-between">
+                        <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Yemek Odası ve Açılır Masa" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-espresso/80 via-stone-espresso/20 to-transparent"></div>
+                        
+                        <div class="relative z-10">
+                            <span class="bg-white/90 backdrop-blur-md text-stone-espresso font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">Açılır Fonksiyonel</span>
+                        </div>
+
+                        <div class="relative z-10 text-white mt-20">
+                            <h3 class="font-serif text-2xl sm:text-3xl font-normal mb-2">Yemek Odası & Masa Takımları</h3>
+                            <p class="text-xs sm:text-sm text-stone-linen/90 font-light mb-4">
+                                Misafirleriniz için 8-10 kişiye açılan mermer desen ve masif masalar, konforlu sandalyeler.
+                            </p>
+                            <a href="https://wa.me/905408771752?text=Masa%20ve%20sandalye%20takımlarını%20öğrenmek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-accent-gold hover:text-white transition-colors">
+                                Masaları İncele <i class="ph-bold ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento 4: Köşe & L Koltuklar (Span 7) -->
+                <div class="md:col-span-7 double-bezel-outer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="double-bezel-inner p-8 sm:p-10 relative group min-h-[360px] justify-between">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="L Koltuk ve Köşe Takımı" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-espresso/80 via-stone-espresso/20 to-transparent"></div>
+                        
+                        <div class="relative z-10">
+                            <span class="bg-accent-cyan text-white font-sans text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">Modüler Lüks</span>
+                        </div>
+
+                        <div class="relative z-10 text-white mt-20">
+                            <h3 class="font-serif text-2xl sm:text-3xl font-normal mb-2">Köşe Takımları & L Koltuklar</h3>
+                            <p class="text-xs sm:text-sm text-stone-linen/90 max-w-md font-light mb-4">
+                                Evinizin mimarisine göre yönü değiştirilebilen, yatak ve baza özellikli çağdaş köşe takımları.
+                            </p>
+                            <a href="https://wa.me/905408771752?text=Köşe%20koltuk%20modelleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-accent-gold hover:text-white transition-colors">
+                                Köşe Modellerini Gör <i class="ph-bold ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. INTERACTIVE FABRIC & MATERIAL SWATCH EXPERIENCE -->
+    <section id="kumas" class="py-24 bg-white relative">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5" data-aos="fade-right">
+                    <span class="text-accent-cyan font-sans text-xs uppercase tracking-[0.25em] font-bold block mb-2">HAPTİK DOKUNUŞ</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-normal text-stone-espresso mb-6">Kumaş & Doku Deneyimi</h2>
+                    <p class="text-stone-walnut/70 text-sm leading-relaxed mb-8">
+                        Mobilyanın ruhu kumaşında gizlidir. Kurtoğlu Mobilya'da yüzlerce silinebilir, leke tutmaz ve evcil hayvan dostu kumaş seçeneğini kişiselleştirebilirsiniz.
+                    </p>
+
+                    <!-- Swatch Selectors -->
+                    <div class="space-y-3" id="swatchList">
+                        
+                        <div onclick="selectSwatch(0)" class="swatch-item active p-4 rounded-2xl border-2 border-stone-espresso bg-stone-chalk cursor-pointer transition-all flex items-center justify-between">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-7 h-7 rounded-full bg-[#EAE6DE] border border-stone-greige shadow-inner"></div>
+                                <div>
+                                    <h4 class="font-sans font-bold text-sm text-stone-espresso">Fildişi Bukle (Ivory Bouclé)</h4>
+                                    <span class="text-[11px] text-stone-sand">Sıcak, heykelsi ve dokulu modern dokuma</span>
+                                </div>
+                            </div>
+                            <i class="ph-bold ph-check text-accent-cyan text-base"></i>
+                        </div>
+
+                        <div onclick="selectSwatch(1)" class="swatch-item p-4 rounded-2xl border border-stone-greige bg-white hover:border-stone-espresso cursor-pointer transition-all flex items-center justify-between">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-7 h-7 rounded-full bg-[#9E9080] border border-stone-greige shadow-inner"></div>
+                                <div>
+                                    <h4 class="font-sans font-bold text-sm text-stone-espresso">Vizon Nubuk (Mink Nubuck)</h4>
+                                    <span class="text-[11px] text-stone-sand">Leke tutmaz, silinebilir, ipeksi tuşe</span>
+                                </div>
+                            </div>
+                            <i class="ph-bold ph-check text-accent-cyan text-base hidden"></i>
+                        </div>
+
+                        <div onclick="selectSwatch(2)" class="swatch-item p-4 rounded-2xl border border-stone-greige bg-white hover:border-stone-espresso cursor-pointer transition-all flex items-center justify-between">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-7 h-7 rounded-full bg-[#8A9A86] border border-stone-greige shadow-inner"></div>
+                                <div>
+                                    <h4 class="font-sans font-bold text-sm text-stone-espresso">Adaçayı Keten (Sage Linen)</h4>
+                                    <span class="text-[11px] text-stone-sand">Doğal nefes alan ferah yaz hissi</span>
+                                </div>
+                            </div>
+                            <i class="ph-bold ph-check text-accent-cyan text-base hidden"></i>
+                        </div>
+
+                        <div onclick="selectSwatch(3)" class="swatch-item p-4 rounded-2xl border border-stone-greige bg-white hover:border-stone-espresso cursor-pointer transition-all flex items-center justify-between">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-7 h-7 rounded-full bg-[#2C3038] border border-stone-greige shadow-inner"></div>
+                                <div>
+                                    <h4 class="font-sans font-bold text-sm text-stone-espresso">Antrasit Kadife (Charcoal Velvet)</h4>
+                                    <span class="text-[11px] text-stone-sand">Ağırbaşlı, lüks dökümlü asil dokunuş</span>
+                                </div>
+                            </div>
+                            <i class="ph-bold ph-check text-accent-cyan text-base hidden"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Right: Visual Fabric Focus -->
+                <div class="lg:col-span-7" data-aos="fade-left">
+                    <div class="double-bezel-outer">
+                        <div class="double-bezel-inner aspect-[4/3] p-8 sm:p-12 relative flex flex-col justify-end bg-stone-chalk">
+                            <img id="fabricPreviewImage" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Mobilya Kumaş Dokusu" class="absolute inset-0 w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-stone-espresso/70 via-transparent to-transparent"></div>
+
+                            <div class="relative z-10 text-white">
+                                <span id="fabricBadge" class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold inline-block mb-2">Trend Dokuma</span>
+                                <h3 id="fabricTitle" class="font-serif text-2xl sm:text-3xl font-normal">Fildişi Bukle Kumaş Özellikleri</h3>
+                                <p id="fabricDesc" class="text-xs sm:text-sm text-stone-linen/90 font-light max-w-md mt-1">
+                                    Işığı yumuşakça dağıtan, leke tutmaz özel iplik yapısıyla salonunuza modern bir İtalyan heykelsi estetik kazandırır.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. 2026 RÜYA DÜĞÜN PAKETLERİ (EDITORIAL LOOKBOOK) -->
+    <section id="lookbook" class="py-28 bg-stone-espresso text-stone-chalk relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <div class="text-center max-w-2xl mx-auto mb-20" data-aos="fade-up">
+                <span class="text-accent-gold font-sans text-xs uppercase tracking-[0.3em] font-bold block mb-3">EV KURANLARA ÖZEL</span>
+                <h2 class="font-serif text-4xl sm:text-6xl font-normal text-white mb-4">2026 Düğün Paketleri</h2>
+                <div class="w-12 h-0.5 bg-accent-gold mx-auto mb-4"></div>
+                <p class="text-stone-greige/80 text-sm font-light">
+                    Yatak Odası + Yemek Odası + Koltuk Takımı tek bir ahenkli pakette. Ücretsiz nakliye ve profesyonel montaj dahildir.
+                </p>
+            </div>
+
+            <!-- Package Cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Package 1 -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col justify-between hover:border-accent-cyan transition-all" data-aos="fade-up" data-aos-delay="0">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-[10px] uppercase tracking-widest text-accent-cyan font-bold bg-accent-cyan/10 px-3 py-1 rounded-full border border-accent-cyan/30">Minimalist Ev</span>
+                            <span class="font-serif text-accent-gold text-lg italic">Paket 01</span>
+                        </div>
+                        <h3 class="font-serif text-3xl font-normal text-white mb-3">Modern Loft Seti</h3>
+                        <p class="text-xs text-stone-greige/80 leading-relaxed font-light mb-8">Kompakt ve ferah yaşam alanları için tasarlanmış akıllı saklama çözümlü paket.</p>
+                        
+                        <div class="space-y-3.5 mb-8 text-xs text-stone-linen/90 font-light border-t border-white/10 pt-6">
+                            <div class="flex items-center gap-2.5"><i class="ph-bold ph-check text-accent-cyan"></i> <strong>Salon:</strong> 3+3+1 Yataklı & Sandıklı Koltuk Grubu</div>
+                            <div class="flex items-center gap-2.5"><i class="ph-bold ph-check text-accent-cyan"></i> <strong>Yatak Odası:</strong> 5 Kapaklı Dolap + Çelik Baza + Başlık</div>
+                            <div class="flex items-center gap-2.5"><i class="ph-bold ph-check text-accent-cyan"></i> <strong>Yemek:</strong> Açılır Masa + 6 Ergonomik Sandalye</div>
+                            <div class="flex items-center gap-2.5"><i class="ph-bold ph-check text-accent-gold"></i> <strong>Hediye:</strong> 3'lü Zigon Sehpa Takımı</div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/905408771752?text=Modern%20Loft%20Düğün%20Paketi%20fiyatını%20öğrenmek%20istiyorum." target="_blank" class="btn-luxury-ghost !text-white !border-white/20 hover:!border-white w-full justify-between text-xs py-2.5">
+                        <span>Paket Fiyatı Al</span>
+                        <span class="icon-bubble !bg-white/10 !text-white"><i class="ph-bold ph-arrow-right"></i></span>
+                    </a>
+                </div>
+
+                <!-- Package 2: Featured -->
+                <div class="bg-gradient-to-b from-white/10 to-white/5 border-2 border-accent-gold rounded-3xl p-8 flex flex-col justify-between shadow-2xl relative" data-aos="fade-up" data-aos-delay="100">
+                    <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accent-gold text-stone-espresso font-sans text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-md">En Çok Tercih Edilen</span>
+                    <div>
+                        <div class="flex justify-between items-start mb-6 mt-2">
+                            <span class="text-[10px] uppercase tracking-widest text-accent-gold font-bold bg-accent-gold/10 px-3 py-1 rounded-full border border-accent-gold/30">İnegöl Prestij</span>
+                            <span class="font-serif text-accent-gold text-lg italic">Paket 02</span>
+                        </div>
+                        <h3 class="font-serif text-3xl font-normal text-white mb-3">Zümrüt Lüks Konsept</h3>
+                        <p class="text-xs text-stone-greige/80 leading-relaxed font-light mb-8">İtalyan dikiş detaylı bukle koltuklar, aynalı sürgülü dolap ve mermer desen yemek masası.</p>
+                        
+                        <div class="space-y-3.5 mb-8 text-xs text-stone-linen/90 font-light border-t border-white/10 pt-6">
+                            <div class="flex items-center gap-2.5"><i class="ph-bold ph-check text-accent-gold"></i> <strong>Salon:</strong> Relax Mekanizmalı Bukle Koltuk Takımı</div>
+                            <div class="flex items-center gap-2.5"><i class="ph-bold ph-check text-accent-gold"></i> <strong>Yatak Odası:</strong> Sürgülü LED Dolap + Sude Baza + Başlık</div>
+                            <div class="flex items-center gap-2.5"><i class="ph-bold ph-check text-accent-gold"></i> <strong>Yemek:</strong> Mermer Desen Açılır Masa + 6 Sandalye + Konsol</div>
+                            <div class="flex items-center gap-2.5"><i class="ph-bold ph-check text-accent-cyanLight"></i> <strong>Hediye:</strong> Tam Ortopedik Çift Kişilik Yatak</div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/905408771752?text=Zümrüt%20Lüks%20Düğün%20Paketi%20kampanyası%20hakkında%20fiyat%20istiyorum." target="_blank" class="btn-luxury-primary !bg-accent-gold hover:!bg-accent-cyan !text-stone-espresso hover:!text-white w-full justify-between text-xs py-2.5">
+                        <span>Özel İndirimli Fiyatı İste</span>
+                        <span class="icon-bubble !bg-stone-espresso/10 !text-stone-espresso"><i class="ph-bold ph-arrow-right"></i></span>
+                    </a>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col justify-between hover:border-accent-cyan transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-[10px] uppercase tracking-widest text-accent-cyan font-bold bg-accent-cyan/10 px-3 py-1 rounded-full border border-accent-cyan/30">Asil Doku</span>
+                            <span class="font-serif text-accent-gold text-lg italic">Paket 03</span>
+                        </div>
+                        <h3 class="font-serif text-3xl font-normal text-white mb-3">Asil Gold Düğün Seti</h3>
+                        <p class="text-xs text-stone-greige/80 leading-relaxed font-light mb-8">Doğal ceviz dokuları, nubuk silinebilir kumaşlar ve geniş gardırop alanı.</p>
+                        
+                        <div class="space-y-3.5 mb-8 text-xs text-stone-linen/90 font-light border-t border-white/10 pt-6">
+                            <div class="flex items-center gap-2.5"><i class="ph-bold ph-check text-accent-cyan"></i> <strong>Salon:</strong> Nubuk Yataklı 3+3+1+1 Koltuk Takımı</div>
+                            <div class="flex items-center gap-2.5"><i class="ph-bold ph-check text-accent-cyan"></i> <strong>Yatak Odası:</strong> 6 Kapaklı Gardırop + Baza + Şifonyer</div>
+                            <div class="flex items-center gap-2.5"><i class="ph-bold ph-check text-accent-cyan"></i> <strong>Yemek:</strong> Açılır Ahşap Masa + 6 Lüks Sandalye</div>
+                            <div class="flex items-center gap-2.5"><i class="ph-bold ph-check text-accent-gold"></i> <strong>Hediye:</strong> Orta Sehpa Seti & Ücretsiz Montaj</div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/905408771752?text=Asil%20Gold%20Düğün%20Paketi%20fiyatını%20öğrenmek%20istiyorum." target="_blank" class="btn-luxury-ghost !text-white !border-white/20 hover:!border-white w-full justify-between text-xs py-2.5">
+                        <span>Paket Fiyatı Al</span>
+                        <span class="icon-bubble !bg-white/10 !text-white"><i class="ph-bold ph-arrow-right"></i></span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. INTERACTIVE PACKAGE CUSTOMIZER (BESPOKE INTERFACE) -->
+    <section id="hesaplayici" class="py-24 bg-stone-chalk relative border-b border-stone-greige">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <div class="text-center max-w-xl mx-auto mb-14" data-aos="fade-up">
+                <span class="text-accent-cyan font-sans text-xs uppercase tracking-[0.25em] font-bold block mb-2">KİŞİYE ÖZEL SEÇİM</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-normal text-stone-espresso">Kendi Ev Paketini Yarat</h2>
+                <p class="text-stone-walnut/70 text-xs sm:text-sm mt-2">İhtiyaç duyduğunuz parçaları belirleyin; nakliye, montaj ve indirim dahil net teklifinizi oluşturalım.</p>
+            </div>
+
+            <div class="double-bezel-outer" data-aos="fade-up">
+                <div class="double-bezel-inner p-8 sm:p-12">
+                    
+                    <div class="mb-8">
+                        <label class="font-sans text-xs uppercase tracking-widest text-stone-sand font-bold block mb-3">Ev Planı / İhtiyaç Alanı</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <button type="button" onclick="setHouseType(this, 'Düğün / Tam Ev Paketi')" class="house-btn active p-4 rounded-2xl border-2 border-stone-espresso bg-stone-chalk text-left transition-all">
+                                <span class="font-serif text-lg text-stone-espresso block">Tam Ev Paketi</span>
+                                <span class="text-[11px] text-stone-sand">Salon + Yatak Odası + Yemek</span>
+                            </button>
+                            <button type="button" onclick="setHouseType(this, 'Salon Yenileme')" class="house-btn p-4 rounded-2xl border border-stone-greige bg-white text-left hover:border-stone-espresso transition-all">
+                                <span class="font-serif text-lg text-stone-espresso block">Salon Yenileme</span>
+                                <span class="text-[11px] text-stone-sand">Koltuk & Sehpa Grubu</span>
+                            </button>
+                            <button type="button" onclick="setHouseType(this, 'Yatak Odası & Baza')" class="house-btn p-4 rounded-2xl border border-stone-greige bg-white text-left hover:border-stone-espresso transition-all">
+                                <span class="font-serif text-lg text-stone-espresso block">Yatak & Baza</span>
+                                <span class="text-[11px] text-stone-sand">Sude Baza & Ortopedik Yatak</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <label class="font-sans text-xs uppercase tracking-widest text-stone-sand font-bold block mb-3">Dahil Etmek İstediğiniz Modüller</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="flex items-center gap-3 p-4 rounded-2xl border border-stone-greige bg-stone-chalk/50 cursor-pointer hover:border-accent-cyan transition-all">
+                                <input type="checkbox" name="custom_modules" value="İnegöl Nubuk/Bukle Koltuk Takımı" class="w-4 h-4 accent-stone-espresso" checked>
+                                <span class="text-xs sm:text-sm font-medium text-stone-espresso">Yataklı İnegöl Koltuk Takımı</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-4 rounded-2xl border border-stone-greige bg-stone-chalk/50 cursor-pointer hover:border-accent-cyan transition-all">
+                                <input type="checkbox" name="custom_modules" value="Gardıroplu Yatak Odası Takımı" class="w-4 h-4 accent-stone-espresso" checked>
+                                <span class="text-xs sm:text-sm font-medium text-stone-espresso">Gardıroplu Yatak Odası Takımı</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-4 rounded-2xl border border-stone-greige bg-stone-chalk/50 cursor-pointer hover:border-accent-cyan transition-all">
+                                <input type="checkbox" name="custom_modules" value="Açılır Masa & 6 Sandalye" class="w-4 h-4 accent-stone-espresso" checked>
+                                <span class="text-xs sm:text-sm font-medium text-stone-espresso">Açılır Yemek Masası & 6 Sandalye</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-4 rounded-2xl border border-stone-greige bg-stone-chalk/50 cursor-pointer hover:border-accent-cyan transition-all">
+                                <input type="checkbox" name="custom_modules" value="Sude Çelik Baza ve Başlık" class="w-4 h-4 accent-stone-espresso">
+                                <span class="text-xs sm:text-sm font-medium text-stone-espresso">Sude Sandıklı Çelik Baza & Başlık</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-stone-greige flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div class="text-center sm:text-left">
+                            <span class="text-xs text-stone-sand font-medium block">Sivas içi ücretsiz teslimat ve usta montajı hediyedir.</span>
+                            <span class="text-xs text-accent-cyan font-bold flex items-center gap-1 mt-0.5">
+                                <i class="ph-bold ph-shield-check"></i> 2 Yıl Resmi İnegöl Fabrika Garantisi
+                            </span>
+                        </div>
+                        <button type="button" onclick="submitCustomBundle()" class="btn-luxury-primary w-full sm:w-auto">
+                            <span>WhatsApp'tan Teklif Al</span>
+                            <span class="icon-bubble"><i class="ph-bold ph-whatsapp-logo"></i></span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. SHOWROOM & SİVAS MAĞAZALARIMIZ -->
+    <section id="magazalar" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5" data-aos="fade-right">
+                    <span class="text-accent-cyan font-sans text-xs uppercase tracking-[0.25em] font-bold block mb-2">SİVAS'TA 2 AYRI SHOWROOM</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-normal text-stone-espresso mb-6">Bir Kahvemizi İçin</h2>
+                    <p class="text-stone-walnut/70 text-sm leading-relaxed mb-8">
+                        Kumaş kartelalarını elinizle hissetmek, sünger yoğunluğunu ve yatak konforunu bizzat deneyimlemek için mağazalarımıza davetlisiniz.
+                    </p>
+
+                    <div class="space-y-4">
+                        
+                        <!-- Huzur Branch -->
+                        <div class="p-6 rounded-3xl bg-stone-chalk border border-stone-greige">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-serif text-xl font-normal text-stone-espresso">Huzur Şubesi (Ana Mağaza)</h4>
+                                <span class="text-[10px] uppercase tracking-widest text-accent-cyan font-bold">Açık</span>
+                            </div>
+                            <p class="text-xs text-stone-sand leading-relaxed mb-4">
+                                Huzur Mah. Kazımkarabekir Cad. No:9/A Merkez/SİVAS (58000)<br>
+                                Koltuk takımları, yatak odaları ve düğün paketleri sergi katı.
+                            </p>
+                            <div class="flex items-center gap-4 text-xs font-semibold">
+                                <a href="https://maps.google.com/?q=Huzur+Mah+Kazımkarabekir+Cad+Sivas" target="_blank" class="text-accent-cyan hover:underline flex items-center gap-1">
+                                    <i class="ph-bold ph-navigation-arrow"></i> Yol Tarifi
+                                </a>
+                                <span class="text-stone-greige">•</span>
+                                <span class="text-stone-espresso">Tel: 0540 877 17 52</span>
+                            </div>
+                        </div>
+
+                        <!-- Kepçeli Branch -->
+                        <div class="p-6 rounded-3xl bg-stone-chalk border border-stone-greige">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-serif text-xl font-normal text-stone-espresso">Kepçeli Şubesi</h4>
+                                <span class="text-[10px] uppercase tracking-widest text-accent-gold font-bold">Açık</span>
+                            </div>
+                            <p class="text-xs text-stone-sand leading-relaxed mb-4">
+                                Kepçeli Mevkii, Merkez / Sivas<br>
+                                Baza-yatak setleri, yemek masaları ve köşe takımı showroomu.
+                            </p>
+                            <div class="flex items-center gap-4 text-xs font-semibold">
+                                <a href="https://wa.me/905408771752?text=Kepçeli%20şubenizin%20konumunu%20istiyorum." target="_blank" class="text-accent-cyan hover:underline flex items-center gap-1">
+                                    <i class="ph-bold ph-whatsapp-logo"></i> Konum İste
+                                </a>
+                                <span class="text-stone-greige">•</span>
+                                <span class="text-stone-espresso">Haftanın 7 Günü Açık</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7" data-aos="fade-left">
+                    <div class="double-bezel-outer">
+                        <div class="double-bezel-inner aspect-[16/11] p-8 relative flex flex-col justify-end bg-stone-chalk">
+                            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Kurtoğlu Mobilya Showroom İç Mimari" class="absolute inset-0 w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-stone-espresso/80 via-transparent to-transparent"></div>
+                            
+                            <div class="relative z-10 text-white flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                                <div>
+                                    <span class="text-[10px] uppercase tracking-widest text-accent-gold font-bold block mb-1">Kurtoğlu Deneyimi</span>
+                                    <h3 class="font-serif text-2xl font-normal">Sivas'ın İnegöl Mobilya Üssü</h3>
+                                    <p class="text-xs text-stone-linen/80 font-light mt-0.5">Yüzlerce model, yüzlerce renk ve kumaş seçeneği.</p>
+                                </div>
+                                <a href="https://wa.me/905408771752?text=Mağazayı%20ziyaret%20etmek%20istiyorum." target="_blank" class="btn-luxury-primary !bg-white !text-stone-espresso text-xs py-1.5 px-3">
+                                    <span>Randevu Al</span>
+                                    <span class="icon-bubble !bg-stone-espresso/10"><i class="ph-bold ph-calendar"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. MINIMALIST FOOTER -->
+    <footer class="bg-stone-espresso text-stone-chalk pt-20 pb-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+                
+                <div class="md:col-span-5">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-accent-cyan flex items-center justify-center text-white text-xs font-display">
+                            K
+                        </div>
+                        <span class="font-display text-2xl font-bold tracking-widest text-white">KURTOĞLU MOBİLYA</span>
+                    </div>
+                    <p class="text-xs text-stone-greige/70 font-light leading-relaxed max-w-sm mb-6">
+                        Sivas'ta İnegöl mobilyası kalitesini evlerinize taşıyoruz. Koltuk takımları, 2026 rüya düğün paketleri, Sude baza serisi ve yemek odaları.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="https://www.instagram.com/kurtoglumobilyahuzursube/" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-stone-chalk hover:bg-accent-cyan hover:text-white transition-colors">
+                            <i class="ph-fill ph-instagram-logo text-base"></i>
+                        </a>
+                        <a href="https://wa.me/905408771752" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-stone-chalk hover:bg-green-500 hover:text-white transition-colors">
+                            <i class="ph-fill ph-whatsapp-logo text-base"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3">
+                    <h4 class="font-sans text-xs uppercase tracking-[0.2em] font-bold text-accent-gold mb-4">Koleksiyonlar</h4>
+                    <ul class="space-y-2.5 text-xs text-stone-greige/80 font-light">
+                        <li><a href="#lookbook" class="hover:text-white transition-colors">2026 Düğün Paketleri</a></li>
+                        <li><a href="#koleksiyon" class="hover:text-white transition-colors">Yataklı Koltuk Takımları</a></li>
+                        <li><a href="#koleksiyon" class="hover:text-white transition-colors">Sude Baza & Yatak Serisi</a></li>
+                        <li><a href="#koleksiyon" class="hover:text-white transition-colors">Köşe & L Koltuklar</a></li>
+                        <li><a href="#koleksiyon" class="hover:text-white transition-colors">Açılır Yemek Masaları</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4">
+                    <h4 class="font-sans text-xs uppercase tracking-[0.2em] font-bold text-accent-gold mb-4">İletişim & Mağazalar</h4>
+                    <p class="text-xs text-stone-greige/80 font-light leading-relaxed mb-3">
+                        <strong>Huzur Şube:</strong> Huzur Mah. Kazımkarabekir Cad. No:9/A Sivas<br>
+                        <strong>Kepçeli Şube:</strong> Kepçeli Mevkii / Sivas
+                    </p>
+                    <a href="https://wa.me/905408771752" target="_blank" class="text-xs text-accent-cyan hover:underline font-bold block mb-1">
+                        WhatsApp: 0540 877 17 52
+                    </a>
+                    <span class="text-[11px] text-stone-greige/60">Sivas İçi Ücretsiz Nakliye & Montaj</span>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-stone-greige/60 font-light">
+                <p>&copy; 2026 Kurtoğlu Mobilya. Tüm Hakları Saklıdır. İnegöl Mobilyası Sivas Yetkili Satıcısı.</p>
+                <p>Designed with Architectural Warmth & Editorial Craft.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 8. FLOATING LUXURY WHATSAPP CONCIERGE -->
+    <a href="https://wa.me/905408771752?text=Merhaba,%20Kurtoğlu%20Mobilya%20koleksiyonları%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-stone-espresso text-white rounded-full flex items-center justify-center text-2xl shadow-2xl wa-floating-btn hover:bg-accent-cyan transition-colors" title="WhatsApp Showroom Danışmanı">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 40,
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+
+        // Swatch Data & Switcher
+        const swatches = [
+            {
+                title: "Fildişi Bukle Kumaş Özellikleri",
+                desc: "Işığı yumuşakça dağıtan, leke tutmaz özel iplik yapısıyla salonunuza modern bir İtalyan heykelsi estetik kazandırır.",
+                badge: "Trend Dokuma",
+                image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            },
+            {
+                title: "Vizon Nubuk Kumaş Özellikleri",
+                desc: "Kadifemsi dokusuyla silinebilir, sıvı itici ve patili dostlarımızın tırnak takılmalarına karşı ekstra dirençli özel apreli kumaş.",
+                badge: "Leke Tutmaz",
+                image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            },
+            {
+                title: "Adaçayı Keten Doku Özellikleri",
+                desc: "Doğal keten elyaflarıyla nefes alan, terletmeyen ve sakinleştirici pastel tonuyla İskandinav sadeliğini yansıtan dokuma.",
+                badge: "Doğal Elyaflı",
+                image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            },
+            {
+                title: "Antrasit Lüks Kadife Özellikleri",
+                desc: "Yoğun iplik sıklığı ve çift kat dökümüyle mekana derinlik katan, ışık açısına göre parıldayan aristokrat yüzey.",
+                badge: "Zengin Doku",
+                image: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            }
+        ];
+
+        function selectSwatch(index) {
+            const items = document.querySelectorAll('.swatch-item');
+            items.forEach((item, i) => {
+                const icon = item.querySelector('i');
+                if (i === index) {
+                    item.classList.add('active', 'border-2', 'border-stone-espresso', 'bg-stone-chalk');
+                    item.classList.remove('border', 'border-stone-greige', 'bg-white');
+                    if (icon) icon.classList.remove('hidden');
+                } else {
+                    item.classList.remove('active', 'border-2', 'border-stone-espresso', 'bg-stone-chalk');
+                    item.classList.add('border', 'border-stone-greige', 'bg-white');
+                    if (icon) icon.classList.add('hidden');
+                }
+            });
+
+            const data = swatches[index];
+            document.getElementById('fabricTitle').innerText = data.title;
+            document.getElementById('fabricDesc').innerText = data.desc;
+            document.getElementById('fabricBadge').innerText = data.badge;
+            document.getElementById('fabricPreviewImage').src = data.image;
+        }
+
+        // Custom Bundle Selection
+        let selectedHouseType = 'Düğün / Tam Ev Paketi';
+
+        function setHouseType(button, type) {
+            const buttons = document.querySelectorAll('.house-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'border-2', 'border-stone-espresso', 'bg-stone-chalk');
+                btn.classList.add('border', 'border-stone-greige', 'bg-white');
+            });
+            button.classList.add('active', 'border-2', 'border-stone-espresso', 'bg-stone-chalk');
+            button.classList.remove('border', 'border-stone-greige', 'bg-white');
+            selectedHouseType = type;
+        }
+
+        function submitCustomBundle() {
+            const checkboxes = document.querySelectorAll('input[name="custom_modules"]:checked');
+            const selectedModules = Array.from(checkboxes).map(cb => cb.value);
+
+            let message = `Merhaba Kurtoğlu Mobilya,%20evimiz%20için%20özel%20paket%20fiyatı%20öğrenmek%20istiyoruz.%0A%0A`;
+            message += `🏠%20*İhtiyaç%20Türü:*%20${encodeURIComponent(selectedHouseType)}%0A`;
+            
+            if (selectedModules.length > 0) {
+                message += `🛋️%20*Seçilen%20Modüller:*%0A`;
+                selectedModules.forEach(mod => {
+                    message += `•%20${encodeURIComponent(mod)}%0A`;
+                });
+            } else {
+                message += `🛋️%20*Modül:*%202026%20Düğün%20paketi%20kataloğu%20ve%20fiyat%20listesi%20istiyorum.%0A`;
+            }
+
+            message += `%0ASivas%20içi%20ücretsiz%20nakliye,%20montaj%20ve%20indirimli%20fiyat%20bilgisini%20paylaşabilir%20misiniz?`;
+
+            window.open(`https://wa.me/905408771752?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
