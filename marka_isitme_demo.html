@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marka İşitme Cihazları | Sesleri Yeniden Keşfedin</title>
+    <meta name="description" content="Sivas Marka İşitme Cihazları ile ücretsiz işitme testi, yeni nesil görünmez ve şarj edilebilir işitme cihazları. Uzman odyologlarımızla hizmetinizdeyiz.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6', // Teal 500 - Primary brand color
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        accent: {
+                            500: '#f59e0b', // Amber for highlighting
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(0,0,0,0.05)',
+                        'glow': '0 0 20px rgba(20, 184, 166, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Utilities */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(15, 118, 110, 0.9) 0%, rgba(13, 148, 136, 0.7) 100%);
+        }
+
+        .service-card:hover .service-icon-bg {
+            background-color: #14b8a6;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .service-icon-bg {
+            transition: all 0.3s ease;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Blob Animation for Hero */
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.6;
+            animation: move 10s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(20px, -30px) scale(1.1); }
+        }
+
+        .clip-path-slant {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        
+        /* Mobile menu transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-600 bg-slate-50 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Bar -->
+    <div class="bg-brand-900 text-white text-xs py-2 hidden md:block">
+        <div class="container mx-auto px-6 max-w-7xl flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <a href="tel:+905550000000" class="flex items-center gap-2 hover:text-brand-300 transition-colors">
+                    <i class="fa-solid fa-phone"></i> 0555 000 00 00
+                </a>
+                <span class="flex items-center gap-2">
+                    <i class="fa-regular fa-clock"></i> Pzt-Cmt: 09:00 - 18:30
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot"></i> Merkez / Sivas
+                </span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="font-medium">Ücretsiz İşitme Testi Randevusu Alın</span>
+                <div class="flex gap-3">
+                    <a href="#" class="hover:text-brand-300 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-brand-300 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="fixed w-full top-0 md:top-[32px] z-50 transition-all duration-300 bg-white shadow-sm">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-brand-500 rounded-lg flex items-center justify-center text-white text-xl">
+                        <i class="fa-solid fa-ear-listen"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-display font-bold text-xl text-gray-900 leading-tight">MARKA</h1>
+                        <p class="text-[10px] text-brand-600 font-semibold tracking-widest uppercase">İşitme Cihazları</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#hakkimizda" class="text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Hakkımızda</a>
+                    <a href="#hizmetlerimiz" class="text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Hizmetlerimiz</a>
+                    <a href="#urunler" class="text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Cihazlarımız</a>
+                    <a href="#yorumlar" class="text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">Yorumlar</a>
+                    <a href="#iletisim" class="text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors">İletişim</a>
+                    
+                    <a href="#randevu" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all shadow-glow hover:shadow-lg transform hover:-translate-y-0.5">
+                        Ücretsiz Randevu
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 text-2xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100 px-6 py-4 shadow-xl">
+            <div class="flex flex-col gap-4">
+                <a href="#hakkimizda" class="text-base font-medium text-gray-700">Hakkımızda</a>
+                <a href="#hizmetlerimiz" class="text-base font-medium text-gray-700">Hizmetlerimiz</a>
+                <a href="#urunler" class="text-base font-medium text-gray-700">Cihazlarımız</a>
+                <a href="#iletisim" class="text-base font-medium text-gray-700">İletişim</a>
+                <a href="#randevu" class="bg-brand-600 text-white text-center px-6 py-3 rounded-xl font-medium mt-2">
+                    Ücretsiz Randevu Al
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 md:pt-40 pb-20 md:pb-32 overflow-hidden clip-path-slant bg-slate-50">
+        <!-- Background Elements -->
+        <div class="blob bg-brand-200 w-96 h-96 rounded-full -top-10 -left-10"></div>
+        <div class="blob bg-brand-100 w-80 h-80 rounded-full top-40 right-10" style="animation-delay: -2s;"></div>
+        
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <!-- Text Content -->
+                <div class="md:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-block bg-brand-50 text-brand-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-brand-100">
+                        <i class="fa-solid fa-stethoscope mr-2"></i> Ücretsiz İşitme Testi ve Danışmanlık
+                    </div>
+                    <h2 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-tight mb-6">
+                        Sesleri Yeniden <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-teal-400">Keşfedin</span>, Hayata Bağlanın.
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
+                        Marka İşitme Cihazları olarak, uzman kadromuz ve dünya markası yeni nesil teknolojilerle yaşam kalitenizi artırıyoruz. Sizi duymadığınız seslerle tekrar buluşturuyoruz.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#randevu" class="bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-full text-center font-medium transition-all shadow-glow hover:shadow-lg flex items-center justify-center gap-2">
+                            Randevu Oluştur <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="https://wa.me/905550000000" class="bg-white hover:bg-gray-50 text-gray-800 border border-gray-200 px-8 py-4 rounded-full text-center font-medium transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-green-500 text-lg"></i> WhatsApp'tan Sorun
+                        </a>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="mt-10 flex items-center gap-6 text-sm text-gray-500">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check-circle text-brand-500"></i>
+                            <span>SGK Anlaşmalı</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check-circle text-brand-500"></i>
+                            <span>%100 Memnuniyet</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check-circle text-brand-500"></i>
+                            <span>Ömür Boyu Ayar</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image -->
+                <div class="md:w-1/2 relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <!-- A placeholder image for a happy older person or modern clinic -->
+                        <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Mutlu işitme cihazı kullanıcısı" class="w-full h-[500px] object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent"></div>
+                        
+                        <!-- Floating Card -->
+                        <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-lg flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                            <div class="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center text-white text-xl">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-medium">Google Yorumları</p>
+                                <p class="font-bold text-gray-900">5.0 <span class="text-accent-500 text-sm">★★★★★</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features / Highlights -->
+    <section class="py-12 bg-white relative z-20 -mt-16 mb-10">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:-translate-y-1 transition-transform" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 text-2xl mb-5">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Uzman Odyologlar</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        İşitme sağlığınız alanında uzman odyologlarımız tarafından detaylı testler ve modern cihazlarla değerlendirilir.
+                    </p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-brand-600 rounded-2xl p-8 shadow-glow transform md:-translate-y-4 text-white" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center text-white text-2xl mb-5">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-3">Yeni Nesil Teknoloji</h3>
+                    <p class="text-white/80 text-sm leading-relaxed mb-4">
+                        Bluetooth bağlantılı, şarj edilebilir ve yapay zeka destekli görünmez dünya markaları merkezimizde.
+                    </p>
+                    <a href="#urunler" class="text-sm font-medium hover:text-brand-200 flex items-center gap-2 transition-colors">
+                        Cihazları İncele <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:-translate-y-1 transition-transform" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 text-2xl mb-5">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Satış Sonrası Destek</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Cihaz kullanım eğitimleri, periyodik bakım, ince ayar güncellemeleri ömür boyu ücretsiz olarak sunulur.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="hizmetlerimiz" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-brand-600 font-semibold tracking-wider text-sm uppercase mb-2 block">Neler Yapıyoruz?</span>
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 mb-4">Kapsamlı İşitme Hizmetleri</h2>
+                <p class="text-gray-600">Her bireyin işitme kaybı parmak izi gibi benzersizdir. Size en uygun çözümü bulmak için sunduğumuz profesyonel hizmetler.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Item -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon-bg w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-brand-500 text-2xl mb-6">
+                        <i class="fa-solid fa-headphones"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-900 mb-3">Kapsamlı İşitme Testi</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Sessiz kabinlerimizde uzman odyometristlerimiz eşliğinde saf ses odyometrisi ve konuşma testleri yapılır. İşitme eşiğiniz hassasiyetle belirlenir.
+                    </p>
+                </div>
+                
+                <!-- Service Item -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon-bg w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-brand-500 text-2xl mb-6">
+                        <i class="fa-solid fa-ear-deaf"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-900 mb-3">Cihaz Seçimi & Uygulama</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        İşitme kaybınıza, anatomik yapınıza ve sosyal yaşantınıza en uygun cihaz seçilir ve REM (Gerçek Kulak Ölçümü) ile kişiye özel ayarlanır.
+                    </p>
+                </div>
+
+                <!-- Service Item -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon-bg w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-brand-500 text-2xl mb-6">
+                        <i class="fa-solid fa-child-reaching"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-900 mb-3">Pediatrik (Çocuk) Uygulamalar</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Bebekler ve çocuklar için özel olarak tasarlanmış, dil ve konuşma gelişimini destekleyen pediatrik işitme cihazı çözümleri sunuyoruz.
+                    </p>
+                </div>
+
+                <!-- Service Item -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon-bg w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-brand-500 text-2xl mb-6">
+                        <i class="fa-solid fa-wave-square"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-900 mb-3">Tinnitus (Çınlama) Terapisi</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Kulak çınlaması şikayeti olan hastalarımız için rahatlatıcı ses terapisi özellikleri barındıran özel cihazlarla yaşam konforunu artırıyoruz.
+                    </p>
+                </div>
+
+                <!-- Service Item -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon-bg w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-brand-500 text-2xl mb-6">
+                        <i class="fa-solid fa-shapes"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-900 mb-3">Kişiye Özel Kulak Kalıbı</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Kulak iziniz alınarak 3D yazıcı teknolojisi ile kulağınıza tam oturan, sızdırmaz ve anti-alerjik işitme cihazı kalıpları üretiyoruz.
+                    </p>
+                </div>
+
+                <!-- Service Item -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100 cursor-pointer" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon-bg w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-brand-500 text-2xl mb-6">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-900 mb-3">Bakım, Onarım & Pil</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Tüm marka cihazların temizliği, filtre değişimi, teknik servis işlemleri ve uzun ömürlü işitme cihazı pilleri temin edilmektedir.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products / Types Section -->
+    <section id="urunler" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-up">
+                <div class="max-w-xl">
+                    <span class="text-brand-600 font-semibold tracking-wider text-sm uppercase mb-2 block">Premium Teknolojiler</span>
+                    <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 mb-4">Size En Uygun Cihazı Bulun</h2>
+                    <p class="text-gray-600">Dışarıdan fark edilmeyen görünmez tasarımlardan, şarj edilebilir akıllı cihazlara kadar geniş ürün yelpazesi.</p>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <a href="#randevu" class="text-brand-600 font-medium hover:text-brand-700 flex items-center gap-2">
+                        Tüm Ürünleri İncelemek İçin Ziyaret Edin <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Product Type 1 -->
+                <div class="group bg-slate-50 rounded-2xl p-6 hover:bg-brand-50 transition-colors border border-transparent hover:border-brand-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 rounded-xl bg-white mb-6 p-4 flex items-center justify-center shadow-sm">
+                        <!-- Abstract illustration or icon representing the hearing aid -->
+                        <i class="fa-solid fa-ear-listen text-6xl text-brand-200 group-hover:text-brand-400 transition-colors"></i>
+                    </div>
+                    <div class="bg-brand-100 text-brand-700 text-xs font-bold px-2 py-1 rounded inline-block mb-3">IIC / CIC</div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">Görünmez (Kanal İçi)</h3>
+                    <p class="text-gray-600 text-sm mb-4">Kulak kanalının derinliğine yerleşir, dışarıdan kesinlikle fark edilmez. Hafif ve orta derece kayıplar için.</p>
+                </div>
+
+                <!-- Product Type 2 -->
+                <div class="group bg-slate-50 rounded-2xl p-6 hover:bg-brand-50 transition-colors border border-transparent hover:border-brand-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 rounded-xl bg-white mb-6 p-4 flex items-center justify-center shadow-sm relative">
+                        <span class="absolute top-3 right-3 bg-red-100 text-red-600 text-[10px] font-bold px-2 py-1 rounded">Çok Tercih Edilen</span>
+                        <i class="fa-solid fa-assistive-listening-systems text-6xl text-brand-200 group-hover:text-brand-400 transition-colors"></i>
+                    </div>
+                    <div class="bg-brand-100 text-brand-700 text-xs font-bold px-2 py-1 rounded inline-block mb-3">RIC / BTE</div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">Kulak Arkası (Alıcısı Kanalda)</h3>
+                    <p class="text-gray-600 text-sm mb-4">Kulağın arkasına şık bir şekilde gizlenir. İleri derece kayıplar için de uygun, yüksek performanslı seri.</p>
+                </div>
+
+                <!-- Product Type 3 -->
+                <div class="group bg-slate-50 rounded-2xl p-6 hover:bg-brand-50 transition-colors border border-transparent hover:border-brand-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 rounded-xl bg-white mb-6 p-4 flex items-center justify-center shadow-sm">
+                        <i class="fa-solid fa-battery-full text-6xl text-brand-200 group-hover:text-brand-400 transition-colors"></i>
+                    </div>
+                    <div class="bg-brand-100 text-brand-700 text-xs font-bold px-2 py-1 rounded inline-block mb-3">Rechargeable</div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">Şarj Edilebilir Cihazlar</h3>
+                    <p class="text-gray-600 text-sm mb-4">Pil değiştirme derdine son. Gece şarja takın, tüm gün kesintisiz duymanın keyfini çıkarın.</p>
+                </div>
+
+                <!-- Product Type 4 -->
+                <div class="group bg-slate-50 rounded-2xl p-6 hover:bg-brand-50 transition-colors border border-transparent hover:border-brand-100" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-48 rounded-xl bg-white mb-6 p-4 flex items-center justify-center shadow-sm">
+                        <i class="fa-brands fa-bluetooth text-6xl text-brand-200 group-hover:text-brand-400 transition-colors"></i>
+                    </div>
+                    <div class="bg-brand-100 text-brand-700 text-xs font-bold px-2 py-1 rounded inline-block mb-3">Bluetooth</div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">Akıllı Telefon Uyumlu</h3>
+                    <p class="text-gray-600 text-sm mb-4">Telefon görüşmelerini, müzikleri ve videoları doğrudan işitme cihazınıza kablosuz olarak aktarın.</p>
+                </div>
+
+            </div>
+            
+            <!-- Brands Banner -->
+            <div class="mt-16 pt-10 border-t border-gray-100" data-aos="fade-up">
+                <p class="text-center text-sm text-gray-400 font-medium mb-8 uppercase tracking-widest">DÜNYANIN EN İYİ MARKALARI MERKEZİMİZDE</p>
+                <div class="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                    <!-- Placeholder brand names representing major hearing aid brands -->
+                    <h4 class="font-display font-bold text-2xl text-gray-400">PHONAK</h4>
+                    <h4 class="font-display font-bold text-2xl text-gray-400">SIGNIA</h4>
+                    <h4 class="font-display font-bold text-2xl text-gray-400">WIDEX</h4>
+                    <h4 class="font-display font-bold text-2xl text-gray-400">OTICON</h4>
+                    <h4 class="font-display font-bold text-2xl text-gray-400">RESOUND</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action (Mid) -->
+    <section class="py-20 relative overflow-hidden bg-brand-900 text-white">
+        <div class="absolute inset-0 opacity-10">
+            <!-- decorative background pattern -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-400 rounded-full mix-blend-overlay filter blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 max-w-5xl relative z-10 text-center" data-aos="zoom-in">
+            <h2 class="font-display font-bold text-3xl md:text-5xl mb-6 leading-tight">İşitme Kaybı Yaşam Kalitenizi Düşürmesin. <br> <span class="text-brand-300">Hemen Test Yaptırın.</span></h2>
+            <p class="text-brand-100 text-lg mb-10 max-w-2xl mx-auto">
+                Erken teşhis ve doğru cihaz seçimi, algılamayı ve sosyal iletişimi doğrudan etkiler. Ücretsiz işitme testimiz sadece 15 dakika sürüyor.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="tel:+905550000000" class="bg-white text-brand-900 hover:bg-brand-50 px-8 py-4 rounded-full font-bold transition-colors w-full sm:w-auto text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone"></i> Hemen Arayın
+                </a>
+                <a href="#randevu" class="bg-transparent border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-full font-medium transition-colors w-full sm:w-auto text-center">
+                    Randevu Formu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="yorumlar" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 mb-4">Danışanlarımız Ne Diyor?</h2>
+                <p class="text-gray-600">Bizi tercih eden ve yeniden duymanın mutluluğunu yaşayan danışanlarımızın deneyimleri.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm relative" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-quote-right absolute top-8 right-8 text-4xl text-gray-100"></i>
+                    <div class="flex items-center gap-1 text-accent-500 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 relative z-10 italic">
+                        "Yıllardır kalabalık ortamlarda konuşulanları anlamıyordum. Buraya geldikten sonra cihaz önerdiler. Şimdi torunumun fısıltısını bile duyabiliyorum. İlgi ve alakaları çok güzeldi."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">M.Y.</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Mustafa Y.</h4>
+                            <span class="text-xs text-gray-500">Emekli Öğretmen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm relative" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-quote-right absolute top-8 right-8 text-4xl text-gray-100"></i>
+                    <div class="flex items-center gap-1 text-accent-500 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 relative z-10 italic">
+                        "Genç yaşımda işitme kaybım olduğu için görünür bir cihaz takmaktan çekiniyordum. Bana kulak içi görünmez bir cihaz verdiler. Kimse cihaz kullandığımı fark etmiyor."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">A.K.</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Ayşe K.</h4>
+                            <span class="text-xs text-gray-500">Bankacı</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm relative" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-quote-right absolute top-8 right-8 text-4xl text-gray-100"></i>
+                    <div class="flex items-center gap-1 text-accent-500 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 relative z-10 italic">
+                        "Sürekli pil bitme derdinden yorulmuştum. Şarjlı cihaza geçtik, hayatım kolaylaştı. Ayrıca her sorunumda ücretsiz ayar yapıyorlar, satış sonrasında da yalnız bırakmıyorlar."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">H.D.</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Hasan D.</h4>
+                            <span class="text-xs text-gray-500">Esnaf</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Appointment -->
+    <section id="randevu" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row border border-gray-100">
+                
+                <!-- Contact Info -->
+                <div class="lg:w-2/5 bg-brand-900 text-white p-10 md:p-14 relative overflow-hidden">
+                    <div class="absolute -top-20 -right-20 w-64 h-64 bg-brand-700 rounded-full mix-blend-multiply opacity-50 blur-2xl"></div>
+                    
+                    <h3 class="font-display font-bold text-3xl mb-4 relative z-10">İletişime Geçin</h3>
+                    <p class="text-brand-100 mb-10 relative z-10 text-sm">Ücretsiz işitme testi ve cihaz denemesi için hemen bizimle iletişime geçin. Uzman kadromuz sizi bekliyor.</p>
+                    
+                    <div class="flex flex-col gap-8 relative z-10">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-brand-300 flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Adres</h4>
+                                <p class="text-brand-100 text-sm">Örnek Mahallesi, İstasyon Caddesi No:12/A Merkez / Sivas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-brand-300 flex-shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Telefon</h4>
+                                <a href="tel:+905550000000" class="text-brand-100 text-sm hover:text-white transition-colors">0555 000 00 00</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-brand-300 flex-shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">E-Posta</h4>
+                                <a href="mailto:info@markaisitme.com" class="text-brand-100 text-sm hover:text-white transition-colors">info@markaisitme.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-brand-800 relative z-10">
+                        <h4 class="font-bold mb-4">Çalışma Saatlerimiz</h4>
+                        <ul class="text-sm text-brand-100 flex flex-col gap-2">
+                            <li class="flex justify-between"><span>Pzt - Cuma:</span> <span>09:00 - 18:30</span></li>
+                            <li class="flex justify-between"><span>Cumartesi:</span> <span>09:00 - 15:00</span></li>
+                            <li class="flex justify-between text-brand-300"><span>Pazar:</span> <span>Kapalı</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="lg:w-3/5 p-10 md:p-14">
+                    <h3 class="font-display font-bold text-2xl text-gray-900 mb-2">Ücretsiz Randevu Formu</h3>
+                    <p class="text-gray-500 text-sm mb-8">Lütfen formu doldurun, danışmanlarımız randevu teyidi için sizi en kısa sürede arasın.</p>
+                    
+                    <form onsubmit="event.preventDefault(); alert('Randevu talebiniz alınmıştır. En kısa sürede size dönüş yapılacaktır.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Adınız Soyadınız</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="Ad Soyad">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Telefon Numaranız</label>
+                                <input type="tel" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="05XX XXX XX XX">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Tercih Edilen Tarih</label>
+                                <input type="date" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all bg-slate-50 focus:bg-white">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Geliş Sebebiniz</label>
+                                <select class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all bg-slate-50 focus:bg-white text-gray-600">
+                                    <option>Ücretsiz İşitme Testi</option>
+                                    <option>Yeni Cihaz Alımı / Deneme</option>
+                                    <option>Cihaz Bakım / Onarım / Ayar</option>
+                                    <option>Özel Kulak Kalıbı / Tıkaç</option>
+                                    <option>Diğer</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Mesajınız (İsteğe Bağlı)</label>
+                            <textarea rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="Eklemek istedikleriniz..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-xl transition-colors shadow-glow hover:shadow-lg">
+                            Randevu Talebini Gönder
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Map -->
+            <div class="mt-12 rounded-3xl overflow-hidden shadow-sm border border-gray-100 h-[400px]" data-aos="fade-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12175.760193154865!2d37.0163351!3d39.7554903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407eaa0a96ef8b13%3A0xcdaee506b3a32f6!2zS2FyZGXFn2xlciwgU2l2YXMgTWVya2V6L1NpdmFz!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 border-b border-gray-800 pb-8">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <a href="#" class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 bg-brand-500 rounded flex items-center justify-center text-white">
+                            <i class="fa-solid fa-ear-listen text-sm"></i>
+                        </div>
+                        <div>
+                            <h1 class="font-display font-bold text-lg text-white leading-none">MARKA</h1>
+                            <p class="text-[9px] text-brand-400 font-semibold tracking-widest uppercase mt-0.5">İşitme Cihazları</p>
+                        </div>
+                    </a>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Modern işitme cihazları ve profesyonel odyolojik hizmetlerle sesleri hayatınıza geri getiriyoruz.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-500 hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-500 hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Hızlı Menü</h4>
+                    <ul class="flex flex-col gap-2 text-sm text-gray-400">
+                        <li><a href="#hakkimizda" class="hover:text-brand-400 transition-colors">Hakkımızda</a></li>
+                        <li><a href="#hizmetlerimiz" class="hover:text-brand-400 transition-colors">Hizmetlerimiz</a></li>
+                        <li><a href="#urunler" class="hover:text-brand-400 transition-colors">İşitme Cihazları</a></li>
+                        <li><a href="#randevu" class="hover:text-brand-400 transition-colors">İletişim</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Hizmetler</h4>
+                    <ul class="flex flex-col gap-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Ücretsiz İşitme Testi</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Pediatrik Uygulamalar</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Tinnitus Terapisi</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Özel Kulak Kalıbı</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Teknik Servis & Bakım</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Önemli Bilgiler</h4>
+                    <ul class="flex flex-col gap-2 text-sm text-gray-400">
+                        <li><i class="fa-solid fa-check text-brand-500 mr-2 text-xs"></i> SGK Anlaşmalıyız</li>
+                        <li><i class="fa-solid fa-check text-brand-500 mr-2 text-xs"></i> Tüm Kredi Kartlarına Taksit</li>
+                        <li><i class="fa-solid fa-check text-brand-500 mr-2 text-xs"></i> Ücretsiz Deneme Süresi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="text-center text-xs text-gray-500">
+                <p>&copy; 2026 Marka İşitme Cihazları Sivas. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/905550000000" class="whatsapp-float" target="_blank" aria-label="WhatsApp üzerinden iletişime geçin">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+        });
+
+        // Sticky Navbar styling on scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('glass-nav');
+                header.classList.remove('bg-white', 'md:top-[32px]');
+            } else {
+                header.classList.remove('glass-nav');
+                header.classList.add('bg-white', 'md:top-[32px]');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const icon = mobileBtn.querySelector('i');
+            if(mobileMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu on link click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>

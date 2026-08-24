@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Psikolojik Danışmanlık Merkezi | Seda Kaşdaş</title>
+    <meta name="description" content="Sivas'ın MEB'e bağlı ilk Psikolojik Danışmanlık Merkezi. Çocuk, Ergen, Yetişkin Terapisi, Sınav Koçluğu ve Psikodrama hizmetleri.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6', // Teal main
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        accent: {
+                            500: '#8b5cf6', // Purple from their logo
+                            600: '#7c3aed',
+                        },
+                        surface: '#fafaf9'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(0,0,0,0.05)',
+                        'glow': '0 0 20px rgba(20, 184, 166, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #14b8a6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blob-shape {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+            67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Bento Grid Hover Effects */
+        .bento-card {
+            transition: all 0.4s ease;
+        }
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -15px rgba(20, 184, 166, 0.15);
+        }
+        .bento-card img {
+            transition: transform 0.7s ease;
+        }
+        .bento-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        #mobile-menu {
+            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-surface antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Info Bar -->
+    <div class="bg-gray-900 text-gray-300 text-xs py-2.5 hidden md:block">
+        <div class="container mx-auto px-6 max-w-7xl flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-certificate text-brand-400"></i> Sivas'ın MEB'e Bağlı İlk Rehberlik ve Psikolojik Danışmanlık Merkezi
+                </span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="tel:+905332240158" class="flex items-center gap-2 hover:text-white transition-colors">
+                    <i class="fa-solid fa-phone text-brand-400"></i> 0533 224 01 58
+                </a>
+                <div class="flex gap-4 border-l border-gray-700 pl-6">
+                    <a href="https://www.instagram.com/mental_psikolojik_danisma/" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@terapistinkonusuyor" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="fixed w-full top-0 md:top-[36px] z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center p-1 border border-gray-50 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-500 to-accent-500 opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                        <i class="fa-solid fa-brain text-2xl gradient-text"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-sans font-bold text-2xl tracking-tight text-gray-900 leading-none">Mental</h1>
+                        <p class="text-[9px] font-semibold tracking-[0.15em] text-gray-500 uppercase mt-1">Psikolojik Danışmanlık</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#hakkimizda" class="text-sm font-medium text-gray-800 hover:text-brand-600 transition-colors">Hakkımızda</a>
+                    <a href="#uzmanliklar" class="text-sm font-medium text-gray-800 hover:text-brand-600 transition-colors">Uzmanlık Alanları</a>
+                    <a href="#kocluk" class="text-sm font-medium text-gray-800 hover:text-brand-600 transition-colors">Sınav Koçluğu</a>
+                    <a href="#medya" class="text-sm font-medium text-gray-800 hover:text-brand-600 transition-colors">Medya</a>
+                    <a href="#iletisim" class="text-sm font-medium text-gray-800 hover:text-brand-600 transition-colors">İletişim</a>
+                    
+                    <a href="#iletisim" class="bg-gray-900 hover:bg-brand-600 text-white px-7 py-2.5 rounded-full text-sm font-medium transition-all shadow-lg hover:shadow-brand-500/30 transform hover:-translate-y-0.5">
+                        Randevu Al
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-900 text-2xl focus:outline-none bg-white/50 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 px-6 py-4 shadow-2xl">
+            <div class="flex flex-col gap-5">
+                <a href="#hakkimizda" class="text-base font-medium text-gray-800">Hakkımızda</a>
+                <a href="#uzmanliklar" class="text-base font-medium text-gray-800">Uzmanlık Alanları</a>
+                <a href="#kocluk" class="text-base font-medium text-gray-800">Sınav Koçluğu (YKS)</a>
+                <a href="#medya" class="text-base font-medium text-gray-800">Medya</a>
+                <a href="#iletisim" class="text-base font-medium text-gray-800">İletişim</a>
+                <a href="tel:+905332240158" class="bg-brand-600 text-white text-center px-6 py-3 rounded-xl text-sm font-bold shadow-md mt-2">
+                    Hemen Ara
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div class="absolute top-40 left-0 -ml-20 w-72 h-72 bg-accent-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text Content -->
+                <div class="w-full lg:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-100 shadow-sm mb-6">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-500"></span>
+                        </span>
+                        <span class="text-xs font-semibold text-brand-700 tracking-wide uppercase">MEB Onaylı Kurum</span>
+                    </div>
+                    
+                    <h1 class="font-serif text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.1] mb-6">
+                        İçsel Yolculuğunuzda <br>
+                        <span class="gradient-text italic font-medium">Yalnız Değilsiniz</span>
+                    </h1>
+                    
+                    <p class="text-gray-600 mb-10 text-lg lg:text-xl font-light leading-relaxed max-w-xl">
+                        Psikolojik Danışman Seda Kaşdaş liderliğinde; çocuk, ergen ve yetişkin terapisinden, YKS sınav koçluğuna kadar profesyonel destekle hayatınıza yeni bir pencere açın.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#randevu" class="bg-gray-900 hover:bg-brand-600 text-white px-8 py-4 rounded-xl text-sm font-semibold transition-all shadow-lg hover:shadow-brand-500/40 flex items-center gap-3">
+                            Online Randevu Oluştur <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="tel:+905332240158" class="bg-white hover:bg-gray-50 border border-gray-200 text-gray-800 px-8 py-4 rounded-xl text-sm font-semibold transition-all flex items-center gap-3 shadow-sm">
+                            <i class="fa-solid fa-phone text-brand-500"></i> Bizi Arayın
+                        </a>
+                    </div>
+                    
+                    <div class="mt-12 flex items-center gap-6">
+                        <div class="flex -space-x-4">
+                            <!-- Placeholder Avatars for social proof -->
+                            <img class="w-12 h-12 rounded-full border-2 border-white object-cover" src="https://picsum.photos/seed/face1/100/100" alt="Danışan">
+                            <img class="w-12 h-12 rounded-full border-2 border-white object-cover" src="https://picsum.photos/seed/face2/100/100" alt="Danışan">
+                            <img class="w-12 h-12 rounded-full border-2 border-white object-cover" src="https://picsum.photos/seed/face3/100/100" alt="Danışan">
+                            <div class="w-12 h-12 rounded-full border-2 border-white bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-600">500+</div>
+                        </div>
+                        <div class="text-sm font-medium text-gray-600">
+                            Yüzlerce başarılı danışmanlık süreci <br>ve mutlu sınav öğrencisi.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Image Container -->
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                    <div class="relative w-full aspect-square max-w-[600px] mx-auto">
+                        <!-- Abstract Shape Background -->
+                        <div class="absolute inset-0 bg-brand-100 blob-shape transform rotate-45 scale-105"></div>
+                        <!-- Main Image -->
+                        <div class="absolute inset-4 rounded-[2rem] overflow-hidden shadow-2xl">
+                            <img src="https://picsum.photos/seed/therapyroom/800/800" alt="Mental Psikolojik Danışmanlık Seans Odası" class="w-full h-full object-cover">
+                            <!-- Overlay gradient for premium feel -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent"></div>
+                        </div>
+                        
+                        <!-- Floating Badge 1 -->
+                        <div class="absolute top-12 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-gray-50 flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                            <div class="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center text-brand-500 text-xl">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-medium">Uzmanlık</p>
+                                <p class="font-bold text-gray-900">YKS Koçluğu</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Badge 2 -->
+                        <div class="absolute bottom-16 -right-6 bg-white p-4 rounded-2xl shadow-xl border border-gray-50 flex items-center gap-4 animate-bounce" style="animation-duration: 4s; animation-delay: 1s;">
+                            <div class="w-12 h-12 rounded-full bg-accent-50 flex items-center justify-center text-accent-500 text-xl">
+                                <i class="fa-solid fa-hands-holding-child"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-medium">Terapi</p>
+                                <p class="font-bold text-gray-900">Oyun Terapisi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="hakkimizda" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Image Grid -->
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://picsum.photos/seed/psychologist/600/800" alt="Psikolojik Danışman Seda Kaşdaş" class="w-full h-80 object-cover rounded-3xl mt-12 shadow-lg">
+                        <img src="https://picsum.photos/seed/clinic/600/800" alt="Klinik Görünüm" class="w-full h-80 object-cover rounded-3xl shadow-lg">
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <h4 class="text-brand-600 font-bold uppercase tracking-wider text-sm mb-3">Hakkımızda</h4>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Sivas'ta Bir İlk: <br>Güvenilir Rehberlik</h2>
+                    
+                    <p class="text-gray-600 mb-6 text-lg font-light leading-relaxed">
+                        Mental Psikolojik Danışmanlık Merkezi, <span class="font-semibold text-gray-900">Milli Eğitim Bakanlığı'na (MEB) bağlı</span> olarak Sivas'ta kurulan ilk rehberlik ve danışmanlık merkezidir.
+                    </p>
+                    
+                    <p class="text-gray-600 mb-8 font-light leading-relaxed">
+                        Kurucumuz Psikolojik Danışman Seda Kaşdaş eşliğinde; çocuk, ergen ve yetişkin terapisinin yanı sıra sınav senesindeki öğrencilere yönelik profesyonel YKS Sınav Koçluğu hizmeti sunuyoruz. Amacımız, her danışanımızın kendi potansiyelini keşfetmesi ve yaşam kalitesini artırmasıdır.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-600">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span class="font-medium text-gray-800">MEB Onaylı Güvenilir Kurum</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-600">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span class="font-medium text-gray-800">Bilimsel ve Etik Yaklaşım</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-600">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span class="font-medium text-gray-800">Her Yaş Grubuna Özel Terapi (Çocuk, Ergen, Yetişkin)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Bento Grid -->
+    <section id="uzmanliklar" class="py-24 bg-surface border-y border-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h4 class="text-brand-600 font-bold uppercase tracking-wider text-sm mb-3">Çalışma Alanlarımız</h4>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 mb-6">Size Nasıl Yardımcı Olabiliriz?</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto font-light text-lg">
+                    Farklı yaş grupları ve ihtiyaçlara yönelik, kanıta dayalı terapi yaklaşımları ile yanınızdayız.
+                </p>
+            </div>
+
+            <!-- Bento Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Large Card 1 -->
+                <div class="bento-card relative bg-white rounded-3xl overflow-hidden shadow-soft md:col-span-2 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0">
+                        <img src="https://picsum.photos/seed/adulttherapy/1000/600" class="w-full h-full object-cover opacity-90" alt="Yetişkin Terapisi">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent"></div>
+                    </div>
+                    <div class="relative h-full min-h-[350px] p-8 flex flex-col justify-end">
+                        <span class="bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full w-max mb-4">Terapi</span>
+                        <h3 class="font-serif text-3xl font-bold text-white mb-2">Yetişkin Terapisi</h3>
+                        <p class="text-gray-200 font-light max-w-md">Depresyon, kaygı, kaybetme korkusu, stres yönetimi ve ilişki problemleri gibi konularda bireysel danışmanlık.</p>
+                    </div>
+                </div>
+
+                <!-- Tall Card -->
+                <div class="bento-card bg-white rounded-3xl overflow-hidden shadow-soft border border-gray-100 p-8 flex flex-col group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-2xl bg-accent-50 text-accent-500 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-gray-900 mb-3">Oyun Terapisi</h3>
+                    <p class="text-gray-600 font-light flex-grow">Çocukların iç dünyasını anlamak ve duygusal problemlerini çözmek için oyunun gücünden faydalandığımız özel seanslar.</p>
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-brand-600 font-medium mt-6 group-hover:text-brand-700">
+                        Bilgi Al <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- Small Card 1 -->
+                <div class="bento-card bg-white rounded-3xl overflow-hidden shadow-soft border border-gray-100 p-8 flex flex-col group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-500 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Psikodrama</h3>
+                    <p class="text-gray-600 font-light text-sm">Grup terapisi teknikleriyle sorunları canlandırarak çözme ve içgörü kazanma süreci.</p>
+                </div>
+
+                <!-- Small Card 2 -->
+                <div class="bento-card bg-white rounded-3xl overflow-hidden shadow-soft border border-gray-100 p-8 flex flex-col group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-smoking"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Sigara Bıraktırma</h3>
+                    <p class="text-gray-600 font-light text-sm">Hipnoterapi ve bilişsel yöntemler ile bağımlılık döngüsünü kırmaya yönelik özel program.</p>
+                </div>
+
+                <!-- Large Card 2 -->
+                <div class="bento-card relative bg-brand-900 rounded-3xl overflow-hidden shadow-soft group" id="kocluk" data-aos="fade-up" data-aos-delay="500">
+                    <div class="absolute inset-0 bg-[url('https://picsum.photos/seed/exam/1000/600')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+                    <div class="relative h-full min-h-[250px] p-8 flex flex-col justify-center">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fa-solid fa-star text-yellow-400 text-xl"></i>
+                            <span class="text-brand-200 text-sm font-semibold tracking-wide uppercase">Popüler Hizmet</span>
+                        </div>
+                        <h3 class="font-serif text-3xl font-bold text-white mb-2">YKS & Sınav Koçluğu</h3>
+                        <p class="text-gray-300 font-light mb-6">2025-2026 YKS başarılarına hazırlık. Sınav kaygısı yönetimi, hedef belirleme, program takibi ve motivasyon desteği ile zorlu sınav senesinde öğrencinin yanındayız.</p>
+                        <a href="#iletisim" class="inline-flex items-center justify-center gap-2 bg-white text-brand-900 px-6 py-3 rounded-lg font-bold hover:bg-brand-50 transition-colors w-max">
+                            Öğrenci Kaydı İçin Görüşelim
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Media / Social Section -->
+    <section id="medya" class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text -->
+                <div class="w-full lg:w-5/12" data-aos="fade-right">
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 mb-6">Terapistin Konuşuyor</h2>
+                    <p class="text-gray-600 mb-8 font-light text-lg">
+                        Psikolojiye dair farkındalık yaratmak, merak edilen soruları yanıtlamak ve daha fazla kişiye ulaşmak için dijital platformlarda da aktifiz. 
+                    </p>
+                    
+                    <div class="flex flex-col gap-4">
+                        <a href="https://youtube.com/@terapistinkonusuyor" target="_blank" class="flex items-center justify-between p-4 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-red-50 text-red-600 flex items-center justify-center text-xl">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 group-hover:text-red-600 transition-colors">YouTube Kanalımız</h4>
+                                    <p class="text-xs text-gray-500">Videolarımızı izleyin</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-gray-300"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/mental_psikolojik_danisma/" target="_blank" class="flex items-center justify-between p-4 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-pink-50 text-pink-600 flex items-center justify-center text-xl">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 group-hover:text-pink-600 transition-colors">Instagram Profilimiz</h4>
+                                    <p class="text-xs text-gray-500">Günlük paylaşımlar ve duyurular</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-gray-300"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Video/Image Placeholder -->
+                <div class="w-full lg:w-7/12" data-aos="fade-left">
+                    <div class="relative rounded-[2rem] overflow-hidden shadow-2xl bg-gray-900 aspect-video group cursor-pointer">
+                        <img src="https://picsum.photos/seed/youtube/1200/700" alt="YouTube Kapak" class="w-full h-full object-cover opacity-70 group-hover:opacity-50 transition-opacity duration-500">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                                <i class="fa-solid fa-play ml-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment & Contact Section -->
+    <section id="iletisim" class="py-24 bg-surface border-t border-gray-100 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-30">
+            <svg class="absolute -top-24 -right-24 text-brand-100 w-96 h-96" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+            <svg class="absolute -bottom-24 -left-24 text-accent-100 w-96 h-96" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+        </div>
+
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100">
+                <div class="flex flex-col lg:flex-row">
+                    
+                    <!-- Contact Info & Form -->
+                    <div class="w-full lg:w-1/2 p-10 lg:p-16">
+                        <h2 class="font-serif text-3xl font-bold text-gray-900 mb-2">Randevu ve İletişim</h2>
+                        <p class="text-gray-500 mb-10 font-light">Süreç hakkında bilgi almak veya randevu oluşturmak için formu doldurabilirsiniz. Uzmanlarımız size en kısa sürede dönüş yapacaktır.</p>
+                        
+                        <form onsubmit="event.preventDefault(); alert('Randevu talebiniz başarıyla alınmıştır. En kısa sürede iletişime geçeceğiz.');" class="space-y-5 mb-12">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Adınız Soyadınız</label>
+                                    <input type="text" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-shadow">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Telefon Numaranız</label>
+                                    <input type="tel" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-shadow">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Hizmet Türü</label>
+                                <select class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-shadow appearance-none">
+                                    <option>Yetişkin Terapisi</option>
+                                    <option>Çocuk & Ergen Terapisi</option>
+                                    <option>Oyun Terapisi</option>
+                                    <option>YKS & Sınav Koçluğu</option>
+                                    <option>Sigara Bıraktırma</option>
+                                    <option>Diğer</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-gray-900 hover:bg-brand-600 text-white font-bold py-4 rounded-xl transition-all shadow-md hover:shadow-brand-500/40">
+                                Randevu Talebi Gönder
+                            </button>
+                        </form>
+
+                        <!-- Direct Contact Info -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-gray-100">
+                            <div>
+                                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Telefon / WhatsApp</h4>
+                                <a href="tel:+905332240158" class="text-lg font-bold text-gray-900 hover:text-brand-600 transition-colors">0533 224 01 58</a>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Çalışma Saatleri</h4>
+                                <p class="text-gray-900 font-medium">Hafta içi & Cmt: 09:00 - 19:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="w-full lg:w-1/2 bg-gray-100 min-h-[400px]">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12175.760193154865!2d37.0163351!3d39.7554903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407eaa0a96ef8b13%3A0xcdaee506b3a32f6!2zS2FyZGXFn2xlciwgU2l2YXMgTWVya2V6L1NpdmFz!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16 border-t border-gray-800">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <a href="#" class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center">
+                            <i class="fa-solid fa-brain text-xl text-brand-400"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-sans font-bold text-xl text-white leading-none">Mental</h2>
+                            <p class="text-[9px] font-medium tracking-[0.15em] text-gray-400 uppercase mt-1">Psikolojik Danışmanlık</p>
+                        </div>
+                    </a>
+                    <p class="text-sm text-gray-400 font-light leading-relaxed">
+                        Sivas'ın MEB'e bağlı ilk Psikolojik Danışmanlık ve Rehberlik Merkezi. Bilimsel yöntemler ve etik ilkelerle yanınızdayız.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Hızlı Menü</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#hakkimizda" class="text-gray-400 hover:text-brand-400 text-sm transition-colors">Hakkımızda</a></li>
+                        <li><a href="#uzmanliklar" class="text-gray-400 hover:text-brand-400 text-sm transition-colors">Yetişkin Terapisi</a></li>
+                        <li><a href="#uzmanliklar" class="text-gray-400 hover:text-brand-400 text-sm transition-colors">Oyun Terapisi</a></li>
+                        <li><a href="#kocluk" class="text-gray-400 hover:text-brand-400 text-sm transition-colors">Sınav Koçluğu (YKS)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="md:col-span-2">
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">İletişim</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4">
+                            <i class="fa-solid fa-location-dot mt-1 text-brand-500"></i>
+                            <span class="text-gray-400 text-sm leading-relaxed">Sivas Merkez, Sivas<br>(Detaylı adres bilgisi için iletişime geçiniz)</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <i class="fa-solid fa-phone text-brand-500"></i>
+                            <a href="tel:+905332240158" class="text-gray-400 hover:text-white text-sm transition-colors">0533 224 01 58</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Socials -->
+                    <div class="flex gap-4 mt-6">
+                        <a href="https://www.instagram.com/mental_psikolojik_danisma/" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-600 hover:text-white transition-all">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/@terapistinkonusuyor" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition-all">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-gray-500 font-light">
+                    &copy; 2026 Mental Psikolojik Danışmanlık Merkezi. Tüm Hakları Saklıdır.
+                </p>
+                <p class="text-xs text-gray-600 font-light">
+                    Psikolojik Danışman Seda Kaşdaş
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/905332240158" class="whatsapp-float" target="_blank" aria-label="WhatsApp'tan Bize Yazın">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({
+            once: true,
+            offset: 30,
+            duration: 800,
+        });
+
+        // Sticky Navbar Logic
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                // Scrolled
+                header.classList.add('glass-nav');
+                header.classList.remove('bg-transparent', 'md:top-[36px]');
+                header.querySelector('.h-24').classList.replace('h-24', 'h-20');
+            } else {
+                // Top
+                header.classList.remove('glass-nav');
+                header.classList.add('bg-transparent', 'md:top-[36px]');
+                header.querySelector('.h-20')?.classList.replace('h-20', 'h-24');
+            }
+        });
+
+        // Mobile Menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const icon = mobileBtn.querySelector('i');
+            if(mobileMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu on link click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>

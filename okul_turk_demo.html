@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okul Türk Kreş ve Gündüz Bakımevi | Sivas</title>
+    <meta name="description" content="Sivas Merkez'de 24-72 ay çocuklarımız için güvenli, eğitici ve eğlenceli kreş & gündüz bakımevi. Yeni Numune Hastanesi karşısında.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fredoka for super playful headings, Nunito for highly legible, soft body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kres: {
+                            yellow: '#fde047', // bright sun
+                            yellowDark: '#eab308',
+                            blue: '#38bdf8',   // sky blue
+                            blueDark: '#0284c7',
+                            red: '#fb7185',    // soft coral red
+                            green: '#4ade80',  // grass green
+                            purple: '#c084fc', // playful purple
+                            dark: '#1e293b',   // text color
+                            paper: '#f8fafc',  // background paper color
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'wiggle': 'wiggle 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* --- Fun Dividers --- */
+        .paper-tear-top {
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 20' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,20 L0,0 C50,20 150,0 200,10 C250,20 350,0 400,10 C450,20 550,0 600,10 C650,20 750,0 800,10 C850,20 950,0 1000,10 L1000,20 Z'/%3E%3C/svg%3E");
+            background-size: 100px 100%;
+            z-index: 10;
+        }
+        .paper-tear-bottom {
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 20' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,0 L0,20 C50,0 150,20 200,10 C250,0 350,20 400,10 C450,0 550,20 600,10 C650,0 750,20 800,10 C850,0 950,20 1000,10 L1000,0 Z'/%3E%3C/svg%3E");
+            background-size: 100px 100%;
+            z-index: 10;
+        }
+        
+        .wave-bottom {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        .wave-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+        .wave-bottom .shape-fill { fill: #4ade80; } /* grass green */
+
+        /* --- Cards and Buttons --- */
+        .play-card {
+            background: white;
+            border-radius: 30px;
+            border: 4px solid #1e293b;
+            box-shadow: 8px 8px 0px #1e293b;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .play-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px #1e293b;
+        }
+
+        .btn-play {
+            border: 3px solid #1e293b;
+            box-shadow: 4px 4px 0px #1e293b;
+            transition: all 0.2s;
+        }
+        .btn-play:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #1e293b;
+        }
+
+        /* --- Scrapbook Gallery --- */
+        .tape {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            width: 100px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            backdrop-filter: blur(2px);
+            z-index: 20;
+        }
+        .photo-card {
+            background: white;
+            padding: 15px 15px 40px 15px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .photo-card:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            z-index: 30;
+        }
+
+        /* --- Clouds for Hero --- */
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 50px;
+            box-shadow: inset -5px -5px 0px rgba(0,0,0,0.05);
+        }
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+        
+        /* Notebook background for contact */
+        .notebook-bg {
+            background-color: #fff;
+            background-image: 
+                linear-gradient(90deg, transparent 79px, #fb7185 79px, #fb7185 81px, transparent 81px),
+                linear-gradient(#e2e8f0 .1em, transparent .1em);
+            background-size: 100% 1.2em;
+        }
+
+        /* Nav links hover */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 4px;
+            bottom: -6px;
+            left: 0;
+            background-color: currentColor;
+            border-radius: 4px;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="font-sans text-kres-dark selection:bg-kres-yellow selection:text-kres-dark overflow-x-hidden">
+
+    <!-- Top Banner -->
+    <div class="bg-kres-yellow text-kres-dark py-2 border-b-4 border-kres-dark font-display font-bold text-center text-sm relative z-50">
+        <marquee behavior="scroll" direction="left" scrollamount="6" class="max-w-4xl mx-auto">
+            🌟 2026-2027 Eğitim Öğretim Yılı Erken Kayıt Avantajlarımız Başladı! Detaylı bilgi için bizi arayın: 0346 215 15 58 🌟
+        </marquee>
+    </div>
+
+    <!-- Playful Header -->
+    <header class="bg-white border-b-4 border-kres-dark sticky top-0 z-40">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex justify-between items-center h-24">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-14 h-14 bg-kres-blue border-4 border-kres-dark rounded-2xl flex items-center justify-center transform group-hover:rotate-12 transition-transform shadow-[4px_4px_0px_#1e293b]">
+                        <i class="fa-solid fa-shapes text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-display font-extrabold text-3xl text-kres-red tracking-tight leading-none drop-shadow-sm">OKUL <span class="text-kres-blue">TÜRK</span></h1>
+                        <p class="font-display text-[11px] font-bold tracking-widest text-kres-dark uppercase mt-1">Kreş & Gündüz Bakımevi</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center gap-8 font-display font-bold text-lg">
+                    <a href="#hakkimizda" class="nav-link text-kres-green hover:text-green-600">Hakkımızda</a>
+                    <a href="#yas-gruplari" class="nav-link text-kres-blue hover:text-blue-600">Yaş Grupları</a>
+                    <a href="#gunluk-akis" class="nav-link text-kres-purple hover:text-purple-600">Günlük Akış</a>
+                    <a href="#galeri" class="nav-link text-kres-red hover:text-red-600">Galeri</a>
+                    
+                    <a href="#iletisim" class="btn-play bg-kres-yellow text-kres-dark px-6 py-2 rounded-full flex items-center gap-2 hover:bg-yellow-300">
+                        <i class="fa-solid fa-paper-plane"></i> Kayıt Ol
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden btn-play bg-kres-yellow w-12 h-12 rounded-xl flex items-center justify-center text-xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t-4 border-kres-dark absolute w-full shadow-2xl">
+            <div class="flex flex-col p-6 space-y-4 font-display font-bold text-xl text-center">
+                <a href="#hakkimizda" class="text-kres-green">Hakkımızda</a>
+                <a href="#yas-gruplari" class="text-kres-blue">Yaş Grupları</a>
+                <a href="#gunluk-akis" class="text-kres-purple">Günlük Akış</a>
+                <a href="#galeri" class="text-kres-red">Galeri</a>
+                <a href="#iletisim" class="btn-play bg-kres-yellow text-kres-dark py-3 rounded-xl mt-4">Kayıt Ol</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CUSTOM PLAYGROUND HERO -->
+    <section class="relative h-[80vh] min-h-[600px] bg-kres-blue overflow-hidden flex flex-col justify-between">
+        
+        <!-- Sky & Clouds -->
+        <div class="absolute inset-0 pointer-events-none">
+            <!-- Cloud 1 -->
+            <div class="cloud w-32 h-10 top-10 left-[10%] animate-float" style="animation-delay: 0s;">
+                <div class="w-14 h-14 -top-8 left-4"></div><div class="w-12 h-12 -top-6 right-2"></div>
+            </div>
+            <!-- Cloud 2 -->
+            <div class="cloud w-40 h-12 top-32 right-[15%] animate-float" style="animation-delay: 1.5s;">
+                <div class="w-16 h-16 -top-10 left-6"></div><div class="w-14 h-14 -top-8 right-4"></div>
+            </div>
+            <!-- Cloud 3 -->
+            <div class="cloud w-24 h-8 top-48 left-[30%] animate-float" style="animation-delay: 0.8s;">
+                <div class="w-10 h-10 -top-6 left-3"></div><div class="w-8 h-8 -top-4 right-2"></div>
+            </div>
+            
+            <!-- Sun -->
+            <div class="absolute top-16 right-10 w-24 h-24 bg-kres-yellow rounded-full animate-spin-slow border-4 border-kres-dark border-dashed"></div>
+        </div>
+
+        <!-- Hero Content (Centered in Sky) -->
+        <div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 mt-10">
+            <div class="inline-block bg-white border-4 border-kres-dark px-6 py-2 rounded-full font-display font-bold text-kres-red mb-6 transform -rotate-2 animate-wiggle shadow-[4px_4px_0px_#1e293b]">
+                🎈 24-72 Ay Çocuklarımız İçin
+            </div>
+            
+            <h2 class="font-display text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] stroke-black" style="-webkit-text-stroke: 2px #1e293b;">
+                Eğitimde <span class="text-kres-yellow">İlk Adımları</span><br>Birlikte Atıyoruz!
+            </h2>
+            
+            <p class="font-sans text-xl text-white font-bold max-w-2xl bg-kres-dark/20 backdrop-blur-sm px-6 py-3 rounded-2xl border-2 border-white/30">
+                Güvenli gelecek, sevgi dolu eğitim. Okul Türk'te her gün yeni bir macera!
+            </p>
+        </div>
+
+        <!-- Grass Hill / Ground Base -->
+        <div class="relative z-20 w-full h-48 mt-auto">
+            <!-- Decorative Playground elements standing on the grass -->
+            <div class="absolute bottom-10 left-10 text-6xl animate-bounce-slow" style="animation-delay: 0.5s;">🧸</div>
+            <div class="absolute bottom-12 right-20 text-7xl animate-bounce-slow">🪁</div>
+            <div class="absolute bottom-4 left-1/4 text-5xl transform -rotate-12">🎨</div>
+            
+            <!-- Wavy Grass -->
+            <div class="wave-bottom h-[150px]">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.28,189.7,105.9,235.27,95.55,278.43,77.4,321.39,56.44Z" class="shape-fill" fill="#4ade80"></path>
+                </svg>
+            </div>
+            <!-- Ground solid block -->
+            <div class="absolute bottom-0 w-full h-10 bg-kres-green"></div>
+        </div>
+    </section>
+
+    <!-- Info Banner -->
+    <section class="bg-kres-dark text-white py-6 border-b-8 border-kres-yellow relative z-20">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col md:flex-row justify-around items-center gap-6 font-display text-xl">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-kres-red rounded-full border-2 border-white flex items-center justify-center"><i class="fa-solid fa-heart"></i></div>
+                    Size de Güvenli Gelecek
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-kres-blue rounded-full border-2 border-white flex items-center justify-center"><i class="fa-solid fa-clock"></i></div>
+                    Tam Gün & Yarım Gün
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-kres-purple rounded-full border-2 border-white flex items-center justify-center"><i class="fa-solid fa-bus"></i></div>
+                    Kolay Ulaşım (Hastane Karşısı)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yaş Gruplarımız (Age Groups - Building Blocks) -->
+    <section id="yas-gruplari" class="py-24 bg-white relative">
+        <div class="paper-tear-top"></div>
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="text-center mb-16" data-aos="zoom-in">
+                <h2 class="font-display text-4xl md:text-5xl font-extrabold text-kres-dark mb-4">Yaş Gruplarımız 🏫</h2>
+                <p class="font-sans text-xl text-gray-500 font-bold max-w-2xl mx-auto">Her yaşın gelişimi farklıdır. Sınıflarımızı gelişim düzeylerine göre ayırıyoruz.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Group 1 -->
+                <div class="play-card bg-kres-yellow p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-24 h-24 mx-auto bg-white border-4 border-kres-dark rounded-full flex items-center justify-center text-4xl mb-6 shadow-[4px_4px_0px_#1e293b]">🐣</div>
+                    <h3 class="font-display text-3xl font-bold text-kres-dark mb-2">24 - 36 Ay</h3>
+                    <p class="font-display text-xl text-yellow-800 mb-4">Minikler Sınıfı</p>
+                    <p class="font-sans font-bold text-gray-700">Tuvalet eğitimi, ince motor becerileri, sosyalleşme ve temel iletişim odaklı oyun grupları.</p>
+                </div>
+                <!-- Group 2 -->
+                <div class="play-card bg-kres-blue p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-24 h-24 mx-auto bg-white border-4 border-kres-dark rounded-full flex items-center justify-center text-4xl mb-6 shadow-[4px_4px_0px_#1e293b]">🎨</div>
+                    <h3 class="font-display text-3xl font-bold text-kres-dark mb-2">36 - 48 Ay</h3>
+                    <p class="font-display text-xl text-blue-900 mb-4">Kaşifler Sınıfı</p>
+                    <p class="font-sans font-bold text-gray-700">Sanat etkinlikleri, kavram öğretimi, dil gelişimi ve bağımsızlık kazanma çalışmaları.</p>
+                </div>
+                <!-- Group 3 -->
+                <div class="play-card bg-kres-red p-8 text-center text-white" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-24 h-24 mx-auto bg-white border-4 border-kres-dark rounded-full flex items-center justify-center text-4xl mb-6 shadow-[4px_4px_0px_#1e293b] text-kres-dark">🎓</div>
+                    <h3 class="font-display text-3xl font-bold mb-2">48 - 72 Ay</h3>
+                    <p class="font-display text-xl text-red-200 mb-4">Okula Hazırlık</p>
+                    <p class="font-sans font-bold">Çizgi çalışmaları, matematiksel düşünme, fen ve doğa etkinlikleri ile ilkokula tam donanımlı hazırlık.</p>
+                </div>
+            </div>
+        </div>
+        <div class="paper-tear-bottom"></div>
+    </section>
+
+    <!-- Eğitim Yaklaşımımız (Educational Approach) -->
+    <section id="hakkimizda" class="py-24 bg-kres-paper relative mt-10">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Visuals -->
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
+                    <!-- Scrapbook style image layout -->
+                    <div class="relative h-[400px]">
+                        <div class="photo-card absolute top-0 left-0 w-64 transform -rotate-6">
+                            <div class="tape"></div>
+                            <img src="https://picsum.photos/seed/kresmusic/400/300" alt="Müzik Dersi" class="w-full h-40 object-cover border-2 border-gray-200">
+                            <p class="font-display text-center text-lg mt-2 text-kres-dark font-bold">Müzik Dersimiz 🎵</p>
+                        </div>
+                        <div class="photo-card absolute bottom-0 right-0 w-72 transform rotate-3 z-10">
+                            <div class="tape"></div>
+                            <img src="https://picsum.photos/seed/krescraft/400/300" alt="Sanat Etkinliği" class="w-full h-48 object-cover border-2 border-gray-200">
+                            <p class="font-display text-center text-lg mt-2 text-kres-dark font-bold">Sanat ve Beceri 🐝</p>
+                        </div>
+                        <!-- Doodle decoration -->
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-6xl text-kres-purple opacity-20 -z-10">
+                            <i class="fa-solid fa-shapes"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <div class="inline-block bg-kres-green border-2 border-kres-dark px-4 py-1 rounded-full font-display font-bold text-white mb-4 shadow-[2px_2px_0px_#1e293b]">
+                        Çok Yönlü Gelişim
+                    </div>
+                    <h2 class="font-display text-4xl md:text-5xl font-extrabold text-kres-dark mb-6">Oynayarak, Keşfederek Öğreniyoruz!</h2>
+                    <p class="font-sans text-lg font-bold text-gray-600 mb-8">
+                        Okul Türk'te ezberci değil, deneyimsel eğitime inanıyoruz. Çocuklarımız güvenli ve sevgi dolu bir ortamda yeteneklerini keşfeder.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 shrink-0 bg-kres-yellow border-2 border-kres-dark rounded-xl flex items-center justify-center text-2xl shadow-[2px_2px_0px_#1e293b]">🎸</div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl text-kres-dark">Branş Dersleri</h4>
+                                <p class="font-sans font-bold text-sm text-gray-500">Müzik, Orff, Ritim ve İngilizce eğitimleri.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 shrink-0 bg-kres-blue border-2 border-kres-dark rounded-xl flex items-center justify-center text-2xl shadow-[2px_2px_0px_#1e293b]">🧩</div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl text-kres-dark">Akıl Oyunları</h4>
+                                <p class="font-sans font-bold text-sm text-gray-500">Zeka geliştirici masa etkinlikleri ve satranç.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 shrink-0 bg-kres-green border-2 border-kres-dark rounded-xl flex items-center justify-center text-2xl shadow-[2px_2px_0px_#1e293b]">🍎</div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl text-kres-dark">Doğal Beslenme</h4>
+                                <p class="font-sans font-bold text-sm text-gray-500">Kendi mutfağımızda hazırlanan 3 öğün taze yemek.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 shrink-0 bg-kres-red border-2 border-kres-dark rounded-xl flex items-center justify-center text-2xl shadow-[2px_2px_0px_#1e293b]">🏃‍♂️</div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl text-kres-dark">Geniş Bahçe</h4>
+                                <p class="font-sans font-bold text-sm text-gray-500">Açık hava oyun parkımızda bol oksijenli serbest zaman.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Günlük Akış (Daily Routine Timeline) -->
+    <section id="gunluk-akis" class="py-24 bg-kres-purple relative overflow-hidden">
+        <!-- Floating decors -->
+        <i class="fa-solid fa-clock absolute top-10 right-20 text-6xl text-white opacity-20 animate-spin-slow"></i>
+        <i class="fa-solid fa-star absolute bottom-10 left-10 text-5xl text-kres-yellow opacity-50 animate-pulse"></i>
+
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display text-4xl md:text-5xl font-extrabold text-white mb-4">Bir Günümüz Nasıl Geçiyor? ⏰</h2>
+                <p class="font-sans text-xl text-purple-200 font-bold">Planlı, eğitici ve bol eğlenceli!</p>
+            </div>
+
+            <!-- Fun Timeline -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-2 bg-white/30 transform -translate-y-1/2 rounded-full border-y-2 border-white/50 border-dashed"></div>
+
+                <!-- Timeline Items -->
+                <div class="play-card bg-white p-6 text-center w-full md:w-1/4 relative z-10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 mx-auto bg-kres-yellow rounded-full border-2 border-kres-dark flex items-center justify-center text-2xl font-display font-bold mb-4 shadow-[2px_2px_0px_#1e293b]">08:30</div>
+                    <h3 class="font-display text-xl font-bold text-kres-dark">Sabah Kahvaltısı</h3>
+                    <p class="font-sans font-bold text-gray-500 text-sm">Güne enerji dolu başlangıç.</p>
+                </div>
+
+                <div class="play-card bg-white p-6 text-center w-full md:w-1/4 relative z-10 transform md:translate-y-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 mx-auto bg-kres-blue rounded-full border-2 border-kres-dark flex items-center justify-center text-2xl font-display font-bold mb-4 shadow-[2px_2px_0px_#1e293b] text-white">10:00</div>
+                    <h3 class="font-display text-xl font-bold text-kres-dark">Eğitim & Branş</h3>
+                    <p class="font-sans font-bold text-gray-500 text-sm">Sanat, müzik, İngilizce saatleri.</p>
+                </div>
+
+                <div class="play-card bg-white p-6 text-center w-full md:w-1/4 relative z-10" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 mx-auto bg-kres-green rounded-full border-2 border-kres-dark flex items-center justify-center text-2xl font-display font-bold mb-4 shadow-[2px_2px_0px_#1e293b]">12:30</div>
+                    <h3 class="font-display text-xl font-bold text-kres-dark">Öğle Yemeği & Uyku</h3>
+                    <p class="font-sans font-bold text-gray-500 text-sm">Organik yemek ve dinlenme.</p>
+                </div>
+
+                <div class="play-card bg-white p-6 text-center w-full md:w-1/4 relative z-10 transform md:translate-y-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 mx-auto bg-kres-red rounded-full border-2 border-kres-dark flex items-center justify-center text-2xl font-display font-bold mb-4 shadow-[2px_2px_0px_#1e293b] text-white">15:00</div>
+                    <h3 class="font-display text-xl font-bold text-kres-dark">Oyun & İkindi</h3>
+                    <p class="font-sans font-bold text-gray-500 text-sm">Bahçe oyunları ve serbest zaman.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section id="galeri" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+                <div>
+                    <h2 class="font-display text-4xl font-extrabold text-kres-dark mb-2">Miniklerin Renkli Dünyası 📸</h2>
+                    <p class="font-sans font-bold text-gray-500">Okulumuzdan neşeli kareler.</p>
+                </div>
+                <a href="https://www.instagram.com/okulturkcomtr/" target="_blank" class="btn-play bg-white px-6 py-2 rounded-full font-display font-bold text-kres-dark flex items-center gap-2 hover:bg-gray-100">
+                    <i class="fa-brands fa-instagram text-kres-red"></i> Daha Fazlası Instagram'da
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="rounded-3xl overflow-hidden border-4 border-kres-dark aspect-square" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://picsum.photos/seed/kres1/400/400" alt="Bahçe oyunu" class="w-full h-full object-cover hover:scale-110 transition-transform">
+                </div>
+                <div class="rounded-3xl overflow-hidden border-4 border-kres-dark aspect-square" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://picsum.photos/seed/kres2/400/400" alt="Sınıf içi" class="w-full h-full object-cover hover:scale-110 transition-transform">
+                </div>
+                <div class="rounded-3xl overflow-hidden border-4 border-kres-dark aspect-square" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://picsum.photos/seed/kres3/400/400" alt="Müzik aletleri" class="w-full h-full object-cover hover:scale-110 transition-transform">
+                </div>
+                <div class="rounded-3xl overflow-hidden border-4 border-kres-dark aspect-square" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://picsum.photos/seed/kres4/400/400" alt="Resim dersi" class="w-full h-full object-cover hover:scale-110 transition-transform">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 bg-kres-paper border-y-4 border-kres-dark">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl font-extrabold text-kres-dark">Velilerimizin Merak Ettikleri ❓</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <details class="group bg-white p-6 rounded-2xl border-4 border-kres-dark shadow-[4px_4px_0px_#1e293b] [&_summary::-webkit-details-marker]:hidden cursor-pointer" data-aos="fade-up">
+                    <summary class="flex items-center justify-between font-display font-bold text-xl text-kres-dark">
+                        <span>Hangi saatler arasında açıksınız?</span>
+                        <span class="transition group-open:rotate-180 text-kres-blue"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="font-sans font-bold text-gray-600 mt-4 border-t-2 border-dashed border-gray-200 pt-4">
+                        Hafta içi her gün 07:30 - 18:30 saatleri arasında tam gün ve yarım gün seçenekleriyle hizmet vermekteyiz.
+                    </p>
+                </details>
+
+                <details class="group bg-white p-6 rounded-2xl border-4 border-kres-dark shadow-[4px_4px_0px_#1e293b] [&_summary::-webkit-details-marker]:hidden cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <summary class="flex items-center justify-between font-display font-bold text-xl text-kres-dark">
+                        <span>Ulaşım / Servis imkanı var mı?</span>
+                        <span class="transition group-open:rotate-180 text-kres-red"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="font-sans font-bold text-gray-600 mt-4 border-t-2 border-dashed border-gray-200 pt-4">
+                        Okulumuz Sivas merkezde, Yeni Numune Hastanesi karşısında, ulaşımı son derece kolay bir konumdadır. Servis detayları için lütfen yönetime danışın.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Register (Notebook Form) -->
+    <section id="iletisim" class="py-24 bg-kres-yellow relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                
+                <!-- Contact Info -->
+                <div class="w-full lg:w-1/2">
+                    <h2 class="font-display text-5xl font-extrabold text-kres-dark mb-6">Tanışmaya Gelin! ☕</h2>
+                    <p class="font-sans font-bold text-xl text-yellow-900 mb-10">Ön kayıt ve detaylı bilgi için okulumuzu ziyaret edin, bir kahvemizi için.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="play-card bg-white p-4 flex items-center gap-4">
+                            <div class="w-12 h-12 bg-kres-blue rounded-full flex items-center justify-center text-white text-xl border-2 border-kres-dark"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h4 class="font-display font-bold text-lg text-kres-dark">Adres</h4>
+                                <p class="font-sans font-bold text-gray-600 text-sm">Yeşilyurt Mah. 50-4 Sk. No:4 Merkez / SİVAS<br>(Yeni Numune Hastanesi Karşısı)</p>
+                            </div>
+                        </div>
+                        <div class="play-card bg-white p-4 flex items-center gap-4">
+                            <div class="w-12 h-12 bg-kres-red rounded-full flex items-center justify-center text-white text-xl border-2 border-kres-dark"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <h4 class="font-display font-bold text-lg text-kres-dark">Telefon</h4>
+                                <a href="tel:+903462151558" class="font-sans font-bold text-gray-600 hover:text-kres-red">0346 215 15 58</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notebook Form -->
+                <div class="w-full lg:w-1/2" data-aos="rotate-in" data-aos-duration="1000">
+                    <div class="play-card notebook-bg p-8 pt-12 relative transform rotate-2">
+                        <!-- Spiral binding visual -->
+                        <div class="absolute top-0 left-4 w-4 h-full flex flex-col justify-between py-4">
+                            <div class="w-3 h-3 bg-kres-dark rounded-full"></div><div class="w-3 h-3 bg-kres-dark rounded-full"></div>
+                            <div class="w-3 h-3 bg-kres-dark rounded-full"></div><div class="w-3 h-3 bg-kres-dark rounded-full"></div>
+                            <div class="w-3 h-3 bg-kres-dark rounded-full"></div><div class="w-3 h-3 bg-kres-dark rounded-full"></div>
+                        </div>
+
+                        <h3 class="font-display text-2xl font-bold text-kres-dark mb-6 ml-10 text-center uppercase tracking-wider">Ön Kayıt / Bilgi Formu</h3>
+                        
+                        <form onsubmit="event.preventDefault(); alert('Form başarıyla gönderildi! Size en kısa sürede dönüş yapacağız.');" class="ml-10 space-y-6">
+                            <div>
+                                <input type="text" placeholder="Veli Adı Soyadı" required class="w-full bg-transparent border-b-2 border-kres-dark border-dashed px-2 py-2 font-display text-lg text-kres-dark focus:outline-none focus:border-solid">
+                            </div>
+                            <div>
+                                <input type="tel" placeholder="Telefon Numaranız" required class="w-full bg-transparent border-b-2 border-kres-dark border-dashed px-2 py-2 font-display text-lg text-kres-dark focus:outline-none focus:border-solid">
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Çocuğunuzun Yaşı (Ay)" class="w-full bg-transparent border-b-2 border-kres-dark border-dashed px-2 py-2 font-display text-lg text-kres-dark focus:outline-none focus:border-solid">
+                            </div>
+                            <button type="submit" class="btn-play w-full bg-kres-green text-white font-display font-bold text-xl py-3 rounded-xl mt-4">
+                                Gönder 🚀
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Fun Footer -->
+    <footer class="bg-kres-dark text-white pt-16 pb-8 border-t-8 border-kres-blue">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-10 text-center md:text-left">
+                <!-- Brand -->
+                <div>
+                    <h2 class="font-display font-extrabold text-3xl text-kres-red tracking-tight leading-none">OKUL <span class="text-kres-blue">TÜRK</span></h2>
+                    <p class="font-display text-xs font-bold tracking-widest text-gray-400 uppercase mt-2">Kreş & Gündüz Bakımevi</p>
+                </div>
+                
+                <!-- Socials -->
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/okulturkcomtr/" target="_blank" class="w-12 h-12 bg-white text-kres-dark rounded-full flex items-center justify-center text-2xl hover:bg-kres-red hover:text-white transition-colors">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="http://okulturk.com.tr" target="_blank" class="w-12 h-12 bg-white text-kres-dark rounded-full flex items-center justify-center text-xl hover:bg-kres-blue hover:text-white transition-colors">
+                        <i class="fa-solid fa-globe"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t-2 border-gray-700 pt-6 text-center">
+                <p class="font-sans font-bold text-gray-400 text-sm">
+                    &copy; 2026 Okul Türk. Tüm hakları saklıdır. Sivas Merkez.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 20,
+            duration: 700,
+        });
+    </script>
+</body>
+</html>

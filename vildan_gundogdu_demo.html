@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fzt. Vildan Gündoğdu Terapi Merkezi | Pediatrik Fizyoterapi & Pilates</title>
+    <meta name="description" content="Fzt. Vildan Gündoğdu Terapi Merkezi; Ayres duyu bütünleme, pediatrik yeme bozuklukları, Schroth terapi ve klinik pilates (Reformer, Hamile) hizmetleriyle Sivas'ta.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            900: '#134e4a',
+                        },
+                        accent: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        },
+                        coral: {
+                            50: '#fff1f2',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                        },
+                        surface: '#fafaf9'
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        display: ['Jost', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+        }
+
+        .hero-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+        }
+
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(15, 118, 110, 0.15);
+        }
+
+        .blob-1 {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+            67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+        }
+
+        /* Custom Scrollbar for Gallery */
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        #mobile-menu {
+            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-surface antialiased selection:bg-primary-500 selection:text-white">
+
+    <!-- Top Info Bar -->
+    <div class="bg-primary-900 text-white text-xs py-2 hidden md:block">
+        <div class="container mx-auto px-6 max-w-7xl flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap text-accent-400"></i> Hacettepe Üniversitesi Mezunu (2003-2008)
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-child-reaching text-accent-400"></i> Pediatrik Fizyoterapi & Duyu Bütünleme
+                </span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="https://www.instagram.com/vildangundogduterapimerkezi/" target="_blank" class="hover:text-accent-400 transition-colors flex items-center gap-2 font-medium">
+                    <i class="fa-brands fa-instagram text-sm"></i> @vildangundogduterapimerkezi
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="fixed w-full top-0 md:top-[32px] z-50 transition-all duration-300 bg-transparent py-2">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center p-2 border border-gray-100">
+                        <img src="https://api.dicebear.com/7.x/initials/svg?seed=VG&backgroundColor=0f766e&textColor=ffffff" alt="Logo" class="w-full h-full rounded-xl">
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="font-display font-bold text-xl text-gray-900 leading-tight">Fzt. Vildan Gündoğdu</h1>
+                        <p class="text-[10px] font-bold tracking-[0.15em] text-primary-600 uppercase">Terapi Merkezi</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex items-center gap-7">
+                    <a href="#hakkimizda" class="text-sm font-bold text-gray-700 hover:text-primary-600 transition-colors uppercase tracking-wide">Hakkımızda</a>
+                    <a href="#hizmetler" class="text-sm font-bold text-gray-700 hover:text-primary-600 transition-colors uppercase tracking-wide">Uzmanlıklarımız</a>
+                    <a href="#surec" class="text-sm font-bold text-gray-700 hover:text-primary-600 transition-colors uppercase tracking-wide">Sürecimiz</a>
+                    <a href="#galeri" class="text-sm font-bold text-gray-700 hover:text-primary-600 transition-colors uppercase tracking-wide">Klinik</a>
+                    <a href="#iletisim" class="text-sm font-bold text-gray-700 hover:text-primary-600 transition-colors uppercase tracking-wide">İletişim</a>
+                    
+                    <a href="#iletisim" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg hover:shadow-primary-500/40 transform hover:-translate-y-0.5 border-2 border-primary-600 ml-2">
+                        Randevu Al
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-800 text-2xl focus:outline-none bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 px-6 py-4 shadow-2xl">
+            <div class="flex flex-col gap-4">
+                <a href="#hakkimizda" class="text-base font-bold text-gray-800 border-b border-gray-50 pb-2">Hakkımızda</a>
+                <a href="#hizmetler" class="text-base font-bold text-gray-800 border-b border-gray-50 pb-2">Uzmanlıklarımız</a>
+                <a href="#surec" class="text-base font-bold text-gray-800 border-b border-gray-50 pb-2">Çalışma Sürecimiz</a>
+                <a href="#galeri" class="text-base font-bold text-gray-800 border-b border-gray-50 pb-2">Klinik Ortamımız</a>
+                <a href="#sss" class="text-base font-bold text-gray-800 border-b border-gray-50 pb-2">Sıkça Sorulan Sorular</a>
+                <a href="#iletisim" class="text-base font-bold text-gray-800 border-b border-gray-50 pb-2">İletişim</a>
+                <a href="#iletisim" class="bg-primary-600 text-white text-center px-6 py-3 rounded-xl text-sm font-bold shadow-md mt-2">
+                    Randevu Al
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-24 md:pt-48 md:pb-32 bg-primary-50 overflow-hidden hero-clip">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-accent-400 opacity-20 blob-1 mix-blend-multiply filter blur-3xl"></div>
+        <div class="absolute bottom-0 left-10 w-72 h-72 bg-primary-400 opacity-20 blob-1 mix-blend-multiply filter blur-3xl" style="animation-delay: 2s;"></div>
+
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text Content -->
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-primary-100 shadow-sm mb-6">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-accent-500"></span>
+                        </span>
+                        <span class="text-xs font-bold text-primary-700 uppercase tracking-wider">Profesyonel Terapi & Klinik Pilates</span>
+                    </div>
+                    
+                    <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.1] mb-6">
+                        Sağlıklı Bir Gelişim,<br>
+                        <span class="text-primary-600">Uzman Dokunuşlarla</span> Başlar.
+                    </h1>
+                    
+                    <p class="text-gray-600 mb-10 text-lg font-medium leading-relaxed max-w-xl">
+                        Çocuklarımız için Duyu Bütünleme ve Yeme Bozuklukları Terapisi'nden, yetişkinler için Reformer ve Hamile Pilatesi'ne kadar; bilimsel yaklaşımla Sivas'ta hizmetinizdeyiz.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#hizmetler" class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-full text-sm font-bold transition-all shadow-lg hover:shadow-primary-500/40 flex items-center gap-2">
+                            Hizmetleri İncele <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#iletisim" class="bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 px-8 py-4 rounded-full text-sm font-bold transition-all flex items-center gap-2 shadow-sm">
+                            Hemen Randevu Al
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Image Collage -->
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative w-full max-w-[550px] mx-auto">
+                        <div class="rounded-[2.5rem] overflow-hidden shadow-2xl relative z-10 border-8 border-white">
+                            <img src="https://picsum.photos/seed/pediatric/800/1000" alt="Pediatrik Terapi" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <!-- Floating Image 1 (Pilates) -->
+                        <div class="absolute -bottom-10 -left-10 w-48 h-48 rounded-full overflow-hidden shadow-xl border-4 border-white z-20 hidden md:block">
+                            <img src="https://picsum.photos/seed/reformer/400/400" alt="Reformer Pilates" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <!-- Badge -->
+                        <div class="absolute top-10 -right-8 bg-white p-4 rounded-2xl shadow-xl z-20 animate-bounce" style="animation-duration: 4s;">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-full bg-accent-100 flex items-center justify-center text-accent-500 text-lg">
+                                    <i class="fa-solid fa-hands-holding-child"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-900 text-sm">Ayres Duyu</p>
+                                    <p class="text-xs text-gray-500 font-semibold">Bütünleme Uzmanı</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats Bar -->
+    <section class="py-12 bg-white border-b border-gray-100 relative z-20 -mt-10 lg:-mt-20">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-100">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-primary-500 text-3xl mb-3"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="font-display font-bold text-2xl text-gray-900">Hacettepe</div>
+                    <div class="text-xs text-gray-500 font-bold uppercase tracking-wider mt-1">Üniversitesi (2003)</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-accent-500 text-3xl mb-3"><i class="fa-solid fa-star"></i></div>
+                    <div class="font-display font-bold text-2xl text-gray-900">15+ Yıl</div>
+                    <div class="text-xs text-gray-500 font-bold uppercase tracking-wider mt-1">Mesleki Deneyim</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-coral-500 text-3xl mb-3"><i class="fa-solid fa-face-smile"></i></div>
+                    <div class="font-display font-bold text-2xl text-gray-900">Birebir</div>
+                    <div class="text-xs text-gray-500 font-bold uppercase tracking-wider mt-1">Kişiye Özel Terapi</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-primary-500 text-3xl mb-3"><i class="fa-solid fa-notes-medical"></i></div>
+                    <div class="font-display font-bold text-2xl text-gray-900">Kanıta Dayalı</div>
+                    <div class="text-xs text-gray-500 font-bold uppercase tracking-wider mt-1">Bilimsel Yaklaşım</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="hakkimizda" class="py-24 bg-surface">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Content -->
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <h4 class="text-primary-600 font-bold uppercase tracking-wider text-sm mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-minus"></i> Hakkımızda
+                    </h4>
+                    <h2 class="font-display text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Sivas'ta Çocuklar ve <br>Yetişkinler İçin Güvenli Liman</h2>
+                    
+                    <p class="text-gray-600 mb-6 text-lg font-medium leading-relaxed">
+                        <strong class="text-gray-900 border-b-2 border-accent-400">Fizyoterapist Vildan Gündoğdu</strong>, 2003-2008 yılları arasında Hacettepe Üniversitesi Fizik Tedavi ve Rehabilitasyon bölümünde eğitimini tamamlayarak, mesleki hayatına güçlü bir temel ile başlamıştır.
+                    </p>
+                    
+                    <p class="text-gray-600 mb-8 font-medium leading-relaxed">
+                        Merkezimizde bilimselliği dünyaca kanıtlanmış "Ayres Duyu Bütünleme", "Schroth Terapi" ve Pediatrik Yeme Bozuklukları müdahaleleri ile çocukların motor ve duyusal becerilerini geliştirirken; yetişkinler için de tam donanımlı Klinik Reformer, Mat Pilates ve Hamile Pilatesi hizmetleri sunuyoruz. Sağlığınız ve gelişiminiz bizim için en değerli odak noktasıdır.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+                            <div class="w-10 h-10 rounded-full bg-primary-50 flex items-center justify-center text-primary-600 mt-1 flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Uluslararası Standartlarda Testler</h4>
+                                <p class="text-sm text-gray-500 font-medium">EASI Testi gibi uluslararası geçerliliği olan ölçüm araçlarıyla doğru analiz.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+                            <div class="w-10 h-10 rounded-full bg-primary-50 flex items-center justify-center text-primary-600 mt-1 flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Fizyoterapist Eşliğinde Klinik Pilates</h4>
+                                <p class="text-sm text-gray-500 font-medium">Spor salonu mantığıyla değil, anatomiye hakim uzman eşliğinde egzersiz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <div class="relative pl-0 md:pl-10 pb-10">
+                        <div class="absolute bottom-0 right-0 w-3/4 h-3/4 bg-primary-100 rounded-[3rem] -z-10"></div>
+                        <img src="https://picsum.photos/seed/clinic1/600/700" alt="Fzt. Vildan Gündoğdu" class="rounded-[2.5rem] shadow-xl w-full h-auto object-cover border-4 border-white relative z-10">
+                        
+                        <!-- Floating Card -->
+                        <div class="absolute top-1/2 -left-10 md:-left-20 transform -translate-y-1/2 bg-white p-6 rounded-3xl shadow-2xl border border-gray-100 max-w-[220px] z-20">
+                            <div class="text-accent-500 text-3xl mb-2"><i class="fa-solid fa-quote-left"></i></div>
+                            <p class="text-sm text-gray-600 font-bold italic leading-relaxed">
+                                "Her çocuğun gelişim süreci parmak izi gibi kendine özgüdür. Doğru dokunuş, mucizeler yaratır."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="hizmetler" class="py-24 bg-white border-y border-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h4 class="text-primary-600 font-bold uppercase tracking-wider text-sm mb-3">Çalışma Alanlarımız</h4>
+                <h2 class="font-display text-3xl md:text-5xl font-bold text-gray-900 mb-6">Merkezimizde Neler Yapıyoruz?</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto font-medium text-lg">
+                    Hem çocukların gelişimsel ihtiyaçlarına hem de yetişkinlerin fiziksel sağlığına yönelik uzman yaklaşımlarımız.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="service-card bg-surface rounded-[2rem] overflow-hidden shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://picsum.photos/seed/sensory2/800/600" alt="Ayres Duyu Bütünleme" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-bold text-primary-600 shadow-sm uppercase tracking-wide">Pediatri</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-cubes-stacked"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Ayres Duyu Bütünleme</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed mb-6">Çocukların çevreden gelen duyusal bilgileri (dokunma, hareket, denge vb.) organize etmesini ve bunlara uygun tepkiler vermesini sağlayan, oyun temelli bilimsel bir terapi yaklaşımıdır.</p>
+                        <a href="#iletisim" class="text-primary-600 font-bold text-sm hover:text-primary-800 flex items-center gap-2">Detaylı Bilgi <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card bg-surface rounded-[2rem] overflow-hidden shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://picsum.photos/seed/feeding/800/600" alt="Pediatrik Yeme Bozuklukları" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-bold text-primary-600 shadow-sm uppercase tracking-wide">Pediatri</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-12 h-12 rounded-xl bg-accent-100 text-accent-500 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-apple-whole"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Pediatrik Yeme Bozuklukları</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed mb-6">Çiğneme-yutma zorlukları, yutkunma korkusu, aşırı yemek seçiciliği ve farklı dokulardaki gıdaları reddeden çocuklar için duyusal ve fiziksel temelli güvenli beslenme terapisi.</p>
+                        <a href="#iletisim" class="text-primary-600 font-bold text-sm hover:text-primary-800 flex items-center gap-2">Detaylı Bilgi <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-surface rounded-[2rem] overflow-hidden shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://picsum.photos/seed/scoliosis2/800/600" alt="Schroth Terapi" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-bold text-gray-700 shadow-sm uppercase tracking-wide">Skolyoz</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-12 h-12 rounded-xl bg-coral-50 text-coral-500 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-bone"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Schroth Terapi</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed mb-6">Omurga eğriliklerinin (skolyoz, kifoz) ilerlemesini durdurmak, ağrıları azaltmak ve asimetriyi düzeltmek amacıyla kullanılan 3 boyutlu, tamamen spesifik bir egzersiz modelidir.</p>
+                        <a href="#iletisim" class="text-primary-600 font-bold text-sm hover:text-primary-800 flex items-center gap-2">Detaylı Bilgi <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-surface rounded-[2rem] overflow-hidden shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://picsum.photos/seed/reformer/800/600" alt="Reformer & Mat Pilates" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-bold text-gray-700 shadow-sm uppercase tracking-wide">Yetişkin</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Klinik Reformer & Mat</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed mb-6">Duruş bozukluklarını (postür) gidermek, core (merkez) bölgesini kuvvetlendirmek, fıtık gibi problemlerde ağrıyı azaltmak için tamamen fizyoterapist eşliğinde, kişiye özel aletli pilates.</p>
+                        <a href="#iletisim" class="text-primary-600 font-bold text-sm hover:text-primary-800 flex items-center gap-2">Detaylı Bilgi <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card bg-surface rounded-[2rem] overflow-hidden shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="500">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://picsum.photos/seed/pregnancy2/800/600" alt="Hamile Pilatesi" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-bold text-gray-700 shadow-sm uppercase tracking-wide">Yetişkin</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-12 h-12 rounded-xl bg-accent-100 text-accent-500 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-person-pregnant"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Hamile Pilatesi</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed mb-6">Gebelik sürecini bel ve sırt ağrısız geçirmek, pelvik taban kaslarını güçlendirerek doğuma fiziksel olarak hazırlanmak ve doğum sonrası toparlanmayı hızlandırmak için en güvenli yol.</p>
+                        <a href="#iletisim" class="text-primary-600 font-bold text-sm hover:text-primary-800 flex items-center gap-2">Detaylı Bilgi <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card bg-surface rounded-[2rem] overflow-hidden shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="600">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://picsum.photos/seed/physiotherapy2/800/600" alt="Pediatrik Fizyoterapi" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-bold text-primary-600 shadow-sm uppercase tracking-wide">Pediatri</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-child-reaching"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Pediatrik Fizyoterapi</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed mb-6">Serebral Palsi, Spina Bifida, genetik sendromlar gibi nörolojik veya ortopedik nedenlerle motor gelişimi geride kalan çocuklarda bağımsız hareketi destekleyici klinik rehabilitasyon.</p>
+                        <a href="#iletisim" class="text-primary-600 font-bold text-sm hover:text-primary-800 flex items-center gap-2">Detaylı Bilgi <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="surec" class="py-24 bg-gray-900 text-white relative overflow-hidden">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary-500 opacity-10 blob-1 filter blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent-500 opacity-10 blob-1 filter blur-3xl" style="animation-delay: 2s;"></div>
+        
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h4 class="text-primary-400 font-bold uppercase tracking-wider text-sm mb-3">Çalışma Sürecimiz</h4>
+                <h2 class="font-display text-3xl md:text-5xl font-bold mb-6">Adım Adım Gelişim Yolculuğu</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto font-medium text-lg">
+                    Seanslarımızın tamamı kanıta dayalı ve kişiye (veya çocuğa) özel bir sistemle planlanır. Süreç nasıl mı işliyor?
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <!-- Connecting Line for desktop -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-800 -translate-y-1/2 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 mx-auto bg-gray-800 border-4 border-gray-900 rounded-full flex items-center justify-center text-2xl font-bold text-white shadow-xl mb-6 relative">
+                        1
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center text-xs text-white"><i class="fa-solid fa-phone"></i></div>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-3">Ön Görüşme</h3>
+                    <p class="text-sm text-gray-400 font-medium">Randevu oluşturulur ve çocuğunuzun/sizin mevcut durumunuz, beklentileriniz hakkında ilk bilgiler alınır.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto bg-gray-800 border-4 border-gray-900 rounded-full flex items-center justify-center text-2xl font-bold text-white shadow-xl mb-6 relative">
+                        2
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center text-xs text-white"><i class="fa-solid fa-clipboard-list"></i></div>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-3">Değerlendirme</h3>
+                    <p class="text-sm text-gray-400 font-medium">EASI Testi gibi uluslararası standartlardaki klinik araçlarla kapsamlı fiziksel veya duyusal değerlendirme yapılır.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 mx-auto bg-gray-800 border-4 border-gray-900 rounded-full flex items-center justify-center text-2xl font-bold text-white shadow-xl mb-6 relative">
+                        3
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-coral-500 rounded-full flex items-center justify-center text-xs text-white"><i class="fa-solid fa-pen-ruler"></i></div>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-3">Programa Karar Verme</h3>
+                    <p class="text-sm text-gray-400 font-medium">Değerlendirme sonucuna göre tamamen kişiye/çocuğa özgü, hedefleri belli olan bir terapi haritası çizilir.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 mx-auto bg-primary-600 border-4 border-gray-900 rounded-full flex items-center justify-center text-2xl font-bold text-white shadow-[0_0_30px_rgba(20,184,166,0.3)] mb-6 relative">
+                        4
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-white text-primary-600 rounded-full flex items-center justify-center text-xs"><i class="fa-solid fa-heart-pulse"></i></div>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-3 text-primary-400">Terapi Seansları</h3>
+                    <p class="text-sm text-gray-400 font-medium">Seanslara başlanır. Belirli aralıklarla ailelere geri bildirim verilir ve süreç düzenli olarak takip edilir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Banner (EASI vs) -->
+    <section class="py-16 bg-primary-600 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="md:w-2/3" data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-xs font-bold tracking-wide uppercase mb-4">
+                        Dikkat Çeken Değerlendirme Aracı
+                    </div>
+                    <h2 class="font-display text-3xl font-bold mb-4">EASI Testi Nedir? Ne İçin Kullanılır?</h2>
+                    <p class="text-primary-100 font-medium max-w-2xl text-lg">
+                        Duyu bütünleme süreçlerini uluslararası standartlarda, somut ve ölçülebilir bir şekilde değerlendiren EASI Testi merkezimizde uygulanmaktadır. Çocuğunuzun duyusal işlemleme becerilerini ezbere değil, bilimsel verilere dayanarak analiz etmek ve doğru müdahaleyi yapmak için kullanılır.
+                    </p>
+                </div>
+                <div class="md:w-1/3 flex justify-start md:justify-end" data-aos="fade-left">
+                    <a href="https://www.instagram.com/vildangundogduterapimerkezi/" target="_blank" class="bg-white text-primary-900 hover:bg-gray-100 px-8 py-4 rounded-full font-bold transition-colors shadow-xl flex items-center gap-2">
+                        Videoyu Instagram'da İzle <i class="fa-brands fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinic Gallery -->
+    <section id="galeri" class="py-24 bg-surface overflow-hidden">
+        <div class="container mx-auto px-6 max-w-7xl mb-12">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6" data-aos="fade-up">
+                <div>
+                    <h4 class="text-primary-600 font-bold uppercase tracking-wider text-sm mb-3">Klinik Ortamımız</h4>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900">Güvenli, Renkli ve Donanımlı</h2>
+                </div>
+                <p class="text-gray-500 font-medium max-w-md">Çocukların kendini rahat ve oyun alanında hissedeceği, yetişkinlerin ise profesyonel klinik cihazlarla çalışacağı ferah bir ortam.</p>
+            </div>
+        </div>
+        
+        <!-- Scrolling Gallery -->
+        <div class="flex overflow-x-auto gap-6 px-6 pb-12 pt-4 hide-scroll snap-x snap-mandatory" data-aos="fade-left" data-aos-delay="200">
+            <!-- Space element to align first card with container -->
+            <div class="w-0 shrink-0 md:w-[calc((100vw-80rem)/2)]"></div>
+            
+            <div class="shrink-0 w-80 md:w-[450px] snap-center">
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg h-72">
+                    <img src="https://picsum.photos/seed/therapyroom1/600/400" alt="Duyu Bütünleme Odası" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <h4 class="font-bold text-gray-900 mt-4 text-lg">Duyu Bütünleme Oyun Parkuru</h4>
+            </div>
+            
+            <div class="shrink-0 w-80 md:w-[450px] snap-center">
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg h-72">
+                    <img src="https://picsum.photos/seed/pilatesstudio/600/400" alt="Pilates Odası" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <h4 class="font-bold text-gray-900 mt-4 text-lg">Klinik Reformer Odası</h4>
+            </div>
+            
+            <div class="shrink-0 w-80 md:w-[450px] snap-center">
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg h-72">
+                    <img src="https://picsum.photos/seed/waiting/600/400" alt="Bekleme Alanı" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <h4 class="font-bold text-gray-900 mt-4 text-lg">Ferah Bekleme Salonu</h4>
+            </div>
+            
+            <div class="shrink-0 w-80 md:w-[450px] snap-center">
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg h-72">
+                    <img src="https://picsum.photos/seed/tools/600/400" alt="Terapi Ekipmanları" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <h4 class="font-bold text-gray-900 mt-4 text-lg">Özel Terapi Materyalleri</h4>
+            </div>
+            
+            <!-- End Space -->
+            <div class="w-4 shrink-0"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-white border-y border-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h4 class="text-primary-600 font-bold uppercase tracking-wider text-sm mb-3">Danışanlarımız Ne Diyor?</h4>
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900">Birlikte Başardığımız Hikayeler</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-surface p-8 rounded-[2rem] shadow-sm border border-gray-100 relative" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-quote-right text-4xl text-primary-100 absolute top-8 right-8"></i>
+                    <div class="flex gap-1 text-accent-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 font-medium leading-relaxed mb-6 italic">
+                        "Çocuğumun yemek seçme problemi hayatımızı kabusa çevirmişti. Vildan Hanım'ın yeme bozuklukları terapisi sayesinde kızım artık pütürlü gıdaları ve farklı dokuları rahatça yiyebiliyor. Sonsuz teşekkürler."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 font-bold">A</div>
+                        <div>
+                            <h5 class="font-bold text-gray-900 text-sm">Ayşe Y.</h5>
+                            <span class="text-xs text-gray-500">Danışan Annesi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-primary-900 text-white p-8 rounded-[2rem] shadow-xl relative transform md:-translate-y-4" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-quote-right text-4xl text-primary-700 absolute top-8 right-8"></i>
+                    <div class="flex gap-1 text-accent-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 font-medium leading-relaxed mb-6 italic">
+                        "Bel fıtığı teşhisi konduktan sonra doktorumun tavsiyesi üzerine klinik pilatese başladım. Vildan Hanım'ın anatomi bilgisi ve nokta atışı egzersizleri sayesinde ağrılarım tamamen geçti. Spor salonlarına gitmekten çok daha güvenli."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary-900 font-bold">K</div>
+                        <div>
+                            <h5 class="font-bold text-white text-sm">Kemal S.</h5>
+                            <span class="text-xs text-primary-300">Pilates Danışanı</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-surface p-8 rounded-[2rem] shadow-sm border border-gray-100 relative" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-quote-right text-4xl text-primary-100 absolute top-8 right-8"></i>
+                    <div class="flex gap-1 text-accent-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 font-medium leading-relaxed mb-6 italic">
+                        "Oğlumun hiperaktivite ve denge sorunları için Ayres duyu bütünleme seanslarına başladık. Okuldaki öğretmenleri bile değişimi fark etti. Odaklanma süresi inanılmaz uzadı."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 font-bold">E</div>
+                        <div>
+                            <h5 class="font-bold text-gray-900 text-sm">Elif T.</h5>
+                            <span class="text-xs text-gray-500">Danışan Annesi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="sss" class="py-24 bg-surface">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h4 class="text-primary-600 font-bold uppercase tracking-wider text-sm mb-3">Merak Edilenler</h4>
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900">Sıkça Sorulan Sorular</h2>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ Item 1 -->
+                <details class="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                        <span class="pr-6 text-lg">Bir terapi seansı ne kadar sürüyor?</span>
+                        <span class="transition group-open:rotate-180 text-primary-500">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <p class="text-gray-600 font-medium mt-4 leading-relaxed border-t border-gray-50 pt-4">
+                        Duyu bütünleme ve pediatrik fizyoterapi seanslarımız genellikle 45-50 dakika sürmektedir. Klinik pilates seanslarımız ise ortalama 55 dakika sürmektedir. Çocuğun/bireyin o anki durumuna göre bu süre çok ufak esneklikler gösterebilir.
+                    </p>
+                </details>
+
+                <!-- FAQ Item 2 -->
+                <details class="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                        <span class="pr-6 text-lg">Çocuğumun duyu bütünleme terapisine ihtiyacı olup olmadığını nasıl anlarım?</span>
+                        <span class="transition group-open:rotate-180 text-primary-500">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <p class="text-gray-600 font-medium mt-4 leading-relaxed border-t border-gray-50 pt-4">
+                        Eğer çocuğunuz belli kıyafetleri giymeyi reddediyorsa, sese/ışığa aşırı tepki veriyorsa, sallanmaktan aşırı korkuyor veya tam tersi sürekli dönmek istiyorsa, sakarlık yapıyorsa veya yemek seçiyorsa bu durum duyusal hassasiyetlerin belirtisi olabilir. Merkezimizde yapacağımız değerlendirmelerle (EASI testi vb.) en doğru yanıtı bulabilirsiniz.
+                    </p>
+                </details>
+
+                <!-- FAQ Item 3 -->
+                <details class="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                        <span class="pr-6 text-lg">Klinik Pilates ile Normal Spor Salonu Pilatesi arasındaki fark nedir?</span>
+                        <span class="transition group-open:rotate-180 text-primary-500">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <p class="text-gray-600 font-medium mt-4 leading-relaxed border-t border-gray-50 pt-4">
+                        Klinik pilates; kişilerin bel fıtığı, boyun fıtığı, skolyoz, duruş bozuklukları, omuz ve diz rahatsızlıkları göz önünde bulundurularak <strong class="text-gray-900">bir fizyoterapist eşliğinde</strong> tamamen anatomik prensiplere uygun olarak yapılır. Sakatlanma riski yoktur ve iyileştirici (rehabilitatif) bir amacı vardır.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map -->
+    <section id="iletisim" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="bg-surface rounded-[3rem] shadow-xl overflow-hidden border border-gray-100">
+                <div class="flex flex-col lg:flex-row">
+                    <!-- Form -->
+                    <div class="w-full lg:w-1/2 p-10 lg:p-16">
+                        <h2 class="font-display text-3xl font-bold text-gray-900 mb-2">Bize Ulaşın</h2>
+                        <p class="text-gray-500 mb-10 font-medium">Ön değerlendirme veya randevu talebi için formu doldurabilir, telefonla direkt arayabilirsiniz.</p>
+                        
+                        <form onsubmit="event.preventDefault(); alert('Talebiniz başarıyla alınmıştır. En kısa sürede dönüş sağlanacaktır.');" class="space-y-5 mb-10">
+                            <div>
+                                <input type="text" placeholder="Adınız Soyadınız" required class="w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all font-medium">
+                            </div>
+                            <div>
+                                <input type="tel" placeholder="Telefon Numaranız" required class="w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all font-medium">
+                            </div>
+                            <div>
+                                <select class="w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all font-medium appearance-none">
+                                    <option value="" disabled selected>Hizmet Türü Seçiniz</option>
+                                    <option>Duyu Bütünleme / Pediatri</option>
+                                    <option>Schroth Terapi (Skolyoz)</option>
+                                    <option>Reformer / Mat Pilates</option>
+                                    <option>Hamile Pilatesi</option>
+                                    <option>Diğer</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-gray-900 hover:bg-primary-600 text-white font-bold py-4 rounded-2xl transition-all shadow-md">
+                                Gönder
+                            </button>
+                        </form>
+
+                        <!-- Contact Data -->
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 group">
+                                <div class="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center text-primary-600 group-hover:bg-primary-50 transition-colors">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-bold uppercase tracking-wider">Telefon</p>
+                                    <a href="tel:+905000000000" class="font-bold text-gray-900 hover:text-primary-600">05XX XXX XX XX</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 group">
+                                <div class="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center text-primary-600 group-hover:bg-primary-50 transition-colors">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-bold uppercase tracking-wider">Adres</p>
+                                    <p class="font-bold text-gray-900">Merkez / Sivas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Embed -->
+                    <div class="w-full lg:w-1/2 min-h-[400px] bg-gray-200">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12175.760193154865!2d37.0163351!3d39.7554903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407eaa0a96ef8b13%3A0xcdaee506b3a32f6!2zS2FyZGXFn2xlciwgU2l2YXMgTWVya2V6L1NpdmFz!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-16 text-gray-300 border-t border-gray-800">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center text-white font-bold">
+                            VG
+                        </div>
+                        <div>
+                            <h2 class="font-display font-bold text-lg text-white leading-tight">Fzt. Vildan Gündoğdu</h2>
+                            <p class="text-[9px] font-bold tracking-[0.1em] text-gray-400 uppercase">Terapi Merkezi</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400 font-medium leading-relaxed">
+                        Çocukların sağlıklı gelişimi ve yetişkinlerin güvenli rehabilitasyonu için Sivas'taki uzman destekçiniz.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Hızlı Bağlantılar</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#hakkimizda" class="text-gray-400 hover:text-primary-400 font-medium text-sm transition-colors">Hakkımızda</a></li>
+                        <li><a href="#hizmetler" class="text-gray-400 hover:text-primary-400 font-medium text-sm transition-colors">Hizmetlerimiz</a></li>
+                        <li><a href="#surec" class="text-gray-400 hover:text-primary-400 font-medium text-sm transition-colors">Sürecimiz</a></li>
+                        <li><a href="#sss" class="text-gray-400 hover:text-primary-400 font-medium text-sm transition-colors">SSS</a></li>
+                    </ul>
+                </div>
+                
+                <div class="md:col-span-2">
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">İletişim Bilgileri</h4>
+                    <ul class="space-y-4 mb-6">
+                        <li class="flex items-center gap-4">
+                            <i class="fa-solid fa-phone text-primary-500"></i>
+                            <a href="tel:+905000000000" class="text-gray-400 hover:text-white font-medium text-sm transition-colors">05XX XXX XX XX</a>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fa-solid fa-location-dot mt-1 text-primary-500"></i>
+                            <span class="text-gray-400 font-medium text-sm leading-relaxed">Sivas Merkez / Sivas<br>(Detaylı adres için lütfen iletişime geçiniz)</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/vildangundogduterapimerkezi/" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-600 hover:text-white transition-all">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center pt-8 border-t border-gray-800 text-xs font-medium text-gray-500">
+                &copy; 2026 Fzt. Vildan Gündoğdu Terapi Merkezi. Tüm Hakları Saklıdır. Sivas.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="tel:+905000000000" class="whatsapp-float" aria-label="Bizi Arayın">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({
+            once: true,
+            offset: 30,
+            duration: 800,
+        });
+
+        // Sticky Navbar Logic
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('glass-nav');
+                header.classList.remove('bg-transparent', 'md:top-[32px]', 'py-2');
+            } else {
+                header.classList.remove('glass-nav');
+                header.classList.add('bg-transparent', 'md:top-[32px]', 'py-2');
+            }
+        });
+
+        // Mobile Menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const icon = mobileBtn.querySelector('i');
+            if(mobileMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu on link click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>

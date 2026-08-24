@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erdoğdu Grup | İnşaat, Doğalgaz ve Güneş Enerjisi</title>
+    <meta name="description" content="Sivas Merkez'de Erdoğdu Grup LTD. ŞTİ. olarak İnşaat, Doğalgaz, Güneş Enerjisi, Kombi ve Kazan sistemlerinde güvenilir ve profesyonel hizmet sunuyoruz.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            800: '#1e293b',
+                            900: '#0f172a', // Deep Navy / Slate
+                            950: '#020617',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b', // Construction/Premium Gold
+                            600: '#d97706',
+                        },
+                        surface: '#ffffff'
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.95); /* brand-900 with opacity */
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+        }
+
+        /* Industrial slash design for sections */
+        .slash-divider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(110deg, transparent 40%, rgba(245, 158, 11, 0.05) 40%, rgba(245, 158, 11, 0.05) 60%, transparent 60%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 4px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-bottom: 4px solid #f59e0b; /* Gold */
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.15);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Floating Contact */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        #mobile-menu {
+            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-brand-50 antialiased selection:bg-gold-500 selection:text-white">
+
+    <!-- Top Info Bar (Industrial Theme) -->
+    <div class="bg-brand-950 text-gray-300 text-xs py-3 border-b border-gray-800 hidden lg:block">
+        <div class="container mx-auto px-6 max-w-7xl flex justify-between items-center">
+            <div class="flex items-center gap-6 font-medium">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-gold-500"></i> Yeşilyurt Mah. Merkez / Sivas
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-clock text-gold-500"></i> Pzt - Cmt: 08:30 - 18:30
+                </span>
+            </div>
+            <div class="flex items-center gap-6 font-bold">
+                <a href="tel:+905307075058" class="hover:text-gold-500 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-mobile-screen text-gold-500"></i> 0530 707 50 58
+                </a>
+                <a href="tel:+903462224999" class="hover:text-gold-500 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-gold-500"></i> 0346 222 49 99
+                </a>
+                <a href="https://www.instagram.com/erdogdugrup/" target="_blank" class="hover:text-gold-500 transition-colors ml-4 text-sm">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="fixed w-full top-0 lg:top-[41px] z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-4">
+                    <div class="w-14 h-14 bg-brand-900 rounded-lg flex items-center justify-center border-2 border-gold-500 shadow-lg">
+                        <i class="fa-solid fa-building-user text-gold-500 text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="font-display font-black text-2xl text-white tracking-tight leading-none drop-shadow-md">ERDOĞDU</h1>
+                        <p class="text-[10px] font-bold tracking-[0.2em] text-gold-400 uppercase drop-shadow-md">Grup Ltd. Şti.</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex items-center gap-8 bg-brand-900/80 backdrop-blur-md px-8 py-3 rounded-full border border-gray-700/50">
+                    <a href="#hakkimizda" class="text-sm font-bold text-gray-200 hover:text-gold-500 transition-colors uppercase tracking-wide">Kurumsal</a>
+                    <a href="#hizmetler" class="text-sm font-bold text-gray-200 hover:text-gold-500 transition-colors uppercase tracking-wide">Hizmetler</a>
+                    <a href="#projeler" class="text-sm font-bold text-gray-200 hover:text-gold-500 transition-colors uppercase tracking-wide">Projeler</a>
+                    <a href="#surec" class="text-sm font-bold text-gray-200 hover:text-gold-500 transition-colors uppercase tracking-wide">Sürecimiz</a>
+                    <a href="#iletisim" class="text-sm font-bold text-gray-200 hover:text-gold-500 transition-colors uppercase tracking-wide">İletişim</a>
+                </nav>
+                
+                <div class="hidden lg:block">
+                    <a href="#iletisim" class="bg-gold-500 hover:bg-gold-600 text-brand-950 px-7 py-3 rounded-lg text-sm font-bold transition-all shadow-lg hover:shadow-gold-500/40 uppercase tracking-wide border-b-4 border-gold-600 active:border-b-0 active:translate-y-1">
+                        Teklif Alın
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl focus:outline-none bg-brand-900 border border-gray-700 w-12 h-12 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-brand-950 border-t border-gray-800 px-6 py-4 mt-4 shadow-2xl absolute w-full">
+            <div class="flex flex-col gap-4">
+                <a href="#hakkimizda" class="text-base font-bold text-gray-300 border-b border-gray-800 pb-3 hover:text-gold-500">Kurumsal</a>
+                <a href="#hizmetler" class="text-base font-bold text-gray-300 border-b border-gray-800 pb-3 hover:text-gold-500">Hizmet Alanlarımız</a>
+                <a href="#projeler" class="text-base font-bold text-gray-300 border-b border-gray-800 pb-3 hover:text-gold-500">Projelerimiz</a>
+                <a href="#iletisim" class="text-base font-bold text-gray-300 border-b border-gray-800 pb-3 hover:text-gold-500">İletişim</a>
+                <a href="#iletisim" class="bg-gold-500 text-brand-950 text-center px-6 py-4 rounded-lg text-sm font-bold shadow-md mt-2 uppercase tracking-wide">
+                    Teklif Alın
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen min-h-[700px] flex items-center overflow-hidden">
+        <!-- Background Image & Overlay -->
+        <div class="absolute inset-0">
+            <img src="https://picsum.photos/seed/constructionhero/1920/1080" alt="İnşaat Projesi" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-950/95 via-brand-900/80 to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="w-full lg:w-2/3" data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-brand-900/50 border-l-4 border-gold-500 text-white backdrop-blur-sm mb-6">
+                    <i class="fa-solid fa-hard-hat text-gold-500"></i>
+                    <span class="text-xs font-bold uppercase tracking-widest">İnşaat & Enerji Sistemleri</span>
+                </div>
+                
+                <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6">
+                    Sağlam Temeller,<br>
+                    <span class="text-gold-500">Yüksek Enerji.</span>
+                </h1>
+                
+                <p class="text-gray-300 mb-10 text-lg md:text-xl font-medium leading-relaxed max-w-2xl">
+                    Erdoğdu Grup güvencesiyle Sivas ve çevresinde; modern inşaat projelerinden, doğalgaz ve güneş enerjisi sistemlerine kadar anahtar teslim mühendislik çözümleri sunuyoruz.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projeler" class="bg-gold-500 hover:bg-gold-600 text-brand-950 px-8 py-4 rounded-sm text-sm font-bold transition-all uppercase tracking-wide flex items-center gap-3">
+                        Projelerimizi İnceleyin <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#iletisim" class="bg-transparent hover:bg-white/10 text-white border-2 border-white/30 px-8 py-4 rounded-sm text-sm font-bold transition-all uppercase tracking-wide backdrop-blur-sm">
+                        İletişime Geç
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Badge -->
+        <div class="absolute bottom-0 right-10 bg-brand-900 p-6 rounded-t-2xl border-t border-x border-gold-500/30 hidden md:flex items-center gap-6 shadow-2xl" data-aos="fade-up" data-aos-delay="400">
+            <div class="text-center px-4 border-r border-gray-700">
+                <div class="text-3xl font-black text-gold-500 mb-1">Hafik</div>
+                <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Yeni Proje</div>
+            </div>
+            <div class="px-4">
+                <p class="text-sm font-medium text-gray-300 mb-2">Hafik konut projemiz hızla yükseliyor!</p>
+                <a href="https://www.instagram.com/erdogdugrup/" target="_blank" class="text-gold-500 font-bold text-xs uppercase tracking-wide hover:text-white transition-colors">
+                    Şantiye Görüntüleri <i class="fa-solid fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats Bar -->
+    <section class="py-10 bg-brand-900 border-b border-gray-800 relative z-20">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-800">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-gold-500 text-4xl mb-3"><i class="fa-solid fa-building"></i></div>
+                    <div class="font-display font-black text-3xl text-white">İnşaat</div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mt-2">Modern Konutlar</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-gold-500 text-4xl mb-3"><i class="fa-solid fa-fire-flame-simple"></i></div>
+                    <div class="font-display font-black text-3xl text-white">Doğalgaz</div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mt-2">Kombi & Kazan</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-gold-500 text-4xl mb-3"><i class="fa-solid fa-solar-panel"></i></div>
+                    <div class="font-display font-black text-3xl text-white">Güneş</div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mt-2">Enerjisi Sistemleri</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-gold-500 text-4xl mb-3"><i class="fa-solid fa-helmet-safety"></i></div>
+                    <div class="font-display font-black text-3xl text-white">Uzman</div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mt-2">Teknik Kadro</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="hakkimizda" class="py-24 bg-brand-50 relative overflow-hidden">
+        <div class="slash-divider"></div>
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Image -->
+                <div class="w-full lg:w-5/12" data-aos="fade-right">
+                    <div class="relative">
+                        <!-- Blueprint background element -->
+                        <div class="absolute -inset-4 bg-brand-900 rounded-sm transform rotate-3"></div>
+                        <img src="https://picsum.photos/seed/engineers/600/700" alt="Erdoğdu Grup Ekibi" class="relative rounded-sm shadow-2xl w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        
+                        <div class="absolute -bottom-10 -right-10 bg-gold-500 p-8 rounded-sm shadow-xl hidden md:block">
+                            <h3 class="font-display font-black text-5xl text-brand-950 mb-1">100%</h3>
+                            <p class="font-bold text-brand-900 uppercase tracking-wide text-sm">Müşteri<br>Memnuniyeti</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="w-full lg:w-7/12" data-aos="fade-left">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-1 bg-gold-500"></div>
+                        <h4 class="text-brand-900 font-bold uppercase tracking-widest text-sm">Kurumsal</h4>
+                    </div>
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-brand-950 mb-8 leading-tight">Murat Erdoğdu Yönetiminde Güven İnşa Ediyoruz</h2>
+                    
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        <strong class="text-brand-900">Erdoğdu Grup Ltd. Şti.</strong> olarak, inşaat ve enerji sektörlerinde Sivas'ın güvenilir markasıyız. Yaşam alanlarınızı sadece inşa etmiyor, doğalgaz ve güneş enerjisi gibi sistemlerle modern, sıcak ve tasarruflu hale getiriyoruz.
+                    </p>
+                    
+                    <p class="text-gray-600 mb-10 leading-relaxed">
+                        Hafik projemiz başta olmak üzere birçok konut projesinde kalite ve dayanıklılığı standart haline getirdik. Doğalgaz kombi-kazan tesisatından, yenilenebilir güneş enerjisi sistemlerine kadar "tek elden, tam çözüm" sunuyoruz.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex gap-4 items-start">
+                            <div class="text-gold-500 text-2xl mt-1"><i class="fa-solid fa-check-double"></i></div>
+                            <div>
+                                <h4 class="font-bold text-brand-900 mb-1">Zamanında Teslimat</h4>
+                                <p class="text-sm text-gray-500">Projelerimizi taahhüt ettiğimiz tarihte, eksiksiz teslim ederiz.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="text-gold-500 text-2xl mt-1"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                            <div>
+                                <h4 class="font-bold text-brand-900 mb-1">Kaliteli Malzeme</h4>
+                                <p class="text-sm text-gray-500">İnşaattan tesisata tüm aşamalarda TSE garantili malzemeler kullanırız.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="tel:+905307075058" class="inline-flex items-center gap-3 bg-brand-900 text-white px-6 py-3 text-sm font-bold uppercase tracking-wide hover:bg-brand-800 transition-colors rounded-sm">
+                        <i class="fa-solid fa-phone-volume text-gold-500"></i> Murat Erdoğdu ile Görüşün
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="hizmetler" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16" data-aos="fade-up">
+                <div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-1 bg-gold-500"></div>
+                        <h4 class="text-brand-900 font-bold uppercase tracking-widest text-sm">Faaliyet Alanlarımız</h4>
+                    </div>
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-brand-950">Anahtar Teslim Çözümler</h2>
+                </div>
+                <p class="text-gray-500 max-w-md font-medium">Temelden çatıya, altyapıdan enerjiye kadar yapıların tüm ihtiyaçlarını tek çatı altında karşılıyoruz.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-brand-50 rounded-sm border border-gray-200 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-64 overflow-hidden relative group">
+                        <img src="https://picsum.photos/seed/construction2/800/600" alt="İnşaat ve Müteahhitlik" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-brand-900/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-brand-900 text-gold-500 flex items-center justify-center text-2xl mb-6 -mt-14 relative z-10 border-4 border-white">
+                            <i class="fa-solid fa-trowel-bricks"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-brand-900 mb-3">İnşaat & Taahhüt</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed mb-6">Konut, iş yeri ve ticari yapı projelerinin temelden çatıya inşası. Hafik projemiz gibi sağlam, modern ve estetik yaşam alanları üretiyoruz.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card bg-brand-50 rounded-sm border border-gray-200 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-64 overflow-hidden relative group">
+                        <img src="https://picsum.photos/seed/hvac/800/600" alt="Doğalgaz Sistemleri" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-brand-900/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-brand-900 text-gold-500 flex items-center justify-center text-2xl mb-6 -mt-14 relative z-10 border-4 border-white">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-brand-900 mb-3">Doğalgaz & Tesisat</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed mb-6">Bireysel ve merkezi doğalgaz tesisatları. Projelendirme, gaz açımı ve güvenli hat çekimi işlemlerini uzman kadromuzla gerçekleştiriyoruz.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-brand-50 rounded-sm border border-gray-200 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-64 overflow-hidden relative group">
+                        <img src="https://picsum.photos/seed/solarpanels/800/600" alt="Güneş Enerjisi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-brand-900/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-brand-900 text-gold-500 flex items-center justify-center text-2xl mb-6 -mt-14 relative z-10 border-4 border-white">
+                            <i class="fa-solid fa-solar-panel"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-brand-900 mb-3">Güneş Enerjisi</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed mb-6">Yenilenebilir enerji sistemleri ile sıcak su ve ısıtma çözümleri. Çatı montajı, panel kurulumu ve sistem entegrasyonu hizmetleri.</p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-brand-50 rounded-sm border border-gray-200 overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-64 overflow-hidden relative group">
+                        <img src="https://picsum.photos/seed/boiler/800/600" alt="Kazan Sistemleri" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-brand-900/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-brand-900 text-gold-500 flex items-center justify-center text-2xl mb-6 -mt-14 relative z-10 border-4 border-white">
+                            <i class="fa-solid fa-temperature-arrow-up"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-brand-900 mb-3">Kazan Sistemleri</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed mb-6">Apartman, site ve endüstriyel tesisler için yüksek kapasiteli merkezi ısıtma kazanlarının kurulumu, bakımı ve yenilenmesi.</p>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card bg-brand-50 rounded-sm border border-gray-200 overflow-hidden" data-aos="fade-up" data-aos-delay="500">
+                    <div class="h-64 overflow-hidden relative group">
+                        <img src="https://picsum.photos/seed/combi/800/600" alt="Kombi Satış ve Montaj" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-brand-900/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-brand-900 text-gold-500 flex items-center justify-center text-2xl mb-6 -mt-14 relative z-10 border-4 border-white">
+                            <i class="fa-solid fa-plug-circle-check"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-brand-900 mb-3">Kombi Montajı</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed mb-6">Her markadan yoğuşmalı kombi temini, kalorifer peteği döşemesi ve tesisat temizliği ile evinize maksimum ısı verimliliği sağlıyoruz.</p>
+                    </div>
+                </div>
+
+                <!-- Contact CTA Box -->
+                <div class="bg-brand-900 rounded-sm overflow-hidden flex flex-col justify-center items-center text-center p-10 border-b-4 border-gold-500" data-aos="fade-up" data-aos-delay="600">
+                    <i class="fa-solid fa-helmet-safety text-5xl text-gold-500 mb-6"></i>
+                    <h3 class="font-display text-2xl font-bold text-white mb-4">Projeniz mi var?</h3>
+                    <p class="text-gray-400 font-medium text-sm mb-8">İnşaat veya tesisat projeniz için uzman ekibimizden ücretsiz keşif ve fiyat teklifi alın.</p>
+                    <a href="#iletisim" class="bg-gold-500 hover:bg-gold-600 text-brand-950 px-8 py-3 font-bold uppercase tracking-wide transition-colors">Keşif İste</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Gallery Section -->
+    <section id="projeler" class="py-24 bg-brand-950 text-white relative">
+        <div class="slash-divider opacity-20"></div>
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <div class="w-12 h-1 bg-gold-500"></div>
+                    <h4 class="text-gold-500 font-bold uppercase tracking-widest text-sm">Gurur Tablomuz</h4>
+                    <div class="w-12 h-1 bg-gold-500"></div>
+                </div>
+                <h2 class="font-display text-4xl md:text-5xl font-black mb-6">Devam Eden ve Biten Projelerimiz</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Proje 1 (Hafik) -->
+                <div class="project-card relative h-80 rounded-sm overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://picsum.photos/seed/building1/800/800" alt="Hafik Projesi" class="w-full h-full object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-brand-900/40 group-hover:bg-brand-900/80 transition-colors duration-500"></div>
+                    
+                    <!-- Overlay Info -->
+                    <div class="project-overlay absolute inset-0 p-8 flex flex-col justify-end opacity-0 transition-opacity duration-500">
+                        <span class="bg-gold-500 text-brand-950 text-xs font-bold uppercase tracking-wider px-3 py-1 w-max mb-3">Devam Ediyor</span>
+                        <h3 class="font-display text-2xl font-bold mb-2">Hafik Konut Projesi</h3>
+                        <p class="text-gray-300 text-sm">Hafik / Sivas</p>
+                    </div>
+                </div>
+
+                <!-- Proje 2 -->
+                <div class="project-card relative h-80 rounded-sm overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://picsum.photos/seed/buildinginterior/800/800" alt="İç Mimari" class="w-full h-full object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-brand-900/40 group-hover:bg-brand-900/80 transition-colors duration-500"></div>
+                    
+                    <div class="project-overlay absolute inset-0 p-8 flex flex-col justify-end opacity-0 transition-opacity duration-500">
+                        <span class="bg-gray-700 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 w-max mb-3 border border-gray-500">Tamamlandı</span>
+                        <h3 class="font-display text-2xl font-bold mb-2">Modern Daire Teslimi</h3>
+                        <p class="text-gray-300 text-sm">Merkez / Sivas</p>
+                    </div>
+                </div>
+
+                <!-- Proje 3 -->
+                <div class="project-card relative h-80 rounded-sm overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://picsum.photos/seed/boilerroom/800/800" alt="Kazan Dairesi" class="w-full h-full object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-brand-900/40 group-hover:bg-brand-900/80 transition-colors duration-500"></div>
+                    
+                    <div class="project-overlay absolute inset-0 p-8 flex flex-col justify-end opacity-0 transition-opacity duration-500">
+                        <span class="bg-gray-700 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 w-max mb-3 border border-gray-500">Tamamlandı</span>
+                        <h3 class="font-display text-2xl font-bold mb-2">Merkezi Sistem Kazan Kurulumu</h3>
+                        <p class="text-gray-300 text-sm">Site Yönetimi Tesisatı</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://www.instagram.com/erdogdugrup/" target="_blank" class="inline-flex items-center gap-3 text-gold-500 hover:text-white font-bold uppercase tracking-wide border-b-2 border-gold-500 hover:border-white pb-1 transition-all">
+                    Tüm Çalışmalarımızı Instagram'da Görün <i class="fa-brands fa-instagram text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works / Process Section -->
+    <section id="surec" class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <div class="w-12 h-1 bg-gold-500"></div>
+                    <h4 class="text-brand-900 font-bold uppercase tracking-widest text-sm">İş Sürecimiz</h4>
+                    <div class="w-12 h-1 bg-gold-500"></div>
+                </div>
+                <h2 class="font-display text-3xl md:text-4xl font-black text-brand-950">Fikirden Anahtar Teslimine</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <!-- Connecting Line -->
+                <div class="hidden md:block absolute top-12 left-0 w-full h-1 bg-gray-300 z-0"></div>
+                <div class="hidden md:block absolute top-12 left-0 w-1/4 h-1 bg-gold-500 z-0"></div> <!-- Progress indicator -->
+
+                <!-- Step 1 -->
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-24 h-24 mx-auto bg-brand-900 border-4 border-white rounded-full flex items-center justify-center text-3xl text-gold-500 shadow-xl mb-6">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-brand-900 mb-2">1. Keşif & Talep</h3>
+                    <p class="text-sm text-gray-600">İhtiyaçlarınızı dinler, proje alanında ücretsiz keşif ve ölçüm yaparız.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-24 h-24 mx-auto bg-white border-4 border-gray-200 rounded-full flex items-center justify-center text-3xl text-brand-900 shadow-sm mb-6">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-brand-900 mb-2">2. Projelendirme</h3>
+                    <p class="text-sm text-gray-600">İnşaat mimarisi veya tesisat planını yasal standartlara uygun olarak çizeriz.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-24 h-24 mx-auto bg-white border-4 border-gray-200 rounded-full flex items-center justify-center text-3xl text-brand-900 shadow-sm mb-6">
+                        <i class="fa-solid fa-trowel-bricks"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-brand-900 mb-2">3. Uygulama</h3>
+                    <p class="text-sm text-gray-600">Uzman ustalarımız ve mühendislerimizle projeyi sahada hayata geçiririz.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-24 h-24 mx-auto bg-gold-500 border-4 border-white rounded-full flex items-center justify-center text-3xl text-brand-950 shadow-xl mb-6">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-brand-900 mb-2">4. Teslimat</h3>
+                    <p class="text-sm text-gray-600">Tüm testleri tamamlanmış, güvenli yapınızı/sisteminizi anahtar teslim sunarız.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Client Trust -->
+    <section class="py-24 bg-white border-t border-gray-200">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text -->
+                <div class="w-full lg:w-1/3" data-aos="fade-right">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-1 bg-gold-500"></div>
+                        <h4 class="text-brand-900 font-bold uppercase tracking-widest text-sm">Müşteri Yorumları</h4>
+                    </div>
+                    <h2 class="font-display text-4xl font-black text-brand-950 mb-6">Sivas Bize Güveniyor</h2>
+                    <p class="text-gray-600 mb-8">İnşaat temelinden doğalgaz peteğine kadar her aşamada müşterilerimizin memnuniyeti bizim en büyük referansımızdır.</p>
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="text-gold-500 text-3xl"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    </div>
+                    <p class="font-bold text-brand-900 mt-2">5/5 - Google Yorumları Ortalaması</p>
+                </div>
+                
+                <!-- Cards -->
+                <div class="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-left">
+                    <div class="bg-brand-50 p-8 rounded-sm border border-gray-200 relative">
+                        <i class="fa-solid fa-quote-right absolute top-6 right-6 text-4xl text-gray-200"></i>
+                        <p class="text-gray-700 italic mb-6">"Hafik'teki konut projesinden ev aldık. İşçilik kalitesi ve malzeme seçimi gerçekten harika. Söz verdikleri tarihte teslim ettiler. Murat Bey'e teşekkürler."</p>
+                        <div class="font-bold text-brand-900 uppercase text-sm">- Ahmet K.</div>
+                    </div>
+                    <div class="bg-brand-900 text-white p-8 rounded-sm relative shadow-lg transform md:-translate-y-6">
+                        <i class="fa-solid fa-quote-right absolute top-6 right-6 text-4xl text-brand-800"></i>
+                        <p class="text-gray-300 italic mb-6">"Sitemizin merkezi sistem doğalgaz kazanını Erdoğdu Grup değiştirdi. Kış gelmeden hızlıca hallettiler, ısınma problemimiz tamamen çözüldü."</p>
+                        <div class="font-bold text-gold-500 uppercase text-sm">- Site Yönetimi</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-brand-50 border-t border-gray-200">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <div class="w-12 h-1 bg-gold-500"></div>
+                    <h4 class="text-brand-900 font-bold uppercase tracking-widest text-sm">Sıkça Sorulan Sorular</h4>
+                    <div class="w-12 h-1 bg-gold-500"></div>
+                </div>
+                <h2 class="font-display text-3xl font-black text-brand-950">Aklınıza Takılanlar</h2>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <details class="group bg-white p-6 rounded-sm shadow-sm border border-gray-200 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+                    <summary class="flex items-center justify-between font-bold text-brand-900">
+                        <span class="text-lg">Kombi ve doğalgaz tesisat kurulumu kaç gün sürer?</span>
+                        <span class="transition group-open:rotate-180 text-gold-500"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed border-t border-gray-100 pt-4">
+                        Standart bir dairenin tesisat çekimi ve kombi montajı genellikle 1-2 iş günü içerisinde tamamlanmaktadır. Proje onayı ve gaz açım süreci ise gaz dağıtım şirketinin yoğunluğuna bağlı olarak birkaç gün sürebilmektedir.
+                    </p>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm border border-gray-200 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+                    <summary class="flex items-center justify-between font-bold text-brand-900">
+                        <span class="text-lg">Sadece merkezde mi hizmet veriyorsunuz? Hafik projesi hakkında nasıl bilgi alabilirim?</span>
+                        <span class="transition group-open:rotate-180 text-gold-500"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed border-t border-gray-100 pt-4">
+                        Sivas merkez ve Hafik başta olmak üzere çevre ilçelere de proje bazlı hizmet vermekteyiz. Hafik'teki konut projemizdeki satılık daireler ve örnek daire gösterimi için doğrudan iletişim numaralarımızdan Murat Erdoğdu ile görüşebilirsiniz.
+                    </p>
+                </details>
+
+                <details class="group bg-white p-6 rounded-sm shadow-sm border border-gray-200 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+                    <summary class="flex items-center justify-between font-bold text-brand-900">
+                        <span class="text-lg">Güneş enerjisi sistemleri kışın da verimli çalışır mı?</span>
+                        <span class="transition group-open:rotate-180 text-gold-500"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed border-t border-gray-100 pt-4">
+                        Evet, kurduğumuz modern güneş enerjisi (vakumlu tüp veya düz kollektör) sistemleri ortam sıcaklığından ziyade güneş ışınımıyla çalışır. Kış aylarında Sivas'ın güneşli günlerinde de sıcak su üretimi sağlamaya devam eder.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map -->
+    <section id="iletisim" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="bg-brand-950 rounded-sm shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+                
+                <!-- Contact Info & Form -->
+                <div class="w-full lg:w-1/2 p-10 lg:p-16 text-white relative">
+                    <div class="slash-divider opacity-10"></div>
+                    <div class="relative z-10">
+                        <h2 class="font-display text-4xl font-black mb-2">Bize Ulaşın</h2>
+                        <p class="text-gray-400 mb-10">İnşaat ve mekanik tesisat projeleriniz için profesyonel ekibimizden destek alın.</p>
+                        
+                        <div class="space-y-6 mb-12">
+                            <div class="flex items-center gap-5">
+                                <div class="w-12 h-12 bg-brand-800 text-gold-500 flex items-center justify-center text-xl rounded-sm">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-bold uppercase tracking-wider">Murat ERDOĞDU</p>
+                                    <a href="tel:+905307075058" class="font-bold text-xl hover:text-gold-500 transition-colors">0 (530) 707 50 58</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-5">
+                                <div class="w-12 h-12 bg-brand-800 text-gold-500 flex items-center justify-center text-xl rounded-sm">
+                                    <i class="fa-solid fa-phone-volume"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-bold uppercase tracking-wider">Diğer Hatlar</p>
+                                    <div class="flex gap-4">
+                                        <a href="tel:+905551868182" class="font-bold hover:text-gold-500 transition-colors">0 (555) 186 81 82</a>
+                                        <span class="text-gray-600">|</span>
+                                        <a href="tel:+903462224999" class="font-bold hover:text-gold-500 transition-colors">0 (346) 222 49 99</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-5">
+                                <div class="w-12 h-12 bg-brand-800 text-gold-500 flex items-center justify-center text-xl rounded-sm">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-bold uppercase tracking-wider">Merkez Ofis</p>
+                                    <p class="font-bold">Yeşilyurt Mahallesi, Merkez / Sivas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form -->
+                        <form onsubmit="event.preventDefault(); alert('Mesajınız gönderildi. Müşteri temsilcimiz size en kısa sürede dönüş yapacaktır.');" class="space-y-4">
+                            <h4 class="font-bold mb-4 border-b border-gray-800 pb-2">Hızlı Mesaj Gönder</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <input type="text" placeholder="Adınız Soyadınız" required class="bg-brand-900 border border-gray-700 rounded-sm px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors">
+                                <input type="tel" placeholder="Telefonunuz" required class="bg-brand-900 border border-gray-700 rounded-sm px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors">
+                            </div>
+                            <select class="w-full bg-brand-900 border border-gray-700 rounded-sm px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors appearance-none">
+                                <option>İnşaat & Taahhüt (Hafik Projesi vb.)</option>
+                                <option>Doğalgaz & Kombi Tesisatı</option>
+                                <option>Merkezi Kazan Sistemi</option>
+                                <option>Güneş Enerjisi Kurulumu</option>
+                            </select>
+                            <button type="submit" class="w-full bg-gold-500 hover:bg-gold-600 text-brand-950 font-bold py-4 uppercase tracking-wide rounded-sm transition-colors">
+                                Gönder
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="w-full lg:w-1/2 min-h-[400px] bg-gray-200">
+                    <!-- Sivas Yeşilyurt location general map -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12175.760193154865!2d37.0163351!3d39.7554903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407eaa0a96ef8b13%3A0xcdaee506b3a32f6!2zS2FyZGXFn2xlciwgU2l2YXMgTWVya2V6L1NpdmFz!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" width="100%" height="100%" style="border:0; filter: grayscale(50%) contrast(1.2);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-950 py-16 text-gray-400 border-t border-gray-900">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-brand-900 rounded-lg flex items-center justify-center border border-gray-700">
+                            <i class="fa-solid fa-building-user text-gold-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-display font-black text-lg text-white">ERDOĞDU</h2>
+                            <p class="text-[9px] font-bold tracking-[0.2em] text-gold-500 uppercase">Grup Ltd. Şti.</p>
+                        </div>
+                    </div>
+                    <p class="text-sm font-medium leading-relaxed mb-6">
+                        İnşaat, doğalgaz ve enerji sistemlerinde uzman mühendislik, kaliteli malzeme ve kusursuz işçilik.
+                    </p>
+                    <a href="https://www.instagram.com/erdogdugrup/" target="_blank" class="w-10 h-10 rounded-sm bg-brand-900 flex items-center justify-center text-white hover:bg-gold-500 hover:text-brand-950 transition-colors">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm border-b border-gray-800 pb-2">Bağlantılar</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#hakkimizda" class="hover:text-gold-500 text-sm font-medium transition-colors">Kurumsal</a></li>
+                        <li><a href="#hizmetler" class="hover:text-gold-500 text-sm font-medium transition-colors">Hizmetlerimiz</a></li>
+                        <li><a href="#projeler" class="hover:text-gold-500 text-sm font-medium transition-colors">Örnek Projeler</a></li>
+                        <li><a href="#surec" class="hover:text-gold-500 text-sm font-medium transition-colors">İş Sürecimiz</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm border-b border-gray-800 pb-2">Hizmetler</h4>
+                    <ul class="space-y-3">
+                        <li class="text-sm font-medium">İnşaat & Taahhüt</li>
+                        <li class="text-sm font-medium">Bireysel Doğalgaz</li>
+                        <li class="text-sm font-medium">Merkezi Kazan</li>
+                        <li class="text-sm font-medium">Güneş Enerjisi</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm border-b border-gray-800 pb-2">Çalışma Saatleri</h4>
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li class="flex justify-between border-b border-gray-800/50 pb-1">
+                            <span>Pazartesi - Cuma:</span> <span class="text-white">08:30 - 18:30</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-800/50 pb-1">
+                            <span>Cumartesi:</span> <span class="text-white">08:30 - 16:00</span>
+                        </li>
+                        <li class="flex justify-between pb-1">
+                            <span>Pazar:</span> <span class="text-gold-500">Kapalı</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center pt-8 border-t border-gray-800/50 text-xs font-medium text-gray-500 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 Erdoğdu Grup İnşaat Doğalgaz LTD. ŞTİ. Tüm Hakları Saklıdır.</p>
+                <p>Sivas Merkez</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/905307075058" class="whatsapp-float" aria-label="Bizi Arayın" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({
+            once: true,
+            offset: 30,
+            duration: 800,
+        });
+
+        // Sticky Navbar Logic
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('glass-nav');
+                header.classList.remove('bg-transparent', 'lg:top-[41px]', 'py-4');
+                header.classList.add('py-2');
+                // Remove inner pill background on scroll for cleaner look
+                const nav = header.querySelector('nav');
+                nav.classList.remove('bg-brand-900/80', 'border-gray-700/50');
+                nav.classList.add('border-transparent');
+            } else {
+                header.classList.remove('glass-nav', 'py-2');
+                header.classList.add('bg-transparent', 'lg:top-[41px]', 'py-4');
+                
+                const nav = header.querySelector('nav');
+                nav.classList.add('bg-brand-900/80', 'border-gray-700/50');
+                nav.classList.remove('border-transparent');
+            }
+        });
+
+        // Mobile Menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const icon = mobileBtn.querySelector('i');
+            if(mobileMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu on link click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>

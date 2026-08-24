@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çelik Anaokulu | Sivas</title>
+    <meta name="description" content="2-6 Yaş. En kıymetlinizin yarınlarını sevgi ve güvenle inşa ediyoruz. Sivas Yeşilyurt Mahallesi.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        celik: {
+                            purple: '#5e35b1', // Logo text purple
+                            purpleDark: '#4527a0',
+                            yellow: '#fbc02d', // Logo kite yellow
+                            green: '#4caf50',  // Logo kite green
+                            blue: '#03a9f4',   // Logo kite blue
+                            dark: '#1e293b',   // Main text
+                            bg: '#f7fafc',
+                            paper: '#f8fafc',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Quicksand', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                    },
+                    animation: {
+                        'fly-kite': 'flyKite 6s ease-in-out infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'wiggle': 'wiggle 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        flyKite: {
+                            '0%, 100%': { transform: 'translate(0, 0) rotate(5deg)' },
+                            '50%': { transform: 'translate(20px, -20px) rotate(-5deg)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* --- Fun Dividers --- */
+        .paper-tear-top {
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 20' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,20 L0,0 C50,20 150,0 200,10 C250,20 350,0 400,10 C450,20 550,0 600,10 C650,20 750,0 800,10 C850,20 950,0 1000,10 L1000,20 Z'/%3E%3C/svg%3E");
+            background-size: 100px 100%;
+            z-index: 10;
+        }
+        .paper-tear-bottom {
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 20' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,0 L0,20 C50,0 150,20 200,10 C250,0 350,20 400,10 C450,0 550,20 600,10 C650,0 750,20 800,10 C850,0 950,20 1000,10 L1000,0 Z'/%3E%3C/svg%3E");
+            background-size: 100px 100%;
+            z-index: 10;
+        }
+        
+        .wave-bottom {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        .wave-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+        .wave-bottom .shape-fill { fill: #4caf50; } /* celik green grass */
+
+        /* --- Cards and Buttons --- */
+        .play-card {
+            background: white;
+            border-radius: 30px;
+            border: 4px solid #1e293b;
+            box-shadow: 8px 8px 0px #1e293b;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .play-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px #1e293b;
+        }
+
+        .btn-play {
+            border: 3px solid #1e293b;
+            box-shadow: 4px 4px 0px #1e293b;
+            transition: all 0.2s;
+        }
+        .btn-play:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #1e293b;
+        }
+
+        /* --- Scrapbook Gallery --- */
+        .tape {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            width: 100px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+            backdrop-filter: blur(2px);
+            z-index: 20;
+        }
+        .photo-card {
+            background: white;
+            padding: 15px 15px 40px 15px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+        .photo-card:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            z-index: 30;
+        }
+
+        /* --- Clouds for Hero --- */
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 50px;
+            box-shadow: inset -5px -5px 0px rgba(0,0,0,0.05);
+        }
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+        
+        /* Notebook background for contact */
+        .notebook-bg {
+            background-color: #fff;
+            background-image: 
+                linear-gradient(90deg, transparent 79px, #5e35b1 79px, #5e35b1 81px, transparent 81px),
+                linear-gradient(#e2e8f0 .1em, transparent .1em);
+            background-size: 100% 1.2em;
+        }
+
+        /* Hero Kite SVG */
+        .kite-string {
+            stroke: #1e293b;
+            stroke-width: 3;
+            stroke-dasharray: 8 8;
+            animation: dash 30s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: -1000; }
+        }
+
+        /* Nav links hover */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 4px;
+            bottom: -6px;
+            left: 0;
+            background-color: currentColor;
+            border-radius: 4px;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="font-sans text-celik-dark selection:bg-celik-yellow selection:text-celik-dark overflow-x-hidden">
+
+    <!-- Top Banner -->
+    <div class="bg-celik-purple text-white py-2 border-b-4 border-celik-dark font-display font-bold text-center text-sm relative z-50">
+        <marquee behavior="scroll" direction="left" scrollamount="6" class="max-w-4xl mx-auto tracking-wide">
+            🌟 2-6 Yaş Erken Kayıt Avantajlarımız Başladı! Detaylı bilgi için bizi arayın: 0541 291 13 20 🌟
+        </marquee>
+    </div>
+
+    <!-- Playful Header -->
+    <header class="bg-white border-b-4 border-celik-dark sticky top-0 z-40">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex justify-between items-center h-24">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-14 h-14 relative transform group-hover:rotate-12 transition-transform drop-shadow-[4px_4px_0px_#1e293b]">
+                        <svg viewBox="0 0 100 100" class="w-full h-full">
+                            <polygon points="50,10 90,40 50,70 10,40" fill="none" stroke="#1e293b" stroke-width="4"/>
+                            <polygon points="50,10 90,40 50,40" fill="#4caf50" stroke="#1e293b" stroke-width="2"/>
+                            <polygon points="50,10 50,40 10,40" fill="#03a9f4" stroke="#1e293b" stroke-width="2"/>
+                            <polygon points="10,40 50,40 50,70" fill="#fbc02d" stroke="#1e293b" stroke-width="2"/>
+                            <polygon points="50,40 90,40 50,70" fill="#5e35b1" stroke="#1e293b" stroke-width="2"/>
+                            <path d="M50,70 Q40,85 60,95" fill="none" stroke="#1e293b" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="font-display font-extrabold text-3xl text-celik-purple tracking-tight leading-none drop-shadow-sm">çelik</h1>
+                        <span class="font-display text-[11px] font-bold text-celik-yellow tracking-widest uppercase mt-1">Anaokulu</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center gap-8 font-display font-bold text-lg">
+                    <a href="#hakkimizda" class="nav-link text-celik-purple hover:text-purple-700">Hakkımızda</a>
+                    <a href="#etkinlikler" class="nav-link text-celik-blue hover:text-blue-600">Etkinlikler</a>
+                    <a href="#yas-gruplari" class="nav-link text-celik-green hover:text-green-600">Yaş Grupları</a>
+                    <a href="#galeri" class="nav-link text-celik-yellow hover:text-yellow-600">Galeri</a>
+                    
+                    <a href="#iletisim" class="btn-play bg-celik-yellow text-celik-dark px-6 py-2 rounded-full flex items-center gap-2 hover:bg-yellow-400">
+                        <i class="fa-solid fa-paper-plane"></i> Bize Ulaşın
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden btn-play bg-celik-yellow w-12 h-12 rounded-xl flex items-center justify-center text-xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t-4 border-celik-dark absolute w-full shadow-2xl">
+            <div class="flex flex-col p-6 space-y-4 font-display font-bold text-xl text-center">
+                <a href="#hakkimizda" class="text-celik-purple">Hakkımızda</a>
+                <a href="#etkinlikler" class="text-celik-blue">Etkinlikler</a>
+                <a href="#yas-gruplari" class="text-celik-green">Yaş Grupları</a>
+                <a href="#galeri" class="text-celik-yellow">Galeri</a>
+                <a href="#iletisim" class="btn-play bg-celik-yellow text-celik-dark py-3 rounded-xl mt-4">Bize Ulaşın</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CUSTOM PLAYGROUND HERO -->
+    <section class="relative min-h-[100vh] lg:min-h-[800px] bg-[#e0f2fe] overflow-hidden flex flex-col justify-between pt-10">
+        
+        <!-- Sky & Clouds -->
+        <div class="absolute inset-0 pointer-events-none">
+            <!-- Cloud 1 -->
+            <div class="cloud w-32 h-10 top-10 left-[10%] animate-float" style="animation-delay: 0s;">
+                <div class="w-14 h-14 -top-8 left-4"></div><div class="w-12 h-12 -top-6 right-2"></div>
+            </div>
+            <!-- Cloud 2 -->
+            <div class="cloud w-40 h-12 top-32 right-[15%] animate-float" style="animation-delay: 1.5s;">
+                <div class="w-16 h-16 -top-10 left-6"></div><div class="w-14 h-14 -top-8 right-4"></div>
+            </div>
+            <!-- Cloud 3 -->
+            <div class="cloud w-24 h-8 top-48 left-[30%] animate-float" style="animation-delay: 0.8s;">
+                <div class="w-10 h-10 -top-6 left-3"></div><div class="w-8 h-8 -top-4 right-2"></div>
+            </div>
+        </div>
+
+        <!-- The Animated Flying Kite Background Element -->
+        <div class="absolute top-10 right-4 lg:right-20 animate-fly-kite z-0 opacity-40 lg:opacity-100 lg:z-10 hidden md:block">
+            <svg viewBox="0 0 100 100" class="w-32 h-32 drop-shadow-[8px_8px_0px_rgba(30,41,59,0.3)]">
+                <polygon points="50,10 90,40 50,70 10,40" fill="#fbc02d" stroke="#1e293b" stroke-width="2"/>
+                <polygon points="50,10 90,40 50,40" fill="#4caf50" stroke="#1e293b" stroke-width="2"/>
+                <polygon points="10,40 50,40 50,70" fill="#03a9f4" stroke="#1e293b" stroke-width="2"/>
+                <polygon points="50,40 90,40 50,70" fill="#5e35b1" stroke="#1e293b" stroke-width="2"/>
+                <path d="M50,70 Q20,100 60,130 T20,180" fill="none" stroke="#1e293b" stroke-width="4"/>
+                <polygon points="40,90 60,95 45,100" fill="#fb7185"/>
+                <polygon points="55,120 35,125 50,130" fill="#03a9f4"/>
+            </svg>
+        </div>
+
+        <!-- Dotted path across screen -->
+        <svg class="absolute top-1/2 left-0 w-full h-40 -translate-y-1/2 z-0 opacity-40 pointer-events-none" preserveAspectRatio="none">
+            <path d="M0,50 Q400,150 800,20 T1600,80" fill="none" class="kite-string" />
+        </svg>
+
+        <!-- Hero Content (Centered in Sky) -->
+        <div class="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-center gap-12 px-6 mt-10 max-w-7xl mx-auto w-full">
+            
+            <div class="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-right">
+                <div class="inline-block bg-white border-4 border-celik-dark px-6 py-2 rounded-full font-display font-bold text-celik-blue mb-6 transform -rotate-2 animate-wiggle shadow-[4px_4px_0px_#1e293b]">
+                    🎨 Sivas'ın En Renkli Anaokulu
+                </div>
+                
+                <h2 class="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold text-celik-dark mb-6 drop-shadow-sm leading-tight">
+                    En Kıymetlinizin <br>
+                    <span class="text-celik-purple bg-white px-2 py-1 inline-block transform rotate-1 border-4 border-celik-dark shadow-[4px_4px_0px_#1e293b]">Yarınlarını</span> Sevgiyle<br>
+                    İnşa Ediyoruz!
+                </h2>
+                
+                <p class="font-sans text-xl font-bold text-gray-700 bg-white/70 backdrop-blur-sm px-6 py-3 rounded-2xl border-2 border-white mb-8 inline-block">
+                    2-6 yaş grubu çocuklarımız için güvenli bir eğitim yuvası.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                    <a href="#iletisim" class="btn-play bg-celik-green text-white font-display font-bold text-xl px-8 py-4 rounded-2xl flex items-center gap-3">
+                        <i class="fa-solid fa-child-reaching"></i> Aramıza Katıl
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image (Scrapbook Polaroid style) -->
+            <div class="w-full lg:w-1/2 flex justify-center mt-12 lg:mt-0 pb-24 lg:pb-0" data-aos="fade-left" data-aos-delay="200">
+                <div class="relative">
+                    <div class="photo-card transform rotate-3 w-72 md:w-80 lg:w-96">
+                        <div class="tape"></div>
+                        <img src="https://loremflickr.com/600/600/preschool,happy/all" alt="Mutlu Çocuklar" class="w-full aspect-square object-cover border border-gray-200">
+                        <div class="font-display text-xl text-center mt-4 text-celik-dark font-bold">Her Gün Yeni Bir Keşif! 🎨</div>
+                    </div>
+                    
+                    <div class="absolute -bottom-10 -left-6 md:-left-12 bg-celik-yellow border-4 border-celik-dark rounded-full px-4 md:px-6 py-3 md:py-4 shadow-[4px_4px_0px_#1e293b] font-display font-extrabold text-lg md:text-xl text-celik-dark z-20 transform -rotate-12 animate-bounce-slow">
+                        2-6 Yaş Grubu
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Grass Hill / Ground Base -->
+        <div class="relative z-20 w-full h-48 mt-auto">
+            <!-- Decorative Playground elements standing on the grass -->
+            <div class="absolute bottom-10 left-10 text-6xl animate-bounce-slow" style="animation-delay: 0.5s;">🧸</div>
+            <div class="absolute bottom-12 right-20 text-7xl animate-bounce-slow">🧩</div>
+            
+            <!-- Wavy Grass -->
+            <div class="wave-bottom h-[150px]">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.28,189.7,105.9,235.27,95.55,278.43,77.4,321.39,56.44Z" class="shape-fill" fill="#4caf50"></path>
+                </svg>
+            </div>
+            <!-- Ground solid block -->
+            <div class="absolute bottom-0 w-full h-10 bg-celik-green"></div>
+        </div>
+    </section>
+
+    <!-- Info Banner -->
+    <section class="bg-celik-dark text-white py-6 border-b-8 border-celik-yellow relative z-20">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col md:flex-row justify-around items-center gap-6 font-display text-xl">
+                <div class="flex items-center gap-3 font-bold">
+                    <div class="w-12 h-12 bg-celik-red rounded-full border-2 border-white flex items-center justify-center"><i class="fa-solid fa-heart"></i></div>
+                    Sevgi Dolu Eğitim
+                </div>
+                <div class="flex items-center gap-3 font-bold">
+                    <div class="w-12 h-12 bg-celik-blue rounded-full border-2 border-white flex items-center justify-center"><i class="fa-solid fa-robot"></i></div>
+                    Bilim & Kodlama
+                </div>
+                <div class="flex items-center gap-3 font-bold">
+                    <div class="w-12 h-12 bg-celik-purple rounded-full border-2 border-white flex items-center justify-center"><i class="fa-solid fa-bus"></i></div>
+                    Güvenli Ortam
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yaş Gruplarımız (Age Groups - Building Blocks) -->
+    <section id="yas-gruplari" class="py-24 bg-white relative">
+        <div class="paper-tear-top"></div>
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="text-center mb-16" data-aos="zoom-in">
+                <h2 class="font-display text-4xl md:text-5xl font-extrabold text-celik-dark mb-4">Yaş Gruplarımız 🏫</h2>
+                <p class="font-sans text-xl text-gray-500 font-bold max-w-2xl mx-auto">Her yaşın gelişimi farklıdır. Sınıflarımızı gelişim düzeylerine göre ayırıyoruz.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Group 1 -->
+                <div class="play-card bg-[#fff59d] p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-24 h-24 mx-auto bg-white border-4 border-celik-dark rounded-full flex items-center justify-center text-4xl mb-6 shadow-[4px_4px_0px_#1e293b]">🐣</div>
+                    <h3 class="font-display text-3xl font-bold text-celik-dark mb-2">2 - 3 Yaş</h3>
+                    <p class="font-display text-xl text-yellow-800 mb-4">Minikler</p>
+                    <p class="font-sans font-bold text-gray-700">Tuvalet eğitimi, ince motor becerileri, sosyalleşme ve temel iletişim odaklı oyun grupları.</p>
+                </div>
+                <!-- Group 2 -->
+                <div class="play-card bg-[#e1bee7] p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-24 h-24 mx-auto bg-white border-4 border-celik-dark rounded-full flex items-center justify-center text-4xl mb-6 shadow-[4px_4px_0px_#1e293b]">🎨</div>
+                    <h3 class="font-display text-3xl font-bold text-celik-dark mb-2">4 - 5 Yaş</h3>
+                    <p class="font-display text-xl text-purple-900 mb-4">Kaşifler</p>
+                    <p class="font-sans font-bold text-gray-700">Sanat etkinlikleri, kavram öğretimi, dil gelişimi ve İngilizce eğitim temelleri.</p>
+                </div>
+                <!-- Group 3 -->
+                <div class="play-card bg-[#bbdefb] p-8 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-24 h-24 mx-auto bg-white border-4 border-celik-dark rounded-full flex items-center justify-center text-4xl mb-6 shadow-[4px_4px_0px_#1e293b]">🎓</div>
+                    <h3 class="font-display text-3xl font-bold text-celik-dark mb-2">5 - 6 Yaş</h3>
+                    <p class="font-display text-xl text-blue-900 mb-4">Okula Hazırlık</p>
+                    <p class="font-sans font-bold text-gray-700">Çizgi çalışmaları, matematiksel düşünme, kodlama, satranç ve ilkokula donanımlı hazırlık.</p>
+                </div>
+            </div>
+        </div>
+        <div class="paper-tear-bottom"></div>
+    </section>
+
+    <!-- Eğitim Yaklaşımımız (Educational Approach) -->
+    <section id="hakkimizda" class="py-24 bg-celik-paper relative mt-10">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Visuals -->
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
+                    <!-- Scrapbook style image layout -->
+                    <div class="relative h-[400px]">
+                        <div class="photo-card absolute top-0 left-0 w-64 transform -rotate-6">
+                            <div class="tape"></div>
+                            <img src="https://loremflickr.com/400/300/kids,art/all" alt="Sanat Dersi" class="w-full h-40 object-cover border-2 border-gray-200">
+                            <p class="font-display text-center text-lg mt-2 text-celik-dark font-bold">Sanat ve Eğlence 🎨</p>
+                        </div>
+                        <div class="photo-card absolute bottom-0 right-0 w-72 transform rotate-3 z-10">
+                            <div class="tape"></div>
+                            <img src="https://loremflickr.com/400/300/kids,learning/all" alt="Eğitim" class="w-full h-48 object-cover border-2 border-gray-200">
+                            <p class="font-display text-center text-lg mt-2 text-celik-dark font-bold">Oynayarak Öğrenme 🐝</p>
+                        </div>
+                        <!-- Doodle decoration -->
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-6xl text-celik-purple opacity-20 -z-10">
+                            <i class="fa-solid fa-shapes"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <div class="inline-block bg-celik-purple border-2 border-celik-dark px-4 py-1 rounded-full font-display font-bold text-white mb-4 shadow-[2px_2px_0px_#1e293b]">
+                        Çok Yönlü Gelişim
+                    </div>
+                    <h2 class="font-display text-4xl md:text-5xl font-extrabold text-celik-dark mb-6">Oynayarak, Keşfederek Öğreniyoruz!</h2>
+                    <p class="font-sans text-lg font-bold text-gray-600 mb-8">
+                        Çelik Anaokulu'nda deneyimsel eğitime inanıyoruz. Çocuklarımız güvenli ve sevgi dolu bir ortamda yeteneklerini keşfeder, sağlam bir gelecek için ilk adımlarını atar.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 shrink-0 bg-celik-yellow border-2 border-celik-dark rounded-xl flex items-center justify-center text-2xl shadow-[2px_2px_0px_#1e293b]">🇬🇧</div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl text-celik-dark">Yabancı Dil</h4>
+                                <p class="font-sans font-bold text-sm text-gray-500">Erken yaşta İngilizce temeli.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 shrink-0 bg-celik-blue border-2 border-celik-dark rounded-xl flex items-center justify-center text-2xl shadow-[2px_2px_0px_#1e293b]">🧩</div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl text-celik-dark">Akıl Oyunları</h4>
+                                <p class="font-sans font-bold text-sm text-gray-500">Zeka geliştirici masa etkinlikleri.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 shrink-0 bg-celik-green border-2 border-celik-dark rounded-xl flex items-center justify-center text-2xl shadow-[2px_2px_0px_#1e293b]">🍎</div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl text-celik-dark">Güvenli Beslenme</h4>
+                                <p class="font-sans font-bold text-sm text-gray-500">Özenle hazırlanan sağlıklı öğünler.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 shrink-0 bg-[#fb7185] border-2 border-celik-dark rounded-xl flex items-center justify-center text-2xl shadow-[2px_2px_0px_#1e293b]">🏃‍♂️</div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl text-celik-dark">Geniş Alanlar</h4>
+                                <p class="font-sans font-bold text-sm text-gray-500">Hijyenik ve korunaklı oyun alanları.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ETKİNLİKLER (Based on IG Highlights) -->
+    <section id="etkinlikler" class="py-24 bg-celik-yellow relative z-0">
+        <div class="paper-tear-top"></div>
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="text-center mb-16" data-aos="zoom-in">
+                <div class="inline-block bg-white border-4 border-celik-dark rounded-full px-8 py-3 transform -rotate-2">
+                    <h2 class="font-display font-extrabold text-4xl text-celik-dark">Öne Çıkan Etkinliklerimiz</h2>
+                </div>
+            </div>
+
+            <!-- Bento/Grid Layout for Activities -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Bilim Zamanı -->
+                <div class="play-card bg-white overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden relative border-b-4 border-celik-dark">
+                        <img src="https://loremflickr.com/400/300/science,kids/all" alt="Bilim Zamanı" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-2 right-2 bg-celik-purple text-white w-10 h-10 rounded-full border-2 border-celik-dark flex items-center justify-center shadow-md">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display font-bold text-2xl mb-2 text-celik-dark">Bilim Zamanı</h3>
+                        <p class="font-sans font-bold text-gray-600 text-sm">Deneylerle keşfediyor, neden-sonuç ilişkisi kurmayı öğreniyoruz.</p>
+                    </div>
+                </div>
+
+                <!-- Let's English -->
+                <div class="play-card bg-white overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 overflow-hidden relative border-b-4 border-celik-dark">
+                        <img src="https://loremflickr.com/400/300/learning,kids/all" alt="İngilizce" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-2 right-2 bg-celik-blue text-white w-10 h-10 rounded-full border-2 border-celik-dark flex items-center justify-center shadow-md">
+                            <i class="fa-solid fa-language"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display font-bold text-2xl mb-2 text-celik-dark">Let's English</h3>
+                        <p class="font-sans font-bold text-gray-600 text-sm">Erken yaşta yabancı dil temelini oyunlar ve şarkılarla atıyoruz.</p>
+                    </div>
+                </div>
+
+                <!-- Kodlama -->
+                <div class="play-card bg-white overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 overflow-hidden relative border-b-4 border-celik-dark">
+                        <img src="https://loremflickr.com/400/300/computer,kids/all" alt="Kodlama" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-2 right-2 bg-celik-green text-white w-10 h-10 rounded-full border-2 border-celik-dark flex items-center justify-center shadow-md">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display font-bold text-2xl mb-2 text-celik-dark">Robotik Kodlama</h3>
+                        <p class="font-sans font-bold text-gray-600 text-sm">Algoritmik düşünme becerilerini yaşlarına uygun materyallerle geliştiriyoruz.</p>
+                    </div>
+                </div>
+
+                <!-- Satranç -->
+                <div class="play-card bg-white overflow-hidden group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-48 overflow-hidden relative border-b-4 border-celik-dark">
+                        <img src="https://loremflickr.com/400/300/chess,kids/all" alt="Satranç" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-2 right-2 bg-[#fb7185] text-white w-10 h-10 rounded-full border-2 border-celik-dark flex items-center justify-center shadow-md">
+                            <i class="fa-solid fa-chess-knight"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display font-bold text-2xl mb-2 text-celik-dark">Satranç</h3>
+                        <p class="font-sans font-bold text-gray-600 text-sm">Strateji, odaklanma ve problem çözme yeteneklerini güçlendiriyoruz.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Özel Günler Badge -->
+            <div class="mt-12 text-center" data-aos="fade-up">
+                <p class="font-display font-bold text-xl text-celik-dark bg-white border-4 border-celik-dark inline-block px-8 py-3 rounded-full shadow-[4px_4px_0px_#1e293b]">
+                    🎉 Ayrıca; Doğum Günleri, Yerli Malı Haftası ve Tüm Milli Bayramlarımızı Coşkuyla Kutluyoruz!
+                </p>
+            </div>
+        </div>
+        <div class="paper-tear-bottom"></div>
+    </section>
+
+    <!-- GALERİ -->
+    <section id="galeri" class="py-24 bg-celik-bg relative">
+        <div class="container mx-auto px-6 max-w-7xl mt-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="font-display font-extrabold text-4xl text-celik-dark mb-2">Okulumuzdan Kareler</h2>
+                    <p class="font-sans font-bold text-gray-500">Mutlu anılarımızı Instagram'da paylaşıyoruz.</p>
+                </div>
+                <a href="https://www.instagram.com/celikanaokulu/" target="_blank" class="hidden md:inline-flex btn-play bg-white text-celik-purple font-display font-bold px-6 py-2 rounded-xl items-center gap-2">
+                    <i class="fa-brands fa-instagram"></i> Tümünü Gör
+                </a>
+            </div>
+
+            <!-- Polaroid Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
+                <div class="photo-card transform -rotate-2" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="tape"></div>
+                    <img src="https://loremflickr.com/400/400/preschool,art/all" alt="Sanat Etkinliği" class="w-full aspect-square object-cover bg-gray-100">
+                    <p class="font-display font-bold text-center mt-3 text-gray-700">Etkinlikler</p>
+                </div>
+                <div class="photo-card transform rotate-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="tape"></div>
+                    <img src="https://loremflickr.com/400/400/preschool,play/all" alt="Oyun Zamanı" class="w-full aspect-square object-cover bg-gray-100">
+                    <p class="font-display font-bold text-center mt-3 text-gray-700">Oyun Zamanı</p>
+                </div>
+                <div class="photo-card transform -rotate-1 mt-4 md:mt-0" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="tape"></div>
+                    <img src="https://loremflickr.com/400/400/preschool,garden/all" alt="Bahçe Etkinliği" class="w-full aspect-square object-cover bg-gray-100">
+                    <p class="font-display font-bold text-center mt-3 text-gray-700">Açık Hava</p>
+                </div>
+                <div class="photo-card transform rotate-2 mt-4 md:mt-0" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="tape"></div>
+                    <img src="https://loremflickr.com/400/400/preschool,class/all" alt="Sınıf İçi" class="w-full aspect-square object-cover bg-gray-100">
+                    <p class="font-display font-bold text-center mt-3 text-gray-700">Sınıfımız</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10 md:hidden">
+                <a href="https://www.instagram.com/celikanaokulu/" target="_blank" class="inline-flex btn-play bg-white text-celik-purple font-display font-bold px-8 py-3 rounded-xl items-center gap-2">
+                    <i class="fa-brands fa-instagram"></i> Tümünü Gör
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACT (Playful Notebook Theme) -->
+    <footer id="iletisim" class="bg-celik-dark pt-20 pb-10 border-t-8 border-celik-purple relative overflow-hidden">
+        
+        <!-- Decoration SVG -->
+        <div class="absolute -top-10 -right-10 opacity-20 transform rotate-45 pointer-events-none">
+            <i class="fa-solid fa-pencil text-[150px] text-white"></i>
+        </div>
+
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
+                
+                <!-- Contact Info Card (Notebook) -->
+                <div class="play-card notebook-bg p-8 md:p-12 transform -rotate-1 relative">
+                    <!-- Spiral binding aesthetic -->
+                    <div class="absolute top-0 bottom-0 left-4 w-4 flex flex-col justify-between py-6">
+                        <div class="w-4 h-4 rounded-full bg-celik-dark"></div>
+                        <div class="w-4 h-4 rounded-full bg-celik-dark"></div>
+                        <div class="w-4 h-4 rounded-full bg-celik-dark"></div>
+                        <div class="w-4 h-4 rounded-full bg-celik-dark"></div>
+                        <div class="w-4 h-4 rounded-full bg-celik-dark"></div>
+                    </div>
+                    
+                    <div class="pl-8">
+                        <h3 class="font-display font-extrabold text-3xl text-celik-dark mb-8 border-b-2 border-celik-purple/30 pb-4">Bize Ulaşın!</h3>
+                        
+                        <ul class="space-y-6 font-sans font-bold text-lg text-celik-dark">
+                            <li class="flex items-start gap-4">
+                                <div class="bg-white p-3 rounded-full border-2 border-celik-dark shadow-[2px_2px_0px_#1e293b] mt-1 shrink-0">
+                                    <i class="fa-solid fa-location-dot text-celik-purple"></i>
+                                </div>
+                                <div class="bg-white/80 px-4 py-2 rounded-xl">
+                                    <span class="block text-sm text-gray-500 font-bold">Adresimiz</span>
+                                    Yeşilyurt Mah. Oba Sk. No:8/B <br> Merkez / Sivas
+                                </div>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div class="bg-white p-3 rounded-full border-2 border-celik-dark shadow-[2px_2px_0px_#1e293b] shrink-0">
+                                    <i class="fa-solid fa-phone text-celik-green"></i>
+                                </div>
+                                <div class="bg-white/80 px-4 py-2 rounded-xl">
+                                    <span class="block text-sm text-gray-500 font-bold">Telefon</span>
+                                    <a href="tel:05412911320" class="hover:text-celik-purple transition-colors">0541 291 13 20</a>
+                                </div>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div class="bg-white p-3 rounded-full border-2 border-celik-dark shadow-[2px_2px_0px_#1e293b] shrink-0">
+                                    <i class="fa-brands fa-instagram text-[#E1306C]"></i>
+                                </div>
+                                <div class="bg-white/80 px-4 py-2 rounded-xl">
+                                    <span class="block text-sm text-gray-500 font-bold">Sosyal Medya</span>
+                                    <a href="https://www.instagram.com/celikanaokulu/" target="_blank" class="hover:text-celik-purple transition-colors">@celikanaokulu</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Google Maps Embed -->
+                <div class="play-card overflow-hidden p-2 transform rotate-1 bg-white h-full min-h-[300px]">
+                    <div class="w-full h-full rounded-xl overflow-hidden border-2 border-gray-200">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3065.9224424915664!2d37.0163339121696!3d39.78631169353982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407eaa2c4d930c29%3A0xc47e3a992686df04!2s%C3%87elik%20Anaokulu!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" width="100%" height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t-2 border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 font-sans font-bold text-gray-400 text-sm">
+                <p>&copy; 2026 Çelik Anaokulu. Tüm hakları saklıdır.</p>
+                <div class="flex items-center gap-2">
+                    <span>Sevgiyle yapıldı</span> <i class="fa-solid fa-heart text-[#fb7185]"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({
+            once: true,
+            offset: 20,
+            duration: 600,
+        });
+    </script>
+</body>
+</html>

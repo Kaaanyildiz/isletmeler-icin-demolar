@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sivas Beyazlale Çiçekevi | Buket, Çelenk & Organizasyon</title>
+    <meta name="description" content="Sivas Beyazlale Çiçekevi; özel günlerinizi taçlandıran aranjmanlar, buketler, gelin arabası süslemesi ve çelenk hizmetleri ile Sivas Merkez'de.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        botanical: {
+                            50: '#f4f7f4',
+                            100: '#e3ebe3',
+                            500: '#6b8e6b', // Sage Green
+                            600: '#527252',
+                            800: '#2c402c',
+                            900: '#1b291b',
+                        },
+                        blush: {
+                            50: '#fff5f7',
+                            100: '#ffe4e8',
+                            400: '#fb7185',
+                            500: '#f43f5e', // Rose
+                            600: '#e11d48',
+                        },
+                        surface: '#ffffff'
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(107, 142, 107, 0.1);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+        }
+
+        .flower-card {
+            transition: all 0.5s ease;
+        }
+        .flower-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(107, 142, 107, 0.2);
+        }
+        .flower-card:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Organic blob shapes for background */
+        .blob-bg {
+            position: absolute;
+            filter: blur(60px);
+            z-index: 0;
+            border-radius: 50%;
+            animation: float 10s infinite ease-in-out alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            100% { transform: translate(30px, -50px) rotate(10deg) scale(1.1); }
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Elegant scrollbar for horizontal gallery */
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        #mobile-menu {
+            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+        
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236b8e6b' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-surface antialiased selection:bg-botanical-500 selection:text-white relative">
+
+    <!-- Top Info Bar -->
+    <div class="bg-botanical-900 text-white/90 text-xs py-2.5 hidden lg:block">
+        <div class="container mx-auto px-6 max-w-7xl flex justify-between items-center">
+            <div class="flex items-center gap-6 font-medium">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-leaf text-botanical-500"></i> Sivas İçi Aynı Gün Taze Teslimat
+                </span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="https://www.instagram.com/sivasbeyazlale/" target="_blank" class="hover:text-blush-400 transition-colors flex items-center gap-2 tracking-wide">
+                    <i class="fa-brands fa-instagram text-sm"></i> @sivasbeyazlale
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="fixed w-full top-0 lg:top-[36px] z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-100 py-3">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-full border border-botanical-500 flex items-center justify-center p-1 bg-white shadow-sm group-hover:shadow-md transition-shadow">
+                        <!-- A delicate flower icon -->
+                        <i class="fa-solid fa-spa text-botanical-600 text-2xl group-hover:text-blush-500 transition-colors"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="font-serif font-bold text-2xl text-gray-900 leading-none tracking-tight">Beyazlale</h1>
+                        <p class="text-[9px] font-bold tracking-[0.25em] text-botanical-600 uppercase mt-1">Sivas Çiçekevi</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#koleksiyonlar" class="text-sm font-bold text-gray-700 hover:text-botanical-600 transition-colors uppercase tracking-widest">Koleksiyonlar</a>
+                    <a href="#hizmetler" class="text-sm font-bold text-gray-700 hover:text-botanical-600 transition-colors uppercase tracking-widest">Hizmetlerimiz</a>
+                    <a href="#hakkimizda" class="text-sm font-bold text-gray-700 hover:text-botanical-600 transition-colors uppercase tracking-widest">Hikayemiz</a>
+                    <a href="#iletisim" class="text-sm font-bold text-gray-700 hover:text-botanical-600 transition-colors uppercase tracking-widest">İletişim</a>
+                    
+                    <a href="#iletisim" class="bg-botanical-600 hover:bg-botanical-800 text-white px-7 py-3 rounded-none text-sm font-bold transition-all shadow-md hover:shadow-xl uppercase tracking-widest border border-botanical-800">
+                        Sipariş Ver
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-botanical-900 text-2xl focus:outline-none bg-botanical-50 w-10 h-10 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-white border-t border-gray-100 px-6 py-4 mt-3 shadow-2xl absolute w-full">
+            <div class="flex flex-col gap-4 text-center">
+                <a href="#koleksiyonlar" class="text-sm font-bold text-gray-800 border-b border-gray-50 pb-3 uppercase tracking-widest">Koleksiyonlar</a>
+                <a href="#hizmetler" class="text-sm font-bold text-gray-800 border-b border-gray-50 pb-3 uppercase tracking-widest">Hizmetlerimiz</a>
+                <a href="#hakkimizda" class="text-sm font-bold text-gray-800 border-b border-gray-50 pb-3 uppercase tracking-widest">Hikayemiz</a>
+                <a href="#iletisim" class="text-sm font-bold text-gray-800 border-b border-gray-50 pb-3 uppercase tracking-widest">İletişim</a>
+                <a href="#iletisim" class="bg-botanical-600 text-white px-6 py-3 text-sm font-bold shadow-md mt-2 uppercase tracking-widest">
+                    Sipariş Ver
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-botanical-50 hero-pattern overflow-hidden">
+        <div class="blob-bg w-96 h-96 bg-blush-100/60 top-0 right-0"></div>
+        <div class="blob-bg w-96 h-96 bg-botanical-100/60 bottom-0 left-0" style="animation-delay: -5s;"></div>
+
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                
+                <!-- Text Content -->
+                <div class="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-botanical-900 leading-[1.1] mb-6">
+                        Duygularınızı <br>
+                        <span class="text-blush-500 italic font-normal">Çiçeklerle</span> İfade Edin.
+                    </h1>
+                    
+                    <p class="text-gray-600 mb-10 text-lg font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        Sivas Beyazlale Çiçekevi olarak; en taze çiçekleri, özenle hazırlanan buketleri ve organizasyon hizmetlerini sevdiklerinize taşıyoruz. Her aranjman, bizim için küçük bir sanat eseridir.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#koleksiyonlar" class="bg-botanical-800 hover:bg-botanical-900 text-white px-8 py-4 text-sm font-bold transition-all shadow-lg hover:shadow-xl uppercase tracking-widest w-full sm:w-auto">
+                            Koleksiyonu Gör
+                        </a>
+                        <a href="https://www.instagram.com/sivasbeyazlale/" target="_blank" class="bg-white hover:bg-blush-50 text-botanical-900 border border-botanical-100 px-8 py-4 text-sm font-bold transition-all uppercase tracking-widest w-full sm:w-auto flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-instagram text-blush-500 text-lg"></i> Bizi Takip Edin
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                    <div class="relative w-full max-w-[500px] mx-auto aspect-[4/5]">
+                        <!-- Decorative Frame -->
+                        <div class="absolute inset-0 border border-botanical-500 transform translate-x-4 translate-y-4 rounded-t-full"></div>
+                        
+                        <!-- Main Image -->
+                        <div class="absolute inset-0 rounded-t-full overflow-hidden shadow-2xl">
+                            <img src="https://picsum.photos/seed/bouquethero/800/1000" alt="Harika Çiçek Buketi" class="w-full h-full object-cover">
+                            <!-- Soft overlay -->
+                            <div class="absolute inset-0 bg-botanical-900/10 mix-blend-multiply"></div>
+                        </div>
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-12 -left-6 bg-white px-6 py-4 shadow-xl flex items-center gap-4 animate-bounce" style="animation-duration: 4s;">
+                            <div class="w-12 h-12 bg-blush-50 rounded-full flex items-center justify-center text-blush-500 text-xl">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Sivas İçi</p>
+                                <p class="font-serif font-bold text-botanical-900 text-lg">Aynı Gün Teslimat</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features / Quick Stats -->
+    <section class="py-10 bg-white border-b border-gray-100 relative z-20">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                <div class="py-4" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-seedling text-3xl text-botanical-500 mb-3"></i>
+                    <h3 class="font-serif font-bold text-xl text-gray-900">Taze & Canlı Çiçekler</h3>
+                    <p class="text-sm text-gray-500 mt-2 font-light">Mevsimin en taze çiçeklerini özenle seçiyoruz.</p>
+                </div>
+                <div class="py-4" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-wand-magic-sparkles text-3xl text-blush-500 mb-3"></i>
+                    <h3 class="font-serif font-bold text-xl text-gray-900">Özel Tasarım Aranjman</h3>
+                    <p class="text-sm text-gray-500 mt-2 font-light">Kişiye özel, konsept buket ve kutu tasarımları.</p>
+                </div>
+                <div class="py-4" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-motorcycle text-3xl text-botanical-500 mb-3"></i>
+                    <h3 class="font-serif font-bold text-xl text-gray-900">Hızlı & Güvenli Teslimat</h3>
+                    <p class="text-sm text-gray-500 mt-2 font-light">Sivas merkezde kapınıza kadar özenle ulaştırıyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Categories -->
+    <section id="hizmetler" class="py-24 bg-surface">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h4 class="text-blush-500 font-bold uppercase tracking-widest text-xs mb-3">Neler Yapıyoruz?</h4>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-botanical-900">Çiçek & Organizasyon Hizmetleri</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="flower-card relative h-[400px] overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://picsum.photos/seed/bouquet1/600/800" alt="Buket ve Aranjman" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-botanical-900/90 via-botanical-900/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 text-center">
+                        <i class="fa-solid fa-gift text-white/70 text-2xl mb-3"></i>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Buket & Aranjman</h3>
+                        <p class="text-gray-200 text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">Özel günlere özel, kutu ve vazo tasarımları.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="flower-card relative h-[400px] overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://picsum.photos/seed/weddingcar/600/800" alt="Gelin Arabası Süsleme" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-botanical-900/90 via-botanical-900/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 text-center">
+                        <i class="fa-solid fa-car text-white/70 text-2xl mb-3"></i>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Gelin Arabası</h3>
+                        <p class="text-gray-200 text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">Düğün gününüzü taze çiçeklerle süslüyoruz.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="flower-card relative h-[400px] overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://picsum.photos/seed/wreath/600/800" alt="Çelenk Hizmetleri" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-botanical-900/90 via-botanical-900/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 text-center">
+                        <i class="fa-solid fa-ribbon text-white/70 text-2xl mb-3"></i>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Çelenk Hizmetleri</h3>
+                        <p class="text-gray-200 text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">Düğün, açılış ve cenaze törenleri için çelenkler.</p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="flower-card relative h-[400px] overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://picsum.photos/seed/terrarium/600/800" alt="Teraryum ve Saksı Bitkileri" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-botanical-900/90 via-botanical-900/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 text-center">
+                        <i class="fa-solid fa-leaf text-white/70 text-2xl mb-3"></i>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Teraryum & Saksı</h3>
+                        <p class="text-gray-200 text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">Kalıcı hediyeler için salon bitkileri ve teraryumlar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="hakkimizda" class="py-24 bg-botanical-50 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Content -->
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <h4 class="text-blush-500 font-bold uppercase tracking-widest text-xs mb-3">Hikayemiz</h4>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-botanical-900 mb-8 leading-tight">Sivas'ın Çiçek Mimarı: Beyazlale Çiçekevi</h2>
+                    
+                    <p class="text-gray-600 mb-6 font-light leading-relaxed text-lg">
+                        Beyazlale Çiçekevi olarak, doğanın bize sunduğu en güzel renkleri ve kokuları, sizlerin sevdiklerinize iletmek istediği duygularla harmanlıyoruz.
+                    </p>
+                    <p class="text-gray-600 mb-8 font-light leading-relaxed text-lg">
+                        İster sıradan bir günü özelleştirmek için zarif bir buket, ister hayatınızın en önemli anı için gösterişli bir gelin arabası süslemesi olsun; her işimizde sanatı, tazeliği ve kaliteyi ön planda tutuyoruz. Sivas'taki adresimizde sizi bekliyoruz.
+                    </p>
+                    
+                    <div class="flex items-center gap-4 border-l-2 border-blush-500 pl-6 py-2">
+                        <p class="font-serif text-xl text-botanical-800 italic">"Güzellik detaylarda gizlidir. Biz, o detayları sizin için çiçeklere işliyoruz."</p>
+                    </div>
+                </div>
+                
+                <!-- Image -->
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <div class="relative max-w-md mx-auto">
+                        <img src="https://picsum.photos/seed/floristshop/600/800" alt="Çiçekçi Dükkanı" class="rounded-t-full rounded-b-md shadow-2xl relative z-10 w-full object-cover">
+                        <div class="absolute -inset-4 border border-botanical-500 rounded-t-full rounded-b-md transform translate-x-4 -translate-y-4"></div>
+                        <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-blush-100 rounded-full z-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection / Popular Products -->
+    <section id="koleksiyonlar" class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16" data-aos="fade-up">
+                <div>
+                    <h4 class="text-blush-500 font-bold uppercase tracking-widest text-xs mb-3">En Sevilenler</h4>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-botanical-900">Popüler Tasarımlarımız</h2>
+                </div>
+                <a href="https://www.instagram.com/sivasbeyazlale/" target="_blank" class="text-botanical-600 font-bold uppercase tracking-widest text-xs border-b border-botanical-600 pb-1 hover:text-blush-500 hover:border-blush-500 transition-colors">
+                    Tümünü Instagram'da İncele <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Horizontal Scroll Gallery -->
+            <div class="flex overflow-x-auto gap-8 pb-12 pt-4 hide-scroll snap-x snap-mandatory" data-aos="fade-up" data-aos-delay="200">
+                
+                <!-- Product 1 -->
+                <div class="shrink-0 w-72 snap-center group">
+                    <div class="relative h-80 overflow-hidden mb-6">
+                        <img src="https://picsum.photos/seed/rosebox/600/800" alt="Kutuda Güller" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-botanical-900">Romantik</div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="font-serif text-xl font-bold text-gray-900 mb-1">Silindir Kutu Güller</h3>
+                        <p class="text-gray-500 text-sm font-light">Özel tasarım şık kutuda taze ithal güller.</p>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="shrink-0 w-72 snap-center group">
+                    <div class="relative h-80 overflow-hidden mb-6">
+                        <img src="https://picsum.photos/seed/mixedbouquet/600/800" alt="Karışık Buket" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-botanical-900">Tebrik</div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="font-serif text-xl font-bold text-gray-900 mb-1">Bahar Esintisi Buket</h3>
+                        <p class="text-gray-500 text-sm font-light">Mevsim yeşillikleri ve taze kır çiçekleri.</p>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="shrink-0 w-72 snap-center group">
+                    <div class="relative h-80 overflow-hidden mb-6">
+                        <img src="https://picsum.photos/seed/orchid/600/800" alt="Orkide" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-botanical-900">Kalıcı</div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="font-serif text-xl font-bold text-gray-900 mb-1">Çift Dal Orkide</h3>
+                        <p class="text-gray-500 text-sm font-light">Seramik saksıda şık ve uzun ömürlü hediye.</p>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="shrink-0 w-72 snap-center group">
+                    <div class="relative h-80 overflow-hidden mb-6">
+                        <img src="https://picsum.photos/seed/weddingceremony/600/800" alt="Gelin Buketi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-botanical-900">Düğün</div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="font-serif text-xl font-bold text-gray-900 mb-1">Gelin Buketi</h3>
+                        <p class="text-gray-500 text-sm font-light">Gelinliğini tamamlayacak eşsiz tasarım buketler.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Process / How to order -->
+    <section class="py-24 bg-botanical-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://picsum.photos/seed/leaves/1920/1080')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h4 class="text-blush-400 font-bold uppercase tracking-widest text-xs mb-3">Çalışma Sürecimiz</h4>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold mb-6">Nasıl Sipariş Verilir?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Step 1 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 mx-auto border border-botanical-500 rounded-full flex items-center justify-center text-2xl text-blush-400 mb-6">
+                        1
+                    </div>
+                    <h3 class="font-serif font-bold text-xl mb-3">Seçim & İletişim</h3>
+                    <p class="text-botanical-100 font-light text-sm leading-relaxed">Instagram sayfamızdan beğendiğiniz modeli seçin veya hayalinizdeki tasarımı bize anlatın. İletişim numaralarımızdan ulaşın.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto border border-botanical-500 rounded-full flex items-center justify-center text-2xl text-blush-400 mb-6">
+                        2
+                    </div>
+                    <h3 class="font-serif font-bold text-xl mb-3">Taze Hazırlık</h3>
+                    <p class="text-botanical-100 font-light text-sm leading-relaxed">Siparişiniz onaylandıktan sonra, en taze çiçekler kullanılarak uzman floristlerimiz tarafından özenle hazırlanır.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 mx-auto border border-botanical-500 rounded-full flex items-center justify-center text-2xl text-blush-400 mb-6">
+                        3
+                    </div>
+                    <h3 class="font-serif font-bold text-xl mb-3">Teslimat & Mutluluk</h3>
+                    <p class="text-botanical-100 font-light text-sm leading-relaxed">Sivas merkez içindeki belirttiğiniz adrese güvenli ve şık bir şekilde teslim edilir. Sürpriz ve mutluluk garanti!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h4 class="text-blush-500 font-bold uppercase tracking-widest text-xs mb-3">Yorumlar</h4>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-botanical-900">Müşterilerimizin Mutluluğu</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-botanical-50 p-10 relative" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-quote-left text-4xl text-botanical-100 absolute top-6 left-6"></i>
+                    <div class="flex gap-1 text-blush-400 text-xs mb-6 relative z-10">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 font-light leading-relaxed mb-8 relative z-10 italic">
+                        "Düğünümüz için gelin arabası süslemesini Beyazlale'ye yaptırdık. O kadar zarif ve canlı çiçekler kullanmışlardı ki herkes bayıldı. İlginiz için çok teşekkürler."
+                    </p>
+                    <div class="font-bold text-botanical-900 text-sm uppercase tracking-widest">- Merve & Can</div>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="bg-botanical-50 p-10 relative" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-quote-left text-4xl text-botanical-100 absolute top-6 left-6"></i>
+                    <div class="flex gap-1 text-blush-400 text-xs mb-6 relative z-10">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 font-light leading-relaxed mb-8 relative z-10 italic">
+                        "Anneler günü için İstanbul'dan Sivas'a sipariş verdim. Buket görseldekinden bile daha güzel gitmiş. Tam zamanında ve çok şık bir sunumla teslim edildi."
+                    </p>
+                    <div class="font-bold text-botanical-900 text-sm uppercase tracking-widest">- Zeynep A.</div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-botanical-50 p-10 relative" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-quote-left text-4xl text-botanical-100 absolute top-6 left-6"></i>
+                    <div class="flex gap-1 text-blush-400 text-xs mb-6 relative z-10">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 font-light leading-relaxed mb-8 relative z-10 italic">
+                        "İş yeri açılışımız için gönderilen çelenkler son derece gösterişli ve kaliteliydi. Sivas'ta çiçek konusunda tek geçerim. Elinize sağlık."
+                    </p>
+                    <div class="font-bold text-botanical-900 text-sm uppercase tracking-widest">- Ahmet Y.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 bg-surface">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h4 class="text-blush-500 font-bold uppercase tracking-widest text-xs mb-3">Sıkça Sorulan Sorular</h4>
+                <h2 class="font-serif text-3xl font-bold text-botanical-900">Merak Edilenler</h2>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ 1 -->
+                <details class="group bg-botanical-50 p-6 cursor-pointer [&_summary::-webkit-details-marker]:hidden border border-transparent hover:border-botanical-100 transition-colors">
+                    <summary class="flex items-center justify-between font-bold text-botanical-900">
+                        <span>Hangi bölgelere teslimat yapıyorsunuz?</span>
+                        <span class="transition group-open:rotate-180 text-blush-500"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 font-light text-sm leading-relaxed">
+                        Sivas merkez içerisindeki tüm adreslere (ev, iş yeri, hastane, okul vb.) güvenli teslimatımız bulunmaktadır. İlçe teslimatları için lütfen bizimle iletişime geçin.
+                    </p>
+                </details>
+
+                <!-- FAQ 2 -->
+                <details class="group bg-botanical-50 p-6 cursor-pointer [&_summary::-webkit-details-marker]:hidden border border-transparent hover:border-botanical-100 transition-colors">
+                    <summary class="flex items-center justify-between font-bold text-botanical-900">
+                        <span>Siparişim aynı gün teslim edilir mi?</span>
+                        <span class="transition group-open:rotate-180 text-blush-500"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 font-light text-sm leading-relaxed">
+                        Evet, stok durumuna göre belirli bir saate kadar verilen siparişler Sivas merkez içine aynı gün içerisinde, talep ettiğiniz zaman aralığında teslim edilir.
+                    </p>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details class="group bg-botanical-50 p-6 cursor-pointer [&_summary::-webkit-details-marker]:hidden border border-transparent hover:border-botanical-100 transition-colors">
+                    <summary class="flex items-center justify-between font-bold text-botanical-900">
+                        <span>Özel günlerde (Sevgililer Günü, Anneler Günü) sipariş süreci nasıldır?</span>
+                        <span class="transition group-open:rotate-180 text-blush-500"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 font-light text-sm leading-relaxed">
+                        Özel günlerde yoğunluk yaşandığı için siparişlerinizi en az 1-2 gün önceden oluşturmanızı tavsiye ederiz. Erken sipariş, tam istediğiniz tasarımın garanti altına alınmasını sağlar.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="iletisim" class="py-24 bg-botanical-900 text-white relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <!-- Info & Form -->
+                <div class="w-full lg:w-5/12">
+                    <h4 class="text-blush-400 font-bold uppercase tracking-widest text-xs mb-3">İletişim</h4>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-10">Bize Ulaşın veya Ziyaret Edin</h2>
+                    
+                    <div class="space-y-6 mb-12">
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-location-dot mt-1 text-blush-400 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold text-sm tracking-widest uppercase mb-1">Adres</h4>
+                                <p class="text-botanical-100 font-light text-sm">Merkez, Sivas<br>(Detaylı adres bilgisi eklenecektir)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-phone mt-1 text-blush-400 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold text-sm tracking-widest uppercase mb-1">Telefon / WhatsApp</h4>
+                                <a href="tel:+905000000000" class="text-botanical-100 font-light text-sm hover:text-white transition-colors">05XX XXX XX XX</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-brands fa-instagram mt-1 text-blush-400 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold text-sm tracking-widest uppercase mb-1">Instagram</h4>
+                                <a href="https://www.instagram.com/sivasbeyazlale/" target="_blank" class="text-botanical-100 font-light text-sm hover:text-white transition-colors">@sivasbeyazlale</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Message Form -->
+                    <form onsubmit="event.preventDefault(); alert('Talebiniz alınmıştır. Size dönüş yapacağız.');" class="bg-botanical-800 p-8">
+                        <h4 class="font-serif text-xl font-bold mb-6">Sipariş Talebi Oluşturun</h4>
+                        <div class="space-y-4">
+                            <input type="text" placeholder="Adınız Soyadınız" required class="w-full bg-transparent border-b border-botanical-600 px-0 py-3 text-white focus:outline-none focus:border-blush-400 transition-colors font-light text-sm">
+                            <input type="tel" placeholder="Telefon Numaranız" required class="w-full bg-transparent border-b border-botanical-600 px-0 py-3 text-white focus:outline-none focus:border-blush-400 transition-colors font-light text-sm">
+                            <select class="w-full bg-transparent border-b border-botanical-600 px-0 py-3 text-white focus:outline-none focus:border-blush-400 transition-colors font-light text-sm appearance-none">
+                                <option class="bg-botanical-900">Buket / Aranjman</option>
+                                <option class="bg-botanical-900">Gelin Arabası</option>
+                                <option class="bg-botanical-900">Çelenk</option>
+                                <option class="bg-botanical-900">Saksı Çiçeği / Teraryum</option>
+                            </select>
+                            <button type="submit" class="w-full bg-white hover:bg-blush-50 text-botanical-900 font-bold py-4 mt-4 uppercase tracking-widest text-sm transition-colors">
+                                Gönder
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Map -->
+                <div class="w-full lg:w-7/12 min-h-[400px] bg-botanical-800">
+                    <!-- Sivas Center generic map -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12175.760193154865!2d37.0163351!3d39.7554903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407eaa0a96ef8b13%3A0xcdaee506b3a32f6!2zS2FyZGXFn2xlciwgU2l2YXMgTWVya2V6L1NpdmFz!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-botanical-950 py-12 text-botanical-100 border-t border-botanical-900">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <!-- Brand -->
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-spa text-blush-500 text-3xl"></i>
+                    <div>
+                        <h2 class="font-serif font-bold text-xl text-white leading-none tracking-tight">Beyazlale</h2>
+                        <p class="text-[9px] font-bold tracking-[0.25em] text-botanical-500 uppercase mt-1">Sivas Çiçekevi</p>
+                    </div>
+                </div>
+                
+                <!-- Links -->
+                <div class="flex gap-6 text-sm font-bold uppercase tracking-widest text-botanical-400">
+                    <a href="#koleksiyonlar" class="hover:text-white transition-colors">Koleksiyon</a>
+                    <a href="#hakkimizda" class="hover:text-white transition-colors">Hikayemiz</a>
+                    <a href="#iletisim" class="hover:text-white transition-colors">İletişim</a>
+                </div>
+                
+                <!-- Social -->
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/sivasbeyazlale/" target="_blank" class="w-10 h-10 border border-botanical-800 flex items-center justify-center text-botanical-400 hover:bg-blush-500 hover:text-white hover:border-transparent transition-all">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 pt-8 border-t border-botanical-900 text-xs font-light text-botanical-600 uppercase tracking-widest">
+                &copy; 2026 Sivas Beyazlale Çiçekevi. Tüm Hakları Saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="tel:+905000000000" class="whatsapp-float" aria-label="Bizi Arayın">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({
+            once: true,
+            offset: 30,
+            duration: 800,
+        });
+
+        // Sticky Navbar
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('glass-nav');
+                header.classList.remove('bg-white/90', 'lg:top-[36px]');
+            } else {
+                header.classList.remove('glass-nav');
+                header.classList.add('bg-white/90', 'lg:top-[36px]');
+            }
+        });
+
+        // Mobile Menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const icon = mobileBtn.querySelector('i');
+            if(mobileMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu on link click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>

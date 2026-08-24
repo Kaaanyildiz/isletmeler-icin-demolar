@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ataman Su Arıtma | 10 Yıl Garantili Yüksek Kalite</title>
+    <meta name="description" content="Ev ve endüstriyel su arıtma sistemlerinde yüksek kalite, 10 yıl garanti ve kusursuz servis. Sağlıklı suya Ataman Su Arıtma ile ulaşın.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Sora for technical/modern headings, Inter for clean body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        water: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9', // Primary Aqua
+                            600: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e', // Deep Ocean
+                            950: '#082f49',
+                        },
+                        surface: '#ffffff',
+                        dark: '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Sora', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(14, 165, 233, 0.5)',
+                        'glass': '0 8px 32px 0 rgba(14, 165, 233, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #082f49;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.6s ease-out;
+        }
+        .drop-loader {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #0ea5e9;
+            animation: dropBounce 1s infinite alternate cubic-bezier(0.5, 0.05, 1, 0.5);
+            box-shadow: 0 0 20px #0ea5e9;
+        }
+        @keyframes dropBounce {
+            0% { transform: translateY(-50px) scale(0.9, 1.1); }
+            100% { transform: translateY(50px) scale(1.1, 0.9); }
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .glass-dark {
+            background: rgba(8, 47, 73, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        /* Hero Mesh Gradient */
+        .hero-mesh {
+            background-color: #082f49;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(200,100%,40%,1) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(190,100%,30%,1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(210,100%,20%,1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(195,100%,25%,1) 0px, transparent 50%);
+            animation: meshMove 15s ease-in-out infinite alternate;
+        }
+        @keyframes meshMove {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* Animated Wave Divider */
+        .wave-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .wave-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 120px;
+        }
+        .wave-bottom .shape-fill { fill: #ffffff; }
+
+        /* Interactive Product Tabs */
+        .tab-btn.active {
+            background-color: #0ea5e9;
+            color: white;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .tab-content.active { display: block; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Feature Card Hover */
+        .feature-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.1);
+            border-color: #0ea5e9;
+        }
+        .feature-card:hover .icon-wrapper {
+            background-color: #0ea5e9;
+            color: white;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Stage Item (How it works) */
+        .stage-item::before {
+            content: '';
+            position: absolute;
+            left: 23px;
+            top: 50px;
+            bottom: -30px;
+            width: 2px;
+            background: #e0f2fe;
+            z-index: 0;
+        }
+        .stage-item:last-child::before { display: none; }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 20px rgba(37, 211, 102, 0.5);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.15) rotate(-10deg);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-surface antialiased selection:bg-water-500 selection:text-white">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="drop-loader"></div>
+    </div>
+
+    <!-- Premium Top Bar -->
+    <div class="bg-water-950 text-white py-2 hidden lg:block border-b border-water-800">
+        <div class="container mx-auto px-6 max-w-7xl flex justify-between items-center text-xs font-medium tracking-wide">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-2 text-water-100">
+                    <i class="fa-solid fa-shield-halved text-water-400"></i> %100 Orijinal Ürün & 10 Yıl Garanti
+                </span>
+                <span class="flex items-center gap-2 text-water-100">
+                    <i class="fa-solid fa-wrench text-water-400"></i> Profesyonel Teknik Servis
+                </span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="https://www.instagram.com/ataman_su_aritma/" target="_blank" class="flex items-center gap-2 hover:text-water-400 transition-colors">
+                    <i class="fa-brands fa-instagram text-sm"></i> @ataman_su_aritma
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header id="header" class="fixed w-full top-0 lg:top-[34px] z-50 transition-all duration-300 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-water-400 to-water-600 rounded-xl flex items-center justify-center shadow-glow">
+                        <i class="fa-solid fa-droplet text-white text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="font-display font-extrabold text-2xl text-water-950 leading-none tracking-tight">ATAMAN</h1>
+                        <p class="text-[9.5px] font-bold tracking-[0.2em] text-water-600 uppercase mt-1">Su Arıtma Sistemleri</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#hakkimizda" class="text-sm font-semibold text-gray-700 hover:text-water-600 transition-colors">Hakkımızda</a>
+                    <a href="#urunler" class="text-sm font-semibold text-gray-700 hover:text-water-600 transition-colors">Ürünlerimiz</a>
+                    <a href="#teknoloji" class="text-sm font-semibold text-gray-700 hover:text-water-600 transition-colors">Teknoloji</a>
+                    <a href="#referanslar" class="text-sm font-semibold text-gray-700 hover:text-water-600 transition-colors">Referanslar</a>
+                    
+                    <a href="#iletisim" class="bg-water-600 hover:bg-water-500 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg shadow-water-500/30 transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <i class="fa-solid fa-phone"></i> İletişime Geç
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-water-950 text-2xl focus:outline-none">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 hidden absolute w-full shadow-2xl">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#hakkimizda" class="text-base font-semibold text-gray-800">Hakkımızda</a>
+                <a href="#urunler" class="text-base font-semibold text-gray-800">Ürünlerimiz</a>
+                <a href="#teknoloji" class="text-base font-semibold text-gray-800">Teknoloji</a>
+                <a href="#iletisim" class="bg-water-600 text-white px-6 py-3 rounded-lg text-center font-bold mt-4 shadow-md">
+                    İletişime Geç
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Advanced Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden hero-mesh">
+        <!-- Floating Water Elements -->
+        <div class="absolute top-1/4 left-10 w-32 h-32 bg-water-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-10 w-64 h-64 bg-water-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+
+        <div class="container mx-auto px-6 max-w-7xl relative z-10 flex flex-col lg:flex-row items-center gap-12">
+            
+            <!-- Text Content -->
+            <div class="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-right" data-aos-duration="1200">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark mb-6 border border-water-400/30">
+                    <div class="w-2 h-2 rounded-full bg-green-400 animate-ping"></div>
+                    <span class="text-xs font-bold text-water-100 tracking-wider uppercase">10 Yıl Garantili Yüksek Kalite</span>
+                </div>
+                
+                <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg">
+                    Sağlıklı Suya Ulaşmanın <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-water-200 to-water-400">En Saf Yolu</span>
+                </h1>
+                
+                <p class="text-water-100 mb-10 text-lg md:text-xl font-light leading-relaxed max-w-xl mx-auto lg:mx-0 opacity-90">
+                    Ataman Su Arıtma ile evinize ve işletmenize dağ pınarı tazeliğini getiriyoruz. Uzun ömürlü cihazlar, kusursuz teknik servis ve yüksek kalite standartları.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#urunler" class="w-full sm:w-auto bg-white hover:bg-water-50 text-water-900 px-8 py-4 rounded-full text-sm font-bold transition-all shadow-lg transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                        Sistemleri İncele <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#iletisim" class="w-full sm:w-auto glass-dark hover:bg-water-800/80 text-white px-8 py-4 rounded-full text-sm font-bold transition-all border border-water-400/30 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone"></i> Ücretsiz Keşif
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Visual (Interactive Device Showcase mock) -->
+            <div class="w-full lg:w-1/2 relative hidden md:block" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                <div class="relative w-full max-w-lg mx-auto">
+                    <!-- Glow effect behind device -->
+                    <div class="absolute inset-0 bg-water-400/30 blur-[100px] rounded-full"></div>
+                    <!-- Device Image Placeholder (Using a sleek kitchen/water aesthetic) -->
+                    <img src="https://picsum.photos/seed/purewater/800/1000" alt="Su Arıtma Cihazı" class="relative z-10 w-full h-[600px] object-cover rounded-[2.5rem] shadow-2xl border-4 border-white/10 glass-dark">
+                    
+                    <!-- Floating Data Badges -->
+                    <div class="absolute top-20 -left-10 glass-dark p-4 rounded-2xl border border-white/10 z-20 shadow-2xl flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                        <div class="w-10 h-10 rounded-full bg-water-500 flex items-center justify-center text-white"><i class="fa-solid fa-microscope"></i></div>
+                        <div>
+                            <div class="text-xs text-water-200">Arıtma Hassasiyeti</div>
+                            <div class="text-lg font-bold text-white">0.0001 Mikron</div>
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-32 -right-10 glass-dark p-4 rounded-2xl border border-white/10 z-20 shadow-2xl flex items-center gap-4 animate-bounce" style="animation-duration: 4s; animation-delay: 1s;">
+                        <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white"><i class="fa-solid fa-leaf"></i></div>
+                        <div>
+                            <div class="text-xs text-water-200">Mineralli Su</div>
+                            <div class="text-lg font-bold text-white">%100 Doğal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SVG Wave Divider -->
+        <div class="wave-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.28,189.7,105.9,235.27,95.55,278.43,77.4,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Trust / Stats Section -->
+    <section class="py-12 bg-white relative z-20 -mt-10">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="glass rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_rgba(8,47,73,0.05)] border border-gray-100 flex flex-wrap gap-8 justify-between items-center transform -translate-y-12 bg-white" data-aos="fade-up">
+                
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-full bg-water-50 flex items-center justify-center text-water-600 text-3xl shrink-0"><i class="fa-solid fa-medal"></i></div>
+                    <div>
+                        <h3 class="font-display font-bold text-xl text-gray-900">10 Yıl Garanti</h3>
+                        <p class="text-sm text-gray-500">Cihazlarımızda tam güvence</p>
+                    </div>
+                </div>
+                
+                <div class="w-px h-16 bg-gray-200 hidden md:block"></div>
+
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-full bg-water-50 flex items-center justify-center text-water-600 text-3xl shrink-0"><i class="fa-solid fa-droplet"></i></div>
+                    <div>
+                        <h3 class="font-display font-bold text-xl text-gray-900">Yüksek Kalite</h3>
+                        <p class="text-sm text-gray-500">NSF Onaylı filtre bileşenleri</p>
+                    </div>
+                </div>
+
+                <div class="w-px h-16 bg-gray-200 hidden md:block"></div>
+
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-full bg-water-50 flex items-center justify-center text-water-600 text-3xl shrink-0"><i class="fa-solid fa-headset"></i></div>
+                    <div>
+                        <h3 class="font-display font-bold text-xl text-gray-900">7/24 Teknik Servis</h3>
+                        <p class="text-sm text-gray-500">Satış sonrası kesintisiz destek</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="hakkimizda" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Visual -->
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
+                    <div class="relative rounded-[2rem] overflow-hidden group">
+                        <img src="https://picsum.photos/seed/cleanwater2/800/800" alt="Temiz Su" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-water-950/80 to-transparent"></div>
+                        <div class="absolute bottom-8 left-8 text-white">
+                            <h3 class="font-display text-3xl font-bold mb-2">Sağlık Kaynağınız</h3>
+                            <p class="font-light opacity-90">Suyun en doğal, en temiz hali.</p>
+                        </div>
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-water-100 rounded-full -z-10 animate-pulse"></div>
+                </div>
+
+                <!-- Text -->
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <h4 class="text-water-600 font-bold uppercase tracking-widest text-sm mb-3 flex items-center gap-2">
+                        <div class="w-8 h-[2px] bg-water-600"></div> Ataman Su Arıtma
+                    </h4>
+                    <h2 class="font-display text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Geleceğiniz İçin<br>Temiz Su Üretiyoruz</h2>
+                    
+                    <p class="text-gray-600 text-lg font-light leading-relaxed mb-6">
+                        Yılların verdiği tecrübe ile hem ev tipi (tezgah altı) su arıtma sistemlerinde hem de endüstriyel boyuttaki arıtma ihtiyaçlarında yüksek kaliteli çözümler sunuyoruz.
+                    </p>
+                    <p class="text-gray-600 font-light leading-relaxed mb-8">
+                        Amacımız sadece su arıtma cihazı satmak değil; ailenizin ve işletmenizin sağlığını koruyan, bütçenize tasarruf sağlayan uzun ömürlü bir sistem kurmaktır. Bu yüzden tüm cihazlarımıza <strong class="text-water-800 font-semibold">10 yıl garanti</strong> vererek kalitemizin arkasında duruyoruz.
+                    </p>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-gray-700 font-medium">
+                            <div class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-sm"><i class="fa-solid fa-check"></i></div>
+                            Şebeke suyundaki klor, ağır metal ve bakterileri %99 oranında yok eder.
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700 font-medium">
+                            <div class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-sm"><i class="fa-solid fa-check"></i></div>
+                            Alkali filtre teknolojisi ile suyun pH değerini düzenler.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Products Section -->
+    <section id="urunler" class="py-24 bg-water-50 relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h4 class="text-water-600 font-bold uppercase tracking-widest text-sm mb-3">Çözümlerimiz</h4>
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-8">İhtiyacınıza Uygun Arıtma Sistemleri</h2>
+                
+                <!-- Tab Buttons -->
+                <div class="inline-flex bg-white p-1.5 rounded-full shadow-sm border border-gray-200">
+                    <button class="tab-btn active px-8 py-3 rounded-full text-sm font-bold transition-all" onclick="switchTab('ev')">
+                        Ev Tipi Sistemler
+                    </button>
+                    <button class="tab-btn px-8 py-3 rounded-full text-sm font-bold text-gray-500 hover:text-water-600 transition-all" onclick="switchTab('endustriyel')">
+                        Endüstriyel Sistemler
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ev Tipi Tab -->
+            <div id="tab-ev" class="tab-content active">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Product Card -->
+                    <div class="bg-white rounded-[2rem] p-8 shadow-lg border border-gray-100 hover:border-water-200 transition-all group">
+                        <div class="h-64 bg-gray-50 rounded-2xl mb-6 overflow-hidden relative">
+                            <img src="https://picsum.photos/seed/filter1/400/400" alt="Kapalı Kasa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 mix-blend-multiply">
+                            <div class="absolute top-4 right-4 bg-water-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">En Çok Satan</div>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-gray-900 mb-2">Ataman Premium Plus</h3>
+                        <p class="text-sm text-gray-500 mb-6 line-clamp-2">6 Aşamalı alkali filtreli, kompakt ve şık tasarımlı kapalı kasa su arıtma cihazı.</p>
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6 font-medium">
+                            <li><i class="fa-solid fa-check text-water-500 mr-2"></i> 10 Yıl Garanti</li>
+                            <li><i class="fa-solid fa-check text-water-500 mr-2"></i> 8 Litre Çelik Tank</li>
+                            <li><i class="fa-solid fa-check text-water-500 mr-2"></i> Alkali ve Mineral Filtre</li>
+                        </ul>
+                        <a href="#iletisim" class="block w-full text-center bg-water-50 text-water-600 font-bold py-3 rounded-xl group-hover:bg-water-600 group-hover:text-white transition-colors">Bilgi Al</a>
+                    </div>
+                    
+                    <!-- Product Card -->
+                    <div class="bg-white rounded-[2rem] p-8 shadow-lg border border-gray-100 hover:border-water-200 transition-all group">
+                        <div class="h-64 bg-gray-50 rounded-2xl mb-6 overflow-hidden relative">
+                            <img src="https://picsum.photos/seed/filter2/400/400" alt="Pompalı Model" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 mix-blend-multiply">
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-gray-900 mb-2">Ataman Aqua Pro (Pompalı)</h3>
+                        <p class="text-sm text-gray-500 mb-6 line-clamp-2">Düşük su basıncı olan bölgeler için özel olarak tasarlanmış yüksek verimli model.</p>
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6 font-medium">
+                            <li><i class="fa-solid fa-check text-water-500 mr-2"></i> 10 Yıl Garanti</li>
+                            <li><i class="fa-solid fa-check text-water-500 mr-2"></i> Güçlü Basınç Pompası</li>
+                            <li><i class="fa-solid fa-check text-water-500 mr-2"></i> 12 Litre Tank Kapasitesi</li>
+                        </ul>
+                        <a href="#iletisim" class="block w-full text-center bg-water-50 text-water-600 font-bold py-3 rounded-xl group-hover:bg-water-600 group-hover:text-white transition-colors">Bilgi Al</a>
+                    </div>
+
+                    <!-- Product Card -->
+                    <div class="bg-white rounded-[2rem] p-8 shadow-lg border border-gray-100 hover:border-water-200 transition-all group">
+                        <div class="h-64 bg-gray-50 rounded-2xl mb-6 overflow-hidden relative">
+                            <img src="https://picsum.photos/seed/filter3/400/400" alt="Açık Kasa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 mix-blend-multiply">
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-gray-900 mb-2">Ataman Eco Line</h3>
+                        <p class="text-sm text-gray-500 mb-6 line-clamp-2">Ekonomik, yer kaplamayan klasik açık kasa tasarımı ile yüksek arıtma performansı.</p>
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6 font-medium">
+                            <li><i class="fa-solid fa-check text-water-500 mr-2"></i> 5 Aşamalı Filtrasyon</li>
+                            <li><i class="fa-solid fa-check text-water-500 mr-2"></i> Hızlı Filtre Değişimi</li>
+                            <li><i class="fa-solid fa-check text-water-500 mr-2"></i> NSF Onaylı Membran</li>
+                        </ul>
+                        <a href="#iletisim" class="block w-full text-center bg-water-50 text-water-600 font-bold py-3 rounded-xl group-hover:bg-water-600 group-hover:text-white transition-colors">Bilgi Al</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Endustriyel Tab -->
+            <div id="tab-endustriyel" class="tab-content">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Industrial Banner/Card -->
+                    <div class="bg-water-900 rounded-[2rem] overflow-hidden shadow-2xl relative text-white flex flex-col justify-center p-12">
+                        <div class="absolute inset-0 bg-[url('https://picsum.photos/seed/industrialwater/1200/800')] bg-cover bg-center opacity-20"></div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-water-500 rounded-xl flex items-center justify-center text-3xl mb-6 shadow-glow">
+                                <i class="fa-solid fa-industry"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-3xl mb-4">Fabrika & Tesis Sistemleri</h3>
+                            <p class="text-water-100 font-light mb-8 text-lg">Günlük tonlarca saf su ihtiyacı olan fabrikalar, oteller, hastaneler ve kafeler için proje bazlı, yüksek kapasiteli Ters Ozmoz (Reverse Osmosis) ve Yumuşatma sistemleri kuruyoruz.</p>
+                            <ul class="space-y-3 mb-8">
+                                <li><i class="fa-solid fa-caret-right text-water-400 mr-2"></i> Çift Kolonlu Su Yumuşatma Sistemleri</li>
+                                <li><i class="fa-solid fa-caret-right text-water-400 mr-2"></i> Endüstriyel Reverse Osmosis (Ters Ozmoz)</li>
+                                <li><i class="fa-solid fa-caret-right text-water-400 mr-2"></i> Ultraviyole (UV) Dezenfeksiyon Sistemleri</li>
+                            </ul>
+                            <a href="#iletisim" class="inline-block bg-white text-water-900 font-bold px-8 py-4 rounded-full hover:bg-water-100 transition-colors">
+                                Proje Danışmanlığı Alın
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 gap-6">
+                        <!-- Instagram Image reference (from upload) -->
+                        <div class="bg-white rounded-3xl p-6 shadow-md border border-gray-100 flex items-center gap-6">
+                            <img src="https://picsum.photos/seed/tank1/200/200" class="w-32 h-32 rounded-2xl object-cover" alt="Tanks">
+                            <div>
+                                <h4 class="font-display font-bold text-lg mb-2">Büyük Kapasiteli Tanklar</h4>
+                                <p class="text-sm text-gray-500">Mavi endüstriyel su arıtma tankları ve depolama sistemleri.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-3xl p-6 shadow-md border border-gray-100 flex items-center gap-6">
+                            <img src="https://picsum.photos/seed/tank2/200/200" class="w-32 h-32 rounded-2xl object-cover" alt="Installation">
+                            <div>
+                                <h4 class="font-display font-bold text-lg mb-2">Anahtar Teslim Kurulum</h4>
+                                <p class="text-sm text-gray-500">İşletmenize özel borulama, montaj ve otomasyon kurulumu.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology / Process (Multi-stage) -->
+    <section id="teknoloji" class="py-24 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <h4 class="text-water-600 font-bold uppercase tracking-widest text-sm mb-3">Teknolojimiz</h4>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-10">Ters Ozmoz (Reverse Osmosis) Nasıl Çalışır?</h2>
+                    
+                    <div class="relative space-y-10 pl-6">
+                        <!-- Stage 1 -->
+                        <div class="stage-item relative">
+                            <div class="absolute -left-[38px] w-10 h-10 bg-white border-4 border-water-500 rounded-full flex items-center justify-center font-bold text-water-600 text-sm z-10 shadow-md">1</div>
+                            <h3 class="font-bold text-xl text-gray-900 mb-2">Sediment Filtre (Ön Temizlik)</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">Sudaki kum, pas, çamur ve kaba partikülleri 5 mikron hassasiyetinde temizler. Sistemin ana koruyucusudur.</p>
+                        </div>
+                        <!-- Stage 2 -->
+                        <div class="stage-item relative">
+                            <div class="absolute -left-[38px] w-10 h-10 bg-white border-4 border-water-500 rounded-full flex items-center justify-center font-bold text-water-600 text-sm z-10 shadow-md">2</div>
+                            <h3 class="font-bold text-xl text-gray-900 mb-2">Karbon Filtreler (Tat ve Koku)</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">Suyun rengini, tadını ve kokusunu bozan klor ve kimyasal bileşenleri hapseder. Suyu membran filtreye hazırlar.</p>
+                        </div>
+                        <!-- Stage 3 -->
+                        <div class="stage-item relative">
+                            <div class="absolute -left-[38px] w-10 h-10 bg-water-500 border-4 border-white rounded-full flex items-center justify-center font-bold text-white text-sm z-10 shadow-glow">3</div>
+                            <h3 class="font-bold text-xl text-water-600 mb-2">Ana Kalp: Membran Filtre</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">Sistemin kalbidir. 0.0001 mikron hassasiyetindeki gözenekleri sayesinde suda çözünmüş ağır metalleri, bakterileri ve kireci ayrıştırarak saf suyu elde eder.</p>
+                        </div>
+                        <!-- Stage 4 -->
+                        <div class="stage-item relative">
+                            <div class="absolute -left-[38px] w-10 h-10 bg-white border-4 border-green-500 rounded-full flex items-center justify-center font-bold text-green-600 text-sm z-10 shadow-md">4</div>
+                            <h3 class="font-bold text-xl text-gray-900 mb-2">Alkali & Mineral Filtre (Zenginleştirme)</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">Arıtılmış saf suya, vücudun ihtiyacı olan kalsiyum, magnezyum gibi mineralleri geri kazandırır ve pH değerini dengeler.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2 flex justify-center" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://picsum.photos/seed/filters/500/700" alt="Filtreleme Aşamaları" class="rounded-3xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Grid -->
+    <section class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display text-3xl font-bold text-gray-900">Neden Ataman Su Arıtma?</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="feature-card bg-white p-8 rounded-3xl border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-wrapper w-14 h-14 bg-water-50 text-water-600 rounded-2xl flex items-center justify-center text-2xl mb-6 transition-all duration-300">
+                        <i class="fa-solid fa-piggy-bank"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">Ekonomik Tasarruf</h3>
+                    <p class="text-gray-500 text-sm">Damacana ve pet şişe masraflarına son verin. Kısa sürede kendi maliyetini amorti eder.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-3xl border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-wrapper w-14 h-14 bg-water-50 text-water-600 rounded-2xl flex items-center justify-center text-2xl mb-6 transition-all duration-300">
+                        <i class="fa-solid fa-shield-check"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">10 Yıl Kesin Garanti</h3>
+                    <p class="text-gray-500 text-sm">Sektörde nadir bulunan 10 yıllık kapsamlı garanti ile uzun yıllar güvenle kullanın.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-3xl border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-wrapper w-14 h-14 bg-water-50 text-water-600 rounded-2xl flex items-center justify-center text-2xl mb-6 transition-all duration-300">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">Lezzetli Çay & Yemek</h3>
+                    <p class="text-gray-500 text-sm">Kireçsiz ve klorsuz su sayesinde çayınızın, kahvenizin ve yemeklerinizin gerçek tadını alın.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-3xl border border-gray-100" data-aos="fade-up" data-aos-delay="400">
+                    <div class="icon-wrapper w-14 h-14 bg-water-50 text-water-600 rounded-2xl flex items-center justify-center text-2xl mb-6 transition-all duration-300">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">Zamanında Servis</h3>
+                    <p class="text-gray-500 text-sm">Filtre değişim zamanlarınızı biz takip edelim, profesyonel ekibimizle anında müdahale edelim.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Storefront / Contact -->
+    <section id="iletisim" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="bg-water-950 rounded-[3rem] overflow-hidden flex flex-col lg:flex-row shadow-2xl relative">
+                
+                <!-- Graphic overlay -->
+                <div class="absolute top-0 right-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CjxwYXRoIGQ9Ik01NC42MiA1Ni42MkM1MS41IDU5LjUgNDYuNzEgNjAgNDEuMjMgNjAgMjEuNyA2MCAwIDM4LjMgMCAxOC43NyAwIDEzLjI5LjUgOC41IDMuMzggNS4zOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMGVhNWU5IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1vcGFjaXR5PSIwLjEiLz4KPC9zdmc+')] bg-repeat opacity-20"></div>
+
+                <!-- Info -->
+                <div class="w-full lg:w-1/2 p-12 lg:p-16 text-white relative z-10">
+                    <h4 class="text-water-400 font-bold uppercase tracking-widest text-sm mb-3">İletişim & Mağaza</h4>
+                    <h2 class="font-display text-4xl font-bold mb-8">Bizi Ziyaret Edin</h2>
+                    <p class="text-water-100 font-light mb-12">Mağazamızda cihazlarımızı yakından inceleyebilir, su kalitesi testlerini canlı olarak görebilirsiniz.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-water-800 flex items-center justify-center text-water-400 text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Mağaza Adresimiz</h4>
+                                <p class="text-water-100 text-sm font-light leading-relaxed">Sivas Merkez<br>(Ataman Su Arıtma Mağazası)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-water-800 flex items-center justify-center text-water-400 text-xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Müşteri Hizmetleri</h4>
+                                <a href="tel:+900000000000" class="text-water-100 text-sm font-light hover:text-white transition-colors">Tel: 0XXX XXX XX XX</a><br>
+                                <a href="https://www.instagram.com/ataman_su_aritma/" class="text-water-100 text-sm font-light hover:text-white transition-colors">Instagram: @ataman_su_aritma</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Store Image / Mock Map -->
+                <div class="w-full lg:w-1/2 relative h-[400px] lg:h-auto">
+                    <!-- Placeholder for the storefront image seen in user upload -->
+                    <img src="https://picsum.photos/seed/storefront1/800/800" alt="Ataman Su Arıtma Mağazası" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-water-950/80 to-transparent lg:hidden"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-water-950 to-transparent hidden lg:block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 pt-16 pb-8 text-gray-400 font-light">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-water-600 rounded-lg flex items-center justify-center text-white">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-display font-extrabold text-xl text-white leading-none tracking-tight">ATAMAN</h2>
+                            <p class="text-[9px] font-bold tracking-[0.2em] text-water-500 uppercase mt-1">Su Arıtma</p>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-6">Türkiye'nin her damlasında sağlık, her cihazında 10 yıllık güven var. Endüstriyel ve ev tipi su arıtma sistemleri.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Hızlı Menü</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#hakkimizda" class="hover:text-water-400 transition-colors">Hakkımızda</a></li>
+                        <li><a href="#urunler" class="hover:text-water-400 transition-colors">Ürünler (Ev & Sanayi)</a></li>
+                        <li><a href="#teknoloji" class="hover:text-water-400 transition-colors">Ters Ozmoz Nedir?</a></li>
+                        <li><a href="#iletisim" class="hover:text-water-400 transition-colors">İletişim & Servis</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Bizi Takip Edin</h4>
+                    <p class="text-sm mb-4">Yeni kampanyalarımızdan ve sağlıklı yaşam ipuçlarından haberdar olmak için Instagram'da bizi takip edin.</p>
+                    <a href="https://www.instagram.com/ataman_su_aritma/" target="_blank" class="inline-flex items-center gap-2 bg-gray-800 hover:bg-water-600 text-white px-4 py-2 rounded-lg transition-colors">
+                        <i class="fa-brands fa-instagram text-xl"></i> @ataman_su_aritma
+                    </a>
+                </div>
+
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                <p>&copy; 2026 Ataman Su Arıtma Sistemleri. Tüm hakları saklıdır.</p>
+                <div class="flex gap-4">
+                    <span class="text-water-500"><i class="fa-solid fa-shield-halved"></i> 10 Yıl Garantili Sistemler</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="tel:+900000000000" class="whatsapp-float" aria-label="WhatsApp Destek">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                    // Init AOS after preloader
+                    AOS.init({
+                        once: true,
+                        offset: 30,
+                        duration: 800,
+                        easing: 'ease-out-cubic',
+                    });
+                }, 600);
+            }, 800);
+        });
+
+        // Sticky Navbar Glass Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('glass');
+                header.classList.remove('bg-white/80', 'lg:top-[34px]');
+            } else {
+                header.classList.remove('glass');
+                header.classList.add('bg-white/80', 'lg:top-[34px]');
+            }
+        });
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            // Update Buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active', 'text-white', 'bg-water-500');
+                btn.classList.add('text-gray-500');
+            });
+            event.currentTarget.classList.add('active', 'text-white');
+            event.currentTarget.classList.remove('text-gray-500');
+
+            // Update Content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById('tab-' + tabId).classList.add('active');
+        }
+
+        // Mobile Menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileBtn.querySelector('i');
+            if(!mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-bars-staggered');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars-staggered');
+            }
+        });
+    </script>
+</body>
+</html>

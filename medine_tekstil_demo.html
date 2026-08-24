@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medine Tekstil | Perde, Nevresim ve Tamirat Merkezi Sivas</title>
+    <meta name="description" content="Sivas Medine Tekstil; Perde, fonluk, nevresim, zebra, stor, plicell imalatı ve her türlü tekstil tamirat/tadilat işleriniz için Yeni Numune Hastanesi yanında hizmetinizde.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#fdfbf7',
+                            200: '#f4ede1',
+                            300: '#e5d1b3',
+                            400: '#d5b282',
+                            500: '#c69554', // Main Gold
+                            600: '#a67740',
+                            700: '#865b32',
+                        },
+                        charcoal: {
+                            800: '#2d3033',
+                            900: '#1a1c1e', // Dark text/bg
+                        },
+                        linen: '#fbfaf8'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        
+        .hero-pattern {
+            background-color: #1a1c1e;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c69554' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Category Card Hover */
+        .category-card {
+            overflow: hidden;
+        }
+        .category-card img {
+            transition: transform 0.7s ease;
+        }
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+        .category-card .overlay {
+            transition: background-color 0.4s ease;
+        }
+        .category-card:hover .overlay {
+            background-color: rgba(26, 28, 30, 0.3);
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans text-charcoal-800 bg-linen antialiased selection:bg-gold-500 selection:text-white">
+
+    <!-- Top Bar -->
+    <div class="bg-charcoal-900 text-gold-200 text-xs py-2 hidden md:block">
+        <div class="container mx-auto px-6 max-w-7xl flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <a href="tel:+905550000000" class="flex items-center gap-2 hover:text-white transition-colors">
+                    <i class="fa-solid fa-phone"></i> Sipariş & Bilgi: 0555 000 00 00
+                </a>
+                <span class="flex items-center gap-2 text-gray-400">
+                    <i class="fa-solid fa-location-dot"></i> Yeşilyurt Mah. Şifa Cad. No:1 (Yeni Numune Y.)
+                </span>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/medinetekstiil/" target="_blank" class="hover:text-white transition-colors flex items-center gap-1">
+                        <i class="fa-brands fa-instagram text-sm"></i> @medinetekstiil
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="fixed w-full top-0 md:top-[32px] z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <a href="#" class="flex flex-col justify-center">
+                    <h1 class="font-serif font-bold text-3xl tracking-wide text-gold-500 drop-shadow-sm header-text">MEDİNE<span class="text-charcoal-900 header-text-alt">TEKSTİL</span></h1>
+                    <p class="text-[10px] font-medium tracking-[0.2em] text-gray-500 uppercase mt-1 header-subtitle">Perde & Çeyiz & Tadilat</p>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#hakkimizda" class="text-sm font-semibold text-charcoal-900 hover:text-gold-500 transition-colors uppercase tracking-wider">Hakkımızda</a>
+                    <a href="#hizmetler" class="text-sm font-semibold text-charcoal-900 hover:text-gold-500 transition-colors uppercase tracking-wider">Hizmetlerimiz</a>
+                    <a href="#urunler" class="text-sm font-semibold text-charcoal-900 hover:text-gold-500 transition-colors uppercase tracking-wider">Ürünler</a>
+                    <a href="#iletisim" class="text-sm font-semibold text-charcoal-900 hover:text-gold-500 transition-colors uppercase tracking-wider">İletişim</a>
+                    
+                    <a href="https://wa.me/905550000000" class="border-2 border-gold-500 text-gold-600 hover:bg-gold-500 hover:text-white px-6 py-2 rounded text-xs font-bold transition-all uppercase tracking-widest">
+                        Fiyat Al
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-charcoal-900 text-2xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100 px-6 py-4 shadow-xl">
+            <div class="flex flex-col gap-4">
+                <a href="#hakkimizda" class="text-sm font-bold text-charcoal-900 uppercase tracking-wider border-b border-gray-50 pb-2">Hakkımızda</a>
+                <a href="#hizmetler" class="text-sm font-bold text-charcoal-900 uppercase tracking-wider border-b border-gray-50 pb-2">Hizmetlerimiz</a>
+                <a href="#urunler" class="text-sm font-bold text-charcoal-900 uppercase tracking-wider border-b border-gray-50 pb-2">Ürünler</a>
+                <a href="#iletisim" class="text-sm font-bold text-charcoal-900 uppercase tracking-wider border-b border-gray-50 pb-2">İletişim</a>
+                <a href="https://wa.me/905550000000" class="bg-gold-500 text-white text-center px-6 py-3 rounded text-sm font-bold uppercase tracking-wider mt-2">
+                    Fiyat Al
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Split Background -->
+        <div class="absolute inset-0 flex flex-col md:flex-row">
+            <div class="w-full md:w-5/12 bg-linen h-full"></div>
+            <div class="w-full md:w-7/12 hero-pattern h-full relative">
+                <!-- Large Image covering the right side -->
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Medine Tekstil Perde" class="absolute inset-0 w-full h-full object-cover opacity-70">
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <!-- Text Content -->
+                <div class="w-full md:w-1/2 pr-0 md:pr-12 pt-10 md:pt-0" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-[1px] bg-gold-500"></div>
+                        <span class="text-gold-600 font-bold uppercase tracking-[0.2em] text-xs">Sivas'ın Terzisi</span>
+                    </div>
+                    <h2 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-charcoal-900 leading-tight mb-6">
+                        Evinizin Şıklığı <br>
+                        <span class="text-gold-500 italic font-medium">Usta Ellerde</span> <br>
+                        Şekilleniyor.
+                    </h2>
+                    <p class="text-gray-600 mb-10 text-lg md:text-xl font-light leading-relaxed max-w-lg">
+                        Medine Tekstil olarak perde, fonluk, nevresim, stor ve zebra siparişlerinizle birlikte, kıyafetleriniz için özenli tamirat ve tadilat hizmeti sunuyoruz.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#urunler" class="bg-charcoal-900 hover:bg-gold-500 text-white px-8 py-4 text-sm font-bold uppercase tracking-widest transition-colors flex items-center gap-3">
+                            Modelleri İncele <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="https://www.instagram.com/medinetekstiil/" target="_blank" class="border border-charcoal-900 text-charcoal-900 hover:bg-gray-100 px-8 py-4 text-sm font-bold uppercase tracking-widest transition-colors flex items-center gap-3">
+                            <i class="fa-brands fa-instagram text-lg"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Floating Features -->
+                <div class="w-full md:w-1/2 mt-16 md:mt-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="grid grid-cols-2 gap-4 md:pl-20">
+                        <div class="bg-white p-6 shadow-xl rounded-tr-3xl">
+                            <i class="fa-solid fa-scissors text-3xl text-gold-500 mb-4"></i>
+                            <h3 class="font-bold text-charcoal-900 mb-2">Tamirat & Tadilat</h3>
+                            <p class="text-xs text-gray-500">Kıyafetleriniz usta ellerde yenileniyor. Boy kısaltma, daraltma ve onarım.</p>
+                        </div>
+                        <div class="bg-charcoal-900 p-6 shadow-xl rounded-tl-3xl transform translate-y-8">
+                            <i class="fa-solid fa-house-chimney-window text-3xl text-gold-400 mb-4"></i>
+                            <h3 class="font-bold text-white mb-2">Modern Perdeler</h3>
+                            <p class="text-xs text-gray-400">Evinizin havasını değiştirecek zebra, stor, plicell ve fon perdeler.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="hizmetler" class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-charcoal-900 mb-4">Hizmetlerimiz</h2>
+                <div class="w-16 h-[2px] bg-gold-500 mx-auto mb-6"></div>
+                <p class="text-gray-500 max-w-2xl mx-auto font-light">
+                    Sivas Merkez Yeni Numune Hastanesi yanında bulunan atölyemizde, evinize ve size özel tekstil çözümleri üretiyoruz.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Service 1 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-64 mb-6 overflow-hidden rounded-t-full">
+                        <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tül ve Fon Perde" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-charcoal-900/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="text-center px-4">
+                        <h3 class="font-serif text-2xl font-bold text-charcoal-900 mb-3">Tül & Fon Perde</h3>
+                        <p class="text-gray-500 text-sm font-light leading-relaxed">
+                            Evinizin dekorasyonuna en uygun kumaş seçenekleriyle, özel ölçü tül ve fon perdelerinizin dikimini gerçekleştiriyoruz.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group mt-0 md:mt-12" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-64 mb-6 overflow-hidden rounded-t-full">
+                        <img src="https://picsum.photos/seed/nevresim/800/800" alt="Nevresim Takımları" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-charcoal-900/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="text-center px-4">
+                        <h3 class="font-serif text-2xl font-bold text-charcoal-900 mb-3">Çeyiz & Nevresim</h3>
+                        <p class="text-gray-500 text-sm font-light leading-relaxed">
+                            Yatak odanıza şıklık katacak, kaliteli kumaşlardan üretilen özel ölçü nevresim takımları ve çeyizlik ürünler.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative h-64 mb-6 overflow-hidden rounded-t-full">
+                        <!-- A tailor/sewing image -->
+                        <img src="https://picsum.photos/seed/terzi/800/800" alt="Terzi ve Tamirat" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-charcoal-900/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="text-center px-4">
+                        <h3 class="font-serif text-2xl font-bold text-charcoal-900 mb-3">Tamirat & Tadilat</h3>
+                        <p class="text-gray-500 text-sm font-light leading-relaxed">
+                            Kıyafetlerinizde paça yapımı, daraltma, fermuar değişimi gibi tüm terzi işleriniz özenle, temiz bir işçilikle yapılır.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories / Products (Mekanik Perdeler) -->
+    <section id="urunler" class="py-20 bg-linen border-t border-gray-200">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="max-w-2xl" data-aos="fade-right">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-charcoal-900 mb-4">Modern Sistemler</h2>
+                    <p class="text-gray-600 font-light">Pratik kullanımı ve şık görünümüyle mekanik perde çözümleri.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <div class="category-card relative h-80 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://picsum.photos/seed/zebra/800/800" class="w-full h-full object-cover" alt="Zebra Perde">
+                    <div class="overlay absolute inset-0 bg-charcoal-900/40"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <h3 class="text-white font-serif text-2xl font-bold mb-1">Zebra Perde</h3>
+                        <p class="text-white/80 text-xs uppercase tracking-widest font-medium">Gündüz / Gece</p>
+                    </div>
+                </div>
+
+                <div class="category-card relative h-80 cursor-pointer lg:-translate-y-6" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://picsum.photos/seed/stor/800/800" class="w-full h-full object-cover" alt="Stor Perde">
+                    <div class="overlay absolute inset-0 bg-charcoal-900/40"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <h3 class="text-white font-serif text-2xl font-bold mb-1">Stor Perde</h3>
+                        <p class="text-white/80 text-xs uppercase tracking-widest font-medium">Sade & Kullanışlı</p>
+                    </div>
+                </div>
+
+                <div class="category-card relative h-80 cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://picsum.photos/seed/plicell/800/800" class="w-full h-full object-cover" alt="Plicell Perde">
+                    <div class="overlay absolute inset-0 bg-charcoal-900/40"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <h3 class="text-white font-serif text-2xl font-bold mb-1">Plicell Perde</h3>
+                        <p class="text-white/80 text-xs uppercase tracking-widest font-medium">Cam Balkonlara Özel</p>
+                    </div>
+                </div>
+
+                <div class="category-card relative h-80 cursor-pointer lg:-translate-y-6" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://picsum.photos/seed/kumas/800/800" class="w-full h-full object-cover" alt="Aksesuar & Kumaş">
+                    <div class="overlay absolute inset-0 bg-charcoal-900/40"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <h3 class="text-white font-serif text-2xl font-bold mb-1">Özel Dikimler</h3>
+                        <p class="text-white/80 text-xs uppercase tracking-widest font-medium">Size Özel Ölçüler</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / CTA -->
+    <section class="py-20 bg-charcoal-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <path fill="#c69554" d="M47.7,-57.2C59.9,-47.3,66.6,-30.2,69.5,-12.7C72.4,4.9,71.4,22.8,62.8,36.5C54.1,50.1,37.8,59.5,21.1,63.9C4.3,68.2,-13,67.6,-28.5,61.1C-44.1,54.6,-57.9,42.2,-64.8,26.7C-71.7,11.3,-71.7,-7.3,-64.2,-21.9C-56.7,-36.4,-41.8,-46.9,-27.4,-56C-13,-65.1,2.9,-72.7,19.3,-69.3C35.7,-65.9,52.6,-51.5,47.7,-57.2Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-6 max-w-5xl text-center relative z-10" data-aos="zoom-in">
+            <i class="fa-brands fa-instagram text-5xl text-gold-500 mb-6"></i>
+            <h2 class="font-serif text-3xl md:text-5xl font-bold mb-6">Bizi Instagram'da Takip Edin</h2>
+            <p class="text-gray-400 font-light mb-10 max-w-2xl mx-auto text-lg">
+                Yaptığımız en yeni perde modellerini, atölyemizden kesitleri ve müşteri memnuniyetlerini sayfamızda paylaşıyoruz.
+            </p>
+            <a href="https://www.instagram.com/medinetekstiil/" target="_blank" class="inline-block border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white px-10 py-4 font-bold uppercase tracking-widest text-sm transition-all rounded">
+                @medinetekstiil Profiline Git
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="iletisim" class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <!-- Info -->
+                <div class="lg:w-1/3" data-aos="fade-right">
+                    <h2 class="font-serif text-4xl font-bold text-charcoal-900 mb-4">Bize Ulaşın</h2>
+                    <div class="w-12 h-[2px] bg-gold-500 mb-8"></div>
+                    <p class="text-gray-500 font-light mb-10">Ölçü almak, fiyat sormak veya tamirat işleriniz için atölyemize bekliyoruz.</p>
+                    
+                    <div class="flex flex-col gap-8">
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 bg-linen rounded-full flex items-center justify-center text-gold-600 flex-shrink-0 border border-gray-100">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-charcoal-900 mb-1">Adres</h4>
+                                <p class="text-sm text-gray-500 font-light leading-relaxed">Yeşilyurt Mah. Şifa Cad. No:1<br>Sivas (Yeni Numune Hastanesi Yanı)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 bg-linen rounded-full flex items-center justify-center text-gold-600 flex-shrink-0 border border-gray-100">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-charcoal-900 mb-1">WhatsApp & Telefon</h4>
+                                <a href="tel:+905550000000" class="text-sm text-gray-500 font-light hover:text-gold-600 transition-colors">0555 000 00 00</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 bg-linen rounded-full flex items-center justify-center text-gold-600 flex-shrink-0 border border-gray-100">
+                                <i class="fa-regular fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-charcoal-900 mb-1">Çalışma Saatleri</h4>
+                                <p class="text-sm text-gray-500 font-light">Pzt - Cmt: 09:00 - 19:00<br>Pazar: Kapalı</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="lg:w-2/3" data-aos="fade-left">
+                    <div class="h-[450px] w-full rounded-2xl overflow-hidden shadow-lg border border-gray-100 p-2 bg-white">
+                        <div class="w-full h-full rounded-xl overflow-hidden">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12175.760193154865!2d37.0163351!3d39.7554903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407eaa0a96ef8b13%3A0xcdaee506b3a32f6!2zS2FyZGXFn2xlciwgU2l2YXMgTWVya2V6L1NpdmFz!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-linen pt-16 pb-8 border-t border-gray-200">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-10">
+                <a href="#" class="mb-6 md:mb-0 text-center md:text-left">
+                    <h2 class="font-serif font-bold text-2xl tracking-wide text-gold-500">MEDİNE<span class="text-charcoal-900">TEKSTİL</span></h2>
+                    <p class="text-[9px] font-medium tracking-[0.2em] text-gray-500 uppercase mt-1">Perde & Çeyiz & Tadilat</p>
+                </a>
+                
+                <div class="flex gap-8 text-sm font-bold text-charcoal-900 uppercase tracking-wider">
+                    <a href="#hakkimizda" class="hover:text-gold-500 transition-colors">Hakkımızda</a>
+                    <a href="#hizmetler" class="hover:text-gold-500 transition-colors">Hizmetler</a>
+                    <a href="#urunler" class="hover:text-gold-500 transition-colors">Ürünler</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-gray-500 font-light">
+                    &copy; 2026 Medine Tekstil. Tüm Hakları Saklıdır. Sivas.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/905550000000" class="whatsapp-float" target="_blank" aria-label="WhatsApp'tan Bize Yazın">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Animation Init
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+        });
+
+        // Sticky Navbar Logic
+        const header = document.getElementById('header');
+        const headerTexts = document.querySelectorAll('.header-text');
+        const headerSubtitles = document.querySelectorAll('.header-subtitle');
+        const navLinks = header.querySelectorAll('nav a:not(.border-2)');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                // Scrolled state
+                header.classList.add('glass-nav');
+                header.classList.remove('bg-transparent', 'md:top-[32px]');
+                header.querySelector('.h-24').classList.replace('h-24', 'h-20');
+                
+                // Text colors adjust for clarity on light bg
+                headerTexts.forEach(t => {
+                    t.classList.remove('text-gold-500');
+                    t.classList.add('text-gold-600');
+                });
+            } else {
+                // Top state
+                header.classList.remove('glass-nav');
+                header.classList.add('bg-transparent', 'md:top-[32px]');
+                header.querySelector('.h-20')?.classList.replace('h-20', 'h-24');
+                
+                headerTexts.forEach(t => {
+                    t.classList.add('text-gold-500');
+                    t.classList.remove('text-gold-600');
+                });
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const icon = mobileBtn.querySelector('i');
+            if(mobileMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu on click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
