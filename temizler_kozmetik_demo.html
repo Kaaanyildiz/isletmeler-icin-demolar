@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temizler Kozmetik | Eagle Claw Cosmetica</title>
+    <meta name="description" content="Erkek bakımında öncü marka. Eagle Claw saç vaksı, erkek parfümü ve tıraş kolonyaları.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        eagle: {
+                            black: '#0a0a0a',     // Deep pitch black
+                            dark: '#141414',      // Charcoal dark
+                            gray: '#242424',      // Panel gray
+                            silver: '#e5e7eb',    // Platinum
+                            copper: '#c68e58',    // Copper / Warm Gold
+                            copperDark: '#a37142' // Dark Copper
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e7eb;
+            overflow-x: hidden;
+        }
+
+        /* Copper Gradient Text */
+        .text-gradient-copper {
+            background: linear-gradient(135deg, #c68e58, #e8c69f, #c68e58);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Barber / Grooming button */
+        .btn-copper {
+            display: inline-block;
+            padding: 14px 36px;
+            background: transparent;
+            color: #c68e58;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: 1px solid #c68e58;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+        .btn-copper::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 0%;
+            background: #c68e58;
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        .btn-copper:hover::after {
+            height: 100%;
+        }
+        .btn-copper:hover {
+            color: #0a0a0a;
+            box-shadow: 0 10px 20px rgba(198, 142, 88, 0.2);
+        }
+
+        /* Product Card */
+        .product-card {
+            background: #141414;
+            border: 1px solid #242424;
+            position: relative;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.5s ease;
+            overflow: hidden;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #c68e58;
+            transition: width 0.5s ease;
+        }
+        .product-card:hover::before {
+            width: 100%;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            background: #1a1a1a;
+            border-color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .product-img {
+            height: 250px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 15px rgba(0,0,0,0.4)) contrast(1.1);
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .product-card:hover .product-img img {
+            transform: scale(1.1) translateY(-10px);
+        }
+
+        /* Hero Image Masking */
+        .hero-mask {
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #242424; }
+        ::-webkit-scrollbar-thumb:hover { background: #c68e58; }
+    </style>
+</head>
+<body class="selection:bg-eagle-copper selection:text-eagle-black">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-500 border-b border-white/5" id="navbar">
+        <div class="max-w-[1400px] mx-auto px-6 h-24 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex flex-col items-center group">
+                <h1 class="font-serif text-2xl lg:text-3xl tracking-[0.2em] text-white uppercase font-bold leading-none">
+                    EAGLE <span class="text-eagle-copper">CLAW</span>
+                </h1>
+                <div class="flex items-center gap-2 mt-2">
+                    <div class="w-4 h-px bg-eagle-copper/50 group-hover:bg-eagle-copper transition-colors"></div>
+                    <span class="font-sans text-[7px] tracking-[0.4em] text-gray-400 uppercase">Temizler Kozmetik</span>
+                    <div class="w-4 h-px bg-eagle-copper/50 group-hover:bg-eagle-copper transition-colors"></div>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-12 font-sans text-[11px] font-semibold tracking-[0.2em] uppercase text-gray-400">
+                <a href="#grooming" class="hover:text-eagle-copper transition-colors">Erkek Bakım</a>
+                <a href="#fragrance" class="hover:text-eagle-copper transition-colors">Parfüm & Kolonya</a>
+                <a href="#kurumsal" class="hover:text-eagle-copper transition-colors">Hakkımızda</a>
+            </div>
+
+            <!-- Right Side -->
+            <div class="hidden lg:flex items-center">
+                <a href="#iletisim" class="text-white font-sans text-xs tracking-widest uppercase hover:text-eagle-copper transition-colors border-b border-eagle-copper/30 pb-1">
+                    Bize Ulaşın
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="lg:hidden text-eagle-copper text-2xl focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-eagle-black border-t border-white/5 absolute w-full shadow-2xl">
+            <div class="flex flex-col items-center py-10 space-y-6 font-sans text-sm tracking-[0.2em] uppercase text-gray-400">
+                <a href="#grooming" class="hover:text-eagle-copper">Erkek Bakım</a>
+                <a href="#fragrance" class="hover:text-eagle-copper">Parfüm & Kolonya</a>
+                <a href="#kurumsal" class="hover:text-eagle-copper">Hakkımızda</a>
+                <a href="#iletisim" class="text-eagle-copper mt-4">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Dark Masculine Aesthetic) -->
+    <section class="relative min-h-[90vh] flex items-center pt-24 overflow-hidden">
+        
+        <!-- Background Imagery -->
+        <div class="absolute inset-0 z-0">
+            <!-- Sleek dark background with splash/smoke effect -->
+            <img src="https://loremflickr.com/1920/1080/smoke,dark/all" alt="Dark Background" class="w-full h-full object-cover opacity-20 mix-blend-screen">
+            <div class="absolute inset-0 bg-gradient-to-r from-eagle-black via-eagle-black/90 to-transparent"></div>
+        </div>
+
+        <!-- Main Product Float (Right Side) -->
+        <div class="absolute right-0 bottom-0 w-full lg:w-1/2 h-[80vh] z-0 hero-mask hidden lg:block opacity-70">
+            <img src="https://loremflickr.com/800/1000/perfume,bottle,men/all" alt="Eagle Claw Perfume" class="w-full h-full object-cover filter contrast-125 grayscale-[30%]">
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-6 w-full relative z-10">
+            <div class="max-w-2xl" data-aos="fade-right" data-aos-duration="1500">
+                
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fa-solid fa-droplet text-eagle-copper"></i>
+                    <span class="font-sans text-[10px] font-bold tracking-[0.3em] text-gray-400 uppercase">Erkek Bakımında Mükemmellik</span>
+                </div>
+                
+                <h2 class="font-sans text-5xl md:text-7xl font-extrabold text-white leading-[1.1] mb-6 uppercase tracking-tighter">
+                    Tarzını <br>
+                    <span class="text-gradient-copper">Belirle.</span>
+                </h2>
+                
+                <p class="font-sans text-gray-400 text-lg md:text-xl font-light mb-10 max-w-lg leading-relaxed">
+                    Eagle Claw serisiyle saç şekillendiricilerden imza parfümlere kadar, gün boyu süren karizma ve kusursuz bakım.
+                </p>
+                
+                <div class="flex flex-wrap gap-6 items-center">
+                    <a href="#grooming" class="btn-copper">
+                        Koleksiyonu Keşfet
+                    </a>
+                    <a href="#kurumsal" class="text-xs font-sans tracking-widest text-white uppercase hover:text-eagle-copper transition-colors inline-flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center"><i class="fa-solid fa-play text-[8px]"></i></div> Hikayemiz
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HAIR & GROOMING SECTION -->
+    <section id="grooming" class="py-24 bg-eagle-dark border-y border-white/5 relative">
+        <!-- Vertical branding text background -->
+        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 -rotate-90 origin-left opacity-5 pointer-events-none">
+            <span class="font-serif text-[150px] font-bold uppercase whitespace-nowrap">Hair Styling</span>
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
+                <div>
+                    <h4 class="font-sans text-xs font-bold tracking-[0.3em] text-eagle-copper uppercase mb-3">Professional Grooming</h4>
+                    <h2 class="font-serif text-4xl md:text-5xl text-white font-bold">Saç Şekillendiriciler</h2>
+                </div>
+                <p class="font-sans text-gray-400 font-light max-w-sm text-sm leading-relaxed">Güçlü tutuş, mat veya parlak bitiş. Gün boyu bozulmayan kusursuz saçlar için Eagle Claw vaks ve spreyleri.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Hair Wax -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-4 right-4 text-eagle-gray/50 text-6xl font-serif font-bold italic">01</div>
+                    <div class="product-img">
+                        <img src="https://loremflickr.com/400/400/hair,wax,jar/all" alt="Hair Wax">
+                    </div>
+                    <h3 class="font-sans font-bold text-xl text-white uppercase tracking-wider mb-2">Hair Wax</h3>
+                    <p class="font-sans text-xs text-gray-400 font-light mb-6">Maksimum tutuş ve doku sağlayan, kalıntı bırakmayan özel formül.</p>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-eagle-copper border-b border-eagle-copper/30 pb-1">Detaylı İncele</span>
+                </div>
+
+                <!-- Saç Spreyi ve Toz Wax -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-4 right-4 text-eagle-gray/50 text-6xl font-serif font-bold italic">02</div>
+                    <div class="product-img">
+                        <img src="https://loremflickr.com/400/400/hairspray,bottle/all" alt="Saç Sprey ve Toz Wax">
+                    </div>
+                    <h3 class="font-sans font-bold text-xl text-white uppercase tracking-wider mb-2">Sprey & Toz Wax</h3>
+                    <p class="font-sans text-xs text-gray-400 font-light mb-6">Hacim veren toz vaks ve şekli sabitleyen profesyonel saç spreyi serisi.</p>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-eagle-copper border-b border-eagle-copper/30 pb-1">Detaylı İncele</span>
+                </div>
+
+                <!-- Saç Jolesi -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-4 right-4 text-eagle-gray/50 text-6xl font-serif font-bold italic">03</div>
+                    <div class="product-img">
+                        <img src="https://loremflickr.com/400/400/hairgel/all" alt="Saç Jolesi">
+                    </div>
+                    <h3 class="font-sans font-bold text-xl text-white uppercase tracking-wider mb-2">Saç Jölesi</h3>
+                    <p class="font-sans text-xs text-gray-400 font-light mb-6">Islak görünüm ve ekstra sert tutuş isteyenler için geliştirilmiş klasik jöle.</p>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-eagle-copper border-b border-eagle-copper/30 pb-1">Detaylı İncele</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FRAGRANCE & SHAVING SECTION -->
+    <section id="fragrance" class="py-24 bg-eagle-black relative">
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
+                <div>
+                    <h4 class="font-sans text-xs font-bold tracking-[0.3em] text-eagle-copper uppercase mb-3">Signature Scents</h4>
+                    <h2 class="font-serif text-4xl md:text-5xl text-white font-bold">Parfüm & Tıraş</h2>
+                </div>
+                <p class="font-sans text-gray-400 font-light max-w-sm text-sm leading-relaxed">İz bırakan maskülen kokular ve tıraş sonrası cildinizi rahatlatan ferahlatıcı çözümler.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Erkek Parfüm -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-4 right-4 text-eagle-gray/50 text-6xl font-serif font-bold italic">04</div>
+                    <div class="product-img">
+                        <img src="https://loremflickr.com/400/400/cologne,glass/all" alt="Erkek Parfüm">
+                    </div>
+                    <h3 class="font-sans font-bold text-xl text-white uppercase tracking-wider mb-2">Erkek Parfüm</h3>
+                    <p class="font-sans text-xs text-gray-400 font-light mb-6">Odunsu ve baharatlı notaların eşsiz uyumuyla imza kokunuz.</p>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-eagle-copper border-b border-eagle-copper/30 pb-1">Detaylı İncele</span>
+                </div>
+
+                <!-- Krem Traş Kolonyası -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-4 right-4 text-eagle-gray/50 text-6xl font-serif font-bold italic">05</div>
+                    <div class="product-img">
+                        <img src="https://loremflickr.com/400/400/shaving,cream/all" alt="Krem Tıraş Kolonyası">
+                    </div>
+                    <h3 class="font-sans font-bold text-xl text-white uppercase tracking-wider mb-2">Krem Tıraş Kolonyası</h3>
+                    <p class="font-sans text-xs text-gray-400 font-light mb-6">Tıraş sonrası cildi nemlendirirken kolonya ferahlığı sunan 2'si 1 arada formül.</p>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-eagle-copper border-b border-eagle-copper/30 pb-1">Detaylı İncele</span>
+                </div>
+
+                <!-- Parfüm Kolonya -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-4 right-4 text-eagle-gray/50 text-6xl font-serif font-bold italic">06</div>
+                    <div class="product-img">
+                        <img src="https://loremflickr.com/400/400/barber,cologne/all" alt="Parfüm Kolonya">
+                    </div>
+                    <h3 class="font-sans font-bold text-xl text-white uppercase tracking-wider mb-2">Parfüm Kolonya</h3>
+                    <p class="font-sans text-xs text-gray-400 font-light mb-6">Klasik berber ferahlığının modern ve kalıcı parfüm esanslarıyla buluşması.</p>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-eagle-copper border-b border-eagle-copper/30 pb-1">Detaylı İncele</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KURUMSAL -->
+    <section id="kurumsal" class="py-24 bg-eagle-dark border-t border-white/5 relative">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
+                    <div class="aspect-square max-w-md mx-auto relative">
+                        <!-- Abstract Barber pole / cosmetic lab imagery -->
+                        <img src="https://loremflickr.com/800/800/barber,shop,dark/all" alt="Üretim ve Arge" class="w-full h-full object-cover filter grayscale contrast-125 border border-eagle-gray">
+                        <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-eagle-black border border-eagle-copper/30 flex flex-col items-center justify-center p-6 text-center">
+                            <i class="fa-solid fa-flask text-3xl text-eagle-copper mb-2"></i>
+                            <span class="font-sans font-bold text-white text-sm tracking-widest uppercase">Gelişmiş Formül</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <h4 class="font-sans text-xs font-bold tracking-[0.3em] text-eagle-copper uppercase mb-4">Temizler Kozmetik</h4>
+                    <h2 class="font-serif text-4xl text-white font-bold mb-6">Kaliteden Ödün Vermeyen Üretim.</h2>
+                    <p class="font-sans text-gray-400 font-light leading-relaxed mb-6">
+                        Eagle Claw Cosmetica, Sivas 1. Organize Sanayi Bölgesi'ndeki modern üretim tesislerinde, erkek bakım ve kozmetik sektörüne yön veren ürünler tasarlamaktadır.
+                    </p>
+                    <p class="font-sans text-gray-400 font-light leading-relaxed mb-8">
+                        Amacımız sadece güzel kokan veya şekil veren ürünler üretmek değil; aynı zamanda saçı ve cildi besleyen, dermatolojik olarak test edilmiş, yüksek kalite standartlarında kozmetik çözümleri sunmaktır.
+                    </p>
+                    
+                    <ul class="space-y-4 font-sans text-sm text-gray-300">
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-check text-eagle-copper"></i> Dermatolojik Olarak Test Edilmiştir</li>
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-check text-eagle-copper"></i> Uluslararası Kalite Standartları (ISO)</li>
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-check text-eagle-copper"></i> Sivas OSB'den Dünyaya İhracat</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="iletisim" class="bg-eagle-black pt-24 pb-12 border-t border-eagle-copper/20">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-1">
+                    <h2 class="font-serif text-xl tracking-[0.2em] text-white uppercase font-bold mb-2">EAGLE <span class="text-eagle-copper">CLAW</span></h2>
+                    <span class="font-sans text-[8px] font-medium text-gray-500 tracking-[0.3em] uppercase block mb-6">Temizler Kozmetik</span>
+                    <p class="font-sans text-gray-400 text-sm font-light leading-relaxed mb-6">
+                        Erkek bakımında gücün ve zarafetin sembolü. Profesyonel saç ve cilt bakım serileri.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-eagle-copper hover:text-eagle-black transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-eagle-copper hover:text-eagle-black transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-eagle-copper hover:text-eagle-black transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Nav -->
+                <div class="lg:col-span-1 lg:pl-8">
+                    <h4 class="font-sans font-bold text-white text-xs tracking-widest uppercase mb-6">Menü</h4>
+                    <ul class="space-y-3 font-sans text-sm text-gray-400 font-light">
+                        <li><a href="#grooming" class="hover:text-eagle-copper transition-colors">Saç Şekillendiriciler</a></li>
+                        <li><a href="#fragrance" class="hover:text-eagle-copper transition-colors">Parfümler</a></li>
+                        <li><a href="#fragrance" class="hover:text-eagle-copper transition-colors">Tıraş Ürünleri</a></li>
+                        <li><a href="#kurumsal" class="hover:text-eagle-copper transition-colors">Hakkımızda</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-sans font-bold text-white text-xs tracking-widest uppercase mb-6">İletişim & Fabrika</h4>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-map-location-dot text-eagle-copper mt-1"></i>
+                            <div>
+                                <h5 class="font-sans text-[9px] tracking-widest text-gray-500 uppercase block mb-1">Adres</h5>
+                                <p class="font-sans text-gray-300 text-sm font-light leading-relaxed">
+                                    Sivas 1. OSB Müdürlüğü, Sivas İgem<br>
+                                    Kılavuz OSB / Sivas Merkez
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <i class="fa-solid fa-phone text-eagle-copper"></i>
+                                <div>
+                                    <h5 class="font-sans text-[9px] tracking-widest text-gray-500 uppercase block mb-1">Telefon</h5>
+                                    <a href="tel:03465023248" class="font-sans text-gray-300 text-sm font-light hover:text-white transition-colors">0(346) 502 32 48</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <i class="fa-solid fa-envelope text-eagle-copper"></i>
+                                <div>
+                                    <h5 class="font-sans text-[9px] tracking-widest text-gray-500 uppercase block mb-1">E-Posta</h5>
+                                    <a href="mailto:info@eagleclawcosmetica.com" class="font-sans text-gray-300 text-sm font-light hover:text-white transition-colors">info@eagleclawcosmetica.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-8 border-t border-white/5 text-center">
+                <p class="font-sans text-xs text-gray-500 font-light tracking-widest uppercase">&copy; 2026 Temizler Kozmetik (Eagle Claw Cosmetica). Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-eagle-black/95', 'backdrop-blur-md', 'shadow-2xl');
+                nav.classList.remove('bg-transparent', 'border-white/5');
+                nav.style.borderColor = '#242424';
+            } else {
+                nav.classList.add('bg-transparent', 'border-white/5');
+                nav.classList.remove('bg-eagle-black/95', 'backdrop-blur-md', 'shadow-2xl');
+                nav.style.borderColor = 'rgba(255,255,255,0.05)';
+            }
+        });
+    </script>
+</body>
+</html>

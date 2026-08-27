@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOFDOOR | Premium İç Mekan Kapı Sistemleri</title>
+    <meta name="description" content="Doğal ahşap, akrilik, lamine ve PVC kapı sistemlerinde üstün kalite. Yöttürk Mobilya güvencesiyle.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        yoof: {
+                            dark: '#1c1b18',      // Charcoal brown
+                            wood: '#4a3b2c',      // Walnut wood
+                            woodLight: '#8b6f52', // Oak
+                            beige: '#f4f1ea',     // Warm cream
+                            bronze: '#cda87c',    // Bronze/Gold accent
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Jost', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f4f1ea;
+            color: #1c1b18;
+            overflow-x: hidden;
+        }
+
+        /* --- Custom Wood Aesthetic Elements --- */
+        .wood-border {
+            border: 1px solid rgba(205, 168, 124, 0.3);
+        }
+
+        /* The Door Hover Card */
+        .door-card {
+            position: relative;
+            background: #fff;
+            aspect-ratio: 9/16;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(28, 27, 24, 0.05);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .door-img-wrapper {
+            position: absolute;
+            inset: 15px;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+        .door-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s ease, filter 0.5s ease;
+            filter: contrast(1.1) brightness(0.9);
+        }
+        
+        /* The "Opening" Effect */
+        .door-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(28,27,24,0.9), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            z-index: 10;
+        }
+        .door-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(74, 59, 44, 0.15);
+        }
+        .door-card:hover img {
+            transform: scale(1.1);
+        }
+        .door-card:hover .door-overlay {
+            opacity: 1;
+        }
+
+        /* Technical Info Card (Kesitler) */
+        .tech-card {
+            background: #fff;
+            border: 1px solid #e0ddd5;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: #cda87c;
+            transition: height 0.4s ease;
+        }
+        .tech-card:hover::before {
+            height: 100%;
+        }
+        .tech-card:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            transform: translateX(10px);
+        }
+
+        /* Hero Split Background */
+        .hero-split {
+            position: relative;
+        }
+        .hero-split::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 45%;
+            height: 100%;
+            background: #1c1b18;
+            z-index: -1;
+        }
+        @media (max-width: 1024px) {
+            .hero-split::before {
+                width: 100%;
+                top: 50%;
+                height: 50%;
+            }
+        }
+
+        /* Elegance Button */
+        .btn-elegant {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 32px;
+            background: #1c1b18;
+            color: #cda87c;
+            font-family: 'Jost', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            transition: all 0.4s ease;
+            border: 1px solid #1c1b18;
+        }
+        .btn-elegant:hover {
+            background: #cda87c;
+            color: #1c1b18;
+            border-color: #cda87c;
+        }
+        
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f4f1ea; }
+        ::-webkit-scrollbar-thumb { background: #8b6f52; }
+    </style>
+</head>
+<body class="selection:bg-yoof-bronze selection:text-yoof-dark">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-500 border-b border-white/10" id="navbar">
+        <div class="max-w-[1400px] mx-auto px-6 h-24 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-4 group">
+                <div class="w-12 h-12 flex items-center justify-center border border-yoof-bronze/50 group-hover:border-yoof-bronze transition-colors">
+                    <i class="fa-solid fa-door-open text-yoof-bronze text-2xl group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="flex flex-col">
+                    <h1 class="font-serif text-3xl tracking-widest text-white uppercase leading-none" id="nav-brand">YOFDOOR</h1>
+                    <span class="font-sans text-[9px] tracking-[0.3em] text-yoof-bronze uppercase mt-1">Yöttürk Mobilya A.Ş.</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-10 font-sans text-xs tracking-[0.2em] uppercase" id="nav-links">
+                <a href="#koleksiyonlar" class="text-white hover:text-yoof-bronze transition-colors">Koleksiyonlar</a>
+                <a href="#teknik" class="text-white hover:text-yoof-bronze transition-colors">Teknik Detaylar</a>
+                <a href="#kurumsal" class="text-white hover:text-yoof-bronze transition-colors">Kurumsal</a>
+                <a href="#iletisim" class="px-6 py-2 border border-yoof-bronze text-yoof-bronze hover:bg-yoof-bronze hover:text-yoof-dark transition-colors">İletişim</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="lg:hidden text-yoof-bronze text-2xl focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-yoof-dark border-t border-yoof-bronze/20 absolute w-full">
+            <div class="flex flex-col p-8 space-y-6 font-sans text-sm tracking-[0.2em] uppercase text-gray-400">
+                <a href="#koleksiyonlar" class="hover:text-yoof-bronze">Koleksiyonlar</a>
+                <a href="#teknik" class="hover:text-yoof-bronze">Teknik Detaylar</a>
+                <a href="#kurumsal" class="hover:text-yoof-bronze">Kurumsal</a>
+                <a href="#iletisim" class="text-yoof-bronze">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="min-h-screen flex items-center pt-24 hero-split relative z-0">
+        <div class="max-w-[1400px] mx-auto px-6 w-full py-12 lg:py-0">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                
+                <!-- Text Content -->
+                <div class="w-full lg:w-[55%] z-10" data-aos="fade-right" data-aos-duration="1500">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-px bg-yoof-bronze"></div>
+                        <span class="font-sans text-xs tracking-[0.4em] text-yoof-bronze uppercase">Mekana Açılan İmza</span>
+                    </div>
+                    
+                    <h2 class="font-serif text-5xl md:text-7xl text-yoof-dark mb-6 leading-[1.1]">
+                        Zarafetin <br>
+                        <span class="italic font-light text-yoof-woodLight">Ahşapla</span> Buluştuğu Nokta.
+                    </h2>
+                    
+                    <p class="font-sans text-gray-600 text-lg font-light mb-10 max-w-xl leading-relaxed">
+                        Yofdoor; doğal ahşap, lamine, akrilik ve PVC kapı sistemleriyle yaşam alanlarınıza estetik, yalıtım ve güvenliği bir arada sunuyor.
+                    </p>
+                    
+                    <a href="#koleksiyonlar" class="btn-elegant">
+                        Koleksiyonları İncele <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="w-full lg:w-[45%] relative z-10" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="200">
+                    <div class="relative aspect-[3/4] p-4 bg-white/10 backdrop-blur-sm border border-white/20">
+                        <img src="https://loremflickr.com/800/1000/interior,door/all" alt="Yofdoor Ahşap Kapı" class="w-full h-full object-cover filter brightness-90">
+                        
+                        <!-- Decorative Frame -->
+                        <div class="absolute inset-8 border border-yoof-bronze/40 pointer-events-none"></div>
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-6 -left-12 lg:-left-20 bg-yoof-dark p-6 shadow-2xl flex items-center gap-4 border-l-4 border-yoof-bronze animate-[float_6s_ease-in-out_infinite]">
+                            <i class="fa-solid fa-award text-3xl text-yoof-bronze"></i>
+                            <div>
+                                <h4 class="font-sans font-medium text-white tracking-widest text-sm uppercase">Premium Kalite</h4>
+                                <span class="font-sans text-xs text-gray-400">Yöttürk Güvencesiyle</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KOLEKSİYONLAR (DOOR MODELS) -->
+    <section id="koleksiyonlar" class="py-32 bg-yoof-dark text-white relative">
+        <!-- Subtle Wood Texture Background -->
+        <div class="absolute inset-0 opacity-10 bg-[url('https://loremflickr.com/1920/1080/wood,texture/all')] bg-cover bg-center mix-blend-overlay"></div>
+        
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <h4 class="font-sans text-xs tracking-[0.4em] text-yoof-bronze uppercase mb-4">Serilerimiz</h4>
+                    <h2 class="font-serif text-4xl md:text-5xl">Kapı Koleksiyonları</h2>
+                </div>
+                <p class="font-sans text-gray-400 font-light max-w-sm">Her mimari tarza uygun; doğal ahşaptan moderne, akrilikten PVC'ye kadar uzanan geniş yelpaze.</p>
+            </div>
+
+            <!-- Door Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- YFDA Serisi (Ahşap & Akrilik) -->
+                <div class="door-card group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="door-img-wrapper">
+                        <img src="https://loremflickr.com/400/800/wooden,door/all" alt="YFDA Serisi Ahşap Kapı">
+                    </div>
+                    <div class="absolute top-8 left-8 z-20">
+                        <span class="font-sans text-[10px] bg-yoof-dark text-yoof-bronze px-3 py-1 tracking-widest uppercase">YFDA Serisi</span>
+                    </div>
+                    
+                    <div class="door-overlay">
+                        <h3 class="font-serif text-2xl text-white mb-2">Doğal Ahşap & Akrilik</h3>
+                        <p class="font-sans text-xs text-gray-300 font-light mb-4">YFDA 200 / 201 / 202</p>
+                        <p class="font-sans text-sm text-gray-400 font-light mb-6 border-t border-white/20 pt-4">Ahşabın sıcaklığını ve akriliğin modern parlaklığını bir araya getiren premium seri.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-yoof-bronze font-sans text-xs tracking-widest uppercase">Detaylar <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- YFA Serisi (Akrilik) -->
+                <div class="door-card group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="door-img-wrapper">
+                        <img src="https://loremflickr.com/400/800/modern,door,white/all" alt="YFA Serisi Akrilik Kapı">
+                    </div>
+                    <div class="absolute top-8 left-8 z-20">
+                        <span class="font-sans text-[10px] bg-yoof-dark text-yoof-bronze px-3 py-1 tracking-widest uppercase">YFA Serisi</span>
+                    </div>
+                    
+                    <div class="door-overlay">
+                        <h3 class="font-serif text-2xl text-white mb-2">Akrilik Kapı</h3>
+                        <p class="font-sans text-xs text-gray-300 font-light mb-4">YFA 305 / 311</p>
+                        <p class="font-sans text-sm text-gray-400 font-light mb-6 border-t border-white/20 pt-4">Çizilmeye dayanıklı, pürüzsüz ve ultra parlak yüzeyleriyle modern mekanların tercihi.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-yoof-bronze font-sans text-xs tracking-widest uppercase">Detaylar <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- YFL Serisi (Lamine) -->
+                <div class="door-card group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="door-img-wrapper">
+                        <img src="https://loremflickr.com/400/800/laminate,door/all" alt="YFL Serisi Lamine Kapı">
+                    </div>
+                    <div class="absolute top-8 left-8 z-20">
+                        <span class="font-sans text-[10px] bg-yoof-dark text-yoof-bronze px-3 py-1 tracking-widest uppercase">YFL Serisi</span>
+                    </div>
+                    
+                    <div class="door-overlay">
+                        <h3 class="font-serif text-2xl text-white mb-2">Lamine Kapı</h3>
+                        <p class="font-sans text-xs text-gray-300 font-light mb-4">YFL 600 / 601</p>
+                        <p class="font-sans text-sm text-gray-400 font-light mb-6 border-t border-white/20 pt-4">Yüksek yüzey dayanımı ve zengin desen seçenekleriyle uzun ömürlü ve ekonomik çözüm.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-yoof-bronze font-sans text-xs tracking-widest uppercase">Detaylar <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- YFP Serisi (PVC) -->
+                <div class="door-card group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="door-img-wrapper">
+                        <img src="https://loremflickr.com/400/800/pvc,door/all" alt="YFP Serisi PVC Kapı">
+                    </div>
+                    <div class="absolute top-8 left-8 z-20">
+                        <span class="font-sans text-[10px] bg-yoof-dark text-yoof-bronze px-3 py-1 tracking-widest uppercase">YFP Serisi</span>
+                    </div>
+                    
+                    <div class="door-overlay">
+                        <h3 class="font-serif text-2xl text-white mb-2">PVC Kapı</h3>
+                        <p class="font-sans text-xs text-gray-300 font-light mb-4">YFP 404 / 406</p>
+                        <p class="font-sans text-sm text-gray-400 font-light mb-6 border-t border-white/20 pt-4">Neme ve suya karşı ekstra direnç, kolay temizlenebilir pratik yapı.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-yoof-bronze font-sans text-xs tracking-widest uppercase">Detaylar <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TEKNİK DETAYLAR (İç Dolgu ve Kasa) -->
+    <section id="teknik" class="py-32 bg-white relative">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="flex flex-col lg:flex-row gap-16">
+                
+                <!-- Left Info -->
+                <div class="w-full lg:w-1/3" data-aos="fade-right">
+                    <h4 class="font-sans text-xs tracking-[0.4em] text-yoof-bronze uppercase mb-4">Görünmeyeni İnşa Etmek</h4>
+                    <h2 class="font-serif text-4xl text-yoof-dark mb-6">Mükemmellik İçeride Başlar.</h2>
+                    <p class="font-sans text-gray-600 font-light leading-relaxed mb-8">
+                        Bir kapının kalitesini dış yüzeyi kadar iç dolgusu ve kasa yapısı belirler. Yofdoor kapılarında, ses ve ısı yalıtımını maksimize eden farklı dolgu teknolojileri ve sağlam kasa sistemleri kullanıyoruz.
+                    </p>
+                    <img src="https://loremflickr.com/600/400/wood,carpentry/all" alt="Üretim Detay" class="w-full h-64 object-cover filter grayscale sepia-[0.2]">
+                </div>
+
+                <!-- Right Technical Cards -->
+                <div class="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <div class="tech-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fa-solid fa-layer-group text-3xl text-yoof-bronze mb-4"></i>
+                        <h3 class="font-serif text-2xl text-yoof-dark mb-3">Okal Dolgulu Kanat</h3>
+                        <p class="font-sans text-sm text-gray-500 font-light leading-relaxed">
+                            Delikli sunta yapısı sayesinde mükemmel ses ve ısı yalıtımı sağlar. Ağır ve tok bir kapı hissi arayanlar için ideal iç dolgu teknolojisidir.
+                        </p>
+                    </div>
+
+                    <div class="tech-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fa-brands fa-hive text-3xl text-yoof-bronze mb-4"></i>
+                        <h3 class="font-serif text-2xl text-yoof-dark mb-3">Kraft Dolgulu Kanat</h3>
+                        <p class="font-sans text-sm text-gray-500 font-light leading-relaxed">
+                            Petek dokulu (Honeycomb) kraft kağıt dolgusu sayesinde kapı hafiflerken, yapısal bütünlük korunur. Menteşelere binen yükü azaltır.
+                        </p>
+                    </div>
+
+                    <div class="tech-card md:col-span-2" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex flex-col md:flex-row gap-6 items-center">
+                            <div class="w-full md:w-1/3">
+                                <img src="https://loremflickr.com/400/300/door,frame/all" alt="Sandviç Kasa" class="w-full h-full object-cover">
+                            </div>
+                            <div class="w-full md:w-2/3">
+                                <i class="fa-solid fa-cubes text-3xl text-yoof-bronze mb-4"></i>
+                                <h3 class="font-serif text-2xl text-yoof-dark mb-3">Sandviç Kasa Sistemi</h3>
+                                <p class="font-sans text-sm text-gray-500 font-light leading-relaxed">
+                                    Ahşap, MDF ve kontrplak katmanlarının birleştirilmesiyle oluşturulan sandviç kasa; zamanla oluşan dönme, eğilme ve nem kaynaklı deformasyonları tamamen ortadan kaldırır. Pervaz tutuculuğu en üst seviyededir.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- FOOTER / İLETİŞİM -->
+    <footer id="iletisim" class="bg-yoof-dark pt-24 pb-12 border-t border-yoof-bronze/30">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-4">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fa-solid fa-door-open text-yoof-bronze text-3xl"></i>
+                        <div class="flex flex-col">
+                            <span class="font-serif font-bold text-2xl tracking-widest text-white leading-none">YOFDOOR</span>
+                            <span class="font-sans text-[8px] font-light text-yoof-bronze tracking-widest uppercase mt-1">Yöttürk Mobilya İnş. A.Ş.</span>
+                        </div>
+                    </div>
+                    <p class="font-sans text-gray-400 text-sm font-light leading-relaxed mb-8 pr-4">
+                        Modern mekanlara estetik ve güven katan kapı sistemlerinde Sivas'tan yükselen kalite standartı.
+                    </p>
+                    
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/YOFDOOR" target="_blank" class="w-10 h-10 border border-white/20 flex items-center justify-center text-gray-400 hover:text-yoof-dark hover:bg-yoof-bronze transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="http://www.instragram.com/YOFDOOR" target="_blank" class="w-10 h-10 border border-white/20 flex items-center justify-center text-gray-400 hover:text-yoof-dark hover:bg-yoof-bronze transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="http://www.youtube.com/channel/UCzkhzKbVGkSKnvy_u2yBYdQ" target="_blank" class="w-10 h-10 border border-white/20 flex items-center justify-center text-gray-400 hover:text-yoof-dark hover:bg-yoof-bronze transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Linkler -->
+                <div class="lg:col-span-4 lg:pl-10">
+                    <h4 class="font-sans font-medium text-white text-xs tracking-[0.2em] uppercase mb-6 border-l-2 border-yoof-bronze pl-3">Hızlı Menü</h4>
+                    <ul class="space-y-4 font-sans text-sm text-gray-400 font-light">
+                        <li><a href="#koleksiyonlar" class="hover:text-yoof-bronze transition-colors">YFDA Serisi Ahşap Kapılar</a></li>
+                        <li><a href="#koleksiyonlar" class="hover:text-yoof-bronze transition-colors">YFA Serisi Akrilik Kapılar</a></li>
+                        <li><a href="#koleksiyonlar" class="hover:text-yoof-bronze transition-colors">YFL Serisi Lamine Kapılar</a></li>
+                        <li><a href="#teknik" class="hover:text-yoof-bronze transition-colors">İç Dolgu ve Kasa Özellikleri</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="lg:col-span-4">
+                    <h4 class="font-sans font-medium text-white text-xs tracking-[0.2em] uppercase mb-6 border-l-2 border-yoof-bronze pl-3">İletişim</h4>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-location-dot text-yoof-bronze mt-1"></i>
+                            <div>
+                                <h5 class="font-sans text-white text-sm mb-1 tracking-wider uppercase text-[10px]">Fabrika / Adres</h5>
+                                <p class="font-sans text-gray-400 text-sm font-light">Sivas İgem, Kılavuz OSB<br>Sivas Merkez</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-phone text-yoof-bronze"></i>
+                            <div>
+                                <h5 class="font-sans text-white text-sm mb-1 tracking-wider uppercase text-[10px]">Telefon</h5>
+                                <div class="flex flex-col gap-1">
+                                    <a href="tel:03462181400" class="font-sans text-gray-400 text-sm font-light hover:text-white transition-colors">0(346) 218 14 00</a>
+                                    <a href="tel:03462181138" class="font-sans text-gray-400 text-sm font-light hover:text-white transition-colors">0(346) 218 11 38</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="font-sans text-[11px] text-gray-500 font-light tracking-widest uppercase">&copy; 2026 Yöttürk Mobilya İnşaat Taah. A.Ş. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            const brand = document.getElementById('nav-brand');
+            const links = document.getElementById('nav-links');
+            
+            if (window.scrollY > 50) {
+                // Scrolled state (Light)
+                nav.classList.add('bg-white', 'shadow-md');
+                nav.classList.remove('bg-transparent', 'border-white/10');
+                nav.style.borderColor = '#e0ddd5';
+                
+                brand.classList.remove('text-white');
+                brand.classList.add('text-yoof-dark');
+                
+                Array.from(links.children).forEach(link => {
+                    if(!link.classList.contains('border')) { // don't change the button text color initially
+                        link.classList.remove('text-white');
+                        link.classList.add('text-yoof-dark');
+                    }
+                });
+            } else {
+                // Top state (Transparent/Dark)
+                nav.classList.add('bg-transparent', 'border-white/10');
+                nav.classList.remove('bg-white', 'shadow-md');
+                nav.style.borderColor = 'rgba(255,255,255,0.1)';
+                
+                brand.classList.add('text-white');
+                brand.classList.remove('text-yoof-dark');
+                
+                Array.from(links.children).forEach(link => {
+                    if(!link.classList.contains('border')) {
+                        link.classList.add('text-white');
+                        link.classList.remove('text-yoof-dark');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

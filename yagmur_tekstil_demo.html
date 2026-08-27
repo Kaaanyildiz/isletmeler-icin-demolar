@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yağmur Tekstil - Kalitenin ilmek ilmek dokunduğu, modern tasarım ve tekstil üretiminin merkezi.">
+    <title>Yağmur Tekstil | Zarafet ve Kalite</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Playfair Display for elegant headings, Outfit for clean body -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Elegant Fashion Palette */
+            --bg-light: #FAF9F6; /* Off-white/Cream */
+            --bg-secondary: #F0EBE1; /* Muted sand */
+            --text-dark: #2C2C2C;
+            --text-light: #7A7A7A;
+            --accent-color: #A37E65; /* Elegant muted clay/brown */
+            
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Outfit', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
+
+        /* UTILS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-head);
+            font-weight: 600;
+        }
+
+        /* LOADER */
+        #loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-light);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease, visibility 1s;
+        }
+        .loader-brand {
+            font-family: var(--font-head);
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            animation: pulse 2s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.5; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.5; transform: scale(0.95); }
+        }
+
+        /* HEADER / NAVBAR */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 25px 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        header.scrolled {
+            background: rgba(250, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 3px;
+            transition: color 0.4s ease;
+        }
+        header.scrolled .logo {
+            color: var(--text-dark);
+        }
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.4s;
+        }
+        header.scrolled .nav-links a {
+            color: var(--text-dark);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: var(--accent-color);
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* MENU TOGGLE FOR MOBILE */
+        .menu-toggle {
+            display: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        header.scrolled .menu-toggle {
+            color: var(--text-dark);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+        .hero-subtitle {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            display: block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+        .hero-title {
+            color: #fff;
+            font-size: 5.5rem;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards 0.8s;
+        }
+        .hero-title span {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--bg-secondary);
+        }
+        .hero-btn {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 1.1s;
+            display: inline-block;
+        }
+        .hero-btn:hover {
+            background: #fff;
+            color: var(--text-dark);
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            padding: 120px 0;
+            background: var(--bg-light);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .about-image {
+            position: relative;
+        }
+        .about-image-inner {
+            width: 80%;
+            border-radius: 150px 150px 0 0; /* Arched Top */
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .about-image-inner img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 1s ease;
+        }
+        .about-image:hover .about-image-inner img {
+            transform: scale(1.05);
+        }
+        /* Decorative element behind image */
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            border: 1px solid var(--accent-color);
+            border-radius: 150px 150px 0 0;
+            z-index: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+        .about-text h2 span {
+            font-style: italic;
+            color: var(--accent-color);
+            font-weight: 400;
+        }
+        .about-text p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        .signature {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--text-dark);
+            margin-top: 30px;
+        }
+
+        /* COLLECTION (PRODUCTS) */
+        .collection-section {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        .product-card {
+            background: var(--bg-light);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.5s ease;
+            position: relative;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        .product-img-wrap {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 25px;
+            aspect-ratio: 3/4;
+        }
+        .product-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease, filter 0.8s ease;
+        }
+        .product-card:hover .product-img-wrap img {
+            transform: scale(1.08);
+            filter: brightness(0.9);
+        }
+        .view-btn {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            color: var(--text-dark);
+            padding: 10px 25px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: bottom 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .product-card:hover .view-btn {
+            bottom: 20px;
+        }
+        .product-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-family: var(--font-head);
+        }
+        .product-cat {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* FEATURES / MARQUEE */
+        .features-section {
+            padding: 80px 0;
+            background: var(--text-dark);
+            color: #fff;
+            overflow: hidden;
+        }
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            display: flex;
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: scroll 20s linear infinite;
+        }
+        .marquee-item {
+            font-family: var(--font-head);
+            font-size: 2.5rem;
+            font-style: italic;
+            margin: 0 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        .marquee-item::after {
+            content: '✦';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-style: normal;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* QUALITY/DETAILS */
+        .details-section {
+            padding: 120px 0;
+            background: var(--bg-light);
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .detail-card {
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 30px;
+            margin-bottom: 40px;
+        }
+        .detail-num {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        .detail-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .detail-desc {
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-secondary);
+            padding: 100px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+        .footer-brand .logo {
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+        .footer-desc {
+            color: var(--text-light);
+            max-width: 350px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        .socials {
+            display: flex;
+            gap: 20px;
+        }
+        .socials a {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        .socials a:hover {
+            color: var(--accent-color);
+        }
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-family: var(--font-body);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 300;
+        }
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        .contact-info li {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            font-weight: 300;
+        }
+        .contact-info i {
+            color: var(--text-dark);
+            margin-top: 5px;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .fade-in-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-title { font-size: 4rem; }
+            .about-grid, .details-grid { grid-template-columns: 1fr; }
+            .about-image { margin-bottom: 40px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                padding: 30px;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a { color: var(--text-dark); }
+            .menu-toggle { display: block; }
+            
+            .hero-title { font-size: 3rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOADER -->
+    <div id="loader">
+        <div class="loader-brand">YAĞMUR</div>
+    </div>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container nav-inner">
+            <a href="#" class="logo">YAĞMUR</a>
+            
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#koleksiyon">Koleksiyon</a></li>
+                <li><a href="#kalite">Kalite Anlayışı</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">İlmek İlmek İşlenen Zarafet</span>
+            <h1 class="hero-title">MODANIN<br><span>Özündeki Kalite</span></h1>
+            <a href="#koleksiyon" class="hero-btn">Koleksiyonu Keşfet</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="hakkimizda">
+        <div class="container about-grid">
+            <div class="about-image fade-in-scroll">
+                <div class="about-image-inner">
+                    <img src="https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Terzi Atölyesi">
+                </div>
+            </div>
+            <div class="about-text fade-in-scroll">
+                <h2>Geleneğin ve Modernliğin <br><span>Buluşma Noktası</span></h2>
+                <p>Sivas'ta kurulan Yağmur Tekstil, yılların verdiği kumaş ve dikim tecrübesini, çağdaş kadın giyimiyle birleştiriyor. Ürettiğimiz her bir parçada, kumaşın dokusuna duyduğumuz saygıyı ve işçiliğe olan tutkumuzu yansıtıyoruz.</p>
+                <p>Etekten gömleğe, yakalı ve yakasız zarif elbiselere kadar uzanan geniş üretim ağımızda, kaliteden ödün vermeden yenilikçi tasarımlar ortaya koyuyoruz.</p>
+                <div class="signature">Yağmur Tekstil</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="features-section">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span class="marquee-item">Yüksek Kaliteli Kumaşlar</span>
+                <span class="marquee-item">Kusursuz İşçilik</span>
+                <span class="marquee-item">Modern Kesimler</span>
+                <span class="marquee-item">Sürdürülebilir Üretim</span>
+                <span class="marquee-item">Zarif Detaylar</span>
+                <!-- Duplicate for seamless looping -->
+                <span class="marquee-item">Yüksek Kaliteli Kumaşlar</span>
+                <span class="marquee-item">Kusursuz İşçilik</span>
+                <span class="marquee-item">Modern Kesimler</span>
+                <span class="marquee-item">Sürdürülebilir Üretim</span>
+                <span class="marquee-item">Zarif Detaylar</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLLECTION -->
+    <section class="collection-section" id="koleksiyon">
+        <div class="container">
+            <div class="section-header fade-in-scroll">
+                <p>Özenle Hazırlandı</p>
+                <h2>Öne Çıkan Ürünlerimiz</h2>
+            </div>
+            
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card fade-in-scroll" style="transition-delay: 0.1s;">
+                    <div class="product-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1582142306909-195724d33ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Çizgili Etek">
+                        <a href="#" class="view-btn">İncele</a>
+                    </div>
+                    <div class="product-cat">Kadın Giyim</div>
+                    <h3 class="product-title">Çizgili Etek</h3>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card fade-in-scroll" style="transition-delay: 0.2s;">
+                    <div class="product-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Çizgili Gömlek">
+                        <a href="#" class="view-btn">İncele</a>
+                    </div>
+                    <div class="product-cat">Kadın Giyim</div>
+                    <h3 class="product-title">Çizgili Gömlek</h3>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card fade-in-scroll" style="transition-delay: 0.3s;">
+                    <div class="product-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Yakalı Elbise">
+                        <a href="#" class="view-btn">İncele</a>
+                    </div>
+                    <div class="product-cat">Abiye & Günlük</div>
+                    <h3 class="product-title">Yakalı Elbise</h3>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card fade-in-scroll" style="transition-delay: 0.4s;">
+                    <div class="product-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1550639524-a6f58345a044?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Yakasız Elbise">
+                        <a href="#" class="view-btn">İncele</a>
+                    </div>
+                    <div class="product-cat">Abiye & Günlük</div>
+                    <h3 class="product-title">Yakasız Elbise</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section class="details-section" id="kalite">
+        <div class="container details-grid">
+            <div class="fade-in-scroll">
+                <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Kumaş Detayı" style="width: 100%; height: auto; object-fit: cover; aspect-ratio: 4/5;">
+            </div>
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+                <div class="detail-card fade-in-scroll">
+                    <div class="detail-num">01.</div>
+                    <h3 class="detail-title">Premium Kumaş Seçimi</h3>
+                    <p class="detail-desc">Ürettiğimiz her kıyafette nefes alabilen, cilde dost ve uzun ömürlü birinci sınıf iplikler ve dokumalar tercih ediyoruz.</p>
+                </div>
+                <div class="detail-card fade-in-scroll" style="transition-delay: 0.1s;">
+                    <div class="detail-num">02.</div>
+                    <h3 class="detail-title">Usta İşçilik</h3>
+                    <p class="detail-desc">Modern teknoloji ile terzilik sanatını harmanlayan dikiş teknikleri uygulayarak, giysilerin bedene kusursuz oturmasını sağlıyoruz.</p>
+                </div>
+                <div class="detail-card fade-in-scroll" style="transition-delay: 0.2s;">
+                    <div class="detail-num">03.</div>
+                    <h3 class="detail-title">Trendleri Belirleyen Tasarım</h3>
+                    <p class="detail-desc">Geleneksel çizgileri, global moda akımlarıyla sentezleyerek hem zamansız hem de yenilikçi koleksiyonlar hazırlıyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="iletisim">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">YAĞMUR</a>
+                <p class="footer-desc">Modayı kalite ile birleştirerek, kadın giyiminde şıklığın ve zarafetin yeni adresi.</p>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="footer-title">Menü</h4>
+                <ul class="footer-links">
+                    <li><a href="#hakkimizda">Hikayemiz</a></li>
+                    <li><a href="#koleksiyon">Tüm Koleksiyon</a></li>
+                    <li><a href="#kalite">Üretim</a></li>
+                    <li><a href="#">Beden Tablosu</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-title">Bize Ulaşın</h4>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Sivas, Türkiye</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>0(346) 502 10 70</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>uretim@yagmur-tekstil.com</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-globe"></i>
+                        <span>www.yagmur-tekstil.com.tr</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Yağmur Tekstil. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                document.getElementById('loader').style.visibility = 'hidden';
+            }, 800);
+        });
+
+        // Header Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Scroll Animations (Intersection Observer)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: Unobserve after animation
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-scroll').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

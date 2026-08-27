@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güven Life Mobilya | Yaşam Alanlarınıza Değer Katar</title>
+    <meta name="description" content="Mutfak dolapları, TV üniteleri, banyo dolapları, giyinme dolapları, ahşap kamelya ve ofis mobilyalarında Sivas'tan tüm Türkiye'ye özel tasarım mobilyalar.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        wood: {
+                            light: '#e6d8c8', /* Krem / Açık Ahşap */
+                            base: '#c5a880',  /* Doğal Meşe */
+                            dark: '#5c4033',  /* Koyu Ceviz */
+                            forest: '#2c3e35', /* Derin Yeşil (Zenginlik hissi) */
+                            sand: '#faf9f6',  /* Arka plan kırık beyaz */
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(92, 64, 51, 0.1)',
+                        'elegant': '0 10px 30px -5px rgba(44, 62, 53, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #faf9f6;
+            color: #2c3e35;
+        }
+
+        h1, h2, h3, h4, .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Sektöre Özel Animasyon: "Sürgülü Kapak" / Sliding Wardrobe Effect --- */
+        .sliding-doors-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .door-left, .door-right {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #2c3e35;
+            z-index: 20;
+            transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .door-left { left: 0; transform-origin: left; border-right: 1px solid rgba(197, 168, 128, 0.3); }
+        .door-right { right: 0; transform-origin: right; border-left: 1px solid rgba(197, 168, 128, 0.3); }
+        
+        .loaded .door-left { transform: translateX(-100%); }
+        .loaded .door-right { transform: translateX(100%); }
+
+        /* Mobilya Çizim Animasyonu (SVG Path draw) */
+        @keyframes drawFurniture {
+            0% { stroke-dashoffset: 1000; opacity: 0; }
+            20% { opacity: 1; }
+            100% { stroke-dashoffset: 0; opacity: 1; }
+        }
+        .furniture-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawFurniture 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 1s;
+        }
+
+        /* --- Scroll Reveal Sınıfları --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Gecikmeli reveal'lar */
+        .reveal-delay-1 { transition-delay: 100ms; }
+        .reveal-delay-2 { transition-delay: 200ms; }
+        .reveal-delay-3 { transition-delay: 300ms; }
+
+        /* --- Ürün Kartları Mikro Etkileşim --- */
+        .furniture-card {
+            background: white;
+            border: 1px solid transparent;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .furniture-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background-color: #c5a880; /* Doğal Meşe Vurgu */
+            transition: width 0.4s ease;
+        }
+
+        .furniture-card:hover {
+            border-color: #e6d8c8;
+            box-shadow: 0 15px 35px -10px rgba(92, 64, 51, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .furniture-card:hover::after {
+            width: 100%;
+        }
+
+        .furniture-icon-wrapper {
+            transition: transform 0.4s ease, background-color 0.4s ease;
+        }
+        .furniture-card:hover .furniture-icon-wrapper {
+            transform: scale(1.1);
+            background-color: #2c3e35;
+            color: #c5a880;
+        }
+
+        /* --- Ahşap Dokusu (Background Pattern) --- */
+        .wood-texture-bg {
+            background-color: #faf9f6;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c5a880' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        /* Floating badge animation */
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: floatBadge 4s ease-in-out infinite;
+        }
+
+    </style>
+</head>
+<body class="wood-texture-bg">
+
+    <!-- Kapı Açılma Efekti (Sayfa yüklendiğinde çalışacak) -->
+    <div id="doorWrapper" class="fixed inset-0 pointer-events-none z-[100] sliding-doors-container">
+        <div class="door-left flex items-center justify-end pr-8">
+            <h1 class="text-wood-base font-playfair text-4xl italic opacity-50">Güven</h1>
+        </div>
+        <div class="door-right flex items-center justify-start pl-8">
+            <h1 class="text-wood-base font-playfair text-4xl italic opacity-50">Life</h1>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-3 group cursor-pointer">
+                <div class="w-10 h-10 border-2 border-wood-base rounded flex items-center justify-center transform group-hover:rotate-45 transition-transform duration-500 bg-white">
+                    <div class="w-6 h-6 border border-wood-forest rounded transform -rotate-45 group-hover:rotate-0 transition-transform duration-500"></div>
+                </div>
+                <div class="font-playfair font-bold text-2xl text-wood-forest tracking-wider flex flex-col leading-none">
+                    GÜVEN <span class="text-wood-base text-sm tracking-widest font-montserrat mt-1">LİFE MOBİLYA</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="#hakkimizda" class="text-sm font-medium text-wood-forest hover:text-wood-base transition-colors relative group">
+                    Hakkımızda
+                    <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-wood-base transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#koleksiyon" class="text-sm font-medium text-wood-forest hover:text-wood-base transition-colors relative group">
+                    Koleksiyonlarımız
+                    <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-wood-base transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#iletisim" class="text-sm font-medium text-wood-forest hover:text-wood-base transition-colors relative group">
+                    İletişim
+                    <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-wood-base transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                
+                <a href="tel:05543895624" class="flex items-center gap-2 px-5 py-2.5 bg-wood-forest text-white text-sm font-medium hover:bg-wood-base transition-colors duration-300 shadow-elegant">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    Bizi Arayın
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Zarif ve Asimetrik) -->
+    <section class="min-h-screen pt-32 pb-16 relative flex items-center">
+        <!-- Dekoratif Arka Plan Şekilleri -->
+        <div class="absolute top-0 right-0 w-2/3 h-full bg-white rounded-bl-[100px] shadow-sm -z-10"></div>
+        <div class="absolute bottom-20 left-10 w-64 h-64 border border-wood-base/20 rounded-full -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Sol Metin Alanı -->
+            <div class="space-y-8 reveal relative z-10 pt-10">
+                <div class="inline-flex items-center gap-3">
+                    <div class="w-12 h-[1px] bg-wood-base"></div>
+                    <span class="text-wood-base tracking-[0.2em] text-xs font-semibold uppercase">Özel Tasarım Mobilyalar</span>
+                </div>
+                
+                <h1 class="text-5xl lg:text-7xl font-playfair text-wood-forest leading-[1.1]">
+                    Evinizin Ruhunu <br>
+                    <span class="italic text-wood-base">Ahşapla</span> Şekillendirin.
+                </h1>
+                
+                <p class="text-lg text-wood-forest/70 max-w-lg font-light leading-relaxed">
+                    Sivas İŞGEM'de mutfak dolaplarından TV ünitelerine, ahşap kamelyalardan Amerikan panel kapılara kadar yaşam alanlarınıza değer katan ustalık eserleri üretiyoruz.
+                </p>
+                
+                <div class="flex items-center gap-6 pt-6">
+                    <a href="#koleksiyon" class="px-8 py-4 bg-wood-forest text-white font-medium hover:bg-wood-dark transition-all duration-300 shadow-soft flex items-center gap-3 group">
+                        Koleksiyonu Keşfet
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    
+                    <a href="https://www.guvenlife.com" target="_blank" class="px-8 py-4 border border-wood-base text-wood-forest font-medium hover:bg-wood-base hover:text-white transition-all duration-300">
+                        Web Sitemiz
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sağ Görsel/Grafik Alanı -->
+            <div class="relative h-[600px] w-full reveal reveal-delay-2 hidden lg:block">
+                <!-- Estetik Kompozisyon -->
+                <div class="absolute inset-0 bg-wood-light/30 rounded-t-full rounded-br-full overflow-hidden border border-wood-light flex items-center justify-center">
+                    
+                    <!-- SVG Mobilya Çizimi (Sandalye/Koltuk temsili) -->
+                    <svg viewBox="0 0 200 200" class="w-3/4 h-3/4 text-wood-dark opacity-80">
+                        <path class="furniture-path" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="
+                            M 60 40 L 60 100 L 140 100 L 140 40 
+                            M 60 100 L 50 160 
+                            M 140 100 L 150 160
+                            M 60 120 L 140 120
+                            M 80 100 L 80 150
+                            M 120 100 L 120 150
+                            M 70 40 C 70 20, 130 20, 130 40
+                        "/>
+                        <!-- Dekoratif bitkiler/vazo -->
+                        <path class="furniture-path" fill="none" stroke="#c5a880" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="
+                            M 145 90 C 150 70, 160 80, 155 100
+                            M 155 100 C 170 85, 165 65, 145 90
+                        "/>
+                    </svg>
+
+                </div>
+
+                <!-- Floating Badges -->
+                <div class="absolute top-20 -left-10 bg-white p-5 rounded shadow-elegant flex items-center gap-4 animate-float" style="animation-delay: 0s;">
+                    <div class="w-10 h-10 rounded-full bg-wood-light flex items-center justify-center text-wood-dark">
+                        <i data-lucide="hammer"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-wood-base font-bold uppercase tracking-wider">Ustalık</div>
+                        <div class="text-sm font-playfair font-bold text-wood-forest">1. Sınıf İşçilik</div>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-20 -right-5 bg-wood-forest text-white p-5 rounded shadow-elegant flex items-center gap-4 animate-float" style="animation-delay: 2s;">
+                    <div class="w-10 h-10 rounded-full border border-wood-base/50 flex items-center justify-center text-wood-base">
+                        <i data-lucide="ruler-square"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-wood-light opacity-70 font-bold uppercase tracking-wider">Proje</div>
+                        <div class="text-sm font-playfair font-bold">Özel Ölçü Tasarım</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Kategori / Ürünler (Bento Grid) -->
+    <section id="koleksiyon" class="py-24 bg-white relative border-t border-wood-light/50">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-3 mb-4">
+                        <div class="w-8 h-[1px] bg-wood-base"></div>
+                        <span class="text-wood-base tracking-widest text-xs font-semibold uppercase">Ürünlerimiz</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-playfair text-wood-forest">Seçkin <br><span class="italic text-wood-base">Mobilya</span> Koleksiyonu</h2>
+                </div>
+                <p class="text-wood-forest/60 max-w-sm text-sm mt-6 md:mt-0 leading-relaxed border-l-2 border-wood-light pl-4">
+                    Her biri özenle tasarlanmış, kaliteli malzemelerle hayat bulmuş mobilya çözümlerimiz ile mekanlarınıza prestij katıyoruz.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Kutu 1 -->
+                <div class="furniture-card p-8 rounded-sm bg-[#faf9f6] lg:col-span-2 lg:row-span-2 reveal flex flex-col justify-between h-[400px]">
+                    <div class="flex justify-between items-start">
+                        <div class="furniture-icon-wrapper w-14 h-14 bg-white rounded-full flex items-center justify-center text-wood-base shadow-sm">
+                            <i data-lucide="chef-hat" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold text-wood-base uppercase tracking-widest">En Çok Tercih Edilen</span>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-playfair font-bold text-wood-forest mb-3">Mutfak Dolapları</h3>
+                        <p class="text-wood-forest/70 text-sm max-w-md leading-relaxed">
+                            Ergonomik tasarımı ve neme dayanıklı birinci sınıf malzemeleriyle, mutfağınızı evin en keyifli köşesi haline getiriyoruz. Modern veya klasik çizgilerle size özel mutfaklar.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Kutu 2 -->
+                <div class="furniture-card p-8 rounded-sm bg-wood-forest text-white reveal reveal-delay-1 h-[190px] flex flex-col justify-between">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-playfair font-bold">TV Üniteleri</h3>
+                        <div class="w-10 h-10 border border-wood-base/30 rounded-full flex items-center justify-center text-wood-base">
+                            <i data-lucide="monitor" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <p class="text-white/60 text-xs">Salonunuza şıklık katan, kablo gizleme özellikli estetik TV üniteleri.</p>
+                </div>
+
+                <!-- Kutu 3 -->
+                <div class="furniture-card p-8 rounded-sm border border-wood-light bg-white reveal reveal-delay-2 h-[190px] flex flex-col justify-between">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-playfair font-bold text-wood-forest">Giyinme Dolapları</h3>
+                        <div class="furniture-icon-wrapper w-10 h-10 bg-wood-light rounded-full flex items-center justify-center text-wood-dark">
+                            <i data-lucide="shirt" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <p class="text-wood-forest/60 text-xs">Odanıza tam uyumlu, geniş iç hacimli ve modüler giyinme dolapları.</p>
+                </div>
+
+                <!-- Kutu 4 -->
+                <div class="furniture-card p-8 rounded-sm border border-wood-light bg-white reveal h-[190px] flex flex-col justify-between">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-playfair font-bold text-wood-forest">Banyo & Wc Dolapları</h3>
+                        <div class="furniture-icon-wrapper w-10 h-10 bg-wood-light rounded-full flex items-center justify-center text-wood-dark">
+                            <i data-lucide="bath" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <p class="text-wood-forest/60 text-xs">Suya ve neme ekstra dayanıklı lüks banyo dolabı tasarımları.</p>
+                </div>
+
+                <!-- Kutu 5 -->
+                <div class="furniture-card p-8 rounded-sm bg-wood-base text-white reveal reveal-delay-1 h-[190px] flex flex-col justify-between">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-playfair font-bold">Kapılar</h3>
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white">
+                            <i data-lucide="door-open" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <p class="text-white/80 text-xs">Amerikan Panel ve PVC Melamin kapı seçenekleriyle güvenli geçişler.</p>
+                </div>
+
+                <!-- Kutu 6 -->
+                <div class="furniture-card p-8 rounded-sm border border-wood-light bg-white reveal reveal-delay-2 h-[190px] flex flex-col justify-between">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-playfair font-bold text-wood-forest">Dış Mekan & Ahşap</h3>
+                        <div class="furniture-icon-wrapper w-10 h-10 bg-wood-light rounded-full flex items-center justify-center text-wood-dark">
+                            <i data-lucide="tree-pine" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <p class="text-wood-forest/60 text-xs">Ahşap kamelya, koltuk, yatak ve dekoratif ahşap tablolar.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bilgi / Farkımız Seksiyonu -->
+    <section class="py-24 bg-wood-forest text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 1px, transparent 10px);"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
+            <div class="space-y-8 reveal">
+                <h2 class="text-4xl md:text-5xl font-playfair leading-tight">
+                    Neden <span class="italic text-wood-base">Güven Life?</span>
+                </h2>
+                <p class="text-white/70 font-light leading-relaxed">
+                    Mobilya bir evin sadece eşyası değil, ruhudur. Sivas Organize Sanayi İŞGEM'deki modern atölyemizde, geleneksel ahşap ustalığını yenilikçi makine parkurumuzla birleştiriyoruz.
+                </p>
+                
+                <ul class="space-y-6 pt-4">
+                    <li class="flex items-start gap-4">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-wood-base shrink-0 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-lg font-playfair tracking-wide mb-1">Mekana Özel Ölçülendirme</h4>
+                            <p class="text-sm text-white/60">Evinizin ölçülerine birebir uyan, boşluksuz ve milimetrik tasarımlar yapıyoruz.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-wood-base shrink-0 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-lg font-playfair tracking-wide mb-1">Birinci Sınıf Malzeme</h4>
+                            <p class="text-sm text-white/60">Kullandığımız MDF, kaplama ve aksesuarlarda uzun ömürlülük garantisi sunuyoruz.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-wood-base shrink-0 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-lg font-playfair tracking-wide mb-1">Zamanında Teslimat</h4>
+                            <p class="text-sm text-white/60">Söz verdiğimiz günde montajınızı titizlikle ve evinizi kirletmeden tamamlıyoruz.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="relative reveal reveal-delay-2 flex justify-center">
+                <!-- Estetik İkonografi Kümesi -->
+                <div class="w-[300px] h-[400px] border border-wood-base/30 rounded-t-full relative flex items-center justify-center p-8 bg-wood-dark/20 backdrop-blur-sm">
+                    <div class="w-full h-full border border-wood-base/50 rounded-t-full flex items-center justify-center">
+                        <i data-lucide="sofa" class="w-32 h-32 text-wood-base opacity-80 stroke-1"></i>
+                    </div>
+                    <!-- Süsleme Elemanları -->
+                    <div class="absolute -left-6 top-1/2 w-12 h-12 bg-wood-base rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="pen-tool" class="text-wood-forest w-5 h-5"></i>
+                    </div>
+                    <div class="absolute -right-6 bottom-32 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="ruler" class="text-wood-forest w-5 h-5"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim Footer -->
+    <footer id="iletisim" class="bg-white pt-24 pb-12 border-t border-wood-light relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12 border-b border-wood-light pb-16 mb-12">
+                
+                <div class="md:col-span-5 reveal">
+                    <div class="font-playfair font-bold text-3xl text-wood-forest tracking-wider mb-6">
+                        GÜVEN <span class="text-wood-base text-lg font-montserrat">LİFE</span>
+                    </div>
+                    <p class="text-wood-forest/60 text-sm leading-relaxed mb-8 max-w-sm">
+                        Hayalinizdeki yaşam alanlarını gerçeğe dönüştürmek için buradayız. Projelendirme ve fiyat teklifi için bizimle iletişime geçin.
+                    </p>
+                    
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/" class="w-10 h-10 rounded-full border border-wood-light flex items-center justify-center text-wood-forest hover:bg-wood-forest hover:text-white hover:border-wood-forest transition-colors">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="http://www.instragram.com//guvenlifemobilya" class="w-10 h-10 rounded-full border border-wood-light flex items-center justify-center text-wood-forest hover:bg-wood-forest hover:text-white hover:border-wood-forest transition-colors">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="http://www.twitter.com/" class="w-10 h-10 rounded-full border border-wood-light flex items-center justify-center text-wood-forest hover:bg-wood-forest hover:text-white hover:border-wood-forest transition-colors">
+                            <i data-lucide="twitter" class="w-4 h-4"></i>
+                        </a>
+                        <a href="http://www.youtube.com/" class="w-10 h-10 rounded-full border border-wood-light flex items-center justify-center text-wood-forest hover:bg-wood-forest hover:text-white hover:border-wood-forest transition-colors">
+                            <i data-lucide="youtube" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-4 reveal reveal-delay-1">
+                    <h4 class="font-playfair font-bold text-xl text-wood-forest mb-6">İletişim</h4>
+                    <ul class="space-y-5">
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-wood-base shrink-0 mt-0.5"></i>
+                            <span class="text-sm text-wood-forest/80">Sivas 1.Osb Müdürlüğü<br>Sivas İŞGEM, Kılavuz Osb / Sivas Merkez</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <i data-lucide="phone" class="w-5 h-5 text-wood-base shrink-0"></i>
+                            <a href="tel:05543895624" class="text-sm text-wood-forest/80 hover:text-wood-base transition-colors">0554 389 56 24</a>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <i data-lucide="mail" class="w-5 h-5 text-wood-base shrink-0"></i>
+                            <a href="mailto:guvenlife9@gmail.com" class="text-sm text-wood-forest/80 hover:text-wood-base transition-colors">guvenlife9@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-3 reveal reveal-delay-2">
+                    <h4 class="font-playfair font-bold text-xl text-wood-forest mb-6">Menü</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-wood-forest/70 hover:text-wood-base transition-colors">Anasayfa</a></li>
+                        <li><a href="#koleksiyon" class="text-sm text-wood-forest/70 hover:text-wood-base transition-colors">Koleksiyonlar</a></li>
+                        <li><a href="https://www.guvenlife.com" target="_blank" class="text-sm text-wood-forest/70 hover:text-wood-base transition-colors">Resmi Web Sitesi</a></li>
+                        <li><a href="https://www.google.com/maps/dir/?api=1&destination=39.7986740627076540000000000%2c37.1054166555404590000000000" target="_blank" class="text-sm text-wood-forest/70 hover:text-wood-base transition-colors flex items-center gap-2">
+                            Haritada Gör <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-wood-forest/50 font-medium reveal">
+                <p>&copy; 2026 Güven Life Mobilya. Tüm Hakları Saklıdır.</p>
+                <div class="mt-2 md:mt-0">Premium Mobilya Tasarım & Üretim</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scriptler -->
+    <script>
+        // Scroll Reveal Animasyonu
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        setTimeout(reveal, 100);
+
+        // Navbar Scroll Efekti
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 10px 30px -10px rgba(0,0,0,0.05)';
+                navbar.style.paddingTop = '1rem';
+                navbar.style.paddingBottom = '1rem';
+            } else {
+                navbar.style.background = 'transparent';
+                navbar.style.boxShadow = 'none';
+                navbar.style.paddingTop = '1.5rem';
+                navbar.style.paddingBottom = '1.5rem';
+            }
+        });
+
+        // Kapı açılma (Sliding Doors) animasyonunu tetikle
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('doorWrapper').classList.add('loaded');
+            }, 300);
+            
+            // İkonları başlat
+            try {
+                lucide.createIcons();
+            } catch (e) {
+                console.error("Lucide load error: ", e);
+            }
+        });
+    </script>
+</body>
+</html>

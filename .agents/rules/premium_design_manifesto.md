@@ -1,3 +1,7 @@
+---
+trigger: always_on
+---
+
 # Premium Design & Creativity Manifesto
 
 Bu kurallar bütünü, kullanıcının (ve müşterilerin) "Ağzını sulandıracak" ve "Ben bu siteyi kesinlikle istiyorum" dedirtecek kalitede, ezber bozan ve tamamen sektöre özgü (Tailor-made) web tasarımları üretmek için bağlayıcı bir anayasadır.
@@ -30,3 +34,5 @@ Bu kurallar bütünü, kullanıcının (ve müşterilerin) "Ağzını sulandıra
 - Tasarımın tek bir amacı var: İşletme sahibinin ekranı gördüğü ilk 3 saniye içinde sitenin kalitesine aşık olması.
 - Ucuz duran gölgelerden, uyumsuz kontrastlardan ve kalitesiz stok fotoğraf hissi veren kesimlerden kaçın.
 - Her tasarımı bir sanat eseri (Masterpiece) gibi ele al. Özgür ol, sınırları zorla, kodda kendi yaratıcılığını konuştur.
+
+## 6. çok fazla karanlık siteler olmasın. içeriğin net ve anlaşılır şekilde olmasına özen göster.

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kızılırmak Plastik | Endüstriyel Çözümler, Kaliteli Üretim</title>
+    <meta name="description" content="Sivas OSB'de PE Kangal Boru, PVC Lambiri, Köşe Çıtaları ve Perde Rayı üretiminde öncü firma.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        rajdhani: ['Rajdhani', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',    /* Slate 900 */
+                            navy: '#1e293b',    /* Slate 800 */
+                            blue: '#0284c7',    /* Sky 600 - Mavi Kangal Boru rengi */
+                            light: '#f8fafc',   /* Slate 50 */
+                            orange: '#ea580c',  /* Orange 600 - İnşaat vurgusu */
+                            gray: '#e2e8f0',
+                        }
+                    },
+                    boxShadow: {
+                        'premium': '0 20px 40px -10px rgba(0,0,0,0.05)',
+                        'glow': '0 0 25px -5px rgba(2, 132, 199, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        h1, h2, h3, h4, h5, h6, .font-rajdhani {
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        /* Özel şekiller ve animasyonlar */
+        .hero-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* SVG Çizgi Animasyonu (Boru üretimini simgeleyen) */
+        .pipe-line {
+            position: absolute;
+            height: 12px;
+            background: linear-gradient(90deg, #0284c7, #38bdf8);
+            border-radius: 6px;
+            opacity: 0.1;
+            transform-origin: left;
+            animation: drawPipe 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pipe-1 { top: 20%; left: -10%; width: 40%; animation-delay: 0s; }
+        .pipe-2 { top: 60%; left: 30%; width: 50%; background: linear-gradient(90deg, #ea580c, #fb923c); animation-delay: 1.5s; }
+        .pipe-3 { top: 80%; left: 10%; width: 30%; animation-delay: 0.7s; }
+
+        @keyframes drawPipe {
+            0% { transform: scaleX(0); opacity: 0; }
+            30% { opacity: 0.15; }
+            70% { transform: scaleX(1); opacity: 0.15; }
+            100% { transform: scaleX(1); opacity: 0; }
+        }
+
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* Köşe çıtası efekti için özel clip-path */
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+        }
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background-color: #0284c7;
+            transition: height 0.4s ease;
+        }
+        .product-card:hover::before {
+            height: 100%;
+        }
+        
+        .product-card.orange-accent::before { background-color: #ea580c; }
+
+        /* Kaydırma (Scroll) Animasyonları */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Float Animasyonu (Görseller için) */
+        .float-anim {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-panel py-4 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <!-- Logo İkonu -->
+                <div class="w-10 h-10 bg-brand-dark flex items-center justify-center rounded-lg shadow-lg relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-brand-blue transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></div>
+                    <i data-lucide="layers" class="text-white relative z-10 w-6 h-6"></i>
+                </div>
+                <div class="font-rajdhani font-bold text-2xl tracking-wide text-brand-dark flex flex-col leading-none">
+                    KIZILIRMAK <span class="text-brand-blue text-sm tracking-widest">PLASTİK</span>
+                </div>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-brand-navy">
+                <a href="#kurumsal" class="hover:text-brand-blue transition-colors relative group">
+                    Kurumsal
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#urunler" class="hover:text-brand-blue transition-colors relative group">
+                    Ürünlerimiz
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#kalite" class="hover:text-brand-blue transition-colors relative group">
+                    Kalite & Üretim
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#iletisim" class="hover:text-brand-blue transition-colors relative group">
+                    İletişim
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+            <a href="#iletisim" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-brand-dark text-white text-sm font-semibold rounded-lg hover:bg-brand-blue transition-all duration-300 shadow-lg hover:shadow-glow transform hover:-translate-y-0.5">
+                Bize Ulaşın
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center pt-20 relative">
+        <!-- Arka Plan Boru Animasyonları -->
+        <div class="pipe-line pipe-1"></div>
+        <div class="pipe-line pipe-2"></div>
+        <div class="pipe-line pipe-3"></div>
+        
+        <!-- Noktalı Arka Plan Deseni -->
+        <div class="absolute inset-0" style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 32px 32px; opacity: 0.4;"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10 w-full">
+            <div class="space-y-8 reveal active">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue font-medium text-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
+                    İnşaat ve Yapı Malzemelerinde Öncü
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-bold leading-tight text-brand-dark">
+                    Yapılara <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-orange">Dayanıklılık</span><br>
+                    Şekil Veriyoruz.
+                </h1>
+                <p class="text-lg text-slate-600 max-w-xl leading-relaxed">
+                    PE Kangal Boru, PVC Lambiri, Köşe Çıtaları ve Perde Rayı üretiminde Sivas OSB'den tüm Türkiye'ye yüksek kalite standartlarında endüstriyel çözümler sunuyoruz.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#urunler" class="px-8 py-4 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-dark transition-all duration-300 shadow-glow flex items-center gap-2 group">
+                        Ürünlerimizi İncele
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#iletisim" class="px-8 py-4 bg-white text-brand-navy font-semibold rounded-lg border border-slate-200 hover:border-brand-blue hover:text-brand-blue transition-all duration-300 flex items-center gap-2">
+                        Teklif Al
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative hidden lg:block reveal active float-anim">
+                <!-- Estetik Kompozisyon (Resim yerine CSS+SVG) -->
+                <div class="relative w-full aspect-square max-w-lg mx-auto">
+                    <!-- Arka plan dekoratif daire -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 to-brand-orange/20 rounded-full blur-3xl"></div>
+                    
+                    <!-- Kangal Boru Temsili SVG -->
+                    <svg viewBox="0 0 200 200" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 text-brand-dark z-20 drop-shadow-2xl" fill="none">
+                        <path d="M100 20 C 144 20, 180 56, 180 100 C 180 144, 144 180, 100 180 C 56 180, 20 144, 20 100 C 20 56, 56 20, 100 20 Z" stroke="currentColor" stroke-width="8" stroke-dasharray="10 5" opacity="0.1" />
+                        <path d="M100 30 C 138 30, 170 62, 170 100 C 170 138, 138 170, 100 170 C 62 170, 30 138, 30 100 C 30 62, 62 30, 100 30 Z" stroke="#0284c7" stroke-width="16" />
+                        <path d="M100 45 C 130 45, 155 70, 155 100 C 155 130, 130 155, 100 155 C 70 155, 45 130, 45 100 C 45 70, 70 45, 100 45 Z" stroke="#0f172a" stroke-width="12" />
+                        <!-- Extrusion Highlight -->
+                        <path d="M100 30 A 70 70 0 0 1 170 100" stroke="#38bdf8" stroke-width="8" stroke-linecap="round" />
+                    </svg>
+
+                    <!-- Profil Temsili 3D CSS Objeleri -->
+                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-white rounded-xl shadow-2xl z-30 p-4 border border-slate-100 flex flex-col justify-center gap-2 transform rotate-12 hover:rotate-0 transition-transform duration-500">
+                        <div class="w-full h-3 bg-brand-gray rounded-sm"></div>
+                        <div class="w-full h-3 bg-brand-gray rounded-sm"></div>
+                        <div class="w-3/4 h-3 bg-brand-gray rounded-sm"></div>
+                        <div class="text-xs font-bold text-brand-dark mt-2 font-rajdhani">PVC LAMBİRİ</div>
+                    </div>
+
+                    <div class="absolute top-10 -right-5 w-24 h-24 bg-brand-orange text-white rounded-tr-3xl rounded-bl-3xl shadow-xl z-30 p-4 flex flex-col items-center justify-center transform -rotate-12 hover:rotate-0 transition-transform duration-500">
+                        <i data-lucide="triangle-right" class="w-8 h-8 mb-1"></i>
+                        <div class="text-[10px] font-bold text-center leading-tight font-rajdhani">KÖŞE ÇITASI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kayan İstatistikler Şeridi -->
+    <div class="bg-brand-dark text-white py-6 border-b-4 border-brand-blue">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+                <div class="font-rajdhani text-3xl md:text-4xl font-bold text-brand-blue mb-1">1. OSB</div>
+                <div class="text-sm text-slate-400">Üretim Tesisi</div>
+            </div>
+            <div>
+                <div class="font-rajdhani text-3xl md:text-4xl font-bold text-brand-orange mb-1">Yüksek</div>
+                <div class="text-sm text-slate-400">Kalite Standartları</div>
+            </div>
+            <div>
+                <div class="font-rajdhani text-3xl md:text-4xl font-bold text-brand-blue mb-1">Geniş</div>
+                <div class="text-sm text-slate-400">Ürün Yelpazesi</div>
+            </div>
+            <div>
+                <div class="font-rajdhani text-3xl md:text-4xl font-bold text-brand-orange mb-1">Sivas</div>
+                <div class="text-sm text-slate-400">Merkezli Üretim</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ürünler Seksiyonu -->
+    <section id="urunler" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h2 class="text-brand-blue font-bold tracking-widest text-sm uppercase mb-2 font-rajdhani">Kataloğumuz</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-brand-dark mb-4">Ürün Gruplarımız</h3>
+                <div class="w-24 h-1 bg-brand-orange mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Ürün Kartı 1 -->
+                <div class="product-card bg-slate-50 p-8 relative overflow-hidden group reveal">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="circle-dashed" class="w-24 h-24"></i>
+                    </div>
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md mb-6 relative z-10 text-brand-blue group-hover:text-white group-hover:bg-brand-blue transition-colors">
+                        <i data-lucide="pipette" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-brand-dark mb-2 font-rajdhani relative z-10">Kangal Boru</h4>
+                    <p class="text-slate-600 mb-4 text-sm relative z-10">İnşaat ve altyapı projeleri için dayanıklı PE Kangal Boru çözümleri.</p>
+                    <ul class="text-sm text-slate-500 space-y-2 relative z-10">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> PE Kangal Boru</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> PE Mavi Kangal Boru</li>
+                    </ul>
+                </div>
+
+                <!-- Ürün Kartı 2 -->
+                <div class="product-card orange-accent bg-slate-50 p-8 relative overflow-hidden group reveal" style="transition-delay: 100ms;">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="layout-grid" class="w-24 h-24"></i>
+                    </div>
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md mb-6 relative z-10 text-brand-orange group-hover:text-white group-hover:bg-brand-orange transition-colors">
+                        <i data-lucide="align-horizontal-justify-end" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-brand-dark mb-2 font-rajdhani relative z-10">PVC Lambiri</h4>
+                    <p class="text-slate-600 mb-4 text-sm relative z-10">Tavan ve duvar kaplamaları için estetik ve uzun ömürlü lambiri çeşitleri.</p>
+                    <ul class="text-sm text-slate-500 space-y-2 relative z-10">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-blue"></div> 100x100 PVC Lambiri</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-blue"></div> 20'lik Ahşap / Beyaz</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-blue"></div> 12,5'lik PVC Lambiri</li>
+                    </ul>
+                </div>
+
+                <!-- Ürün Kartı 3 -->
+                <div class="product-card bg-slate-50 p-8 relative overflow-hidden group reveal" style="transition-delay: 200ms;">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="box-select" class="w-24 h-24"></i>
+                    </div>
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md mb-6 relative z-10 text-brand-blue group-hover:text-white group-hover:bg-brand-blue transition-colors">
+                        <i data-lucide="corner-up-right" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-brand-dark mb-2 font-rajdhani relative z-10">Köşe Çıtaları & Profiller</h4>
+                    <p class="text-slate-600 mb-4 text-sm relative z-10">Mükemmel bitişler için dış cephe ve iç mekan profil uygulamaları.</p>
+                    <ul class="text-sm text-slate-500 space-y-2 relative z-10">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> PVC Fayans Bitiş Profili</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> File Köşe Çıtaları</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> File Beyaz Köşe Çıtaları</li>
+                    </ul>
+                </div>
+
+                <!-- Ürün Kartı 4 -->
+                <div class="product-card orange-accent bg-slate-50 p-8 relative overflow-hidden group reveal" style="transition-delay: 300ms;">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="blinds" class="w-24 h-24"></i>
+                    </div>
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md mb-6 relative z-10 text-brand-orange group-hover:text-white group-hover:bg-brand-orange transition-colors">
+                        <i data-lucide="sliders-horizontal" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-brand-dark mb-2 font-rajdhani relative z-10">PVC Perde Rayları</h4>
+                    <p class="text-slate-600 mb-4 text-sm relative z-10">Pürüzsüz çalışma ve kolay montaj sağlayan korniş sistemleri.</p>
+                    <ul class="text-sm text-slate-500 space-y-2 relative z-10">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-blue"></div> 2'li PVC Perde Rayı</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-blue"></div> 3'lü PVC Perde Rayı</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Üretim / Kalite Seksiyonu (Dark Mode Endüstriyel His) -->
+    <section id="kalite" class="py-24 bg-brand-navy relative overflow-hidden">
+        <!-- Arka Plan Grid Dekorasyonu -->
+        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#334155 1px, transparent 1px), linear-gradient(90deg, #334155 1px, transparent 1px); background-size: 40px 40px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <!-- Üretim Şeması Görselleştirme -->
+                    <div class="relative w-full aspect-[4/3] bg-brand-dark rounded-xl border border-slate-700 p-8 shadow-2xl flex flex-col justify-between">
+                        <div class="flex justify-between items-start">
+                            <div class="w-16 h-16 rounded-full bg-slate-800 border-2 border-brand-blue flex items-center justify-center">
+                                <i data-lucide="flask-conical" class="text-brand-blue"></i>
+                            </div>
+                            <div class="w-16 h-16 rounded-full bg-slate-800 border-2 border-brand-orange flex items-center justify-center">
+                                <i data-lucide="cog" class="text-brand-orange animate-spin-slow" style="animation-duration: 4s;"></i>
+                            </div>
+                            <div class="w-16 h-16 rounded-full bg-slate-800 border-2 border-green-500 flex items-center justify-center">
+                                <i data-lucide="check-circle-2" class="text-green-500"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Bağlantı Çizgisi -->
+                        <div class="absolute top-[3.5rem] left-[4.5rem] right-[4.5rem] h-0.5 bg-slate-700 -z-10">
+                            <div class="h-full bg-brand-blue w-full transform scale-x-0 origin-left animate-[extrude_3s_infinite]"></div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 text-center mt-4">
+                            <div>
+                                <h5 class="text-white font-rajdhani font-bold mb-1">Hammadde</h5>
+                                <p class="text-xs text-slate-400">1. Sınıf Granül</p>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-rajdhani font-bold mb-1">Ekstrüzyon</h5>
+                                <p class="text-xs text-slate-400">Hassas Şekillendirme</p>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-rajdhani font-bold mb-1">Kalite Kontrol</h5>
+                                <p class="text-xs text-slate-400">Test & Paketleme</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 bg-slate-800 p-4 rounded-lg flex items-center justify-between border border-slate-700">
+                            <div>
+                                <div class="text-xs text-slate-400 mb-1">Günlük Üretim Kapasitesi</div>
+                                <div class="text-white font-bold font-rajdhani text-xl">Yüksek Hacimli Endüstriyel Üretim</div>
+                            </div>
+                            <i data-lucide="bar-chart-3" class="text-brand-blue w-8 h-8"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-white space-y-6 reveal">
+                    <h2 class="text-brand-orange font-bold tracking-widest text-sm uppercase font-rajdhani">Üretim Sürecimiz</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold font-rajdhani leading-tight">Kalite Tesadüf Değildir, Standarttır.</h3>
+                    <p class="text-slate-300 text-lg">
+                        Sivas Organize Sanayi Bölgesindeki modern tesislerimizde, inşaat ve yapı sektörünün ihtiyaç duyduğu polimer bazlı malzemeleri yüksek hassasiyetle üretiyoruz.
+                    </p>
+                    
+                    <ul class="space-y-4 pt-4">
+                        <li class="flex items-start gap-4 p-4 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-brand-blue transition-colors">
+                            <div class="w-10 h-10 rounded bg-brand-blue/20 flex items-center justify-center shrink-0">
+                                <i data-lucide="shield-check" class="text-brand-blue"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg font-rajdhani">Dayanıklılık & Uzun Ömür</h4>
+                                <p class="text-sm text-slate-400">Ürettiğimiz kangal boru ve profiller zorlu şantiye koşullarına dayanacak formülasyona sahiptir.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-brand-orange transition-colors">
+                            <div class="w-10 h-10 rounded bg-brand-orange/20 flex items-center justify-center shrink-0">
+                                <i data-lucide="ruler" class="text-brand-orange"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg font-rajdhani">Hassas Ölçülendirme</h4>
+                                <p class="text-sm text-slate-400">Fayans bitiş profilleri ve lambirilerde milimetrik kusursuzlukla kolay montaj imkanı.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim / Footer Seksiyonu -->
+    <footer id="iletisim" class="bg-brand-dark text-white pt-24 pb-12 relative overflow-hidden">
+        <!-- Dekoratif Arka Plan -->
+        <svg class="absolute top-0 right-0 text-slate-800 w-96 h-96 transform translate-x-1/3 -translate-y-1/3 opacity-50" fill="currentColor" viewBox="0 0 100 100">
+            <path d="M50 0 L100 50 L50 100 L0 50 Z"></path>
+        </svg>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-12 border-b border-slate-800 pb-16 mb-12">
+                
+                <div class="lg:col-span-4 reveal">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-brand-blue flex items-center justify-center rounded-lg shadow-lg">
+                            <i data-lucide="layers" class="text-white w-6 h-6"></i>
+                        </div>
+                        <div class="font-rajdhani font-bold text-2xl tracking-wide">
+                            KIZILIRMAK <span class="text-brand-blue text-sm tracking-widest block -mt-1">PLASTİK</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                        Yapı ve inşaat malzemelerinde güvenilir partneriniz. Kaliteli hammadde, teknolojik üretim ve müşteri odaklı yaklaşım.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="http://facebook.com/Listofindusty-101399761284721" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand-blue transition-colors text-slate-300 hover:text-white">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="http://twitter.com/listofindustry" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand-blue transition-colors text-slate-300 hover:text-white">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="http://instagram.com/listofindustry" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand-blue transition-colors text-slate-300 hover:text-white">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 lg:col-start-6 reveal" style="transition-delay: 100ms;">
+                    <h4 class="font-rajdhani text-xl font-bold mb-6 border-l-2 border-brand-orange pl-3">İletişim Bilgileri</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 group">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shrink-0 group-hover:bg-brand-orange transition-colors">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-brand-orange group-hover:text-white"></i>
+                            </div>
+                            <div class="text-slate-300 text-sm">
+                                Sivas 1. Organize Sanayi Bölgesi<br>
+                                İŞGEM, Kılavuz OSB / Sivas Merkez
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4 group">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shrink-0 group-hover:bg-brand-blue transition-colors">
+                                <i data-lucide="phone" class="w-4 h-4 text-brand-blue group-hover:text-white"></i>
+                            </div>
+                            <div class="text-slate-300 text-sm">
+                                0(346) 218 14 00<br>
+                                <span class="text-slate-500">Faks: 0(346) 218 11 38</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4 group">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shrink-0 group-hover:bg-brand-blue transition-colors">
+                                <i data-lucide="mail" class="w-4 h-4 text-brand-blue group-hover:text-white"></i>
+                            </div>
+                            <div class="text-slate-300 text-sm">
+                                sivas@sivasosb.org.tr
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-3 reveal" style="transition-delay: 200ms;">
+                    <h4 class="font-rajdhani text-xl font-bold mb-6 border-l-2 border-brand-blue pl-3">Hızlı Linkler</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#urunler" class="text-slate-400 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-brand-blue"></i> Kangal Borular</a></li>
+                        <li><a href="#urunler" class="text-slate-400 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-brand-blue"></i> PVC Lambiri</a></li>
+                        <li><a href="#urunler" class="text-slate-400 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-brand-blue"></i> File Köşe Çıtaları</a></li>
+                        <li><a href="#urunler" class="text-slate-400 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-brand-blue"></i> Perde Rayları</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 reveal">
+                <p>&copy; 2026 Kızılırmak Plastik. Tüm hakları saklıdır.</p>
+                <div class="mt-2 md:mt-0">
+                    <span class="opacity-50">Tasarım & Altyapı:</span> Premium Endüstriyel Konsept
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animasyonu
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        setTimeout(reveal, 100); // İlk yüklemede garanti olarak çalıştır
+
+        // İkonları Başlat
+        try {
+            lucide.createIcons();
+        } catch(e) {
+            console.error("Lucide icon error:", e);
+        }
+
+        // Navbar Scroll Efekti
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('py-4', 'py-2');
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('py-2', 'py-4');
+                navbar.style.background = 'rgba(255, 255, 255, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>

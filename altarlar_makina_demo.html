@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Altarlar Makina - Eğitim ve Ofis Mobilyaları, Metal Ranza ve İmalat Sektöründe Lider. Sağlamlık ve estetiğin buluşma noktası.">
+    <title>Altarlar Makina | Endüstriyel Sağlamlık, Modern Tasarım</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Industrial Dark Palette */
+            --bg-dark: #0a0a0c;
+            --bg-panel: #141416;
+            --bg-card: #1c1c1f;
+            --text-main: #f5f5f5;
+            --text-muted: #9a9a9a;
+            --accent-orange: #ff4500;
+            --accent-glow: rgba(255, 69, 0, 0.4);
+            --metal-gray: #4a4a4d;
+            --border-light: rgba(255, 255, 255, 0.05);
+            
+            --font-head: 'Oswald', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--metal-gray);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-orange);
+        }
+
+        /* UTILS */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-head);
+            text-transform: uppercase;
+        }
+
+        /* LOADER */
+        #loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-dark);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease;
+        }
+        .loader-gear {
+            font-size: 4rem;
+            color: var(--accent-orange);
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* HEADER / NAVBAR */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            background: rgba(10, 10, 12, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo span {
+            color: var(--accent-orange);
+        }
+        .logo i {
+            font-size: 1.8rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-orange);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .contact-btn {
+            background: transparent;
+            color: var(--accent-orange);
+            border: 2px solid var(--accent-orange);
+            padding: 10px 24px;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: var(--accent-orange);
+            z-index: -1;
+            transition: all 0.4s ease;
+        }
+        .contact-btn:hover {
+            color: #000;
+        }
+        .contact-btn:hover::before {
+            left: 0;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1565514020179-026b92b84bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, rgba(10,10,12,0.95) 0%, rgba(10,10,12,0.6) 50%, rgba(10,10,12,0.95) 100%);
+        }
+        .hero-grid {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin-top: 50px;
+        }
+        .hero-subtitle {
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: inline-block;
+            border-left: 4px solid var(--accent-orange);
+            padding-left: 15px;
+            animation: slideInLeft 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        .hero-title {
+            font-size: 6rem;
+            line-height: 1;
+            margin-bottom: 30px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            animation: slideInUp 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards 0.2s;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+            animation: fadeIn 1.5s ease forwards 0.5s;
+            opacity: 0;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            animation: fadeIn 1.5s ease forwards 0.8s;
+            opacity: 0;
+        }
+        .btn-primary {
+            background: var(--accent-orange);
+            color: #fff;
+            padding: 16px 32px;
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 40px rgba(255, 69, 0, 0.6);
+            transform: translateY(-3px);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            padding: 16px 32px;
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--text-muted);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            border-color: #fff;
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* SPARKS ANIMATION */
+        .spark {
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background: var(--accent-orange);
+            box-shadow: 0 0 10px var(--accent-orange);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* ABOUT / PHILOSOPHY */
+        .about-section {
+            padding: 120px 0 80px;
+            background: var(--bg-dark);
+            position: relative;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: -10px;
+            width: 60px; height: 4px;
+            background: var(--accent-orange);
+        }
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .stat-item {
+            border-left: 2px solid var(--accent-orange);
+            padding-left: 15px;
+        }
+        .stat-num {
+            font-family: var(--font-head);
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+        .about-image {
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 20px 20px 0px rgba(255, 69, 0, 0.1);
+        }
+        .about-image img {
+            width: 100%;
+            display: block;
+            filter: grayscale(80%) contrast(1.2);
+            transition: all 0.5s ease;
+        }
+        .about-image:hover img {
+            filter: grayscale(0%) contrast(1);
+            transform: scale(1.05);
+        }
+
+        /* PRODUCTS SECTION */
+        .products-section {
+            padding: 100px 0;
+            background: var(--bg-panel);
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+            margin: 50px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header h2 {
+            font-size: 3.5rem;
+            display: inline-block;
+            position: relative;
+        }
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 10px auto 0;
+            font-size: 1.1rem;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 2px; height: 0;
+            background: var(--accent-orange);
+            transition: height 0.4s ease;
+            z-index: 2;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border-color: rgba(255, 69, 0, 0.3);
+        }
+        .product-card:hover::before {
+            height: 100%;
+        }
+        .product-img {
+            height: 250px;
+            background: #111;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: all 0.5s ease;
+        }
+        .product-card:hover .product-img img {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .product-img::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: skewX(-20deg);
+        }
+        .product-card:hover .product-img::after {
+            animation: shine 1s;
+        }
+        @keyframes shine {
+            100% { left: 200%; }
+        }
+        .product-info {
+            padding: 30px 20px;
+        }
+        .product-cat {
+            color: var(--accent-orange);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .product-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+        .product-card:hover .product-link {
+            color: var(--accent-orange);
+        }
+        .product-link i {
+            transition: transform 0.3s;
+        }
+        .product-card:hover .product-link i {
+            transform: translateX(5px);
+        }
+
+        /* PROCESS / FEATURES */
+        .process-section {
+            padding: 80px 0;
+            background: var(--bg-dark);
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .process-step {
+            padding: 40px 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            background: linear-gradient(180deg, var(--bg-card) 0%, transparent 100%);
+            position: relative;
+        }
+        .process-step::after {
+            content: '\f105';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--metal-gray);
+            z-index: 2;
+        }
+        .process-step:last-child::after {
+            display: none;
+        }
+        .step-icon {
+            font-size: 3rem;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+        .step-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .step-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            padding: 100px 0;
+            background: var(--bg-panel);
+            clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border-light);
+            margin-bottom: 15px;
+        }
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: transparent;
+            border: none;
+            color: #fff;
+            padding: 20px 0;
+            font-size: 1.2rem;
+            font-family: var(--font-head);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        .faq-question:hover {
+            color: var(--accent-orange);
+        }
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--accent-orange);
+            transition: transform 0.3s ease;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        }
+        .faq-answer-inner {
+            padding-bottom: 20px;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #050505;
+            padding: 80px 0 20px;
+            border-top: 5px solid var(--accent-orange);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        .footer-brand .logo {
+            margin-bottom: 20px;
+        }
+        .footer-desc {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 400px;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--bg-card);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background: var(--accent-orange);
+            transform: translateY(-5px);
+        }
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+        .contact-info li {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            align-items: flex-start;
+        }
+        .contact-info i {
+            color: var(--accent-orange);
+            margin-top: 5px;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-light);
+            color: var(--metal-gray);
+            font-size: 0.9rem;
+        }
+
+        /* ANIMATIONS */
+        @keyframes slideInLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInUp {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .process-grid { grid-template-columns: 1fr 1fr; }
+            .process-step::after { display: none; }
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 4rem; }
+            .about-grid, .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .nav-links { display: none; }
+            .hero { clip-path: none; }
+            .products-section { clip-path: none; }
+            .faq-section { clip-path: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOADER -->
+    <div id="loader">
+        <i class="fa-solid fa-gear loader-gear"></i>
+    </div>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-industry"></i>
+                ALTARLAR <span>MAKİNA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#kurumsal">Kurumsal</a></li>
+                <li><a href="#urunler">Ürünler</a></li>
+                <li><a href="#hizmetler">Üretim Ağı</a></li>
+                <li><a href="#sss">S.S.S</a></li>
+            </ul>
+            <button class="contact-btn">Bize Ulaşın</button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-grid"></div>
+        
+        <!-- Animated Sparks Container -->
+        <div id="sparks-container" style="position: absolute; top:0; left:0; width:100%; height:100%; z-index:1; overflow:hidden;"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Sektörün Güçlü Temeli</span>
+                <h1 class="hero-title">GELECEĞİ<br>ŞEKİLLENDİREN SAĞLAMLIK</h1>
+                <p class="hero-desc">Okul sıralarından, yurt ranzalarına kadar; kaliteli, dayanıklı ve ergonomik metal mobilya üretiminde sektörün öncü markası. Fabrikadan direk yaşam alanlarınıza...</p>
+                <div class="hero-actions">
+                    <a href="#urunler" class="btn-primary">
+                        Ürünleri İncele <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#kurumsal" class="btn-secondary">
+                        Hakkımızda
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="kurumsal">
+        <div class="container about-grid">
+            <div class="about-image" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Metal Manufacturing">
+            </div>
+            <div class="about-text" data-aos="fade-left">
+                <h2>ÇELİĞİN SANATA<br>DÖNÜŞTÜĞÜ YER</h2>
+                <p>Sivas Organize Sanayi Bölgesinde yer alan Altarlar Makina (Aliva Metal), yılların getirdiği tecrübe ile eğitim ve ofis mobilyaları üretiminde kalitenin adresi konumundadır.</p>
+                <p>Sadece bir masa veya yatak değil; yıllara meydan okuyan, güvenli, sağlam ve estetik ürünler tasarlıyoruz. Kalite standartlarımızla geleceğin nesillerine sağlam zeminler hazırlıyoruz.</p>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-num" data-val="15">0</div>
+                        <div class="stat-label">Yıllık Tecrübe</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num" data-val="5000">0</div>
+                        <div class="stat-label">Yıllık Üretim (Adet)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num" data-val="50">0</div>
+                        <div class="stat-label">Farklı Ürün Çeşidi</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num" data-val="100">0</div>
+                        <div class="stat-label">% Müşteri Memnuniyeti</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products-section" id="urunler">
+        <div class="container">
+            <div class="section-header">
+                <h2>ÖNE ÇIKAN ÜRÜNLER</h2>
+                <p>Eğitim kurumları, yurtlar ve ofisler için yüksek dayanıklılığa sahip, ergonomik ve modern tasarımlar.</p>
+            </div>
+            
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1580584126903-c17d41830450?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Okul Sırası">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-cat">Eğitim Mobilyası</span>
+                        <h3 class="product-title">C Tipi Masif Okul Sırası</h3>
+                        <a href="#" class="product-link">Detayları Gör <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Metal Ranza">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-cat">Yurt Mobilyası</span>
+                        <h3 class="product-title">Ahşap Giydirme Metal Ranza</h3>
+                        <a href="#" class="product-link">Detayları Gör <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ofis Koltuğu">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-cat">Oturma Grupları</span>
+                        <h3 class="product-title">Feray Kollu Form Sandalye</h3>
+                        <a href="#" class="product-link">Detayları Gör <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Verzalit Tabla">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-cat">Bileşenler</span>
+                        <h3 class="product-title">Kompact Laminat Tabla</h3>
+                        <a href="#" class="product-link">Detayları Gör <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process-section" id="hizmetler">
+        <div class="container">
+            <div class="section-header">
+                <h2>ÜRETİM SÜRECİMİZ</h2>
+                <p>Hammadde girişinden, montaja kadar her aşamada tavizsiz kalite kontrol.</p>
+            </div>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <i class="fa-solid fa-cubes step-icon"></i>
+                    <h3 class="step-title">1. Hammadde Seçimi</h3>
+                    <p class="step-desc">Yüksek kalite standartlarına uygun, dayanıklı profil ve çelik sac seçimi.</p>
+                </div>
+                <div class="process-step">
+                    <i class="fa-solid fa-fire-burner step-icon"></i>
+                    <h3 class="step-title">2. Kesim & Kaynak</h3>
+                    <p class="step-desc">Milimetrik hassasiyetle kesim ve dayanıklılığı artıran kusursuz kaynak işçiliği.</p>
+                </div>
+                <div class="process-step">
+                    <i class="fa-solid fa-fill-drip step-icon"></i>
+                    <h3 class="step-title">3. Boya & Kaplama</h3>
+                    <p class="step-desc">Korozyona karşı direnç sağlayan elektrostatik toz boya ve fırınlama.</p>
+                </div>
+                <div class="process-step">
+                    <i class="fa-solid fa-check-double step-icon"></i>
+                    <h3 class="step-title">4. Montaj & Kontrol</h3>
+                    <p class="step-desc">Ergonomi testleri, sağlamlık kontrolü ve sevkiyata hazır hale getirilmesi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" id="sss">
+        <div class="container">
+            <div class="section-header">
+                <h2>SIKÇA SORULAN SORULAR</h2>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Hangi ürünlerin imalatını yapıyorsunuz?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Temel olarak okul ve sınıf sıraları (İlköğretim, ortaöğretim, lise), yurtlar için tekli ve ranzalı yatak sistemleri, bekleme salonları için çoklu oturma grupları (Feray form) ve çeşitli laminat/verzalit tablaların imalatını yapmaktayız.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Toplu siparişlerde özel üretim yapıyor musunuz?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Evet, okullar, yurtlar veya devlet kurumları için istenilen ölçü, renk ve spesifikasyonlarda proje bazlı özel üretimler gerçekleştirebiliyoruz.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Üretim tesisiniz nerede bulunuyor?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Fabrikamız Sivas 1. Organize Sanayi Bölgesinde (İşgem, Kılavuz OSB) yer almaktadır. Üretimimizi modern tesisimizde, alanında uzman kadromuzla yapıyoruz.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Ürünleriniz garantili mi?
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Tüm metal mobilya, ranza ve oturma gruplarımız üretim hatalarına karşı fabrikamızın garantisi altındadır. Kullanılan boya, kaynak ve birleşim yerleri yüksek dayanıklılık testlerinden geçirilmektedir.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-industry"></i>
+                    ALTARLAR <span>MAKİNA</span>
+                </a>
+                <p class="footer-desc">Endüstriyel sağlamlığı estetik tasarım ile buluşturarak eğitim ve yaşam alanlarına değer katıyoruz. Gücümüz çelikten, güvenimiz tecrübeden gelir.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="footer-title">Hızlı Bağlantılar</h4>
+                <ul class="footer-links">
+                    <li><a href="#kurumsal">Kurumsal Hakkımızda</a></li>
+                    <li><a href="#urunler">Metal Mobilyalar</a></li>
+                    <li><a href="#urunler">Eğitim Araçları</a></li>
+                    <li><a href="#sss">Sıkça Sorulan Sorular</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-title">İletişim</h4>
+                <ul class="contact-info footer-links">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Sivas İşgem, Kılavuz OSB<br>Sivas Merkez</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>0(346) 218 17 19</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>info@alivametal.com</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-globe"></i>
+                        <span>www.alivametal.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Altarlar Makina (Aliva Metal). Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loader').style.display = 'none';
+                }, 800);
+            }, 500);
+        });
+
+        // Header Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if(window.scrollY > 50) {
+                header.style.padding = '10px 0';
+                header.style.background = 'rgba(10, 10, 12, 0.95)';
+            } else {
+                header.style.padding = '20px 0';
+                header.style.background = 'rgba(10, 10, 12, 0.9)';
+            }
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const btn = item.querySelector('.faq-question');
+            btn.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all
+                faqItems.forEach(i => i.classList.remove('active'));
+                
+                if(!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Animated Sparks in Hero Background
+        const sparksContainer = document.getElementById('sparks-container');
+        function createSpark() {
+            const spark = document.createElement('div');
+            spark.classList.add('spark');
+            
+            // Random position and animation
+            const startX = Math.random() * window.innerWidth;
+            const startY = Math.random() * window.innerHeight;
+            
+            spark.style.left = startX + 'px';
+            spark.style.top = startY + 'px';
+            
+            // Random fall animation
+            const duration = Math.random() * 2 + 1;
+            const angle = (Math.random() * 20 - 10) + 15; // falling slightly right
+            
+            spark.animate([
+                { opacity: 0, transform: `translate(0,0) rotate(${angle}deg)` },
+                { opacity: 1, transform: `translate(${50 * Math.sin(angle)}px, ${100}px) rotate(${angle}deg)` },
+                { opacity: 0, transform: `translate(${100 * Math.sin(angle)}px, ${200}px) rotate(${angle}deg)` }
+            ], {
+                duration: duration * 1000,
+                easing: 'linear'
+            });
+
+            sparksContainer.appendChild(spark);
+
+            setTimeout(() => {
+                spark.remove();
+            }, duration * 1000);
+        }
+
+        // Generate sparks periodically
+        setInterval(createSpark, 150);
+
+        // Number Counter Animation
+        const statNums = document.querySelectorAll('.stat-num');
+        let animated = false;
+
+        window.addEventListener('scroll', () => {
+            const aboutSection = document.querySelector('.about-section');
+            const rect = aboutSection.getBoundingClientRect();
+            
+            if(rect.top < window.innerHeight - 100 && !animated) {
+                animated = true;
+                statNums.forEach(num => {
+                    const target = parseInt(num.getAttribute('data-val'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    
+                    const updateNum = () => {
+                        current += step;
+                        if(current < target) {
+                            num.innerText = Math.floor(current) + (target === 100 ? '%' : '+');
+                            requestAnimationFrame(updateNum);
+                        } else {
+                            num.innerText = target + (target === 100 ? '%' : '+');
+                        }
+                    };
+                    updateNum();
+                });
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karaca Grup | Cephe, Reklam, Alüminyum & Endüstriyel Mutfak</title>
+    <meta name="description" content="Sivas'ta modern mimari çözümler: Cephe sistemleri, reklam tabelaları, alüminyum ve otomasyon.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        karaca: {
+                            black: '#0a0a0a',     // Deepest black
+                            dark: '#171717',      // Very dark gray
+                            gray: '#262626',      // Dark gray
+                            gold: '#d4af37',      // Metallic gold from logo
+                            goldLight: '#f3e5ab',
+                            steel: '#9ca3af',     // Aluminum/steel gray
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 1s cubic-bezier(0.8, 0, 0.2, 1) forwards',
+                        'pulse-gold': 'pulseGold 3s infinite',
+                        'spin-slow': 'spin 15s linear infinite',
+                    },
+                    keyframes: {
+                        slideUp: {
+                            '0%': { transform: 'translateY(100%)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        pulseGold: {
+                            '0%, 100%': { boxShadow: '0 0 10px rgba(212, 175, 55, 0.2)' },
+                            '50%': { boxShadow: '0 0 25px rgba(212, 175, 55, 0.6)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+            overflow-x: hidden;
+        }
+
+        /* Architectural Grid Background */
+        .bg-grid {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Gold Gradient Text */
+        .text-gold-gradient {
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Sharp Buttons */
+        .btn-sharp {
+            position: relative;
+            background: transparent;
+            color: #d4af37;
+            text-transform: uppercase;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 2px;
+            padding: 15px 30px;
+            border: 1px solid #d4af37;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-sharp::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #d4af37;
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        .btn-sharp:hover::before {
+            left: 0;
+        }
+        .btn-sharp:hover {
+            color: #0a0a0a;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Service Cards with Geometric Reveal */
+        .service-card {
+            background: #171717;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #262626;
+            transition: all 0.5s ease;
+        }
+        .service-card .card-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        .service-card .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease, filter 0.5s ease;
+            filter: grayscale(80%) contrast(120%);
+        }
+        .service-card:hover .card-img img {
+            transform: scale(1.1);
+            filter: grayscale(0%) contrast(100%);
+        }
+        /* Corner Accent */
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 40px;
+            height: 40px;
+            background: #d4af37;
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+        }
+        .service-card:hover::after {
+            transform: scale(3) rotate(45deg);
+        }
+        .service-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-10px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+
+        /* Decorative Cross (from logo) */
+        .karaca-cross {
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+        .karaca-cross::before, .karaca-cross::after {
+            content: '';
+            position: absolute;
+            background: #d4af37;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .karaca-cross::before { width: 100%; height: 2px; }
+        .karaca-cross::after { height: 100%; width: 2px; }
+    </style>
+</head>
+<body class="bg-grid selection:bg-karaca-gold selection:text-karaca-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-500 bg-karaca-black/90 backdrop-blur-md border-b border-white/5" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-4 group">
+                <!-- Logo Geometric Icon -->
+                <div class="w-12 h-12 relative flex items-center justify-center bg-karaca-dark rounded-full border border-karaca-gold p-2 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all">
+                    <div class="absolute inset-2 border border-karaca-gold/50 rounded-full transform group-hover:rotate-45 transition-transform duration-500"></div>
+                    <!-- Cross representation -->
+                    <div class="karaca-cross transform scale-50 group-hover:rotate-90 transition-transform duration-700"></div>
+                </div>
+                <div class="flex flex-col">
+                    <h1 class="font-display font-bold text-2xl tracking-widest text-white leading-none group-hover:text-karaca-gold transition-colors">KARACA <span class="font-light">GRUP</span></h1>
+                    <span class="font-sans text-[8px] font-medium text-gray-400 tracking-[0.2em] uppercase mt-1">Cephe • Reklam • Alüminyum</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8 font-display text-sm tracking-widest uppercase text-gray-300">
+                <a href="#kurumsal" class="hover:text-karaca-gold transition-colors">Kurumsal</a>
+                <a href="#hizmetler" class="hover:text-karaca-gold transition-colors">Hizmetlerimiz</a>
+                <a href="#projeler" class="hover:text-karaca-gold transition-colors">Projeler</a>
+                
+                <a href="#iletisim" class="px-6 py-2 border border-karaca-gold text-karaca-gold hover:bg-karaca-gold hover:text-karaca-black transition-all duration-300 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Bize Ulaşın
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="lg:hidden text-karaca-gold text-2xl focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-karaca-black border-t border-white/5 absolute w-full">
+            <div class="flex flex-col p-6 space-y-4 font-display tracking-widest uppercase text-center text-gray-400">
+                <a href="#kurumsal" class="hover:text-karaca-gold py-2 border-b border-white/5">Kurumsal</a>
+                <a href="#hizmetler" class="hover:text-karaca-gold py-2 border-b border-white/5">Hizmetlerimiz</a>
+                <a href="#projeler" class="hover:text-karaca-gold py-2 border-b border-white/5">Projeler</a>
+                <a href="#iletisim" class="text-karaca-gold py-2"><i class="fa-brands fa-whatsapp"></i> Whatsapp İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Industrial Architectural) -->
+    <section class="relative min-h-screen flex items-center overflow-hidden">
+        
+        <!-- Background Image (Modern Facade/Building) -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://loremflickr.com/1920/1080/modern,facade,building/all" alt="Modern Cephe" class="w-full h-full object-cover opacity-30 filter grayscale">
+            <div class="absolute inset-0 bg-gradient-to-r from-karaca-black via-karaca-black/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-karaca-black via-transparent to-karaca-black/50"></div>
+        </div>
+
+        <!-- Geometric Overlays (Yellow/Gold Lines) -->
+        <div class="absolute inset-0 z-0 pointer-events-none opacity-20">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="10%" y1="0" x2="10%" y2="100%" stroke="#d4af37" stroke-width="1" />
+                <line x1="0" y1="30%" x2="100%" y2="30%" stroke="#d4af37" stroke-width="1" />
+                <circle cx="10%" cy="30%" r="5" fill="#d4af37" />
+            </svg>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="container mx-auto px-6 max-w-7xl relative z-20 mt-20">
+            <div class="max-w-3xl">
+                
+                <div class="flex items-center gap-4 mb-6" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="w-12 h-px bg-karaca-gold"></div>
+                    <span class="font-display tracking-[0.3em] text-karaca-gold uppercase text-sm">Sivas Organize Sanayi Bölgesi</span>
+                </div>
+                
+                <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] mb-6 uppercase" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                    Mekanlara <br>
+                    <span class="text-gold-gradient">Kimlik</span> Katıyoruz.
+                </h1>
+                
+                <p class="font-sans text-gray-400 text-lg md:text-xl font-light mb-10 max-w-2xl leading-relaxed border-l-2 border-karaca-gold/30 pl-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+                    Karaca Grup olarak; dış cephe sistemlerinden devasa reklam tabelalarına, alüminyum mimarisinden endüstriyel mutfak ve otomasyona kadar anahtar teslim endüstriyel çözümler sunuyoruz.
+                </p>
+                
+                <div class="flex flex-wrap gap-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
+                    <a href="#hizmetler" class="btn-sharp">
+                        Çözümlerimiz <i class="fa-solid fa-arrow-down-long"></i>
+                    </a>
+                    <div class="flex items-center gap-4 text-gray-400 font-sans text-sm tracking-wider">
+                        <div class="w-12 h-12 rounded-full border border-karaca-gold/30 flex items-center justify-center text-karaca-gold animate-pulse-gold">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase text-karaca-gold mb-1">Whatsapp Danışma Hattı</span>
+                            <a href="https://api.whatsapp.com/send?phone=905412232810" class="text-white font-medium hover:text-karaca-gold transition-colors">0541 223 28 10</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HİZMETLERİMİZ (Services) -->
+    <section id="hizmetler" class="py-24 bg-karaca-black relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4 uppercase">Uzmanlık Alanlarımız</h2>
+                    <p class="font-sans text-gray-400 font-light leading-relaxed">Modern binaların dış görünümünden, işletmelerin kurumsal kimlik tabelalarına kadar geniş bir yelpazede yüksek standartlı üretim yapıyoruz.</p>
+                </div>
+                <div class="karaca-cross opacity-50 hidden md:block"></div>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Cephe -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-img">
+                        <img src="https://loremflickr.com/600/400/architecture,facade/all" alt="Cephe Sistemleri">
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-karaca-black to-transparent">
+                            <i class="fa-regular fa-building text-3xl text-karaca-gold mb-2"></i>
+                        </div>
+                    </div>
+                    <div class="p-8 pt-4">
+                        <h3 class="font-display text-2xl text-white mb-3 uppercase tracking-wide group-hover:text-karaca-gold transition-colors">Cephe Sistemleri</h3>
+                        <p class="font-sans text-gray-400 text-sm font-light leading-relaxed mb-6">Modern, yalıtımlı ve estetik alüminyum kompozit, cam cephe kaplamaları ile binalarınızın prestijini artırıyoruz.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-karaca-gold font-display tracking-widest text-xs uppercase hover:text-white transition-colors">Detaylar <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Reklam & Tabela -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-img">
+                        <img src="https://loremflickr.com/600/400/signage,neon/all" alt="Reklam ve Tabela">
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-karaca-black to-transparent">
+                            <i class="fa-solid fa-signs-post text-3xl text-karaca-gold mb-2"></i>
+                        </div>
+                    </div>
+                    <div class="p-8 pt-4">
+                        <h3 class="font-display text-2xl text-white mb-3 uppercase tracking-wide group-hover:text-karaca-gold transition-colors">Reklam & Tabela</h3>
+                        <p class="font-sans text-gray-400 text-sm font-light leading-relaxed mb-6">Işıklı/ışıksız kutu harf tabelalar, totemler ve kurumsal kimlik uygulamaları ile markanızı en iyi şekilde yansıtıyoruz.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-karaca-gold font-display tracking-widest text-xs uppercase hover:text-white transition-colors">Detaylar <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Alüminyum Doğrama -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-img">
+                        <img src="https://loremflickr.com/600/400/aluminum,window/all" alt="Alüminyum Doğrama">
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-karaca-black to-transparent">
+                            <i class="fa-solid fa-border-all text-3xl text-karaca-gold mb-2"></i>
+                        </div>
+                    </div>
+                    <div class="p-8 pt-4">
+                        <h3 class="font-display text-2xl text-white mb-3 uppercase tracking-wide group-hover:text-karaca-gold transition-colors">Alüminyum Doğrama</h3>
+                        <p class="font-sans text-gray-400 text-sm font-light leading-relaxed mb-6">Isı yalıtımlı alüminyum pencere ve kapı sistemleri, ofis bölmeleri ve kış bahçesi uygulamaları.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-karaca-gold font-display tracking-widest text-xs uppercase hover:text-white transition-colors">Detaylar <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Endüstriyel Mutfak -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-img">
+                        <img src="https://loremflickr.com/600/400/industrial,kitchen/all" alt="Endüstriyel Mutfak">
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-karaca-black to-transparent">
+                            <i class="fa-solid fa-fire-burner text-3xl text-karaca-gold mb-2"></i>
+                        </div>
+                    </div>
+                    <div class="p-8 pt-4">
+                        <h3 class="font-display text-2xl text-white mb-3 uppercase tracking-wide group-hover:text-karaca-gold transition-colors">Endüstriyel Mutfak</h3>
+                        <p class="font-sans text-gray-400 text-sm font-light leading-relaxed mb-6">Restoran, otel ve kurumlar için paslanmaz çelik endüstriyel mutfak ekipmanları ve projelendirme hizmetleri.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-karaca-gold font-display tracking-widest text-xs uppercase hover:text-white transition-colors">Detaylar <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Otomasyon -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-img">
+                        <img src="https://loremflickr.com/600/400/automation,technology/all" alt="Otomasyon Sistemleri">
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-karaca-black to-transparent">
+                            <i class="fa-solid fa-microchip text-3xl text-karaca-gold mb-2"></i>
+                        </div>
+                    </div>
+                    <div class="p-8 pt-4">
+                        <h3 class="font-display text-2xl text-white mb-3 uppercase tracking-wide group-hover:text-karaca-gold transition-colors">Otomasyon Sistemleri</h3>
+                        <p class="font-sans text-gray-400 text-sm font-light leading-relaxed mb-6">Otomatik kapılar, kepenk sistemleri ve akıllı bina otomasyonları ile güvenli ve konforlu geçiş çözümleri.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-karaca-gold font-display tracking-widest text-xs uppercase hover:text-white transition-colors">Detaylar <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- VİZYON / KURUMSAL (Stats & Info) -->
+    <section id="kurumsal" class="py-24 bg-karaca-dark border-y border-white/5 relative">
+        <!-- Abstract gear/metal icon in background -->
+        <i class="fa-solid fa-gear absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2 text-[300px] text-karaca-black opacity-50 animate-spin-slow pointer-events-none"></i>
+        
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 uppercase">Mimariye <span class="text-karaca-gold">Değer</span> Katan Dokunuşlar.</h2>
+                    <p class="font-sans text-gray-400 font-light leading-relaxed mb-8">
+                        Karaca Grup olarak yılların getirdiği tecrübe ile Sivas Şeyhşamil Organize Sanayi Bölgesi'ndeki tesislerimizde, projelerinizi hayata geçiriyoruz. Kaliteli malzeme seçimi, usta işçilik ve zamanında teslimat prensiplerimizle sektörde öncü konumdayız.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-8 border-t border-white/10 pt-8">
+                        <div>
+                            <div class="font-display text-5xl text-white mb-1">10<span class="text-karaca-gold">+</span></div>
+                            <div class="font-sans text-xs tracking-widest text-gray-500 uppercase">Yıllık Tecrübe</div>
+                        </div>
+                        <div>
+                            <div class="font-display text-5xl text-white mb-1">500<span class="text-karaca-gold">+</span></div>
+                            <div class="font-sans text-xs tracking-widest text-gray-500 uppercase">Tamamlanan Proje</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <div class="relative p-2 border border-karaca-gold/30 bg-karaca-black">
+                        <!-- Corner accents -->
+                        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-karaca-gold"></div>
+                        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-karaca-gold"></div>
+                        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-karaca-gold"></div>
+                        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-karaca-gold"></div>
+                        
+                        <img src="https://loremflickr.com/800/600/industry,worker/all" alt="Üretim Tesisi" class="w-full h-full object-cover filter grayscale contrast-125">
+                        
+                        <!-- Overlay Play Button for Showreel aesthetic -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-karaca-gold/90 rounded-full flex items-center justify-center text-karaca-black text-2xl cursor-pointer hover:scale-110 transition-transform shadow-[0_0_30px_rgba(212,175,55,0.5)]">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJELER (Showcase) -->
+    <section id="projeler" class="py-24 bg-karaca-black relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h4 class="font-display tracking-[0.3em] text-karaca-gold uppercase text-sm mb-4">Portfolyo</h4>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white uppercase">Tamamlanan Projeler</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Project 1 (Villa/Modern House) -->
+                <div class="group relative h-80 overflow-hidden" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://loremflickr.com/600/600/modern,villa/all" alt="Modern Villa Cephe" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-karaca-black via-karaca-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <span class="text-karaca-gold font-sans text-xs tracking-widest uppercase mb-1 block">Alüminyum & Cephe</span>
+                        <h3 class="font-display text-xl text-white uppercase">Modern Villa Projesi</h3>
+                    </div>
+                </div>
+                
+                <!-- Project 2 (Zafer Kuruyemiş style commercial) -->
+                <div class="group relative h-80 overflow-hidden" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://loremflickr.com/600/600/commercial,building/all" alt="Ticari Bina Cephe" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-karaca-black via-karaca-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <span class="text-karaca-gold font-sans text-xs tracking-widest uppercase mb-1 block">Kompozit Cephe & Tabela</span>
+                        <h3 class="font-display text-xl text-white uppercase">Ticari Mağaza</h3>
+                    </div>
+                </div>
+
+                <!-- Project 3 (Restaurant sign style) -->
+                <div class="group relative h-80 overflow-hidden" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://loremflickr.com/600/600/restaurant,sign/all" alt="Restoran Tabela" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-karaca-black via-karaca-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <span class="text-karaca-gold font-sans text-xs tracking-widest uppercase mb-1 block">Kutu Harf & Işıklı Tabela</span>
+                        <h3 class="font-display text-xl text-white uppercase">Restoran Kurumsal Kimlik</h3>
+                    </div>
+                </div>
+
+                <!-- Project 4 (Industrial Kitchen) -->
+                <div class="group relative h-80 overflow-hidden" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://loremflickr.com/600/600/commercial,kitchen/all" alt="Endüstriyel Mutfak Tesisi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-karaca-black via-karaca-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <span class="text-karaca-gold font-sans text-xs tracking-widest uppercase mb-1 block">Paslanmaz Tasarım</span>
+                        <h3 class="font-display text-xl text-white uppercase">Otel Mutfak Projesi</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://www.instagram.com/karaca_endustriyel_mutfak/" target="_blank" class="inline-flex items-center gap-3 text-white font-sans text-sm tracking-wider uppercase hover:text-karaca-gold transition-colors">
+                    <i class="fa-brands fa-instagram text-2xl"></i> Daha fazlası için Instagram hesabımız
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / İLETİŞİM -->
+    <footer id="iletisim" class="bg-karaca-dark pt-24 pb-12 border-t border-karaca-gold/20">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Brand Info -->
+                <div class="col-span-1 md:col-span-2 lg:col-span-1">
+                    <a href="#" class="flex items-center gap-3 mb-6">
+                        <div class="karaca-cross transform scale-75 origin-left"></div>
+                        <div class="flex flex-col">
+                            <span class="font-display font-bold text-2xl tracking-widest text-white leading-none">KARACA</span>
+                            <span class="font-sans text-[8px] font-medium text-karaca-gold tracking-[0.2em] uppercase mt-1">Grup</span>
+                        </div>
+                    </a>
+                    <p class="font-sans text-gray-400 text-sm font-light leading-relaxed mb-6">
+                        Cephe, Reklam, Alüminyum ve Otomasyon sistemlerinde endüstriyel çözümler sunan Sivas'ın güvenilir markası.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-display text-white text-lg uppercase tracking-wider mb-6">Hızlı Menü</h4>
+                    <ul class="space-y-3 font-sans text-sm text-gray-400 font-light">
+                        <li><a href="#kurumsal" class="hover:text-karaca-gold transition-colors">Hakkımızda</a></li>
+                        <li><a href="#hizmetler" class="hover:text-karaca-gold transition-colors">Hizmetlerimiz</a></li>
+                        <li><a href="#projeler" class="hover:text-karaca-gold transition-colors">Referans Projeler</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-span-1 md:col-span-2">
+                    <h4 class="font-display text-white text-lg uppercase tracking-wider mb-6">Bize Ulaşın</h4>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-karaca-black border border-karaca-gold/30 flex items-center justify-center text-karaca-gold shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="font-sans text-xs tracking-widest text-gray-500 uppercase block mb-1">Fabrika Adres</span>
+                                <p class="font-sans text-gray-300 text-sm font-light">Şeyhşamil Organize Sanayi Bölgesi No:19<br>Merkez / SİVAS</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-karaca-black border border-karaca-gold/30 flex items-center justify-center text-karaca-gold shrink-0">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                            </div>
+                            <div>
+                                <span class="font-sans text-xs tracking-widest text-gray-500 uppercase block mb-1">Whatsapp Hatı</span>
+                                <a href="https://api.whatsapp.com/send?phone=905412232810" class="font-sans text-gray-300 text-sm hover:text-karaca-gold transition-colors">0541 223 28 10</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+                <p class="font-sans text-xs text-gray-500 font-light tracking-wider uppercase">&copy; 2026 Karaca Grup. Tüm Hakları Saklıdır.</p>
+                <a href="https://www.instagram.com/karaca_endustriyel_mutfak/" target="_blank" class="w-10 h-10 bg-karaca-black border border-white/10 flex items-center justify-center text-gray-400 hover:border-karaca-gold hover:text-karaca-gold transition-colors">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'bg-karaca-black/95');
+                nav.classList.remove('bg-karaca-black/90');
+            } else {
+                nav.classList.add('bg-karaca-black/90');
+                nav.classList.remove('shadow-lg', 'bg-karaca-black/95');
+            }
+        });
+    </script>
+</body>
+</html>

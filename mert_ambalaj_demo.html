@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mert Medikal Ambalaj | Temiz, Güvenilir, Çevreci Çözümler</title>
+    <meta name="description" content="Tıbbi atık torbasından çocuk bezi ambalajına kadar yüksek standartlı medikal ve endüstriyel ambalaj üretimi.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mert: {
+                            base: '#f8fafc',      // Clinical white/gray
+                            dark: '#0f172a',      // Deep slate/navy
+                            teal: '#06b6d4',      // Medical cyan/teal
+                            tealDark: '#0891b2',  // Hover cyan
+                            gray: '#64748b',      // Subtitle gray
+                            glass: 'rgba(255, 255, 255, 0.7)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'float-fast': 'float 4s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                            '50%': { transform: 'translateY(-20px) scale(1.05)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Note: scroll-smooth removed from html to prevent previewer bug */
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+
+        /* Medical/Clean Gradient Text */
+        .text-gradient-cyan {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 1);
+            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.05);
+            transition: all 0.4s ease;
+            border-radius: 24px;
+        }
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.15);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+
+        /* Tech/Medical Button */
+        .btn-medical {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 100px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 13px;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        .btn-medical::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #0891b2, #0369a1);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        .btn-medical:hover::before {
+            opacity: 1;
+        }
+        .btn-medical:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.4);
+        }
+
+        /* Clean Product Card */
+        .product-item {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #fff;
+            padding: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            transition: all 0.4s ease;
+        }
+        .product-img-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 4/3;
+        }
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .product-item:hover .product-img-wrapper img {
+            transform: scale(1.08);
+        }
+        .product-item:hover {
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.1);
+        }
+        .icon-circle {
+            width: 50px;
+            height: 50px;
+            background: #f1f5f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #06b6d4;
+            transition: all 0.4s ease;
+        }
+        .product-item:hover .icon-circle {
+            background: #06b6d4;
+            color: white;
+            transform: rotate(15deg);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
+        
+        /* Grid Pattern Background */
+        .bg-pattern {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+    </style>
+</head>
+<body class="selection:bg-mert-teal selection:text-white">
+
+    <!-- Clean Tech Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-[1400px] mx-auto px-6 h-24 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg shadow-mert-teal/20 text-mert-teal text-2xl group-hover:bg-mert-teal group-hover:text-white transition-colors duration-500">
+                    <i class="fa-solid fa-box-open"></i>
+                </div>
+                <div class="flex flex-col">
+                    <h1 class="font-sans font-bold text-2xl tracking-tight text-mert-dark leading-none">MERT <span class="text-mert-teal">MEDİKAL</span></h1>
+                    <span class="font-sans text-[10px] font-medium text-mert-gray tracking-widest uppercase mt-1">Ambalaj Sistemleri</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center bg-white/80 backdrop-blur-md px-8 py-3 rounded-full shadow-sm border border-white">
+                <div class="flex items-center gap-8 font-sans text-[13px] font-semibold tracking-wide uppercase text-mert-dark">
+                    <a href="#kurumsal" class="hover:text-mert-teal transition-colors">Hakkımızda</a>
+                    <a href="#urunler" class="hover:text-mert-teal transition-colors">Ürünler</a>
+                    <a href="#kalite" class="hover:text-mert-teal transition-colors">Kalite</a>
+                </div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="hidden lg:flex items-center">
+                <a href="#iletisim" class="btn-medical !py-3 !px-6 !text-xs">
+                    İletişim <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="lg:hidden text-mert-dark text-2xl focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-md border-b border-gray-100 absolute w-full shadow-xl">
+            <div class="flex flex-col p-6 space-y-4 font-sans font-semibold text-sm tracking-wide text-mert-dark">
+                <a href="#kurumsal" class="hover:text-mert-teal p-2 rounded-lg hover:bg-gray-50">Hakkımızda</a>
+                <a href="#urunler" class="hover:text-mert-teal p-2 rounded-lg hover:bg-gray-50">Ürünler</a>
+                <a href="#kalite" class="hover:text-mert-teal p-2 rounded-lg hover:bg-gray-50">Kalite</a>
+                <a href="#iletisim" class="text-mert-teal p-2">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Sterile & High-Tech) -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-pattern">
+        
+        <!-- Animated Background Elements (CSS only, no heavy JS) -->
+        <div class="absolute top-20 right-10 w-96 h-96 bg-mert-teal/10 rounded-full blur-3xl animate-float-slow"></div>
+        <div class="absolute bottom-10 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-float-fast" style="animation-delay: -2s;"></div>
+        
+        <!-- Medical Cross / Dots Decor -->
+        <div class="absolute right-[10%] top-[30%] opacity-20">
+            <div class="grid grid-cols-5 gap-2">
+                <script>
+                    for(let i=0; i<25; i++) {
+                        document.write('<div class="w-2 h-2 rounded-full bg-mert-teal"></div>');
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-6 w-full relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                
+                <!-- Hero Text -->
+                <div class="w-full lg:w-[55%] text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-mert-teal font-sans text-xs font-bold tracking-widest uppercase mb-8 shadow-sm border border-gray-100" data-aos="fade-down">
+                        <span class="w-2 h-2 rounded-full bg-mert-teal animate-pulse"></span>
+                        Güvenilir Paketleme Çözümleri
+                    </div>
+                    
+                    <h1 class="font-sans text-5xl md:text-6xl lg:text-7xl font-extrabold text-mert-dark leading-[1.1] mb-6 tracking-tight" data-aos="fade-up" data-aos-delay="100">
+                        Ambalajda <br>
+                        <span class="text-gradient-cyan">Hijyen ve Kalite</span>
+                    </h1>
+                    
+                    <p class="font-sans text-mert-gray text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                        Tıbbi atık torbalarından hijyenik ürün ambalajlarına kadar; insan sağlığına ve çevreye duyarlı, yüksek teknoloji ile üretilen baskılı ve baskısız ambalaj sistemleri.
+                    </p>
+                    
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6" data-aos="fade-up" data-aos-delay="300">
+                        <a href="#urunler" class="btn-medical">
+                            Ürünlerimizi İnceleyin
+                        </a>
+                        <div class="flex -space-x-3">
+                            <!-- Trust indicators -->
+                            <div class="w-12 h-12 rounded-full border-2 border-white bg-green-50 flex items-center justify-center text-green-500 shadow-md z-30" title="ISO 9001"><i class="fa-solid fa-certificate"></i></div>
+                            <div class="w-12 h-12 rounded-full border-2 border-white bg-blue-50 flex items-center justify-center text-blue-500 shadow-md z-20" title="Eco Friendly"><i class="fa-solid fa-leaf"></i></div>
+                            <div class="w-12 h-12 rounded-full border-2 border-white bg-teal-50 flex items-center justify-center text-mert-teal shadow-md z-10" title="Medical Grade"><i class="fa-solid fa-hospital"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image (Glassmorphism Frame) -->
+                <div class="w-full lg:w-[45%] relative" data-aos="fade-left" data-aos-delay="400">
+                    <div class="glass-card p-4 relative z-10">
+                        <div class="rounded-2xl overflow-hidden aspect-[4/3] relative bg-white">
+                            <img src="https://loremflickr.com/800/600/plastic,packaging/all" alt="Medikal Ambalaj Üretimi" class="w-full h-full object-cover opacity-90">
+                            <!-- Overlay gradient to make it look cleaner -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-mert-teal/20 to-transparent mix-blend-multiply"></div>
+                        </div>
+                        
+                        <!-- Floating Spec Badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-float-fast">
+                            <div class="w-12 h-12 bg-mert-teal/10 rounded-xl flex items-center justify-center text-mert-teal text-xl">
+                                <i class="fa-solid fa-shield-virus"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-sans font-bold text-mert-dark text-sm">%100 Hijyenik</h4>
+                                <span class="font-sans text-xs text-mert-gray">Kontrollü Üretim</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KURUMSAL / VİZYON -->
+    <section id="kurumsal" class="py-24 bg-white relative">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="flex flex-col-reverse lg:flex-row items-center gap-20">
+                
+                <div class="w-full lg:w-1/2 grid grid-cols-2 gap-6" data-aos="fade-right">
+                    <div class="space-y-6">
+                        <div class="bg-mert-base p-8 rounded-3xl transition-transform hover:-translate-y-2 duration-300 mt-10">
+                            <i class="fa-solid fa-microscope text-4xl text-mert-teal mb-6"></i>
+                            <h3 class="font-sans font-bold text-xl text-mert-dark mb-2">AR-GE</h3>
+                            <p class="font-sans text-sm text-mert-gray font-light leading-relaxed">Sürekli gelişen ambalaj teknolojilerini laboratuvarlarımızda test ediyoruz.</p>
+                        </div>
+                        <div class="bg-mert-teal p-8 rounded-3xl transition-transform hover:-translate-y-2 duration-300 shadow-xl shadow-mert-teal/30">
+                            <i class="fa-solid fa-recycle text-4xl text-white mb-6"></i>
+                            <h3 class="font-sans font-bold text-xl text-white mb-2">Çevre Dostu</h3>
+                            <p class="font-sans text-sm text-white/90 font-light leading-relaxed">Doğada çözünebilen ve geri dönüştürülebilir ham maddeler kullanıyoruz.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-white border border-gray-100 shadow-xl p-8 rounded-3xl transition-transform hover:-translate-y-2 duration-300">
+                            <i class="fa-solid fa-industry text-4xl text-mert-teal mb-6"></i>
+                            <h3 class="font-sans font-bold text-xl text-mert-dark mb-2">Modern Tesis</h3>
+                            <p class="font-sans text-sm text-mert-gray font-light leading-relaxed">Sivas OSB'deki fabrikamızda en son teknoloji ekstrüzyon makineleri.</p>
+                        </div>
+                        <div class="bg-mert-base p-8 rounded-3xl transition-transform hover:-translate-y-2 duration-300">
+                            <i class="fa-solid fa-truck-fast text-4xl text-mert-teal mb-6"></i>
+                            <h3 class="font-sans font-bold text-xl text-mert-dark mb-2">Hızlı Teslimat</h3>
+                            <p class="font-sans text-sm text-mert-gray font-light leading-relaxed">Baskılı ve baskısız ürünlerinizi en kısa sürede, söz verdiğimiz gibi teslim ediyoruz.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <h4 class="font-sans text-sm font-bold text-mert-teal tracking-widest uppercase mb-4">Üretim Vizyonumuz</h4>
+                    <h2 class="font-sans text-4xl md:text-5xl font-extrabold text-mert-dark mb-6 leading-tight">
+                        İçindeki Değeri <br>Koruyan Dış Katman.
+                    </h2>
+                    <p class="font-sans text-mert-gray font-light leading-relaxed mb-6">
+                        Mert Medikal Ambalaj, sektörün ihtiyaç duyduğu "Yumuşak Saplı Çantalar", "Takviyeli El Geçme Poşetler" ve medikal alanda kritik öneme sahip "Tıbbi Atık Torbaları" üretiminde uzmanlaşmıştır.
+                    </p>
+                    <p class="font-sans text-mert-gray font-light leading-relaxed mb-8">
+                        Deterjan ve çocuk bezi ambalajları gibi hijyenin ve dayanıklılığın ön planda olduğu sızdırmaz paketleme sistemlerinde, markanızın raftaki yüzünü en kaliteli baskı teknolojileriyle (Flekso/Tifdruk) ortaya çıkarıyoruz.
+                    </p>
+                    <div class="flex items-center gap-6 p-6 bg-mert-base rounded-2xl border border-gray-100">
+                        <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center text-mert-teal text-2xl shadow-sm shrink-0">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-sans font-bold text-mert-dark">Yüksek Kalite Standartları</h5>
+                            <p class="font-sans text-sm text-mert-gray font-light">Tüm üretim süreçlerimiz uluslararası normlara uygun olarak denetlenmektedir.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ÜRÜNLER KATEGORİSİ -->
+    <section id="urunler" class="py-24 bg-mert-base relative">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <h4 class="font-sans text-sm font-bold text-mert-teal tracking-widest uppercase mb-4">Ürün Gamımız</h4>
+                <h2 class="font-sans text-4xl font-extrabold text-mert-dark mb-4">Baskılı ve Baskısız Çözümler</h2>
+                <p class="font-sans text-mert-gray font-light">İhtiyacınıza uygun ebat, kalınlık ve özelliklerde özel üretim ambalajlar.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Tıbbi Atık Torbası -->
+                <div class="product-item group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-img-wrapper">
+                        <!-- Using medical imagery -->
+                        <img src="https://loremflickr.com/600/450/medical,bag/all" alt="Tıbbi Atık Torbası">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Kritik
+                        </div>
+                    </div>
+                    <div class="p-6 pb-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-sans font-bold text-xl text-mert-dark group-hover:text-mert-teal transition-colors">Tıbbi Atık Torbası</h3>
+                            <div class="icon-circle"><i class="fa-solid fa-virus-slash"></i></div>
+                        </div>
+                        <p class="font-sans text-sm text-mert-gray font-light mb-4">Yırtılmaya ve delinmeye ekstra dirençli, sızdırmaz, regülasyonlara tam uyumlu kırmızı tıbbi atık poşetleri.</p>
+                    </div>
+                </div>
+
+                <!-- Çocuk Bezi Ambalajı -->
+                <div class="product-item group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-img-wrapper">
+                        <img src="https://loremflickr.com/600/450/diaper,packaging/all" alt="Çocuk Bezi Ambalajı">
+                    </div>
+                    <div class="p-6 pb-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-sans font-bold text-xl text-mert-dark group-hover:text-mert-teal transition-colors">Çocuk Bezi Ambalajı</h3>
+                            <div class="icon-circle"><i class="fa-solid fa-baby"></i></div>
+                        </div>
+                        <p class="font-sans text-sm text-mert-gray font-light mb-4">Hijyeni koruyan, raf ömrünü uzatan, yüksek kaliteli fotoğraf baskısına uygun, taşıma saplı esnek ambalajlar.</p>
+                    </div>
+                </div>
+
+                <!-- Deterjan Paketi -->
+                <div class="product-item group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-img-wrapper">
+                        <img src="https://loremflickr.com/600/450/detergent,pack/all" alt="Deterjan Paketi">
+                    </div>
+                    <div class="p-6 pb-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-sans font-bold text-xl text-mert-dark group-hover:text-mert-teal transition-colors">Deterjan Paketi</h3>
+                            <div class="icon-circle"><i class="fa-solid fa-soap"></i></div>
+                        </div>
+                        <p class="font-sans text-sm text-mert-gray font-light mb-4">Kimyasallara dayanıklı, kokuyu hapseden, ayakta durabilen (doypack) veya toz deterjanlar için sağlam torbalar.</p>
+                    </div>
+                </div>
+
+                <!-- Yumuşak Sap -->
+                <div class="product-item group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="product-img-wrapper">
+                        <img src="https://loremflickr.com/600/450/shopping,bag/all" alt="Yumuşak Saplı Çanta">
+                    </div>
+                    <div class="p-6 pb-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-sans font-bold text-xl text-mert-dark group-hover:text-mert-teal transition-colors">Yumuşak Sap Çanta</h3>
+                            <div class="icon-circle"><i class="fa-solid fa-bag-shopping"></i></div>
+                        </div>
+                        <p class="font-sans text-sm text-mert-gray font-light mb-4">Perakende mağazacılık ve fuar katılımları için, taşıması kolay ve markanızı prestijli gösteren şık taşıma çantaları.</p>
+                    </div>
+                </div>
+
+                <!-- Takviyeli El Geçme -->
+                <div class="product-item group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="product-img-wrapper">
+                        <img src="https://loremflickr.com/600/450/plastic,bag/all" alt="Takviyeli El Geçme">
+                    </div>
+                    <div class="p-6 pb-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-sans font-bold text-xl text-mert-dark group-hover:text-mert-teal transition-colors">Takviyeli El Geçme</h3>
+                            <div class="icon-circle"><i class="fa-solid fa-hand-holding"></i></div>
+                        </div>
+                        <p class="font-sans text-sm text-mert-gray font-light mb-4">Kulp bölgesindeki ekstra destek katmanı sayesinde ağır yükleri yırtılmadan taşıyabilen ekonomik mağaza poşetleri.</p>
+                    </div>
+                </div>
+
+                <!-- Uyarı Bandı -->
+                <div class="product-item group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="product-img-wrapper">
+                        <img src="https://loremflickr.com/600/450/warning,tape/all" alt="Uyarı Bandı">
+                    </div>
+                    <div class="p-6 pb-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-sans font-bold text-xl text-mert-dark group-hover:text-mert-teal transition-colors">Uyarı Bandı</h3>
+                            <div class="icon-circle"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        </div>
+                        <p class="font-sans text-sm text-mert-gray font-light mb-4">İnşaat, olay yeri, kazı çalışmaları ve tehlikeli alanları çevrelemek için yüksek görünürlüğe sahip güvenlik şeritleri.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- İLETİŞİM / FOOTER -->
+    <footer id="iletisim" class="bg-mert-dark pt-20 pb-10 relative overflow-hidden">
+        
+        <!-- Big abstract logo watermark -->
+        <i class="fa-solid fa-box-open absolute right-0 bottom-0 text-[300px] text-white/5 transform translate-x-1/4 translate-y-1/4 pointer-events-none"></i>
+
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+                
+                <!-- Brand -->
+                <div class="lg:col-span-5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-mert-teal rounded-xl flex items-center justify-center text-white text-xl">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-sans font-bold text-xl tracking-tight text-white leading-none">MERT <span class="text-mert-teal">MEDİKAL</span></span>
+                            <span class="font-sans text-[8px] font-medium text-mert-gray tracking-widest uppercase mt-1">Ambalaj Sistemleri</span>
+                        </div>
+                    </div>
+                    <p class="font-sans text-gray-400 text-sm font-light leading-relaxed mb-8 max-w-sm">
+                        Yüksek kaliteli ambalaj üretiminde Sivas OSB'den Türkiye'nin her yerine uzanan güvenilir tedarik ağınız.
+                    </p>
+                    
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-mert-teal transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-mert-teal transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div class="lg:col-span-3">
+                    <h4 class="font-sans font-bold text-white text-lg mb-6">Ürün Kategorileri</h4>
+                    <ul class="space-y-4 font-sans text-sm text-gray-400 font-light">
+                        <li><a href="#" class="hover:text-mert-teal transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mert-teal"></i> Medikal Ambalajlar</a></li>
+                        <li><a href="#" class="hover:text-mert-teal transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mert-teal"></i> Endüstriyel Ambalajlar</a></li>
+                        <li><a href="#" class="hover:text-mert-teal transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mert-teal"></i> Mağaza & Poşet Grubu</a></li>
+                        <li><a href="#" class="hover:text-mert-teal transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[10px] text-mert-teal"></i> Güvenlik Bantları</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Detail -->
+                <div class="lg:col-span-4">
+                    <h4 class="font-sans font-bold text-white text-lg mb-6">İletişim Bilgileri</h4>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-mert-teal shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-sans font-bold text-white text-sm mb-1">Fabrika (Sivas OSB)</h5>
+                                <p class="font-sans text-gray-400 text-sm font-light">Sivas 1. OSB Müdürlüğü, Sivas İgem<br>Kılavuz OSB / Sivas Merkez</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-mert-teal shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-sans font-bold text-white text-sm mb-1">Telefon</h5>
+                                <a href="tel:03462181330" class="font-sans text-gray-400 text-sm font-light hover:text-white transition-colors">0(346) 218 13 30</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-mert-teal shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-sans font-bold text-white text-sm mb-1">E-Posta</h5>
+                                <a href="mailto:info@mertambalaj.com" class="font-sans text-gray-400 text-sm font-light hover:text-white transition-colors">info@mertambalaj.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="font-sans text-sm text-gray-500 font-light">&copy; 2026 Mert Medikal Ambalaj. Tüm Hakları Saklıdır.</p>
+                <div class="flex gap-4 font-sans text-sm text-gray-500 font-light">
+                    <a href="#" class="hover:text-white transition-colors">Gizlilik Politikası</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-white transition-colors">Kalite Belgeleri</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-gray-100');
+            } else {
+                nav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-gray-100');
+            }
+        });
+    </script>
+</body>
+</html>

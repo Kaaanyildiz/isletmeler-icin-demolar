@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamçı Kuyumculuk | Altın ve Gümüş Takı İmalatı</title>
+    <meta name="description" content="Kamçı Kuyumculuk - Ustalıkla işlenmiş altın ve gümüş takılar, özel tasarım yüzükler ve setler.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kamci: {
+                            black: '#050505',     // Vantablack style
+                            dark: '#111111',      // Very dark gray
+                            gold: '#D4AF37',      // Pure Gold
+                            goldLight: '#F3E5AB', // Light gold highlight
+                            rosegold: '#B76E79',  // Rose gold accent
+                            silver: '#C0C0C0',    // Silver accent
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'sparkle': 'sparkle 4s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                    },
+                    keyframes: {
+                        sparkle: {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(0.8)' },
+                            '50%': { opacity: '1', transform: 'scale(1.2) rotate(15deg)', filter: 'drop-shadow(0 0 10px #D4AF37)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* --- Luxury Glow & Gradients --- */
+        .gold-gradient-text {
+            background: linear-gradient(to right, #B38728, #FBF5B7, #D4AF37, #FBF5B7, #B38728);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .gold-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+        }
+
+        /* --- Elegant Button --- */
+        .btn-luxury {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 36px;
+            color: #D4AF37;
+            font-family: 'Lato', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.5s ease;
+            overflow: hidden;
+        }
+        .btn-luxury::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(212, 175, 55, 0.05);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+        .btn-luxury:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .btn-luxury:hover {
+            border-color: #D4AF37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            color: #fff;
+        }
+
+        /* --- Diamond Shape Decor --- */
+        .diamond-icon {
+            width: 8px;
+            height: 8px;
+            background: #D4AF37;
+            transform: rotate(45deg);
+            display: inline-block;
+        }
+
+        /* --- Category Card (Hover Reveal) --- */
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            background: #111;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+        }
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s ease;
+        }
+        .category-card:hover img {
+            transform: scale(1.08);
+            opacity: 0.3;
+        }
+        .category-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .category-card:hover .category-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .category-title-static {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+        .category-card:hover .category-title-static {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; }
+        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+    </style>
+</head>
+<body class="selection:bg-kamci-gold selection:text-black">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-700 bg-kamci-black/80 backdrop-blur-md border-b border-white/5" id="navbar">
+        <div class="max-w-[90rem] mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex flex-col items-center justify-center group">
+                <h1 class="font-serif text-2xl lg:text-3xl tracking-[0.15em] text-white uppercase font-light leading-none">
+                    KAMÇI
+                </h1>
+                <div class="flex items-center gap-2 mt-2 opacity-70 group-hover:opacity-100 transition-opacity">
+                    <div class="w-4 h-px bg-kamci-gold"></div>
+                    <span class="font-sans text-[8px] tracking-[0.4em] text-kamci-gold uppercase">Kuyumculuk</span>
+                    <div class="w-4 h-px bg-kamci-gold"></div>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-12 font-sans text-[10px] tracking-[0.2em] uppercase text-gray-400">
+                <a href="#hakkimizda" class="hover:text-kamci-gold transition-colors">Zanaat</a>
+                <a href="#koleksiyonlar" class="hover:text-kamci-gold transition-colors">Koleksiyonlar</a>
+                <a href="#atolye" class="hover:text-kamci-gold transition-colors">Atölye</a>
+                <a href="#iletisim" class="hover:text-kamci-gold transition-colors">İletişim</a>
+            </div>
+
+            <!-- Right Side (Contact) -->
+            <div class="hidden lg:flex items-center gap-6">
+                <a href="tel:03462181214" class="font-sans text-xs tracking-wider text-white hover:text-kamci-gold transition-colors">
+                    0(346) 218 12 14
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="lg:hidden text-kamci-gold text-2xl focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-kamci-black border-t border-white/10 absolute w-full h-screen">
+            <div class="flex flex-col items-center justify-center h-full space-y-8 font-sans text-sm tracking-[0.3em] uppercase text-gray-400 pb-32">
+                <a href="#hakkimizda" class="hover:text-kamci-gold">Zanaat</a>
+                <a href="#koleksiyonlar" class="hover:text-kamci-gold">Koleksiyonlar</a>
+                <a href="#atolye" class="hover:text-kamci-gold">Atölye</a>
+                <a href="#iletisim" class="hover:text-kamci-gold">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Elegant Macro Shot) -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        
+        <!-- Background Video/Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://loremflickr.com/1920/1080/jewelry,diamond/all" alt="Kamçı Kuyumculuk Mücevher" class="w-full h-full object-cover opacity-40 scale-105 transform animate-[spin-slow_40s_linear_infinite_alternate]">
+            <div class="absolute inset-0 bg-gradient-to-b from-kamci-black/60 via-kamci-black/40 to-kamci-black"></div>
+            
+            <!-- Vignette -->
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#050505_100%)] opacity-80"></div>
+        </div>
+
+        <!-- Floating Sparkles -->
+        <div class="absolute top-1/4 left-1/4 text-kamci-gold text-xs animate-sparkle"><i class="fa-solid fa-star"></i></div>
+        <div class="absolute top-1/3 right-1/4 text-kamci-gold text-[8px] animate-sparkle" style="animation-delay: 1s;"><i class="fa-solid fa-star"></i></div>
+        <div class="absolute bottom-1/3 left-1/3 text-kamci-gold text-[10px] animate-sparkle" style="animation-delay: 2s;"><i class="fa-solid fa-star"></i></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-6 mt-20">
+            <div data-aos="fade-down" data-aos-duration="1500">
+                <div class="diamond-icon mb-8"></div>
+            </div>
+            
+            <h2 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-6 font-light italic" data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="300">
+                Altına <br>
+                <span class="gold-gradient-text not-italic font-medium">Hayat Veren</span> <br>
+                Ustalar.
+            </h2>
+            
+            <p class="font-sans text-xs md:text-sm text-gray-400 font-light mb-12 tracking-[0.3em] uppercase max-w-lg mx-auto leading-loose" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+                Sivas'tan Yükselen Kusursuz İşçilik. <br>Altın ve Gümüş Takı İmalatında Öncü Marka.
+            </p>
+            
+            <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">
+                <a href="#koleksiyonlar" class="btn-luxury">
+                    Koleksiyonu İncele
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-float opacity-50">
+            <span class="font-sans text-[8px] tracking-[0.4em] text-white uppercase mb-4">Keşfet</span>
+            <div class="w-px h-12 bg-gradient-to-b from-kamci-gold to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- ZANAAT / HAKKIMIZDA -->
+    <section id="hakkimizda" class="py-32 bg-kamci-black relative">
+        <div class="max-w-[80rem] mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-20">
+                
+                <!-- Imagery -->
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-right" data-aos-duration="1500">
+                    <div class="aspect-[4/5] overflow-hidden relative">
+                        <img src="https://loremflickr.com/800/1000/goldsmith,workshop/all" alt="Mücevher İmalat" class="w-full h-full object-cover opacity-80 filter grayscale sepia-[.3]">
+                        <div class="absolute inset-0 border border-kamci-gold/20 m-6"></div>
+                    </div>
+                    <!-- Overlapping image -->
+                    <div class="absolute -bottom-10 -right-10 w-2/3 aspect-square border-4 border-kamci-black hidden md:block">
+                        <img src="https://loremflickr.com/600/600/gold,ring/all" alt="Altın Yüzük" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div class="w-full lg:w-1/2" data-aos="fade-left" data-aos-duration="1500">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="diamond-icon"></div>
+                        <span class="font-sans text-[10px] tracking-[0.4em] text-kamci-gold uppercase">Gelenekten Geleceğe</span>
+                    </div>
+                    
+                    <h2 class="font-serif text-4xl md:text-5xl text-white mb-8 font-light leading-snug">
+                        Ateşin, Altının ve <br>
+                        <span class="italic text-gray-400">Sabrın Sanatı</span>
+                    </h2>
+                    
+                    <p class="font-sans text-gray-400 font-light leading-relaxed mb-6 text-sm">
+                        Kamçı Kuyumculuk olarak, Sivas Organize Sanayi Bölgesi'ndeki modern tesislerimizde, binlerce yıllık kuyumculuk geleneğini günümüz teknolojisiyle harmanlıyoruz. Altın ve gümüş, ustalarımızın ellerinde birer sanat eserine dönüşüyor.
+                    </p>
+                    
+                    <p class="font-sans text-gray-400 font-light leading-relaxed mb-12 text-sm">
+                        Erkek yüzüklerinden zarif alyanslara, özel tasarım takı setlerinden kişiye özel kol düğmelerine kadar geniş bir üretim yelpazesinde, kusursuzluğu hedefliyoruz. Her bir parça, detaylara olan tutkumuzun bir yansımasıdır.
+                    </p>
+                    
+                    <a href="#atolye" class="inline-flex items-center gap-4 group">
+                        <span class="font-sans text-[10px] tracking-[0.2em] text-white uppercase group-hover:text-kamci-gold transition-colors">Atölyemizi Keşfedin</span>
+                        <div class="w-12 h-px bg-white/30 group-hover:bg-kamci-gold group-hover:w-20 transition-all duration-500"></div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KOLEKSİYONLAR (Masonry Grid) -->
+    <section id="koleksiyonlar" class="py-32 bg-kamci-dark relative border-y border-white/5">
+        <div class="gold-line absolute top-0 w-full opacity-30"></div>
+        
+        <div class="max-w-[90rem] mx-auto px-6">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-20" data-aos="fade-up">
+                <div class="diamond-icon mb-4"></div>
+                <h2 class="font-serif text-3xl md:text-5xl text-white mb-4 font-light">Özel Üretim Koleksiyonlar</h2>
+                <p class="font-sans text-[11px] tracking-[0.3em] text-kamci-gold uppercase">Her Detayda Ustalık İzi</p>
+            </div>
+
+            <!-- Asymmetric Grid for Jewelry -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <!-- Alyans & Takı Setleri (Large Box) -->
+                <div class="lg:col-span-2 lg:row-span-2 category-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://loremflickr.com/800/800/wedding,rings/all" alt="Alyans ve Yüzük">
+                    <h3 class="category-title-static font-serif text-2xl text-white font-light tracking-wide">Alyans Koleksiyonu</h3>
+                    
+                    <div class="category-content">
+                        <div class="diamond-icon mb-4"></div>
+                        <h3 class="font-serif text-3xl text-kamci-gold mb-4 italic">Sonsuzluk Bağı</h3>
+                        <p class="font-sans text-xs text-gray-300 font-light mb-6 px-4 leading-relaxed">Bir ömür boyu sürecek sevginin en saf sembolü. El işçiliği ile şekillendirilmiş benzersiz alyans yüzükler.</p>
+                        <span class="border-b border-kamci-gold/50 text-[10px] uppercase tracking-widest text-kamci-gold pb-1">Koleksiyonu Gör</span>
+                    </div>
+                </div>
+
+                <!-- Erkek Yüzük -->
+                <div class="category-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://loremflickr.com/400/600/men,ring/all" alt="Erkek Yüzük">
+                    <h3 class="category-title-static font-serif text-xl text-white font-light tracking-wide">Erkek Yüzükleri</h3>
+                    
+                    <div class="category-content">
+                        <h3 class="font-serif text-xl text-kamci-gold mb-3 italic">Güç ve Zarafet</h3>
+                        <p class="font-sans text-[10px] text-gray-300 font-light mb-4">Gümüş ve altının maskülen çizgilerle buluşması.</p>
+                        <span class="border-b border-kamci-gold/50 text-[9px] uppercase tracking-widest text-kamci-gold pb-1">İncele</span>
+                    </div>
+                </div>
+
+                <!-- Bayan Yüzük -->
+                <div class="category-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://loremflickr.com/400/600/diamond,ring/all" alt="Bayan Yüzük">
+                    <h3 class="category-title-static font-serif text-xl text-white font-light tracking-wide">Bayan Yüzükleri</h3>
+                    
+                    <div class="category-content">
+                        <h3 class="font-serif text-xl text-kamci-gold mb-3 italic">Işıltılı Dokunuş</h3>
+                        <p class="font-sans text-[10px] text-gray-300 font-light mb-4">Pırlanta zarafetini tamamlayan özel altın montürler.</p>
+                        <span class="border-b border-kamci-gold/50 text-[9px] uppercase tracking-widest text-kamci-gold pb-1">İncele</span>
+                    </div>
+                </div>
+
+                <!-- Takı Setleri -->
+                <div class="category-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://loremflickr.com/400/600/jewelry,set/all" alt="Takı Setleri">
+                    <h3 class="category-title-static font-serif text-xl text-white font-light tracking-wide">Takı Setleri</h3>
+                    
+                    <div class="category-content">
+                        <h3 class="font-serif text-xl text-kamci-gold mb-3 italic">Bütünsel Güzellik</h3>
+                        <p class="font-sans text-[10px] text-gray-300 font-light mb-4">Özel günleriniz için tasarlanmış kusursuz setler.</p>
+                        <span class="border-b border-kamci-gold/50 text-[9px] uppercase tracking-widest text-kamci-gold pb-1">İncele</span>
+                    </div>
+                </div>
+
+                <!-- Aksesuarlar (Kol Düğmesi vb) -->
+                <div class="category-card" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://loremflickr.com/400/600/cufflinks/all" alt="Kol Düğmeleri ve Anahtarlık">
+                    <h3 class="category-title-static font-serif text-xl text-white font-light tracking-wide">Özel Aksesuarlar</h3>
+                    
+                    <div class="category-content">
+                        <h3 class="font-serif text-xl text-kamci-gold mb-3 italic">Kişisel Detaylar</h3>
+                        <p class="font-sans text-[10px] text-gray-300 font-light mb-4">Kol düğmeleri, kolye uçları, küpe ve özel anahtarlıklar.</p>
+                        <span class="border-b border-kamci-gold/50 text-[9px] uppercase tracking-widest text-kamci-gold pb-1">İncele</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ATÖLYE / ÜRETİM -->
+    <section id="atolye" class="py-32 bg-kamci-black relative overflow-hidden">
+        <div class="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-5 pointer-events-none">
+            <i class="fa-solid fa-ring text-[400px] text-kamci-gold"></i>
+        </div>
+        
+        <div class="max-w-[80rem] mx-auto px-6 text-center relative z-10">
+            <h2 class="font-serif text-3xl md:text-5xl text-white mb-6 font-light" data-aos="fade-up">İmalattan Gelen Güç</h2>
+            <p class="font-sans text-gray-400 font-light text-sm max-w-2xl mx-auto leading-relaxed mb-10" data-aos="fade-up" data-aos-delay="200">
+                Tasarım masasında başlayan serüven, Sivas OSB'deki atölyemizde altın ve gümüşün ateşte şekillenmesiyle devam eder. Kendi imalatımız olmasının verdiği güvenle, hayalinizdeki tasarımı gerçeğe dönüştürmek için çalışıyoruz.
+            </p>
+            <div data-aos="fade-up" data-aos-delay="400">
+                <a href="#iletisim" class="btn-luxury">Bize Ulaşın</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- İLETİŞİM / FOOTER -->
+    <footer id="iletisim" class="bg-kamci-dark pt-24 pb-10 relative">
+        <div class="gold-line absolute top-0 w-full opacity-50"></div>
+        
+        <div class="max-w-[90rem] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+                
+                <!-- Brand -->
+                <div class="col-span-1 md:col-span-2 lg:col-span-1">
+                    <h2 class="font-serif text-2xl text-white uppercase tracking-[0.15em] font-light mb-2">KAMÇI</h2>
+                    <span class="font-sans text-[9px] tracking-[0.3em] text-kamci-gold uppercase block mb-6">Kuyumculuk & İmalat</span>
+                    <p class="font-sans text-gray-400 font-light text-xs leading-relaxed">
+                        Sanatı takıya dönüştüren estetik anlayışıyla, yıllardır güvenle üretmeye devam ediyoruz.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-serif text-white mb-8 tracking-widest uppercase text-sm">Menü</h4>
+                    <ul class="space-y-4 font-sans text-xs tracking-widest text-gray-400 uppercase font-light">
+                        <li><a href="#hakkimizda" class="hover:text-kamci-gold transition-colors">Zanaat / Kurumsal</a></li>
+                        <li><a href="#koleksiyonlar" class="hover:text-kamci-gold transition-colors">Yüzük Koleksiyonları</a></li>
+                        <li><a href="#koleksiyonlar" class="hover:text-kamci-gold transition-colors">Takı & Aksesuar</a></li>
+                        <li><a href="#atolye" class="hover:text-kamci-gold transition-colors">İmalat & Atölye</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <h4 class="font-serif text-white mb-8 tracking-widest uppercase text-sm">İletişim</h4>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-map-location-dot text-kamci-gold text-lg mt-1"></i>
+                            <div>
+                                <span class="font-sans text-[9px] tracking-widest text-gray-500 uppercase block mb-1">Fabrika / İmalathane</span>
+                                <p class="font-sans text-gray-300 text-sm font-light leading-relaxed">
+                                    Sivas 1. OSB Müdürlüğü, Sivas İgem<br>
+                                    Kılavuz OSB / Sivas Merkez
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-8">
+                            <div class="flex items-center gap-4">
+                                <i class="fa-solid fa-phone text-kamci-gold"></i>
+                                <div>
+                                    <span class="font-sans text-[9px] tracking-widest text-gray-500 uppercase block mb-1">Telefon</span>
+                                    <a href="tel:03462181214" class="font-sans text-gray-300 text-sm font-light hover:text-white transition-colors">0(346) 218 12 14</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <i class="fa-solid fa-envelope text-kamci-gold"></i>
+                                <div>
+                                    <span class="font-sans text-[9px] tracking-widest text-gray-500 uppercase block mb-1">E-Posta</span>
+                                    <a href="mailto:info@kamcikuyumculuk.com" class="font-sans text-gray-300 text-sm font-light hover:text-white transition-colors">info@kamcikuyumculuk.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+                <p class="font-sans text-[10px] text-gray-500 tracking-[0.2em] uppercase">&copy; 2026 Kamçı Kuyumculuk. Tüm Hakları Saklıdır.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-kamci-gold transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-kamci-gold transition-colors"><i class="fa-brands fa-facebook-f text-lg"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-kamci-gold transition-colors"><i class="fa-brands fa-twitter text-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 1000,
+            easing: 'ease-out-cubic',
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-kamci-black', 'shadow-2xl');
+                nav.classList.remove('bg-kamci-black/80', 'border-white/5');
+            } else {
+                nav.classList.add('bg-kamci-black/80', 'border-white/5');
+                nav.classList.remove('bg-kamci-black', 'shadow-2xl');
+            }
+        });
+    </script>
+</body>
+</html>

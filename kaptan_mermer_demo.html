@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaptan Mermer | Doğanın Zarafeti</title>
+    <meta name="description" content="Kaptan Mermer - Balkan, Black Star, Silver Star ve eşsiz mermer koleksiyonları.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kaptan: {
+                            dark: '#1a1a1a',      // Charcoal black
+                            charcoal: '#2d2d2d',
+                            gold: '#c5a059',      // Luxury gold accent
+                            goldLight: '#e6c887',
+                            stone: '#e5e4e2',     // Platinum/stone gray
+                            light: '#f5f5f5',     // Off-white
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                    },
+                    animation: {
+                        'slow-pan': 'panImage 30s linear infinite alternate',
+                        'reveal-gold': 'revealGold 2s ease-out forwards',
+                    },
+                    keyframes: {
+                        panImage: {
+                            '0%': { objectPosition: '0% 50%' },
+                            '100%': { objectPosition: '100% 50%' },
+                        },
+                        revealGold: {
+                            '0%': { width: '0%', opacity: '0' },
+                            '100%': { width: '100%', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        /* --- Luxury Aesthetics --- */
+        .gold-text {
+            background: linear-gradient(45deg, #b8860b, #ffd700, #b8860b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gold-border {
+            border-image: linear-gradient(45deg, #b8860b, #ffd700, #b8860b) 1;
+        }
+
+        /* The "Stone Block" Card */
+        .stone-card {
+            background: #fff;
+            position: relative;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+        .stone-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #c5a059, #e6c887);
+            transition: width 0.5s ease;
+        }
+        .stone-card:hover::after {
+            width: 100%;
+        }
+        .stone-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Marble Vein Line Decoration */
+        .vein-line {
+            height: 1px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.5), transparent);
+        }
+
+        /* Parallax Image container */
+        .parallax-img {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c5a059; 
+        }
+
+        /* Product Gallery Hover Effect */
+        .product-slab {
+            position: relative;
+            overflow: hidden;
+        }
+        .product-slab img {
+            transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .product-slab:hover img {
+            transform: scale(1.1);
+        }
+        .product-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26,26,26,0.9) 0%, rgba(26,26,26,0.2) 50%, transparent 100%);
+            opacity: 0.8;
+            transition: opacity 0.5s ease;
+        }
+        .product-slab:hover .product-overlay {
+            opacity: 0.95;
+            background: linear-gradient(to top, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.6) 100%);
+        }
+        .product-content {
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0;
+        }
+        .product-slab:hover .product-content {
+            bottom: 0;
+            opacity: 1;
+        }
+        .slab-title {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .product-slab:hover .slab-title {
+            bottom: 6rem;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-kaptan-gold selection:text-white">
+
+    <!-- Minimal Luxury Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between border-b border-white/10" id="nav-border">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-4 group">
+                <div class="w-10 h-10 border border-kaptan-gold flex items-center justify-center transform rotate-45 group-hover:rotate-90 transition-transform duration-700">
+                    <div class="w-4 h-4 bg-kaptan-gold"></div>
+                </div>
+                <div class="flex flex-col">
+                    <h1 class="font-serif text-2xl tracking-[0.2em] text-white uppercase leading-none" id="nav-title">Kaptan</h1>
+                    <span class="font-sans text-[9px] font-light text-kaptan-gold tracking-[0.4em] uppercase mt-1">Mermer</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-10 font-sans text-xs tracking-widest uppercase text-white" id="nav-links">
+                <a href="#hakkimizda" class="hover:text-kaptan-gold transition-colors">Kurumsal</a>
+                <a href="#koleksiyon" class="hover:text-kaptan-gold transition-colors">Koleksiyon</a>
+                <a href="#uretim" class="hover:text-kaptan-gold transition-colors">Üretim</a>
+                
+                <a href="#iletisim" class="px-6 py-3 border border-kaptan-gold text-kaptan-gold hover:bg-kaptan-gold hover:text-white transition-all duration-500">
+                    İletişim
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="lg:hidden text-kaptan-gold text-2xl focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-kaptan-dark border-t border-white/10 absolute w-full">
+            <div class="flex flex-col p-8 space-y-6 font-sans text-sm tracking-widest uppercase text-center text-gray-300">
+                <a href="#hakkimizda" class="hover:text-kaptan-gold">Kurumsal</a>
+                <a href="#koleksiyon" class="hover:text-kaptan-gold">Koleksiyon</a>
+                <a href="#uretim" class="hover:text-kaptan-gold">Üretim</a>
+                <a href="#iletisim" class="text-kaptan-gold">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Cinematic Stone) -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-kaptan-dark">
+        
+        <!-- Background Marble Texture -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://loremflickr.com/1920/1080/marble,texture/all" alt="Koyu Mermer Dokusu" class="w-full h-full object-cover opacity-40 animate-slow-pan filter grayscale contrast-125">
+            <div class="absolute inset-0 bg-gradient-to-t from-kaptan-dark via-transparent to-kaptan-dark/50"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="container mx-auto px-6 relative z-20 flex flex-col items-center text-center mt-20">
+            
+            <div class="mb-8" data-aos="fade-down" data-aos-duration="1500">
+                <div class="w-px h-16 bg-kaptan-gold mx-auto mb-6"></div>
+                <span class="font-sans text-xs tracking-[0.5em] text-kaptan-gold uppercase">Doğanın Başyapıtı</span>
+            </div>
+            
+            <h2 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-6 tracking-wide drop-shadow-2xl" data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="300">
+                TAŞIN İÇİNDEKİ<br>
+                <span class="italic text-gray-400 font-light">ZARAFET</span>
+            </h2>
+            
+            <p class="font-sans text-sm md:text-base text-gray-400 max-w-xl font-light mb-12 tracking-wider leading-relaxed" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+                Sivas'tan dünyaya açılan estetik. Kaptan Mermer, yaşam alanlarınıza doğanın en saf ve asil dokunuşunu sunuyor.
+            </p>
+            
+            <a href="#koleksiyon" class="group flex items-center gap-4 text-white font-sans text-xs tracking-[0.2em] uppercase hover:text-kaptan-gold transition-colors" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">
+                Koleksiyonu Keşfet
+                <div class="w-12 h-px bg-white group-hover:bg-kaptan-gold group-hover:w-20 transition-all duration-500"></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- HAKKIMIZDA (The Brand & Ethos) -->
+    <section id="hakkimizda" class="py-32 bg-kaptan-light relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="flex flex-col lg:flex-row gap-20 items-center">
+                
+                <!-- Text Content -->
+                <div class="w-full lg:w-1/2" data-aos="fade-right" data-aos-duration="1200">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-px bg-kaptan-gold"></div>
+                        <h4 class="font-sans text-xs tracking-[0.3em] text-kaptan-gold uppercase">Ustalık ve Gelenek</h4>
+                    </div>
+                    
+                    <h2 class="font-serif text-4xl md:text-5xl text-kaptan-dark mb-8 leading-tight">
+                        Taşa Hayat Veren <br>Bir Mimari Vizyon.
+                    </h2>
+                    
+                    <p class="font-sans text-gray-600 mb-6 leading-relaxed font-light">
+                        Mermerin binlerce yıllık serüvenini modern mimariyle buluşturuyoruz. Sivas OSB'de kurulu tesislerimizde, dünyanın en seçkin mermer bloklarını büyük bir titizlikle işliyor, yaşam alanlarınıza değer katıyoruz.
+                    </p>
+                    
+                    <p class="font-sans text-gray-600 mb-10 leading-relaxed font-light">
+                        Balkan, Black Star, Silver Star ve daha pek çok özel seleksiyonumuz ile projelerinize özgün karakterler kazandırmak için çalışıyoruz.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-8 border-t border-gray-200 pt-8">
+                        <div>
+                            <div class="font-serif text-4xl text-kaptan-dark mb-2">15+</div>
+                            <div class="font-sans text-xs tracking-widest text-gray-500 uppercase">Yıllık Deneyim</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-4xl text-kaptan-dark mb-2">40+</div>
+                            <div class="font-sans text-xs tracking-widest text-gray-500 uppercase">Ülkeye İhracat</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abstract Images -->
+                <div class="w-full lg:w-1/2 relative h-[600px]" data-aos="fade-left" data-aos-duration="1200">
+                    <!-- Main Image -->
+                    <div class="absolute top-0 right-0 w-4/5 h-[500px] shadow-2xl overflow-hidden">
+                        <img src="https://loremflickr.com/800/1000/marble,architecture/all" alt="Mimari Mermer" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Secondary Overlapping Image -->
+                    <div class="absolute bottom-0 left-0 w-3/5 h-[350px] shadow-2xl overflow-hidden border-8 border-kaptan-light">
+                        <img src="https://loremflickr.com/600/600/luxury,stone/all" alt="Mermer Detay" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Decorative Gold Square -->
+                    <div class="absolute top-1/2 left-[10%] w-24 h-24 border border-kaptan-gold transform -translate-y-1/2 -rotate-12 -z-10"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KOLEKSİYON (The Product Gallery) -->
+    <section id="koleksiyon" class="py-32 bg-kaptan-dark text-white relative">
+        <!-- Subtle Vein line -->
+        <div class="vein-line absolute top-0"></div>
+
+        <div class="container mx-auto px-6 max-w-[1400px]">
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <h4 class="font-sans text-xs tracking-[0.3em] text-kaptan-gold uppercase mb-4">Özel Seleksiyonlar</h4>
+                <h2 class="font-serif text-4xl md:text-5xl mb-6">İmza Koleksiyonumuz</h2>
+                <p class="font-sans text-gray-400 font-light">Doğanın eşsiz desenleri, en ince işçilikle plakalar halinde projeniz için hazırlandı.</p>
+            </div>
+
+            <!-- Dynamic Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+                
+                <!-- Balkan Mermer -->
+                <div class="product-slab h-[450px] bg-kaptan-charcoal cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://loremflickr.com/600/800/white,marble/all" alt="Balkan Mermer" class="w-full h-full object-cover opacity-80">
+                    <div class="product-overlay"></div>
+                    
+                    <h3 class="slab-title font-serif text-2xl tracking-wider">Balkan</h3>
+                    
+                    <div class="product-content">
+                        <h3 class="font-serif text-2xl tracking-wider mb-2 text-kaptan-gold">Balkan Mermer</h3>
+                        <p class="font-sans text-xs text-gray-300 tracking-wide font-light leading-relaxed mb-6">Saf beyaz zemin üzerinde kusursuz gri damarlar. Klasik ve zamansız bir lüks arayanlar için ideal.</p>
+                        <span class="text-[10px] tracking-widest uppercase border-b border-kaptan-gold pb-1 hover:text-kaptan-gold transition-colors">Detayları Gör</span>
+                    </div>
+                </div>
+
+                <!-- Black Star Mermer -->
+                <div class="product-slab h-[450px] bg-kaptan-charcoal cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://loremflickr.com/600/800/black,marble/all" alt="Black Star Mermer" class="w-full h-full object-cover opacity-80">
+                    <div class="product-overlay"></div>
+                    
+                    <h3 class="slab-title font-serif text-2xl tracking-wider">Black Star</h3>
+                    
+                    <div class="product-content">
+                        <h3 class="font-serif text-2xl tracking-wider mb-2 text-kaptan-gold">Black Star</h3>
+                        <p class="font-sans text-xs text-gray-300 tracking-wide font-light leading-relaxed mb-6">Gece siyahı zemin üzerindeki keskin beyaz geçişlerle, mekanlara derinlik ve maskülen bir asalet katar.</p>
+                        <span class="text-[10px] tracking-widest uppercase border-b border-kaptan-gold pb-1 hover:text-kaptan-gold transition-colors">Detayları Gör</span>
+                    </div>
+                </div>
+
+                <!-- Silver Star Mermer -->
+                <div class="product-slab h-[450px] bg-kaptan-charcoal cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://loremflickr.com/600/800/grey,marble/all" alt="Silver Star Mermer" class="w-full h-full object-cover opacity-80">
+                    <div class="product-overlay"></div>
+                    
+                    <h3 class="slab-title font-serif text-2xl tracking-wider">Silver Star</h3>
+                    
+                    <div class="product-content">
+                        <h3 class="font-serif text-2xl tracking-wider mb-2 text-kaptan-gold">Silver Star</h3>
+                        <p class="font-sans text-xs text-gray-300 tracking-wide font-light leading-relaxed mb-6">Gümüş grisi tonlarının harmonisi. Modern mimarinin vazgeçilmez minimal ve sofistike yüzeyi.</p>
+                        <span class="text-[10px] tracking-widest uppercase border-b border-kaptan-gold pb-1 hover:text-kaptan-gold transition-colors">Detayları Gör</span>
+                    </div>
+                </div>
+
+                <!-- Olive Seeds Mermer -->
+                <div class="product-slab h-[450px] bg-kaptan-charcoal cursor-pointer" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://loremflickr.com/600/800/brown,marble/all" alt="Olive Seeds Mermer" class="w-full h-full object-cover opacity-80">
+                    <div class="product-overlay"></div>
+                    
+                    <h3 class="slab-title font-serif text-2xl tracking-wider">Olive Seeds</h3>
+                    
+                    <div class="product-content">
+                        <h3 class="font-serif text-2xl tracking-wider mb-2 text-kaptan-gold">Olive Seeds</h3>
+                        <p class="font-sans text-xs text-gray-300 tracking-wide font-light leading-relaxed mb-6">Zeytin tohumunu andıran benzersiz benekli yapısı ve sıcak toprak tonlarıyla doğanın kalbini mekanınıza taşır.</p>
+                        <span class="text-[10px] tracking-widest uppercase border-b border-kaptan-gold pb-1 hover:text-kaptan-gold transition-colors">Detayları Gör</span>
+                    </div>
+                </div>
+
+                <!-- Kpt Grey Mermer -->
+                <div class="product-slab h-[450px] bg-kaptan-charcoal cursor-pointer" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://loremflickr.com/600/800/darkgrey,marble/all" alt="Kpt Grey Mermer" class="w-full h-full object-cover opacity-80">
+                    <div class="product-overlay"></div>
+                    
+                    <h3 class="slab-title font-serif text-2xl tracking-wider">Kpt Grey</h3>
+                    
+                    <div class="product-content">
+                        <h3 class="font-serif text-2xl tracking-wider mb-2 text-kaptan-gold">Kpt Grey</h3>
+                        <p class="font-sans text-xs text-gray-300 tracking-wide font-light leading-relaxed mb-6">Kaptan Mermer'e özel, dingin ve homojen gri. Endüstriyel şıklık arayan modern tasarımlar için kusursuz.</p>
+                        <span class="text-[10px] tracking-widest uppercase border-b border-kaptan-gold pb-1 hover:text-kaptan-gold transition-colors">Detayları Gör</span>
+                    </div>
+                </div>
+
+                <!-- Isparta Beige Mermer -->
+                <div class="product-slab h-[450px] bg-kaptan-charcoal cursor-pointer" data-aos="fade-up" data-aos-delay="600">
+                    <img src="https://loremflickr.com/600/800/beige,marble/all" alt="Isparta Beige Mermer" class="w-full h-full object-cover opacity-80">
+                    <div class="product-overlay"></div>
+                    
+                    <h3 class="slab-title font-serif text-2xl tracking-wider">Isparta Beige</h3>
+                    
+                    <div class="product-content">
+                        <h3 class="font-serif text-2xl tracking-wider mb-2 text-kaptan-gold">Isparta Beige</h3>
+                        <p class="font-sans text-xs text-gray-300 tracking-wide font-light leading-relaxed mb-6">Geniş alanlarda ferahlık yaratan, sıcak krem ve bej tonlarının zarif uyumu. Aydınlık iç mekanların tercihi.</p>
+                        <span class="text-[10px] tracking-widest uppercase border-b border-kaptan-gold pb-1 hover:text-kaptan-gold transition-colors">Detayları Gör</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ÜRETİM / PARALLAX SEPARATOR -->
+    <section id="uretim" class="py-32 parallax-img relative" style="background-image: url('https://loremflickr.com/1920/1080/stone,quarry/all');">
+        <div class="absolute inset-0 bg-kaptan-dark/80"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
+            <i class="fa-solid fa-gem text-4xl text-kaptan-gold mb-8"></i>
+            <h2 class="font-serif text-3xl md:text-5xl text-white mb-8 leading-snug">Ocaklardan Gelen Kusursuzluk, Yüksek Teknolojiyle İşleniyor.</h2>
+            <p class="font-sans text-gray-300 font-light tracking-wide mb-10">Mermer blokları, uzman ekiplerimiz tarafından seçilir ve Sivas OSB'deki modern parkurumuzda milimetrik hassasiyetle ebatlanır.</p>
+            <a href="#iletisim" class="inline-block px-10 py-4 border border-white text-white font-sans text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-kaptan-dark transition-all duration-300">
+                Fabrikamızı Keşfedin
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER / İLETİŞİM (Heavy Stone Aesthetic) -->
+    <footer id="iletisim" class="bg-kaptan-dark pt-24 pb-12 relative border-t-4 border-kaptan-gold">
+        
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+                
+                <!-- Brand -->
+                <div class="col-span-1 md:col-span-2 lg:col-span-1">
+                    <a href="#" class="inline-flex items-center gap-4 mb-8 group">
+                        <div class="w-8 h-8 border border-kaptan-gold flex items-center justify-center transform rotate-45 group-hover:rotate-90 transition-transform duration-700">
+                            <div class="w-3 h-3 bg-kaptan-gold"></div>
+                        </div>
+                        <div class="flex flex-col">
+                            <h2 class="font-serif text-xl tracking-[0.2em] text-white uppercase leading-none">Kaptan</h2>
+                            <span class="font-sans text-[8px] font-light text-kaptan-gold tracking-[0.4em] uppercase mt-1">Mermer</span>
+                        </div>
+                    </a>
+                    <p class="font-sans text-gray-400 text-sm leading-relaxed font-light mb-8">
+                        Doğanın zarafetini mimari projelere dönüştüren prestijli çözüm ortağınız.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h3 class="font-serif text-white mb-6 tracking-wider text-lg">Keşfedin</h3>
+                    <ul class="space-y-4 font-sans text-gray-400 text-sm font-light">
+                        <li><a href="#hakkimizda" class="hover:text-kaptan-gold transition-colors inline-flex items-center gap-2"><div class="w-1 h-1 bg-kaptan-gold rounded-full opacity-0 hover:opacity-100 transition-opacity"></div> Kurumsal</a></li>
+                        <li><a href="#koleksiyon" class="hover:text-kaptan-gold transition-colors inline-flex items-center gap-2"><div class="w-1 h-1 bg-kaptan-gold rounded-full opacity-0 hover:opacity-100 transition-opacity"></div> Koleksiyon</a></li>
+                        <li><a href="#uretim" class="hover:text-kaptan-gold transition-colors inline-flex items-center gap-2"><div class="w-1 h-1 bg-kaptan-gold rounded-full opacity-0 hover:opacity-100 transition-opacity"></div> Üretim Tesisleri</a></li>
+                        <li><a href="#" class="hover:text-kaptan-gold transition-colors inline-flex items-center gap-2"><div class="w-1 h-1 bg-kaptan-gold rounded-full opacity-0 hover:opacity-100 transition-opacity"></div> Referanslar</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Detail -->
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="font-serif text-white mb-6 tracking-wider text-lg">İletişim</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div>
+                            <span class="font-sans text-[10px] text-kaptan-gold tracking-widest uppercase block mb-2">Merkez / Fabrika</span>
+                            <p class="font-sans text-gray-300 text-sm font-light leading-relaxed">
+                                Sivas 1. OSB Müdürlüğü,<br> Sivas İgem, Kılavuz OSB<br>Sivas Merkez
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="font-sans text-[10px] text-kaptan-gold tracking-widest uppercase block mb-2">Telefon</span>
+                                <a href="tel:03462181893" class="font-sans text-gray-300 text-sm font-light hover:text-white transition-colors">0(346) 218 18 93</a>
+                            </div>
+                            <div>
+                                <span class="font-sans text-[10px] text-kaptan-gold tracking-widest uppercase block mb-2">E-Posta</span>
+                                <a href="mailto:info@kaptanmermer.com" class="font-sans text-gray-300 text-sm font-light hover:text-white transition-colors">info@kaptanmermer.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 border border-white/20 flex items-center justify-center text-gray-400 hover:border-kaptan-gold hover:text-kaptan-gold transition-colors rounded-sm"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 border border-white/20 flex items-center justify-center text-gray-400 hover:border-kaptan-gold hover:text-kaptan-gold transition-colors rounded-sm"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+                <p class="font-sans text-xs text-gray-500 font-light tracking-wide">&copy; 2026 Kaptan Mermer. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 1000,
+            easing: 'ease-out-cubic',
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            const navBorder = document.getElementById('nav-border');
+            const title = document.getElementById('nav-title');
+            const links = document.getElementById('nav-links');
+            
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white', 'shadow-md');
+                nav.classList.remove('bg-transparent');
+                navBorder.classList.remove('border-white/10');
+                navBorder.classList.add('border-gray-100');
+                title.classList.replace('text-white', 'text-kaptan-dark');
+                links.classList.replace('text-white', 'text-kaptan-dark');
+            } else {
+                nav.classList.add('bg-transparent');
+                nav.classList.remove('bg-white', 'shadow-md');
+                navBorder.classList.add('border-white/10');
+                navBorder.classList.remove('border-gray-100');
+                title.classList.replace('text-kaptan-dark', 'text-white');
+                links.classList.replace('text-kaptan-dark', 'text-white');
+            }
+        });
+    </script>
+</body>
+</html>
